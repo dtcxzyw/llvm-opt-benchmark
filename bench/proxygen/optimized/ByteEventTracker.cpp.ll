@@ -143,7 +143,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %vtable.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i.i) #13
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i.i) #14
   %7 = load ptr, ptr %m_header.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %7, null
   %cmp.i.i = icmp eq ptr %7, %m_header.i.i
@@ -172,28 +172,29 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #14
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #15
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen16ByteEventTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZN8proxygen16ByteEventTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZN8proxygen16ByteEventTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8proxygen16ByteEventTracker6absorbEOS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16ByteEventTracker6absorbEOS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_header.i9.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %m_header.i.i.i = getelementptr inbounds i8, ptr %other, i64 24
@@ -279,7 +280,7 @@ _ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen9ByteEventENS0_16list_memb
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen16ByteEventTracker17processByteEventsESt10shared_ptrIS0_Em(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %self, i64 noundef %bytesWritten) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8proxygen16ByteEventTracker17processByteEventsESt10shared_ptrIS0_Em(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %self, i64 noundef %bytesWritten) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp55 = alloca %"class.google::LogMessage", align 8
   %bytesWritten_9 = getelementptr inbounds i8, ptr %this, i64 8
@@ -350,7 +351,7 @@ if.then:                                          ; preds = %sw.bb23
   %vtable28 = load ptr, ptr %6, align 8
   %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 16
   %7 = load ptr, ptr %vfn29, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %call26) #13
+  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %call26) #14
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb23, %if.then, %sw.bb22, %sw.bb21, %sw.bb20, %sw.bb, %while.body15
@@ -366,7 +367,7 @@ if.then35:                                        ; preds = %sw.epilog
   %vtable37 = load ptr, ptr %9, align 8
   %vfn38 = getelementptr inbounds i8, ptr %vtable37, i64 24
   %10 = load ptr, ptr %vfn38, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i120) #13
+  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i120) #14
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then35, %sw.epilog
@@ -410,7 +411,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
           to label %cleanup.action67 unwind label %lpad57
 
 cleanup.action67:                                 ; preds = %invoke.cont60
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp55) #13
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp55) #14
   br label %cleanup.done68
 
 cleanup.done68:                                   ; preds = %cond.true46, %cond.end50, %cleanup.action67
@@ -429,7 +430,7 @@ cleanup.done68:                                   ; preds = %cond.true46, %cond.
   %vtable.i.i = load ptr, ptr %add.ptr.i.i, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %19 = load ptr, ptr %vfn.i.i, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i) #13
+  call void %19(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i) #14
   %20 = load ptr, ptr %m_header.i143, align 8
   %tobool.not.i = icmp eq ptr %20, null
   %cmp.i = icmp eq ptr %20, %m_header.i143
@@ -439,7 +440,7 @@ cleanup.done68:                                   ; preds = %cond.true46, %cond.
 lpad57:                                           ; preds = %invoke.cont60, %invoke.cont58, %cond.false53
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp55) #13
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp55) #14
   resume { ptr, i32 } %22
 
 while.end73:                                      ; preds = %land.rhs, %cleanup.done68, %entry
@@ -464,7 +465,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #8
+declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #9
 
 declare void @_ZN8proxygen15HTTPTransaction23onEgressHeaderFirstByteEv(ptr noundef nonnull align 8 dereferenceable(912)) local_unnamed_addr #0
 
@@ -514,7 +515,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %vtable.i.i = load ptr, ptr %add.ptr.i.i, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i) #13
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i) #14
   %inc = add i64 %numEvents.04, 1
   %7 = load ptr, ptr %m_header.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
@@ -565,11 +566,11 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %cleanup.action unwind label %terminate.lpad
 
 cleanup.action:                                   ; preds = %invoke.cont10
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #13
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #14
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.false, %cond.end, %cleanup.action
-  %call17 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #16
+  %call17 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
           to label %invoke.cont16 unwind label %terminate.lpad
 
 invoke.cont16:                                    ; preds = %cleanup.done
@@ -608,7 +609,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  call void @__clang_call_terminate(ptr %8) #15
   unreachable
 
 invoke.cont18:                                    ; preds = %invoke.cont.i, %invoke.cont16
@@ -628,7 +629,7 @@ terminate.lpad.i.i7:                              ; preds = %if.then.i.i5
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #14
+  call void @__clang_call_terminate(ptr %11) #15
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %invoke.cont19, %if.then.i.i5
@@ -655,17 +656,17 @@ terminate.lpad:                                   ; preds = %invoke.cont18, %cle
 terminate.lpad.body:                              ; preds = %lpad.i, %if.then.i.i, %terminate.lpad
   %eh.lpad-body = phi { ptr, i32 } [ %14, %terminate.lpad ], [ %5, %if.then.i.i ], [ %5, %lpad.i ]
   %15 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %15) #14
+  call void @__clang_call_terminate(ptr %15) #15
   unreachable
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN8proxygen20TransactionByteEventC2EmNS_9ByteEvent9EventTypeEPNS_15HTTPTransactionESt8functionIFvRS1_EE(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %byteNo, i32 noundef %eventType, ptr noundef %txn, ptr noundef %callback) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN8proxygen20TransactionByteEventC2EmNS_9ByteEvent9EventTypeEPNS_15HTTPTransactionESt8functionIFvRS1_EE(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %byteNo, i32 noundef %eventType, ptr noundef %txn, ptr noundef %callback) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
@@ -703,7 +704,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  call void @__clang_call_terminate(ptr %6) #15
   unreachable
 
 common.resume:                                    ; preds = %lpad3, %lpad.body, %if.then.i.i13, %lpad.i, %if.then.i.i
@@ -747,7 +748,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #14
+  call void @__clang_call_terminate(ptr %12) #15
   unreachable
 
 invoke.cont:                                      ; preds = %if.then.i.i3
@@ -766,7 +767,7 @@ terminate.lpad.i.i9:                              ; preds = %if.then.i.i7
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #15
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %_ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit, %invoke.cont, %if.then.i.i7
@@ -792,13 +793,13 @@ terminate.lpad.i.i15:                             ; preds = %if.then.i.i13
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #14
+  call void @__clang_call_terminate(ptr %19) #15
   unreachable
 
 lpad3:                                            ; preds = %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8proxygen9ByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #13
+  call void @_ZN8proxygen9ByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #14
   br label %common.resume
 }
 
@@ -840,11 +841,11 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %cleanup.action unwind label %terminate.lpad
 
 cleanup.action:                                   ; preds = %invoke.cont10
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #13
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #14
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.false, %cond.end, %cleanup.action
-  %call17 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #16
+  %call17 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
           to label %invoke.cont16 unwind label %terminate.lpad
 
 invoke.cont16:                                    ; preds = %cleanup.done
@@ -883,7 +884,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  call void @__clang_call_terminate(ptr %8) #15
   unreachable
 
 invoke.cont18:                                    ; preds = %invoke.cont.i, %invoke.cont16
@@ -903,7 +904,7 @@ terminate.lpad.i.i7:                              ; preds = %if.then.i.i5
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #14
+  call void @__clang_call_terminate(ptr %11) #15
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %invoke.cont19, %if.then.i.i5
@@ -930,12 +931,12 @@ terminate.lpad:                                   ; preds = %invoke.cont18, %cle
 terminate.lpad.body:                              ; preds = %lpad.i, %if.then.i.i, %terminate.lpad
   %eh.lpad-body = phi { ptr, i32 } [ %14, %terminate.lpad ], [ %5, %if.then.i.i ], [ %5, %lpad.i ]
   %15 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %15) #14
+  call void @__clang_call_terminate(ptr %15) #15
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16ByteEventTracker16addPingByteEventEmNSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEmSt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %pingSize, i64 %timestamp.coerce, i64 noundef %bytesScheduled, ptr noundef %callback) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16ByteEventTracker16addPingByteEventEmNSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEmSt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %pingSize, i64 %timestamp.coerce, i64 noundef %bytesScheduled, ptr noundef %callback) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %ref.tmp11 = alloca %"class.google::LogMessage", align 8
@@ -1032,7 +1033,7 @@ terminate.lpad.i.i.i49:                           ; preds = %if.then.i.i.i46
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  call void @__clang_call_terminate(ptr %8) #15
   unreachable
 
 _ZN8proxygen9ByteEventD2Ev.exit:                  ; preds = %cleanup.action, %if.then.i.i.i46
@@ -1048,11 +1049,11 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i50
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #14
+  call void @__clang_call_terminate(ptr %11) #15
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %_ZN8proxygen9ByteEventD2Ev.exit, %if.then.i.i50
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp11) #13
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp11) #14
   br label %cleanup.done51
 
 cleanup.done51:                                   ; preds = %cond.true, %cond.end, %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit
@@ -1074,7 +1075,7 @@ lpad:                                             ; preds = %invoke.cont17, %inv
 cleanup.action47:                                 ; preds = %invoke.cont33
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8proxygen9ByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp21) #13
+  call void @_ZN8proxygen9ByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp21) #14
   %.pre = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i52 = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i52, label %cleanup.action54, label %if.then.i.i53
@@ -1087,17 +1088,17 @@ terminate.lpad.i.i55:                             ; preds = %if.then.i.i53
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #14
+  call void @__clang_call_terminate(ptr %18) #15
   unreachable
 
 cleanup.action54:                                 ; preds = %if.then.i.i53, %cleanup.action47, %lpad
   %.pn38.pn = phi { ptr, i32 } [ %15, %lpad ], [ %16, %cleanup.action47 ], [ %16, %if.then.i.i53 ]
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp11) #13
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp11) #14
   br label %common.resume
 
 for.end:                                          ; preds = %cleanup.done51, %for.body, %entry
   %i.sroa.0.0.lcssa = phi ptr [ %m_header.i.i204, %entry ], [ %i.sroa.0.0113, %for.body ], [ %13, %cleanup.done51 ]
-  %call64 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #16
+  %call64 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
   %_M_manager.i.i57 = getelementptr inbounds i8, ptr %agg.tmp66, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp66, i64 24
   %_M_manager.i.i.i58 = getelementptr inbounds i8, ptr %callback, i64 16
@@ -1133,7 +1134,7 @@ terminate.lpad.i.i62:                             ; preds = %if.then.i.i60
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #14
+  call void @__clang_call_terminate(ptr %25) #15
   unreachable
 
 invoke.cont68:                                    ; preds = %invoke.cont.i, %for.end
@@ -1153,7 +1154,7 @@ terminate.lpad.i.i68:                             ; preds = %if.then.i.i66
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #14
+  call void @__clang_call_terminate(ptr %28) #15
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit70: ; preds = %invoke.cont72, %if.then.i.i66
@@ -1187,12 +1188,12 @@ terminate.lpad.i.i75:                             ; preds = %if.then.i.i73
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #14
+  call void @__clang_call_terminate(ptr %34) #15
   unreachable
 
 cleanup.action76:                                 ; preds = %if.then.i.i73, %lpad71, %if.then.i.i60, %lpad.i
   %.pn = phi { ptr, i32 } [ %22, %if.then.i.i60 ], [ %22, %lpad.i ], [ %31, %lpad71 ], [ %31, %if.then.i.i73 ]
-  call void @_ZdlPv(ptr noundef nonnull %call64) #15
+  call void @_ZdlPv(ptr noundef nonnull %call64) #16
   br label %common.resume
 
 if.else83:                                        ; preds = %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit70
@@ -1246,11 +1247,11 @@ common.resume:                                    ; preds = %cleanup.action54, %
 lpad.i.i83:                                       ; preds = %invoke.cont4.i.i, %invoke.cont2.i.i, %invoke.cont1.i.i, %if.else.i
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #13
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #14
   br label %common.resume
 
 _ZN6google12Check_GTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont4.i.i
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #13
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
   store ptr %call6.i.i, ptr %_result, align 8
   %cmp.i85.not = icmp eq ptr %call6.i.i, null
@@ -1266,13 +1267,13 @@ while.body:                                       ; preds = %_ZN6google12Check_G
           to label %invoke.cont103 unwind label %lpad102
 
 invoke.cont103:                                   ; preds = %while.body
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp101) #14
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp101) #15
   unreachable
 
 lpad102:                                          ; preds = %while.body
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp101) #14
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp101) #15
   unreachable
 
 while.end:                                        ; preds = %if.else89, %_ZN6google12Check_GTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge
@@ -1311,7 +1312,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #14
+  tail call void @__clang_call_terminate(ptr %2) #15
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %entry, %if.then.i.i
@@ -1319,7 +1320,7 @@ _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN8proxygen13PingByteEventC2EmNSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEESt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %byteOffset, i64 %pingRequestReceivedTime.coerce, ptr noundef %callback) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN8proxygen13PingByteEventC2EmNSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEESt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %byteOffset, i64 %pingRequestReceivedTime.coerce, ptr noundef %callback) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
@@ -1357,7 +1358,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  call void @__clang_call_terminate(ptr %6) #15
   unreachable
 
 common.resume:                                    ; preds = %if.then.i.i12, %lpad.body, %lpad.i, %if.then.i.i
@@ -1399,7 +1400,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #14
+  call void @__clang_call_terminate(ptr %11) #15
   unreachable
 
 invoke.cont:                                      ; preds = %if.then.i.i2
@@ -1418,7 +1419,7 @@ terminate.lpad.i.i8:                              ; preds = %if.then.i.i6
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #14
+  call void @__clang_call_terminate(ptr %15) #15
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %_ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit, %invoke.cont, %if.then.i.i6
@@ -1440,17 +1441,17 @@ terminate.lpad.i.i14:                             ; preds = %if.then.i.i12
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #14
+  call void @__clang_call_terminate(ptr %18) #15
   unreachable
 }
 
 declare void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16ByteEventTracker21addFirstBodyByteEventEmPNS_15HTTPTransactionESt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %offset, ptr noundef %txn, ptr noundef %callback) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16ByteEventTracker21addFirstBodyByteEventEmPNS_15HTTPTransactionESt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %offset, ptr noundef %txn, ptr noundef %callback) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
-  %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #16
+  %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
@@ -1486,7 +1487,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  call void @__clang_call_terminate(ptr %6) #15
   unreachable
 
 invoke.cont:                                      ; preds = %invoke.cont.i, %entry
@@ -1519,7 +1520,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #14
+  call void @__clang_call_terminate(ptr %11) #15
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %invoke.cont3, %if.then.i.i4
@@ -1540,20 +1541,20 @@ terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #14
+  call void @__clang_call_terminate(ptr %15) #15
   unreachable
 
 cleanup.action:                                   ; preds = %if.then.i.i10, %lpad2, %if.then.i.i, %lpad.i
   %.pn = phi { ptr, i32 } [ %3, %if.then.i.i ], [ %3, %lpad.i ], [ %12, %lpad2 ], [ %12, %if.then.i.i10 ]
-  call void @_ZdlPv(ptr noundef nonnull %call) #15
+  call void @_ZdlPv(ptr noundef nonnull %call) #16
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16ByteEventTracker23addFirstHeaderByteEventEmPNS_15HTTPTransactionESt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %offset, ptr noundef %txn, ptr noundef %callback) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16ByteEventTracker23addFirstHeaderByteEventEmPNS_15HTTPTransactionESt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %offset, ptr noundef %txn, ptr noundef %callback) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
-  %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #16
+  %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
@@ -1589,7 +1590,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  call void @__clang_call_terminate(ptr %6) #15
   unreachable
 
 invoke.cont:                                      ; preds = %invoke.cont.i, %entry
@@ -1622,7 +1623,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #14
+  call void @__clang_call_terminate(ptr %11) #15
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %invoke.cont3, %if.then.i.i4
@@ -1643,12 +1644,12 @@ terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #14
+  call void @__clang_call_terminate(ptr %15) #15
   unreachable
 
 cleanup.action:                                   ; preds = %if.then.i.i10, %lpad2, %if.then.i.i, %lpad.i
   %.pn = phi { ptr, i32 } [ %3, %if.then.i.i ], [ %3, %lpad.i ], [ %12, %lpad2 ], [ %12, %if.then.i.i10 ]
-  call void @_ZdlPv(ptr noundef nonnull %call) #15
+  call void @_ZdlPv(ptr noundef nonnull %call) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -1689,7 +1690,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN8proxygen15HTTPTransaction26incrementPendingByteEventsEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN8proxygen15HTTPTransaction26incrementPendingByteEventsEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %_result = alloca %"struct.google::CheckOpString", align 8
@@ -1721,11 +1722,11 @@ invoke.cont4.i.i:                                 ; preds = %invoke.cont2.i.i
 lpad.i.i:                                         ; preds = %invoke.cont4.i.i, %invoke.cont2.i.i, %invoke.cont1.i.i, %if.else.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #13
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #14
   resume { ptr, i32 } %2
 
 _ZN6google12Check_LTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont4.i.i
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #13
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
   store ptr %call6.i.i, ptr %_result, align 8
   %cmp.i1.not = icmp eq ptr %call6.i.i, null
@@ -1741,13 +1742,13 @@ while.body:                                       ; preds = %_ZN6google12Check_L
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.body
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7) #14
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7) #15
   unreachable
 
 lpad:                                             ; preds = %while.body
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7) #14
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7) #15
   unreachable
 
 while.end:                                        ; preds = %entry, %_ZN6google12Check_LTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge
@@ -1782,7 +1783,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #14
+  tail call void @__clang_call_terminate(ptr %3) #15
   unreachable
 
 _ZN8proxygen9ByteEventD2Ev.exit:                  ; preds = %invoke.cont, %if.then.i.i.i
@@ -1792,7 +1793,7 @@ terminate.lpad:                                   ; preds = %entry
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #14
+  tail call void @__clang_call_terminate(ptr %5) #15
   unreachable
 }
 
@@ -1821,18 +1822,18 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #14
+  tail call void @__clang_call_terminate(ptr %3) #15
   unreachable
 
 terminate.lpad.i:                                 ; preds = %entry
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #14
+  tail call void @__clang_call_terminate(ptr %5) #15
   unreachable
 
 _ZN8proxygen20TransactionByteEventD2Ev.exit:      ; preds = %invoke.cont.i, %if.then.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -1868,11 +1869,11 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #14
+  tail call void @__clang_call_terminate(ptr %2) #15
   unreachable
 
 _ZN8proxygen9ByteEventD2Ev.exit:                  ; preds = %entry, %if.then.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
@@ -1892,7 +1893,7 @@ declare noundef ptr @_ZN6google4base21CheckOpMessageBuilder9NewStringB5cxx11Ev(p
 declare void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN8proxygen15HTTPTransaction26decrementPendingByteEventsEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN8proxygen15HTTPTransaction26decrementPendingByteEventsEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %dg = alloca %"class.folly::DelayedDestructionBase::DestructorGuard", align 8
@@ -1938,11 +1939,11 @@ invoke.cont3.i.i:                                 ; preds = %invoke.cont1.i.i
 lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %.noexc
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #13
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #14
   br label %lpad.body
 
 invoke.cont5:                                     ; preds = %invoke.cont3.i.i
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #13
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i1.not = icmp eq ptr %call5.i.i, null
@@ -1961,7 +1962,7 @@ invoke.cont11:                                    ; preds = %while.body
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10) #14
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10) #15
   unreachable
 
 lpad:                                             ; preds = %if.else.i, %while.body
@@ -1971,13 +1972,13 @@ lpad:                                             ; preds = %if.else.i, %while.b
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %4, %lpad ], [ %3, %lpad.i.i ]
-  call void @_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %dg) #13
+  call void @_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %dg) #14
   resume { ptr, i32 } %eh.lpad-body
 
 lpad12:                                           ; preds = %invoke.cont11
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10) #14
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10) #15
   unreachable
 
 if.then.i:                                        ; preds = %invoke.cont5.thread, %invoke.cont5.while.end_crit_edge
@@ -2002,7 +2003,7 @@ terminate.lpad.i:                                 ; preds = %if.then6.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  call void @__clang_call_terminate(ptr %10) #15
   unreachable
 
 _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.i, %if.then6.i
@@ -2041,46 +2042,47 @@ terminate.lpad:                                   ; preds = %if.then6
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #14
+  tail call void @__clang_call_terminate(ptr %6) #15
   unreachable
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_ByteEventTracker.cpp() #11 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_ByteEventTracker.cpp() #12 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { builtin nounwind }
-attributes #16 = { builtin allocsize(0) }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { builtin nounwind }
+attributes #17 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -187,16 +187,16 @@ define void @_ZN3vcg3ply10PlyElement7AddPropEPKciii(ptr noundef nonnull align 8 
   br i1 %.not.i.i, label %25, label %11
 
 11:                                               ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %6) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %6) #27
   %12 = getelementptr inbounds i8, ptr %8, i64 32
   %13 = getelementptr inbounds i8, ptr %6, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %8, i64 48
   %15 = getelementptr inbounds i8, ptr %6, i64 48
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15) #27
   %16 = getelementptr inbounds i8, ptr %8, i64 80
   %17 = getelementptr inbounds i8, ptr %6, i64 80
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17) #27
   %18 = getelementptr inbounds i8, ptr %8, i64 112
   %19 = getelementptr inbounds i8, ptr %6, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %18, ptr noundef nonnull align 8 dereferenceable(44) %19, i64 44, i1 false)
@@ -217,15 +217,15 @@ define void @_ZN3vcg3ply10PlyElement7AddPropEPKciii(ptr noundef nonnull align 8 
 _ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE9push_backEOS2_.exit: ; preds = %11, %25
   %27 = getelementptr inbounds i8, ptr %6, i64 48
   %28 = getelementptr inbounds i8, ptr %6, i64 80
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
   ret void
 
 29:                                               ; preds = %25
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3vcg3ply11PlyPropertyD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %6) #26
+  call void @_ZN3vcg3ply11PlyPropertyD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %6) #27
   resume { ptr, i32 } %30
 }
 
@@ -233,11 +233,11 @@ _ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE9push_backEOS2_.exit: ; preds = %11,
 define linkonce_odr void @_ZN3vcg3ply11PlyPropertyC2EPKciii(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   %8 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
   %9 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #27
   %10 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 -1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 116
@@ -258,14 +258,14 @@ define linkonce_odr void @_ZN3vcg3ply11PlyPropertyC2EPKciii(ptr noundef nonnull 
   store i32 -1, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr null, ptr %19, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #26
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %20 unwind label %26
 
 20:                                               ; preds = %5
-  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #26
+  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #27
   %22 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %2, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 36
@@ -279,10 +279,10 @@ define linkonce_odr void @_ZN3vcg3ply11PlyPropertyC2EPKciii(ptr noundef nonnull 
 26:                                               ; preds = %5
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   resume { ptr, i32 } %27
 }
 
@@ -292,9 +292,9 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr void @_ZN3vcg3ply11PlyPropertyD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   ret void
 }
 
@@ -310,7 +310,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE17_M_reall
   br i1 %10, label %11, label %_ZNKSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE12_M_check_lenEmPKc.exit
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.17) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.17) #28
   unreachable
 
 _ZNKSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %3
@@ -328,22 +328,22 @@ _ZNKSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 
 20:                                               ; preds = %_ZNKSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE12_M_check_lenEmPKc.exit
   %21 = mul nuw nsw i64 %16, 168
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #28
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #29
   br label %_ZNSt12_Vector_baseIN3vcg3ply11PlyPropertyESaIS2_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIN3vcg3ply11PlyPropertyESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"class.vcg::ply::PlyProperty", ptr %23, i64 %19
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2) #27
   %25 = getelementptr inbounds i8, ptr %24, i64 32
   %26 = getelementptr inbounds i8, ptr %2, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   %27 = getelementptr inbounds i8, ptr %24, i64 48
   %28 = getelementptr inbounds i8, ptr %2, i64 48
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28) #27
   %29 = getelementptr inbounds i8, ptr %24, i64 80
   %30 = getelementptr inbounds i8, ptr %2, i64 80
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %30) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %30) #27
   %31 = getelementptr inbounds i8, ptr %24, i64 112
   %32 = getelementptr inbounds i8, ptr %2, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %31, ptr noundef nonnull align 8 dereferenceable(44) %32, i64 44, i1 false)
@@ -359,16 +359,16 @@ _ZNSt12_Vector_baseIN3vcg3ply11PlyPropertyESaIS2_EE11_M_allocateEm.exit: ; preds
   %.0911.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN3vcg3ply11PlyPropertyESaIS2_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #27
   %36 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %37 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false), !alias.scope !10
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 48
   %39 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 48
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %39) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %39) #27
   %40 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 80
   %41 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 80
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %41) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %41) #27
   %42 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 112
   %43 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %42, ptr noundef nonnull align 8 dereferenceable(44) %43, i64 44, i1 false), !alias.scope !10
@@ -376,9 +376,9 @@ _ZNSt12_Vector_baseIN3vcg3ply11PlyPropertyESaIS2_EE11_M_allocateEm.exit: ; preds
   %45 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 160
   %46 = load ptr, ptr %45, align 8, !alias.scope !8, !noalias !5
   store ptr %46, ptr %44, align 8, !alias.scope !5, !noalias !8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #27
   %47 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 168
   %48 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 168
   %.not.i.i.i.i = icmp eq ptr %47, %1
@@ -395,16 +395,16 @@ _ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ;
   %.0911.i.i.i.i19 = phi ptr [ %61, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i19) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i19) #27
   %50 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 32
   %51 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false), !alias.scope !18
   %52 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 48
   %53 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 48
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %53) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %53) #27
   %54 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 80
   %55 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 80
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %55) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %55) #27
   %56 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 112
   %57 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %56, ptr noundef nonnull align 8 dereferenceable(44) %57, i64 44, i1 false), !alias.scope !18
@@ -412,9 +412,9 @@ _ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ;
   %59 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 160
   %60 = load ptr, ptr %59, align 8, !alias.scope !16, !noalias !13
   store ptr %60, ptr %58, align 8, !alias.scope !13, !noalias !16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i19) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i19) #27
   %61 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 168
   %62 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 168
   %.not.i.i.i.i20 = icmp eq ptr %61, %5
@@ -426,7 +426,7 @@ _ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22:
   br i1 %.not.i23, label %_ZNSt12_Vector_baseIN3vcg3ply11PlyPropertyESaIS2_EE13_M_deallocateEPS2_m.exit, label %63
 
 63:                                               ; preds = %_ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #30
   br label %_ZNSt12_Vector_baseIN3vcg3ply11PlyPropertyESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN3vcg3ply11PlyPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %63
@@ -449,23 +449,24 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
-  tail call void @_ZSt9terminatev() #30
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
+  tail call void @_ZSt9terminatev() #31
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
@@ -473,7 +474,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #10
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
@@ -495,7 +496,7 @@ define noundef ptr @_ZN3vcg3ply10PlyElement8FindPropEPKc(ptr nocapture noundef n
 
 .lr.ph:                                           ; preds = %2, %9
   %.sroa.03.08 = phi ptr [ %10, %9 ], [ %4, %2 ]
-  %7 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.08, ptr noundef %1) #26
+  %7 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.08, ptr noundef %1) #27
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %._crit_edge, label %9
 
@@ -524,7 +525,7 @@ define noundef range(i32 0, 13) i32 @_ZN3vcg3ply10PlyElement9AddToReadEPKciimiii
 
 .lr.ph.i:                                         ; preds = %10, %17
   %.sroa.03.08.i = phi ptr [ %18, %17 ], [ %12, %10 ]
-  %15 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.08.i, ptr noundef %1) #26
+  %15 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.08.i, ptr noundef %1) #27
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit, label %17
 
@@ -629,7 +630,7 @@ _ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread: ; preds = %17, %10, %.thread, 
 define void @_ZN3vcg3ply7PlyFileC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
@@ -658,9 +659,9 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EED2Ev(ptr no
   %.05.i.i.i.i.i.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %6, %.lr.ph.i.i.i ]
   %9 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 48
   %10 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 80
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i.i.i.i) #27
   %11 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 168
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %8
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3vcg3ply11PlyPropertyES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !20
@@ -675,11 +676,11 @@ _ZSt8_DestroyIPN3vcg3ply11PlyPropertyES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i: ; pre
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3vcg3ply10PlyElementEEvPT_.exit.i.i.i, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN3vcg3ply11PlyPropertyES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #30
   br label %_ZSt8_DestroyIN3vcg3ply10PlyElementEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN3vcg3ply10PlyElementEEvPT_.exit.i.i.i: ; preds = %13, %_ZSt8_DestroyIPN3vcg3ply11PlyPropertyES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #27
   %14 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 64
   %.not.i.i.i = icmp eq ptr %14, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN3vcg3ply10PlyElementES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !21
@@ -694,7 +695,7 @@ _ZSt8_DestroyIPN3vcg3ply10PlyElementES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt8_D
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN3vcg3ply10PlyElementESaIS2_EED2Ev.exit, label %16
 
 16:                                               ; preds = %_ZSt8_DestroyIPN3vcg3ply10PlyElementES2_EvT_S4_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %15) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %15) #30
   br label %_ZNSt12_Vector_baseIN3vcg3ply10PlyElementESaIS2_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN3vcg3ply10PlyElementESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3vcg3ply10PlyElementES2_EvT_S4_RSaIT0_E.exit, %16
@@ -714,9 +715,9 @@ define linkonce_odr void @_ZN3vcg3ply10PlyElementD2Ev(ptr noundef nonnull align 
   %.05.i.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i ], [ %3, %1 ]
   %6 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 48
   %7 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 80
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #27
   %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 168
   %.not.i.i.i.i = icmp eq ptr %8, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN3vcg3ply11PlyPropertyES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !20
@@ -731,11 +732,11 @@ _ZSt8_DestroyIPN3vcg3ply11PlyPropertyES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EED2Ev.exit, label %10
 
 10:                                               ; preds = %_ZSt8_DestroyIPN3vcg3ply11PlyPropertyES2_EvT_S4_RSaIT0_E.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #30
   br label %_ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3vcg3ply11PlyPropertyES2_EvT_S4_RSaIT0_E.exit.i, %10
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   ret void
 }
 
@@ -751,9 +752,9 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EED2Ev(ptr n
   %.05.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %2, %1 ]
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 48
   %6 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 80
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #27
   %7 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 168
   %.not.i.i.i = icmp eq ptr %7, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN3vcg3ply11PlyPropertyES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !20
@@ -768,7 +769,7 @@ _ZSt8_DestroyIPN3vcg3ply11PlyPropertyES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt8_
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN3vcg3ply11PlyPropertyESaIS2_EED2Ev.exit, label %9
 
 9:                                                ; preds = %_ZSt8_DestroyIPN3vcg3ply11PlyPropertyES2_EvT_S4_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #30
   br label %_ZNSt12_Vector_baseIN3vcg3ply11PlyPropertyESaIS2_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN3vcg3ply11PlyPropertyESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3vcg3ply11PlyPropertyES2_EvT_S4_RSaIT0_E.exit, %9
@@ -784,9 +785,9 @@ define linkonce_odr void @_ZSt8_DestroyIPN3vcg3ply11PlyPropertyEEvT_S4_(ptr noun
   %.05.i = phi ptr [ %5, %.lr.ph.i ], [ %0, %2 ]
   %3 = getelementptr inbounds i8, ptr %.05.i, i64 48
   %4 = getelementptr inbounds i8, ptr %.05.i, i64 80
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i) #27
   %5 = getelementptr inbounds i8, ptr %.05.i, i64 168
   %.not.i = icmp eq ptr %5, %1
   br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN3vcg3ply11PlyPropertyEEEvT_S6_.exit, label %.lr.ph.i, !llvm.loop !20
@@ -811,7 +812,7 @@ define void @_ZN3vcg3ply7PlyFileD2Ev(ptr noundef nonnull align 8 dereferenceable
   %7 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 32
@@ -821,7 +822,7 @@ define void @_ZN3vcg3ply7PlyFileD2Ev(ptr noundef nonnull align 8 dereferenceable
 
 .lr.ph.i.i.i.i:                                   ; preds = %6, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i ], [ %10, %6 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #27
   %13 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %13, %12
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !22
@@ -836,16 +837,16 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %15
 
 15:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #30
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %15
-  tail call void @_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #26
+  tail call void @_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN3vcg3ply7PlyFile7DestroyEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #11 align 2 {
+define void @_ZN3vcg3ply7PlyFile7DestroyEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -923,7 +924,7 @@ _ZN3vcg3ply7PlyFile7DestroyEv.exit:               ; preds = %2, %14
 
 20:                                               ; preds = %_ZN3vcg3ply7PlyFile7DestroyEv.exit
   %21 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #27
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef 1536)
   %22 = load ptr, ptr %12, align 8
   %23 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 511, ptr noundef %22)
@@ -944,12 +945,12 @@ _ZN3vcg3ply7PlyFile7DestroyEv.exit:               ; preds = %2, %14
 
 31:                                               ; preds = %27
   %32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull %3)
-  %33 = call ptr @strtok_r(ptr noundef nonnull %3, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #26
+  %33 = call ptr @strtok_r(ptr noundef nonnull %3, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #27
   %34 = icmp eq ptr %33, null
   br i1 %34, label %._crit_edge124, label %.preheader
 
 .preheader:                                       ; preds = %31
-  %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(8) @.str.24) #31
+  %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(8) @.str.24) #32
   %.not96119 = icmp eq i32 %35, 0
   br i1 %.not96119, label %.lr.ph, label %._crit_edge
 
@@ -961,10 +962,10 @@ _ZN3vcg3ply7PlyFile7DestroyEv.exit:               ; preds = %2, %14
 
 39:                                               ; preds = %.lr.ph, %58
   %.075120 = phi ptr [ %33, %.lr.ph ], [ %60, %58 ]
-  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.075120) #31
+  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.075120) #32
   %41 = getelementptr inbounds i8, ptr %.075120, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #26
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %42, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %43 unwind label %53
 
@@ -975,7 +976,7 @@ _ZN3vcg3ply7PlyFile7DestroyEv.exit:               ; preds = %2, %14
   br i1 %.not.i.i, label %49, label %46
 
 46:                                               ; preds = %43
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %5) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   %47 = load ptr, ptr %36, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 32
   store ptr %48, ptr %36, align 8
@@ -986,8 +987,8 @@ _ZN3vcg3ply7PlyFile7DestroyEv.exit:               ; preds = %2, %14
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit unwind label %55
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit: ; preds = %46, %49
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #27
   %50 = load ptr, ptr %12, align 8
   %51 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 511, ptr noundef %50)
   %52 = icmp eq ptr %51, null
@@ -1001,44 +1002,44 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 55:                                               ; preds = %49
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   br label %57
 
 57:                                               ; preds = %55, %53
   %.pn110 = phi { ptr, i32 } [ %56, %55 ], [ %54, %53 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #27
   br label %173
 
 58:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit
   %59 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull %3)
-  %60 = call ptr @strtok_r(ptr noundef nonnull %3, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #26
-  %61 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(8) @.str.24) #31
+  %60 = call ptr @strtok_r(ptr noundef nonnull %3, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #27
+  %61 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(8) @.str.24) #32
   %.not96 = icmp eq i32 %61, 0
   br i1 %.not96, label %39, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %58, %.preheader
   %.075.lcssa = phi ptr [ %33, %.preheader ], [ %60, %58 ]
-  %62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.075.lcssa, ptr noundef nonnull dereferenceable(7) @.str.20) #31
+  %62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.075.lcssa, ptr noundef nonnull dereferenceable(7) @.str.20) #32
   %.not97 = icmp eq i32 %62, 0
   br i1 %.not97, label %63, label %._crit_edge124
 
 63:                                               ; preds = %._crit_edge
-  %64 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #26
+  %64 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #27
   %65 = icmp eq ptr %64, null
   br i1 %65, label %._crit_edge124, label %66
 
 66:                                               ; preds = %63
-  %67 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(6) @.str.21) #31
+  %67 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(6) @.str.21) #32
   %.not98 = icmp eq i32 %67, 0
   br i1 %.not98, label %72, label %68
 
 68:                                               ; preds = %66
-  %69 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(18) @.str.22) #31
+  %69 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(18) @.str.22) #32
   %.not99 = icmp eq i32 %69, 0
   br i1 %.not99, label %72, label %70
 
 70:                                               ; preds = %68
-  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(21) @.str.23) #31
+  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(21) @.str.23) #32
   %.not100 = icmp eq i32 %71, 0
   br i1 %.not100, label %72, label %._crit_edge124
 
@@ -1046,12 +1047,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %.sink = phi i32 [ 1, %66 ], [ 3, %68 ], [ 2, %70 ]
   %73 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %.sink, ptr %73, align 8
-  %74 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #26
+  %74 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #27
   %75 = icmp eq ptr %74, null
   br i1 %75, label %._crit_edge124, label %76
 
 76:                                               ; preds = %72
-  %77 = call double @atof(ptr noundef nonnull %74) #31
+  %77 = call double @atof(ptr noundef nonnull %74) #32
   %78 = fptrunc double %77 to float
   %79 = getelementptr inbounds i8, ptr %0, i64 56
   store float %78, ptr %79, align 8
@@ -1068,20 +1069,20 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 85:                                               ; preds = %.lr.ph123, %162
   %.076121 = phi ptr [ null, %.lr.ph123 ], [ %.1, %162 ]
   %86 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull %3)
-  %87 = call ptr @strtok_r(ptr noundef nonnull %3, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #26
+  %87 = call ptr @strtok_r(ptr noundef nonnull %3, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #27
   %88 = icmp eq ptr %87, null
   br i1 %88, label %._crit_edge124, label %89
 
 89:                                               ; preds = %85
-  %90 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(8) @.str.24) #31
+  %90 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(8) @.str.24) #32
   %.not101 = icmp eq i32 %90, 0
   br i1 %.not101, label %91, label %102
 
 91:                                               ; preds = %89
-  %92 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #31
+  %92 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #32
   %93 = getelementptr inbounds i8, ptr %87, i64 %92
   %94 = getelementptr inbounds i8, ptr %93, i64 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #26
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %94, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %95 unwind label %97
 
@@ -1090,8 +1091,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
           to label %96 unwind label %99
 
 96:                                               ; preds = %95
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #27
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #27
   br label %162
 
 97:                                               ; preds = %91
@@ -1102,24 +1103,24 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 99:                                               ; preds = %95
   %100 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #27
   br label %101
 
 101:                                              ; preds = %99, %97
   %.pn = phi { ptr, i32 } [ %100, %99 ], [ %98, %97 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #27
   br label %173
 
 102:                                              ; preds = %89
-  %103 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(9) @.str.25) #31
+  %103 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(9) @.str.25) #32
   %.not103 = icmp eq i32 %103, 0
   br i1 %.not103, label %104, label %115
 
 104:                                              ; preds = %102
-  %105 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #31
+  %105 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #32
   %106 = getelementptr inbounds i8, ptr %87, i64 %105
   %107 = getelementptr inbounds i8, ptr %106, i64 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #26
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %107, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %108 unwind label %110
 
@@ -1128,8 +1129,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
           to label %109 unwind label %112
 
 109:                                              ; preds = %108
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #26
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #27
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #27
   br label %162
 
 110:                                              ; preds = %104
@@ -1140,32 +1141,32 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 112:                                              ; preds = %108
   %113 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #27
   br label %114
 
 114:                                              ; preds = %112, %110
   %.pn104 = phi { ptr, i32 } [ %113, %112 ], [ %111, %110 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #27
   br label %173
 
 115:                                              ; preds = %102
-  %116 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(11) @.str.28) #31
+  %116 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(11) @.str.28) #32
   %.not106 = icmp eq i32 %116, 0
   br i1 %.not106, label %166, label %117
 
 117:                                              ; preds = %115
-  %118 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(8) @.str.26) #31
+  %118 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(8) @.str.26) #32
   %.not107 = icmp eq i32 %118, 0
   br i1 %.not107, label %119, label %130
 
 119:                                              ; preds = %117
-  %120 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #26
+  %120 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #27
   %121 = icmp eq ptr %120, null
   br i1 %121, label %._crit_edge124, label %122
 
 122:                                              ; preds = %119
-  %123 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #26
-  %124 = call i32 @atoi(ptr nocapture noundef %123) #31
+  %123 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #27
+  %124 = call i32 @atoi(ptr nocapture noundef %123) #32
   call void @_ZN3vcg3ply10PlyElementC2EPKci(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull %120, i32 noundef %124)
   invoke void @_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(64) %11)
           to label %125 unwind label %128
@@ -1173,17 +1174,17 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 125:                                              ; preds = %122
   %126 = load ptr, ptr %83, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 -64
-  call void @_ZN3vcg3ply10PlyElementD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #26
+  call void @_ZN3vcg3ply10PlyElementD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #27
   br label %162
 
 128:                                              ; preds = %122
   %129 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3vcg3ply10PlyElementD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #26
+  call void @_ZN3vcg3ply10PlyElementD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #27
   br label %173
 
 130:                                              ; preds = %117
-  %131 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(9) @.str.27) #31
+  %131 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(9) @.str.27) #32
   %.not108 = icmp eq i32 %131, 0
   br i1 %.not108, label %132, label %._crit_edge124
 
@@ -1192,17 +1193,17 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br i1 %133, label %._crit_edge124, label %134
 
 134:                                              ; preds = %132
-  %135 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #26
+  %135 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #27
   %136 = icmp eq ptr %135, null
   br i1 %136, label %._crit_edge124, label %137
 
 137:                                              ; preds = %134
-  %138 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %135, ptr noundef nonnull dereferenceable(5) @.str.29) #31
+  %138 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %135, ptr noundef nonnull dereferenceable(5) @.str.29) #32
   %.not109 = icmp eq i32 %138, 0
   br i1 %.not109, label %139, label %155
 
 139:                                              ; preds = %137
-  %140 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #26
+  %140 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #27
   %141 = icmp eq ptr %140, null
   br i1 %141, label %._crit_edge124, label %142
 
@@ -1212,7 +1213,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br i1 %144, label %._crit_edge124, label %145
 
 145:                                              ; preds = %142
-  %146 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #26
+  %146 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #27
   %147 = icmp eq ptr %146, null
   br i1 %147, label %._crit_edge124, label %148
 
@@ -1222,7 +1223,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br i1 %150, label %._crit_edge124, label %151
 
 151:                                              ; preds = %148
-  %152 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #26
+  %152 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #27
   %153 = icmp eq ptr %152, null
   br i1 %153, label %._crit_edge124, label %154
 
@@ -1236,7 +1237,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br i1 %157, label %._crit_edge124, label %158
 
 158:                                              ; preds = %155
-  %159 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #26
+  %159 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %4) #27
   %160 = icmp eq ptr %159, null
   br i1 %160, label %._crit_edge124, label %161
 
@@ -1283,34 +1284,34 @@ _ZN3vcg3ply7PlyFile7DestroyEv.exit114:            ; preds = %171, %._crit_edge12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN3vcg3ply7PlyFile9OpenWriteEPKc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #12 align 2 {
+define noundef i32 @_ZN3vcg3ply7PlyFile9OpenWriteEPKc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #13 align 2 {
   ret i32 -1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #10
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #14
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #10
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #15
+declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
@@ -1322,7 +1323,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1) #27
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %9, ptr %3, align 8
@@ -1337,26 +1338,26 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #16
+declare double @atof(ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg3ply10PlyElementC2EPKci(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #26
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %7 unwind label %10
 
 7:                                                ; preds = %3
-  %8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #26
+  %8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #27
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %2, ptr %9, align 8
   ret void
@@ -1364,9 +1365,9 @@ define linkonce_odr void @_ZN3vcg3ply10PlyElementC2EPKci(ptr noundef nonnull ali
 10:                                               ; preds = %3
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #26
-  call void @_ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #27
+  call void @_ZNSt6vectorIN3vcg3ply11PlyPropertyESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   resume { ptr, i32 } %11
 }
 
@@ -1395,21 +1396,21 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE9push_backE
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3vcg3ply7PlyFile8FindTypeEPKc(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 align 2 {
+define noundef i32 @_ZNK3vcg3ply7PlyFile8FindTypeEPKc(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #18 align 2 {
   br label %3
 
 3:                                                ; preds = %2, %11
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %11 ]
   %4 = getelementptr inbounds [9 x ptr], ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %5) #31
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %5) #32
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.split.loop.exit11, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds [9 x ptr], ptr @_ZN3vcg3ply7PlyFile12newtypenamesE, i64 0, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #31
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #32
   %.not8 = icmp eq i32 %10, 0
   br i1 %.not8, label %.split.loop.exit13, label %11
 
@@ -1535,7 +1536,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %22, %29, %31, %33, 
   %51 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
-  %54 = tail call noalias ptr @calloc(i64 noundef %47, i64 noundef %53) #32
+  %54 = tail call noalias ptr @calloc(i64 noundef %47, i64 noundef %53) #33
   %55 = getelementptr inbounds i8, ptr %1, i64 120
   %56 = load i64, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %2, i64 %56
@@ -1677,7 +1678,7 @@ _ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44:     ; preds = %100, %103, %106
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_ZN3vcg3ply7ReadBinEP8_IO_FILEPKNS0_11PlyPropertyEPvi(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #11 {
+define noundef i32 @_ZN3vcg3ply7ReadBinEP8_IO_FILEPKNS0_11PlyPropertyEPvi(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #12 {
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
   %7 = alloca i32, align 4
@@ -1775,7 +1776,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %20, %27, %29, %31, 
   %49 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = sext i32 %50 to i64
-  %52 = tail call noalias ptr @calloc(i64 noundef %45, i64 noundef %51) #32
+  %52 = tail call noalias ptr @calloc(i64 noundef %45, i64 noundef %51) #33
   %53 = getelementptr inbounds i8, ptr %1, i64 120
   %54 = load i64, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %2, i64 %54
@@ -1883,7 +1884,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   br i1 %10, label %11, label %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.17) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.17) #28
   unreachable
 
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %3
@@ -1901,21 +1902,21 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
 
 20:                                               ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %21 = shl nuw nsw i64 %16, 5
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #28
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #29
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %23, i64 %19
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2) #27
   %.not10.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ]
   %.0911.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #27
   %25 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
   %26 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %25, %1
@@ -1930,8 +1931,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i17
   %.012.i.i.i.i18 = phi ptr [ %29, %.lr.ph.i.i.i.i17 ], [ %27, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   %.0911.i.i.i.i19 = phi ptr [ %28, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i19) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i19) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i19) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i19) #27
   %28 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 32
   %29 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 32
   %.not.i.i.i.i20 = icmp eq ptr %28, %5
@@ -1943,7 +1944,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   br i1 %.not.i23, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %30
 
 30:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #30
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %30
@@ -1967,7 +1968,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE17_M_reallo
   br i1 %10, label %11, label %_ZNKSt6vectorIN3vcg3ply10PlyElementESaIS2_EE12_M_check_lenEmPKc.exit
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.17) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.17) #28
   unreachable
 
 _ZNKSt6vectorIN3vcg3ply10PlyElementESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %3
@@ -1985,7 +1986,7 @@ _ZNKSt6vectorIN3vcg3ply10PlyElementESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = 
 
 20:                                               ; preds = %_ZNKSt6vectorIN3vcg3ply10PlyElementESaIS2_EE12_M_check_lenEmPKc.exit
   %21 = shl nuw nsw i64 %16, 6
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #28
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #29
   br label %_ZNSt12_Vector_baseIN3vcg3ply10PlyElementESaIS2_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIN3vcg3ply10PlyElementESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN3vcg3ply10PlyElementESaIS2_EE12_M_check_lenEmPKc.exit, %20
@@ -2003,7 +2004,7 @@ _ZNSt16allocator_traitsISaIN3vcg3ply10PlyElementEEE9constructIS2_JRKS2_EEEvRS3_P
   %.0911.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN3vcg3ply10PlyElementEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #27
   %25 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %26 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
   %27 = load i32, ptr %26, align 8, !alias.scope !34, !noalias !31
@@ -2021,7 +2022,7 @@ _ZNSt16allocator_traitsISaIN3vcg3ply10PlyElementEEE9constructIS2_JRKS2_EEEvRS3_P
   %36 = load ptr, ptr %35, align 8, !alias.scope !34, !noalias !31
   store ptr %36, ptr %34, align 8, !alias.scope !31, !noalias !34
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false), !alias.scope !34, !noalias !31
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #27
   %37 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 64
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %37, %1
@@ -2038,7 +2039,7 @@ _ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; 
   %.0911.i.i.i.i29 = phi ptr [ %52, %.lr.ph.i.i.i.i27 ], [ %1, %_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i29) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i29) #27
   %40 = getelementptr inbounds i8, ptr %.012.i.i.i.i28, i64 32
   %41 = getelementptr inbounds i8, ptr %.0911.i.i.i.i29, i64 32
   %42 = load i32, ptr %41, align 8, !alias.scope !40, !noalias !37
@@ -2056,7 +2057,7 @@ _ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; 
   %51 = load ptr, ptr %50, align 8, !alias.scope !40, !noalias !37
   store ptr %51, ptr %49, align 8, !alias.scope !37, !noalias !40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !40, !noalias !37
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i29) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i29) #27
   %52 = getelementptr inbounds i8, ptr %.0911.i.i.i.i29, i64 64
   %53 = getelementptr inbounds i8, ptr %.012.i.i.i.i28, i64 64
   %.not.i.i.i.i30 = icmp eq ptr %52, %5
@@ -2068,7 +2069,7 @@ _ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32: 
   br i1 %.not.i33, label %_ZNSt12_Vector_baseIN3vcg3ply10PlyElementESaIS2_EE13_M_deallocateEPS2_m.exit, label %54
 
 54:                                               ; preds = %_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #30
   br label %_ZNSt12_Vector_baseIN3vcg3ply10PlyElementESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN3vcg3ply10PlyElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %54
@@ -2083,12 +2084,12 @@ _ZNSt12_Vector_baseIN3vcg3ply10PlyElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; 
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  %60 = tail call ptr @__cxa_begin_catch(ptr %59) #26
+  %60 = tail call ptr @__cxa_begin_catch(ptr %59) #27
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %.thread, label %63
 
 .thread:                                          ; preds = %57
-  tail call void @_ZNSt16allocator_traitsISaIN3vcg3ply10PlyElementEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %24) #26
+  tail call void @_ZNSt16allocator_traitsISaIN3vcg3ply10PlyElementEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %24) #27
   br label %_ZNSt12_Vector_baseIN3vcg3ply10PlyElementESaIS2_EE13_M_deallocateEPS2_m.exit35
 
 61:                                               ; preds = %_ZNSt12_Vector_baseIN3vcg3ply10PlyElementESaIS2_EE13_M_deallocateEPS2_m.exit35
@@ -2098,11 +2099,11 @@ _ZNSt12_Vector_baseIN3vcg3ply10PlyElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; 
           to label %64 unwind label %65
 
 63:                                               ; preds = %57
-  tail call void @_ZdlPv(ptr noundef nonnull %23) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %23) #30
   br label %_ZNSt12_Vector_baseIN3vcg3ply10PlyElementESaIS2_EE13_M_deallocateEPS2_m.exit35
 
 _ZNSt12_Vector_baseIN3vcg3ply10PlyElementESaIS2_EE13_M_deallocateEPS2_m.exit35: ; preds = %63, %.thread
-  invoke void @__cxa_rethrow() #27
+  invoke void @__cxa_rethrow() #28
           to label %68 unwind label %61
 
 64:                                               ; preds = %61
@@ -2112,7 +2113,7 @@ _ZNSt12_Vector_baseIN3vcg3ply10PlyElementESaIS2_EE13_M_deallocateEPS2_m.exit35: 
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  tail call void @__clang_call_terminate(ptr %67) #30
+  tail call void @__clang_call_terminate(ptr %67) #31
   unreachable
 
 68:                                               ; preds = %_ZNSt12_Vector_baseIN3vcg3ply10PlyElementESaIS2_EE13_M_deallocateEPS2_m.exit35
@@ -2144,14 +2145,14 @@ define linkonce_odr void @_ZN3vcg3ply10PlyElementC2ERKS1_(ptr noundef nonnull al
   br i1 %16, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIN3vcg3ply11PlyPropertyEEE8allocateERS3_m.exit.i.i.i.i
 
 .noexc.i.i:                                       ; preds = %15
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #27
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #28
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %.noexc.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN3vcg3ply11PlyPropertyEEE8allocateERS3_m.exit.i.i.i.i: ; preds = %15
-  %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #28
+  %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #29
           to label %.noexc5 unwind label %30
 
 .noexc5:                                          ; preds = %_ZNSt16allocator_traitsISaIN3vcg3ply11PlyPropertyEEE8allocateERS3_m.exit.i.i.i.i, %2
@@ -2175,7 +2176,7 @@ _ZNSt16allocator_traitsISaIN3vcg3ply11PlyPropertyEEE8allocateERS3_m.exit.i.i.i.i
   br i1 %.not.i.i.i, label %.body, label %28
 
 28:                                               ; preds = %25
-  tail call void @_ZdlPv(ptr noundef nonnull %27) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %27) #30
   br label %.body
 
 29:                                               ; preds = %.noexc5
@@ -2189,11 +2190,11 @@ _ZNSt16allocator_traitsISaIN3vcg3ply11PlyPropertyEEE8allocateERS3_m.exit.i.i.i.i
 
 .body:                                            ; preds = %25, %28, %30
   %eh.lpad-body = phi { ptr, i32 } [ %31, %30 ], [ %26, %28 ], [ %26, %25 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   resume { ptr, i32 } %eh.lpad-body
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN3vcg3ply11PlyPropertyESt6vectorIS4_SaIS4_EEEEPS4_ET0_T_SD_SC_(ptr %0, ptr %1, ptr noundef %2) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
@@ -2224,7 +2225,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
 10:                                               ; preds = %.noexc.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
   br label %.body.i.i
 
 12:                                               ; preds = %.noexc
@@ -2234,7 +2235,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
 
 .body.i.i:                                        ; preds = %12, %10
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.019) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.019) #27
   br label %.body
 
 14:                                               ; preds = %.noexc.i.i
@@ -2258,12 +2259,12 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
 .body:                                            ; preds = %.body.i.i, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %eh.lpad-body.i.i, %.body.i.i ]
   %24 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %25 = tail call ptr @__cxa_begin_catch(ptr %24) #26
+  %25 = tail call ptr @__cxa_begin_catch(ptr %24) #27
   invoke void @_ZSt8_DestroyIPN3vcg3ply11PlyPropertyEEvT_S4_(ptr noundef %2, ptr noundef %.019)
           to label %26 unwind label %27
 
 26:                                               ; preds = %.body
-  invoke void @__cxa_rethrow() #27
+  invoke void @__cxa_rethrow() #28
           to label %33 unwind label %27
 
 ._crit_edge:                                      ; preds = %14, %3
@@ -2283,7 +2284,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #30
+  tail call void @__clang_call_terminate(ptr %32) #31
   unreachable
 
 33:                                               ; preds = %26
@@ -2307,9 +2308,9 @@ define linkonce_odr void @_ZNSt16allocator_traitsISaIN3vcg3ply10PlyElementEEE7de
   %.05.i.i.i.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i.i.i.i ], [ %4, %2 ]
   %7 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 48
   %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 80
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i) #27
   %9 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 168
   %.not.i.i.i.i.i.i = icmp eq ptr %9, %6
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3vcg3ply11PlyPropertyES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !20
@@ -2324,11 +2325,11 @@ _ZSt8_DestroyIPN3vcg3ply11PlyPropertyES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i.i, label %_ZNSt15__new_allocatorIN3vcg3ply10PlyElementEE7destroyIS2_EEvPT_.exit, label %11
 
 11:                                               ; preds = %_ZSt8_DestroyIPN3vcg3ply11PlyPropertyES2_EvT_S4_RSaIT0_E.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #30
   br label %_ZNSt15__new_allocatorIN3vcg3ply10PlyElementEE7destroyIS2_EEvPT_.exit
 
 _ZNSt15__new_allocatorIN3vcg3ply10PlyElementEE7destroyIS2_EEvPT_.exit: ; preds = %_ZSt8_DestroyIPN3vcg3ply11PlyPropertyES2_EvT_S4_RSaIT0_E.exit.i.i.i, %11
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #27
   ret void
 }
 
@@ -2342,7 +2343,7 @@ define noundef ptr @_ZN3vcg3ply7PlyFile11FindElementEPKc(ptr nocapture noundef n
 
 .lr.ph:                                           ; preds = %2, %8
   %.sroa.03.08 = phi ptr [ %9, %8 ], [ %3, %2 ]
-  %6 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.08, ptr noundef %1) #26
+  %6 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.08, ptr noundef %1) #27
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %._crit_edge, label %8
 
@@ -2367,7 +2368,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile9AddToReadEPKcS3_iimiiii
 
 .lr.ph.i:                                         ; preds = %11, %17
   %.sroa.03.08.i = phi ptr [ %18, %17 ], [ %12, %11 ]
-  %15 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.08.i, ptr noundef %1) #26
+  %15 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.08.i, ptr noundef %1) #27
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %_ZN3vcg3ply7PlyFile11FindElementEPKc.exit, label %17
 
@@ -2413,7 +2414,7 @@ define noundef ptr @_ZN3vcg3ply7PlyFile8ElemNameEi(ptr nocapture noundef nonnull
 13:                                               ; preds = %4
   %14 = zext nneg i32 %1 to i64
   %15 = getelementptr inbounds %"class.vcg::ply::PlyElement", ptr %7, i64 %14
-  %16 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #26
+  %16 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #27
   br label %17
 
 17:                                               ; preds = %2, %4, %13
@@ -2453,7 +2454,7 @@ define noundef i32 @_ZNK3vcg3ply7PlyFile10ElemNumberEi(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #18 align 2 {
+define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #19 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 152
@@ -3426,7 +3427,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %15, %17, %19, %
   %37 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %38 to i64
-  %40 = call noalias ptr @calloc(i64 noundef %33, i64 noundef %39) #32
+  %40 = call noalias ptr @calloc(i64 noundef %33, i64 noundef %39) #33
   %41 = getelementptr inbounds i8, ptr %2, i64 72
   %42 = load i64, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %1, i64 %42
@@ -3538,7 +3539,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL19cb_skip_float_asciiEP8_IO_FILE
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp eq i64 %5, 0
@@ -3607,7 +3608,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %7, %15, %16, %18, %
 
 30:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %31 = zext i8 %13 to i64
-  %32 = tail call noalias ptr @calloc(i64 noundef %31, i64 noundef 1) #32
+  %32 = tail call noalias ptr @calloc(i64 noundef %31, i64 noundef 1) #33
   %33 = getelementptr inbounds i8, ptr %2, i64 72
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %1, i64 %34
@@ -3645,7 +3646,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %7, %15, %16, %18, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -3715,7 +3716,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -3759,7 +3760,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -3829,7 +3830,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -3873,7 +3874,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -3943,7 +3944,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -3985,7 +3986,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -4055,7 +4056,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -4099,7 +4100,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -4169,7 +4170,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -4213,7 +4214,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -4283,7 +4284,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -4327,7 +4328,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -4397,7 +4398,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -4441,7 +4442,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -4511,7 +4512,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -4567,7 +4568,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -4637,7 +4638,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -4693,7 +4694,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -4763,7 +4764,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -4820,7 +4821,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -4890,7 +4891,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -4946,7 +4947,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -5016,7 +5017,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -5072,7 +5073,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -5142,7 +5143,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -5199,7 +5200,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -5269,7 +5270,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -5326,7 +5327,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -5396,7 +5397,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -5453,7 +5454,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -5523,7 +5524,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -5579,7 +5580,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -5649,7 +5650,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -5706,7 +5707,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ininEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ininEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i16, align 2
@@ -5875,7 +5876,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %62, %68, %70, %72, 
 
 85:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %86 = sext i32 %.030 to i64
-  %87 = tail call noalias ptr @calloc(i64 noundef %86, i64 noundef 4) #32
+  %87 = tail call noalias ptr @calloc(i64 noundef %86, i64 noundef 4) #33
   %88 = getelementptr inbounds i8, ptr %2, i64 72
   %89 = load i64, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %1, i64 %89
@@ -5927,7 +5928,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit32:       ; preds = %98, %104
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -5997,7 +5998,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -6053,7 +6054,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -6123,7 +6124,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -6180,7 +6181,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -6250,7 +6251,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -6306,7 +6307,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -6376,7 +6377,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -6433,7 +6434,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_indoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_indoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -6503,7 +6504,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -6560,7 +6561,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -6630,7 +6631,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -6672,7 +6673,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -6742,7 +6743,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -6786,7 +6787,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -6856,7 +6857,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -6900,7 +6901,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -6970,7 +6971,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -7012,7 +7013,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -7082,7 +7083,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -7126,7 +7127,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -7196,7 +7197,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -7240,7 +7241,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -7310,7 +7311,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -7354,7 +7355,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -7424,7 +7425,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -7468,7 +7469,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uschEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uschEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -7538,7 +7539,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -7594,7 +7595,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -7664,7 +7665,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -7720,7 +7721,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -7790,7 +7791,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -7847,7 +7848,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -7917,7 +7918,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -7973,7 +7974,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ususEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ususEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -8043,7 +8044,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -8099,7 +8100,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -8169,7 +8170,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -8226,7 +8227,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -8296,7 +8297,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -8353,7 +8354,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -8423,7 +8424,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -8480,7 +8481,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uichEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uichEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -8550,7 +8551,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -8606,7 +8607,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uishEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uishEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -8676,7 +8677,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -8733,7 +8734,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -8803,7 +8804,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -8859,7 +8860,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -8929,7 +8930,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 1) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -8985,7 +8986,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9055,7 +9056,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 2) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -9112,7 +9113,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9182,7 +9183,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -9238,7 +9239,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9308,7 +9309,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -9365,7 +9366,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uidoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uidoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9435,7 +9436,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -9492,7 +9493,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_flflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_flflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca float, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9562,7 +9563,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -9618,7 +9619,7 @@ _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_fldoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_fldoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca float, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9688,7 +9689,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -9745,7 +9746,7 @@ _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_doflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_doflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca double, align 8
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9815,7 +9816,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 4) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -9860,7 +9861,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_dodoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_dodoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca double, align 8
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9930,7 +9931,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 
 31:                                               ; preds = %_ZN3vcg3plyL8StoreIntEPvii.exit
   %32 = zext i8 %14 to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #32
+  %33 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #33
   %34 = getelementptr inbounds i8, ptr %2, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
@@ -9974,7 +9975,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin1EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin1EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
   %4 = alloca [512 x i8], align 16
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9994,7 +9995,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin1EP8_IO_FILEPv
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin2EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin2EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
   %4 = alloca [512 x i8], align 16
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -10014,7 +10015,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin2EP8_IO_FILEPv
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin4EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin4EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
   %4 = alloca [512 x i8], align 16
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -10034,7 +10035,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin4EP8_IO_FILEPv
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin8EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin8EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
   %4 = alloca [512 x i8], align 16
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -10054,7 +10055,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin8EP8_IO_FILEPv
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #12 {
   %4 = getelementptr inbounds i8, ptr %2, i64 72
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
@@ -10064,7 +10065,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chchEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10072,7 +10073,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chshEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10080,7 +10081,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chinEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10088,7 +10089,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chucEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10096,7 +10097,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chusEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10104,7 +10105,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chuiEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10112,7 +10113,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chflEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10120,7 +10121,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chdoEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10153,7 +10154,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10185,7 +10186,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10218,7 +10219,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10251,7 +10252,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10283,7 +10284,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10316,7 +10317,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10349,7 +10350,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10382,7 +10383,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10415,7 +10416,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10448,7 +10449,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ininEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ininEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10480,7 +10481,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10513,7 +10514,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10546,7 +10547,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10578,7 +10579,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10611,7 +10612,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_indoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_indoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10644,7 +10645,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10663,7 +10664,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucchEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10683,7 +10684,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucshEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10703,7 +10704,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucinEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10722,7 +10723,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucucEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10742,7 +10743,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucusEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10762,7 +10763,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucuiEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10782,7 +10783,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucflEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10802,7 +10803,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucdoEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uschEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uschEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10835,7 +10836,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10867,7 +10868,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10900,7 +10901,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10933,7 +10934,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ususEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ususEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10965,7 +10966,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10998,7 +10999,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11031,7 +11032,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11064,7 +11065,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uichEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uichEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11097,7 +11098,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uishEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uishEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11130,7 +11131,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11162,7 +11163,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11195,7 +11196,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11228,7 +11229,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11260,7 +11261,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11293,7 +11294,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uidoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uidoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11326,7 +11327,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_flflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_flflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca float, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11358,7 +11359,7 @@ _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_fldoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_fldoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca float, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11391,7 +11392,7 @@ _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_doflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_doflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca double, align 8
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef %0)
   %6 = and i64 %5, 4294967295
@@ -11412,7 +11413,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_doflEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_dodoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_dodoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
   %4 = alloca double, align 8
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef %0)
   %6 = and i64 %5, 4294967295
@@ -11432,7 +11433,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_dodoEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin1EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin1EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
   %4 = alloca [1 x i8], align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -11440,7 +11441,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin1EP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin2EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin2EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
   %4 = alloca [2 x i8], align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 2, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -11448,7 +11449,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin2EP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin4EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin4EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
   %4 = alloca [4 x i8], align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 4, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -11456,7 +11457,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin4EP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin8EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin8EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
   %4 = alloca [8 x i8], align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -11464,7 +11465,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin8EP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #19
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarAEP8_IO_FILEPvii(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
@@ -11888,13 +11889,13 @@ define internal fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarAEP8_IO_FILEPvii(ptr
   ret i32 %.0
 }
 
-declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #10
+declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3vcg3ply7PlyFile7compileEPNS0_10PlyElementE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #20 align 2 {
+define void @_ZN3vcg3ply7PlyFile7compileEPNS0_10PlyElementE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 48
@@ -11915,7 +11916,7 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_10PlyElementE(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarBEP8_IO_FILEPviii(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #11 {
+define internal fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarBEP8_IO_FILEPviii(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #12 {
   %6 = alloca i8, align 1
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
@@ -12426,7 +12427,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile4ReadEPv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #11 {
+define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #12 {
   %5 = alloca [255 x i8], align 16
   store i8 0, ptr %2, align 1
   br label %.backedge
@@ -12443,7 +12444,7 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef
   ]
 
 9:                                                ; preds = %.backedge
-  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
+  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #32
   %11 = trunc i64 %10 to i32
   %12 = add nsw i32 %.0, 5
   %13 = icmp slt i32 %12, %11
@@ -12586,8 +12587,8 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef
   %70 = sext i32 %.068 to i64
   %71 = getelementptr inbounds i8, ptr %2, i64 %70
   store i8 0, ptr %71, align 1
-  %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.35, ptr noundef nonnull %2, ptr noundef nonnull %5) #26
-  %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #31
+  %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.35, ptr noundef nonnull %2, ptr noundef nonnull %5) #27
+  %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #32
   %74 = trunc i64 %73 to i32
   %75 = add nsw i32 %.0, 6
   br label %.backedge.backedge
@@ -12613,34 +12614,34 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #22
+declare i16 @llvm.bswap.i16(i16) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #22
+declare i32 @llvm.bswap.i32(i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #22
+declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #22
+declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #23
+declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -12650,31 +12651,32 @@ attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #26 = { nounwind }
-attributes #27 = { noreturn }
-attributes #28 = { builtin allocsize(0) }
-attributes #29 = { builtin nounwind }
-attributes #30 = { noreturn nounwind }
-attributes #31 = { nounwind willreturn memory(read) }
-attributes #32 = { nounwind allocsize(0,1) }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #26 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #27 = { nounwind }
+attributes #28 = { noreturn }
+attributes #29 = { builtin allocsize(0) }
+attributes #30 = { builtin nounwind }
+attributes #31 = { noreturn nounwind }
+attributes #32 = { nounwind willreturn memory(read) }
+attributes #33 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

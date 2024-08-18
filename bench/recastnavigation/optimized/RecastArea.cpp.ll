@@ -82,7 +82,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %8, %15
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  tail call void @__clang_call_terminate(ptr %36) #7
+  tail call void @__clang_call_terminate(ptr %36) #8
   unreachable
 
 _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
@@ -600,7 +600,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
   %314 = landingpad { ptr, i32 }
           catch ptr null
   %315 = extractvalue { ptr, i32 } %314, 0
-  tail call void @__clang_call_terminate(ptr %315) #7
+  tail call void @__clang_call_terminate(ptr %315) #8
   unreachable
 
 _ZN13rcScopedTimerD2Ev.exit268:                   ; preds = %306, %309
@@ -683,7 +683,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %8, %15
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  tail call void @__clang_call_terminate(ptr %36) #7
+  tail call void @__clang_call_terminate(ptr %36) #8
   unreachable
 
 _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
@@ -912,7 +912,7 @@ _ZL10insertSortPhi.exit.us:                       ; preds = %.critedge.i.us
   %155 = landingpad { ptr, i32 }
           catch ptr null
   %156 = extractvalue { ptr, i32 } %155, 0
-  tail call void @__clang_call_terminate(ptr %156) #7
+  tail call void @__clang_call_terminate(ptr %156) #8
   unreachable
 
 _ZN13rcScopedTimerD2Ev.exit102:                   ; preds = %147, %150
@@ -1103,7 +1103,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %10, %14
   %105 = landingpad { ptr, i32 }
           catch ptr null
   %106 = extractvalue { ptr, i32 } %105, 0
-  tail call void @__clang_call_terminate(ptr %106) #7
+  tail call void @__clang_call_terminate(ptr %106) #8
   unreachable
 
 _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %.loopexit, %100
@@ -1381,7 +1381,7 @@ _ZL11pointInPolyiPKfS0_.exit.thread.us.us.us:     ; preds = %142, %_ZL11pointInP
   %151 = landingpad { ptr, i32 }
           catch ptr null
   %152 = extractvalue { ptr, i32 } %151, 0
-  tail call void @__clang_call_terminate(ptr %152) #7
+  tail call void @__clang_call_terminate(ptr %152) #8
   unreachable
 
 _ZN13rcScopedTimerD2Ev.exit108:                   ; preds = %.loopexit, %146
@@ -1771,7 +1771,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %11, %15
   %125 = landingpad { ptr, i32 }
           catch ptr null
   %126 = extractvalue { ptr, i32 } %125, 0
-  tail call void @__clang_call_terminate(ptr %126) #7
+  tail call void @__clang_call_terminate(ptr %126) #8
   unreachable
 
 _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %.loopexit122, %120
@@ -1780,22 +1780,23 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %.loopexit122, %120
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
-  tail call void @_ZSt9terminatev() #7
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
+  tail call void @_ZSt9terminatev() #8
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 declare noundef float @_Z6rcSqrtf(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.uadd.sat.i8(i8, i8) #6
+declare i8 @llvm.uadd.sat.i8(i8, i8) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1803,9 +1804,10 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { noreturn nounwind }
-attributes #8 = { nounwind }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { noreturn nounwind }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -4327,7 +4327,7 @@ _ZL19calcAreaOfPolygon2DPKii.exit.thread:         ; preds = %.lr.ph, %_ZL19calcA
   %1966 = landingpad { ptr, i32 }
           catch ptr null
   %1967 = extractvalue { ptr, i32 } %1966, 0
-  call void @__clang_call_terminate(ptr %1967) #10
+  call void @__clang_call_terminate(ptr %1967) #11
   unreachable
 
 1968:                                             ; preds = %1962
@@ -4490,7 +4490,7 @@ _ZL19calcAreaOfPolygon2DPKii.exit.thread:         ; preds = %.lr.ph, %_ZL19calcA
   %2040 = landingpad { ptr, i32 }
           catch ptr null
   %2041 = extractvalue { ptr, i32 } %2040, 0
-  call void @__clang_call_terminate(ptr %2041) #10
+  call void @__clang_call_terminate(ptr %2041) #11
   unreachable
 
 _ZN14rcScopedDeleteI13rcContourHoleED2Ev.exit567: ; preds = %.loopexit
@@ -4501,7 +4501,7 @@ _ZN14rcScopedDeleteI13rcContourHoleED2Ev.exit567: ; preds = %.loopexit
   %2043 = landingpad { ptr, i32 }
           catch ptr null
   %2044 = extractvalue { ptr, i32 } %2043, 0
-  call void @__clang_call_terminate(ptr %2044) #10
+  call void @__clang_call_terminate(ptr %2044) #11
   unreachable
 
 _ZN14rcScopedDeleteI15rcContourRegionED2Ev.exit:  ; preds = %_ZN14rcScopedDeleteI13rcContourHoleED2Ev.exit567
@@ -4516,7 +4516,7 @@ _ZN14rcScopedDeleteI13rcContourHoleED2Ev.exit:    ; preds = %.loopexit.split-lp,
   %2046 = landingpad { ptr, i32 }
           catch ptr null
   %2047 = extractvalue { ptr, i32 } %2046, 0
-  call void @__clang_call_terminate(ptr %2047) #10
+  call void @__clang_call_terminate(ptr %2047) #11
   unreachable
 
 .critedge345:                                     ; preds = %.preheader765, %_ZN14rcScopedDeleteI15rcContourRegionED2Ev.exit, %._crit_edge
@@ -4527,7 +4527,7 @@ _ZN14rcScopedDeleteI13rcContourHoleED2Ev.exit:    ; preds = %.loopexit.split-lp,
   %2049 = landingpad { ptr, i32 }
           catch ptr null
   %2050 = extractvalue { ptr, i32 } %2049, 0
-  call void @__clang_call_terminate(ptr %2050) #10
+  call void @__clang_call_terminate(ptr %2050) #11
   unreachable
 
 .critedge:                                        ; preds = %1954
@@ -4538,7 +4538,7 @@ _ZN14rcScopedDeleteI13rcContourHoleED2Ev.exit:    ; preds = %.loopexit.split-lp,
   %2052 = landingpad { ptr, i32 }
           catch ptr null
   %2053 = extractvalue { ptr, i32 } %2052, 0
-  call void @__clang_call_terminate(ptr %2053) #10
+  call void @__clang_call_terminate(ptr %2053) #11
   unreachable
 
 _ZN14rcScopedDeleteI15rcContourRegionED2Ev.exit569: ; preds = %.critedge, %1912, %_ZN14rcScopedDeleteI15rcContourRegionED2Ev.exit
@@ -4549,7 +4549,7 @@ _ZN14rcScopedDeleteI15rcContourRegionED2Ev.exit569: ; preds = %.critedge, %1912,
   %2055 = landingpad { ptr, i32 }
           catch ptr null
   %2056 = extractvalue { ptr, i32 } %2055, 0
-  call void @__clang_call_terminate(ptr %2056) #10
+  call void @__clang_call_terminate(ptr %2056) #11
   unreachable
 
 _ZN14rcScopedDeleteI15rcContourRegionED2Ev.exit568: ; preds = %_ZN14rcScopedDeleteI13rcContourHoleED2Ev.exit, %1913
@@ -4561,7 +4561,7 @@ _ZN14rcScopedDeleteI15rcContourRegionED2Ev.exit568: ; preds = %_ZN14rcScopedDele
   %2058 = landingpad { ptr, i32 }
           catch ptr null
   %2059 = extractvalue { ptr, i32 } %2058, 0
-  call void @__clang_call_terminate(ptr %2059) #10
+  call void @__clang_call_terminate(ptr %2059) #11
   unreachable
 
 _ZN14rcScopedDeleteIaED2Ev.exit:                  ; preds = %.split.us.invoke, %_ZN14rcScopedDeleteI15rcContourRegionED2Ev.exit569, %.critedge345, %._crit_edge870
@@ -4575,7 +4575,7 @@ _ZN14rcScopedDeleteIaED2Ev.exit:                  ; preds = %.split.us.invoke, %
   %2063 = landingpad { ptr, i32 }
           catch ptr null
   %2064 = extractvalue { ptr, i32 } %2063, 0
-  call void @__clang_call_terminate(ptr %2064) #10
+  call void @__clang_call_terminate(ptr %2064) #11
   unreachable
 
 _ZN10rcIntArrayD2Ev.exit:                         ; preds = %_ZN14rcScopedDeleteIaED2Ev.exit
@@ -4588,7 +4588,7 @@ _ZN10rcIntArrayD2Ev.exit:                         ; preds = %_ZN14rcScopedDelete
   %2068 = landingpad { ptr, i32 }
           catch ptr null
   %2069 = extractvalue { ptr, i32 } %2068, 0
-  call void @__clang_call_terminate(ptr %2069) #10
+  call void @__clang_call_terminate(ptr %2069) #11
   unreachable
 
 _ZN14rcScopedDeleteIaED2Ev.exit571:               ; preds = %.loopexit766.split.us, %.loopexit.split-lp767.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp767.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp767.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp767.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp767.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp767.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp767.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp767.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp767.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp767.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp767.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp767.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp767.loopexit.split.us, %_ZN14rcScopedDeleteI15rcContourRegionED2Ev.exit568
@@ -4602,7 +4602,7 @@ _ZN14rcScopedDeleteIaED2Ev.exit571:               ; preds = %.loopexit766.split.
   %2073 = landingpad { ptr, i32 }
           catch ptr null
   %2074 = extractvalue { ptr, i32 } %2073, 0
-  call void @__clang_call_terminate(ptr %2074) #10
+  call void @__clang_call_terminate(ptr %2074) #11
   unreachable
 
 _ZN10rcIntArrayD2Ev.exit573:                      ; preds = %_ZN14rcScopedDeleteIaED2Ev.exit571, %1900
@@ -4616,7 +4616,7 @@ _ZN10rcIntArrayD2Ev.exit573:                      ; preds = %_ZN14rcScopedDelete
   %2078 = landingpad { ptr, i32 }
           catch ptr null
   %2079 = extractvalue { ptr, i32 } %2078, 0
-  call void @__clang_call_terminate(ptr %2079) #10
+  call void @__clang_call_terminate(ptr %2079) #11
   unreachable
 
 _ZN10rcIntArrayD2Ev.exit572:                      ; preds = %_ZN10rcIntArrayD2Ev.exit, %105
@@ -4628,7 +4628,7 @@ _ZN10rcIntArrayD2Ev.exit572:                      ; preds = %_ZN10rcIntArrayD2Ev
   %2081 = landingpad { ptr, i32 }
           catch ptr null
   %2082 = extractvalue { ptr, i32 } %2081, 0
-  call void @__clang_call_terminate(ptr %2082) #10
+  call void @__clang_call_terminate(ptr %2082) #11
   unreachable
 
 _ZN10rcIntArrayD2Ev.exit574:                      ; preds = %_ZN10rcIntArrayD2Ev.exit573, %107
@@ -4640,7 +4640,7 @@ _ZN10rcIntArrayD2Ev.exit574:                      ; preds = %_ZN10rcIntArrayD2Ev
   %2084 = landingpad { ptr, i32 }
           catch ptr null
   %2085 = extractvalue { ptr, i32 } %2084, 0
-  call void @__clang_call_terminate(ptr %2085) #10
+  call void @__clang_call_terminate(ptr %2085) #11
   unreachable
 
 _ZN14rcScopedDeleteIhED2Ev.exit:                  ; preds = %_ZN10rcIntArrayD2Ev.exit572, %97
@@ -4660,7 +4660,7 @@ _ZN14rcScopedDeleteIhED2Ev.exit:                  ; preds = %_ZN10rcIntArrayD2Ev
   %2093 = landingpad { ptr, i32 }
           catch ptr null
   %2094 = extractvalue { ptr, i32 } %2093, 0
-  call void @__clang_call_terminate(ptr %2094) #10
+  call void @__clang_call_terminate(ptr %2094) #11
   unreachable
 
 _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %_ZN14rcScopedDeleteIhED2Ev.exit, %2088
@@ -4683,7 +4683,7 @@ _ZN14rcScopedDeleteIhED2Ev.exit575:               ; preds = %_ZN10rcIntArrayD2Ev
   %2102 = landingpad { ptr, i32 }
           catch ptr null
   %2103 = extractvalue { ptr, i32 } %2102, 0
-  call void @__clang_call_terminate(ptr %2103) #10
+  call void @__clang_call_terminate(ptr %2103) #11
   unreachable
 
 _ZN13rcScopedTimerD2Ev.exit576:                   ; preds = %_ZN14rcScopedDeleteIhED2Ev.exit575, %2097
@@ -4852,7 +4852,7 @@ _ZL18findLeftMostVertexP9rcContourPiS1_S1_.exit:  ; preds = %38, %7
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  tail call void @__clang_call_terminate(ptr %67) #10
+  tail call void @__clang_call_terminate(ptr %67) #11
   unreachable
 
 _ZN14rcScopedDeleteI19rcPotentialDiagonalED2Ev.exit: ; preds = %.loopexit.split-lp
@@ -5234,7 +5234,7 @@ _ZL13mergeContoursR9rcContourS0_ii.exit.invoke:   ; preds = %.thread, %.noexc, %
   %263 = landingpad { ptr, i32 }
           catch ptr null
   %264 = extractvalue { ptr, i32 } %263, 0
-  tail call void @__clang_call_terminate(ptr %264) #10
+  tail call void @__clang_call_terminate(ptr %264) #11
   unreachable
 
 _ZN14rcScopedDeleteI19rcPotentialDiagonalED2Ev.exit119: ; preds = %.loopexit136
@@ -5782,26 +5782,27 @@ _ZL9intersectPKiS0_S0_S0_.exit.thread:            ; preds = %_ZL9intersectPKiS0_
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #10
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #11
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #8
+declare i64 @llvm.smax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #8
+declare i16 @llvm.umax.i16(i16, i16) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5811,10 +5812,11 @@ attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #5 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

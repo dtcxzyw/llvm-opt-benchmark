@@ -79,7 +79,7 @@ entry:
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN7Imf_3_212ImageChannelD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
 entry:
-  tail call void @llvm.trap() #9
+  tail call void @llvm.trap() #10
   unreachable
 }
 
@@ -134,12 +134,12 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool5.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #10
+  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #11
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull @.str)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #11
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #12
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -168,12 +168,12 @@ lor.lhs.false18:                                  ; preds = %if.end
   br i1 %tobool21.not, label %if.end26, label %if.then22
 
 if.then22:                                        ; preds = %lor.lhs.false18, %if.end
-  %exception23 = tail call ptr @__cxa_allocate_exception(i64 72) #10
+  %exception23 = tail call ptr @__cxa_allocate_exception(i64 72) #11
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception23, ptr noundef nonnull @.str.1)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %if.then22
-  tail call void @__cxa_throw(ptr nonnull %exception23, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #11
+  tail call void @__cxa_throw(ptr nonnull %exception23, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #12
   unreachable
 
 lpad24:                                           ; preds = %if.then22
@@ -195,7 +195,7 @@ if.end26:                                         ; preds = %lor.lhs.false18
 eh.resume:                                        ; preds = %lpad24, %lpad
   %exception23.sink = phi ptr [ %exception23, %lpad24 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %8, %lpad24 ], [ %5, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception23.sink) #10
+  tail call void @__cxa_free_exception(ptr %exception23.sink) #11
   resume { ptr, i32 } %.pn
 }
 
@@ -210,7 +210,8 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZN7Iex_3_26ArgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7Imf_3_212ImageChannel11boundsCheckEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
@@ -296,12 +297,12 @@ invoke.cont43:                                    ; preds = %invoke.cont39
           to label %invoke.cont45 unwind label %lpad
 
 invoke.cont45:                                    ; preds = %invoke.cont43
-  %exception = call ptr @__cxa_allocate_exception(i64 72) #10
+  %exception = call ptr @__cxa_allocate_exception(i64 72) #11
   invoke void @_ZN7Iex_3_26ArgExcC1ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s)
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %invoke.cont45
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #11
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #12
           to label %unreachable unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont48, %invoke.cont43, %invoke.cont39, %invoke.cont37, %invoke.cont33, %invoke.cont31, %invoke.cont27, %invoke.cont25, %invoke.cont21, %invoke.cont19, %invoke.cont17, %invoke.cont15, %invoke.cont, %do.body
@@ -312,7 +313,7 @@ lpad:                                             ; preds = %invoke.cont48, %inv
 lpad47:                                           ; preds = %invoke.cont45
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #10
+  call void @__cxa_free_exception(ptr %exception) #11
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
@@ -372,12 +373,12 @@ invoke.cont73:                                    ; preds = %invoke.cont70
           to label %invoke.cont75 unwind label %lpad56
 
 invoke.cont75:                                    ; preds = %invoke.cont73
-  %exception77 = call ptr @__cxa_allocate_exception(i64 72) #10
+  %exception77 = call ptr @__cxa_allocate_exception(i64 72) #11
   invoke void @_ZN7Iex_3_26ArgExcC1ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception77, ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s54)
           to label %invoke.cont79 unwind label %lpad78
 
 invoke.cont79:                                    ; preds = %invoke.cont75
-  invoke void @__cxa_throw(ptr nonnull %exception77, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #11
+  invoke void @__cxa_throw(ptr nonnull %exception77, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #12
           to label %unreachable unwind label %lpad56
 
 lpad56:                                           ; preds = %invoke.cont79, %invoke.cont73, %invoke.cont70, %invoke.cont68, %invoke.cont65, %invoke.cont63, %invoke.cont61, %invoke.cont59, %invoke.cont57, %do.body53
@@ -388,7 +389,7 @@ lpad56:                                           ; preds = %invoke.cont79, %inv
 lpad78:                                           ; preds = %invoke.cont75
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception77) #10
+  call void @__cxa_free_exception(ptr %exception77) #11
   br label %eh.resume
 
 if.end83:                                         ; preds = %lor.lhs.false49
@@ -397,7 +398,7 @@ if.end83:                                         ; preds = %lor.lhs.false49
 eh.resume:                                        ; preds = %lpad56, %lpad78, %lpad, %lpad47
   %_iex_throw_s54.sink = phi ptr [ %_iex_throw_s, %lpad47 ], [ %_iex_throw_s, %lpad ], [ %_iex_throw_s54, %lpad78 ], [ %_iex_throw_s54, %lpad56 ]
   %.pn17.pn = phi { ptr, i32 } [ %10, %lpad47 ], [ %9, %lpad ], [ %16, %lpad78 ], [ %15, %lpad56 ]
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s54.sink) #10
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s54.sink) #11
   resume { ptr, i32 } %.pn17.pn
 
 unreachable:                                      ; preds = %invoke.cont79, %invoke.cont48
@@ -420,10 +421,10 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_ImfImageChannel.cpp() #8 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_ImfImageChannel.cpp() #9 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #11
   ret void
 }
 
@@ -435,10 +436,11 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn }
+attributes #8 = { cold noreturn }
+attributes #9 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

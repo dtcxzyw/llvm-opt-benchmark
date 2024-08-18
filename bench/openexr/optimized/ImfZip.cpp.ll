@@ -25,7 +25,7 @@ entry:
   store ptr null, ptr %_tmpBuffer, align 8
   %_zipLevel = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %level, ptr %_zipLevel, align 8
-  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %maxRawSize) #11
+  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %maxRawSize) #12
   store ptr %call, ptr %_tmpBuffer, align 8
   ret void
 }
@@ -48,25 +48,25 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %mul.ov.i, label %if.then.i, label %_ZN7Imf_3_26uiMultImEET_S1_S1_.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 72) #12
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 72) #13
   invoke void @_ZN7Iex_3_211OverflowExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i, ptr noundef nonnull @.str.2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_211OverflowExcE, ptr nonnull @_ZN7Iex_3_211OverflowExcD1Ev) #13
+  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_211OverflowExcE, ptr nonnull @_ZN7Iex_3_211OverflowExcD1Ev) #14
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #12
+  tail call void @__cxa_free_exception(ptr %exception.i) #13
   resume { ptr, i32 } %0
 
 _ZN7Imf_3_26uiMultImEET_S1_S1_.exit:              ; preds = %entry, %land.lhs.true.i
   %_tmpBuffer = getelementptr inbounds i8, ptr %this, i64 8
   %mul.i = mul i64 %numScanLines, %maxScanLineSize
   store i64 %mul.i, ptr %this, align 8
-  %call4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul.i) #11
+  %call4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul.i) #12
   store ptr %call4, ptr %_tmpBuffer, align 8
   ret void
 }
@@ -80,7 +80,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #14
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #15
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %entry
@@ -181,18 +181,18 @@ while.end28:                                      ; preds = %entry, %while.end28
   br i1 %cmp32.not, label %if.end34, label %if.then33
 
 if.then33:                                        ; preds = %while.end28
-  %exception = call ptr @__cxa_allocate_exception(i64 72) #12
+  %exception = call ptr @__cxa_allocate_exception(i64 72) #13
   invoke void @_ZN7Iex_3_27BaseExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull @.str)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then33
-  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_27BaseExcE, ptr nonnull @_ZN7Iex_3_27BaseExcD1Ev) #13
+  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_27BaseExcE, ptr nonnull @_ZN7Iex_3_27BaseExcD1Ev) #14
   unreachable
 
 lpad:                                             ; preds = %if.then33
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #12
+  call void @__cxa_free_exception(ptr %exception) #13
   resume { ptr, i32 } %8
 
 if.end34:                                         ; preds = %while.end28
@@ -214,7 +214,8 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZN7Iex_3_27BaseExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #6
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN7Imf_3_23Zip10uncompressEPKciPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %compressed, i32 noundef %compressedSize, ptr noundef %raw) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -230,18 +231,18 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %exception = call ptr @__cxa_allocate_exception(i64 72) #12
+  %exception = call ptr @__cxa_allocate_exception(i64 72) #13
   invoke void @_ZN7Iex_3_28InputExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull @.str.1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_28InputExcE, ptr nonnull @_ZN7Iex_3_28InputExcD1Ev) #13
+  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_28InputExcE, ptr nonnull @_ZN7Iex_3_28InputExcD1Ev) #14
   unreachable
 
 lpad:                                             ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #12
+  call void @__cxa_free_exception(ptr %exception) #13
   resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %entry
@@ -317,7 +318,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZN7Imf_3_25CpuIdC1Ev(ptr noundef nonnull align 1 dereferenceable(7)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_115interleave_sse2EPKcmPc(ptr nocapture noundef readonly %source, i64 noundef %outSize, ptr nocapture noundef writeonly %out) #7 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_115interleave_sse2EPKcmPc(ptr nocapture noundef readonly %source, i64 noundef %outSize, ptr nocapture noundef writeonly %out) #8 {
 entry:
   %div14 = lshr i64 %outSize, 5
   %add = add i64 %outSize, 1
@@ -376,7 +377,7 @@ for.end18:                                        ; preds = %for.body11, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_117interleave_scalarEPKcmPc(ptr nocapture noundef readonly %source, i64 noundef %outSize, ptr noundef writeonly %out) #8 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_117interleave_scalarEPKcmPc(ptr nocapture noundef readonly %source, i64 noundef %outSize, ptr noundef writeonly %out) #9 {
 entry:
   %add.ptr1 = getelementptr inbounds i8, ptr %out, i64 %outSize
   %cmp9 = icmp sgt i64 %outSize, 0
@@ -417,10 +418,10 @@ declare void @_ZN7Iex_3_211OverflowExcC1EPKc(ptr noundef nonnull align 8 derefer
 declare void @_ZN7Iex_3_211OverflowExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #9
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -429,14 +430,15 @@ attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { builtin allocsize(0) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn }
-attributes #14 = { builtin nounwind }
+attributes #7 = { cold noreturn }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { builtin allocsize(0) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn }
+attributes #15 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

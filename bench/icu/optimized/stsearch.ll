@@ -60,7 +60,7 @@ lpad:                                             ; preds = %entry
 lpad2:                                            ; preds = %invoke.cont17, %invoke.cont13
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_) #8
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_) #9
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont
@@ -152,7 +152,7 @@ if.end28:                                         ; preds = %if.then25, %invoke.
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad2 ], [ %1, %lpad ]
-  tail call void @_ZN6icu_7514SearchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #8
+  tail call void @_ZN6icu_7514SearchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #9
   resume { ptr, i32 } %.pn
 }
 
@@ -199,7 +199,7 @@ lpad:                                             ; preds = %entry
 lpad2:                                            ; preds = %invoke.cont20, %invoke.cont16
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_) #8
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_) #9
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont
@@ -299,7 +299,7 @@ if.end31:                                         ; preds = %if.then28, %invoke.
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad2 ], [ %1, %lpad ]
-  tail call void @_ZN6icu_7514SearchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #8
+  tail call void @_ZN6icu_7514SearchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #9
   resume { ptr, i32 } %.pn
 }
 
@@ -332,7 +332,7 @@ lpad:                                             ; preds = %entry
 lpad2:                                            ; preds = %invoke.cont17, %invoke.cont13
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_) #8
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_) #9
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont
@@ -424,7 +424,7 @@ if.end28:                                         ; preds = %if.then25, %invoke.
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad2 ], [ %1, %lpad ]
-  tail call void @_ZN6icu_7514SearchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #8
+  tail call void @_ZN6icu_7514SearchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #9
   resume { ptr, i32 } %.pn
 }
 
@@ -457,7 +457,7 @@ lpad:                                             ; preds = %entry
 lpad2:                                            ; preds = %invoke.cont20, %invoke.cont16
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_) #8
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_) #9
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont
@@ -557,7 +557,7 @@ if.end31:                                         ; preds = %if.then28, %invoke.
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad2 ], [ %1, %lpad ]
-  tail call void @_ZN6icu_7514SearchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #8
+  tail call void @_ZN6icu_7514SearchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #9
   resume { ptr, i32 } %.pn
 }
 
@@ -602,7 +602,7 @@ lpad:                                             ; preds = %entry
 lpad3:                                            ; preds = %invoke.cont16, %invoke.cont
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_) #8
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_) #9
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont4
@@ -687,7 +687,7 @@ if.end28:                                         ; preds = %invoke.cont20, %if.
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %4, %lpad3 ], [ %3, %lpad ]
-  call void @_ZN6icu_7514SearchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #8
+  call void @_ZN6icu_7514SearchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #9
   resume { ptr, i32 } %.pn
 }
 
@@ -710,15 +710,15 @@ invoke.cont:                                      ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont, %entry
   %m_pattern_ = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_) #8
-  tail call void @_ZN6icu_7514SearchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #8
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_) #9
+  tail call void @_ZN6icu_7514SearchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #9
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #9
+  tail call void @__clang_call_terminate(ptr %2) #10
   unreachable
 }
 
@@ -726,20 +726,21 @@ declare void @usearch_close_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
-  tail call void @_ZSt9terminatev() #9
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
+  tail call void @_ZSt9terminatev() #10
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7512StringSearchD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN6icu_7512StringSearchD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) #8
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #8
+  tail call void @_ZN6icu_7512StringSearchD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) #9
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #9
   ret void
 }
 
@@ -749,7 +750,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7512StringSearch5cloneEv(ptr noundef nonnull align 8 dereferenceable(160) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 160) #8
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 160) #9
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -763,7 +764,7 @@ new.cont:                                         ; preds = %new.notnull, %entry
 lpad:                                             ; preds = %new.notnull
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #8
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #9
   resume { ptr, i32 } %0
 }
 
@@ -882,7 +883,7 @@ if.end:                                           ; preds = %entry
   br i1 %call, label %dynamic_cast.notnull, label %return
 
 dynamic_cast.notnull:                             ; preds = %if.end
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %that, ptr nonnull @_ZTIN6icu_7514SearchIteratorE, ptr nonnull @_ZTIN6icu_7512StringSearchE, i64 0) #8
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %that, ptr nonnull @_ZTIN6icu_7514SearchIteratorE, ptr nonnull @_ZTIN6icu_7512StringSearchE, i64 0) #9
   %cmp3 = icmp eq ptr %0, null
   br i1 %cmp3, label %return, label %if.end5
 
@@ -948,7 +949,7 @@ return:                                           ; preds = %if.else.i, %if.then
 declare noundef zeroext i1 @_ZNK6icu_7514SearchIteratoreqERKS0_(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #6
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7512StringSearch9setOffsetEiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, i32 noundef %position, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
@@ -1074,7 +1075,7 @@ if.end:                                           ; preds = %_ZNK6icu_7513Unicod
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef ptr @_ZNK6icu_7512StringSearch11getCollatorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZNK6icu_7512StringSearch11getCollatorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_strsrch_ = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %m_strsrch_, align 8
@@ -1084,7 +1085,7 @@ entry:
   br i1 %2, label %_ZN6icu_7517RuleBasedCollator16rbcFromUCollatorEP9UCollator.exit, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %entry
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN6icu_758CollatorE, ptr nonnull @_ZTIN6icu_7517RuleBasedCollatorE, i64 0) #8
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN6icu_758CollatorE, ptr nonnull @_ZTIN6icu_7517RuleBasedCollatorE, i64 0) #9
   br label %_ZN6icu_7517RuleBasedCollator16rbcFromUCollatorEP9UCollator.exit
 
 _ZN6icu_7517RuleBasedCollator16rbcFromUCollatorEP9UCollator.exit: ; preds = %entry, %dynamic_cast.notnull.i
@@ -1184,7 +1185,7 @@ define noundef ptr @_ZNK6icu_7512StringSearch9safeCloneEv(ptr noundef nonnull al
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 160) #8
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 160) #9
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %return, label %new.notnull
 
@@ -1197,7 +1198,7 @@ new.notnull:                                      ; preds = %entry
   br i1 %2, label %invoke.cont, label %dynamic_cast.notnull.i.i
 
 dynamic_cast.notnull.i.i:                         ; preds = %new.notnull
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN6icu_758CollatorE, ptr nonnull @_ZTIN6icu_7517RuleBasedCollatorE, i64 0) #8
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN6icu_758CollatorE, ptr nonnull @_ZTIN6icu_7517RuleBasedCollatorE, i64 0) #9
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %dynamic_cast.notnull.i.i, %new.notnull
@@ -1212,7 +1213,7 @@ invoke.cont:                                      ; preds = %dynamic_cast.notnul
 lpad:                                             ; preds = %invoke.cont
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #9
   resume { ptr, i32 } %6
 
 if.end:                                           ; preds = %invoke.cont
@@ -1485,10 +1486,11 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -44,7 +44,7 @@ $_ZN7QVectorIP7XMLNodeEC2ERKS2_ = comdat any
 
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN7XMLNodeD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
-  tail call void @llvm.trap() #10
+  tail call void @llvm.trap() #11
   unreachable
 }
 
@@ -52,8 +52,8 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11XMLLeafNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZN11XMLLeafNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #12
+  tail call void @_ZN11XMLLeafNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -67,8 +67,8 @@ define void @_ZN11XMLLeafNode14applyProcedureER10XMLVisitor(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15XMLInteriorNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZN15XMLInteriorNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #12
+  tail call void @_ZN15XMLInteriorNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -101,7 +101,7 @@ define void @_ZN7XMLNodeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceab
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -131,7 +131,7 @@ define void @_ZN11XMLLeafNodeD2Ev(ptr nocapture noundef nonnull align 8 derefere
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
   br label %_ZN7XMLNodeD2Ev.exit
 
 _ZN7XMLNodeD2Ev.exit:                             ; preds = %1, %5
@@ -167,7 +167,7 @@ define noundef ptr @_ZN15XMLInteriorNode3sonEi(ptr noundef nonnull align 8 deref
   br i1 %.not.i.i.i, label %11, label %13
 
 11:                                               ; preds = %7
-  %12 = tail call noundef ptr @_ZN10QArrayData8allocateEmmm6QFlagsINS_16AllocationOptionEE(i64 noundef 8, i64 noundef 8, i64 noundef 0, i32 2) #11
+  %12 = tail call noundef ptr @_ZN10QArrayData8allocateEmmm6QFlagsINS_16AllocationOptionEE(i64 noundef 8, i64 noundef 8, i64 noundef 0, i32 2) #12
   store ptr %12, ptr %3, align 8
   br label %_ZN7QVectorIP7XMLNodeEixEi.exit
 
@@ -192,21 +192,21 @@ define linkonce_odr void @_ZN7QVectorIP7XMLNodeE7reallocEi6QFlagsIN10QArrayData1
   %4 = load ptr, ptr %0, align 8
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %6 = sext i32 %1 to i64
-  %7 = tail call noundef ptr @_ZN10QArrayData8allocateEmmm6QFlagsINS_16AllocationOptionEE(i64 noundef 8, i64 noundef 8, i64 noundef %6, i32 %2) #11
+  %7 = tail call noundef ptr @_ZN10QArrayData8allocateEmmm6QFlagsINS_16AllocationOptionEE(i64 noundef 8, i64 noundef 8, i64 noundef %6, i32 %2) #12
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %3
-  invoke void @_Z9qBadAllocv() #13
+  invoke void @_Z9qBadAllocv() #14
           to label %13 unwind label %9
 
 9:                                                ; preds = %8
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  %12 = tail call ptr @__cxa_begin_catch(ptr %11) #11
-  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef null, i64 noundef 8, i64 noundef 8) #11
-  invoke void @__cxa_rethrow() #14
+  %12 = tail call ptr @__cxa_begin_catch(ptr %11) #12
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef null, i64 noundef 8, i64 noundef 8) #12
+  invoke void @__cxa_rethrow() #15
           to label %46 unwind label %39
 
 13:                                               ; preds = %3, %8
@@ -256,7 +256,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %13
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread23:     ; preds = %13, %_ZN9QtPrivate8RefCount5derefEv.exit
   %41 = load ptr, ptr %0, align 8
-  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %41, i64 noundef 8, i64 noundef 8) #11
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %41, i64 noundef 8, i64 noundef 8) #12
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread23, %13, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -270,7 +270,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %_ZN9QtPrivate8RefCo
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #10
+  tail call void @__clang_call_terminate(ptr %45) #11
   unreachable
 
 46:                                               ; preds = %9
@@ -281,30 +281,31 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #10
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #11
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN10QArrayData8allocateEmmm6QFlagsINS_16AllocationOptionEE(i64 noundef, i64 noundef, i64 noundef, i32) local_unnamed_addr #7
+declare noundef ptr @_ZN10QArrayData8allocateEmmm6QFlagsINS_16AllocationOptionEE(i64 noundef, i64 noundef, i64 noundef, i32) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: cold
-declare void @_Z9qBadAllocv() local_unnamed_addr #9
+declare void @_Z9qBadAllocv() local_unnamed_addr #10
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
+declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN15XMLInteriorNode4sonsEv(ptr dead_on_unwind noalias nonnull writable sret(%class.QVector.1) align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
@@ -344,13 +345,13 @@ _ZN9QtPrivate8RefCount3refEv.exit:                ; preds = %2
 12:                                               ; preds = %9
   %13 = and i32 %11, 2147483647
   %14 = zext nneg i32 %13 to i64
-  %15 = tail call noundef ptr @_ZN10QArrayData8allocateEmmm6QFlagsINS_16AllocationOptionEE(i64 noundef 8, i64 noundef 8, i64 noundef %14, i32 0) #11
+  %15 = tail call noundef ptr @_ZN10QArrayData8allocateEmmm6QFlagsINS_16AllocationOptionEE(i64 noundef 8, i64 noundef 8, i64 noundef %14, i32 0) #12
   store ptr %15, ptr %0, align 8
   %.not10 = icmp eq ptr %15, null
   br i1 %.not10, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_Z9qBadAllocv() #13
+  tail call void @_Z9qBadAllocv() #14
   %.pre = load ptr, ptr %0, align 8
   br label %17
 
@@ -366,13 +367,13 @@ _ZN9QtPrivate8RefCount3refEv.exit:                ; preds = %2
   %23 = getelementptr inbounds i8, ptr %3, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
-  %26 = tail call noundef ptr @_ZN10QArrayData8allocateEmmm6QFlagsINS_16AllocationOptionEE(i64 noundef 8, i64 noundef 8, i64 noundef %25, i32 0) #11
+  %26 = tail call noundef ptr @_ZN10QArrayData8allocateEmmm6QFlagsINS_16AllocationOptionEE(i64 noundef 8, i64 noundef 8, i64 noundef %25, i32 0) #12
   store ptr %26, ptr %0, align 8
   %.not9 = icmp eq ptr %26, null
   br i1 %.not9, label %27, label %28
 
 27:                                               ; preds = %22
-  tail call void @_Z9qBadAllocv() #13
+  tail call void @_Z9qBadAllocv() #14
   br label %28
 
 28:                                               ; preds = %27, %22, %17
@@ -425,7 +426,7 @@ define void @_ZN15XMLInteriorNodeD2Ev(ptr noundef nonnull align 8 dereferenceabl
   br i1 %.not.i.i, label %10, label %12
 
 10:                                               ; preds = %6
-  %11 = tail call noundef ptr @_ZN10QArrayData8allocateEmmm6QFlagsINS_16AllocationOptionEE(i64 noundef 8, i64 noundef 8, i64 noundef 0, i32 2) #11
+  %11 = tail call noundef ptr @_ZN10QArrayData8allocateEmmm6QFlagsINS_16AllocationOptionEE(i64 noundef 8, i64 noundef 8, i64 noundef 0, i32 2) #12
   store ptr %11, ptr %2, align 8
   br label %_ZN7QVectorIP7XMLNodeE5beginEv.exit
 
@@ -459,7 +460,7 @@ _ZN7QVectorIP7XMLNodeE5beginEv.exit:              ; preds = %1, %10, %.noexc
   br i1 %.not.i.i5, label %24, label %26
 
 24:                                               ; preds = %20
-  %25 = tail call noundef ptr @_ZN10QArrayData8allocateEmmm6QFlagsINS_16AllocationOptionEE(i64 noundef 8, i64 noundef 8, i64 noundef 0, i32 2) #11
+  %25 = tail call noundef ptr @_ZN10QArrayData8allocateEmmm6QFlagsINS_16AllocationOptionEE(i64 noundef 8, i64 noundef 8, i64 noundef 0, i32 2) #12
   store ptr %25, ptr %2, align 8
   br label %27
 
@@ -492,7 +493,7 @@ _ZN7QVectorIP7XMLNodeE5beginEv.exit:              ; preds = %1, %10, %.noexc
   %40 = load ptr, ptr %37, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %37) #11
+  tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %37) #12
   %.pre.pre = load ptr, ptr %2, align 8
   br label %43
 
@@ -519,7 +520,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, %45
   %48 = phi ptr [ %.pre.i8, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %28, %45 ]
-  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %48, i64 noundef 8, i64 noundef 8) #11
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %48, i64 noundef 8, i64 noundef 8) #12
   br label %_ZN7QVectorIP7XMLNodeED2Ev.exit
 
 _ZN7QVectorIP7XMLNodeED2Ev.exit:                  ; preds = %45, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
@@ -533,7 +534,7 @@ _ZN7QVectorIP7XMLNodeED2Ev.exit:                  ; preds = %45, %_ZN9QtPrivate8
   %53 = load ptr, ptr %50, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
-  tail call void %55(ptr noundef nonnull align 8 dereferenceable(24) %50) #11
+  tail call void %55(ptr noundef nonnull align 8 dereferenceable(24) %50) #12
   br label %_ZN7XMLNodeD2Ev.exit
 
 _ZN7XMLNodeD2Ev.exit:                             ; preds = %_ZN7QVectorIP7XMLNodeED2Ev.exit, %52
@@ -552,7 +553,7 @@ _ZN7XMLNodeD2Ev.exit:                             ; preds = %_ZN7QVectorIP7XMLNo
 56:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %57 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %57) #10
+  tail call void @__clang_call_terminate(ptr %57) #11
   unreachable
 }
 
@@ -563,14 +564,15 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind }
-attributes #12 = { builtin nounwind }
-attributes #13 = { cold }
-attributes #14 = { noreturn }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind }
+attributes #13 = { builtin nounwind }
+attributes #14 = { cold }
+attributes #15 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

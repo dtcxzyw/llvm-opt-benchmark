@@ -933,7 +933,7 @@ if.then.i:                                        ; preds = %if.else
   %mul8.i31.i = fmul float %6, %12
   %16 = tail call float @llvm.fmuladd.f32(float %11, float %5, float %mul8.i31.i)
   %17 = tail call noundef float @llvm.fmuladd.f32(float %13, float %7, float %16)
-  %call.i.i = tail call noundef float @atan2f(float noundef %15, float noundef %17) #17
+  %call.i.i = tail call noundef float @atan2f(float noundef %15, float noundef %17) #18
   %18 = load float, ptr %m_lowerAngLimit.i, align 8
   %19 = load float, ptr %m_upperAngLimit.i, align 4
   %call15.i = tail call noundef float @_Z21btAdjustAngleToLimitsfff(float noundef %call.i.i, float noundef %18, float noundef %19)
@@ -1067,7 +1067,7 @@ if.then:                                          ; preds = %entry
   %mul8.i31 = fmul float %3, %9
   %13 = tail call float @llvm.fmuladd.f32(float %8, float %2, float %mul8.i31)
   %14 = tail call noundef float @llvm.fmuladd.f32(float %10, float %4, float %13)
-  %call.i = tail call noundef float @atan2f(float noundef %12, float noundef %14) #17
+  %call.i = tail call noundef float @atan2f(float noundef %12, float noundef %14) #18
   %15 = load float, ptr %m_lowerAngLimit, align 8
   %16 = load float, ptr %m_upperAngLimit, align 4
   %call15 = tail call noundef float @_Z21btAdjustAngleToLimitsfff(float noundef %call.i, float noundef %15, float noundef %16)
@@ -2632,7 +2632,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %sub = fsub float %angleLowerLimitInRadians, %angleInRadians
-  %call.i.i = tail call noundef float @fmodf(float noundef %sub, float noundef 0x401921FB60000000) #17
+  %call.i.i = tail call noundef float @fmodf(float noundef %sub, float noundef 0x401921FB60000000) #18
   %cmp.i = fcmp olt float %call.i.i, 0xC00921FB60000000
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -2652,7 +2652,7 @@ _Z16btNormalizeAnglef.exit:                       ; preds = %if.then.i, %if.else
   %retval.0.i = phi float [ %add.i, %if.then.i ], [ %sub.i, %if.then2.i ], [ %call.i.i, %if.else.i ]
   %0 = tail call noundef float @llvm.fabs.f32(float %retval.0.i)
   %sub4 = fsub float %angleUpperLimitInRadians, %angleInRadians
-  %call.i.i18 = tail call noundef float @fmodf(float noundef %sub4, float noundef 0x401921FB60000000) #17
+  %call.i.i18 = tail call noundef float @fmodf(float noundef %sub4, float noundef 0x401921FB60000000) #18
   %cmp.i19 = fcmp olt float %call.i.i18, 0xC00921FB60000000
   br i1 %cmp.i19, label %if.then.i25, label %if.else.i20
 
@@ -2682,7 +2682,7 @@ if.else8:                                         ; preds = %if.else
 
 if.then10:                                        ; preds = %if.else8
   %sub12 = fsub float %angleInRadians, %angleUpperLimitInRadians
-  %call.i.i28 = tail call noundef float @fmodf(float noundef %sub12, float noundef 0x401921FB60000000) #17
+  %call.i.i28 = tail call noundef float @fmodf(float noundef %sub12, float noundef 0x401921FB60000000) #18
   %cmp.i29 = fcmp olt float %call.i.i28, 0xC00921FB60000000
   br i1 %cmp.i29, label %if.then.i35, label %if.else.i30
 
@@ -2702,7 +2702,7 @@ _Z16btNormalizeAnglef.exit37:                     ; preds = %if.then.i35, %if.el
   %retval.0.i32 = phi float [ %add.i36, %if.then.i35 ], [ %sub.i34, %if.then2.i33 ], [ %call.i.i28, %if.else.i30 ]
   %2 = tail call noundef float @llvm.fabs.f32(float %retval.0.i32)
   %sub16 = fsub float %angleInRadians, %angleLowerLimitInRadians
-  %call.i.i38 = tail call noundef float @fmodf(float noundef %sub16, float noundef 0x401921FB60000000) #17
+  %call.i.i38 = tail call noundef float @fmodf(float noundef %sub16, float noundef 0x401921FB60000000) #18
   %cmp.i39 = fcmp olt float %call.i.i38, 0xC00921FB60000000
   br i1 %cmp.i39, label %if.then.i45, label %if.else.i40
 
@@ -3058,7 +3058,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17btTypedConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #18
+  tail call void @llvm.trap() #19
   unreachable
 }
 
@@ -3102,7 +3102,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #18
+  tail call void @__clang_call_terminate(ptr %1) #19
   unreachable
 
 _ZN18btSliderConstraintdlEPv.exit:                ; preds = %entry
@@ -3256,20 +3256,21 @@ declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #14 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
-  tail call void @_ZSt9terminatev() #18
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
+  tail call void @_ZSt9terminatev() #19
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #16
+declare float @llvm.sqrt.f32(float) #17
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3286,10 +3287,11 @@ attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #12 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #14 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { noreturn nounwind }
+attributes #15 = { cold nofree noreturn }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind }
+attributes #19 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

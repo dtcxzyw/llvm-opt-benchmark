@@ -50,7 +50,7 @@ define noundef i32 @_ZN2cv3hal5LU32fEPfmiS1_mi(ptr nocapture noundef %0, i64 nou
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #11
+  call void @__clang_call_terminate(ptr %14) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %6, %11
@@ -336,7 +336,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #11
+  tail call void @__clang_call_terminate(ptr %8) #12
   unreachable
 }
 
@@ -358,7 +358,7 @@ define noundef i32 @_ZN2cv3hal5LU64fEPdmiS1_mi(ptr nocapture noundef %0, i64 nou
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #11
+  call void @__clang_call_terminate(ptr %14) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %6, %11
@@ -640,7 +640,7 @@ define noundef zeroext i1 @_ZN2cv3hal11Cholesky32fEPfmiS1_mi(ptr nocapture nound
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #11
+  call void @__clang_call_terminate(ptr %14) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %6, %11
@@ -741,7 +741,7 @@ define internal fastcc noundef zeroext i1 @_ZN2cv3halL8CholImplIfEEbPT_miS3_mi(p
   br i1 %46, label %.loopexit, label %47
 
 47:                                               ; preds = %._crit_edge172
-  %48 = tail call double @sqrt(double noundef %.1.lcssa) #12
+  %48 = tail call double @sqrt(double noundef %.1.lcssa) #13
   %49 = fdiv double 1.000000e+00, %48
   %50 = fptrunc double %49 to float
   store float %50, ptr %45, align 4
@@ -965,7 +965,7 @@ define noundef zeroext i1 @_ZN2cv3hal11Cholesky64fEPdmiS1_mi(ptr nocapture nound
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #11
+  call void @__clang_call_terminate(ptr %14) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %6, %11
@@ -1059,7 +1059,7 @@ define internal fastcc noundef zeroext i1 @_ZN2cv3halL8CholImplIdEEbPT_miS3_mi(p
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %._crit_edge172
-  %41 = tail call double @sqrt(double noundef %.1.lcssa) #12
+  %41 = tail call double @sqrt(double noundef %.1.lcssa) #13
   %42 = fdiv double 1.000000e+00, %41
   store double %42, ptr %38, align 8
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
@@ -1281,7 +1281,7 @@ define noundef i32 @_ZN2cv3hal5QR32fEPfmiiiS1_mS1_(ptr nocapture noundef %0, i64
   %20 = icmp slt i32 %18, 0
   %21 = shl nuw nsw i64 %19, 2
   %22 = select i1 %20, i64 -1, i64 %21
-  %23 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %22) #13
+  %23 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %22) #14
           to label %.noexc unwind label %153
 
 .noexc:                                           ; preds = %.noexc.i
@@ -1333,13 +1333,13 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc, %8
   %37 = load float, ptr %24, align 4
   %38 = fcmp ult float %37, 0.000000e+00
   %39 = select i1 %38, float -1.000000e+00, float 1.000000e+00
-  %40 = call noundef float @sqrtf(float noundef %.0191.lcssa.i) #12
+  %40 = call noundef float @sqrtf(float noundef %.0191.lcssa.i) #13
   %41 = call float @llvm.fmuladd.f32(float %39, float %40, float %37)
   store float %41, ptr %24, align 4
   %42 = call float @llvm.fmuladd.f32(float %41, float %41, float %.0191.lcssa.i)
   %43 = fneg float %37
   %44 = call float @llvm.fmuladd.f32(float %43, float %37, float %42)
-  %45 = call noundef float @sqrtf(float noundef %44) #12
+  %45 = call noundef float @sqrtf(float noundef %44) #13
   br i1 %30, label %.lr.ph219.preheader.i, label %.preheader213.lr.ph.i
 
 .lr.ph219.preheader.i:                            ; preds = %._crit_edge.i
@@ -1650,7 +1650,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc, %8
   br i1 %or.cond.i, label %146, label %145
 
 145:                                              ; preds = %.loopexit.i
-  call void @_ZdaPv(ptr noundef nonnull %143) #14
+  call void @_ZdaPv(ptr noundef nonnull %143) #15
   br label %146
 
 146:                                              ; preds = %.loopexit.i, %145
@@ -1668,7 +1668,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc, %8
   %151 = landingpad { ptr, i32 }
           catch ptr null
   %152 = extractvalue { ptr, i32 } %151, 0
-  call void @__clang_call_terminate(ptr %152) #11
+  call void @__clang_call_terminate(ptr %152) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %146, %149
@@ -1677,7 +1677,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %146, %149
 153:                                              ; preds = %.noexc.i
   %154 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #12
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
   resume { ptr, i32 } %154
 }
 
@@ -1706,7 +1706,7 @@ define noundef i32 @_ZN2cv3hal5QR64fEPdmiiiS1_mS1_(ptr nocapture noundef %0, i64
   %20 = icmp slt i32 %18, 0
   %21 = shl nuw nsw i64 %19, 3
   %22 = select i1 %20, i64 -1, i64 %21
-  %23 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %22) #13
+  %23 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %22) #14
           to label %.noexc unwind label %153
 
 .noexc:                                           ; preds = %.noexc.i
@@ -1758,13 +1758,13 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc, %8
   %37 = load double, ptr %24, align 8
   %38 = fcmp ult double %37, 0.000000e+00
   %39 = select i1 %38, double -1.000000e+00, double 1.000000e+00
-  %40 = call double @sqrt(double noundef %.0191.lcssa.i) #12
+  %40 = call double @sqrt(double noundef %.0191.lcssa.i) #13
   %41 = call double @llvm.fmuladd.f64(double %39, double %40, double %37)
   store double %41, ptr %24, align 8
   %42 = call double @llvm.fmuladd.f64(double %41, double %41, double %.0191.lcssa.i)
   %43 = fneg double %37
   %44 = call double @llvm.fmuladd.f64(double %43, double %37, double %42)
-  %45 = call double @sqrt(double noundef %44) #12
+  %45 = call double @sqrt(double noundef %44) #13
   br i1 %30, label %.lr.ph219.preheader.i, label %.preheader213.lr.ph.i
 
 .lr.ph219.preheader.i:                            ; preds = %._crit_edge.i
@@ -2075,7 +2075,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc, %8
   br i1 %or.cond.i, label %146, label %145
 
 145:                                              ; preds = %.loopexit.i
-  call void @_ZdaPv(ptr noundef nonnull %143) #14
+  call void @_ZdaPv(ptr noundef nonnull %143) #15
   br label %146
 
 146:                                              ; preds = %.loopexit.i, %145
@@ -2093,7 +2093,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc, %8
   %151 = landingpad { ptr, i32 }
           catch ptr null
   %152 = extractvalue { ptr, i32 } %151, 0
-  call void @__clang_call_terminate(ptr %152) #11
+  call void @__clang_call_terminate(ptr %152) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %146, %149
@@ -2102,7 +2102,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %146, %149
 153:                                              ; preds = %.noexc.i
   %154 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #12
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
   resume { ptr, i32 } %154
 }
 
@@ -2134,44 +2134,45 @@ declare void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull al
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #11
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+  tail call void @_ZSt9terminatev() #12
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #6
+declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #6
+declare float @llvm.fabs.f32(float) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #6
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #6
+declare double @llvm.fabs.f64(double) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) local_unnamed_addr #7
+declare double @sqrt(double noundef) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sqrtf(float noundef) local_unnamed_addr #7
+declare float @sqrtf(float noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -2179,15 +2180,16 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(argmem: r
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind }
-attributes #13 = { builtin allocsize(0) }
-attributes #14 = { builtin nounwind }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

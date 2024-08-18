@@ -77,7 +77,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #20
+  tail call void @free(ptr noundef nonnull %0) #21
   store ptr null, ptr @_ZN4abslL11argv0_valueE, align 8
   br label %if.end
 
@@ -91,7 +91,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %land.lhs.true
-  %call4 = tail call noalias ptr @strdup(ptr noundef nonnull %argv0) #20
+  %call4 = tail call noalias ptr @strdup(ptr noundef nonnull %argv0) #21
   store ptr %call4, ptr @_ZN4abslL11argv0_valueE, align 8
   br label %if.end5
 
@@ -143,7 +143,7 @@ if.end25.us.i.i:                                  ; preds = %if.end22.us.i.i
   br label %while.cond.backedge.us.i.i
 
 if.then16.us.i.i:                                 ; preds = %if.end.us.i.i
-  %call17.us.i.i = tail call ptr @__errno_location() #21
+  %call17.us.i.i = tail call ptr @__errno_location() #22
   %0 = load i32, ptr %call17.us.i.i, align 4
   %cmp18.us.i.i = icmp eq i32 %0, 4
   br i1 %cmp18.us.i.i, label %while.cond.backedge.us.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread
@@ -221,7 +221,7 @@ if.end25.us.i.i21:                                ; preds = %if.end22.us.i.i19
   br label %while.cond.backedge.us.i.i23
 
 if.then16.us.i.i42:                               ; preds = %if.end.us.i.i16
-  %call17.us.i.i43 = tail call ptr @__errno_location() #21
+  %call17.us.i.i43 = tail call ptr @__errno_location() #22
   %4 = load i32, ptr %call17.us.i.i43, align 4
   %cmp18.us.i.i44 = icmp eq i32 %4, 4
   br i1 %cmp18.us.i.i44, label %while.cond.backedge.us.i.i23, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit49.thread
@@ -308,7 +308,7 @@ if.end25.us.i.i66:                                ; preds = %if.end22.us.i.i64
   br label %while.cond.backedge.us.i.i68
 
 if.then16.us.i.i87:                               ; preds = %if.end.us.i.i61
-  %call17.us.i.i88 = tail call ptr @__errno_location() #21
+  %call17.us.i.i88 = tail call ptr @__errno_location() #22
   %9 = load i32, ptr %call17.us.i.i88, align 4
   %cmp18.us.i.i89 = icmp eq i32 %9, 4
   br i1 %cmp18.us.i.i89, label %while.cond.backedge.us.i.i68, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit94.thread
@@ -378,7 +378,7 @@ if.end25.us.i:                                    ; preds = %if.end22.us.i
   br label %while.cond.backedge.us.i
 
 if.then16.us.i:                                   ; preds = %if.end.us.i
-  %call17.us.i = tail call ptr @__errno_location() #21
+  %call17.us.i = tail call ptr @__errno_location() #22
   %11 = load i32, ptr %call17.us.i, align 4
   %cmp18.us.i = icmp eq i32 %11, 4
   br i1 %cmp18.us.i, label %while.cond.backedge.us.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread
@@ -418,7 +418,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   br i1 %or.cond, label %return, label %if.end29
 
 if.end29:                                         ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit
-  %call32 = call i64 @strnlen(ptr noundef nonnull %header_name, i64 noundef %retval.0.i) #22
+  %call32 = call i64 @strnlen(ptr noundef nonnull %header_name, i64 noundef %retval.0.i) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i)
   store i64 %call32, ptr %__args.i, align 8
   store ptr %header_name, ptr %7, align 8
@@ -427,7 +427,7 @@ if.end29:                                         ; preds = %_ZN4absl18debugging
   br i1 %tobool.not.i.i, label %if.then.i98, label %_ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES3_S6_.exit
 
 if.then.i98:                                      ; preds = %if.end29
-  call void @_ZSt25__throw_bad_function_callv() #23
+  call void @_ZSt25__throw_bad_function_callv() #24
   unreachable
 
 _ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES3_S6_.exit: ; preds = %if.end29
@@ -489,7 +489,7 @@ if.end25.us.i.i:                                  ; preds = %if.end22.us.i.i
   br label %while.cond.backedge.us.i.i
 
 if.then16.us.i.i:                                 ; preds = %if.end.us.i.i
-  %call17.us.i.i = tail call ptr @__errno_location() #21
+  %call17.us.i.i = tail call ptr @__errno_location() #22
   %0 = load i32, ptr %call17.us.i.i, align 4
   %cmp18.us.i.i = icmp eq i32 %0, 4
   br i1 %cmp18.us.i.i, label %while.cond.backedge.us.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread
@@ -567,7 +567,7 @@ if.end25.us.i.i26:                                ; preds = %if.end22.us.i.i24
   br label %while.cond.backedge.us.i.i28
 
 if.then16.us.i.i47:                               ; preds = %if.end.us.i.i21
-  %call17.us.i.i48 = tail call ptr @__errno_location() #21
+  %call17.us.i.i48 = tail call ptr @__errno_location() #22
   %4 = load i32, ptr %call17.us.i.i48, align 4
   %cmp18.us.i.i49 = icmp eq i32 %4, 4
   br i1 %cmp18.us.i.i49, label %while.cond.backedge.us.i.i28, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit54.thread
@@ -652,7 +652,7 @@ if.end25.us.i.i71:                                ; preds = %if.end22.us.i.i69
   br label %while.cond.backedge.us.i.i73
 
 if.then16.us.i.i92:                               ; preds = %if.end.us.i.i66
-  %call17.us.i.i93 = tail call ptr @__errno_location() #21
+  %call17.us.i.i93 = tail call ptr @__errno_location() #22
   %8 = load i32, ptr %call17.us.i.i93, align 4
   %cmp18.us.i.i94 = icmp eq i32 %8, 4
   br i1 %cmp18.us.i.i94, label %while.cond.backedge.us.i.i73, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit99.thread
@@ -725,7 +725,7 @@ if.end25.us.i:                                    ; preds = %if.end22.us.i
   br label %while.cond.backedge.us.i
 
 if.then16.us.i:                                   ; preds = %if.end.us.i
-  %call17.us.i = tail call ptr @__errno_location() #21
+  %call17.us.i = tail call ptr @__errno_location() #22
   %10 = load i32, ptr %call17.us.i, align 4
   %cmp18.us.i = icmp eq i32 %10, 4
   br i1 %cmp18.us.i, label %while.cond.backedge.us.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread
@@ -813,7 +813,7 @@ if.end:                                           ; preds = %_ZN4absl13base_inte
   br i1 %cmp6.not.i, label %return, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end
-  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE, i32 noundef %5) #24
+  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE, i32 noundef %5) #25
   br label %return
 
 return:                                           ; preds = %entry, %if.then7.i, %if.end, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit
@@ -890,7 +890,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   br i1 %cmp6.not.i, label %return, label %if.then7.i
 
 if.then7.i:                                       ; preds = %for.end
-  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE, i32 noundef %8) #24
+  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE, i32 noundef %8) #25
   br label %return
 
 return:                                           ; preds = %entry, %if.then7.i, %for.end, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit
@@ -943,7 +943,7 @@ if.end4:                                          ; preds = %if.end, %if.else
   br i1 %cmp6.not.i, label %return, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end4
-  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE, i32 noundef %7) #24
+  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE, i32 noundef %7) #25
   br label %return
 
 return:                                           ; preds = %entry, %if.then7.i, %if.end4, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit
@@ -958,7 +958,7 @@ entry:
   br i1 %cmp.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
-  tail call void @abort() #25
+  tail call void @abort() #26
   unreachable
 
 cond.end:                                         ; preds = %entry
@@ -966,7 +966,7 @@ cond.end:                                         ; preds = %entry
   br i1 %cmp1.not, label %cond.false3, label %cond.end4
 
 cond.false3:                                      ; preds = %cond.end
-  tail call void @abort() #25
+  tail call void @abort() #26
   unreachable
 
 cond.end4:                                        ; preds = %cond.end
@@ -1005,7 +1005,7 @@ if.end:                                           ; preds = %_ZN4absl13base_inte
   br i1 %cmp5, label %if.else, label %if.end22
 
 if.else:                                          ; preds = %if.end
-  %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filename) #22
+  %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filename) #23
   %add = add i64 %call7, 1
   %9 = load atomic i64, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_116g_sig_safe_arenaE acquire, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %9 to ptr
@@ -1041,7 +1041,7 @@ if.end22:                                         ; preds = %if.end, %do.end16
   br i1 %cmp6.not.i, label %return, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end22
-  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE, i32 noundef %12) #24
+  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE, i32 noundef %12) #25
   br label %return
 
 return:                                           ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116InitSigSafeArenaEv.exit, %if.then7.i, %if.end22, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit
@@ -1125,7 +1125,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   br i1 %cmp6.not.i, label %return, label %if.then7.i
 
 if.then7.i:                                       ; preds = %for.end
-  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE, i32 noundef %13) #24
+  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE, i32 noundef %13) #25
   br label %return
 
 return:                                           ; preds = %entry, %if.then7.i, %for.end, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit
@@ -1150,7 +1150,7 @@ entry:
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  tail call void @abort() #25
+  tail call void @abort() #26
   unreachable
 
 cond.end:                                         ; preds = %entry
@@ -1176,7 +1176,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116InitSigSafeArenaEv.exit.i: ; preds =
   br i1 %cmp.not.i, label %if.end.i, label %_ZN4absl18debugging_internalL18AllocateSymbolizerEv.exit
 
 if.end.i:                                         ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116InitSigSafeArenaEv.exit.i
-  %call.i.i = tail call i64 @sysconf(i32 noundef 30) #20
+  %call.i.i = tail call i64 @sysconf(i32 noundef 30) #21
   %div.i.i = udiv i64 22559, %call.i.i
   %add.i.i = add nuw nsw i64 %div.i.i, 1
   %mul.i.i = mul i64 %add.i.i, %call.i.i
@@ -1293,8 +1293,8 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i3.i
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   store i8 1, ptr %addr_map_read_.i.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %maps_path.i.i.i.i)
-  %call.i.i.i.i = tail call i32 @getpid() #20
-  %call1.i.i.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %maps_path.i.i.i.i, i64 noundef 80, ptr noundef nonnull @.str.13, i32 noundef %call.i.i.i.i) #20
+  %call.i.i.i.i = tail call i32 @getpid() #21
+  %call1.i.i.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %maps_path.i.i.i.i, i64 noundef 80, ptr noundef nonnull @.str.13, i32 noundef %call.i.i.i.i) #21
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i, %if.then3.i.i.i
@@ -1303,7 +1303,7 @@ do.body.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i, %
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %while.cond.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %do.body.i.i.i.i
-  %call4.i.i.i.i = tail call ptr @__errno_location() #21
+  %call4.i.i.i.i = tail call ptr @__errno_location() #22
   %14 = load i32, ptr %call4.i.i.i.i, align 4
   %cmp5.i.i.i.i = icmp eq i32 %14, 4
   br i1 %cmp5.i.i.i.i, label %do.body.i.i.i.i, label %do.body8.i.i.i.i, !llvm.loop !14
@@ -1358,7 +1358,7 @@ lpad.loopexit.split-lp.i.loopexit.split-lp.i.i.i: ; preds = %do.body8.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %lpad.loopexit.split-lp.i.loopexit.split-lp.i.i.i, %lpad.loopexit.split-lp.i.loopexit.i.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.i.loopexit.split-lp.loopexit.split-lp.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.i.loopexit.split-lp.loopexit.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.i.loopexit.i.i, %lpad.loopexit.i.loopexit.i.i.i
   %lpad.phi.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %lpad.loopexit.i.loopexit.i.i.i ], [ %lpad.loopexit59.i.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i ], [ %lpad.loopexit.split-lp60.i.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i ], [ %lpad.loopexit57.i.i.i, %lpad.loopexit.split-lp.i.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad.loopexit.split-lp.i.loopexit.split-lp.i.i.i ], [ %lpad.loopexit.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.i.loopexit.i.i ], [ %lpad.loopexit173.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.i.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp174.i.i, %lpad.loopexit.i.loopexit.split-lp.loopexit.i.loopexit.split-lp.loopexit.split-lp.i.i ]
-  call fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev(i32 %call3.i.i.i.i) #20
+  call fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev(i32 %call3.i.i.i.i) #21
   resume { ptr, i32 } %lpad.phi.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %do.body.i.i.i.i, %while.cond.i.i.i.i.backedge
@@ -1388,7 +1388,7 @@ call.i42.noexc.i.i.i:                             ; preds = %do.body.i41.i.i.i
   br i1 %cmp6.i.i.i.i, label %land.rhs.i47.i.i.i, label %if.end.i.i.i.i
 
 land.rhs.i47.i.i.i:                               ; preds = %call.i42.noexc.i.i.i
-  %call7.i.i.i.i = tail call ptr @__errno_location() #21
+  %call7.i.i.i.i = tail call ptr @__errno_location() #22
   %15 = load i32, ptr %call7.i.i.i.i, align 4
   %cmp8.i.i.i.i = icmp eq i32 %15, 4
   br i1 %cmp8.i.i.i.i, label %do.body.i41.i.i.i, label %do.body10.i.i.i.i, !llvm.loop !16
@@ -1407,7 +1407,7 @@ while.end.i45.i.i.i:                              ; preds = %if.end.i.i.i.i, %wh
   br i1 %cmp17.not.i.i.i.i, label %cond.false19.i.i.i.i, label %call2.i.noexc.i.i.i.i
 
 cond.false19.i.i.i.i:                             ; preds = %while.end.i45.i.i.i
-  tail call void @abort() #25
+  tail call void @abort() #26
   unreachable
 
 call2.i.noexc.i.i.i.i:                            ; preds = %while.end.i45.i.i.i
@@ -1424,14 +1424,14 @@ if.else.i.i.i.i.i:                                ; preds = %while.cond.i.i.i.i
   br i1 %cmp10.not.i.i.i.i.i, label %cond.false.i.i.i.i.i, label %_ZNK4absl18debugging_internal12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i.i.i.i.i
 
 cond.false.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i
-  tail call void @abort() #25
+  tail call void @abort() #26
   unreachable
 
 _ZNK4absl18debugging_internal12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %reader.sroa.20.0.i.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr6.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr6.i.i.i.i.i, i32 noundef 10, i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i) #22
+  %call.i.i.i.i.i.i.i = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr6.i.i.i.i.i, i32 noundef 10, i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i) #23
   %cmp.i9.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i, null
   br i1 %cmp.i9.not.i.i.i.i.i, label %if.then12.i.i.i.i.i, label %if.end31.i.i.i.i.i
 
@@ -1448,7 +1448,7 @@ while.cond.preheader.i.i.i:                       ; preds = %if.then12.i.i.i.i.i
   br i1 %cmp514.not.i.i.i, label %if.then.i60.i.i.i.i, label %do.body.preheader.i.i.i
 
 cond.false3.i.i.i:                                ; preds = %if.then12.i.i.i.i.i
-  tail call void @abort() #25
+  tail call void @abort() #26
   unreachable
 
 while.cond.i.i.i:                                 ; preds = %if.end.i151.i.i
@@ -1471,7 +1471,7 @@ call.i150.noexc.i.i:                              ; preds = %do.body.i149.i.i
   br i1 %cmp6.i.i.i, label %land.rhs.i.i.i, label %if.end.i151.i.i
 
 land.rhs.i.i.i:                                   ; preds = %call.i150.noexc.i.i
-  %call7.i.i.i = tail call ptr @__errno_location() #21
+  %call7.i.i.i = tail call ptr @__errno_location() #22
   %16 = load i32, ptr %call7.i.i.i, align 4
   %cmp8.i.i.i = icmp eq i32 %16, 4
   br i1 %cmp8.i.i.i, label %do.body.i149.i.i, label %do.body10.i.i.i, !llvm.loop !16
@@ -1490,7 +1490,7 @@ while.end.i153.i.i:                               ; preds = %if.end.i151.i.i, %w
   br i1 %cmp17.not.i.i.i, label %cond.false19.i.i.i, label %call22.i.noexc.i.i.i.i
 
 cond.false19.i.i.i:                               ; preds = %while.end.i153.i.i
-  tail call void @abort() #25
+  tail call void @abort() #26
   unreachable
 
 call22.i.noexc.i.i.i.i:                           ; preds = %while.end.i153.i.i
@@ -1508,7 +1508,7 @@ if.end31.i.i.i.i.i:                               ; preds = %if.end25.i.i.i.i.i,
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %reader.sroa.20.1.i.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %reader.sroa.11.0.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %call.i.i.i.i.i.i = tail call noundef ptr @memchr(ptr noundef nonnull %reader.sroa.11.0.i.i.i.i, i32 noundef 10, i64 noundef %sub.ptr.sub.i.i.i.i.i.i) #22
+  %call.i.i.i.i.i.i = tail call noundef ptr @memchr(ptr noundef nonnull %reader.sroa.11.0.i.i.i.i, i32 noundef 10, i64 noundef %sub.ptr.sub.i.i.i.i.i.i) #23
   %call.i.i86.i.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i to i64
   %cmp35.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i, null
   br i1 %cmp35.i.i.i.i.i, label %if.then.i60.i.i.i.i, label %if.end20.i.i.i.i
@@ -1575,7 +1575,7 @@ for.end.i.i.i.i.i.i:                              ; preds = %for.end.i.loopexit.
   br i1 %cmp12.not.i.i.i.i.i.i, label %cond.false14.i.i.i.i.i.i, label %invoke.cont21.i.i.i.i
 
 cond.false14.i.i.i.i.i.i:                         ; preds = %for.end.i.i.i.i.i.i
-  tail call void @abort() #25
+  tail call void @abort() #26
   unreachable
 
 invoke.cont21.i.i.i.i:                            ; preds = %for.end.i.i.i.i.i.i
@@ -1657,7 +1657,7 @@ for.end.i.i18.i.i.i.i:                            ; preds = %for.end.i.loopexit.
   br i1 %cmp12.not.i.i21.i.i.i.i, label %cond.false14.i.i22.i.i.i.i, label %invoke.cont32.i.i.i.i
 
 cond.false14.i.i22.i.i.i.i:                       ; preds = %for.end.i.i18.i.i.i.i
-  tail call void @abort() #25
+  tail call void @abort() #26
   unreachable
 
 invoke.cont32.i.i.i.i:                            ; preds = %for.end.i.i18.i.i.i.i
@@ -1779,7 +1779,7 @@ while.body74.preheader.i.i.i.i:                   ; preds = %while.cond72.prehea
   br label %while.body74.i.i.i.i
 
 cond.false14.i.i.i.i.i:                           ; preds = %for.end.i.i.i.i.i
-  tail call void @abort() #25
+  tail call void @abort() #26
   unreachable
 
 while.body74.i.i.i.i:                             ; preds = %if.end81.i.i.i.i, %while.body74.preheader.i.i.i.i
@@ -1867,7 +1867,7 @@ for.end.i53.i.i.i.i:                              ; preds = %for.inc.i.i.i.i.i, 
   br i1 %cmp6.not.i.i.i.i.i.i, label %invoke.cont84.i.i.i.i, label %if.then7.i.i.i.i.i.i
 
 if.then7.i.i.i.i.i.i:                             ; preds = %for.end.i53.i.i.i.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE, i32 noundef %49) #24
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE, i32 noundef %49) #25
           to label %invoke.cont84.i.i.i.i unwind label %lpad.loopexit.i.loopexit.split-lp.loopexit.i.loopexit.split-lp.loopexit.i.i
 
 invoke.cont84.i.i.i.i:                            ; preds = %if.then7.i.i.i.i.i.i, %for.end.i53.i.i.i.i
@@ -1922,7 +1922,7 @@ if.then10.i.i.i.i:                                ; preds = %if.else.i25.i.i.i
   br i1 %cmp12.not.i.i.i.i, label %lor.lhs.false.i32.i.i.i, label %do.body17.i.i.i.i
 
 lor.lhs.false.i32.i.i.i:                          ; preds = %if.then10.i.i.i.i
-  %call14.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre.i.i.i.i, ptr noundef nonnull dereferenceable(1) %cursor.335.i.i.i.i) #22
+  %call14.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre.i.i.i.i, ptr noundef nonnull dereferenceable(1) %cursor.335.i.i.i.i) #23
   %cmp15.not.i.i.i.i = icmp eq i32 %call14.i.i.i.i, 0
   br i1 %cmp15.not.i.i.i.i, label %while.cond.i.i.i.i.backedge, label %do.body17.i.i.i.i
 
@@ -1957,7 +1957,7 @@ land.lhs.true.i31.i.i.i:                          ; preds = %if.else22.i.i.i.i
 
 land.lhs.true30.i.i.i.i:                          ; preds = %land.lhs.true.i31.i.i.i
   %67 = load ptr, ptr %arrayidx.i.i23.i.i.i, align 8
-  %call32.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %cursor.335.i.i.i.i) #22
+  %call32.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %cursor.335.i.i.i.i) #23
   %cmp33.i.i.i.i = icmp eq i32 %call32.i.i.i.i, 0
   br i1 %cmp33.i.i.i.i, label %if.then34.i.i.i.i, label %if.end39.i.i.i.i
 
@@ -2015,7 +2015,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_17AddrMap3AddEv.exit.i.i.i.i: ; preds =
   store i32 -1, ptr %elf_type.i.i.i.i.i.i, align 4
   %elf_header2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i36.i.i.i.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %elf_header2.i.i.i.i.i.i, i8 0, i64 288, i1 false)
-  %call.i.i27.i.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %cursor.335.i.i.i.i) #22
+  %call.i.i27.i.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %cursor.335.i.i.i.i) #23
   %add.i37.i.i.i.i = add i64 %call.i.i27.i.i.i, 1
   %75 = load atomic i64, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_116g_sig_safe_arenaE acquire, align 8
   %atomic-temp.i.0.i.i.i38.i.i.i.i = inttoptr i64 %75 to ptr
@@ -2058,7 +2058,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i60.i.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  tail call void @__clang_call_terminate(ptr %77) #25
+  tail call void @__clang_call_terminate(ptr %77) #26
   unreachable
 
 _ZN4absl18debugging_internalL11ReadAddrMapEPFbPKcPKvS4_mPvES5_S5_m.exit.i.i.i: ; preds = %if.then.i60.i.i.i.i
@@ -2106,7 +2106,7 @@ if.then20.i.i.i:                                  ; preds = %while.end.i.i.i
   br i1 %cmp24.i.i.i, label %cond.end.i.i.i, label %cond.false.i.i.i
 
 cond.false.i.i.i:                                 ; preds = %if.then20.i.i.i
-  tail call void @abort() #25
+  tail call void @abort() #26
   unreachable
 
 cond.end.i.i.i:                                   ; preds = %if.then20.i.i.i
@@ -2162,7 +2162,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i18
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
   %85 = load ptr, ptr %arrayidx.i18.i.i.i, align 8
-  %call6.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(15) @.str.19) #22
+  %call6.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(15) @.str.19) #23
   %cmp7.i.i.i = icmp eq i32 %call6.i.i.i, 0
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
@@ -2234,7 +2234,7 @@ if.end14.i.do.body.i_crit_edge.i.i:               ; preds = %if.end14.i.i.i
 
 do.body.i.i.i:                                    ; preds = %if.end14.i.do.body.i_crit_edge.i.i, %if.then8.i.i.i
   %90 = phi ptr [ %.pre374.i.i, %if.end14.i.do.body.i_crit_edge.i.i ], [ %85, %if.then8.i.i.i ]
-  %call19.i.i.i = tail call ptr @__errno_location() #21
+  %call19.i.i.i = tail call ptr @__errno_location() #22
   %91 = load i32, ptr %call19.i.i.i, align 4
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 1383, ptr noundef nonnull @.str.20, ptr noundef %90, i32 noundef %91)
   br label %_ZN4absl18debugging_internalL22MaybeInitializeObjFileEPNS0_12_GLOBAL__N_17ObjFileE.exit.thread.i.i
@@ -2269,7 +2269,7 @@ if.end25.us.i.i95.i.i.i:                          ; preds = %if.end22.us.i.i93.i
   br label %while.cond.backedge.us.i.i97.i.i.i
 
 if.then16.us.i.i116.i.i.i:                        ; preds = %if.end.us.i.i90.i.i.i
-  %call17.us.i.i117.i.i.i = tail call ptr @__errno_location() #21
+  %call17.us.i.i117.i.i.i = tail call ptr @__errno_location() #22
   %93 = load i32, ptr %call17.us.i.i117.i.i.i, align 4
   %cmp18.us.i.i118.i.i.i = icmp eq i32 %93, 4
   br i1 %cmp18.us.i.i118.i.i.i, label %while.cond.backedge.us.i.i97.i.i.i, label %do.body.i.i119.i.i.i
@@ -2352,7 +2352,7 @@ if.end25.us.i.i.i.i.i:                            ; preds = %if.end22.us.i.i.i.i
   br label %while.cond.backedge.us.i.i.i.i.i
 
 if.then16.us.i.i.i.i.i:                           ; preds = %if.end.us.i.i.i.i.i
-  %call17.us.i.i.i.i.i = tail call ptr @__errno_location() #21
+  %call17.us.i.i.i.i.i = tail call ptr @__errno_location() #22
   %96 = load i32, ptr %call17.us.i.i.i.i.i, align 4
   %cmp18.us.i.i.i.i.i = icmp eq i32 %96, 4
   br i1 %cmp18.us.i.i.i.i.i, label %while.cond.backedge.us.i.i.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i.i.i
@@ -2446,7 +2446,7 @@ if.end25.us.i.i49.i.i.i:                          ; preds = %if.end22.us.i.i47.i
   br label %while.cond.backedge.us.i.i51.i.i.i
 
 if.then16.us.i.i70.i.i.i:                         ; preds = %if.end.us.i.i44.i.i.i
-  %call17.us.i.i71.i.i.i = tail call ptr @__errno_location() #21
+  %call17.us.i.i71.i.i.i = tail call ptr @__errno_location() #22
   %101 = load i32, ptr %call17.us.i.i71.i.i.i, align 4
   %cmp18.us.i.i72.i.i.i = icmp eq i32 %101, 4
   br i1 %cmp18.us.i.i72.i.i.i, label %while.cond.backedge.us.i.i51.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit77.thread.i.i.i
@@ -2673,7 +2673,7 @@ if.end25.us.i.i.i68.i.i:                          ; preds = %if.end22.us.i.i.i66
   br label %while.cond.backedge.us.i.i.i70.i.i
 
 if.then16.us.i.i.i114.i.i:                        ; preds = %if.end.us.i.i.i63.i.i
-  %call17.us.i.i.i115.i.i = tail call ptr @__errno_location() #21
+  %call17.us.i.i.i115.i.i = tail call ptr @__errno_location() #22
   %124 = load i32, ptr %call17.us.i.i.i115.i.i, align 4
   %cmp18.us.i.i.i116.i.i = icmp eq i32 %124, 4
   br i1 %cmp18.us.i.i.i116.i.i, label %while.cond.backedge.us.i.i.i70.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread.i.i.i.i
@@ -2742,7 +2742,7 @@ for.body20.preheader.i.i.i.i:                     ; preds = %for.cond18.preheade
   br label %for.body20.i.i.i.i
 
 cond.false16.i.i.i.i:                             ; preds = %if.end12.i.i.i.i
-  tail call void @abort() #25
+  tail call void @abort() #26
   unreachable
 
 for.cond18.i.i.i.i:                               ; preds = %for.body20.i.i.i.i
@@ -2807,7 +2807,7 @@ if.end25.us.i.i23.i.i.i:                          ; preds = %if.end22.us.i.i21.i
   br label %while.cond.backedge.us.i.i25.i.i.i
 
 if.then16.us.i.i43.i.i.i:                         ; preds = %if.end.us.i.i18.i.i.i
-  %call17.us.i.i44.i.i.i = tail call ptr @__errno_location() #21
+  %call17.us.i.i44.i.i.i = tail call ptr @__errno_location() #22
   %127 = load i32, ptr %call17.us.i.i44.i.i.i, align 4
   %cmp18.us.i.i45.i.i.i = icmp eq i32 %127, 4
   br i1 %cmp18.us.i.i45.i.i.i, label %while.cond.backedge.us.i.i25.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i112.i.i
@@ -2890,7 +2890,7 @@ if.end25.us.i.i67.i.i.i:                          ; preds = %if.end22.us.i.i65.i
   br label %while.cond.backedge.us.i.i69.i.i.i
 
 if.then16.us.i.i94.i.i.i:                         ; preds = %if.end.us.i.i62.i.i.i
-  %call17.us.i.i95.i.i.i = tail call ptr @__errno_location() #21
+  %call17.us.i.i95.i.i.i = tail call ptr @__errno_location() #22
   %128 = load i32, ptr %call17.us.i.i95.i.i.i, align 4
   %cmp18.us.i.i96.i.i.i = icmp eq i32 %128, 4
   br i1 %cmp18.us.i.i96.i.i.i, label %while.cond.backedge.us.i.i69.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread7.i.i.i.i
@@ -2930,7 +2930,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   br i1 %cmp6.i84.i.i.i, label %cond.end.i.i.i.i, label %cond.false.i.i.i.i
 
 cond.false.i.i.i.i:                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i82.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread7.i.i.i.i
-  tail call void @abort() #25
+  tail call void @abort() #26
   unreachable
 
 cond.end.i.i.i.i:                                 ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i82.i.i.i
@@ -2940,7 +2940,7 @@ cond.end.i.i.i.i:                                 ; preds = %_ZN4absl18debugging
   br i1 %cmp7.i.i.i.i, label %cond.end10.i.i.i.i, label %cond.false9.i.i.i.i
 
 cond.false9.i.i.i.i:                              ; preds = %cond.end.i.i.i.i
-  tail call void @abort() #25
+  tail call void @abort() #26
   unreachable
 
 cond.end10.i.i.i.i:                               ; preds = %cond.end.i.i.i.i
@@ -2952,7 +2952,7 @@ for.cond16.preheader.i.i.i.i:                     ; preds = %cond.end10.i.i.i.i
   br i1 %cmp1748.not.i.i.i.i, label %for.end.i89.i.i.i, label %for.body18.i.i.i.i
 
 cond.false14.i.i.i.i:                             ; preds = %cond.end10.i.i.i.i
-  tail call void @abort() #25
+  tail call void @abort() #26
   unreachable
 
 for.body18.i.i.i.i:                               ; preds = %for.cond16.preheader.i.i.i.i, %for.inc.i.i109.i.i
@@ -3062,7 +3062,7 @@ if.end25.us.i62.i.i.i.i:                          ; preds = %if.end22.us.i60.i.i
   br label %while.cond.backedge.us.i64.i.i.i.i
 
 if.then16.us.i66.i.i.i.i:                         ; preds = %if.end.us.i57.i.i.i.i
-  %call17.us.i67.i.i.i.i = tail call ptr @__errno_location() #21
+  %call17.us.i67.i.i.i.i = tail call ptr @__errno_location() #22
   %139 = load i32, ptr %call17.us.i67.i.i.i.i, align 4
   %cmp18.us.i68.i.i.i.i = icmp eq i32 %139, 4
   br i1 %cmp18.us.i68.i.i.i.i, label %while.cond.backedge.us.i64.i.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.thread.i.i.i.i
@@ -3117,7 +3117,7 @@ do.body56.i.i.i.i:                                ; preds = %do.body52.i.i.i.i
   unreachable
 
 do.end62.i.i.i.i:                                 ; preds = %do.body52.i.i.i.i
-  %call63.i.i.i.i = tail call noundef ptr @memchr(ptr noundef nonnull %symbol_buf_.i, i32 noundef 0, i64 noundef %retval.0.i65.i.i.i.i) #22
+  %call63.i.i.i.i = tail call noundef ptr @memchr(ptr noundef nonnull %symbol_buf_.i, i32 noundef 0, i64 noundef %retval.0.i65.i.i.i.i) #23
   %cmp64.i.i.i.i = icmp eq ptr %call63.i.i.i.i, null
   br i1 %cmp64.i.i.i.i, label %if.then65.i.i.i.i, label %if.then42.i.i
 
@@ -3146,7 +3146,7 @@ if.then42.i.i:                                    ; preds = %do.end62.i.i.i.i
   br i1 %call.i117.i.i, label %if.then.i118.i.i, label %if.end73.i.i
 
 if.then.i118.i.i:                                 ; preds = %if.then42.i.i
-  %call1.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %tmp_buf_.ptr.i.i.i) #22
+  %call1.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %tmp_buf_.ptr.i.i.i) #23
   %add.i119.i.i = add i64 %call1.i.i.i, 1
   %cmp.i120.i.i = icmp ult i64 %add.i119.i.i, 3073
   br i1 %cmp.i120.i.i, label %if.then2.i.i.i, label %if.end73.i.i
@@ -3156,7 +3156,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i118.i.i
   br i1 %cmp3.i121.i.i, label %cond.end.i123.i.i, label %cond.false.i122.i.i
 
 cond.false.i122.i.i:                              ; preds = %if.then2.i.i.i
-  tail call void @abort() #25
+  tail call void @abort() #26
   unreachable
 
 cond.end.i123.i.i:                                ; preds = %if.then2.i.i.i
@@ -3175,7 +3175,7 @@ if.then51.i.i:                                    ; preds = %if.else49.i.i
 
 if.then53.i.i:                                    ; preds = %if.then51.i.i
   %142 = load ptr, ptr %symbol_info.i.i, align 8
-  %call54.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %142) #22
+  %call54.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %142) #23
   %add56.i.i = add i64 %call54.i.i, 1
   %cmp57.i.i = icmp ugt i64 %add56.i.i, 3071
   br i1 %cmp57.i.i, label %do.body60.i.i, label %do.end66.i.i
@@ -3248,7 +3248,7 @@ if.end95.i.i:                                     ; preds = %for.body87.i.i, %if
   br i1 %cmp6.not.i.i.i, label %if.end96.i.i, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end95.i.i
-  call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE, i32 noundef %153) #24
+  call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE, i32 noundef %153) #25
   br label %if.end96.i.i
 
 if.end96.i.i:                                     ; preds = %if.then7.i.i.i, %if.end95.i.i, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i.i, %if.end73.i.i
@@ -3262,7 +3262,7 @@ if.end101.i.i:                                    ; preds = %if.end96.i.i
   br i1 %cmp.i.i13, label %cond.false.i145.i.i, label %cond.end.i131.i.i
 
 cond.false.i145.i.i:                              ; preds = %if.end101.i.i
-  call void @abort() #25
+  call void @abort() #26
   unreachable
 
 cond.end.i131.i.i:                                ; preds = %if.end101.i.i
@@ -3306,7 +3306,7 @@ for.body.i.i139.i.i:                              ; preds = %for.body.i.i139.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i: ; preds = %for.body.i.i139.i.i
   store ptr %pc, ptr %arrayidx.i.i4.i.le, align 8
-  %call.i.i142.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %symbol_buf_.i) #22
+  %call.i.i142.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %symbol_buf_.i) #23
   %add.i.i143.i.i = add i64 %call.i.i142.i.i, 1
   %158 = load atomic i64, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_116g_sig_safe_arenaE acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i.i = inttoptr i64 %158 to ptr
@@ -3360,7 +3360,7 @@ do.end25.i.i.i:                                   ; preds = %_ZN4absl18debugging
   call void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %161)
   %arrayidx29.i.i.i = getelementptr inbounds [4 x ptr], ptr %arrayidx.i.i133.i.i, i64 0, i64 %oldest_index.1.i.i.i
   store ptr %pc, ptr %arrayidx29.i.i.i, align 8
-  %call.i39.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %symbol_buf_.i) #22
+  %call.i39.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %symbol_buf_.i) #23
   %add.i40.i.i.i = add i64 %call.i39.i.i.i, 1
   %162 = load atomic i64, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_116g_sig_safe_arenaE acquire, align 8
   %atomic-temp.i.0.i.i.i41.i.i.i = inttoptr i64 %162 to ptr
@@ -3401,7 +3401,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer9GetSymbolEPKv.exit: ; pre
 
 if.then:                                          ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer9GetSymbolEPKv.exit
   %conv = zext nneg i32 %out_size to i64
-  %call4 = call ptr @strncpy(ptr noundef %out, ptr noundef nonnull %retval.0.i17, i64 noundef %conv) #20
+  %call4 = call ptr @strncpy(ptr noundef %out, ptr noundef nonnull %retval.0.i17, i64 noundef %conv) #21
   %sub = add nsw i64 %conv, -1
   %arrayidx = getelementptr inbounds i8, ptr %out, i64 %sub
   %163 = load i8, ptr %arrayidx, align 1
@@ -3492,7 +3492,7 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont12.i.i
   %173 = landingpad { ptr, i32 }
           catch ptr null
   %174 = extractvalue { ptr, i32 } %173, 0
-  call void @__clang_call_terminate(ptr %174) #25
+  call void @__clang_call_terminate(ptr %174) #26
   unreachable
 
 terminate.lpad.loopexit.i.i:                      ; preds = %if.then.i.i.i40, %for.body.i.i.i29
@@ -3508,7 +3508,7 @@ terminate.lpad.loopexit.split-lp.i.i:             ; preds = %for.body8.i.i
 terminate.lpad.i.i:                               ; preds = %terminate.lpad.loopexit.split-lp.i.i, %terminate.lpad.loopexit.i.i
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i31, %terminate.lpad.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %terminate.lpad.loopexit.split-lp.i.i ]
   %175 = extractvalue { ptr, i32 } %lpad.phi.i.i, 0
-  call void @__clang_call_terminate(ptr %175) #25
+  call void @__clang_call_terminate(ptr %175) #26
   unreachable
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110SymbolizerD2Ev.exit.i: ; preds = %invoke.cont12.i.i
@@ -3589,7 +3589,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.then
   br i1 %cmp6.not.i.i, label %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %for.end.i
-  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE, i32 noundef %13) #24
+  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE, i32 noundef %13) #25
   br label %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit
 
 _ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit: ; preds = %entry, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i, %for.end.i, %if.then7.i.i
@@ -3607,40 +3607,41 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
-  tail call void @_ZSt9terminatev() #25
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
+  tail call void @_ZSt9terminatev() #26
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: cold
-declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #11
+declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #12
 
 declare noundef ptr @_ZN4absl13base_internal13LowLevelAlloc8NewArenaEj(i32 noundef) local_unnamed_addr #1
 
 declare noundef zeroext i1 @_ZN4absl13base_internal13LowLevelAlloc11DeleteArenaEPNS1_5ArenaE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) local_unnamed_addr #12
+declare i64 @sysconf(i32 noundef) local_unnamed_addr #13
 
 declare void @_ZN4absl18debugging_internal11VDSOSupportC1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 declare noundef zeroext i1 @_ZNK4absl18debugging_internal11VDSOSupport21LookupSymbolByAddressEPKvPNS0_11ElfMemImage10SymbolInfoE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #12
+declare i32 @getpid() local_unnamed_addr #13
 
 ; Function Attrs: nofree
 declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev(i32 %this.0.val) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev(i32 %this.0.val) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp sgt i32 %this.0.val, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -3656,7 +3657,7 @@ terminate.lpad:                                   ; preds = %if.then
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #25
+  tail call void @__clang_call_terminate(ptr %1) #26
   unreachable
 }
 
@@ -3679,28 +3680,28 @@ declare void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef) local_
 declare noundef zeroext i1 @_ZN4absl18debugging_internal8DemangleEPKcPcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #15
+declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+declare i32 @llvm.umax.i32(i32, i32) #18
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3713,21 +3714,22 @@ attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwri
 attributes #8 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nounwind }
-attributes #21 = { nounwind willreturn memory(none) }
-attributes #22 = { nounwind willreturn memory(read) }
-attributes #23 = { noreturn }
-attributes #24 = { cold }
-attributes #25 = { noreturn nounwind }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { nounwind }
+attributes #22 = { nounwind willreturn memory(none) }
+attributes #23 = { nounwind willreturn memory(read) }
+attributes #24 = { noreturn }
+attributes #25 = { cold }
+attributes #26 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

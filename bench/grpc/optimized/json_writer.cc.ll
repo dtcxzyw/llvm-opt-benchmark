@@ -52,19 +52,19 @@ entry:
   %got_key_.i.i = getelementptr inbounds i8, ptr %writer.i, i64 9
   store i8 0, ptr %got_key_.i.i, align 1, !noalias !4
   %output_.i.i = getelementptr inbounds i8, ptr %writer.i, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7, !noalias !4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8, !noalias !4
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter9DumpValueERKNS_12experimental4JsonE(ptr noundef nonnull align 8 dereferenceable(48) %writer.i, ptr noundef nonnull align 8 dereferenceable(56) %json)
           to label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter4DumpB5cxx11ERKNS_12experimental4JsonEi.exit unwind label %lpad.i, !noalias !4
 
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7, !noalias !4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8, !noalias !4
   resume { ptr, i32 } %0
 
 _ZN9grpc_core12_GLOBAL__N_110JsonWriter4DumpB5cxx11ERKNS_12experimental4JsonEi.exit: ; preds = %entry
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %writer.i)
   ret void
 }
@@ -91,11 +91,11 @@ entry:
   ]
 
 if.then.i.i:                                      ; preds = %entry
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #7
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #8
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i, i64 8
   store ptr @.str.5, ptr %_M_reason.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #8
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #9
   unreachable
 
 sw.default.i.i.i:                                 ; preds = %entry
@@ -120,13 +120,13 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter8ValueEndEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputIndentEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter12EscapeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
-  %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i.i) #7
-  %call3.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i.i) #7
+  %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i.i) #8
+  %call3.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i.i) #8
   %cmp.not.i.i.i56 = icmp eq i64 %call.i.i.i, %call3.i.i.i
   br i1 %cmp.not.i.i.i56, label %if.end.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter9ObjectKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 if.end.i.i.i:                                     ; preds = %for.body.i
-  %call7.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i.i) #7
+  %call7.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i.i) #8
   %add8.i.i.i = add i64 %call7.i.i.i, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i.i, i64 noundef %add8.i.i.i)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter9ObjectKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -136,7 +136,7 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter9ObjectKeyERKNSt7__cxx1112basic_stringIcS
   store i8 1, ptr %got_key_.i57, align 1
   %second.i = getelementptr inbounds i8, ptr %__begin2.i.sroa.0.075, i64 64
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter9DumpValueERKNS_12experimental4JsonE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(56) %second.i)
-  %call.i55 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.i.sroa.0.075) #9
+  %call.i55 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.i.sroa.0.075) #10
   %cmp.i.not = icmp eq ptr %call.i55, %add.ptr.i.i
   br i1 %cmp.i.not, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10DumpObjectERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEE.exit, label %for.body.i
 
@@ -189,7 +189,7 @@ _ZNK9grpc_core12experimental4Json7booleanEv.exit: ; preds = %entry
   br i1 %tobool.i54, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNK9grpc_core12experimental4Json7booleanEv.exit
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #7
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, i64 noundef 4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11)
           to label %invoke.cont unwind label %lpad
 
@@ -198,8 +198,8 @@ invoke.cont:                                      ; preds = %if.then
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #7
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #8
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #8
   br label %sw.epilog
 
 lpad:                                             ; preds = %if.then
@@ -210,11 +210,11 @@ lpad:                                             ; preds = %if.then
 lpad12:                                           ; preds = %invoke.cont
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #8
   br label %eh.resume
 
 if.else:                                          ; preds = %_ZNK9grpc_core12experimental4Json7booleanEv.exit
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #7
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull @.str.1, i64 noundef 5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15)
           to label %invoke.cont17 unwind label %lpad16
 
@@ -223,8 +223,8 @@ invoke.cont17:                                    ; preds = %if.else
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #7
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #8
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #8
   br label %sw.epilog
 
 lpad16:                                           ; preds = %if.else
@@ -235,11 +235,11 @@ lpad16:                                           ; preds = %if.else
 lpad18:                                           ; preds = %invoke.cont17
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #8
   br label %eh.resume
 
 sw.bb22:                                          ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #7
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23, ptr noundef nonnull @.str.2, i64 noundef 4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24)
           to label %invoke.cont26 unwind label %lpad25
 
@@ -248,8 +248,8 @@ invoke.cont26:                                    ; preds = %sw.bb22
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23) #7
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23) #8
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #8
   br label %sw.epilog
 
 lpad25:                                           ; preds = %sw.bb22
@@ -260,7 +260,7 @@ lpad25:                                           ; preds = %sw.bb22
 lpad27:                                           ; preds = %invoke.cont26
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23) #7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23) #8
   br label %eh.resume
 
 sw.epilog:                                        ; preds = %invoke.cont13, %invoke.cont19, %invoke.cont28, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit45, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter11ValueStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter9DumpArrayERKSt6vectorINS_12experimental4JsonESaIS4_EE.exit, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10DumpObjectERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEE.exit
@@ -269,7 +269,7 @@ sw.epilog:                                        ; preds = %invoke.cont13, %inv
 eh.resume:                                        ; preds = %lpad25, %lpad27, %lpad16, %lpad18, %lpad, %lpad12
   %ref.tmp24.sink = phi ptr [ %ref.tmp11, %lpad12 ], [ %ref.tmp11, %lpad ], [ %ref.tmp15, %lpad18 ], [ %ref.tmp15, %lpad16 ], [ %ref.tmp24, %lpad27 ], [ %ref.tmp24, %lpad25 ]
   %.pn.pn = phi { ptr, i32 } [ %7, %lpad12 ], [ %6, %lpad ], [ %9, %lpad18 ], [ %8, %lpad16 ], [ %11, %lpad27 ], [ %10, %lpad25 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24.sink) #7
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24.sink) #8
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -295,11 +295,11 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputIndentEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
-  %call = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %string) #7
+  %call = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %string) #8
   %1 = extractvalue { i64, ptr } %call, 0
   %output_.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %sub.i.i = sub i64 %call.i.i, %call3.i.i
   %cmp.not.i.i = icmp ult i64 %sub.i.i, %1
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -308,7 +308,7 @@ if.end.i.i:                                       ; preds = %if.end
   %sub4.i.i = add i64 %1, 255
   %add.i.i = sub i64 %sub4.i.i, %sub.i.i
   %and.i.i = and i64 %add.i.i, 4294967040
-  %call7.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i = add i64 %call7.i.i, %and.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -336,17 +336,18 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt18bad_variant_accessD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
   ret void
 }
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -359,7 +360,7 @@ entry:
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
@@ -379,13 +380,13 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputIndentEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
   %output_.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %cmp.not.i.i = icmp eq i64 %call.i.i, %call3.i.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit
 
 if.end.i.i:                                       ; preds = %if.end
-  %call7.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i = add i64 %call7.i.i, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit
@@ -419,13 +420,13 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %output_.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %cmp.not.i.i = icmp eq i64 %call.i.i, %call3.i.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit
 
 if.end.i.i:                                       ; preds = %if.then
-  %call7.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i = add i64 %call7.i.i, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit
@@ -450,13 +451,13 @@ if.then5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.then5, %if.end
   %output_.i.i1 = getelementptr inbounds i8, ptr %this, i64 16
-  %call.i.i2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #7
-  %call3.i.i3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #7
+  %call.i.i2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #8
+  %call3.i.i3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #8
   %cmp.not.i.i4 = icmp eq i64 %call.i.i2, %call3.i.i3
   br i1 %cmp.not.i.i4, label %if.end.i.i5, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit8
 
 if.end.i.i5:                                      ; preds = %if.end6
-  %call7.i.i6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #7
+  %call7.i.i6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #8
   %add8.i.i7 = add i64 %call7.i.i6, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1, i64 noundef %add8.i.i7)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit8
@@ -491,20 +492,20 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %output_.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %cmp.not.i.i = icmp eq i64 %call.i.i, %call3.i.i
   br i1 %cmp.not.i.i, label %if.end9.sink.split.sink.split, label %if.end9.sink.split
 
 if.else:                                          ; preds = %entry
   %output_.i.i1 = getelementptr inbounds i8, ptr %this, i64 16
-  %call.i.i2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #7
-  %call3.i.i3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #7
+  %call.i.i2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #8
+  %call3.i.i3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #8
   %cmp.not.i.i4 = icmp eq i64 %call.i.i2, %call3.i.i3
   br i1 %cmp.not.i.i4, label %if.end.i.i5, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit8
 
 if.end.i.i5:                                      ; preds = %if.else
-  %call7.i.i6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #7
+  %call7.i.i6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #8
   %add8.i.i7 = add i64 %call7.i.i6, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1, i64 noundef %add8.i.i7)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit8
@@ -516,14 +517,14 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit8: ; preds = %if.else,
   br i1 %cmp6, label %if.end9, label %if.end8
 
 if.end8:                                          ; preds = %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit8
-  %call.i.i10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #7
-  %call3.i.i11 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #7
+  %call.i.i10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #8
+  %call3.i.i11 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1) #8
   %cmp.not.i.i12 = icmp eq i64 %call.i.i10, %call3.i.i11
   br i1 %cmp.not.i.i12, label %if.end9.sink.split.sink.split, label %if.end9.sink.split
 
 if.end9.sink.split.sink.split:                    ; preds = %if.end8, %if.end
   %output_.i.i1.sink18 = phi ptr [ %output_.i.i, %if.end ], [ %output_.i.i1, %if.end8 ]
-  %call7.i.i14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1.sink18) #7
+  %call7.i.i14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1.sink18) #8
   %add8.i.i15 = add i64 %call7.i.i14, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i1.sink18, i64 noundef %add8.i.i15)
   br label %if.end9.sink.split
@@ -563,13 +564,13 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 
 if.then3:                                         ; preds = %if.end
   %output_.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %cmp.not.i.i = icmp eq i64 %call.i.i, %call3.i.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit
 
 if.end.i.i:                                       ; preds = %if.then3
-  %call7.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i = add i64 %call7.i.i, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit
@@ -580,14 +581,14 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit: ; preds = %if.then3,
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit
   %spaces.028 = phi i32 [ %mul, %while.body.lr.ph ], [ %sub, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit ]
-  %call.i.i6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i5) #7
-  %call3.i.i7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i5) #7
+  %call.i.i6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i5) #8
+  %call3.i.i7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i5) #8
   %sub.i.i = sub i64 %call.i.i6, %call3.i.i7
   %cmp.not.i.i8 = icmp ult i64 %sub.i.i, 64
   br i1 %cmp.not.i.i8, label %if.end.i.i9, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 if.end.i.i9:                                      ; preds = %while.body
-  %call7.i.i10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i5) #7
+  %call7.i.i10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i5) #8
   %add8.i.i11 = add i64 %call7.i.i10, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i5, i64 noundef %add8.i.i11)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -608,8 +609,8 @@ if.end8:                                          ; preds = %while.end
   %idx.neg = sub nsw i64 0, %conv.le
   %add.ptr = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputIndentEvE9spacesstr, i64 64), i64 %idx.neg
   %output_.i.i13 = getelementptr inbounds i8, ptr %this, i64 16
-  %call.i.i14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i13) #7
-  %call3.i.i15 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i13) #7
+  %call.i.i14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i13) #8
+  %call3.i.i15 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i13) #8
   %sub.i.i16 = sub i64 %call.i.i14, %call3.i.i15
   %cmp.not.i.i17 = icmp ult i64 %sub.i.i16, %conv.le
   br i1 %cmp.not.i.i17, label %if.end.i.i19, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit25
@@ -618,7 +619,7 @@ if.end.i.i19:                                     ; preds = %if.end8
   %sub4.i.i20 = add nuw nsw i64 %conv.le, 255
   %add.i.i21 = sub nuw nsw i64 %sub4.i.i20, %sub.i.i16
   %and.i.i22 = and i64 %add.i.i21, 256
-  %call7.i.i23 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i13) #7
+  %call7.i.i23 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i13) #8
   %add8.i.i24 = add i64 %call7.i.i23, %and.i.i22
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i13, i64 noundef %add8.i.i24)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit25
@@ -647,26 +648,26 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(
 define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter12EscapeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %string) unnamed_addr #0 align 2 {
 entry:
   %output_.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %cmp.not.i.i = icmp eq i64 %call.i.i, %call3.i.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %call7.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i = add i64 %call7.i.i, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit
 
 _ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit: ; preds = %entry, %if.end.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i8 noundef signext 34)
-  %call134 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %string) #7
+  %call134 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %string) #8
   %cmp135.not = icmp eq i64 %call134, 0
   br i1 %cmp135.not, label %for.end90, label %for.body
 
 for.body:                                         ; preds = %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit, %for.inc88
   %idx.0136 = phi i64 [ %inc89, %for.inc88 ], [ 0, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit ]
-  %call2 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %string, i64 noundef %idx.0136) #7
+  %call2 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %string, i64 noundef %idx.0136) #8
   %0 = load i8, ptr %call2, align 1
   %conv = zext i8 %0 to i32
   %1 = add i8 %0, -32
@@ -680,13 +681,13 @@ if.then:                                          ; preds = %for.body
   ]
 
 if.then10:                                        ; preds = %if.then, %if.then
-  %call.i.i40 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i41 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i40 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i41 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %cmp.not.i.i42 = icmp eq i64 %call.i.i40, %call3.i.i41
   br i1 %cmp.not.i.i42, label %if.end.i.i43, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit46
 
 if.end.i.i43:                                     ; preds = %if.then10
-  %call7.i.i44 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i44 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i45 = add i64 %call7.i.i44, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i45)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit46
@@ -696,13 +697,13 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit46: ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit46
-  %call.i.i48 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i49 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i48 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i49 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %cmp.not.i.i50 = icmp eq i64 %call.i.i48, %call3.i.i49
   br i1 %cmp.not.i.i50, label %if.end.i.i51, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit54
 
 if.end.i.i51:                                     ; preds = %if.end
-  %call7.i.i52 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i52 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i53 = add i64 %call7.i.i52, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i53)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit54
@@ -727,14 +728,14 @@ if.then16:                                        ; preds = %if.else
   ]
 
 sw.bb:                                            ; preds = %if.then16
-  %call.i.i56 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i57 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i56 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i57 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %sub.i.i = sub i64 %call.i.i56, %call3.i.i57
   %cmp.not.i.i58 = icmp ult i64 %sub.i.i, 2
   br i1 %cmp.not.i.i58, label %if.end.i.i59, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 if.end.i.i59:                                     ; preds = %sw.bb
-  %call7.i.i60 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i60 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i61 = add i64 %call7.i.i60, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i61)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -744,14 +745,14 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt1
   br label %for.inc88
 
 sw.bb18:                                          ; preds = %if.then16
-  %call.i.i64 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i65 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i64 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i65 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %sub.i.i66 = sub i64 %call.i.i64, %call3.i.i65
   %cmp.not.i.i67 = icmp ult i64 %sub.i.i66, 2
   br i1 %cmp.not.i.i67, label %if.end.i.i69, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit75
 
 if.end.i.i69:                                     ; preds = %sw.bb18
-  %call7.i.i73 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i73 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i74 = add i64 %call7.i.i73, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i74)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit75
@@ -761,14 +762,14 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt1
   br label %for.inc88
 
 sw.bb20:                                          ; preds = %if.then16
-  %call.i.i78 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i79 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i78 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i79 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %sub.i.i80 = sub i64 %call.i.i78, %call3.i.i79
   %cmp.not.i.i81 = icmp ult i64 %sub.i.i80, 2
   br i1 %cmp.not.i.i81, label %if.end.i.i83, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit89
 
 if.end.i.i83:                                     ; preds = %sw.bb20
-  %call7.i.i87 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i87 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i88 = add i64 %call7.i.i87, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i88)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit89
@@ -778,14 +779,14 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt1
   br label %for.inc88
 
 sw.bb22:                                          ; preds = %if.then16
-  %call.i.i92 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i93 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i92 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i93 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %sub.i.i94 = sub i64 %call.i.i92, %call3.i.i93
   %cmp.not.i.i95 = icmp ult i64 %sub.i.i94, 2
   br i1 %cmp.not.i.i95, label %if.end.i.i97, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit103
 
 if.end.i.i97:                                     ; preds = %sw.bb22
-  %call7.i.i101 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i101 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i102 = add i64 %call7.i.i101, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i102)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit103
@@ -795,14 +796,14 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt1
   br label %for.inc88
 
 sw.bb24:                                          ; preds = %if.then16
-  %call.i.i106 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i107 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i106 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i107 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %sub.i.i108 = sub i64 %call.i.i106, %call3.i.i107
   %cmp.not.i.i109 = icmp ult i64 %sub.i.i108, 2
   br i1 %cmp.not.i.i109, label %if.end.i.i111, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit117
 
 if.end.i.i111:                                    ; preds = %sw.bb24
-  %call7.i.i115 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i115 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i116 = add i64 %call7.i.i115, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i116)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit117
@@ -844,12 +845,12 @@ for.body53:                                       ; preds = %if.end50, %if.end63
   %idx.1131 = phi i64 [ %idx.0136, %if.end50 ], [ %inc, %if.end63 ]
   %shl = shl i32 %utf32.1132, 6
   %inc = add i64 %idx.1131, 1
-  %call54 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %string) #7
+  %call54 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %string) #8
   %cmp55 = icmp eq i64 %inc, %call54
   br i1 %cmp55, label %for.end90, label %if.end57
 
 if.end57:                                         ; preds = %for.body53
-  %call58 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %string, i64 noundef %inc) #7
+  %call58 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %string, i64 noundef %inc) #8
   %4 = load i8, ptr %call58, align 1
   %conv59 = zext i8 %4 to i32
   %and60 = and i32 %conv59, 192
@@ -894,18 +895,18 @@ if.else83:                                        ; preds = %if.end75
 for.inc88:                                        ; preds = %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit54, %if.then77, %if.else83, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit75, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit89, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit103, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit117, %sw.default
   %idx.3 = phi i64 [ %idx.0136, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit54 ], [ %idx.0136, %sw.default ], [ %idx.0136, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit117 ], [ %idx.0136, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit103 ], [ %idx.0136, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit89 ], [ %idx.0136, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit75 ], [ %idx.0136, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %inc, %if.then77 ], [ %inc, %if.else83 ]
   %inc89 = add i64 %idx.3, 1
-  %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %string) #7
+  %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %string) #8
   %cmp = icmp ult i64 %inc89, %call
   br i1 %cmp, label %for.body, label %for.end90, !llvm.loop !10
 
 for.end90:                                        ; preds = %for.inc88, %if.else40, %if.end68, %for.body53, %if.end57, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit
-  %call.i.i119 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i120 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i119 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i120 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %cmp.not.i.i121 = icmp eq i64 %call.i.i119, %call3.i.i120
   br i1 %cmp.not.i.i121, label %if.end.i.i122, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit125
 
 if.end.i.i122:                                    ; preds = %for.end90
-  %call7.i.i123 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i123 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i124 = add i64 %call7.i.i123, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i124)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit125
@@ -922,14 +923,14 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_st
 define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter11EscapeUtf16Et(ptr noundef nonnull align 8 dereferenceable(48) %this, i16 noundef zeroext %utf16) unnamed_addr #0 align 2 {
 entry:
   %output_.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %sub.i.i = sub i64 %call.i.i, %call3.i.i
   %cmp.not.i.i = icmp ult i64 %sub.i.i, 2
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %call7.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i = add i64 %call7.i.i, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -941,13 +942,13 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt1
   %idxprom = zext nneg i32 %shr to i64
   %arrayidx = getelementptr inbounds [17 x i8], ptr @_ZZN9grpc_core12_GLOBAL__N_110JsonWriter11EscapeUtf16EtE3hex, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
-  %call.i.i5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %cmp.not.i.i7 = icmp eq i64 %call.i.i5, %call3.i.i6
   br i1 %cmp.not.i.i7, label %if.end.i.i8, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit
 
 if.end.i.i8:                                      ; preds = %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %call7.i.i9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i10 = add i64 %call7.i.i9, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i10)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit
@@ -959,13 +960,13 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit: ; preds = %_ZN9grpc_
   %idxprom5 = zext nneg i32 %and4 to i64
   %arrayidx6 = getelementptr inbounds [17 x i8], ptr @_ZZN9grpc_core12_GLOBAL__N_110JsonWriter11EscapeUtf16EtE3hex, i64 0, i64 %idxprom5
   %1 = load i8, ptr %arrayidx6, align 1
-  %call.i.i12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %cmp.not.i.i14 = icmp eq i64 %call.i.i12, %call3.i.i13
   br i1 %cmp.not.i.i14, label %if.end.i.i15, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit18
 
 if.end.i.i15:                                     ; preds = %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit
-  %call7.i.i16 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i16 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i17 = add i64 %call7.i.i16, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i17)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit18
@@ -977,13 +978,13 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit18: ; preds = %_ZN9grp
   %idxprom10 = zext nneg i32 %and9 to i64
   %arrayidx11 = getelementptr inbounds [17 x i8], ptr @_ZZN9grpc_core12_GLOBAL__N_110JsonWriter11EscapeUtf16EtE3hex, i64 0, i64 %idxprom10
   %2 = load i8, ptr %arrayidx11, align 1
-  %call.i.i20 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i21 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i20 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i21 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %cmp.not.i.i22 = icmp eq i64 %call.i.i20, %call3.i.i21
   br i1 %cmp.not.i.i22, label %if.end.i.i23, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit26
 
 if.end.i.i23:                                     ; preds = %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit18
-  %call7.i.i24 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i24 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i25 = add i64 %call7.i.i24, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i25)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit26
@@ -994,13 +995,13 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit26: ; preds = %_ZN9grp
   %idxprom14 = zext nneg i32 %and13 to i64
   %arrayidx15 = getelementptr inbounds [17 x i8], ptr @_ZZN9grpc_core12_GLOBAL__N_110JsonWriter11EscapeUtf16EtE3hex, i64 0, i64 %idxprom14
   %3 = load i8, ptr %arrayidx15, align 1
-  %call.i.i28 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
-  %call3.i.i29 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call.i.i28 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
+  %call3.i.i29 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %cmp.not.i.i30 = icmp eq i64 %call.i.i28, %call3.i.i29
   br i1 %cmp.not.i.i30, label %if.end.i.i31, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit34
 
 if.end.i.i31:                                     ; preds = %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit26
-  %call7.i.i32 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #7
+  %call7.i.i32 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i) #8
   %add8.i.i33 = add i64 %call7.i.i32, 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i, i64 noundef %add8.i.i33)
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit34
@@ -1011,28 +1012,29 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit34: ; preds = %_ZN9grp
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #5
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { builtin nounwind }
+attributes #4 = { cold noreturn }
+attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

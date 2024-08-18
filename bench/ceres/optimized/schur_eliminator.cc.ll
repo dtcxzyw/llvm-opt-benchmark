@@ -499,7 +499,7 @@ define hidden void @_ZN5ceres8internal19SchurEliminatorBaseD2Ev(ptr nocapture no
 
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZN5ceres8internal19SchurEliminatorBaseD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
-  tail call void @llvm.trap() #12
+  tail call void @llvm.trap() #13
   unreachable
 }
 
@@ -540,7 +540,7 @@ define hidden void @_ZN5ceres8internal19SchurEliminatorBase6CreateERKNS0_12Linea
   br i1 %or.cond94, label %30, label %34
 
 30:                                               ; preds = %2
-  %31 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13, !noalias !4
+  %31 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14, !noalias !4
   invoke void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi2EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %31, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELi2EEESt14default_deleteIS3_EED2Ev.exit unwind label %32, !noalias !4
 
@@ -551,7 +551,7 @@ common.resume:                                    ; preds = %137, %55, %49, %44,
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #14, !noalias !4
+  tail call void @_ZdlPv(ptr noundef nonnull %31) #15, !noalias !4
   br label %common.resume
 
 _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELi2EEESt14default_deleteIS3_EED2Ev.exit: ; preds = %30
@@ -564,14 +564,14 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELi2EEESt14default_de
   br i1 %or.cond100, label %36, label %40
 
 36:                                               ; preds = %34
-  %37 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13, !noalias !7
+  %37 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14, !noalias !7
   invoke void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi3EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %37, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EEESt14default_deleteIS3_EED2Ev.exit unwind label %38, !noalias !7
 
 38:                                               ; preds = %36
   %39 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %37) #14, !noalias !7
+  tail call void @_ZdlPv(ptr noundef nonnull %37) #15, !noalias !7
   br label %common.resume
 
 _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EEESt14default_deleteIS3_EED2Ev.exit: ; preds = %36
@@ -584,14 +584,14 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EEESt14default_de
   br i1 %or.cond106, label %42, label %46
 
 42:                                               ; preds = %40
-  %43 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13, !noalias !10
+  %43 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14, !noalias !10
   invoke void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi4EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %43, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EEESt14default_deleteIS3_EED2Ev.exit unwind label %44, !noalias !10
 
 44:                                               ; preds = %42
   %45 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %43) #14, !noalias !10
+  tail call void @_ZdlPv(ptr noundef nonnull %43) #15, !noalias !10
   br label %common.resume
 
 _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EEESt14default_deleteIS3_EED2Ev.exit: ; preds = %42
@@ -602,14 +602,14 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EEESt14default_de
   br i1 %or.cond, label %47, label %51
 
 47:                                               ; preds = %46
-  %48 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13, !noalias !13
+  %48 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14, !noalias !13
   invoke void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELin1EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %48, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EEESt14default_deleteIS3_EED2Ev.exit unwind label %49, !noalias !13
 
 49:                                               ; preds = %47
   %50 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %48) #14, !noalias !13
+  tail call void @_ZdlPv(ptr noundef nonnull %48) #15, !noalias !13
   br label %common.resume
 
 _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EEESt14default_deleteIS3_EED2Ev.exit: ; preds = %47
@@ -623,14 +623,14 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EEESt14default_d
   br i1 %or.cond115, label %53, label %57
 
 53:                                               ; preds = %51
-  %54 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13, !noalias !16
+  %54 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14, !noalias !16
   invoke void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %54, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_deleteIS3_EED2Ev.exit unwind label %55, !noalias !16
 
 55:                                               ; preds = %53
   %56 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %54) #14, !noalias !16
+  tail call void @_ZdlPv(ptr noundef nonnull %54) #15, !noalias !16
   br label %common.resume
 
 _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_deleteIS3_EED2Ev.exit: ; preds = %53
@@ -646,7 +646,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   %59 = load ptr, ptr %3, align 8
   store ptr null, ptr %3, align 8
   store ptr %59, ptr %0, align 8
-  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
+  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   br label %139
 
 60:                                               ; preds = %57
@@ -659,7 +659,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   %63 = load ptr, ptr %4, align 8
   store ptr null, ptr %4, align 8
   store ptr %63, ptr %0, align 8
-  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
   br label %139
 
 64:                                               ; preds = %60
@@ -672,7 +672,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   %67 = load ptr, ptr %5, align 8
   store ptr null, ptr %5, align 8
   store ptr %67, ptr %0, align 8
-  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
   br label %139
 
 68:                                               ; preds = %64
@@ -683,7 +683,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   %70 = load ptr, ptr %6, align 8
   store ptr null, ptr %6, align 8
   store ptr %70, ptr %0, align 8
-  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #16
   br label %139
 
 71:                                               ; preds = %68
@@ -697,7 +697,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   %74 = load ptr, ptr %7, align 8
   store ptr null, ptr %7, align 8
   store ptr %74, ptr %0, align 8
-  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
+  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #16
   br label %139
 
 75:                                               ; preds = %71
@@ -709,7 +709,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   %77 = load ptr, ptr %8, align 8
   store ptr null, ptr %8, align 8
   store ptr %77, ptr %0, align 8
-  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #16
   br label %139
 
 78:                                               ; preds = %75
@@ -721,7 +721,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   %80 = load ptr, ptr %9, align 8
   store ptr null, ptr %9, align 8
   store ptr %80, ptr %0, align 8
-  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
+  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #16
   br label %139
 
 81:                                               ; preds = %78
@@ -734,7 +734,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   %84 = load ptr, ptr %10, align 8
   store ptr null, ptr %10, align 8
   store ptr %84, ptr %0, align 8
-  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #15
+  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #16
   br label %139
 
 85:                                               ; preds = %81
@@ -746,7 +746,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   %87 = load ptr, ptr %11, align 8
   store ptr null, ptr %11, align 8
   store ptr %87, ptr %0, align 8
-  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #15
+  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #16
   br label %139
 
 88:                                               ; preds = %85
@@ -757,7 +757,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   %90 = load ptr, ptr %12, align 8
   store ptr null, ptr %12, align 8
   store ptr %90, ptr %0, align 8
-  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #15
+  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #16
   br label %139
 
 91:                                               ; preds = %88
@@ -771,7 +771,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   %93 = load ptr, ptr %13, align 8
   store ptr null, ptr %13, align 8
   store ptr %93, ptr %0, align 8
-  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
+  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #16
   br label %139
 
 94:                                               ; preds = %91
@@ -783,7 +783,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   %96 = load ptr, ptr %14, align 8
   store ptr null, ptr %14, align 8
   store ptr %96, ptr %0, align 8
-  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #15
+  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #16
   br label %139
 
 97:                                               ; preds = %91
@@ -797,7 +797,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   %100 = load ptr, ptr %15, align 8
   store ptr null, ptr %15, align 8
   store ptr %100, ptr %0, align 8
-  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #15
+  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #16
   br label %139
 
 .thread:                                          ; preds = %97
@@ -809,7 +809,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   %102 = load ptr, ptr %16, align 8
   store ptr null, ptr %16, align 8
   store ptr %102, ptr %0, align 8
-  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #15
+  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #16
   br label %139
 
 103:                                              ; preds = %.thread
@@ -821,7 +821,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   %105 = load ptr, ptr %17, align 8
   store ptr null, ptr %17, align 8
   store ptr %105, ptr %0, align 8
-  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #15
+  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #16
   br label %139
 
 106:                                              ; preds = %103
@@ -832,7 +832,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   %108 = load ptr, ptr %18, align 8
   store ptr null, ptr %18, align 8
   store ptr %108, ptr %0, align 8
-  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #15
+  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #16
   br label %139
 
 .thread217:                                       ; preds = %94, %106
@@ -886,7 +886,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
           to label %135 unwind label %137
 
 135:                                              ; preds = %133
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #15
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %111, %113, %135
@@ -894,13 +894,13 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
   %136 = load ptr, ptr %20, align 8
   store ptr null, ptr %20, align 8
   store ptr %136, ptr %0, align 8
-  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #15
+  call void @_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #16
   br label %139
 
 137:                                              ; preds = %133, %130, %128, %125, %123, %120, %118, %116
   %138 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #15
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #16
   br label %common.resume
 
 139:                                              ; preds = %.critedge, %107, %104, %101, %99, %95, %92, %89, %86, %83, %79, %76, %73, %69, %66, %62, %58, %_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EEESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EEESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EEESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi2ELi2EEESt14default_deleteIS3_EED2Ev.exit
@@ -909,7 +909,7 @@ _ZNSt10unique_ptrIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEESt14default_de
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.43") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   invoke void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi4EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %4 unwind label %5
 
@@ -920,7 +920,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurElimin
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   resume { ptr, i32 } %6
 }
 
@@ -931,8 +931,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal15SchurElimin
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EEEEclEPS3_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EEEEclEPS3_.exit: ; preds = %1
-  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi4EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi4EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EEEEclEPS3_.exit, %1
@@ -942,7 +942,7 @@ _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EEEEclEPS3_.
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.51") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   invoke void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi6EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %4 unwind label %5
 
@@ -953,7 +953,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurElimin
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   resume { ptr, i32 } %6
 }
 
@@ -964,8 +964,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal15SchurElimin
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EEEEclEPS3_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EEEEclEPS3_.exit: ; preds = %1
-  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi6EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi6EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EEEEclEPS3_.exit, %1
@@ -975,7 +975,7 @@ _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EEEEclEPS3_.
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.59") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   invoke void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi9EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %4 unwind label %5
 
@@ -986,7 +986,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurElimin
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   resume { ptr, i32 } %6
 }
 
@@ -997,8 +997,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal15SchurElimin
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EEEEclEPS3_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EEEEclEPS3_.exit: ; preds = %1
-  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi9EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi9EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EEEEclEPS3_.exit, %1
@@ -1008,7 +1008,7 @@ _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EEEEclEPS3_.
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.67") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   invoke void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELin1EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %4 unwind label %5
 
@@ -1019,7 +1019,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurElimin
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   resume { ptr, i32 } %6
 }
 
@@ -1030,8 +1030,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal15SchurElimin
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EEEEclEPS3_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EEEEclEPS3_.exit: ; preds = %1
-  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELin1EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELin1EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EEEEclEPS3_.exit, %1
@@ -1041,7 +1041,7 @@ _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EEEEclEPS3_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.75") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   invoke void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi3EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %4 unwind label %5
 
@@ -1052,7 +1052,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurElimin
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   resume { ptr, i32 } %6
 }
 
@@ -1063,8 +1063,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal15SchurElimin
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EEEEclEPS3_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EEEEclEPS3_.exit: ; preds = %1
-  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi3EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi3EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EEEEclEPS3_.exit, %1
@@ -1074,7 +1074,7 @@ _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EEEEclEPS3_.
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.83") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   invoke void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi4EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %4 unwind label %5
 
@@ -1085,7 +1085,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurElimin
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   resume { ptr, i32 } %6
 }
 
@@ -1096,8 +1096,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal15SchurElimin
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EEEEclEPS3_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EEEEclEPS3_.exit: ; preds = %1
-  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi4EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi4EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EEEEclEPS3_.exit, %1
@@ -1107,7 +1107,7 @@ _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EEEEclEPS3_.
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.91") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   invoke void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi6EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %4 unwind label %5
 
@@ -1118,7 +1118,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurElimin
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   resume { ptr, i32 } %6
 }
 
@@ -1129,8 +1129,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal15SchurElimin
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EEEEclEPS3_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EEEEclEPS3_.exit: ; preds = %1
-  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi6EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi6EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EEEEclEPS3_.exit, %1
@@ -1140,7 +1140,7 @@ _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EEEEclEPS3_.
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.99") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   invoke void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi8EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %4 unwind label %5
 
@@ -1151,7 +1151,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurElimin
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   resume { ptr, i32 } %6
 }
 
@@ -1162,8 +1162,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal15SchurElimin
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EEEEclEPS3_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EEEEclEPS3_.exit: ; preds = %1
-  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi8EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi8EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EEEEclEPS3_.exit, %1
@@ -1173,7 +1173,7 @@ _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EEEEclEPS3_.
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.107") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   invoke void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi9EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %4 unwind label %5
 
@@ -1184,7 +1184,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurElimin
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   resume { ptr, i32 } %6
 }
 
@@ -1195,8 +1195,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal15SchurElimin
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EEEEclEPS3_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EEEEclEPS3_.exit: ; preds = %1
-  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi9EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi9EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EEEEclEPS3_.exit, %1
@@ -1206,7 +1206,7 @@ _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EEEEclEPS3_.
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.115") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   invoke void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELin1EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %4 unwind label %5
 
@@ -1217,7 +1217,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurElimin
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   resume { ptr, i32 } %6
 }
 
@@ -1228,8 +1228,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal15SchurElimin
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EEEEclEPS3_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EEEEclEPS3_.exit: ; preds = %1
-  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELin1EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELin1EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EEEEclEPS3_.exit, %1
@@ -1239,7 +1239,7 @@ _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EEEEclEPS3_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.123") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   invoke void @_ZN5ceres8internal15SchurEliminatorILi2ELin1ELin1EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %4 unwind label %5
 
@@ -1250,7 +1250,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurElimin
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   resume { ptr, i32 } %6
 }
 
@@ -1261,8 +1261,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal15SchurElimin
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EEEEclEPS3_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EEEEclEPS3_.exit: ; preds = %1
-  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELin1ELin1EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN5ceres8internal15SchurEliminatorILi2ELin1ELin1EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EEEEclEPS3_.exit, %1
@@ -1272,7 +1272,7 @@ _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EEEEclEPS3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.131") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   invoke void @_ZN5ceres8internal15SchurEliminatorILi3ELi3ELi3EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %4 unwind label %5
 
@@ -1283,7 +1283,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurElimin
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   resume { ptr, i32 } %6
 }
 
@@ -1294,8 +1294,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal15SchurElimin
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EEEEclEPS3_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EEEEclEPS3_.exit: ; preds = %1
-  tail call void @_ZN5ceres8internal15SchurEliminatorILi3ELi3ELi3EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN5ceres8internal15SchurEliminatorILi3ELi3ELi3EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EEEEclEPS3_.exit, %1
@@ -1305,7 +1305,7 @@ _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EEEEclEPS3_.
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.139") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   invoke void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi2EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %4 unwind label %5
 
@@ -1316,7 +1316,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurElimin
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   resume { ptr, i32 } %6
 }
 
@@ -1327,8 +1327,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal15SchurElimin
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EEEEclEPS3_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EEEEclEPS3_.exit: ; preds = %1
-  tail call void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi2EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi2EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EEEEclEPS3_.exit, %1
@@ -1338,7 +1338,7 @@ _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EEEEclEPS3_.
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.147") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   invoke void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi3EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %4 unwind label %5
 
@@ -1349,7 +1349,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurElimin
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   resume { ptr, i32 } %6
 }
 
@@ -1360,8 +1360,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal15SchurElimin
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EEEEclEPS3_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EEEEclEPS3_.exit: ; preds = %1
-  tail call void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi3EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi3EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EEEEclEPS3_.exit, %1
@@ -1371,7 +1371,7 @@ _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EEEEclEPS3_.
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.155") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   invoke void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi4EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %4 unwind label %5
 
@@ -1382,7 +1382,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurElimin
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   resume { ptr, i32 } %6
 }
 
@@ -1393,8 +1393,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal15SchurElimin
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EEEEclEPS3_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EEEEclEPS3_.exit: ; preds = %1
-  tail call void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi4EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi4EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EEEEclEPS3_.exit, %1
@@ -1404,7 +1404,7 @@ _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EEEEclEPS3_.
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.163") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   invoke void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELin1EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %4 unwind label %5
 
@@ -1415,7 +1415,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurElimin
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   resume { ptr, i32 } %6
 }
 
@@ -1426,8 +1426,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal15SchurElimin
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EEEEclEPS3_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EEEEclEPS3_.exit: ; preds = %1
-  tail call void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELin1EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELin1EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EEEEclEPS3_.exit, %1
@@ -1452,7 +1452,7 @@ declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EEEJRKNS1_12LinearSolver7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.171") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
   invoke void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %4 unwind label %5
 
@@ -1463,7 +1463,7 @@ define linkonce_odr hidden void @_ZSt11make_uniqueIN5ceres8internal15SchurElimin
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   resume { ptr, i32 } %6
 }
 
@@ -1474,8 +1474,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5ceres8internal15SchurElimin
   br i1 %.not, label %3, label %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EEEEclEPS3_.exit
 
 _ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EEEEclEPS3_.exit: ; preds = %1
-  tail call void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %3
 
 3:                                                ; preds = %_ZNKSt14default_deleteIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EEEEclEPS3_.exit, %1
@@ -1523,7 +1523,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi2
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -1534,7 +1534,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi2
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -1543,7 +1543,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -1553,18 +1553,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi2ELi2EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi2ELi2EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -1573,7 +1573,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -1608,7 +1608,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi2ELi2EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -1626,7 +1626,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi2EE5ChunkES4_EvT_S6_R
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi2EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi2EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi2EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi2EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi2EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -1650,14 +1650,15 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #12
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #13
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
@@ -1674,7 +1675,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4less
   tail call void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.07) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %.07) #15
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
@@ -1717,7 +1718,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi3
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -1728,7 +1729,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi3
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -1737,7 +1738,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -1747,18 +1748,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -1767,7 +1768,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -1794,7 +1795,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -1812,7 +1813,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkES4_EvT_S6_R
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -1866,7 +1867,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi4
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -1877,7 +1878,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi4
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -1886,7 +1887,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -1896,18 +1897,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -1916,7 +1917,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -1943,7 +1944,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -1961,7 +1962,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkES4_EvT_S6_R
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -2015,7 +2016,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELin
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -2026,7 +2027,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELin
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -2035,7 +2036,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -2045,18 +2046,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -2065,7 +2066,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -2092,7 +2093,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -2110,7 +2111,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkES4_EvT_S6_
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -2164,7 +2165,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi3
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -2175,7 +2176,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi3
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -2184,7 +2185,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -2194,18 +2195,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -2214,7 +2215,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -2241,7 +2242,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -2259,7 +2260,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkES4_EvT_S6_R
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -2313,7 +2314,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi4
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -2324,7 +2325,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi4
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -2333,7 +2334,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -2343,18 +2344,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -2363,7 +2364,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -2390,7 +2391,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -2408,7 +2409,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkES4_EvT_S6_R
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -2462,7 +2463,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi6
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -2473,7 +2474,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi6
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -2482,7 +2483,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -2492,18 +2493,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -2512,7 +2513,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -2539,7 +2540,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -2557,7 +2558,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkES4_EvT_S6_R
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -2611,7 +2612,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi9
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -2622,7 +2623,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi9
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -2631,7 +2632,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -2641,18 +2642,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -2661,7 +2662,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -2688,7 +2689,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -2706,7 +2707,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkES4_EvT_S6_R
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -2760,7 +2761,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELin
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -2771,7 +2772,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELin
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -2780,7 +2781,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -2790,18 +2791,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -2810,7 +2811,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -2837,7 +2838,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -2855,7 +2856,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkES4_EvT_S6_
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -2909,7 +2910,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi3
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -2920,7 +2921,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi3
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -2929,7 +2930,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -2939,18 +2940,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -2959,7 +2960,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -2986,7 +2987,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -3004,7 +3005,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkES4_EvT_S6_R
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -3058,7 +3059,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi4
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -3069,7 +3070,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi4
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -3078,7 +3079,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -3088,18 +3089,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -3108,7 +3109,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -3135,7 +3136,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -3153,7 +3154,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkES4_EvT_S6_R
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -3207,7 +3208,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi6
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -3218,7 +3219,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi6
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -3227,7 +3228,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -3237,18 +3238,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -3257,7 +3258,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -3284,7 +3285,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -3302,7 +3303,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkES4_EvT_S6_R
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -3356,7 +3357,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi8
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -3367,7 +3368,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi8
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -3376,7 +3377,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -3386,18 +3387,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -3406,7 +3407,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -3433,7 +3434,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -3451,7 +3452,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkES4_EvT_S6_R
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -3505,7 +3506,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi9
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -3516,7 +3517,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi9
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -3525,7 +3526,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -3535,18 +3536,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -3555,7 +3556,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -3582,7 +3583,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -3600,7 +3601,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkES4_EvT_S6_R
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -3654,7 +3655,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELin
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -3665,7 +3666,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELin
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -3674,7 +3675,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -3684,18 +3685,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -3704,7 +3705,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -3731,7 +3732,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -3749,7 +3750,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkES4_EvT_S6_
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -3803,7 +3804,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELin1ELi
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -3814,7 +3815,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELin1ELi
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -3823,7 +3824,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -3833,18 +3834,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -3853,7 +3854,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -3880,7 +3881,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -3898,7 +3899,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkES4_EvT_S6
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -3952,7 +3953,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi3ELi3ELi3
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -3963,7 +3964,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi3ELi3ELi3
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -3972,7 +3973,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -3982,18 +3983,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -4002,7 +4003,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -4029,7 +4030,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -4047,7 +4048,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkES4_EvT_S6_R
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -4101,7 +4102,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi2
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -4112,7 +4113,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi2
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -4121,7 +4122,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -4131,18 +4132,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -4151,7 +4152,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -4178,7 +4179,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -4196,7 +4197,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkES4_EvT_S6_R
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -4250,7 +4251,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi3
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -4261,7 +4262,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi3
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -4270,7 +4271,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -4280,18 +4281,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -4300,7 +4301,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -4327,7 +4328,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -4345,7 +4346,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkES4_EvT_S6_R
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -4399,7 +4400,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi4
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -4410,7 +4411,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi4
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -4419,7 +4420,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -4429,18 +4430,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -4449,7 +4450,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -4476,7 +4477,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -4494,7 +4495,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkES4_EvT_S6_R
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -4548,7 +4549,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELin
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -4559,7 +4560,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELin
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -4568,7 +4569,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -4578,18 +4579,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -4598,7 +4599,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -4625,7 +4626,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -4643,7 +4644,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkES4_EvT_S6_
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -4697,7 +4698,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1EL
           to label %20 unwind label %29
 
 20:                                               ; preds = %18
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 21:                                               ; preds = %15
@@ -4708,7 +4709,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1EL
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdlPv(ptr noundef nonnull %23) #14
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
@@ -4717,7 +4718,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %21, %24
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #14
+  call void @_ZdaPv(ptr noundef nonnull %25) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -4727,18 +4728,18 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br i1 %.not.i8, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #14
+  call void @_ZdaPv(ptr noundef nonnull %26) #15
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i9
   store ptr null, ptr %12, align 8
-  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  call void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i11 = icmp eq ptr %27, null
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %27) #14
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit10, %28
@@ -4747,7 +4748,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 29:                                               ; preds = %18, %16
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
   unreachable
 
 .critedge:                                        ; preds = %2
@@ -4774,7 +4775,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #12
+  tail call void @__clang_call_terminate(ptr %10) #13
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -4792,7 +4793,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #15
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit, %13
@@ -4823,10 +4824,11 @@ attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { builtin allocsize(0) }
-attributes #14 = { builtin nounwind }
-attributes #15 = { nounwind }
+attributes #12 = { cold nofree noreturn }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { builtin nounwind }
+attributes #16 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

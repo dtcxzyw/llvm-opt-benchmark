@@ -126,7 +126,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 
 if.then.i:                                        ; preds = %invoke.cont3.i
   %4 = load ptr, ptr @stderr, align 8
-  %5 = call i64 @fwrite(ptr nonnull @.str.2, i64 25, i64 1, ptr %4) #7
+  %5 = call i64 @fwrite(ptr nonnull @.str.2, i64 25, i64 1, ptr %4) #8
   br label %cleanup.i
 
 lpad.loopexit.i:                                  ; preds = %for.body62.i
@@ -153,7 +153,7 @@ terminate.lpad.i.i:                               ; preds = %lpad.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #8
+  call void @__clang_call_terminate(ptr %7) #9
   unreachable
 
 _ZN20ScopedOpenSSLContextI13env_md_ctx_stiXadL_Z15EVP_MD_CTX_initEEXadL_Z18EVP_MD_CTX_cleanupEEED2Ev.exit.i: ; preds = %lpad.i
@@ -166,7 +166,7 @@ for.cond.i:                                       ; preds = %invoke.cont11.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.066.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
-  %call10.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
+  %call10.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #10
   %call12.i = invoke i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx.i, ptr noundef %3, i64 noundef %call10.i)
           to label %invoke.cont11.i unwind label %lpad.loopexit.split-lp.loopexit.i
 
@@ -176,7 +176,7 @@ invoke.cont11.i:                                  ; preds = %for.body.i
 
 if.then14.i:                                      ; preds = %invoke.cont11.i
   %8 = load ptr, ptr @stderr, align 8
-  %9 = call i64 @fwrite(ptr nonnull @.str.3, i64 24, i64 1, ptr %8) #7
+  %9 = call i64 @fwrite(ptr nonnull @.str.3, i64 24, i64 1, ptr %8) #8
   br label %cleanup.i
 
 for.end.i:                                        ; preds = %for.cond.i, %for.cond.preheader.i
@@ -189,7 +189,7 @@ invoke.cont20.i:                                  ; preds = %for.end.i
 
 if.then23.i:                                      ; preds = %invoke.cont20.i
   %10 = load ptr, ptr @stderr, align 8
-  %11 = call i64 @fwrite(ptr nonnull @.str.4, i64 26, i64 1, ptr %10) #7
+  %11 = call i64 @fwrite(ptr nonnull @.str.4, i64 26, i64 1, ptr %10) #8
   br label %cleanup.i
 
 if.end26.i:                                       ; preds = %invoke.cont20.i
@@ -227,7 +227,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %if.e
   store i8 0, ptr %arrayidx10.i.i, align 2
   %expected_hex.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %18 = load ptr, ptr %expected_hex.i.i, align 8
-  %call.i27.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %digest_hex.i.i, ptr noundef nonnull dereferenceable(1) %18) #9
+  %call.i27.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %digest_hex.i.i, ptr noundef nonnull dereferenceable(1) %18) #10
   %cmp11.not.i.i = icmp eq i32 %call.i27.i, 0
   br i1 %cmp11.not.i.i, label %if.end31.i, label %invoke.cont28.i
 
@@ -237,7 +237,7 @@ invoke.cont28.i:                                  ; preds = %for.end.i.i
   %input.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %21 = load ptr, ptr %input.i.i, align 8
   %conv12.i.i = trunc i64 %2 to i32
-  %call15.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.7, ptr noundef %20, ptr noundef %21, i32 noundef %conv12.i.i, ptr noundef nonnull %digest_hex.i.i, ptr noundef %18) #7
+  %call15.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.7, ptr noundef %20, ptr noundef %21, i32 noundef %conv12.i.i, ptr noundef nonnull %digest_hex.i.i, ptr noundef %18) #8
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %digest_hex.i.i)
   br label %cleanup.i
 
@@ -257,7 +257,7 @@ invoke.cont38.i:                                  ; preds = %invoke.cont36.i
 
 if.then41.i:                                      ; preds = %invoke.cont38.i
   %23 = load ptr, ptr @stderr, align 8
-  %24 = call i64 @fwrite(ptr nonnull @.str.2, i64 25, i64 1, ptr %23) #7
+  %24 = call i64 @fwrite(ptr nonnull @.str.2, i64 25, i64 1, ptr %23) #8
   br label %cleanup.i
 
 if.end44.i:                                       ; preds = %invoke.cont38.i
@@ -284,7 +284,7 @@ for.body58.i.preheader:                           ; preds = %for.body58.lr.ph.i
 
 if.then50.i:                                      ; preds = %invoke.cont47.i
   %29 = load ptr, ptr @stderr, align 8
-  %30 = call i64 @fwrite(ptr nonnull @.str.3, i64 24, i64 1, ptr %29) #7
+  %30 = call i64 @fwrite(ptr nonnull @.str.3, i64 24, i64 1, ptr %29) #8
   br label %cleanup.i
 
 for.body58.ithread-pre-split:                     ; preds = %for.inc74.i
@@ -315,7 +315,7 @@ invoke.cont65.i:                                  ; preds = %for.body62.i
 
 if.then68.i:                                      ; preds = %invoke.cont65.i
   %33 = load ptr, ptr @stderr, align 8
-  %34 = call i64 @fwrite(ptr nonnull @.str.3, i64 24, i64 1, ptr %33) #7
+  %34 = call i64 @fwrite(ptr nonnull @.str.3, i64 24, i64 1, ptr %33) #8
   br label %cleanup.i
 
 for.inc74.i:                                      ; preds = %for.cond60.i, %for.body58.i
@@ -332,7 +332,7 @@ invoke.cont80.i:                                  ; preds = %for.end76.i
 
 if.then83.i:                                      ; preds = %invoke.cont80.i
   %35 = load ptr, ptr @stderr, align 8
-  %36 = call i64 @fwrite(ptr nonnull @.str.4, i64 26, i64 1, ptr %35) #7
+  %36 = call i64 @fwrite(ptr nonnull @.str.4, i64 26, i64 1, ptr %35) #8
   br label %cleanup.i
 
 if.end86.i:                                       ; preds = %invoke.cont80.i
@@ -352,7 +352,7 @@ invoke.cont92.i:                                  ; preds = %invoke.cont90.i
 
 if.then95.i:                                      ; preds = %invoke.cont92.i
   %39 = load ptr, ptr @stderr, align 8
-  %40 = call i64 @fwrite(ptr nonnull @.str.5, i64 29, i64 1, ptr %39) #7
+  %40 = call i64 @fwrite(ptr nonnull @.str.5, i64 29, i64 1, ptr %39) #8
   br label %cleanup.i
 
 if.end98.i:                                       ; preds = %invoke.cont92.i
@@ -388,7 +388,7 @@ for.end.i43.i:                                    ; preds = %for.body.i30.i, %if
   %mul9.i44.i = shl nuw nsw i64 %conv100.i, 1
   %arrayidx10.i45.i = getelementptr inbounds [129 x i8], ptr %digest_hex.i28.i, i64 0, i64 %mul9.i44.i
   store i8 0, ptr %arrayidx10.i45.i, align 2
-  %call.i47.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %digest_hex.i28.i, ptr noundef nonnull dereferenceable(1) %18) #9
+  %call.i47.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %digest_hex.i28.i, ptr noundef nonnull dereferenceable(1) %18) #10
   %cmp11.not.i48.i = icmp eq i32 %call.i47.i, 0
   br i1 %cmp11.not.i48.i, label %if.end104.i, label %invoke.cont101.i
 
@@ -398,7 +398,7 @@ invoke.cont101.i:                                 ; preds = %for.end.i43.i
   %input.i50.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %49 = load ptr, ptr %input.i50.i, align 8
   %conv12.i52.i = trunc i64 %2 to i32
-  %call15.i53.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.7, ptr noundef %48, ptr noundef %49, i32 noundef %conv12.i52.i, ptr noundef nonnull %digest_hex.i28.i, ptr noundef %18) #7
+  %call15.i53.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.7, ptr noundef %48, ptr noundef %49, i32 noundef %conv12.i52.i, ptr noundef nonnull %digest_hex.i28.i, ptr noundef %18) #8
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %digest_hex.i28.i)
   br label %cleanup.i
 
@@ -414,7 +414,7 @@ if.end104.i:                                      ; preds = %for.end.i43.i
 if.then109.i:                                     ; preds = %if.end104.i
   %input112.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %51 = load ptr, ptr %input112.i, align 8
-  %call114.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #9
+  %call114.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #10
   %call117.i = invoke noundef ptr %50(ptr noundef %51, i64 noundef %call114.i, ptr noundef nonnull %digest.i)
           to label %invoke.cont116.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i
 
@@ -424,7 +424,7 @@ invoke.cont116.i:                                 ; preds = %if.then109.i
 
 if.then120.i:                                     ; preds = %invoke.cont116.i
   %52 = load ptr, ptr @stderr, align 8
-  %53 = call i64 @fwrite(ptr nonnull @.str.6, i64 36, i64 1, ptr %52) #7
+  %53 = call i64 @fwrite(ptr nonnull @.str.6, i64 36, i64 1, ptr %52) #8
   br label %cleanup.i
 
 if.end123.i:                                      ; preds = %invoke.cont116.i
@@ -467,21 +467,21 @@ for.end.i29:                                      ; preds = %for.body.i16, %invo
   %mul9.i30 = shl i64 %call130.i, 1
   %arrayidx10.i31 = getelementptr inbounds [129 x i8], ptr %digest_hex.i14, i64 0, i64 %mul9.i30
   store i8 0, ptr %arrayidx10.i31, align 2
-  %call.i33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %digest_hex.i14, ptr noundef nonnull dereferenceable(1) %18) #9
+  %call.i33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %digest_hex.i14, ptr noundef nonnull dereferenceable(1) %18) #10
   %cmp11.not.i34 = icmp eq i32 %call.i33, 0
   br i1 %cmp11.not.i34, label %if.end134.i, label %_ZL13CompareDigestPK10TestVectorPKhm.exit40
 
 _ZL13CompareDigestPK10TestVectorPKhm.exit40:      ; preds = %for.end.i29
   %60 = load ptr, ptr @stderr, align 8
   %61 = load ptr, ptr %0, align 8
-  %call15.i39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.7, ptr noundef %61, ptr noundef %51, i32 noundef 1, ptr noundef nonnull %digest_hex.i14, ptr noundef %18) #7
+  %call15.i39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.7, ptr noundef %61, ptr noundef %51, i32 noundef 1, ptr noundef nonnull %digest_hex.i14, ptr noundef %18) #8
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %digest_hex.i14)
   br label %cleanup.i
 
 if.end134.i:                                      ; preds = %for.end.i29
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %digest_hex.i14)
   %62 = load ptr, ptr %one_shot_func.i, align 8
-  %call139.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #9
+  %call139.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #10
   %call141.i = invoke noundef ptr %62(ptr noundef %51, i64 noundef %call139.i, ptr noundef null)
           to label %invoke.cont140.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i
 
@@ -525,7 +525,7 @@ for.end.i9:                                       ; preds = %for.body.i7, %invok
   %mul9.i = shl i64 %call147.i, 1
   %arrayidx10.i = getelementptr inbounds [129 x i8], ptr %digest_hex.i, i64 0, i64 %mul9.i
   store i8 0, ptr %arrayidx10.i, align 2
-  %call.i10 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %digest_hex.i, ptr noundef nonnull dereferenceable(1) %18) #9
+  %call.i10 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %digest_hex.i, ptr noundef nonnull dereferenceable(1) %18) #10
   %cmp11.not.i = icmp eq i32 %call.i10, 0
   br i1 %cmp11.not.i, label %_ZL13CompareDigestPK10TestVectorPKhm.exit.thread, label %_ZL13CompareDigestPK10TestVectorPKhm.exit
 
@@ -536,7 +536,7 @@ _ZL13CompareDigestPK10TestVectorPKhm.exit.thread: ; preds = %for.end.i9
 _ZL13CompareDigestPK10TestVectorPKhm.exit:        ; preds = %for.end.i9
   %69 = load ptr, ptr @stderr, align 8
   %70 = load ptr, ptr %0, align 8
-  %call15.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.7, ptr noundef %70, ptr noundef %51, i32 noundef 1, ptr noundef nonnull %digest_hex.i, ptr noundef %18) #7
+  %call15.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.7, ptr noundef %70, ptr noundef %51, i32 noundef 1, ptr noundef nonnull %digest_hex.i, ptr noundef %18) #8
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %digest_hex.i)
   br label %cleanup.i
 
@@ -549,7 +549,7 @@ terminate.lpad.i56.i:                             ; preds = %cleanup.i
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #8
+  call void @__clang_call_terminate(ptr %72) #9
   unreachable
 
 _ZL10TestDigestPK10TestVector.exit:               ; preds = %cleanup.i
@@ -561,7 +561,7 @@ _ZL10TestDigestPK10TestVector.exit:               ; preds = %cleanup.i
 if.then:                                          ; preds = %_ZL10TestDigestPK10TestVector.exit
   %73 = load ptr, ptr @stderr, align 8
   %conv = trunc nuw nsw i64 %i.048 to i32
-  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str, i32 noundef %conv) #7
+  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str, i32 noundef %conv) #8
   br label %return
 
 for.inc:                                          ; preds = %_ZL10TestDigestPK10TestVector.exit
@@ -620,14 +620,15 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #8
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
+  tail call void @_ZSt9terminatev() #9
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 declare ptr @EVP_md4() #1
 
@@ -660,28 +661,29 @@ declare ptr @EVP_md5_sha1() #1
 declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { cold }
-attributes #8 = { noreturn nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { nounwind }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { nofree nounwind }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { cold }
+attributes #9 = { noreturn nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

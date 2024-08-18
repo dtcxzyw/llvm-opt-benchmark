@@ -42,22 +42,22 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit, !prof !7
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m, i8 0, i64 40, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   br label %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit
 
 _ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit:     ; preds = %init.i, %init.check.i, %entry
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #12
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #14
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit
@@ -73,12 +73,12 @@ call.i.noexc:                                     ; preds = %if.end.i
   br i1 %cmp.not.i, label %if.end2.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %call.i.noexc
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #11
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #13
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull @.str)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then1.i
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #12
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #14
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont.i
@@ -87,7 +87,7 @@ invoke.cont.i:                                    ; preds = %if.then1.i
 lpad.i:                                           ; preds = %if.then1.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #11
+  tail call void @__cxa_free_exception(ptr %exception.i) #13
   br label %lpad.body
 
 if.end2.i:                                        ; preds = %call.i.noexc
@@ -99,7 +99,7 @@ if.end2.i:                                        ; preds = %call.i.noexc
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %.noexc3, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %call1.i.i.i5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %call1.i.i.i5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   ret void
 
 lpad:                                             ; preds = %if.end2.i, %invoke.cont.i, %if.end.i
@@ -109,7 +109,7 @@ lpad:                                             ; preds = %if.end2.i, %invoke.
 
 lpad.body:                                        ; preds = %lpad, %lpad.i
   %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad.i ]
-  %call1.i.i.i7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %call1.i.i.i7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -147,20 +147,22 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 
 declare void @ERR_clear_error() local_unnamed_addr #6
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #13
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+  tail call void @_ZSt9terminatev() #15
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
@@ -173,22 +175,22 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit, !prof !7
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m, i8 0, i64 40, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   br label %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit
 
 _ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit:     ; preds = %init.i, %init.check.i, %entry
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #12
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #14
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit
@@ -204,13 +206,13 @@ if.end.i:                                         ; preds = %_ZNSt10lock_guardIS
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %.noexc, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   ret void
 
 lpad:                                             ; preds = %if.end.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   resume { ptr, i32 } %2
 }
 
@@ -224,27 +226,27 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit, !prof !7
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m, i8 0, i64 40, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   br label %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit
 
 _ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit:     ; preds = %init.i, %init.check.i, %entry
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #12
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #14
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit
   store i1 true, ptr @_ZN5folly3ssl12_GLOBAL__N_112initialized_E, align 1
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   ret void
 }
 
@@ -258,22 +260,22 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit, !prof !7
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m, i8 0, i64 40, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   br label %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit
 
 _ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit:     ; preds = %init.i, %init.check.i, %entry
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #12
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #14
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit
@@ -281,7 +283,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN5folly3ssl12_GLO
   br i1 %.b33, label %cond.false, label %cleanup.done20, !prof !8
 
 cond.false:                                       ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp3) #11
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp3) #13
   invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3, ptr noundef nonnull @.str.1, i32 noundef 92)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -298,19 +300,19 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %cleanup.action unwind label %lpad7
 
 cleanup.action:                                   ; preds = %invoke.cont10
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #13
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #15
   unreachable
 
 lpad4:                                            ; preds = %cond.false
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp3) #11
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp3) #13
   br label %ehcleanup30
 
 lpad7:                                            ; preds = %invoke.cont10, %invoke.cont8, %invoke.cont5
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #13
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #15
   unreachable
 
 cleanup.done20:                                   ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -370,7 +372,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont26
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #13
+  call void @__clang_call_terminate(ptr %14) #15
   unreachable
 
 _ZNSt3mapIiN5folly3ssl8LockTypeESt4lessIiESaISt4pairIKiS2_EEED2Ev.exit: ; preds = %invoke.cont26
@@ -386,12 +388,12 @@ call.i.noexc:                                     ; preds = %if.end.i
   br i1 %cmp.not.i, label %if.end2.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %call.i.noexc
-  %exception.i = call ptr @__cxa_allocate_exception(i64 16) #11
+  %exception.i = call ptr @__cxa_allocate_exception(i64 16) #13
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull @.str)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then1.i
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #12
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #14
           to label %.noexc unwind label %lpad28
 
 .noexc:                                           ; preds = %invoke.cont.i
@@ -400,7 +402,7 @@ invoke.cont.i:                                    ; preds = %if.then1.i
 lpad.i:                                           ; preds = %if.then1.i
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #11
+  call void @__cxa_free_exception(ptr %exception.i) #13
   br label %ehcleanup30
 
 if.end2.i:                                        ; preds = %call.i.noexc
@@ -412,13 +414,13 @@ if.end2.i:                                        ; preds = %call.i.noexc
   br label %invoke.cont29
 
 invoke.cont29:                                    ; preds = %.noexc41, %_ZNSt3mapIiN5folly3ssl8LockTypeESt4lessIiESaISt4pairIKiS2_EEED2Ev.exit
-  %call1.i.i.i43 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %call1.i.i.i43 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   ret void
 
 lpad25:                                           ; preds = %_ZNSt3mapIiN5folly3ssl8LockTypeESt4lessIiESaISt4pairIKiS2_EEEC2EOS9_.exit
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt3mapIiN5folly3ssl8LockTypeESt4lessIiESaISt4pairIKiS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp) #11
+  call void @_ZNSt3mapIiN5folly3ssl8LockTypeESt4lessIiESaISt4pairIKiS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp) #13
   br label %ehcleanup30
 
 lpad28:                                           ; preds = %if.end2.i, %invoke.cont.i, %if.end.i
@@ -428,7 +430,7 @@ lpad28:                                           ; preds = %if.end2.i, %invoke.
 
 ehcleanup30:                                      ; preds = %lpad28, %lpad25, %lpad.i, %lpad4
   %.pn = phi { ptr, i32 } [ %16, %lpad25 ], [ %2, %lpad4 ], [ %17, %lpad28 ], [ %15, %lpad.i ]
-  %call1.i.i.i45 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %call1.i.i.i45 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   resume { ptr, i32 } %.pn
 }
 
@@ -437,12 +439,12 @@ declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 der
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #6
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #8
+declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #10
 
 declare void @_ZN5folly3ssl6detail12setLockTypesESt3mapIiNS0_8LockTypeESt4lessIiESaISt4pairIKiS3_EEE(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt3mapIiN5folly3ssl8LockTypeESt4lessIiESaISt4pairIKiS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt3mapIiN5folly3ssl8LockTypeESt4lessIiESaISt4pairIKiS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8, !tbaa !9
@@ -453,7 +455,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #13
+  tail call void @__clang_call_terminate(ptr %2) #15
   unreachable
 
 _ZNSt8_Rb_treeIiSt4pairIKiN5folly3ssl8LockTypeEESt10_Select1stIS5_ESt4lessIiESaIS5_EED2Ev.exit: ; preds = %entry
@@ -475,7 +477,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @_ZNSt8_Rb_treeIiSt4pairIKiN5folly3ssl8LockTypeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
   %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !23
-  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.07) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.07) #16
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !24
 
@@ -484,7 +486,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly3ssl12setLockTypesESt3mapIiNS0_8LockTypeESt4lessIiESaISt4pairIKiS2_EEE(ptr noundef %inLockTypes) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -496,22 +498,22 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit, !prof !7
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m, i8 0, i64 40, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   br label %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit
 
 _ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit:     ; preds = %init.i, %init.check.i, %entry
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #12
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #14
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN5folly3ssl12_GLOBAL__N_19initMutexEv.exit
@@ -519,7 +521,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN5folly3ssl12_GLO
   br i1 %.b13, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #11
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #13
   invoke void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp, ptr noundef nonnull @.str.1, i32 noundef 102)
           to label %invoke.cont unwind label %lpad
 
@@ -532,8 +534,8 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %invoke.cont4 unwind label %lpad1
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #11
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #11
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #13
   br label %cleanup
 
 lpad:                                             ; preds = %if.then
@@ -544,12 +546,12 @@ lpad:                                             ; preds = %if.then
 lpad1:                                            ; preds = %invoke.cont2, %invoke.cont
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #11
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #13
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad1, %lpad
   %.pn = phi { ptr, i32 } [ %3, %lpad1 ], [ %2, %lpad ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #11
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #13
   br label %ehcleanup9
 
 if.end:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -609,22 +611,22 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont7
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #13
+  call void @__clang_call_terminate(ptr %14) #15
   unreachable
 
 cleanup:                                          ; preds = %invoke.cont7, %invoke.cont4
-  %call1.i.i.i18 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %call1.i.i.i18 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   ret void
 
 lpad6:                                            ; preds = %_ZNSt3mapIiN5folly3ssl8LockTypeESt4lessIiESaISt4pairIKiS2_EEEC2EOS9_.exit
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt3mapIiN5folly3ssl8LockTypeESt4lessIiESaISt4pairIKiS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp) #11
+  call void @_ZNSt3mapIiN5folly3ssl8LockTypeESt4lessIiESaISt4pairIKiS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp) #13
   br label %ehcleanup9
 
 ehcleanup9:                                       ; preds = %lpad6, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %15, %lpad6 ]
-  %call1.i.i.i19 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #11
+  %call1.i.i.i19 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN5folly3ssl12_GLOBAL__N_19initMutexEvE1m) #13
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -649,14 +651,16 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { builtin nounwind }
+attributes #7 = { cold noreturn }
+attributes #8 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

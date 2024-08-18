@@ -457,13 +457,13 @@ invoke.cont11:                                    ; preds = %invoke.cont9
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #17
+  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #18
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont11, %invoke.cont9, %invoke.cont7, %invoke.cont5, %if.else
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #17
+  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry, %invoke.cont13
@@ -499,13 +499,13 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #17
+  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #18
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont10, %invoke.cont8, %invoke.cont6, %invoke.cont, %if.else
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #17
+  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry, %invoke.cont12
@@ -535,14 +535,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133std_mt19937_64_Compatibility_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133std_mt19937_64_Compatibility_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
+  %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
           to label %invoke.cont unwind label %lpad
 
@@ -553,7 +553,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #19
   resume { ptr, i32 } %0
 }
 
@@ -562,15 +562,15 @@ declare void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_133std_mt19937_64_Compatibility_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 {
 entry:
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #17
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_133std_mt19937_64_Compatibility_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 {
 entry:
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
 
@@ -1175,7 +1175,7 @@ _ZN12_GLOBAL__N_111TestUniformISt23mersenne_twister_engineImLm64ELm312ELm156ELm3
   br i1 %67, label %cdce.end.i.i, label %cdce.call, !prof !14
 
 cdce.call:                                        ; preds = %_ZN12_GLOBAL__N_111TestUniformISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
-  %call.i.i.i.i.i.i.i.i = call noundef float @log1pf(float noundef %66) #17
+  %call.i.i.i.i.i.i.i.i = call noundef float @log1pf(float noundef %66) #18
   br label %cdce.end.i.i
 
 cdce.end.i.i:                                     ; preds = %cdce.call, %_ZN12_GLOBAL__N_111TestUniformISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
@@ -1193,7 +1193,7 @@ cdce.end.i.i:                                     ; preds = %cdce.call, %_ZN12_G
   br i1 %71, label %cdce.end20.i.i, label %cdce.call1, !prof !14
 
 cdce.call1:                                       ; preds = %cdce.end.i.i
-  %call3.i.i.i.i.i.i.i = call double @log1p(double noundef %70) #17
+  %call3.i.i.i.i.i.i.i = call double @log1p(double noundef %70) #18
   br label %cdce.end20.i.i
 
 cdce.end20.i.i:                                   ; preds = %cdce.call1, %cdce.end.i.i
@@ -1230,7 +1230,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   br i1 %76, label %_ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i, label %cdce.call3, !prof !14
 
 cdce.call3:                                       ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit.i.i
-  %call3.i.i.i.i.i17.i.i = call double @log1p(double noundef %75) #17
+  %call3.i.i.i.i.i17.i.i = call double @log1p(double noundef %75) #18
   br label %_ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
 
 _ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %cdce.call3, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit.i.i
@@ -1552,7 +1552,7 @@ _ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm
   store double -1.000000e+00, ptr %one_minus_q_.i112.i.i, align 16
   %one_minus_q_inv_.i113.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 48
   store double -1.000000e+00, ptr %one_minus_q_inv_.i113.i.i, align 16
-  %call.i.i.i.i = call double @ldexp(double noundef 0.000000e+00, i32 noundef 64) #17
+  %call.i.i.i.i = call double @ldexp(double noundef 0.000000e+00, i32 noundef 64) #18
   %add.i.i115.i.i = fadd double %call.i.i.i.i, 1.024000e+03
   %cmp.i116.i.i = fcmp ogt double %add.i.i115.i.i, 0x43EFFFFFFFFFFFFF
   %kd.0.i117.i.i = select i1 %cmp.i116.i.i, double 0x43EFFFFFFFFFFFFF, double %add.i.i115.i.i
@@ -1782,7 +1782,7 @@ declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %urbg, double noundef %lo, double noundef %hi) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i = tail call noundef double @nextafter(double noundef %lo, double noundef %hi) #17
+  %call.i = tail call noundef double @nextafter(double noundef %lo, double noundef %hi) #18
   %cmp.i = fcmp ole double %call.i, %hi
   %sub.i = fsub double %hi, %call.i
   %0 = tail call double @llvm.fabs.f64(double %sub.i)
@@ -1791,7 +1791,7 @@ entry:
   br i1 %2, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call.i.i.i.i = tail call noundef double @nextafter(double noundef %lo, double noundef %hi) #17
+  %call.i.i.i.i = tail call noundef double @nextafter(double noundef %lo, double noundef %hi) #18
   %sub.i.i.i.i.i = fsub double %hi, %call.i.i.i.i
   %3 = tail call i1 @llvm.is.fpclass.f64(double %sub.i.i.i.i.i, i32 384)
   br i1 %3, label %while.body.i.i.i.i, label %while.body.i.i.us.i.i
@@ -1851,7 +1851,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS5_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT2_T3_EENS8_ISA_S9_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS9_SA_EE5valueESA_S9_E4typeEE4typeEE4typeET0_OT1_S9_SA_(ptr noundef nonnull align 8 dereferenceable(2504) %urbg, i32 noundef %lo, double noundef %hi) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %conv = sitofp i32 %lo to double
-  %call.i = tail call noundef double @nextafter(double noundef %conv, double noundef %hi) #17
+  %call.i = tail call noundef double @nextafter(double noundef %conv, double noundef %hi) #18
   %cmp.i = fcmp ole double %call.i, %hi
   %sub.i = fsub double %hi, %call.i
   %0 = tail call double @llvm.fabs.f64(double %sub.i)
@@ -1860,7 +1860,7 @@ entry:
   br i1 %2, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call.i.i.i.i = tail call noundef double @nextafter(double noundef %conv, double noundef %hi) #17
+  %call.i.i.i.i = tail call noundef double @nextafter(double noundef %conv, double noundef %hi) #18
   %sub.i.i.i.i.i = fsub double %hi, %call.i.i.i.i
   %3 = tail call i1 @llvm.is.fpclass.f64(double %sub.i.i.i.i.i, i32 384)
   br i1 %3, label %while.body.i.i.i.i, label %while.body.i.i.us.i.i
@@ -1916,7 +1916,7 @@ return:                                           ; preds = %_ZN4absl15random_in
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %urbg, double noundef %lo, double noundef %hi) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %call1.i = tail call noundef double @nextafter(double noundef %hi, double noundef 0x7FEFFFFFFFFFFFFF) #17
+  %call1.i = tail call noundef double @nextafter(double noundef %hi, double noundef 0x7FEFFFFFFFFFFFFF) #18
   %cmp.i = fcmp oge double %call1.i, %lo
   %sub.i = fsub double %call1.i, %lo
   %0 = tail call double @llvm.fabs.f64(double %sub.i)
@@ -1925,7 +1925,7 @@ entry:
   br i1 %2, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1.i.i.i.i = tail call noundef double @nextafter(double noundef %hi, double noundef 0x7FEFFFFFFFFFFFFF) #17
+  %call1.i.i.i.i = tail call noundef double @nextafter(double noundef %hi, double noundef 0x7FEFFFFFFFFFFFFF) #18
   %sub.i.i.i.i.i = fsub double %call1.i.i.i.i, %lo
   %3 = tail call i1 @llvm.is.fpclass.f64(double %sub.i.i.i.i.i, i32 384)
   br i1 %3, label %while.body.i.i.i.i, label %while.body.i.i.us.i.i
@@ -1981,8 +1981,8 @@ return:                                           ; preds = %_ZN4absl15random_in
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_21IntervalOpenClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %urbg, double noundef %lo, double noundef %hi) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i = tail call noundef double @nextafter(double noundef %lo, double noundef %hi) #17
-  %call1.i = tail call noundef double @nextafter(double noundef %hi, double noundef 0x7FEFFFFFFFFFFFFF) #17
+  %call.i = tail call noundef double @nextafter(double noundef %lo, double noundef %hi) #18
+  %call1.i = tail call noundef double @nextafter(double noundef %hi, double noundef 0x7FEFFFFFFFFFFFFF) #18
   %cmp.i = fcmp ole double %call.i, %call1.i
   %sub.i = fsub double %call1.i, %call.i
   %0 = tail call double @llvm.fabs.f64(double %sub.i)
@@ -1991,8 +1991,8 @@ entry:
   br i1 %2, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call.i.i.i.i = tail call noundef double @nextafter(double noundef %lo, double noundef %hi) #17
-  %call1.i.i.i.i = tail call noundef double @nextafter(double noundef %hi, double noundef 0x7FEFFFFFFFFFFFFF) #17
+  %call.i.i.i.i = tail call noundef double @nextafter(double noundef %lo, double noundef %hi) #18
+  %call1.i.i.i.i = tail call noundef double @nextafter(double noundef %hi, double noundef 0x7FEFFFFFFFFFFFFF) #18
   %sub.i.i.i.i.i = fsub double %call1.i.i.i.i, %call.i.i.i.i
   %3 = tail call i1 @llvm.is.fpclass.f64(double %sub.i.i.i.i.i, i32 384)
   br i1 %3, label %while.body.i.i.i.i, label %while.body.i.i.us.i.i
@@ -2154,14 +2154,15 @@ declare double @llvm.fmuladd.f64(double, double, double) #9
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
-  tail call void @_ZSt9terminatev() #20
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
+  tail call void @_ZSt9terminatev() #21
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
@@ -2176,16 +2177,16 @@ declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #9
 declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @log1pf(float noundef) local_unnamed_addr #11
+declare float @log1pf(float noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log1p(double noundef) local_unnamed_addr #11
+declare double @log1p(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @exp(double noundef) local_unnamed_addr #11
+declare double @exp(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #11
+declare double @log(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.ceil.f64(double) #9
@@ -2392,7 +2393,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %26) #17
+  %call.i = tail call double @log(double noundef %26) #18
   %div.i = fdiv double 1.000000e+00, %26
   %neg.i = fneg double %26
   %28 = tail call double @llvm.fmuladd.f64(double %26, double %call.i, double %neg.i)
@@ -2406,7 +2407,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %32, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #17
+  %call27 = tail call double @log(double noundef %20) #18
   %33 = load double, ptr %log_k_, align 8
   %34 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %33)
   %add29 = fadd double %cond26, %34
@@ -2631,7 +2632,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %26) #17
+  %call.i = tail call double @log(double noundef %26) #18
   %div.i = fdiv double 1.000000e+00, %26
   %neg.i = fneg double %26
   %28 = tail call double @llvm.fmuladd.f64(double %26, double %call.i, double %neg.i)
@@ -2645,7 +2646,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %32, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #17
+  %call27 = tail call double @log(double noundef %20) #18
   %33 = load double, ptr %log_k_, align 8
   %34 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %33)
   %add29 = fadd double %cond26, %34
@@ -2867,7 +2868,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %26) #17
+  %call.i = tail call double @log(double noundef %26) #18
   %div.i = fdiv double 1.000000e+00, %26
   %neg.i = fneg double %26
   %28 = tail call double @llvm.fmuladd.f64(double %26, double %call.i, double %neg.i)
@@ -2881,7 +2882,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %32, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #17
+  %call27 = tail call double @log(double noundef %20) #18
   %33 = load double, ptr %log_k_, align 8
   %34 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %33)
   %add29 = fadd double %cond26, %34
@@ -3103,7 +3104,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %26) #17
+  %call.i = tail call double @log(double noundef %26) #18
   %div.i = fdiv double 1.000000e+00, %26
   %neg.i = fneg double %26
   %28 = tail call double @llvm.fmuladd.f64(double %26, double %call.i, double %neg.i)
@@ -3117,7 +3118,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %32, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #17
+  %call27 = tail call double @log(double noundef %20) #18
   %33 = load double, ptr %log_k_, align 8
   %34 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %33)
   %add29 = fadd double %cond26, %34
@@ -3339,7 +3340,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %26) #17
+  %call.i = tail call double @log(double noundef %26) #18
   %div.i = fdiv double 1.000000e+00, %26
   %neg.i = fneg double %26
   %28 = tail call double @llvm.fmuladd.f64(double %26, double %call.i, double %neg.i)
@@ -3353,7 +3354,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %32, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #17
+  %call27 = tail call double @log(double noundef %20) #18
   %33 = load double, ptr %log_k_, align 8
   %34 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %33)
   %add29 = fadd double %cond26, %34
@@ -3575,7 +3576,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %26) #17
+  %call.i = tail call double @log(double noundef %26) #18
   %div.i = fdiv double 1.000000e+00, %26
   %neg.i = fneg double %26
   %28 = tail call double @llvm.fmuladd.f64(double %26, double %call.i, double %neg.i)
@@ -3589,7 +3590,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %32, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #17
+  %call27 = tail call double @log(double noundef %20) #18
   %33 = load double, ptr %log_k_, align 8
   %34 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %33)
   %add29 = fadd double %cond26, %34
@@ -3818,7 +3819,7 @@ cond.false:                                       ; preds = %if.end19
   br i1 %cmp22, label %cond.end26, label %cond.false24
 
 cond.false24:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %27) #17
+  %call.i = tail call double @log(double noundef %27) #18
   %div.i = fdiv double 1.000000e+00, %27
   %neg.i = fneg double %27
   %29 = tail call double @llvm.fmuladd.f64(double %27, double %call.i, double %neg.i)
@@ -3832,7 +3833,7 @@ cond.false24:                                     ; preds = %cond.false
 
 cond.end26:                                       ; preds = %cond.false24, %cond.false, %if.end19
   %cond27 = phi double [ 0.000000e+00, %if.end19 ], [ %33, %cond.false24 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call28 = tail call double @log(double noundef %21) #17
+  %call28 = tail call double @log(double noundef %21) #18
   %34 = load double, ptr %log_k_, align 8
   %35 = tail call double @llvm.fmuladd.f64(double %call28, double 2.000000e+00, double %34)
   %add30 = fadd double %cond27, %35
@@ -3859,7 +3860,7 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4073,7 +4074,7 @@ cond.false:                                       ; preds = %if.end19
   br i1 %cmp22, label %cond.end26, label %cond.false24
 
 cond.false24:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %27) #17
+  %call.i = tail call double @log(double noundef %27) #18
   %div.i = fdiv double 1.000000e+00, %27
   %neg.i = fneg double %27
   %29 = tail call double @llvm.fmuladd.f64(double %27, double %call.i, double %neg.i)
@@ -4087,7 +4088,7 @@ cond.false24:                                     ; preds = %cond.false
 
 cond.end26:                                       ; preds = %cond.false24, %cond.false, %if.end19
   %cond27 = phi double [ 0.000000e+00, %if.end19 ], [ %33, %cond.false24 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call28 = tail call double @log(double noundef %21) #17
+  %call28 = tail call double @log(double noundef %21) #18
   %34 = load double, ptr %log_k_, align 8
   %35 = tail call double @llvm.fmuladd.f64(double %call28, double 2.000000e+00, double %34)
   %add30 = fadd double %cond27, %35
@@ -4095,7 +4096,7 @@ cond.end26:                                       ; preds = %cond.false24, %cond
   br i1 %cmp31, label %if.then32, label %for.cond8.backedge
 
 if.then32:                                        ; preds = %cond.end26
-  %call.i44 = tail call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #17
+  %call.i44 = tail call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #18
   %add.i45 = fadd double %call.i44, 0x43F0000000000000
   %cmp35 = fcmp ogt double %27, %add.i45
   br i1 %cmp35, label %return, label %cond.false38
@@ -4118,7 +4119,7 @@ return:                                           ; preds = %do.end, %if.then32,
 declare void @_ZN4absl7uint128C1Ed(ptr noundef nonnull align 16 dereferenceable(16), double noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #13
+declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(64) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4265,9 +4266,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %21 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %18, %20
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %21, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -4301,10 +4302,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %27 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %27
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %28 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %28
   %.pre37 = load double, ptr %v_.i, align 8
@@ -4324,11 +4325,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %31 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %31
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -4490,9 +4491,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %21 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %18, %20
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %21, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -4526,10 +4527,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %27 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %27
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %28 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %28
   %.pre37 = load double, ptr %v_.i, align 8
@@ -4549,11 +4550,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %31 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %31
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -4712,9 +4713,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %21 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %18, %20
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %21, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -4748,10 +4749,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %27 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %27
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %28 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %28
   %.pre37 = load double, ptr %v_.i, align 8
@@ -4771,11 +4772,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %31 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %31
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -4934,9 +4935,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %21 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %18, %20
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %21, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -4970,10 +4971,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %27 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %27
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %28 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %28
   %.pre37 = load double, ptr %v_.i, align 8
@@ -4993,11 +4994,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %31 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %31
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -5156,9 +5157,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %21 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %18, %20
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %21, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -5192,10 +5193,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %27 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %27
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %28 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %28
   %.pre37 = load double, ptr %v_.i, align 8
@@ -5215,11 +5216,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %31 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %31
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -5378,9 +5379,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %21 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %18, %20
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %21, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -5414,10 +5415,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %27 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %27
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %28 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %28
   %.pre37 = load double, ptr %v_.i, align 8
@@ -5437,11 +5438,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %31 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %31
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -5600,9 +5601,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %21 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %18, %20
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %21, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -5636,10 +5637,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %27 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %27
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %28 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %28
   %.pre37 = load double, ptr %v_.i, align 8
@@ -5659,11 +5660,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %31 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %31
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -5823,9 +5824,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %21 = load double, ptr %one_minus_q_inv_.i, align 16
   %mul.i = fmul double %18, %20
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %21, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -5864,10 +5865,10 @@ cond.true.i24:                                    ; preds = %if.end7
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end7
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %26 = load double, ptr %one_minus_q_.i, align 16
   %mul.i21 = fmul double %call.i20, %26
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %27 = load double, ptr %one_minus_q_inv_.i, align 16
   %mul4.i = fmul double %call3.i, %27
   %.pre38 = load double, ptr %v_.i, align 8
@@ -5887,11 +5888,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add9) #17
+  %call.i28 = tail call double @log(double noundef %add9) #18
   %30 = load double, ptr %q_.i, align 16
   %fneg.i = fneg double %30
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -6057,9 +6058,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %21 = load double, ptr %one_minus_q_inv_.i, align 16
   %mul.i = fmul double %18, %20
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %21, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -6070,7 +6071,7 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %c
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.k_.sroa_idx.i, align 8
   %conv.i = uitofp i64 %retval.sroa.0.0.copyload.i to double
   %conv2.i = uitofp i64 %retval.sroa.2.0.copyload.i to double
-  %call.i15 = tail call double @ldexp(double noundef %conv2.i, i32 noundef 64) #17
+  %call.i15 = tail call double @ldexp(double noundef %conv2.i, i32 noundef 64) #18
   %add.i16 = fadd double %call.i15, %conv.i
   %cmp = fcmp ogt double %22, %add.i16
   br i1 %cmp, label %for.cond.backedge, label %if.end
@@ -6097,10 +6098,10 @@ cond.true.i26:                                    ; preds = %if.end7
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
 
 cond.false.i21:                                   ; preds = %if.end7
-  %call.i22 = tail call double @log(double noundef %add.i18) #17
+  %call.i22 = tail call double @log(double noundef %add.i18) #18
   %26 = load double, ptr %one_minus_q_.i, align 16
   %mul.i23 = fmul double %call.i22, %26
-  %call3.i = tail call double @exp(double noundef %mul.i23) #17
+  %call3.i = tail call double @exp(double noundef %mul.i23) #18
   %27 = load double, ptr %one_minus_q_inv_.i, align 16
   %mul4.i = fmul double %call3.i, %27
   %.pre39 = load double, ptr %v_.i, align 8
@@ -6120,11 +6121,11 @@ cond.true.i34:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 cond.false.i29:                                   ; preds = %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
-  %call.i30 = tail call double @log(double noundef %add9) #17
+  %call.i30 = tail call double @log(double noundef %add9) #18
   %30 = load double, ptr %q_.i, align 16
   %fneg.i = fneg double %30
   %mul3.i31 = fmul double %call.i30, %fneg.i
-  %call4.i32 = tail call double @exp(double noundef %mul3.i31) #17
+  %call4.i32 = tail call double @exp(double noundef %mul3.i31) #18
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i34, %cond.false.i29
@@ -6191,7 +6192,7 @@ do.body.i:                                        ; preds = %if.end, %do.body.i
   %reass.sub27 = sub nsw i64 %and2.i.i, %9
   %or3.i.i = add nsw i64 %reass.sub27, 4602678819172646912
   %10 = bitcast i64 %or3.i.i to double
-  %call3.i = tail call double @log(double noundef %10) #17
+  %call3.i = tail call double @log(double noundef %10) #18
   %mul.i = fmul double %call3.i, 0x3FD2972A8AFC6175
   %call.i.i6.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %g)
   %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %call.i.i6.i, i1 false)
@@ -6203,7 +6204,7 @@ do.body.i:                                        ; preds = %if.end, %do.body.i
   %reass.sub28 = sub nsw i64 %and2.i14.i, %12
   %or3.i15.i = add nsw i64 %reass.sub28, 4602678819172646912
   %13 = bitcast i64 %or3.i15.i to double
-  %call7.i = tail call double @log(double noundef %13) #17
+  %call7.i = tail call double @log(double noundef %13) #18
   %fneg.i = fneg double %call7.i
   %add.i = fsub double %fneg.i, %call7.i
   %mul8.i = fmul double %mul.i, %mul.i
@@ -6236,7 +6237,7 @@ if.end10:                                         ; preds = %if.end
   %19 = tail call double @llvm.fmuladd.f64(double %16, double %sub, double %17)
   %mul23 = fmul double %mul, -5.000000e-01
   %mul24 = fmul double %mul, %mul23
-  %call25 = tail call double @exp(double noundef %mul24) #17
+  %call25 = tail call double @exp(double noundef %mul24) #18
   %cmp26 = fcmp olt double %19, %call25
   br i1 %cmp26, label %return, label %while.body, !llvm.loop !51
 
@@ -6317,7 +6318,7 @@ cond.false:                                       ; preds = %if.then5
 if.else:                                          ; preds = %if.end
   %conv = sitofp i32 %1 to double
   %conv.i = sitofp i32 %sub to double
-  %call.i = tail call noundef double @pow(double noundef %conv, double noundef %conv.i) #17
+  %call.i = tail call noundef double @pow(double noundef %conv, double noundef %conv.i) #18
   %2 = load i32, ptr %base_.i, align 4
   %conv13 = sitofp i32 %2 to double
   %3 = tail call double @llvm.fmuladd.f64(double %call.i, double %conv13, double -1.000000e+00)
@@ -6389,7 +6390,7 @@ return:                                           ; preds = %_ZN4absl24uniform_i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #11
+declare double @pow(double noundef, double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 4 dereferenceable(8) %p) local_unnamed_addr #3 comdat align 2 {
@@ -6462,7 +6463,7 @@ cond.false:                                       ; preds = %if.then5
 if.else:                                          ; preds = %if.end
   %conv14 = sitofp i8 %1 to double
   %conv.i = sitofp i32 %sub to double
-  %call.i = tail call noundef double @pow(double noundef %conv14, double noundef %conv.i) #17
+  %call.i = tail call noundef double @pow(double noundef %conv14, double noundef %conv.i) #18
   %4 = load i8, ptr %base_.i, align 2
   %conv17 = sitofp i8 %4 to double
   %5 = tail call double @llvm.fmuladd.f64(double %call.i, double %conv17, double -1.000000e+00)
@@ -6607,7 +6608,7 @@ cond.false:                                       ; preds = %if.then5
 if.else:                                          ; preds = %if.end
   %conv14 = sitofp i16 %1 to double
   %conv.i = sitofp i32 %sub to double
-  %call.i = tail call noundef double @pow(double noundef %conv14, double noundef %conv.i) #17
+  %call.i = tail call noundef double @pow(double noundef %conv14, double noundef %conv.i) #18
   %4 = load i16, ptr %base_.i, align 4
   %conv17 = sitofp i16 %4 to double
   %5 = tail call double @llvm.fmuladd.f64(double %call.i, double %conv17, double -1.000000e+00)
@@ -6752,7 +6753,7 @@ cond.false:                                       ; preds = %if.then5
 if.else:                                          ; preds = %if.end
   %conv14 = uitofp i16 %1 to double
   %conv.i = sitofp i32 %sub to double
-  %call.i = tail call noundef double @pow(double noundef %conv14, double noundef %conv.i) #17
+  %call.i = tail call noundef double @pow(double noundef %conv14, double noundef %conv.i) #18
   %4 = load i16, ptr %base_.i, align 4
   %conv17 = uitofp i16 %4 to double
   %5 = tail call double @llvm.fmuladd.f64(double %call.i, double %conv17, double -1.000000e+00)
@@ -6895,7 +6896,7 @@ cond.false:                                       ; preds = %if.then5
 if.else:                                          ; preds = %if.end
   %conv = uitofp i32 %1 to double
   %conv.i = sitofp i32 %sub to double
-  %call.i = tail call noundef double @pow(double noundef %conv, double noundef %conv.i) #17
+  %call.i = tail call noundef double @pow(double noundef %conv, double noundef %conv.i) #18
   %2 = load i32, ptr %base_.i, align 4
   %conv13 = uitofp i32 %2 to double
   %3 = tail call double @llvm.fmuladd.f64(double %call.i, double %conv13, double -1.000000e+00)
@@ -7036,7 +7037,7 @@ cond.false:                                       ; preds = %if.then5
 if.else:                                          ; preds = %if.end
   %conv = sitofp i64 %1 to double
   %conv.i = sitofp i32 %sub to double
-  %call.i = tail call noundef double @pow(double noundef %conv, double noundef %conv.i) #17
+  %call.i = tail call noundef double @pow(double noundef %conv, double noundef %conv.i) #18
   %2 = load i64, ptr %base_.i, align 8
   %conv14 = sitofp i64 %2 to double
   %3 = tail call double @llvm.fmuladd.f64(double %call.i, double %conv14, double -1.000000e+00)
@@ -7177,7 +7178,7 @@ cond.false:                                       ; preds = %if.then5
 if.else:                                          ; preds = %if.end
   %conv = uitofp i64 %1 to double
   %conv.i = sitofp i32 %sub to double
-  %call.i = tail call noundef double @pow(double noundef %conv, double noundef %conv.i) #17
+  %call.i = tail call noundef double @pow(double noundef %conv, double noundef %conv.i) #18
   %2 = load i64, ptr %base_.i, align 8
   %conv14 = uitofp i64 %2 to double
   %3 = tail call double @llvm.fmuladd.f64(double %call.i, double %conv14, double -1.000000e+00)
@@ -7295,14 +7296,14 @@ if.then.i.i:                                      ; preds = %entry
 
 if.else.i.i:                                      ; preds = %entry
   %conv.i.i.i = sitofp i128 %agg.tmp6.sroa.0.0.copyload to double
-  %call18.i.i = tail call double @log(double noundef %conv.i.i.i) #17
+  %call18.i.i = tail call double @log(double noundef %conv.i.i.i) #18
   %div.i.i = fdiv double 1.000000e+00, %call18.i.i
   %conv.i16.i.i = uitofp i64 %coerce3.sroa.0.0.extract.trunc.i.i.i to double
   %conv2.i.i.i = uitofp i64 %.narrow.i.i.i to double
-  %call.i.i.i = tail call double @ldexp(double noundef %conv2.i.i.i, i32 noundef 64) #17
+  %call.i.i.i = tail call double @ldexp(double noundef %conv2.i.i.i, i32 noundef 64) #18
   %add.i.i.i = fadd double %call.i.i.i, %conv.i16.i.i
   %add.i.i = fadd double %add.i.i.i, 5.000000e-01
-  %call22.i.i = tail call double @log(double noundef %add.i.i) #17
+  %call22.i.i = tail call double @log(double noundef %add.i.i) #18
   %mul.i.i = fmul double %div.i.i, %call22.i.i
   %4 = tail call double @llvm.ceil.f64(double %mul.i.i)
   %conv.i.i = fptosi double %4 to i32
@@ -7423,7 +7424,7 @@ cond.end:                                         ; preds = %if.then6, %cond.fal
 if.else:                                          ; preds = %if.end
   %conv.i = sitofp i128 %coerce.sroa.0.0.insert.insert.i to double
   %conv.i52 = sitofp i32 %sub to double
-  %call.i = tail call noundef double @pow(double noundef %conv.i, double noundef %conv.i52) #17
+  %call.i = tail call noundef double @pow(double noundef %conv.i, double noundef %conv.i52) #18
   %retval.sroa.0.0.copyload.i54 = load i64, ptr %base_.i, align 16
   %retval.sroa.2.0.copyload.i56 = load i64, ptr %retval.sroa.2.0.base_.sroa_idx.i, align 8
   %ref.tmp23.sroa.2.0.insert.ext = zext i64 %retval.sroa.2.0.copyload.i56 to i128
@@ -7432,7 +7433,7 @@ if.else:                                          ; preds = %if.end
   %ref.tmp23.sroa.0.0.insert.insert = or disjoint i128 %ref.tmp23.sroa.2.0.insert.shift, %ref.tmp23.sroa.0.0.insert.ext
   %conv.i59 = sitofp i128 %ref.tmp23.sroa.0.0.insert.insert to double
   %2 = tail call double @llvm.fmuladd.f64(double %call.i, double %conv.i59, double -1.000000e+00)
-  %call.i62 = tail call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #17
+  %call.i62 = tail call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #18
   %add.i = fadd double %call.i62, 0x43F0000000000000
   %cmp31 = fcmp ogt double %call.i, %add.i
   br i1 %cmp31, label %cond.true32, label %cond.false34
@@ -7451,7 +7452,7 @@ cond.false34:                                     ; preds = %if.else
 cond.end35:                                       ; preds = %cond.false34, %cond.true32
   %base_e.sroa.4.0.copyload = phi i64 [ %base_e.sroa.4.0.copyload.pre, %cond.false34 ], [ -1, %cond.true32 ]
   %base_e.sroa.0.0.copyload = phi i64 [ %base_e.sroa.0.0.copyload.pre, %cond.false34 ], [ -1, %cond.true32 ]
-  %call.i66 = call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #17
+  %call.i66 = call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #18
   %add.i67 = fadd double %call.i66, 0x43F0000000000000
   %cmp40 = fcmp ogt double %2, %add.i67
   br i1 %cmp40, label %cond.true41, label %cond.false43
@@ -7707,16 +7708,16 @@ if.then.i:                                        ; preds = %entry
 if.else.i:                                        ; preds = %entry
   %conv.i.i = uitofp i64 %agg.tmp5.sroa.0.0.copyload.i to double
   %conv2.i.i = uitofp i64 %agg.tmp5.sroa.2.0.copyload.i to double
-  %call.i.i = tail call double @ldexp(double noundef %conv2.i.i, i32 noundef 64) #17
+  %call.i.i = tail call double @ldexp(double noundef %conv2.i.i, i32 noundef 64) #18
   %add.i.i = fadd double %call.i.i, %conv.i.i
-  %call16.i = tail call double @log(double noundef %add.i.i) #17
+  %call16.i = tail call double @log(double noundef %add.i.i) #18
   %div.i = fdiv double 1.000000e+00, %call16.i
   %conv.i16.i = uitofp i64 %coerce3.sroa.0.0.extract.trunc.i.i to double
   %conv2.i18.i = uitofp i64 %.narrow.i.i to double
-  %call.i19.i = tail call double @ldexp(double noundef %conv2.i18.i, i32 noundef 64) #17
+  %call.i19.i = tail call double @ldexp(double noundef %conv2.i18.i, i32 noundef 64) #18
   %add.i20.i = fadd double %call.i19.i, %conv.i16.i
   %add.i = fadd double %add.i20.i, 5.000000e-01
-  %call20.i = tail call double @log(double noundef %add.i) #17
+  %call20.i = tail call double @log(double noundef %add.i) #18
   %mul.i = fmul double %div.i, %call20.i
   %4 = tail call double @llvm.ceil.f64(double %mul.i)
   %conv.i = fptosi double %4 to i32
@@ -7837,18 +7838,18 @@ cond.end:                                         ; preds = %if.then6, %cond.fal
 if.else:                                          ; preds = %if.end
   %conv.i = uitofp i64 %retval.sroa.0.0.copyload.i to double
   %conv2.i = uitofp i64 %retval.sroa.2.0.copyload.i to double
-  %call.i = tail call double @ldexp(double noundef %conv2.i, i32 noundef 64) #17
+  %call.i = tail call double @ldexp(double noundef %conv2.i, i32 noundef 64) #18
   %add.i = fadd double %call.i, %conv.i
   %conv.i54 = sitofp i32 %sub to double
-  %call.i55 = tail call noundef double @pow(double noundef %add.i, double noundef %conv.i54) #17
+  %call.i55 = tail call noundef double @pow(double noundef %add.i, double noundef %conv.i54) #18
   %retval.sroa.0.0.copyload.i57 = load i64, ptr %base_.i, align 16
   %retval.sroa.2.0.copyload.i59 = load i64, ptr %retval.sroa.2.0.base_.sroa_idx.i, align 8
   %conv.i62 = uitofp i64 %retval.sroa.0.0.copyload.i57 to double
   %conv2.i64 = uitofp i64 %retval.sroa.2.0.copyload.i59 to double
-  %call.i65 = tail call double @ldexp(double noundef %conv2.i64, i32 noundef 64) #17
+  %call.i65 = tail call double @ldexp(double noundef %conv2.i64, i32 noundef 64) #18
   %add.i66 = fadd double %call.i65, %conv.i62
   %2 = tail call double @llvm.fmuladd.f64(double %call.i55, double %add.i66, double -1.000000e+00)
-  %call.i70 = tail call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #17
+  %call.i70 = tail call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #18
   %add.i71 = fadd double %call.i70, 0x43F0000000000000
   %cmp29 = fcmp ogt double %call.i55, %add.i71
   br i1 %cmp29, label %cond.true30, label %cond.false32
@@ -7867,7 +7868,7 @@ cond.false32:                                     ; preds = %if.else
 cond.end33:                                       ; preds = %cond.false32, %cond.true30
   %base_e.sroa.4.0.copyload = phi i64 [ %base_e.sroa.4.0.copyload.pre, %cond.false32 ], [ -1, %cond.true30 ]
   %base_e.sroa.0.0.copyload = phi i64 [ %base_e.sroa.0.0.copyload.pre, %cond.false32 ], [ -1, %cond.true30 ]
-  %call.i75 = call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #17
+  %call.i75 = call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #18
   %add.i76 = fadd double %call.i75, 0x43F0000000000000
   %cmp38 = fcmp ogt double %2, %add.i76
   br i1 %cmp38, label %cond.true39, label %cond.false41
@@ -8078,14 +8079,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125BitGen_Compatibility_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125BitGen_Compatibility_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
+  %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
           to label %invoke.cont unwind label %lpad
 
@@ -8096,22 +8097,22 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #19
   resume { ptr, i32 } %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_125BitGen_Compatibility_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 {
 entry:
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #17
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_125BitGen_Compatibility_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 {
 entry:
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
 
@@ -8340,7 +8341,7 @@ _ZN4absl24uniform_int_distributionIlE8GenerateINS_15random_internal17NonsecureUR
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hi.addr.i55.i.i)
   store double 0.000000e+00, ptr %lo.addr.i54.i.i, align 8
   store double 1.000000e+00, ptr %hi.addr.i55.i.i, align 8
-  %call.i.i56.i.i = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #17
+  %call.i.i56.i.i = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #18
   %cmp.i.i.i.i = fcmp ole double %call.i.i56.i.i, 1.000000e+00
   %sub.i.i.i.i = fsub double 1.000000e+00, %call.i.i56.i.i
   %6 = call double @llvm.fabs.f64(double %sub.i.i.i.i)
@@ -8373,7 +8374,7 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hi.addr.i85.i.i)
   store double -1.000000e+00, ptr %lo.addr.i84.i.i, align 8
   store double 1.000000e+00, ptr %hi.addr.i85.i.i, align 8
-  %call.i.i86.i.i = call noundef double @nextafter(double noundef -1.000000e+00, double noundef 1.000000e+00) #17
+  %call.i.i86.i.i = call noundef double @nextafter(double noundef -1.000000e+00, double noundef 1.000000e+00) #18
   %cmp.i.i87.i.i = fcmp ole double %call.i.i86.i.i, 1.000000e+00
   %sub.i.i88.i.i = fsub double 1.000000e+00, %call.i.i86.i.i
   %9 = call double @llvm.fabs.f64(double %sub.i.i88.i.i)
@@ -8392,7 +8393,7 @@ invoke.cont20.i.i:                                ; preds = %if.end.i90.i.i, %_Z
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tag.i94.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i95.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp7.i96.i.i)
-  %call.i.i97.i.i = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #17
+  %call.i.i97.i.i = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #18
   %cmp.i.i98.i.i = fcmp ole double %call.i.i97.i.i, 1.000000e+00
   %sub.i.i99.i.i = fsub double 1.000000e+00, %call.i.i97.i.i
   %12 = call double @llvm.fabs.f64(double %sub.i.i99.i.i)
@@ -8558,7 +8559,7 @@ invoke.cont39.i.i:                                ; preds = %if.else.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hi.addr.i227.i.i)
   store double 0.000000e+00, ptr %lo.addr.i226.i.i, align 8
   store double 1.000000e+00, ptr %hi.addr.i227.i.i, align 8
-  %call1.i.i.i.i = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #17
+  %call1.i.i.i.i = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #18
   %22 = call i1 @llvm.is.fpclass.f64(double %call1.i.i.i.i, i32 480)
   br i1 %22, label %if.end.i231.i.i, label %invoke.cont54.i.i
 
@@ -8584,7 +8585,7 @@ invoke.cont54.i.i:                                ; preds = %if.end.i231.i.i, %i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hi.addr.i243.i.i)
   store double 0.000000e+00, ptr %lo.addr.i242.i.i, align 8
   store double 1.000000e+00, ptr %hi.addr.i243.i.i, align 8
-  %call.i.i244.i.i = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #17
+  %call.i.i244.i.i = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #18
   %cmp.i.i245.i.i = fcmp ole double %call.i.i244.i.i, 1.000000e+00
   %sub.i.i246.i.i = fsub double 1.000000e+00, %call.i.i244.i.i
   %23 = call double @llvm.fabs.f64(double %sub.i.i246.i.i)
@@ -8605,8 +8606,8 @@ invoke.cont60.i.i:                                ; preds = %if.end.i248.i.i, %i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hi.addr.i254.i.i)
   store double 0.000000e+00, ptr %lo.addr.i253.i.i, align 8
   store double 1.000000e+00, ptr %hi.addr.i254.i.i, align 8
-  %call.i.i255.i.i = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #17
-  %call1.i.i256.i.i = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #17
+  %call.i.i255.i.i = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #18
+  %call1.i.i256.i.i = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #18
   %cmp.i.i257.i.i = fcmp ole double %call.i.i255.i.i, %call1.i.i256.i.i
   %sub.i.i258.i.i = fsub double %call1.i.i256.i.i, %call.i.i255.i.i
   %26 = call double @llvm.fabs.f64(double %sub.i.i258.i.i)
@@ -8627,7 +8628,7 @@ invoke.cont63.i.i:                                ; preds = %if.end.i260.i.i, %i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hi.addr.i265.i.i)
   store double 0.000000e+00, ptr %lo.addr.i264.i.i, align 8
   store double 1.000000e+00, ptr %hi.addr.i265.i.i, align 8
-  %call1.i.i266.i.i = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #17
+  %call1.i.i266.i.i = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #18
   %29 = call i1 @llvm.is.fpclass.f64(double %call1.i.i266.i.i, i32 480)
   br i1 %29, label %if.end.i270.i.i, label %invoke.cont66.i.i
 
@@ -8644,7 +8645,7 @@ invoke.cont66.i.i:                                ; preds = %if.end.i270.i.i, %i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hi.addr.i276.i.i)
   store double 0.000000e+00, ptr %lo.addr.i275.i.i, align 8
   store double 1.000000e+00, ptr %hi.addr.i276.i.i, align 8
-  %call.i.i277.i.i = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #17
+  %call.i.i277.i.i = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #18
   %cmp.i.i278.i.i = fcmp ole double %call.i.i277.i.i, 1.000000e+00
   %sub.i.i279.i.i = fsub double 1.000000e+00, %call.i.i277.i.i
   %30 = call double @llvm.fabs.f64(double %sub.i.i279.i.i)
@@ -8803,7 +8804,7 @@ _ZN4absl11ExponentialIfRNS_15random_internal17NonsecureURBGBaseINS1_13randen_eng
   br i1 %45, label %cdce.end.i.i, label %cdce.end, !prof !14
 
 cdce.end:                                         ; preds = %_ZN4absl11ExponentialIfRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
-  %call.i.i.i.i.i.i.i.i = call noundef float @log1pf(float noundef %44) #17
+  %call.i.i.i.i.i.i.i.i = call noundef float @log1pf(float noundef %44) #18
   %.pre.i.pre.i.pre = load i64, ptr %next_.i.i.i.i.i.i, align 8
   br label %cdce.end.i.i
 
@@ -8847,7 +8848,7 @@ _ZN4absl11ExponentialIdRNS_15random_internal17NonsecureURBGBaseINS1_13randen_eng
   br i1 %54, label %cdce.end43.i.i, label %cdce.call1, !prof !14
 
 cdce.call1:                                       ; preds = %_ZN4absl11ExponentialIdRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
-  %call3.i.i.i.i.i.i3.i = call double @log1p(double noundef %53) #17
+  %call3.i.i.i.i.i.i3.i = call double @log1p(double noundef %53) #18
   br label %cdce.end43.i.i
 
 cdce.end43.i.i:                                   ; preds = %cdce.call1, %_ZN4absl11ExponentialIdRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
@@ -8904,7 +8905,7 @@ _ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engi
   br i1 %65, label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i, label %cdce.call3, !prof !14
 
 cdce.call3:                                       ; preds = %_ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S7_.exit.i.i
-  %call3.i.i.i.i.i34.i.i = call double @log1p(double noundef %64) #17
+  %call3.i.i.i.i.i34.i.i = call double @log1p(double noundef %64) #18
   br label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
 
 _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %cdce.call3, %_ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S7_.exit.i.i
@@ -9260,7 +9261,7 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   store double -1.000000e+00, ptr %one_minus_q_.i112.i.i, align 16
   %one_minus_q_inv_.i113.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 48
   store double -1.000000e+00, ptr %one_minus_q_inv_.i113.i.i, align 16
-  %call.i.i.i36.i = call double @ldexp(double noundef 0.000000e+00, i32 noundef 64) #17
+  %call.i.i.i36.i = call double @ldexp(double noundef 0.000000e+00, i32 noundef 64) #18
   %add.i.i115.i.i = fadd double %call.i.i.i36.i, 1.024000e+03
   %cmp.i116.i.i = fcmp ogt double %add.i.i115.i.i, 0x43EFFFFFFFFFFFFF
   %kd.0.i117.i.i = select i1 %cmp.i116.i.i, double 0x43EFFFFFFFFFFFFF, double %add.i.i115.i.i
@@ -9974,7 +9975,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
 entry:
   %0 = load double, ptr %args1, align 8
   %1 = load double, ptr %args3, align 8
-  %call.i.i = tail call noundef double @nextafter(double noundef %0, double noundef %1) #17
+  %call.i.i = tail call noundef double @nextafter(double noundef %0, double noundef %1) #18
   %sub.i.i.i = fsub double %1, %call.i.i
   %2 = ptrtoint ptr %urbg to i64
   %and.i.i.i.i.i.i.i = and i64 %2, 8
@@ -10192,7 +10193,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
 entry:
   %0 = load double, ptr %args1, align 8
   %1 = load double, ptr %args3, align 8
-  %call.i.i = tail call noundef double @nextafter(double noundef %0, double noundef %1) #17
+  %call.i.i = tail call noundef double @nextafter(double noundef %0, double noundef %1) #18
   %sub.i.i.i = fsub double %1, %call.i.i
   %2 = ptrtoint ptr %urbg to i64
   %and.i.i.i.i.i.i.i = and i64 %2, 8
@@ -10854,7 +10855,7 @@ entry:
   %0 = load double, ptr %args1, align 8
   %.fr = freeze double %0
   %1 = load double, ptr %args3, align 8
-  %call1.i.i = tail call noundef double @nextafter(double noundef %1, double noundef 0x7FEFFFFFFFFFFFFF) #17
+  %call1.i.i = tail call noundef double @nextafter(double noundef %1, double noundef 0x7FEFFFFFFFFFFFFF) #18
   %sub.i.i.i = fsub double %call1.i.i, %.fr
   %2 = ptrtoint ptr %urbg to i64
   %and.i.i.i.i.i.i.i = and i64 %2, 8
@@ -11078,8 +11079,8 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
 entry:
   %0 = load double, ptr %args1, align 8
   %1 = load double, ptr %args3, align 8
-  %call.i.i = tail call noundef double @nextafter(double noundef %0, double noundef %1) #17
-  %call1.i.i = tail call noundef double @nextafter(double noundef %1, double noundef 0x7FEFFFFFFFFFFFFF) #17
+  %call.i.i = tail call noundef double @nextafter(double noundef %0, double noundef %1) #18
+  %call1.i.i = tail call noundef double @nextafter(double noundef %1, double noundef 0x7FEFFFFFFFFFFFFF) #18
   %sub.i.i.i = fsub double %call1.i.i, %call.i.i
   %2 = ptrtoint ptr %urbg to i64
   %and.i.i.i.i.i.i.i = and i64 %2, 8
@@ -11377,7 +11378,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %30) #17
+  %call.i = tail call double @log(double noundef %30) #18
   %div.i = fdiv double 1.000000e+00, %30
   %neg.i = fneg double %30
   %32 = tail call double @llvm.fmuladd.f64(double %30, double %call.i, double %neg.i)
@@ -11391,7 +11392,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %36, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #17
+  %call27 = tail call double @log(double noundef %20) #18
   %37 = load double, ptr %log_k_, align 8
   %38 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %37)
   %add29 = fadd double %cond26, %38
@@ -11602,7 +11603,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %30) #17
+  %call.i = tail call double @log(double noundef %30) #18
   %div.i = fdiv double 1.000000e+00, %30
   %neg.i = fneg double %30
   %32 = tail call double @llvm.fmuladd.f64(double %30, double %call.i, double %neg.i)
@@ -11616,7 +11617,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %36, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #17
+  %call27 = tail call double @log(double noundef %20) #18
   %37 = load double, ptr %log_k_, align 8
   %38 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %37)
   %add29 = fadd double %cond26, %38
@@ -11827,7 +11828,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %30) #17
+  %call.i = tail call double @log(double noundef %30) #18
   %div.i = fdiv double 1.000000e+00, %30
   %neg.i = fneg double %30
   %32 = tail call double @llvm.fmuladd.f64(double %30, double %call.i, double %neg.i)
@@ -11841,7 +11842,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %36, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #17
+  %call27 = tail call double @log(double noundef %20) #18
   %37 = load double, ptr %log_k_, align 8
   %38 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %37)
   %add29 = fadd double %cond26, %38
@@ -12052,7 +12053,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %30) #17
+  %call.i = tail call double @log(double noundef %30) #18
   %div.i = fdiv double 1.000000e+00, %30
   %neg.i = fneg double %30
   %32 = tail call double @llvm.fmuladd.f64(double %30, double %call.i, double %neg.i)
@@ -12066,7 +12067,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %36, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #17
+  %call27 = tail call double @log(double noundef %20) #18
   %37 = load double, ptr %log_k_, align 8
   %38 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %37)
   %add29 = fadd double %cond26, %38
@@ -12277,7 +12278,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %30) #17
+  %call.i = tail call double @log(double noundef %30) #18
   %div.i = fdiv double 1.000000e+00, %30
   %neg.i = fneg double %30
   %32 = tail call double @llvm.fmuladd.f64(double %30, double %call.i, double %neg.i)
@@ -12291,7 +12292,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %36, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #17
+  %call27 = tail call double @log(double noundef %20) #18
   %37 = load double, ptr %log_k_, align 8
   %38 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %37)
   %add29 = fadd double %cond26, %38
@@ -12502,7 +12503,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %30) #17
+  %call.i = tail call double @log(double noundef %30) #18
   %div.i = fdiv double 1.000000e+00, %30
   %neg.i = fneg double %30
   %32 = tail call double @llvm.fmuladd.f64(double %30, double %call.i, double %neg.i)
@@ -12516,7 +12517,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %36, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %20) #17
+  %call27 = tail call double @log(double noundef %20) #18
   %37 = load double, ptr %log_k_, align 8
   %38 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %37)
   %add29 = fadd double %cond26, %38
@@ -12734,7 +12735,7 @@ cond.false:                                       ; preds = %if.end19
   br i1 %cmp22, label %cond.end26, label %cond.false24
 
 cond.false24:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %31) #17
+  %call.i = tail call double @log(double noundef %31) #18
   %div.i = fdiv double 1.000000e+00, %31
   %neg.i = fneg double %31
   %33 = tail call double @llvm.fmuladd.f64(double %31, double %call.i, double %neg.i)
@@ -12748,7 +12749,7 @@ cond.false24:                                     ; preds = %cond.false
 
 cond.end26:                                       ; preds = %cond.false24, %cond.false, %if.end19
   %cond27 = phi double [ 0.000000e+00, %if.end19 ], [ %37, %cond.false24 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call28 = tail call double @log(double noundef %21) #17
+  %call28 = tail call double @log(double noundef %21) #18
   %38 = load double, ptr %log_k_, align 8
   %39 = tail call double @llvm.fmuladd.f64(double %call28, double 2.000000e+00, double %38)
   %add30 = fadd double %cond27, %39
@@ -12975,7 +12976,7 @@ cond.false:                                       ; preds = %if.end19
   br i1 %cmp22, label %cond.end26, label %cond.false24
 
 cond.false24:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %31) #17
+  %call.i = tail call double @log(double noundef %31) #18
   %div.i = fdiv double 1.000000e+00, %31
   %neg.i = fneg double %31
   %33 = tail call double @llvm.fmuladd.f64(double %31, double %call.i, double %neg.i)
@@ -12989,7 +12990,7 @@ cond.false24:                                     ; preds = %cond.false
 
 cond.end26:                                       ; preds = %cond.false24, %cond.false, %if.end19
   %cond27 = phi double [ 0.000000e+00, %if.end19 ], [ %37, %cond.false24 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call28 = tail call double @log(double noundef %21) #17
+  %call28 = tail call double @log(double noundef %21) #18
   %38 = load double, ptr %log_k_, align 8
   %39 = tail call double @llvm.fmuladd.f64(double %call28, double 2.000000e+00, double %38)
   %add30 = fadd double %cond27, %39
@@ -12997,7 +12998,7 @@ cond.end26:                                       ; preds = %cond.false24, %cond
   br i1 %cmp31, label %if.then32, label %for.cond8.backedge
 
 if.then32:                                        ; preds = %cond.end26
-  %call.i68 = tail call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #17
+  %call.i68 = tail call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #18
   %add.i69 = fadd double %call.i68, 0x43F0000000000000
   %cmp35 = fcmp ogt double %31, %add.i69
   br i1 %cmp35, label %return, label %cond.false38
@@ -13098,9 +13099,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %15 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %12, %14
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %15, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -13134,10 +13135,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %21 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %21
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %22 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %22
   %.pre = load double, ptr %v_.i, align 8
@@ -13157,11 +13158,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %25 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %25
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -13256,9 +13257,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %15 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %12, %14
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %15, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -13292,10 +13293,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %21 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %21
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %22 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %22
   %.pre = load double, ptr %v_.i, align 8
@@ -13315,11 +13316,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %25 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %25
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -13414,9 +13415,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %15 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %12, %14
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %15, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -13450,10 +13451,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %21 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %21
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %22 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %22
   %.pre = load double, ptr %v_.i, align 8
@@ -13473,11 +13474,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %25 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %25
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -13572,9 +13573,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %15 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %12, %14
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %15, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -13608,10 +13609,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %21 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %21
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %22 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %22
   %.pre = load double, ptr %v_.i, align 8
@@ -13631,11 +13632,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %25 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %25
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -13730,9 +13731,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %15 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %12, %14
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %15, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -13766,10 +13767,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %21 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %21
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %22 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %22
   %.pre = load double, ptr %v_.i, align 8
@@ -13789,11 +13790,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %25 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %25
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -13888,9 +13889,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %15 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %12, %14
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %15, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -13924,10 +13925,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %21 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %21
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %22 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %22
   %.pre = load double, ptr %v_.i, align 8
@@ -13947,11 +13948,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %25 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %25
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -14046,9 +14047,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %15 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %12, %14
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %15, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -14082,10 +14083,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %21 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %21
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %22 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %22
   %.pre = load double, ptr %v_.i, align 8
@@ -14105,11 +14106,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %25 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %25
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -14205,9 +14206,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %15 = load double, ptr %one_minus_q_inv_.i, align 16
   %mul.i = fmul double %12, %14
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %15, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -14246,10 +14247,10 @@ cond.true.i24:                                    ; preds = %if.end7
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end7
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %20 = load double, ptr %one_minus_q_.i, align 16
   %mul.i21 = fmul double %call.i20, %20
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %21 = load double, ptr %one_minus_q_inv_.i, align 16
   %mul4.i = fmul double %call3.i, %21
   %.pre = load double, ptr %v_.i, align 8
@@ -14269,11 +14270,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add9) #17
+  %call.i28 = tail call double @log(double noundef %add9) #18
   %24 = load double, ptr %q_.i, align 16
   %fneg.i = fneg double %24
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -14375,9 +14376,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %15 = load double, ptr %one_minus_q_inv_.i, align 16
   %mul.i = fmul double %12, %14
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %15, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -14388,7 +14389,7 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %c
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.k_.sroa_idx.i, align 8
   %conv.i = uitofp i64 %retval.sroa.0.0.copyload.i to double
   %conv2.i = uitofp i64 %retval.sroa.2.0.copyload.i to double
-  %call.i15 = tail call double @ldexp(double noundef %conv2.i, i32 noundef 64) #17
+  %call.i15 = tail call double @ldexp(double noundef %conv2.i, i32 noundef 64) #18
   %add.i16 = fadd double %call.i15, %conv.i
   %cmp = fcmp ogt double %16, %add.i16
   br i1 %cmp, label %for.cond.backedge, label %if.end
@@ -14415,10 +14416,10 @@ cond.true.i26:                                    ; preds = %if.end7
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
 
 cond.false.i21:                                   ; preds = %if.end7
-  %call.i22 = tail call double @log(double noundef %add.i18) #17
+  %call.i22 = tail call double @log(double noundef %add.i18) #18
   %20 = load double, ptr %one_minus_q_.i, align 16
   %mul.i23 = fmul double %call.i22, %20
-  %call3.i = tail call double @exp(double noundef %mul.i23) #17
+  %call3.i = tail call double @exp(double noundef %mul.i23) #18
   %21 = load double, ptr %one_minus_q_inv_.i, align 16
   %mul4.i = fmul double %call3.i, %21
   %.pre = load double, ptr %v_.i, align 8
@@ -14438,11 +14439,11 @@ cond.true.i34:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 cond.false.i29:                                   ; preds = %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
-  %call.i30 = tail call double @log(double noundef %add9) #17
+  %call.i30 = tail call double @log(double noundef %add9) #18
   %24 = load double, ptr %q_.i, align 16
   %fneg.i = fneg double %24
   %mul3.i31 = fmul double %call.i30, %fneg.i
-  %call4.i32 = tail call double @exp(double noundef %mul3.i31) #17
+  %call4.i32 = tail call double @exp(double noundef %mul3.i31) #18
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i34, %cond.false.i29
@@ -14575,7 +14576,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   %23 = tail call double @llvm.fmuladd.f64(double %20, double %sub, double %21)
   %mul23 = fmul double %mul, -5.000000e-01
   %mul24 = fmul double %mul, %mul23
-  %call25 = tail call double @exp(double noundef %mul24) #17
+  %call25 = tail call double @exp(double noundef %mul24) #18
   %cmp26 = fcmp olt double %23, %call25
   br i1 %cmp26, label %return, label %while.body, !llvm.loop !123
 
@@ -14630,7 +14631,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   %reass.sub = sub nsw i64 %and2.i, %7
   %or3.i = add nsw i64 %reass.sub, 4602678819172646912
   %8 = bitcast i64 %or3.i to double
-  %call3 = tail call double @log(double noundef %8) #17
+  %call3 = tail call double @log(double noundef %8) #18
   %mul = fmul double %call3, 0x3FD2972A8AFC6175
   %9 = load i64, ptr %next_.i.i.i.i, align 8
   %cmp.i.i.i.i9 = icmp ugt i64 %9, 31
@@ -14666,7 +14667,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   %reass.sub28 = sub nsw i64 %and2.i26, %15
   %or3.i27 = add nsw i64 %reass.sub28, 4602678819172646912
   %16 = bitcast i64 %or3.i27 to double
-  %call7 = tail call double @log(double noundef %16) #17
+  %call7 = tail call double @log(double noundef %16) #18
   %fneg = fneg double %call7
   %add = fsub double %fneg, %call7
   %mul8 = fmul double %mul, %mul
@@ -14699,11 +14700,11 @@ if.then.i.i:                                      ; preds = %entry
 
 if.else.i.i:                                      ; preds = %entry
   %conv.i.i = sitofp i32 %2 to double
-  %call9.i.i = tail call double @log(double noundef %conv.i.i) #17
+  %call9.i.i = tail call double @log(double noundef %conv.i.i) #18
   %div.i.i = fdiv double 1.000000e+00, %call9.i.i
   %conv11.i.i = uitofp i32 %sub.i.i to double
   %add.i.i = fadd double %conv11.i.i, 5.000000e-01
-  %call12.i.i = tail call double @log(double noundef %add.i.i) #17
+  %call12.i.i = tail call double @log(double noundef %add.i.i) #18
   %mul.i.i = fmul double %div.i.i, %call12.i.i
   %4 = tail call double @llvm.ceil.f64(double %mul.i.i)
   %conv13.i.i = fptosi double %4 to i32
@@ -14742,7 +14743,7 @@ cond.false.i.i:                                   ; preds = %if.then5.i.i
 if.else.i.i3:                                     ; preds = %if.end.i.i
   %conv.i.i4 = sitofp i32 %2 to double
   %conv.i.i.i = sitofp i32 %sub.i.i2 to double
-  %call.i.i.i = call noundef double @pow(double noundef %conv.i.i4, double noundef %conv.i.i.i) #17
+  %call.i.i.i = call noundef double @pow(double noundef %conv.i.i4, double noundef %conv.i.i.i) #18
   %5 = call double @llvm.fmuladd.f64(double %call.i.i.i, double %conv.i.i4, double -1.000000e+00)
   %.inv.i.i = fcmp oge double %call.i.i.i, 0x41EFFFFFFFE00000
   %cond2230.i.i = select i1 %.inv.i.i, double 0x41EFFFFFFFE00000, double %call.i.i.i
@@ -14800,11 +14801,11 @@ if.then.i.i:                                      ; preds = %entry
 
 if.else.i.i:                                      ; preds = %entry
   %conv12.i.i = sitofp i8 %2 to double
-  %call13.i.i = tail call double @log(double noundef %conv12.i.i) #17
+  %call13.i.i = tail call double @log(double noundef %conv12.i.i) #18
   %div.i.i = fdiv double 1.000000e+00, %call13.i.i
   %conv15.i.i = uitofp i8 %sub.i.i to double
   %add.i.i = fadd double %conv15.i.i, 5.000000e-01
-  %call16.i.i = tail call double @log(double noundef %add.i.i) #17
+  %call16.i.i = tail call double @log(double noundef %add.i.i) #18
   %mul.i.i = fmul double %div.i.i, %call16.i.i
   %4 = tail call double @llvm.ceil.f64(double %mul.i.i)
   %conv17.i.i = fptosi double %4 to i32
@@ -14845,7 +14846,7 @@ cond.false.i.i:                                   ; preds = %if.then5.i.i
 if.else.i.i3:                                     ; preds = %if.end.i.i
   %conv14.i.i = sitofp i8 %2 to double
   %conv.i.i.i4 = sitofp i32 %sub.i.i2 to double
-  %call.i.i.i = call noundef double @pow(double noundef %conv14.i.i, double noundef %conv.i.i.i4) #17
+  %call.i.i.i = call noundef double @pow(double noundef %conv14.i.i, double noundef %conv.i.i.i4) #18
   %7 = call double @llvm.fmuladd.f64(double %call.i.i.i, double %conv14.i.i, double -1.000000e+00)
   %.inv.i.i = fcmp oge double %call.i.i.i, 2.550000e+02
   %cond2630.i.i = select i1 %.inv.i.i, double 2.550000e+02, double %call.i.i.i
@@ -14903,11 +14904,11 @@ if.then.i.i:                                      ; preds = %entry
 
 if.else.i.i:                                      ; preds = %entry
   %conv12.i.i = sitofp i16 %2 to double
-  %call13.i.i = tail call double @log(double noundef %conv12.i.i) #17
+  %call13.i.i = tail call double @log(double noundef %conv12.i.i) #18
   %div.i.i = fdiv double 1.000000e+00, %call13.i.i
   %conv15.i.i = uitofp i16 %sub.i.i to double
   %add.i.i = fadd double %conv15.i.i, 5.000000e-01
-  %call16.i.i = tail call double @log(double noundef %add.i.i) #17
+  %call16.i.i = tail call double @log(double noundef %add.i.i) #18
   %mul.i.i = fmul double %div.i.i, %call16.i.i
   %4 = tail call double @llvm.ceil.f64(double %mul.i.i)
   %conv17.i.i = fptosi double %4 to i32
@@ -14948,7 +14949,7 @@ cond.false.i.i:                                   ; preds = %if.then5.i.i
 if.else.i.i3:                                     ; preds = %if.end.i.i
   %conv14.i.i = sitofp i16 %2 to double
   %conv.i.i.i4 = sitofp i32 %sub.i.i2 to double
-  %call.i.i.i = call noundef double @pow(double noundef %conv14.i.i, double noundef %conv.i.i.i4) #17
+  %call.i.i.i = call noundef double @pow(double noundef %conv14.i.i, double noundef %conv.i.i.i4) #18
   %7 = call double @llvm.fmuladd.f64(double %call.i.i.i, double %conv14.i.i, double -1.000000e+00)
   %.inv.i.i = fcmp oge double %call.i.i.i, 6.553500e+04
   %cond2630.i.i = select i1 %.inv.i.i, double 6.553500e+04, double %call.i.i.i
@@ -15006,11 +15007,11 @@ if.then.i.i:                                      ; preds = %entry
 
 if.else.i.i:                                      ; preds = %entry
   %conv12.i.i = uitofp i16 %2 to double
-  %call13.i.i = tail call double @log(double noundef %conv12.i.i) #17
+  %call13.i.i = tail call double @log(double noundef %conv12.i.i) #18
   %div.i.i = fdiv double 1.000000e+00, %call13.i.i
   %conv15.i.i = uitofp i16 %sub.i.i to double
   %add.i.i = fadd double %conv15.i.i, 5.000000e-01
-  %call16.i.i = tail call double @log(double noundef %add.i.i) #17
+  %call16.i.i = tail call double @log(double noundef %add.i.i) #18
   %mul.i.i = fmul double %div.i.i, %call16.i.i
   %4 = tail call double @llvm.ceil.f64(double %mul.i.i)
   %conv17.i.i = fptosi double %4 to i32
@@ -15051,7 +15052,7 @@ cond.false.i.i:                                   ; preds = %if.then5.i.i
 if.else.i.i3:                                     ; preds = %if.end.i.i
   %conv14.i.i = uitofp i16 %2 to double
   %conv.i.i.i4 = sitofp i32 %sub.i.i2 to double
-  %call.i.i.i = call noundef double @pow(double noundef %conv14.i.i, double noundef %conv.i.i.i4) #17
+  %call.i.i.i = call noundef double @pow(double noundef %conv14.i.i, double noundef %conv.i.i.i4) #18
   %7 = call double @llvm.fmuladd.f64(double %call.i.i.i, double %conv14.i.i, double -1.000000e+00)
   %.inv.i.i = fcmp oge double %call.i.i.i, 6.553500e+04
   %cond2630.i.i = select i1 %.inv.i.i, double 6.553500e+04, double %call.i.i.i
@@ -15107,11 +15108,11 @@ if.then.i.i:                                      ; preds = %entry
 
 if.else.i.i:                                      ; preds = %entry
   %conv.i.i = uitofp i32 %2 to double
-  %call9.i.i = tail call double @log(double noundef %conv.i.i) #17
+  %call9.i.i = tail call double @log(double noundef %conv.i.i) #18
   %div.i.i = fdiv double 1.000000e+00, %call9.i.i
   %conv11.i.i = uitofp i32 %sub.i.i to double
   %add.i.i = fadd double %conv11.i.i, 5.000000e-01
-  %call12.i.i = tail call double @log(double noundef %add.i.i) #17
+  %call12.i.i = tail call double @log(double noundef %add.i.i) #18
   %mul.i.i = fmul double %div.i.i, %call12.i.i
   %4 = tail call double @llvm.ceil.f64(double %mul.i.i)
   %conv13.i.i = fptosi double %4 to i32
@@ -15150,7 +15151,7 @@ cond.false.i.i:                                   ; preds = %if.then5.i.i
 if.else.i.i3:                                     ; preds = %if.end.i.i
   %conv.i.i4 = uitofp i32 %2 to double
   %conv.i.i.i = sitofp i32 %sub.i.i2 to double
-  %call.i.i.i = call noundef double @pow(double noundef %conv.i.i4, double noundef %conv.i.i.i) #17
+  %call.i.i.i = call noundef double @pow(double noundef %conv.i.i4, double noundef %conv.i.i.i) #18
   %5 = call double @llvm.fmuladd.f64(double %call.i.i.i, double %conv.i.i4, double -1.000000e+00)
   %.inv.i.i = fcmp oge double %call.i.i.i, 0x41EFFFFFFFE00000
   %cond2230.i.i = select i1 %.inv.i.i, double 0x41EFFFFFFFE00000, double %call.i.i.i
@@ -15207,11 +15208,11 @@ if.then.i.i:                                      ; preds = %entry
 
 if.else.i.i:                                      ; preds = %entry
   %conv.i.i = sitofp i64 %2 to double
-  %call9.i.i = tail call double @log(double noundef %conv.i.i) #17
+  %call9.i.i = tail call double @log(double noundef %conv.i.i) #18
   %div.i.i = fdiv double 1.000000e+00, %call9.i.i
   %conv11.i.i = uitofp i64 %sub.i.i to double
   %add.i.i = fadd double %conv11.i.i, 5.000000e-01
-  %call12.i.i = tail call double @log(double noundef %add.i.i) #17
+  %call12.i.i = tail call double @log(double noundef %add.i.i) #18
   %mul.i.i = fmul double %div.i.i, %call12.i.i
   %4 = tail call double @llvm.ceil.f64(double %mul.i.i)
   %conv13.i.i = fptosi double %4 to i32
@@ -15252,7 +15253,7 @@ cond.false.i.i.i:                                 ; preds = %if.then5.i.i.i
 if.else.i.i.i:                                    ; preds = %if.end.i.i.i
   %conv.i.i.i = sitofp i64 %2 to double
   %conv.i.i.i.i = sitofp i32 %sub.i.i.i to double
-  %call.i.i.i.i = call noundef double @pow(double noundef %conv.i.i.i, double noundef %conv.i.i.i.i) #17
+  %call.i.i.i.i = call noundef double @pow(double noundef %conv.i.i.i, double noundef %conv.i.i.i.i) #18
   %5 = call double @llvm.fmuladd.f64(double %call.i.i.i.i, double %conv.i.i.i, double -1.000000e+00)
   %cmp17.i.i.i = fcmp ogt double %call.i.i.i.i, 0x43F0000000000000
   %conv21.i.i.i = fptoui double %call.i.i.i.i to i64
@@ -15305,11 +15306,11 @@ if.then.i.i:                                      ; preds = %entry
 
 if.else.i.i:                                      ; preds = %entry
   %conv.i.i = uitofp i64 %2 to double
-  %call9.i.i = tail call double @log(double noundef %conv.i.i) #17
+  %call9.i.i = tail call double @log(double noundef %conv.i.i) #18
   %div.i.i = fdiv double 1.000000e+00, %call9.i.i
   %conv11.i.i = uitofp i64 %sub.i.i to double
   %add.i.i = fadd double %conv11.i.i, 5.000000e-01
-  %call12.i.i = tail call double @log(double noundef %add.i.i) #17
+  %call12.i.i = tail call double @log(double noundef %add.i.i) #18
   %mul.i.i = fmul double %div.i.i, %call12.i.i
   %4 = tail call double @llvm.ceil.f64(double %mul.i.i)
   %conv13.i.i = fptosi double %4 to i32
@@ -15350,7 +15351,7 @@ cond.false.i.i.i:                                 ; preds = %if.then5.i.i.i
 if.else.i.i.i:                                    ; preds = %if.end.i.i.i
   %conv.i.i.i = uitofp i64 %2 to double
   %conv.i.i.i.i = sitofp i32 %sub.i.i.i to double
-  %call.i.i.i.i = call noundef double @pow(double noundef %conv.i.i.i, double noundef %conv.i.i.i.i) #17
+  %call.i.i.i.i = call noundef double @pow(double noundef %conv.i.i.i, double noundef %conv.i.i.i.i) #18
   %5 = call double @llvm.fmuladd.f64(double %call.i.i.i.i, double %conv.i.i.i, double -1.000000e+00)
   %cmp17.i.i.i = fcmp ogt double %call.i.i.i.i, 0x43F0000000000000
   %conv21.i.i.i = fptoui double %call.i.i.i.i to i64
@@ -15430,14 +15431,14 @@ if.then.i.i:                                      ; preds = %entry
 
 if.else.i.i:                                      ; preds = %entry
   %conv.i.i.i = sitofp i128 %agg.tmp6.sroa.0.0.copyload to double
-  %call18.i.i = tail call double @log(double noundef %conv.i.i.i) #17
+  %call18.i.i = tail call double @log(double noundef %conv.i.i.i) #18
   %div.i.i = fdiv double 1.000000e+00, %call18.i.i
   %conv.i16.i.i = uitofp i64 %coerce3.sroa.0.0.extract.trunc.i.i.i to double
   %conv2.i.i.i = uitofp i64 %.narrow.i.i.i to double
-  %call.i.i.i = tail call double @ldexp(double noundef %conv2.i.i.i, i32 noundef 64) #17
+  %call.i.i.i = tail call double @ldexp(double noundef %conv2.i.i.i, i32 noundef 64) #18
   %add.i.i.i = fadd double %call.i.i.i, %conv.i16.i.i
   %add.i.i = fadd double %add.i.i.i, 5.000000e-01
-  %call22.i.i = tail call double @log(double noundef %add.i.i) #17
+  %call22.i.i = tail call double @log(double noundef %add.i.i) #18
   %mul.i.i = fmul double %div.i.i, %call22.i.i
   %4 = tail call double @llvm.ceil.f64(double %mul.i.i)
   %conv.i.i = fptosi double %4 to i32
@@ -15527,7 +15528,7 @@ cond.end:                                         ; preds = %if.then6, %cond.fal
 if.else:                                          ; preds = %if.end
   %conv.i = sitofp i128 %coerce.sroa.0.0.insert.insert.i to double
   %conv.i52 = sitofp i32 %sub to double
-  %call.i = call noundef double @pow(double noundef %conv.i, double noundef %conv.i52) #17
+  %call.i = call noundef double @pow(double noundef %conv.i, double noundef %conv.i52) #18
   %retval.sroa.0.0.copyload.i54 = load i64, ptr %base_.i, align 16
   %retval.sroa.2.0.copyload.i56 = load i64, ptr %retval.sroa.2.0.base_.sroa_idx.i, align 8
   %ref.tmp23.sroa.2.0.insert.ext = zext i64 %retval.sroa.2.0.copyload.i56 to i128
@@ -15536,7 +15537,7 @@ if.else:                                          ; preds = %if.end
   %ref.tmp23.sroa.0.0.insert.insert = or disjoint i128 %ref.tmp23.sroa.2.0.insert.shift, %ref.tmp23.sroa.0.0.insert.ext
   %conv.i59 = sitofp i128 %ref.tmp23.sroa.0.0.insert.insert to double
   %2 = call double @llvm.fmuladd.f64(double %call.i, double %conv.i59, double -1.000000e+00)
-  %call.i62 = call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #17
+  %call.i62 = call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #18
   %add.i = fadd double %call.i62, 0x43F0000000000000
   %cmp31 = fcmp ogt double %call.i, %add.i
   br i1 %cmp31, label %cond.true32, label %cond.false34
@@ -15555,7 +15556,7 @@ cond.false34:                                     ; preds = %if.else
 cond.end35:                                       ; preds = %cond.false34, %cond.true32
   %base_e.sroa.4.0.copyload = phi i64 [ %base_e.sroa.4.0.copyload.pre, %cond.false34 ], [ -1, %cond.true32 ]
   %base_e.sroa.0.0.copyload = phi i64 [ %base_e.sroa.0.0.copyload.pre, %cond.false34 ], [ -1, %cond.true32 ]
-  %call.i66 = call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #17
+  %call.i66 = call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #18
   %add.i67 = fadd double %call.i66, 0x43F0000000000000
   %cmp40 = fcmp ogt double %2, %add.i67
   br i1 %cmp40, label %cond.true41, label %cond.false43
@@ -15918,16 +15919,16 @@ if.then.i:                                        ; preds = %entry
 if.else.i:                                        ; preds = %entry
   %conv.i.i = uitofp i64 %agg.tmp5.sroa.0.0.copyload.i to double
   %conv2.i.i = uitofp i64 %agg.tmp5.sroa.2.0.copyload.i to double
-  %call.i.i = tail call double @ldexp(double noundef %conv2.i.i, i32 noundef 64) #17
+  %call.i.i = tail call double @ldexp(double noundef %conv2.i.i, i32 noundef 64) #18
   %add.i.i = fadd double %call.i.i, %conv.i.i
-  %call16.i = tail call double @log(double noundef %add.i.i) #17
+  %call16.i = tail call double @log(double noundef %add.i.i) #18
   %div.i = fdiv double 1.000000e+00, %call16.i
   %conv.i16.i = uitofp i64 %coerce3.sroa.0.0.extract.trunc.i.i to double
   %conv2.i18.i = uitofp i64 %.narrow.i.i to double
-  %call.i19.i = tail call double @ldexp(double noundef %conv2.i18.i, i32 noundef 64) #17
+  %call.i19.i = tail call double @ldexp(double noundef %conv2.i18.i, i32 noundef 64) #18
   %add.i20.i = fadd double %call.i19.i, %conv.i16.i
   %add.i = fadd double %add.i20.i, 5.000000e-01
-  %call20.i = tail call double @log(double noundef %add.i) #17
+  %call20.i = tail call double @log(double noundef %add.i) #18
   %mul.i = fmul double %div.i, %call20.i
   %4 = tail call double @llvm.ceil.f64(double %mul.i)
   %conv.i = fptosi double %4 to i32
@@ -16017,18 +16018,18 @@ cond.end:                                         ; preds = %if.then6, %cond.fal
 if.else:                                          ; preds = %if.end
   %conv.i = uitofp i64 %retval.sroa.0.0.copyload.i to double
   %conv2.i = uitofp i64 %retval.sroa.2.0.copyload.i to double
-  %call.i = call double @ldexp(double noundef %conv2.i, i32 noundef 64) #17
+  %call.i = call double @ldexp(double noundef %conv2.i, i32 noundef 64) #18
   %add.i = fadd double %call.i, %conv.i
   %conv.i54 = sitofp i32 %sub to double
-  %call.i55 = call noundef double @pow(double noundef %add.i, double noundef %conv.i54) #17
+  %call.i55 = call noundef double @pow(double noundef %add.i, double noundef %conv.i54) #18
   %retval.sroa.0.0.copyload.i57 = load i64, ptr %base_.i, align 16
   %retval.sroa.2.0.copyload.i59 = load i64, ptr %retval.sroa.2.0.base_.sroa_idx.i, align 8
   %conv.i62 = uitofp i64 %retval.sroa.0.0.copyload.i57 to double
   %conv2.i64 = uitofp i64 %retval.sroa.2.0.copyload.i59 to double
-  %call.i65 = call double @ldexp(double noundef %conv2.i64, i32 noundef 64) #17
+  %call.i65 = call double @ldexp(double noundef %conv2.i64, i32 noundef 64) #18
   %add.i66 = fadd double %call.i65, %conv.i62
   %2 = call double @llvm.fmuladd.f64(double %call.i55, double %add.i66, double -1.000000e+00)
-  %call.i70 = call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #17
+  %call.i70 = call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #18
   %add.i71 = fadd double %call.i70, 0x43F0000000000000
   %cmp29 = fcmp ogt double %call.i55, %add.i71
   br i1 %cmp29, label %cond.true30, label %cond.false32
@@ -16047,7 +16048,7 @@ cond.false32:                                     ; preds = %if.else
 cond.end33:                                       ; preds = %cond.false32, %cond.true30
   %base_e.sroa.4.0.copyload = phi i64 [ %base_e.sroa.4.0.copyload.pre, %cond.false32 ], [ -1, %cond.true30 ]
   %base_e.sroa.0.0.copyload = phi i64 [ %base_e.sroa.0.0.copyload.pre, %cond.false32 ], [ -1, %cond.true30 ]
-  %call.i75 = call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #17
+  %call.i75 = call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #18
   %add.i76 = fadd double %call.i75, 0x43F0000000000000
   %cmp38 = fcmp ogt double %2, %add.i76
   br i1 %cmp38, label %cond.true39, label %cond.false41
@@ -16365,14 +16366,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133InsecureBitGen_Compatibility_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133InsecureBitGen_Compatibility_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
+  %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
           to label %invoke.cont unwind label %lpad
 
@@ -16383,22 +16384,22 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #19
   resume { ptr, i32 } %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_133InsecureBitGen_Compatibility_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 {
 entry:
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #17
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_133InsecureBitGen_Compatibility_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 {
 entry:
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
 
@@ -17281,8 +17282,8 @@ invoke.cont57.i.i:                                ; preds = %_ZN4absl15random_in
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hi.addr.i.i.i)
   store double 0.000000e+00, ptr %lo.addr.i.i.i, align 8
   store double 1.000000e+00, ptr %hi.addr.i.i.i, align 8
-  %call.i.i.i.i = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #17
-  %call1.i.i.i.i = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #17
+  %call.i.i.i.i = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #18
+  %call1.i.i.i.i = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #18
   %cmp.i.i684.i.i = fcmp ole double %call.i.i.i.i, %call1.i.i.i.i
   %sub.i.i685.i.i = fsub double %call1.i.i.i.i, %call.i.i.i.i
   %82 = call double @llvm.fabs.f64(double %sub.i.i685.i.i)
@@ -17598,7 +17599,7 @@ invoke.cont87.i.i:                                ; preds = %while.cond.if.end13
   br i1 %113, label %cdce.end.i.i, label %cdce.end, !prof !14
 
 cdce.end:                                         ; preds = %invoke.cont87.i.i
-  %call.i.i.i.i.i.i.i.i = call noundef float @log1pf(float noundef %112) #17
+  %call.i.i.i.i.i.i.i.i = call noundef float @log1pf(float noundef %112) #18
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i2.pre.i.pre.i.pre = load i64, ptr %gen.i, align 16
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i4.pre.i.pre.i.pre = load i64, ptr %6, align 8
   br label %cdce.end.i.i
@@ -17634,7 +17635,7 @@ cdce.end.i.i:                                     ; preds = %cdce.end, %invoke.c
   br i1 %118, label %cdce.end49.i.i, label %cdce.call1, !prof !14
 
 cdce.call1:                                       ; preds = %cdce.end.i.i
-  %call3.i.i.i.i.i.i.i = call double @log1p(double noundef %117) #17
+  %call3.i.i.i.i.i.i.i = call double @log1p(double noundef %117) #18
   br label %cdce.end49.i.i
 
 cdce.end49.i.i:                                   ; preds = %cdce.call1, %cdce.end.i.i
@@ -17708,7 +17709,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   br i1 %129, label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i, label %cdce.call3, !prof !14
 
 cdce.call3:                                       ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit.i.i
-  %call3.i.i.i.i.i46.i.i = call double @log1p(double noundef %128) #17
+  %call3.i.i.i.i.i46.i.i = call double @log1p(double noundef %128) #18
   br label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
 
 _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %cdce.call3, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit.i.i
@@ -18108,7 +18109,7 @@ _ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_
   store double -1.000000e+00, ptr %one_minus_q_.i112.i.i, align 16
   %one_minus_q_inv_.i113.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 48
   store double -1.000000e+00, ptr %one_minus_q_inv_.i113.i.i, align 16
-  %call.i.i.i106.i = call double @ldexp(double noundef 0.000000e+00, i32 noundef 64) #17
+  %call.i.i.i106.i = call double @ldexp(double noundef 0.000000e+00, i32 noundef 64) #18
   %add.i.i115.i.i = fadd double %call.i.i.i106.i, 1.024000e+03
   %cmp.i116.i.i = fcmp ogt double %add.i.i115.i.i, 0x43EFFFFFFFFFFFFF
   %kd.0.i117.i.i = select i1 %cmp.i116.i.i, double 0x43EFFFFFFFFFFFFF, double %add.i.i115.i.i
@@ -18387,7 +18388,7 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESD_E4typeET0_OT1_SD_SD_(ptr noundef nonnull align 16 dereferenceable(16) %urbg, double noundef %lo, double noundef %hi) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i = tail call noundef double @nextafter(double noundef %lo, double noundef %hi) #17
+  %call.i = tail call noundef double @nextafter(double noundef %lo, double noundef %hi) #18
   %cmp.i = fcmp ole double %call.i, %hi
   %sub.i = fsub double %hi, %call.i
   %0 = tail call double @llvm.fabs.f64(double %sub.i)
@@ -18396,7 +18397,7 @@ entry:
   br i1 %2, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call.i.i.i = tail call noundef double @nextafter(double noundef %lo, double noundef %hi) #17
+  %call.i.i.i = tail call noundef double @nextafter(double noundef %lo, double noundef %hi) #18
   %sub.i.i.i.i = fsub double %hi, %call.i.i.i
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.pre.i.i.i = load i64, ptr %urbg, align 16
@@ -18490,7 +18491,7 @@ return:                                           ; preds = %entry, %_ZN4absl15r
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSC_IXsr4absl11disjunctionINS2_23is_widening_convertibleIT2_T3_EENSE_ISG_SF_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISF_SG_EE5valueESG_SF_E4typeEE4typeEE4typeET0_OT1_SF_SG_(ptr noundef nonnull align 16 dereferenceable(16) %urbg, i32 noundef %lo, double noundef %hi) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %conv = sitofp i32 %lo to double
-  %call.i = tail call noundef double @nextafter(double noundef %conv, double noundef %hi) #17
+  %call.i = tail call noundef double @nextafter(double noundef %conv, double noundef %hi) #18
   %cmp.i = fcmp ole double %call.i, %hi
   %sub.i = fsub double %hi, %call.i
   %0 = tail call double @llvm.fabs.f64(double %sub.i)
@@ -18499,7 +18500,7 @@ entry:
   br i1 %2, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call.i.i.i = tail call noundef double @nextafter(double noundef %conv, double noundef %hi) #17
+  %call.i.i.i = tail call noundef double @nextafter(double noundef %conv, double noundef %hi) #18
   %sub.i.i.i.i = fsub double %hi, %call.i.i.i
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.pre.i.i.i = load i64, ptr %urbg, align 16
@@ -18592,7 +18593,7 @@ return:                                           ; preds = %entry, %_ZN4absl15r
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESD_E4typeET0_OT1_SD_SD_(ptr noundef nonnull align 16 dereferenceable(16) %urbg, double noundef %lo, double noundef %hi) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %call1.i = tail call noundef double @nextafter(double noundef %hi, double noundef 0x7FEFFFFFFFFFFFFF) #17
+  %call1.i = tail call noundef double @nextafter(double noundef %hi, double noundef 0x7FEFFFFFFFFFFFFF) #18
   %cmp.i = fcmp oge double %call1.i, %lo
   %sub.i = fsub double %call1.i, %lo
   %0 = tail call double @llvm.fabs.f64(double %sub.i)
@@ -18601,7 +18602,7 @@ entry:
   br i1 %2, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1.i.i.i = tail call noundef double @nextafter(double noundef %hi, double noundef 0x7FEFFFFFFFFFFFFF) #17
+  %call1.i.i.i = tail call noundef double @nextafter(double noundef %hi, double noundef 0x7FEFFFFFFFFFFFFF) #18
   %sub.i.i.i.i = fsub double %call1.i.i.i, %lo
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.pre.i.i.i = load i64, ptr %urbg, align 16
@@ -18696,8 +18697,8 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
 entry:
   %0 = load double, ptr %args1, align 8
   %1 = load double, ptr %args3, align 8
-  %call.i.i = tail call noundef double @nextafter(double noundef %0, double noundef %1) #17
-  %call1.i.i = tail call noundef double @nextafter(double noundef %1, double noundef 0x7FEFFFFFFFFFFFFF) #17
+  %call.i.i = tail call noundef double @nextafter(double noundef %0, double noundef %1) #18
+  %call1.i.i = tail call noundef double @nextafter(double noundef %1, double noundef 0x7FEFFFFFFFFFFFFF) #18
   %sub.i.i.i = fsub double %call1.i.i, %call.i.i
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.pre.i.i = load i64, ptr %urbg, align 16
@@ -18939,7 +18940,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %17) #17
+  %call.i = tail call double @log(double noundef %17) #18
   %div.i = fdiv double 1.000000e+00, %17
   %neg.i = fneg double %17
   %19 = tail call double @llvm.fmuladd.f64(double %17, double %call.i, double %neg.i)
@@ -18953,7 +18954,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %23, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %10) #17
+  %call27 = tail call double @log(double noundef %10) #18
   %24 = load double, ptr %log_k_, align 8
   %25 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %24)
   %add29 = fadd double %cond26, %25
@@ -19129,7 +19130,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %17) #17
+  %call.i = tail call double @log(double noundef %17) #18
   %div.i = fdiv double 1.000000e+00, %17
   %neg.i = fneg double %17
   %19 = tail call double @llvm.fmuladd.f64(double %17, double %call.i, double %neg.i)
@@ -19143,7 +19144,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %23, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %10) #17
+  %call27 = tail call double @log(double noundef %10) #18
   %24 = load double, ptr %log_k_, align 8
   %25 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %24)
   %add29 = fadd double %cond26, %25
@@ -19319,7 +19320,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %17) #17
+  %call.i = tail call double @log(double noundef %17) #18
   %div.i = fdiv double 1.000000e+00, %17
   %neg.i = fneg double %17
   %19 = tail call double @llvm.fmuladd.f64(double %17, double %call.i, double %neg.i)
@@ -19333,7 +19334,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %23, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %10) #17
+  %call27 = tail call double @log(double noundef %10) #18
   %24 = load double, ptr %log_k_, align 8
   %25 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %24)
   %add29 = fadd double %cond26, %25
@@ -19509,7 +19510,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %17) #17
+  %call.i = tail call double @log(double noundef %17) #18
   %div.i = fdiv double 1.000000e+00, %17
   %neg.i = fneg double %17
   %19 = tail call double @llvm.fmuladd.f64(double %17, double %call.i, double %neg.i)
@@ -19523,7 +19524,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %23, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %10) #17
+  %call27 = tail call double @log(double noundef %10) #18
   %24 = load double, ptr %log_k_, align 8
   %25 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %24)
   %add29 = fadd double %cond26, %25
@@ -19699,7 +19700,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %17) #17
+  %call.i = tail call double @log(double noundef %17) #18
   %div.i = fdiv double 1.000000e+00, %17
   %neg.i = fneg double %17
   %19 = tail call double @llvm.fmuladd.f64(double %17, double %call.i, double %neg.i)
@@ -19713,7 +19714,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %23, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %10) #17
+  %call27 = tail call double @log(double noundef %10) #18
   %24 = load double, ptr %log_k_, align 8
   %25 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %24)
   %add29 = fadd double %cond26, %25
@@ -19889,7 +19890,7 @@ cond.false:                                       ; preds = %if.end18
   br i1 %cmp21, label %cond.end25, label %cond.false23
 
 cond.false23:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %17) #17
+  %call.i = tail call double @log(double noundef %17) #18
   %div.i = fdiv double 1.000000e+00, %17
   %neg.i = fneg double %17
   %19 = tail call double @llvm.fmuladd.f64(double %17, double %call.i, double %neg.i)
@@ -19903,7 +19904,7 @@ cond.false23:                                     ; preds = %cond.false
 
 cond.end25:                                       ; preds = %cond.false23, %cond.false, %if.end18
   %cond26 = phi double [ 0.000000e+00, %if.end18 ], [ %23, %cond.false23 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call27 = tail call double @log(double noundef %10) #17
+  %call27 = tail call double @log(double noundef %10) #18
   %24 = load double, ptr %log_k_, align 8
   %25 = tail call double @llvm.fmuladd.f64(double %call27, double 2.000000e+00, double %24)
   %add29 = fadd double %cond26, %25
@@ -20086,7 +20087,7 @@ cond.false:                                       ; preds = %if.end19
   br i1 %cmp22, label %cond.end26, label %cond.false24
 
 cond.false24:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %18) #17
+  %call.i = tail call double @log(double noundef %18) #18
   %div.i = fdiv double 1.000000e+00, %18
   %neg.i = fneg double %18
   %20 = tail call double @llvm.fmuladd.f64(double %18, double %call.i, double %neg.i)
@@ -20100,7 +20101,7 @@ cond.false24:                                     ; preds = %cond.false
 
 cond.end26:                                       ; preds = %cond.false24, %cond.false, %if.end19
   %cond27 = phi double [ 0.000000e+00, %if.end19 ], [ %24, %cond.false24 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call28 = tail call double @log(double noundef %11) #17
+  %call28 = tail call double @log(double noundef %11) #18
   %25 = load double, ptr %log_k_, align 8
   %26 = tail call double @llvm.fmuladd.f64(double %call28, double 2.000000e+00, double %25)
   %add30 = fadd double %cond27, %26
@@ -20292,7 +20293,7 @@ cond.false:                                       ; preds = %if.end19
   br i1 %cmp22, label %cond.end26, label %cond.false24
 
 cond.false24:                                     ; preds = %cond.false
-  %call.i = tail call double @log(double noundef %18) #17
+  %call.i = tail call double @log(double noundef %18) #18
   %div.i = fdiv double 1.000000e+00, %18
   %neg.i = fneg double %18
   %20 = tail call double @llvm.fmuladd.f64(double %18, double %call.i, double %neg.i)
@@ -20306,7 +20307,7 @@ cond.false24:                                     ; preds = %cond.false
 
 cond.end26:                                       ; preds = %cond.false24, %cond.false, %if.end19
   %cond27 = phi double [ 0.000000e+00, %if.end19 ], [ %24, %cond.false24 ], [ 0x3FE62E42FEFA39EC, %cond.false ]
-  %call28 = tail call double @log(double noundef %11) #17
+  %call28 = tail call double @log(double noundef %11) #18
   %25 = load double, ptr %log_k_, align 8
   %26 = tail call double @llvm.fmuladd.f64(double %call28, double 2.000000e+00, double %25)
   %add30 = fadd double %cond27, %26
@@ -20314,7 +20315,7 @@ cond.end26:                                       ; preds = %cond.false24, %cond
   br i1 %cmp31, label %if.then32, label %for.cond8.backedge
 
 if.then32:                                        ; preds = %cond.end26
-  %call.i72 = tail call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #17
+  %call.i72 = tail call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #18
   %add.i73 = fadd double %call.i72, 0x43F0000000000000
   %cmp35 = fcmp ogt double %18, %add.i73
   br i1 %cmp35, label %return, label %cond.false38
@@ -20403,9 +20404,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %10 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %7, %9
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %10, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -20439,10 +20440,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %16 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %16
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %17 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %17
   %.pre = load double, ptr %v_.i, align 8
@@ -20462,11 +20463,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %20 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %20
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -20549,9 +20550,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %10 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %7, %9
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %10, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -20585,10 +20586,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %16 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %16
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %17 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %17
   %.pre = load double, ptr %v_.i, align 8
@@ -20608,11 +20609,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %20 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %20
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -20695,9 +20696,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %10 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %7, %9
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %10, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -20731,10 +20732,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %16 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %16
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %17 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %17
   %.pre = load double, ptr %v_.i, align 8
@@ -20754,11 +20755,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %20 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %20
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -20841,9 +20842,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %10 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %7, %9
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %10, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -20877,10 +20878,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %16 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %16
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %17 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %17
   %.pre = load double, ptr %v_.i, align 8
@@ -20900,11 +20901,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %20 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %20
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -20987,9 +20988,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %10 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %7, %9
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %10, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -21023,10 +21024,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %16 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %16
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %17 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %17
   %.pre = load double, ptr %v_.i, align 8
@@ -21046,11 +21047,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %20 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %20
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -21133,9 +21134,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %10 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %7, %9
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %10, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -21169,10 +21170,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %16 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %16
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %17 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %17
   %.pre = load double, ptr %v_.i, align 8
@@ -21192,11 +21193,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %20 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %20
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -21279,9 +21280,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %10 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul.i = fmul double %7, %9
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %10, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -21315,10 +21316,10 @@ cond.true.i24:                                    ; preds = %if.end6
   br label %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end6
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %16 = load double, ptr %one_minus_q_.i, align 8
   %mul.i21 = fmul double %call.i20, %16
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %17 = load double, ptr %one_minus_q_inv_.i, align 8
   %mul4.i = fmul double %call3.i, %17
   %.pre = load double, ptr %v_.i, align 8
@@ -21338,11 +21339,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add8) #17
+  %call.i28 = tail call double @log(double noundef %add8) #18
   %20 = load double, ptr %q_.i, align 8
   %fneg.i = fneg double %20
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -21426,9 +21427,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %10 = load double, ptr %one_minus_q_inv_.i, align 16
   %mul.i = fmul double %7, %9
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %10, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -21467,10 +21468,10 @@ cond.true.i24:                                    ; preds = %if.end7
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
 
 cond.false.i19:                                   ; preds = %if.end7
-  %call.i20 = tail call double @log(double noundef %add.i16) #17
+  %call.i20 = tail call double @log(double noundef %add.i16) #18
   %15 = load double, ptr %one_minus_q_.i, align 16
   %mul.i21 = fmul double %call.i20, %15
-  %call3.i = tail call double @exp(double noundef %mul.i21) #17
+  %call3.i = tail call double @exp(double noundef %mul.i21) #18
   %16 = load double, ptr %one_minus_q_inv_.i, align 16
   %mul4.i = fmul double %call3.i, %16
   %.pre = load double, ptr %v_.i, align 8
@@ -21490,11 +21491,11 @@ cond.true.i32:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 cond.false.i27:                                   ; preds = %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
-  %call.i28 = tail call double @log(double noundef %add9) #17
+  %call.i28 = tail call double @log(double noundef %add9) #18
   %19 = load double, ptr %q_.i, align 16
   %fneg.i = fneg double %19
   %mul3.i29 = fmul double %call.i28, %fneg.i
-  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #17
+  %call4.i30 = tail call double @exp(double noundef %mul3.i29) #18
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i32, %cond.false.i27
@@ -21584,9 +21585,9 @@ cond.true.i:                                      ; preds = %_ZN4absl25uniform_r
 cond.false.i:                                     ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %10 = load double, ptr %one_minus_q_inv_.i, align 16
   %mul.i = fmul double %7, %9
-  %call.i = tail call double @log(double noundef %mul.i) #17
+  %call.i = tail call double @log(double noundef %mul.i) #18
   %mul3.i = fmul double %10, %call.i
-  %call4.i = tail call double @exp(double noundef %mul3.i) #17
+  %call4.i = tail call double @exp(double noundef %mul3.i) #18
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %cond.true.i, %cond.false.i
@@ -21597,7 +21598,7 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %c
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.k_.sroa_idx.i, align 8
   %conv.i = uitofp i64 %retval.sroa.0.0.copyload.i to double
   %conv2.i = uitofp i64 %retval.sroa.2.0.copyload.i to double
-  %call.i15 = tail call double @ldexp(double noundef %conv2.i, i32 noundef 64) #17
+  %call.i15 = tail call double @ldexp(double noundef %conv2.i, i32 noundef 64) #18
   %add.i16 = fadd double %call.i15, %conv.i
   %cmp = fcmp ogt double %11, %add.i16
   br i1 %cmp, label %for.cond.backedge, label %if.end
@@ -21624,10 +21625,10 @@ cond.true.i26:                                    ; preds = %if.end7
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
 
 cond.false.i21:                                   ; preds = %if.end7
-  %call.i22 = tail call double @log(double noundef %add.i18) #17
+  %call.i22 = tail call double @log(double noundef %add.i18) #18
   %15 = load double, ptr %one_minus_q_.i, align 16
   %mul.i23 = fmul double %call.i22, %15
-  %call3.i = tail call double @exp(double noundef %mul.i23) #17
+  %call3.i = tail call double @exp(double noundef %mul.i23) #18
   %16 = load double, ptr %one_minus_q_inv_.i, align 16
   %mul4.i = fmul double %call3.i, %16
   %.pre = load double, ptr %v_.i, align 8
@@ -21647,11 +21648,11 @@ cond.true.i34:                                    ; preds = %_ZNK4absl17zipf_dis
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 cond.false.i29:                                   ; preds = %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
-  %call.i30 = tail call double @log(double noundef %add9) #17
+  %call.i30 = tail call double @log(double noundef %add9) #18
   %19 = load double, ptr %q_.i, align 16
   %fneg.i = fneg double %19
   %mul3.i31 = fmul double %call.i30, %fneg.i
-  %call4.i32 = tail call double @exp(double noundef %mul3.i31) #17
+  %call4.i32 = tail call double @exp(double noundef %mul3.i31) #18
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit: ; preds = %cond.true.i34, %cond.false.i29
@@ -21762,7 +21763,7 @@ if.end10:                                         ; preds = %if.end
   %15 = tail call double @llvm.fmuladd.f64(double %12, double %sub, double %13)
   %mul23 = fmul double %mul, -5.000000e-01
   %mul24 = fmul double %mul, %mul23
-  %call25 = tail call double @exp(double noundef %mul24) #17
+  %call25 = tail call double @exp(double noundef %mul24) #18
   %cmp26 = fcmp olt double %15, %call25
   br i1 %cmp26, label %return, label %while.body, !llvm.loop !168
 
@@ -21804,7 +21805,7 @@ do.body:                                          ; preds = %do.body, %entry
   %reass.sub = sub nsw i64 %and2.i, %2
   %or3.i = add nsw i64 %reass.sub, 4602678819172646912
   %3 = bitcast i64 %or3.i to double
-  %call3 = tail call double @log(double noundef %3) #17
+  %call3 = tail call double @log(double noundef %3) #18
   %mul = fmul double %call3, 0x3FD2972A8AFC6175
   %agg.tmp.sroa.0.0.copyload.i.i.i.i6 = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.copyload.i.i.i.i8 = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
@@ -21832,7 +21833,7 @@ do.body:                                          ; preds = %do.body, %entry
   %reass.sub30 = sub nsw i64 %and2.i28, %6
   %or3.i29 = add nsw i64 %reass.sub30, 4602678819172646912
   %7 = bitcast i64 %or3.i29 to double
-  %call7 = tail call double @log(double noundef %7) #17
+  %call7 = tail call double @log(double noundef %7) #18
   %fneg = fneg double %call7
   %add = fsub double %fneg, %call7
   %mul8 = fmul double %mul, %mul
@@ -21951,7 +21952,7 @@ cond.false:                                       ; preds = %if.then5
 if.else:                                          ; preds = %if.end
   %conv = sitofp i32 %3 to double
   %conv.i = sitofp i32 %sub to double
-  %call.i = tail call noundef double @pow(double noundef %conv, double noundef %conv.i) #17
+  %call.i = tail call noundef double @pow(double noundef %conv, double noundef %conv.i) #18
   %4 = load i32, ptr %base_.i, align 4
   %conv13 = sitofp i32 %4 to double
   %5 = tail call double @llvm.fmuladd.f64(double %call.i, double %conv13, double -1.000000e+00)
@@ -22164,7 +22165,7 @@ cond.false:                                       ; preds = %if.then5
 if.else:                                          ; preds = %if.end
   %conv14 = sitofp i8 %3 to double
   %conv.i = sitofp i32 %sub to double
-  %call.i = tail call noundef double @pow(double noundef %conv14, double noundef %conv.i) #17
+  %call.i = tail call noundef double @pow(double noundef %conv14, double noundef %conv.i) #18
   %6 = load i8, ptr %base_.i, align 2
   %conv17 = sitofp i8 %6 to double
   %7 = tail call double @llvm.fmuladd.f64(double %call.i, double %conv17, double -1.000000e+00)
@@ -22380,7 +22381,7 @@ cond.false:                                       ; preds = %if.then5
 if.else:                                          ; preds = %if.end
   %conv14 = sitofp i16 %3 to double
   %conv.i = sitofp i32 %sub to double
-  %call.i = tail call noundef double @pow(double noundef %conv14, double noundef %conv.i) #17
+  %call.i = tail call noundef double @pow(double noundef %conv14, double noundef %conv.i) #18
   %6 = load i16, ptr %base_.i, align 4
   %conv17 = sitofp i16 %6 to double
   %7 = tail call double @llvm.fmuladd.f64(double %call.i, double %conv17, double -1.000000e+00)
@@ -22596,7 +22597,7 @@ cond.false:                                       ; preds = %if.then5
 if.else:                                          ; preds = %if.end
   %conv14 = uitofp i16 %3 to double
   %conv.i = sitofp i32 %sub to double
-  %call.i = tail call noundef double @pow(double noundef %conv14, double noundef %conv.i) #17
+  %call.i = tail call noundef double @pow(double noundef %conv14, double noundef %conv.i) #18
   %6 = load i16, ptr %base_.i, align 4
   %conv17 = uitofp i16 %6 to double
   %7 = tail call double @llvm.fmuladd.f64(double %call.i, double %conv17, double -1.000000e+00)
@@ -22810,7 +22811,7 @@ cond.false:                                       ; preds = %if.then5
 if.else:                                          ; preds = %if.end
   %conv = uitofp i32 %3 to double
   %conv.i = sitofp i32 %sub to double
-  %call.i = tail call noundef double @pow(double noundef %conv, double noundef %conv.i) #17
+  %call.i = tail call noundef double @pow(double noundef %conv, double noundef %conv.i) #18
   %4 = load i32, ptr %base_.i, align 4
   %conv13 = uitofp i32 %4 to double
   %5 = tail call double @llvm.fmuladd.f64(double %call.i, double %conv13, double -1.000000e+00)
@@ -23022,7 +23023,7 @@ cond.false:                                       ; preds = %if.then5
 if.else:                                          ; preds = %if.end
   %conv = sitofp i64 %3 to double
   %conv.i = sitofp i32 %sub to double
-  %call.i = tail call noundef double @pow(double noundef %conv, double noundef %conv.i) #17
+  %call.i = tail call noundef double @pow(double noundef %conv, double noundef %conv.i) #18
   %4 = load i64, ptr %base_.i, align 8
   %conv14 = sitofp i64 %4 to double
   %5 = tail call double @llvm.fmuladd.f64(double %call.i, double %conv14, double -1.000000e+00)
@@ -23231,7 +23232,7 @@ cond.false:                                       ; preds = %if.then5
 if.else:                                          ; preds = %if.end
   %conv = uitofp i64 %3 to double
   %conv.i = sitofp i32 %sub to double
-  %call.i = tail call noundef double @pow(double noundef %conv, double noundef %conv.i) #17
+  %call.i = tail call noundef double @pow(double noundef %conv, double noundef %conv.i) #18
   %4 = load i64, ptr %base_.i, align 8
   %conv14 = uitofp i64 %4 to double
   %5 = tail call double @llvm.fmuladd.f64(double %call.i, double %conv14, double -1.000000e+00)
@@ -23381,14 +23382,14 @@ if.then.i.i:                                      ; preds = %entry
 
 if.else.i.i:                                      ; preds = %entry
   %conv.i.i.i = sitofp i128 %agg.tmp6.sroa.0.0.copyload to double
-  %call18.i.i = tail call double @log(double noundef %conv.i.i.i) #17
+  %call18.i.i = tail call double @log(double noundef %conv.i.i.i) #18
   %div.i.i = fdiv double 1.000000e+00, %call18.i.i
   %conv.i16.i.i = uitofp i64 %coerce3.sroa.0.0.extract.trunc.i.i.i to double
   %conv2.i.i.i = uitofp i64 %.narrow.i.i.i to double
-  %call.i.i.i = tail call double @ldexp(double noundef %conv2.i.i.i, i32 noundef 64) #17
+  %call.i.i.i = tail call double @ldexp(double noundef %conv2.i.i.i, i32 noundef 64) #18
   %add.i.i.i = fadd double %call.i.i.i, %conv.i16.i.i
   %add.i.i = fadd double %add.i.i.i, 5.000000e-01
-  %call22.i.i = tail call double @log(double noundef %add.i.i) #17
+  %call22.i.i = tail call double @log(double noundef %add.i.i) #18
   %mul.i.i = fmul double %div.i.i, %call22.i.i
   %4 = tail call double @llvm.ceil.f64(double %mul.i.i)
   %conv.i.i = fptosi double %4 to i32
@@ -23545,7 +23546,7 @@ cond.end:                                         ; preds = %if.then6, %cond.fal
 if.else:                                          ; preds = %if.end
   %conv.i = sitofp i128 %coerce.sroa.0.0.insert.insert.i to double
   %conv.i52 = sitofp i32 %sub to double
-  %call.i = tail call noundef double @pow(double noundef %conv.i, double noundef %conv.i52) #17
+  %call.i = tail call noundef double @pow(double noundef %conv.i, double noundef %conv.i52) #18
   %retval.sroa.0.0.copyload.i54 = load i64, ptr %base_.i, align 16
   %retval.sroa.2.0.copyload.i56 = load i64, ptr %retval.sroa.2.0.base_.sroa_idx.i, align 8
   %ref.tmp23.sroa.2.0.insert.ext = zext i64 %retval.sroa.2.0.copyload.i56 to i128
@@ -23554,7 +23555,7 @@ if.else:                                          ; preds = %if.end
   %ref.tmp23.sroa.0.0.insert.insert = or disjoint i128 %ref.tmp23.sroa.2.0.insert.shift, %ref.tmp23.sroa.0.0.insert.ext
   %conv.i59 = sitofp i128 %ref.tmp23.sroa.0.0.insert.insert to double
   %4 = tail call double @llvm.fmuladd.f64(double %call.i, double %conv.i59, double -1.000000e+00)
-  %call.i62 = tail call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #17
+  %call.i62 = tail call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #18
   %add.i = fadd double %call.i62, 0x43F0000000000000
   %cmp31 = fcmp ogt double %call.i, %add.i
   br i1 %cmp31, label %cond.true32, label %cond.false34
@@ -23573,7 +23574,7 @@ cond.false34:                                     ; preds = %if.else
 cond.end35:                                       ; preds = %cond.false34, %cond.true32
   %base_e.sroa.4.0.copyload = phi i64 [ %base_e.sroa.4.0.copyload.pre, %cond.false34 ], [ -1, %cond.true32 ]
   %base_e.sroa.0.0.copyload = phi i64 [ %base_e.sroa.0.0.copyload.pre, %cond.false34 ], [ -1, %cond.true32 ]
-  %call.i66 = call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #17
+  %call.i66 = call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #18
   %add.i67 = fadd double %call.i66, 0x43F0000000000000
   %cmp40 = fcmp ogt double %4, %add.i67
   br i1 %cmp40, label %cond.true41, label %cond.false43
@@ -23886,16 +23887,16 @@ if.then.i:                                        ; preds = %entry
 if.else.i:                                        ; preds = %entry
   %conv.i.i = uitofp i64 %agg.tmp5.sroa.0.0.copyload.i to double
   %conv2.i.i = uitofp i64 %agg.tmp5.sroa.2.0.copyload.i to double
-  %call.i.i = tail call double @ldexp(double noundef %conv2.i.i, i32 noundef 64) #17
+  %call.i.i = tail call double @ldexp(double noundef %conv2.i.i, i32 noundef 64) #18
   %add.i.i = fadd double %call.i.i, %conv.i.i
-  %call16.i = tail call double @log(double noundef %add.i.i) #17
+  %call16.i = tail call double @log(double noundef %add.i.i) #18
   %div.i = fdiv double 1.000000e+00, %call16.i
   %conv.i16.i = uitofp i64 %coerce3.sroa.0.0.extract.trunc.i.i to double
   %conv2.i18.i = uitofp i64 %.narrow.i.i to double
-  %call.i19.i = tail call double @ldexp(double noundef %conv2.i18.i, i32 noundef 64) #17
+  %call.i19.i = tail call double @ldexp(double noundef %conv2.i18.i, i32 noundef 64) #18
   %add.i20.i = fadd double %call.i19.i, %conv.i16.i
   %add.i = fadd double %add.i20.i, 5.000000e-01
-  %call20.i = tail call double @log(double noundef %add.i) #17
+  %call20.i = tail call double @log(double noundef %add.i) #18
   %mul.i = fmul double %div.i, %call20.i
   %4 = tail call double @llvm.ceil.f64(double %mul.i)
   %conv.i = fptosi double %4 to i32
@@ -24052,18 +24053,18 @@ cond.end:                                         ; preds = %if.then6, %cond.fal
 if.else:                                          ; preds = %if.end
   %conv.i = uitofp i64 %retval.sroa.0.0.copyload.i to double
   %conv2.i = uitofp i64 %retval.sroa.2.0.copyload.i to double
-  %call.i = tail call double @ldexp(double noundef %conv2.i, i32 noundef 64) #17
+  %call.i = tail call double @ldexp(double noundef %conv2.i, i32 noundef 64) #18
   %add.i = fadd double %call.i, %conv.i
   %conv.i54 = sitofp i32 %sub to double
-  %call.i55 = tail call noundef double @pow(double noundef %add.i, double noundef %conv.i54) #17
+  %call.i55 = tail call noundef double @pow(double noundef %add.i, double noundef %conv.i54) #18
   %retval.sroa.0.0.copyload.i57 = load i64, ptr %base_.i, align 16
   %retval.sroa.2.0.copyload.i59 = load i64, ptr %retval.sroa.2.0.base_.sroa_idx.i, align 8
   %conv.i62 = uitofp i64 %retval.sroa.0.0.copyload.i57 to double
   %conv2.i64 = uitofp i64 %retval.sroa.2.0.copyload.i59 to double
-  %call.i65 = tail call double @ldexp(double noundef %conv2.i64, i32 noundef 64) #17
+  %call.i65 = tail call double @ldexp(double noundef %conv2.i64, i32 noundef 64) #18
   %add.i66 = fadd double %call.i65, %conv.i62
   %4 = tail call double @llvm.fmuladd.f64(double %call.i55, double %add.i66, double -1.000000e+00)
-  %call.i70 = tail call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #17
+  %call.i70 = tail call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #18
   %add.i71 = fadd double %call.i70, 0x43F0000000000000
   %cmp29 = fcmp ogt double %call.i55, %add.i71
   br i1 %cmp29, label %cond.true30, label %cond.false32
@@ -24082,7 +24083,7 @@ cond.false32:                                     ; preds = %if.else
 cond.end33:                                       ; preds = %cond.false32, %cond.true30
   %base_e.sroa.4.0.copyload = phi i64 [ %base_e.sroa.4.0.copyload.pre, %cond.false32 ], [ -1, %cond.true30 ]
   %base_e.sroa.0.0.copyload = phi i64 [ %base_e.sroa.0.0.copyload.pre, %cond.false32 ], [ -1, %cond.true30 ]
-  %call.i75 = call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #17
+  %call.i75 = call double @ldexp(double noundef 0x43F0000000000000, i32 noundef 64) #18
   %add.i76 = fadd double %call.i75, 0x43F0000000000000
   %cmp38 = fcmp ogt double %4, %add.i76
   br i1 %cmp38, label %cond.true39, label %cond.false41
@@ -24372,7 +24373,7 @@ terminate.lpad.i:                                 ; preds = %if.else
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #20
+  tail call void @__clang_call_terminate(ptr %2) #21
   unreachable
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -24381,7 +24382,7 @@ if.end:                                           ; preds = %if.else, %if.then
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #18
   store ptr null, ptr %__guard, align 8
   %3 = load i64, ptr %__dnew, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %3)
@@ -24393,7 +24394,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 lpad:                                             ; preds = %invoke.cont, %if.end
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #17
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #18
   resume { ptr, i32 } %4
 }
 
@@ -24428,7 +24429,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #20
+  tail call void @__clang_call_terminate(ptr %2) #21
   unreachable
 }
 
@@ -24449,7 +24450,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 declare void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_generators_test.cc() #14 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_generators_test.cc() #15 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i24 = alloca %"struct.testing::internal::CodeLocation", align 8
   %ref.tmp.i25 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24461,11 +24462,11 @@ entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i = alloca %"class.std::allocator", align 1
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #18
   %call.i4.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %call.i.noexc.i unwind label %lpad.i
 
@@ -24480,7 +24481,7 @@ call.i.noexc.i:                                   ; preds = %entry
 lpad.i.i:                                         ; preds = %.noexc.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #18
   br label %common.resume
 
 invoke.cont.i:                                    ; preds = %.noexc.i
@@ -24502,7 +24503,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont5.i
           to label %invoke.cont8.i unwind label %lpad4.i
 
 invoke.cont8.i:                                   ; preds = %invoke.cont6.i
-  %call11.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
+  %call11.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
           to label %invoke.cont13.i unwind label %lpad4.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont8.i
@@ -24523,24 +24524,24 @@ lpad2.i:                                          ; preds = %invoke.cont.i
 lpad4.i:                                          ; preds = %invoke.cont13.i, %invoke.cont8.i, %invoke.cont6.i, %invoke.cont5.i, %invoke.cont3.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #18
   br label %ehcleanup16.i
 
 ehcleanup16.i:                                    ; preds = %lpad4.i, %lpad2.i
   %.pn.pn.i = phi { ptr, i32 } [ %4, %lpad4.i ], [ %3, %lpad2.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i.i33, %lpad.i28, %ehcleanup16.i36, %lpad.i.i9, %lpad.i4, %ehcleanup16.i12, %lpad.i.i, %lpad.i, %ehcleanup16.i
   %ref.tmp1.i26.sink = phi ptr [ %ref.tmp1.i, %ehcleanup16.i ], [ %ref.tmp1.i, %lpad.i ], [ %ref.tmp1.i, %lpad.i.i ], [ %ref.tmp1.i3, %ehcleanup16.i12 ], [ %ref.tmp1.i3, %lpad.i4 ], [ %ref.tmp1.i3, %lpad.i.i9 ], [ %ref.tmp1.i26, %ehcleanup16.i36 ], [ %ref.tmp1.i26, %lpad.i28 ], [ %ref.tmp1.i26, %lpad.i.i33 ]
   %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup16.i ], [ %2, %lpad.i ], [ %1, %lpad.i.i ], [ %.pn.i, %ehcleanup16.i12 ], [ %6, %lpad.i4 ], [ %5, %lpad.i.i9 ], [ %.pn.i37, %ehcleanup16.i36 ], [ %10, %lpad.i28 ], [ %9, %lpad.i.i33 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i26.sink) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i26.sink) #18
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.1.exit:                     ; preds = %invoke.cont13.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #18
   store ptr %call15.i, ptr @_ZN12_GLOBAL__N_133std_mt19937_64_Compatibility_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -24548,7 +24549,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %invoke.cont13.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i1)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i3)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i3) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i3) #18
   %call.i3.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2)
           to label %call.i.noexc.i7 unwind label %lpad.i4
 
@@ -24563,7 +24564,7 @@ call.i.noexc.i7:                                  ; preds = %__cxx_global_var_in
 lpad.i.i9:                                        ; preds = %.noexc.i8
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i2) #18
   br label %common.resume
 
 invoke.cont.i10:                                  ; preds = %.noexc.i8
@@ -24585,7 +24586,7 @@ invoke.cont6.i19:                                 ; preds = %invoke.cont5.i17
           to label %invoke.cont8.i21 unwind label %lpad4.i16
 
 invoke.cont8.i21:                                 ; preds = %invoke.cont6.i19
-  %call11.i22 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
+  %call11.i22 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
           to label %invoke.cont10.i unwind label %lpad4.i16
 
 invoke.cont10.i:                                  ; preds = %invoke.cont8.i21
@@ -24606,18 +24607,18 @@ lpad2.i11:                                        ; preds = %invoke.cont.i10
 lpad4.i16:                                        ; preds = %invoke.cont10.i, %invoke.cont8.i21, %invoke.cont6.i19, %invoke.cont5.i17, %invoke.cont3.i13
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1) #18
   br label %ehcleanup16.i12
 
 ehcleanup16.i12:                                  ; preds = %lpad4.i16, %lpad2.i11
   %.pn.i = phi { ptr, i32 } [ %8, %lpad4.i16 ], [ %7, %lpad2.i11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2) #18
   br label %common.resume
 
 __cxx_global_var_init.4.exit:                     ; preds = %invoke.cont10.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i3) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2) #18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i3) #18
   store ptr %call15.i23, ptr @_ZN12_GLOBAL__N_125BitGen_Compatibility_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2)
@@ -24625,7 +24626,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %invoke.cont10.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i24)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i25)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i26)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i26) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i26) #18
   %call.i3.i27 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i25)
           to label %call.i.noexc.i31 unwind label %lpad.i28
 
@@ -24640,7 +24641,7 @@ call.i.noexc.i31:                                 ; preds = %__cxx_global_var_in
 lpad.i.i33:                                       ; preds = %.noexc.i32
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i25) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i25) #18
   br label %common.resume
 
 invoke.cont.i34:                                  ; preds = %.noexc.i32
@@ -24662,7 +24663,7 @@ invoke.cont6.i44:                                 ; preds = %invoke.cont5.i42
           to label %invoke.cont8.i46 unwind label %lpad4.i41
 
 invoke.cont8.i46:                                 ; preds = %invoke.cont6.i44
-  %call11.i47 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
+  %call11.i47 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
           to label %invoke.cont10.i48 unwind label %lpad4.i41
 
 invoke.cont10.i48:                                ; preds = %invoke.cont8.i46
@@ -24683,18 +24684,18 @@ lpad2.i35:                                        ; preds = %invoke.cont.i34
 lpad4.i41:                                        ; preds = %invoke.cont10.i48, %invoke.cont8.i46, %invoke.cont6.i44, %invoke.cont5.i42, %invoke.cont3.i38
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i24) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i24) #18
   br label %ehcleanup16.i36
 
 ehcleanup16.i36:                                  ; preds = %lpad4.i41, %lpad2.i35
   %.pn.i37 = phi { ptr, i32 } [ %12, %lpad4.i41 ], [ %11, %lpad2.i35 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i25) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i25) #18
   br label %common.resume
 
 __cxx_global_var_init.6.exit:                     ; preds = %invoke.cont10.i48
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i24) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i25) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i26) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i24) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i25) #18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i26) #18
   store ptr %call15.i49, ptr @_ZN12_GLOBAL__N_133InsecureBitGen_Compatibility_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i24)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i25)
@@ -24703,28 +24704,28 @@ __cxx_global_var_init.6.exit:                     ; preds = %invoke.cont10.i48
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshr.i64(i64, i64, i64) #15
+declare i64 @llvm.fshr.i64(i64, i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #15
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #15
+declare i32 @llvm.umin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #15
+declare i8 @llvm.umin.i8(i8, i8) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #15
+declare i16 @llvm.umin.i16(i16, i16) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -24737,16 +24738,17 @@ attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind }
-attributes #18 = { builtin nounwind }
-attributes #19 = { builtin allocsize(0) }
-attributes #20 = { noreturn nounwind }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nounwind }
+attributes #19 = { builtin nounwind }
+attributes #20 = { builtin allocsize(0) }
+attributes #21 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

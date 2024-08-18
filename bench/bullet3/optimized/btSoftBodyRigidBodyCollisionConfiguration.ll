@@ -162,7 +162,7 @@ terminate.lpad.i:                                 ; preds = %if.then26
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #6
+  tail call void @__clang_call_terminate(ptr %5) #7
   unreachable
 
 _ZN15btPoolAllocatorD2Ev.exit:                    ; preds = %if.then26
@@ -226,7 +226,7 @@ invoke.cont33:                                    ; preds = %while.body.i, %call
 lpad:                                             ; preds = %invoke.cont31, %invoke.cont29, %_ZN15btPoolAllocatorD2Ev.exit, %invoke.cont10, %invoke.cont6, %invoke.cont3, %invoke.cont2, %entry
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN31btDefaultCollisionConfigurationD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #7
+  tail call void @_ZN31btDefaultCollisionConfigurationD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #8
   resume { ptr, i32 } %11
 
 if.end35:                                         ; preds = %if.then, %invoke.cont33, %land.lhs.true, %invoke.cont13
@@ -252,7 +252,7 @@ entry:
   %0 = load ptr, ptr %m_softSoftCreateFunc, align 8
   %vtable = load ptr, ptr %0, align 8
   %1 = load ptr, ptr %vtable, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(9) %0) #7
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(9) %0) #8
   %2 = load ptr, ptr %m_softSoftCreateFunc, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
@@ -262,7 +262,7 @@ invoke.cont:                                      ; preds = %entry
   %3 = load ptr, ptr %m_softRigidConvexCreateFunc, align 8
   %vtable3 = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %vtable3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(9) %3) #7
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(9) %3) #8
   %5 = load ptr, ptr %m_softRigidConvexCreateFunc, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %5)
           to label %invoke.cont6 unwind label %terminate.lpad
@@ -272,7 +272,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
   %6 = load ptr, ptr %m_swappedSoftRigidConvexCreateFunc, align 8
   %vtable7 = load ptr, ptr %6, align 8
   %7 = load ptr, ptr %vtable7, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(9) %6) #7
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(9) %6) #8
   %8 = load ptr, ptr %m_swappedSoftRigidConvexCreateFunc, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %8)
           to label %invoke.cont10 unwind label %terminate.lpad
@@ -282,7 +282,7 @@ invoke.cont10:                                    ; preds = %invoke.cont6
   %9 = load ptr, ptr %m_softRigidConcaveCreateFunc, align 8
   %vtable11 = load ptr, ptr %9, align 8
   %10 = load ptr, ptr %vtable11, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %9) #7
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %9) #8
   %11 = load ptr, ptr %m_softRigidConcaveCreateFunc, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %11)
           to label %invoke.cont14 unwind label %terminate.lpad
@@ -292,44 +292,45 @@ invoke.cont14:                                    ; preds = %invoke.cont10
   %12 = load ptr, ptr %m_swappedSoftRigidConcaveCreateFunc, align 8
   %vtable15 = load ptr, ptr %12, align 8
   %13 = load ptr, ptr %vtable15, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(9) %12) #7
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(9) %12) #8
   %14 = load ptr, ptr %m_swappedSoftRigidConcaveCreateFunc, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %14)
           to label %invoke.cont18 unwind label %terminate.lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont14
-  tail call void @_ZN31btDefaultCollisionConfigurationD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #7
+  tail call void @_ZN31btDefaultCollisionConfigurationD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #8
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont14, %invoke.cont10, %invoke.cont6, %invoke.cont, %entry
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #6
+  tail call void @__clang_call_terminate(ptr %16) #7
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
-  tail call void @_ZSt9terminatev() #6
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
+  tail call void @_ZSt9terminatev() #7
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN41btSoftBodyRigidBodyCollisionConfigurationD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZN41btSoftBodyRigidBodyCollisionConfigurationD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) #7
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #8
+  tail call void @_ZN41btSoftBodyRigidBodyCollisionConfigurationD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) #8
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #9
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN41btSoftBodyRigidBodyCollisionConfiguration31getCollisionAlgorithmCreateFuncEii(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef %proxyType0, i32 noundef %proxyType1) unnamed_addr #0 align 2 {
@@ -425,7 +426,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN28btSoftSoftCollisionAlgorithm10CreateFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #8
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #9
   ret void
 }
 
@@ -452,7 +453,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN29btSoftRigidCollisionAlgorithm10CreateFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #8
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #9
   ret void
 }
 
@@ -482,7 +483,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN35btSoftBodyConcaveCollisionAlgorithm10CreateFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #8
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #9
   ret void
 }
 
@@ -509,7 +510,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN35btSoftBodyConcaveCollisionAlgorithm17SwappedCreateFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #8
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #9
   ret void
 }
 
@@ -530,10 +531,11 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind }
-attributes #7 = { nounwind }
-attributes #8 = { builtin nounwind }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn nounwind }
+attributes #8 = { nounwind }
+attributes #9 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

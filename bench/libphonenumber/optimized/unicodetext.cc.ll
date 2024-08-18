@@ -112,7 +112,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi(ptr no
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %12, i32 %1)
   store i32 %.sroa.speculated, ptr %3, align 4
   %13 = sext i32 %.sroa.speculated to i64
-  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #22
+  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #23
   %15 = load ptr, ptr %0, align 8
   %.not4 = icmp eq ptr %15, null
   br i1 %.not4, label %24, label %16
@@ -128,7 +128,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi(ptr no
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %16
-  tail call void @_ZdaPv(ptr noundef nonnull %15) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %15) #24
   br label %24
 
 24:                                               ; preds = %16, %23, %9
@@ -167,7 +167,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText4Repr6resizeEi(ptr noc
   br i1 %10, label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit, label %11
 
 11:                                               ; preds = %8
-  tail call void @_ZdaPv(ptr noundef nonnull %9) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %9) #24
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit: ; preds = %7, %8, %11
@@ -188,7 +188,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit: ; preds = %7, %8, %11
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %19, i32 %1)
   store i32 %.sroa.speculated.i, ptr %13, align 4
   %20 = sext i32 %.sroa.speculated.i to i64
-  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #22
+  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #23
   %22 = load ptr, ptr %0, align 8
   %.not4.i = icmp eq ptr %22, null
   br i1 %.not4.i, label %28, label %23
@@ -201,7 +201,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit: ; preds = %7, %8, %11
   br i1 %6, label %27, label %28
 
 27:                                               ; preds = %23
-  tail call void @_ZdaPv(ptr noundef nonnull %22) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %22) #24
   br label %28
 
 28:                                               ; preds = %27, %23, %16
@@ -245,7 +245,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv(ptr noca
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %6) #24
   br label %9
 
 9:                                                ; preds = %5, %8, %1
@@ -274,7 +274,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci(ptr no
   br i1 %11, label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i, label %12
 
 12:                                               ; preds = %9
-  tail call void @_ZdaPv(ptr noundef nonnull %10) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %10) #24
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i: ; preds = %12, %9, %8
@@ -299,7 +299,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i: ; preds = %12, %9, %8
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %20, i32 %2)
   store i32 %.sroa.speculated.i.i, ptr %14, align 4
   %21 = sext i32 %.sroa.speculated.i.i to i64
-  %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #22
+  %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #23
   %23 = load ptr, ptr %0, align 8
   %.not4.i.i = icmp eq ptr %23, null
   br i1 %.not4.i.i, label %29, label %24
@@ -312,7 +312,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i: ; preds = %12, %9, %8
   br i1 %7, label %28, label %29
 
 28:                                               ; preds = %24
-  tail call void @_ZdaPv(ptr noundef nonnull %23) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %23) #24
   br label %29
 
 29:                                               ; preds = %28, %24, %17
@@ -363,7 +363,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText4Repr15TakeOwnershipOf
   br i1 %or.cond.not, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #24
   br label %12
 
 12:                                               ; preds = %11, %7
@@ -392,7 +392,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText4Repr7PointToEPKci(ptr
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %7
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #24
   br label %10
 
 10:                                               ; preds = %9, %7, %3
@@ -432,7 +432,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci(ptr 
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %16, i32 %6)
   store i32 %.sroa.speculated.i, ptr %7, align 4
   %17 = sext i32 %.sroa.speculated.i to i64
-  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #22
+  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #23
   %19 = load ptr, ptr %0, align 8
   %.not4.i = icmp eq ptr %19, null
   br i1 %.not4.i, label %26, label %20
@@ -446,7 +446,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci(ptr 
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %20
-  tail call void @_ZdaPv(ptr noundef nonnull %19) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %19) #24
   %.pre4.pre = load i32, ptr %4, align 8
   br label %26
 
@@ -536,7 +536,7 @@ define dso_local void @_ZNK4i18n12phonenumbers11UnicodeText4Repr11DebugStringB5c
           to label %38 unwind label %40
 
 38:                                               ; preds = %36
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   %39 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %44 unwind label %42
 
@@ -548,16 +548,16 @@ define dso_local void @_ZNK4i18n12phonenumbers11UnicodeText4Repr11DebugStringB5c
 42:                                               ; preds = %38
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   br label %45
 
 44:                                               ; preds = %38
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #24
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #25
   ret void
 
 45:                                               ; preds = %42, %40
   %.pn = phi { ptr, i32 } [ %43, %42 ], [ %41, %40 ]
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #24
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #25
   resume { ptr, i32 } %.pn
 }
 
@@ -640,7 +640,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeTextC2ERKS1_(ptr noundef n
   br i1 %13, label %_ZN4i18n12phonenumbers11UnicodeText4ReprD2Ev.exit, label %14
 
 14:                                               ; preds = %11
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #24
   br label %_ZN4i18n12phonenumbers11UnicodeText4ReprD2Ev.exit
 
 _ZN4i18n12phonenumbers11UnicodeText4ReprD2Ev.exit: ; preds = %7, %11, %14
@@ -667,7 +667,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   br i1 %13, label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i, label %14
 
 14:                                               ; preds = %11
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #24
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %14, %11, %10
@@ -692,7 +692,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %14, %11, %
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %22, i32 %5)
   store i32 %.sroa.speculated.i.i.i, ptr %16, align 4
   %23 = sext i32 %.sroa.speculated.i.i.i to i64
-  %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #22
+  %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #23
   %25 = load ptr, ptr %0, align 8
   %.not4.i.i.i = icmp eq ptr %25, null
   br i1 %.not4.i.i.i, label %31, label %26
@@ -705,7 +705,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %14, %11, %
   br i1 %9, label %30, label %31
 
 30:                                               ; preds = %26
-  tail call void @_ZdaPv(ptr noundef nonnull %25) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %25) #24
   br label %31
 
 31:                                               ; preds = %30, %26, %19
@@ -762,7 +762,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeTextC2ERKNS1_14const_itera
   %13 = tail call i32 @llvm.umax.i32(i32 %11, i32 20)
   store i32 %13, ptr %12, align 4
   %14 = zext nneg i32 %13 to i64
-  %15 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %14) #22
+  %15 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %14) #23
   store ptr %15, ptr %0, align 8
   store i8 1, ptr %4, align 8
   br label %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit_crit_edge.i
@@ -785,18 +785,18 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText13UTF8SubstringB5cxx11
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %5 to i64
   %9 = sub i64 %7, %8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5, i64 noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %10 unwind label %11
 
 10:                                               ; preds = %3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
   ret void
 
 11:                                               ; preds = %3
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
   resume { ptr, i32 } %12
 }
 
@@ -842,7 +842,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   br i1 %15, label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i, label %16
 
 16:                                               ; preds = %13
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #24
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %16, %13, %12
@@ -867,7 +867,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %16, %13, %
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %24, i32 %2)
   store i32 %.sroa.speculated.i.i.i, ptr %18, align 4
   %25 = sext i32 %.sroa.speculated.i.i.i to i64
-  %26 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %25) #22
+  %26 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %25) #23
   %27 = load ptr, ptr %0, align 8
   %.not4.i.i.i = icmp eq ptr %27, null
   br i1 %.not4.i.i.i, label %33, label %28
@@ -880,7 +880,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %16, %13, %
   br i1 %11, label %32, label %33
 
 32:                                               ; preds = %28
-  tail call void @_ZdaPv(ptr noundef nonnull %27) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %27) #24
   br label %33
 
 33:                                               ; preds = %32, %28, %21
@@ -951,18 +951,18 @@ _ZN4i18n12phonenumbers3LOGEi.exit.thread:         ; preds = %49
           to label %61 unwind label %62
 
 61:                                               ; preds = %.noexc
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   br label %64
 
 62:                                               ; preds = %.noexc
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   br label %.body
 
 64:                                               ; preds = %61, %_ZN4i18n12phonenumbers3LOGEi.exit.thread
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #24
+  call void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #25
   %65 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -1039,7 +1039,7 @@ _ZN4i18n12phonenumbersL25ConvertToInterchangeValidEPci.exit: ; preds = %._crit_e
 
 .body:                                            ; preds = %62, %90
   %eh.lpad-body = phi { ptr, i32 } [ %91, %90 ], [ %63, %62 ]
-  call void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #24
+  call void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #25
   resume { ptr, i32 } %eh.lpad-body
 
 92:                                               ; preds = %_ZN4i18n12phonenumbersL25ConvertToInterchangeValidEPci.exit, %_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit
@@ -1055,7 +1055,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(pt
   br i1 %.not, label %13, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   %6 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc unwind label %14
 
@@ -1070,7 +1070,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(pt
 7:                                                ; preds = %.noexc1
   %8 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #25
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -1081,8 +1081,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %12 unwind label %14
 
 12:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   br label %13
 
 13:                                               ; preds = %12, %1
@@ -1096,7 +1096,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 .body:                                            ; preds = %7, %14
   %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %8, %7 ]
   %16 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %16) #25
+  call void @__clang_call_terminate(ptr %16) #26
   unreachable
 }
 
@@ -1117,7 +1117,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   br i1 %11, label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i, label %12
 
 12:                                               ; preds = %9
-  tail call void @_ZdaPv(ptr noundef nonnull %10) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %10) #24
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %12, %9, %8
@@ -1142,7 +1142,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %12, %9, %8
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %20, i32 %2)
   store i32 %.sroa.speculated.i.i.i, ptr %14, align 4
   %21 = sext i32 %.sroa.speculated.i.i.i to i64
-  %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #22
+  %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #23
   %23 = load ptr, ptr %0, align 8
   %.not4.i.i.i = icmp eq ptr %23, null
   br i1 %.not4.i.i.i, label %29, label %24
@@ -1155,7 +1155,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %12, %9, %8
   br i1 %7, label %28, label %29
 
 28:                                               ; preds = %24
-  tail call void @_ZdaPv(ptr noundef nonnull %23) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %23) #24
   br label %29
 
 29:                                               ; preds = %28, %24, %17
@@ -1210,7 +1210,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   br i1 %or.cond.not.i, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZdaPv(ptr noundef nonnull %9) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %9) #24
   br label %16
 
 16:                                               ; preds = %15, %11
@@ -1261,18 +1261,18 @@ _ZN4i18n12phonenumbers3LOGEi.exit.thread:         ; preds = %23
           to label %35 unwind label %36
 
 35:                                               ; preds = %.noexc
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
   br label %38
 
 36:                                               ; preds = %.noexc
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
   br label %.body
 
 38:                                               ; preds = %35, %_ZN4i18n12phonenumbers3LOGEi.exit.thread
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #24
+  call void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #25
   %39 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -1350,7 +1350,7 @@ _ZN4i18n12phonenumbersL25ConvertToInterchangeValidEPci.exit: ; preds = %._crit_e
 
 .body:                                            ; preds = %36, %65
   %eh.lpad-body = phi { ptr, i32 } [ %66, %65 ], [ %37, %36 ]
-  call void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #24
+  call void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #25
   resume { ptr, i32 } %eh.lpad-body
 
 67:                                               ; preds = %_ZN4i18n12phonenumbersL25ConvertToInterchangeValidEPci.exit, %_ZN4i18n12phonenumbers11UnicodeText4Repr15TakeOwnershipOfEPcii.exit
@@ -1372,7 +1372,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   br i1 %or.cond.not.i, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #24
   br label %12
 
 12:                                               ; preds = %11, %7
@@ -1413,7 +1413,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   br i1 %.not.i, label %_ZN4i18n12phonenumbers11UnicodeText4Repr7PointToEPKci.exit, label %18
 
 18:                                               ; preds = %16
-  tail call void @_ZdaPv(ptr noundef nonnull %17) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %17) #24
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr7PointToEPKci.exit
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr7PointToEPKci.exit: ; preds = %12, %16, %18
@@ -1456,18 +1456,18 @@ _ZN4i18n12phonenumbers3LOGEi.exit.thread:         ; preds = %21
           to label %33 unwind label %34
 
 33:                                               ; preds = %.noexc
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   br label %36
 
 34:                                               ; preds = %.noexc
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   br label %.body
 
 36:                                               ; preds = %33, %_ZN4i18n12phonenumbers3LOGEi.exit.thread
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #24
+  call void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #25
   %37 = icmp eq i32 %2, 0
   %38 = getelementptr inbounds i8, ptr %0, i64 16
   %39 = load i8, ptr %38, align 8
@@ -1483,7 +1483,7 @@ _ZN4i18n12phonenumbers3LOGEi.exit.thread:         ; preds = %21
   br i1 %44, label %_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit.thread, label %45
 
 45:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %43) #23
+  call void @_ZdaPv(ptr noundef nonnull %43) #24
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit.thread
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit.thread: ; preds = %41, %42, %45
@@ -1511,7 +1511,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit.thread: ; preds = %41, %
   %.sroa.speculated.i.i.i = call i32 @llvm.smax.i32(i32 %53, i32 %2)
   store i32 %.sroa.speculated.i.i.i, ptr %47, align 4
   %54 = sext i32 %.sroa.speculated.i.i.i to i64
-  %55 = call noalias noundef nonnull ptr @_Znam(i64 noundef %54) #22
+  %55 = call noalias noundef nonnull ptr @_Znam(i64 noundef %54) #23
   %56 = load ptr, ptr %0, align 8
   %.not4.i.i.i = icmp eq ptr %56, null
   br i1 %.not4.i.i.i, label %62, label %57
@@ -1524,7 +1524,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit.thread: ; preds = %41, %
   br i1 %40, label %61, label %62
 
 61:                                               ; preds = %57
-  call void @_ZdaPv(ptr noundef nonnull %56) #23
+  call void @_ZdaPv(ptr noundef nonnull %56) #24
   br label %62
 
 62:                                               ; preds = %61, %57, %50
@@ -1630,7 +1630,7 @@ _ZN4i18n12phonenumbersL25ConvertToInterchangeValidEPci.exit: ; preds = %._crit_e
 
 .body:                                            ; preds = %34, %98
   %eh.lpad-body = phi { ptr, i32 } [ %99, %98 ], [ %35, %34 ]
-  call void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #24
+  call void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #25
   resume { ptr, i32 } %eh.lpad-body
 
 100:                                              ; preds = %_ZN4i18n12phonenumbersL25ConvertToInterchangeValidEPci.exit, %_ZN4i18n12phonenumbers11UnicodeText4Repr7PointToEPKci.exit
@@ -1650,7 +1650,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   br i1 %.not.i, label %_ZN4i18n12phonenumbers11UnicodeText4Repr7PointToEPKci.exit, label %9
 
 9:                                                ; preds = %7
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #24
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr7PointToEPKci.exit
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr7PointToEPKci.exit: ; preds = %3, %7, %9
@@ -1679,7 +1679,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   br i1 %.not.i, label %_ZN4i18n12phonenumbers11UnicodeText4Repr7PointToEPKci.exit, label %11
 
 11:                                               ; preds = %9
-  tail call void @_ZdaPv(ptr noundef nonnull %10) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %10) #24
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr7PointToEPKci.exit
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr7PointToEPKci.exit: ; preds = %2, %9, %11
@@ -1707,7 +1707,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   br i1 %.not.i, label %_ZN4i18n12phonenumbers11UnicodeText4Repr7PointToEPKci.exit, label %11
 
 11:                                               ; preds = %9
-  tail call void @_ZdaPv(ptr noundef nonnull %10) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %10) #24
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr7PointToEPKci.exit
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr7PointToEPKci.exit: ; preds = %3, %9, %11
@@ -1754,7 +1754,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %18, i32 %8)
   store i32 %.sroa.speculated.i.i, ptr %9, align 4
   %19 = sext i32 %.sroa.speculated.i.i to i64
-  %20 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #22
+  %20 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #23
   %21 = load ptr, ptr %0, align 8
   %.not4.i.i = icmp eq ptr %21, null
   br i1 %.not4.i.i, label %28, label %22
@@ -1768,7 +1768,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %22
-  tail call void @_ZdaPv(ptr noundef nonnull %21) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %21) #24
   %.pre4.pre.i = load i32, ptr %6, align 8
   br label %28
 
@@ -1825,7 +1825,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %22, i32 %12)
   store i32 %.sroa.speculated.i.i, ptr %13, align 4
   %23 = sext i32 %.sroa.speculated.i.i to i64
-  %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #22
+  %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #23
   %25 = load ptr, ptr %0, align 8
   %.not4.i.i = icmp eq ptr %25, null
   br i1 %.not4.i.i, label %32, label %26
@@ -1839,7 +1839,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %26
-  tail call void @_ZdaPv(ptr noundef nonnull %25) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %25) #24
   %.pre4.pre.i = load i32, ptr %10, align 8
   br label %32
 
@@ -1891,7 +1891,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %16, i32 %6)
   store i32 %.sroa.speculated.i.i, ptr %7, align 4
   %17 = sext i32 %.sroa.speculated.i.i to i64
-  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #22
+  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #23
   %19 = load ptr, ptr %0, align 8
   %.not4.i.i = icmp eq ptr %19, null
   br i1 %.not4.i.i, label %26, label %20
@@ -1905,7 +1905,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %20
-  tail call void @_ZdaPv(ptr noundef nonnull %19) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %19) #24
   %.pre4.pre.i = load i32, ptr %4, align 8
   br label %26
 
@@ -2090,7 +2090,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText5clearEv(ptr nocapture
   br i1 %7, label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit, label %8
 
 8:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %6) #24
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit: ; preds = %1, %5, %8
@@ -2112,7 +2112,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeTextD2Ev(ptr nocapture nou
   br i1 %7, label %_ZN4i18n12phonenumbers11UnicodeText4ReprD2Ev.exit, label %8
 
 8:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %6) #24
   br label %_ZN4i18n12phonenumbers11UnicodeText4ReprD2Ev.exit
 
 _ZN4i18n12phonenumbers11UnicodeText4ReprD2Ev.exit: ; preds = %1, %5, %8
@@ -2162,7 +2162,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText9push_backEi(ptr nocap
   %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %26, i32 %16)
   store i32 %.sroa.speculated.i.i, ptr %17, align 4
   %27 = sext i32 %.sroa.speculated.i.i to i64
-  %28 = call noalias noundef nonnull ptr @_Znam(i64 noundef %27) #22
+  %28 = call noalias noundef nonnull ptr @_Znam(i64 noundef %27) #23
   %29 = load ptr, ptr %0, align 8
   %.not4.i.i = icmp eq ptr %29, null
   br i1 %.not4.i.i, label %36, label %30
@@ -2176,7 +2176,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText9push_backEi(ptr nocap
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %30
-  call void @_ZdaPv(ptr noundef nonnull %29) #23
+  call void @_ZdaPv(ptr noundef nonnull %29) #24
   %.pre4.pre.i = load i32, ptr %14, align 8
   br label %36
 
@@ -2198,7 +2198,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit: ; preds = %._ZN4i18n1
 
 43:                                               ; preds = %9
   %44 = load ptr, ptr @stderr, align 8
-  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.10, i32 noundef %1) #26
+  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.10, i32 noundef %1) #27
   %46 = getelementptr inbounds i8, ptr %0, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = add nsw i32 %47, 1
@@ -2224,7 +2224,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit: ; preds = %._ZN4i18n1
   %.sroa.speculated.i.i7 = call i32 @llvm.smax.i32(i32 %58, i32 %48)
   store i32 %.sroa.speculated.i.i7, ptr %49, align 4
   %59 = sext i32 %.sroa.speculated.i.i7 to i64
-  %60 = call noalias noundef nonnull ptr @_Znam(i64 noundef %59) #22
+  %60 = call noalias noundef nonnull ptr @_Znam(i64 noundef %59) #23
   %61 = load ptr, ptr %0, align 8
   %.not4.i.i8 = icmp eq ptr %61, null
   br i1 %.not4.i.i8, label %68, label %62
@@ -2238,7 +2238,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit: ; preds = %._ZN4i18n1
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %62
-  call void @_ZdaPv(ptr noundef nonnull %61) #23
+  call void @_ZdaPv(ptr noundef nonnull %61) #24
   %.pre4.pre.i10 = load i32, ptr %46, align 8
   br label %68
 
@@ -2259,7 +2259,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit13: ; preds = %._ZN4i18
 
 74:                                               ; preds = %2
   %75 = load ptr, ptr @stderr, align 8
-  %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.11, i32 noundef %1) #26
+  %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.11, i32 noundef %1) #27
   %77 = getelementptr inbounds i8, ptr %0, i64 8
   %78 = load i32, ptr %77, align 8
   %79 = add nsw i32 %78, 1
@@ -2285,7 +2285,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit13: ; preds = %._ZN4i18
   %.sroa.speculated.i.i15 = tail call i32 @llvm.smax.i32(i32 %89, i32 %79)
   store i32 %.sroa.speculated.i.i15, ptr %80, align 4
   %90 = sext i32 %.sroa.speculated.i.i15 to i64
-  %91 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %90) #22
+  %91 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %90) #23
   %92 = load ptr, ptr %0, align 8
   %.not4.i.i16 = icmp eq ptr %92, null
   br i1 %.not4.i.i16, label %99, label %93
@@ -2299,7 +2299,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit13: ; preds = %._ZN4i18
   br i1 %97, label %98, label %99
 
 98:                                               ; preds = %93
-  tail call void @_ZdaPv(ptr noundef nonnull %92) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %92) #24
   %.pre4.pre.i18 = load i32, ptr %77, align 8
   br label %99
 
@@ -2451,8 +2451,8 @@ _ZNK4i18n12phonenumbers11UnicodeText4sizeEv.exit: ; preds = %.lr.ph.i.i.i, %15
           to label %35 unwind label %39
 
 35:                                               ; preds = %33
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   %36 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %43 unwind label %41
 
@@ -2464,22 +2464,22 @@ _ZNK4i18n12phonenumbers11UnicodeText4sizeEv.exit: ; preds = %.lr.ph.i.i.i, %15
 39:                                               ; preds = %33, %31
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   br label %44
 
 41:                                               ; preds = %35
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   br label %44
 
 43:                                               ; preds = %35
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #24
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #25
   ret void
 
 44:                                               ; preds = %41, %39, %37
   %.pn = phi { ptr, i32 } [ %42, %41 ], [ %40, %39 ], [ %38, %37 ]
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #24
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #25
   resume { ptr, i32 } %.pn
 }
 
@@ -2683,7 +2683,7 @@ define dso_local void @_ZNK4i18n12phonenumbers11UnicodeText14const_iterator11Deb
           to label %13 unwind label %15
 
 13:                                               ; preds = %11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   %14 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %19 unwind label %17
 
@@ -2695,16 +2695,16 @@ define dso_local void @_ZNK4i18n12phonenumbers11UnicodeText14const_iterator11Deb
 17:                                               ; preds = %13
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   br label %20
 
 19:                                               ; preds = %13
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #24
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #25
   ret void
 
 20:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #24
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #25
   resume { ptr, i32 } %.pn
 }
 
@@ -2712,14 +2712,15 @@ declare noundef i32 @_ZN4i18n12phonenumbers6UniLib20SpanInterchangeValidEPKci(pt
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #16 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
-  tail call void @_ZSt9terminatev() #25
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #25
+  tail call void @_ZSt9terminatev() #26
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #17
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
@@ -2751,7 +2752,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #25
+  tail call void @__clang_call_terminate(ptr %17) #26
   unreachable
 
 18:                                               ; preds = %13, %10
@@ -2760,7 +2761,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
           to label %20 unwind label %22
 
 20:                                               ; preds = %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #25
   store ptr null, ptr %5, align 8
   %21 = load i64, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %21)
@@ -2772,12 +2773,12 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 22:                                               ; preds = %20, %18
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #25
   resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #7
 
@@ -2809,7 +2810,7 @@ define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_trait
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #25
+  tail call void @__clang_call_terminate(ptr %7) #26
   unreachable
 }
 
@@ -2826,7 +2827,7 @@ declare i32 @isvalidcharntorune(ptr noundef, i32 noundef, ptr noundef, ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers15ConvertToStringIA39_cE6DoWorkB5cxx11ERA39_Kc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 1 dereferenceable(39) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   %4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %9
 
@@ -2835,7 +2836,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers15ConvertToStringIA39_
           to label %.noexc2 unwind label %9
 
 .noexc2:                                          ; preds = %.noexc
-  %5 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %5 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull %6)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %7
@@ -2843,11 +2844,11 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers15ConvertToStringIA39_
 7:                                                ; preds = %.noexc2
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #25
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   ret void
 
 9:                                                ; preds = %.noexc, %2
@@ -2857,27 +2858,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .body:                                            ; preds = %7, %9
   %eh.lpad-body = phi { ptr, i32 } [ %10, %9 ], [ %8, %7 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
+declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
+declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #20
+declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2896,16 +2897,17 @@ attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { builtin allocsize(0) }
-attributes #23 = { builtin nounwind }
-attributes #24 = { nounwind }
-attributes #25 = { noreturn nounwind }
-attributes #26 = { cold nounwind }
+attributes #17 = { cold nofree noreturn }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { builtin allocsize(0) }
+attributes #24 = { builtin nounwind }
+attributes #25 = { nounwind }
+attributes #26 = { noreturn nounwind }
+attributes #27 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

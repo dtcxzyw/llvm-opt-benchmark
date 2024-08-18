@@ -31,18 +31,18 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %_ZN7Imf_3_28TimeCode8setHoursEi.exit
 
 if.then.i:                                        ; preds = %entry
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 72) #6
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 72) #7
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i, ptr noundef nonnull @.str)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #7
+  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #8
   unreachable
 
 common.resume:                                    ; preds = %lpad.i33, %lpad.i22, %lpad.i10, %lpad.i
   %exception.i32.sink = phi ptr [ %exception.i32, %lpad.i33 ], [ %exception.i21, %lpad.i22 ], [ %exception.i9, %lpad.i10 ], [ %exception.i, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %7, %lpad.i33 ], [ %5, %lpad.i22 ], [ %3, %lpad.i10 ], [ %0, %lpad.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i32.sink) #6
+  tail call void @__cxa_free_exception(ptr %exception.i32.sink) #7
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then.i
@@ -65,12 +65,12 @@ _ZN7Imf_3_28TimeCode8setHoursEi.exit:             ; preds = %entry
   br i1 %or.cond.i1, label %if.then.i8, label %_ZN7Imf_3_28TimeCode10setMinutesEi.exit
 
 if.then.i8:                                       ; preds = %_ZN7Imf_3_28TimeCode8setHoursEi.exit
-  %exception.i9 = tail call ptr @__cxa_allocate_exception(i64 72) #6
+  %exception.i9 = tail call ptr @__cxa_allocate_exception(i64 72) #7
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i9, ptr noundef nonnull @.str.1)
           to label %invoke.cont.i11 unwind label %lpad.i10
 
 invoke.cont.i11:                                  ; preds = %if.then.i8
-  tail call void @__cxa_throw(ptr nonnull %exception.i9, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #7
+  tail call void @__cxa_throw(ptr nonnull %exception.i9, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #8
   unreachable
 
 lpad.i10:                                         ; preds = %if.then.i8
@@ -92,12 +92,12 @@ _ZN7Imf_3_28TimeCode10setMinutesEi.exit:          ; preds = %_ZN7Imf_3_28TimeCod
   br i1 %or.cond.i12, label %if.then.i20, label %_ZN7Imf_3_28TimeCode10setSecondsEi.exit
 
 if.then.i20:                                      ; preds = %_ZN7Imf_3_28TimeCode10setMinutesEi.exit
-  %exception.i21 = tail call ptr @__cxa_allocate_exception(i64 72) #6
+  %exception.i21 = tail call ptr @__cxa_allocate_exception(i64 72) #7
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i21, ptr noundef nonnull @.str.2)
           to label %invoke.cont.i23 unwind label %lpad.i22
 
 invoke.cont.i23:                                  ; preds = %if.then.i20
-  tail call void @__cxa_throw(ptr nonnull %exception.i21, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #7
+  tail call void @__cxa_throw(ptr nonnull %exception.i21, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #8
   unreachable
 
 lpad.i22:                                         ; preds = %if.then.i20
@@ -119,12 +119,12 @@ _ZN7Imf_3_28TimeCode10setSecondsEi.exit:          ; preds = %_ZN7Imf_3_28TimeCod
   br i1 %or.cond.i24, label %if.then.i31, label %_ZN7Imf_3_28TimeCode8setFrameEi.exit
 
 if.then.i31:                                      ; preds = %_ZN7Imf_3_28TimeCode10setSecondsEi.exit
-  %exception.i32 = tail call ptr @__cxa_allocate_exception(i64 72) #6
+  %exception.i32 = tail call ptr @__cxa_allocate_exception(i64 72) #7
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i32, ptr noundef nonnull @.str.3)
           to label %invoke.cont.i34 unwind label %lpad.i33
 
 invoke.cont.i34:                                  ; preds = %if.then.i31
-  tail call void @__cxa_throw(ptr nonnull %exception.i32, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #7
+  tail call void @__cxa_throw(ptr nonnull %exception.i32, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #8
   unreachable
 
 lpad.i33:                                         ; preds = %if.then.i31
@@ -186,18 +186,18 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #6
+  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #7
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull @.str)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #7
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #8
   unreachable
 
 lpad:                                             ; preds = %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #6
+  tail call void @__cxa_free_exception(ptr %exception) #7
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -221,18 +221,18 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #6
+  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #7
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull @.str.1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #7
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #8
   unreachable
 
 lpad:                                             ; preds = %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #6
+  tail call void @__cxa_free_exception(ptr %exception) #7
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -256,18 +256,18 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #6
+  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #7
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull @.str.2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #7
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #8
   unreachable
 
 lpad:                                             ; preds = %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #6
+  tail call void @__cxa_free_exception(ptr %exception) #7
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -291,18 +291,18 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #6
+  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #7
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull @.str.3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #7
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #8
   unreachable
 
 lpad:                                             ; preds = %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #6
+  tail call void @__cxa_free_exception(ptr %exception) #7
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -392,18 +392,18 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #6
+  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #7
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull @.str.4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #7
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #8
   unreachable
 
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #6
+  tail call void @__cxa_free_exception(ptr %exception) #7
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
@@ -589,7 +589,8 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZN7Iex_3_26ArgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #5
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 0, 166) i32 @_ZNK7Imf_3_28TimeCode7minutesEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
@@ -690,18 +691,18 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #6
+  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #7
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull @.str.4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #7
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #8
   unreachable
 
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #6
+  tail call void @__cxa_free_exception(ptr %exception) #7
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
@@ -756,8 +757,9 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn }
+attributes #6 = { cold noreturn }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

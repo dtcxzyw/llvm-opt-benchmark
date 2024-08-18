@@ -61,7 +61,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 d
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIjSaIjEED2Ev.exit, label %3
 
 3:                                                ; preds = %1
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %_ZNSt12_Vector_baseIjSaIjEED2Ev.exit
 
 _ZNSt12_Vector_baseIjSaIjEED2Ev.exit:             ; preds = %1, %3
@@ -72,20 +72,21 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17FramebufferObjectC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #6 align 2 {
+define void @_ZN17FramebufferObjectC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #7 align 2 {
   store i32 0, ptr %0, align 4
   %2 = load ptr, ptr @__glewGenFramebuffersEXT, align 8
   tail call void %2(i32 noundef 1, ptr noundef nonnull %0)
@@ -105,12 +106,12 @@ define void @_ZN17FramebufferObjectD2Ev(ptr noundef nonnull align 4 dereferencea
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #16
+  tail call void @__clang_call_terminate(ptr %6) #17
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17FramebufferObject13attachTextureEjjjii(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #6 align 2 {
+define void @_ZN17FramebufferObject13attachTextureEjjjii(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #7 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @glGetIntegerv(i32 noundef 36006, ptr noundef nonnull %7)
   %8 = load i32, ptr %0, align 4
@@ -161,7 +162,7 @@ _ZN17FramebufferObject21unbindThisBindCurrentEv.exit: ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17FramebufferObject21unbindCurrentBindThisEv(ptr noundef nonnull align 4 dereferenceable(8) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN17FramebufferObject21unbindCurrentBindThisEv(ptr noundef nonnull align 4 dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @glGetIntegerv(i32 noundef 36006, ptr noundef nonnull %2)
   %3 = load i32, ptr %0, align 4
@@ -181,7 +182,7 @@ define void @_ZN17FramebufferObject21unbindCurrentBindThisEv(ptr noundef nonnull
 declare void @glBindTexture(i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17FramebufferObject21unbindThisBindCurrentEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN17FramebufferObject21unbindThisBindCurrentEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -198,7 +199,7 @@ define void @_ZN17FramebufferObject21unbindThisBindCurrentEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17FramebufferObject18attachRenderBufferEjj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define void @_ZN17FramebufferObject18attachRenderBufferEjj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @glGetIntegerv(i32 noundef 36006, ptr noundef nonnull %4)
   %5 = load i32, ptr %0, align 4
@@ -229,7 +230,7 @@ _ZN17FramebufferObject21unbindThisBindCurrentEv.exit: ; preds = %_ZN17Framebuffe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17FramebufferObject8unattachEj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN17FramebufferObject8unattachEj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @glGetIntegerv(i32 noundef 36006, ptr noundef nonnull %4)
@@ -341,7 +342,7 @@ _ZN17FramebufferObject21unbindThisBindCurrentEv.exit: ; preds = %_ZN17Framebuffe
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN17FramebufferObject15getAttachedTypeEj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN17FramebufferObject15getAttachedTypeEj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @glGetIntegerv(i32 noundef 36006, ptr noundef nonnull %4)
@@ -375,7 +376,7 @@ _ZN17FramebufferObject21unbindThisBindCurrentEv.exit: ; preds = %_ZN17Framebuffe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17FramebufferObject11unattachAllEv(ptr noundef nonnull align 4 dereferenceable(8) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN17FramebufferObject11unattachAllEv(ptr noundef nonnull align 4 dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4
@@ -398,7 +399,7 @@ define void @_ZN17FramebufferObject11unattachAllEv(ptr noundef nonnull align 4 d
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN17FramebufferObject22getMaxColorAttachmentsEv() local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN17FramebufferObject22getMaxColorAttachmentsEv() local_unnamed_addr #7 align 2 {
   %1 = alloca i32, align 4
   store i32 0, ptr %1, align 4
   call void @glGetIntegerv(i32 noundef 36063, ptr noundef nonnull %1)
@@ -409,7 +410,7 @@ define noundef i32 @_ZN17FramebufferObject22getMaxColorAttachmentsEv() local_unn
 declare void @glGetIntegerv(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN17FramebufferObject7isValidEv(ptr noundef nonnull align 4 dereferenceable(8) %0) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN17FramebufferObject7isValidEv(ptr noundef nonnull align 4 dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @glGetIntegerv(i32 noundef 36006, ptr noundef nonnull %2)
   %3 = load i32, ptr %0, align 4
@@ -482,7 +483,7 @@ _ZN17FramebufferObject21unbindThisBindCurrentEv.exit: ; preds = %18, %21
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN17FramebufferObject13getAttachedIdEj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN17FramebufferObject13getAttachedIdEj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @glGetIntegerv(i32 noundef 36006, ptr noundef nonnull %4)
@@ -516,7 +517,7 @@ _ZN17FramebufferObject21unbindThisBindCurrentEv.exit: ; preds = %_ZN17Framebuffe
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN17FramebufferObject19getAttachedMipLevelEj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN17FramebufferObject19getAttachedMipLevelEj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @glGetIntegerv(i32 noundef 36006, ptr noundef nonnull %4)
@@ -550,7 +551,7 @@ _ZN17FramebufferObject21unbindThisBindCurrentEv.exit: ; preds = %_ZN17Framebuffe
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN17FramebufferObject19getAttachedCubeFaceEj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN17FramebufferObject19getAttachedCubeFaceEj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @glGetIntegerv(i32 noundef 36006, ptr noundef nonnull %4)
@@ -584,7 +585,7 @@ _ZN17FramebufferObject21unbindThisBindCurrentEv.exit: ; preds = %_ZN17Framebuffe
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN17FramebufferObject17getAttachedZSliceEj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN17FramebufferObject17getAttachedZSliceEj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @glGetIntegerv(i32 noundef 36006, ptr noundef nonnull %4)
@@ -618,7 +619,7 @@ _ZN17FramebufferObject21unbindThisBindCurrentEv.exit: ; preds = %_ZN17Framebuffe
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN17FramebufferObject7buffersEj(i32 noundef %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN17FramebufferObject7buffersEj(i32 noundef %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @_buffers, align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_buffers, i64 8), align 8
@@ -658,7 +659,7 @@ define noundef ptr @_ZN17FramebufferObject7buffersEj(i32 noundef %0) local_unnam
   br i1 %19, label %20, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
 
 20:                                               ; preds = %14
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.10) #17
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.10) #18
   unreachable
 
 _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %14
@@ -673,7 +674,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %14
 
 26:                                               ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
   %27 = shl nuw nsw i64 %25, 2
-  %28 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #18
+  %28 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #19
   br label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i: ; preds = %26, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
@@ -694,7 +695,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %32, %_ZN
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, label %35
 
 35:                                               ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %15) #14
+  call void @_ZdlPv(ptr noundef nonnull %15) #15
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %35, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
@@ -722,57 +723,58 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %11, %_ZNSt6vectorIj
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_framebufferObject.cpp() #10 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_framebufferObject.cpp() #11 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_buffers, i8 0, i64 24, i1 false)
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIjSaIjEED2Ev, ptr nonnull @_buffers, ptr nonnull @__dso_handle) #15
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIjSaIjEED2Ev, ptr nonnull @_buffers, ptr nonnull @__dso_handle) #16
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
+declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { builtin nounwind }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { noreturn }
-attributes #18 = { builtin allocsize(0) }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { builtin nounwind }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { noreturn }
+attributes #19 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

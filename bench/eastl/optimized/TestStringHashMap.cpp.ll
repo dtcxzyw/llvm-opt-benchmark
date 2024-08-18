@@ -334,7 +334,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %i.sroa.7.015 = phi ptr [ %retval.sroa.4.0.i, %for.body.lr.ph ], [ %i.sroa.7.1, %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit ]
   %i.sroa.0.014 = phi ptr [ %retval.sroa.0.0.i, %for.body.lr.ph ], [ %i.sroa.0.1, %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit ]
   %6 = load ptr, ptr %i.sroa.0.014, align 8
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
+  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
   %add.i = add i64 %call.i, 1
   %call.i.i5 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %invoke.cont13 unwind label %lpad
@@ -392,7 +392,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit: ; preds = %whi
 lpad:                                             ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEET_OS5_PNS_9enable_ifIXsrSN_5valueEvE4typeE.exit.i, %for.body
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl8hash_mapIPKciNS_4hashIS2_EENS_12str_equal_toIS2_EENS_9allocatorELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) #11
+  call void @_ZN5eastl8hash_mapIPKciNS_4hashIS2_EENS_12str_equal_toIS2_EENS_9allocatorELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) #12
   resume { ptr, i32 } %13
 
 for.end:                                          ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKciEELb1ELb0EEppEv.exit, %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
@@ -404,7 +404,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE12strduplicateES3_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %str) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #10
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #11
   %add = add i64 %call, 1
   %call.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %str, i64 %add, i1 false)
@@ -437,7 +437,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %pNode.08.i.i.i = phi ptr [ %3, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i ], [ %2, %for.body.i.i.i ]
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 16
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %while.end.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i, !llvm.loop !14
 
@@ -458,7 +458,7 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %invoke.cont.i
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre.i) #13
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit: ; preds = %invoke.cont.thread.i, %invoke.cont.i, %delete.notnull.i.i.i
@@ -499,7 +499,7 @@ for.body.i:                                       ; preds = %_ZN5eastl9hashtable
   br i1 %isnull.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %for.body.i
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #13
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %delete.notnull.i.i, %for.body.i
@@ -547,7 +547,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %pNode.08.i.i.i = phi ptr [ %10, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i ], [ %9, %for.body.i.i.i ]
   %mpNext.i.i10.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 16
   %10 = load ptr, ptr %mpNext.i.i10.i, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %while.end.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i, !llvm.loop !14
 
@@ -581,7 +581,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %pNode.08.i.i.i.i = phi ptr [ %12, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i.i ], [ %11, %for.body.i.i.i.i ]
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i.i, i64 16
   %12 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i.i) #13
   %tobool.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i, label %while.end.i.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i.i, !llvm.loop !14
 
@@ -601,7 +601,7 @@ invoke.cont.i.i:                                  ; preds = %while.end.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN5eastl8hash_mapIPKciNS_4hashIS2_EENS_12str_equal_toIS2_EENS_9allocatorELb0EED2Ev.exit, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %invoke.cont.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre.i.i) #13
   br label %_ZN5eastl8hash_mapIPKciNS_4hashIS2_EENS_12str_equal_toIS2_EENS_9allocatorELb0EED2Ev.exit
 
 _ZN5eastl8hash_mapIPKciNS_4hashIS2_EENS_12str_equal_toIS2_EENS_9allocatorELb0EED2Ev.exit: ; preds = %invoke.cont.thread.i.i, %invoke.cont.i.i, %delete.notnull.i.i.i.i
@@ -642,7 +642,7 @@ for.body:                                         ; preds = %_ZN5eastl9hashtable
   br i1 %isnull.i, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %for.body
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #13
   br label %_ZN5eastl9allocator10deallocateEPvm.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %for.body, %delete.notnull.i
@@ -686,7 +686,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %pNode.08.i.i = phi ptr [ %10, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i ], [ %9, %for.body.i.i ]
   %mpNext.i.i10 = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 16
   %10 = load ptr, ptr %mpNext.i.i10, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   %tobool.not.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i, label %while.end.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i, !llvm.loop !14
 
@@ -704,14 +704,15 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE5clearEb(ptr noundef nonnull align 8 dereferenceable(45) %this, i1 noundef zeroext %clearBuckets) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -747,7 +748,7 @@ for.body:                                         ; preds = %_ZN5eastl9hashtable
   br i1 %isnull.i, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %for.body
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #13
   br label %_ZN5eastl9allocator10deallocateEPvm.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %for.body, %delete.notnull.i
@@ -791,7 +792,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %pNode.08.i.i = phi ptr [ %10, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i ], [ %9, %for.body.i.i ]
   %mpNext.i.i10 = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 16
   %10 = load ptr, ptr %mpNext.i.i10, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   %tobool.not.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i, label %while.end.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i, !llvm.loop !14
 
@@ -813,7 +814,7 @@ if.then.i:                                        ; preds = %_ZN5eastl9hashtable
   br i1 %or.cond.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS5_Lb0EEEm.exit.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i
-  tail call void @_ZdaPv(ptr noundef nonnull %11) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %11) #13
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS5_Lb0EEEm.exit.i
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS5_Lb0EEEm.exit.i: ; preds = %delete.notnull.i.i.i, %if.then.i
@@ -833,7 +834,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(45) ptr @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEEaSERKS8_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(45) %x) local_unnamed_addr #0 comdat align 2 {
 entry:
   %allocator = alloca %"class.eastl::allocator", align 1
-  tail call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) #11
+  tail call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) #12
   call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEEC1ERKS8_RKS7_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(45) %x, ptr noundef nonnull align 1 dereferenceable(1) %allocator)
   ret ptr %this
 }
@@ -959,7 +960,7 @@ if.then:                                          ; preds = %_ZN5eastl9hashtable
   br label %return
 
 if.end:                                           ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #11
   %add.i = add i64 %call.i, 1
   %call.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull align 1 %key, i64 %add.i, i1 false)
@@ -997,7 +998,7 @@ return:                                           ; preds = %_ZN5eastl9hashtable
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE6insertES3_(ptr noalias sret(%"struct.eastl::pair") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %key) local_unnamed_addr #0 comdat align 2 {
@@ -1124,7 +1125,7 @@ if.then:                                          ; preds = %_ZN5eastl9hashtable
   br label %return
 
 if.else:                                          ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #11
   %add.i = add i64 %call.i, 1
   %call.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull align 1 %key, i64 %add.i, i1 false)
@@ -1495,7 +1496,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %mpNext8.i = getelementptr inbounds i8, ptr %pNodeNext.0.lcssa.sink.i, i64 16
   %3 = load ptr, ptr %mpNext8.i, align 8, !noalias !78
   store ptr %3, ptr %pNodeNext.0.in.le.sink.i, align 8, !noalias !78
-  tail call void @_ZdaPv(ptr noundef nonnull %position.coerce0) #12, !noalias !78
+  tail call void @_ZdaPv(ptr noundef nonnull %position.coerce0) #13, !noalias !78
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i64, ptr %mnElementCount.i, align 8, !noalias !78
   %dec.i = add i64 %4, -1
@@ -1504,7 +1505,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   br i1 %isnull.i, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
   br label %_ZN5eastl9allocator10deallocateEPvm.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE.exit, %delete.notnull.i
@@ -1645,7 +1646,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %mpNext8.i.i = getelementptr inbounds i8, ptr %pNodeNext.0.lcssa.sink.i.i, i64 16
   %26 = load ptr, ptr %mpNext8.i.i, align 8, !noalias !91
   store ptr %26, ptr %pNodeNext.0.in.le.sink.i.i, align 8, !noalias !91
-  tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #12, !noalias !91
+  tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #13, !noalias !91
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %27 = load i64, ptr %mnElementCount.i.i, align 8, !noalias !91
   %dec.i.i = add i64 %27, -1
@@ -1654,7 +1655,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   br i1 %isnull.i.i, label %return, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %25) #12, !noalias !88
+  tail call void @_ZdaPv(ptr noundef nonnull %25) #13, !noalias !88
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE.exit.i, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
@@ -1775,7 +1776,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #11
   %add.i = add i64 %call.i, 1
   %call.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull align 1 %key, i64 %add.i, i1 false)
@@ -1815,7 +1816,7 @@ return:                                           ; preds = %_ZN5eastl9hashtable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat($_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEEC5ERKS8_) align 2 {
@@ -1883,7 +1884,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %i.sroa.7.013 = phi ptr [ %retval.sroa.4.0.i, %for.body.lr.ph ], [ %i.sroa.7.1, %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit ]
   %i.sroa.0.012 = phi ptr [ %retval.sroa.0.0.i, %for.body.lr.ph ], [ %i.sroa.0.1, %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit ]
   %6 = load ptr, ptr %i.sroa.0.012, align 32
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
+  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
   %add.i = add i64 %call.i, 1
   %call.i.i5 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %invoke.cont12 unwind label %lpad
@@ -1918,7 +1919,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit: ; preds
 lpad:                                             ; preds = %invoke.cont12, %for.body
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl8hash_mapIPKc7Align32NS_4hashIS2_EENS_12str_equal_toIS2_EENS_9allocatorELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) #11
+  call void @_ZN5eastl8hash_mapIPKc7Align32NS_4hashIS2_EENS_12str_equal_toIS2_EENS_9allocatorELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) #12
   resume { ptr, i32 } %8
 
 for.end:                                          ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKPKc7Align32EELb1ELb0EEppEv.exit, %_ZNK5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
@@ -1928,7 +1929,7 @@ for.end:                                          ; preds = %_ZN5eastl18hashtabl
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEE12strduplicateES4_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %str) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #10
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #11
   %add = add i64 %call, 1
   %call.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %str, i64 %add, i1 false)
@@ -1961,7 +1962,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   %pNode.08.i.i.i = phi ptr [ %3, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i.i ], [ %2, %for.body.i.i.i ]
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 64
   %3 = load ptr, ptr %mpNext.i.i.i, align 32
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %while.end.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i.i, !llvm.loop !110
 
@@ -1982,7 +1983,7 @@ invoke.cont.i:                                    ; preds = %while.end.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %invoke.cont.i
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre.i) #13
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit: ; preds = %invoke.cont.thread.i, %invoke.cont.i, %delete.notnull.i.i.i
@@ -2023,7 +2024,7 @@ for.body.i:                                       ; preds = %_ZN5eastl9hashtable
   br i1 %isnull.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %for.body.i
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #13
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %delete.notnull.i.i, %for.body.i
@@ -2071,7 +2072,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   %pNode.08.i.i.i = phi ptr [ %10, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i.i ], [ %9, %for.body.i.i.i ]
   %mpNext.i.i10.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 64
   %10 = load ptr, ptr %mpNext.i.i10.i, align 32
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %while.end.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i.i, !llvm.loop !110
 
@@ -2105,7 +2106,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   %pNode.08.i.i.i.i = phi ptr [ %12, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i.i.i ], [ %11, %for.body.i.i.i.i ]
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i.i, i64 64
   %12 = load ptr, ptr %mpNext.i.i.i.i, align 32
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i.i) #13
   %tobool.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i, label %while.end.i.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i.i.i, !llvm.loop !110
 
@@ -2125,7 +2126,7 @@ invoke.cont.i.i:                                  ; preds = %while.end.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN5eastl8hash_mapIPKc7Align32NS_4hashIS2_EENS_12str_equal_toIS2_EENS_9allocatorELb0EED2Ev.exit, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %invoke.cont.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre.i.i) #13
   br label %_ZN5eastl8hash_mapIPKc7Align32NS_4hashIS2_EENS_12str_equal_toIS2_EENS_9allocatorELb0EED2Ev.exit
 
 _ZN5eastl8hash_mapIPKc7Align32NS_4hashIS2_EENS_12str_equal_toIS2_EENS_9allocatorELb0EED2Ev.exit: ; preds = %invoke.cont.thread.i.i, %invoke.cont.i.i, %delete.notnull.i.i.i.i
@@ -2166,7 +2167,7 @@ for.body:                                         ; preds = %_ZN5eastl9hashtable
   br i1 %isnull.i, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %for.body
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #13
   br label %_ZN5eastl9allocator10deallocateEPvm.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %for.body, %delete.notnull.i
@@ -2210,7 +2211,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   %pNode.08.i.i = phi ptr [ %10, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i ], [ %9, %for.body.i.i ]
   %mpNext.i.i10 = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 64
   %10 = load ptr, ptr %mpNext.i.i10, align 32
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   %tobool.not.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i, label %while.end.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i, !llvm.loop !110
 
@@ -2260,7 +2261,7 @@ for.body:                                         ; preds = %_ZN5eastl9hashtable
   br i1 %isnull.i, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %for.body
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #13
   br label %_ZN5eastl9allocator10deallocateEPvm.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %for.body, %delete.notnull.i
@@ -2304,7 +2305,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   %pNode.08.i.i = phi ptr [ %10, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i ], [ %9, %for.body.i.i ]
   %mpNext.i.i10 = getelementptr inbounds i8, ptr %pNode.08.i.i, i64 64
   %10 = load ptr, ptr %mpNext.i.i10, align 32
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   %tobool.not.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i, label %while.end.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i, !llvm.loop !110
 
@@ -2326,7 +2327,7 @@ if.then.i:                                        ; preds = %_ZN5eastl9hashtable
   br i1 %or.cond.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i
-  tail call void @_ZdaPv(ptr noundef nonnull %11) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %11) #13
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit.i
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit.i: ; preds = %delete.notnull.i.i.i, %if.then.i
@@ -2346,7 +2347,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(45) ptr @_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(45) %x) local_unnamed_addr #0 comdat align 2 {
 entry:
   %allocator = alloca %"class.eastl::allocator", align 1
-  tail call void @_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) #11
+  tail call void @_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) #12
   call void @_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEEC1ERKS9_RKS8_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(45) %x, ptr noundef nonnull align 1 dereferenceable(1) %allocator)
   ret ptr %this
 }
@@ -2472,7 +2473,7 @@ if.then:                                          ; preds = %_ZN5eastl9hashtable
   br label %return
 
 if.end:                                           ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #11
   %add.i = add i64 %call.i, 1
   %call.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull align 1 %key, i64 %add.i, i1 false)
@@ -2611,7 +2612,7 @@ if.then:                                          ; preds = %_ZN5eastl9hashtable
   br label %return
 
 if.else:                                          ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #11
   %add.i = add i64 %call.i, 1
   %call.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull align 1 %key, i64 %add.i, i1 false)
@@ -2984,7 +2985,7 @@ while.end.i:                                      ; preds = %while.cond.i
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE.exit: ; preds = %while.end.i, %if.then.i
-  tail call void @_ZdaPv(ptr noundef nonnull %position.coerce0) #12, !noalias !170
+  tail call void @_ZdaPv(ptr noundef nonnull %position.coerce0) #13, !noalias !170
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i64, ptr %mnElementCount.i, align 8, !noalias !170
   %dec.i = add i64 %5, -1
@@ -2993,7 +2994,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   br i1 %isnull.i, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
   br label %_ZN5eastl9allocator10deallocateEPvm.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE.exit, %delete.notnull.i
@@ -3138,7 +3139,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE.exit.i
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE.exit.i: ; preds = %while.end.i.i, %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #12, !noalias !183
+  tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #13, !noalias !183
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %28 = load i64, ptr %mnElementCount.i.i, align 8, !noalias !183
   %dec.i.i = add i64 %28, -1
@@ -3147,7 +3148,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   br i1 %isnull.i.i, label %return, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %25) #12, !noalias !180
+  tail call void @_ZdaPv(ptr noundef nonnull %25) #13, !noalias !180
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS6_Lb1ELb0EEE.exit.i, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
@@ -3268,7 +3269,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #11
   %add.i = add i64 %call.i, 1
   %call.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull align 1 %key, i64 %add.i, i1 false)
@@ -3411,10 +3412,10 @@ invoke.cont18:                                    ; preds = %invoke.cont15
           to label %invoke.cont22 unwind label %lpad20
 
 invoke.cont22:                                    ; preds = %invoke.cont18
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %hsc) #11
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %hs) #11
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap2) #11
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %hsc) #12
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %hs) #12
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap2) #12
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap) #12
   call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEEC1ERKS7_(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap30, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31)
   %mpBucketArray.i.i = getelementptr inbounds i8, ptr %stringHashMap30, i64 8
   %2 = load ptr, ptr %mpBucketArray.i.i, align 8
@@ -3447,7 +3448,7 @@ for.body.i:                                       ; preds = %_ZN5eastl9hashtable
   br i1 %isnull.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %for.body.i
-  call void @_ZdaPv(ptr noundef nonnull %7) #12
+  call void @_ZdaPv(ptr noundef nonnull %7) #13
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %delete.notnull.i.i, %for.body.i
@@ -3491,7 +3492,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %pNode.08.i.i.i = phi ptr [ %12, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i ], [ %11, %for.body.i.i.i ]
   %mpNext.i.i10.i = getelementptr inbounds i8, ptr %pNode.08.i.i.i, i64 16
   %12 = load ptr, ptr %mpNext.i.i10.i, align 8
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   %tobool.not.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i, label %while.end.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i, !llvm.loop !14
 
@@ -3510,7 +3511,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   br i1 %or.cond.i.i.i, label %invoke.cont33, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeIS5_Lb0EEEm.exit.i.i
-  call void @_ZdaPv(ptr noundef nonnull %.pre) #12
+  call void @_ZdaPv(ptr noundef nonnull %.pre) #13
   br label %invoke.cont33
 
 invoke.cont33:                                    ; preds = %for.end.i, %delete.notnull.i.i.i.i, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeIS5_Lb0EEEm.exit.i.i
@@ -3614,17 +3615,17 @@ lpad4:                                            ; preds = %invoke.cont15, %inv
 lpad20:                                           ; preds = %invoke.cont18
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %hs) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %hs) #12
   br label %ehcleanup28
 
 ehcleanup28:                                      ; preds = %lpad20, %lpad4
   %.pn = phi { ptr, i32 } [ %23, %lpad20 ], [ %22, %lpad4 ]
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap2) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap2) #12
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %ehcleanup28, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup28 ], [ %21, %lpad ]
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap) #12
   br label %eh.resume
 
 lpad32.loopexit:                                  ; preds = %for.body72
@@ -3644,7 +3645,7 @@ lpad32.loopexit.split-lp.loopexit.split-lp:       ; preds = %invoke.cont95, %inv
 
 lpad32:                                           ; preds = %lpad32.loopexit.split-lp.loopexit, %lpad32.loopexit.split-lp.loopexit.split-lp, %lpad32.loopexit
   %lpad.phi1116 = phi { ptr, i32 } [ %lpad.loopexit1114, %lpad32.loopexit ], [ %lpad.loopexit1117, %lpad32.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1118, %lpad32.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap30) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap30) #12
   br label %eh.resume
 
 for.end:                                          ; preds = %for.inc
@@ -3766,7 +3767,7 @@ for.body.i114:                                    ; preds = %_ZN5eastl9hashtable
   br i1 %isnull.i.i117, label %_ZN5eastl9allocator10deallocateEPvm.exit.i119, label %delete.notnull.i.i118
 
 delete.notnull.i.i118:                            ; preds = %for.body.i114
-  call void @_ZdaPv(ptr noundef nonnull %40) #12
+  call void @_ZdaPv(ptr noundef nonnull %40) #13
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i119
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i119:    ; preds = %delete.notnull.i.i118, %for.body.i114
@@ -3810,7 +3811,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %pNode.08.i.i.i137 = phi ptr [ %45, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i136 ], [ %44, %for.body.i.i.i132 ]
   %mpNext.i.i10.i138 = getelementptr inbounds i8, ptr %pNode.08.i.i.i137, i64 16
   %45 = load ptr, ptr %mpNext.i.i10.i138, align 8
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i137) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i137) #13
   %tobool.not.i.i.i139 = icmp eq ptr %45, null
   br i1 %tobool.not.i.i.i139, label %while.end.i.i.i140, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i136, !llvm.loop !14
 
@@ -3829,7 +3830,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   br i1 %or.cond.i.i.i146, label %invoke.cont56, label %delete.notnull.i.i.i.i147
 
 delete.notnull.i.i.i.i147:                        ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeIS5_Lb0EEEm.exit.i.i143
-  call void @_ZdaPv(ptr noundef nonnull %.pre1226) #12
+  call void @_ZdaPv(ptr noundef nonnull %.pre1226) #13
   br label %invoke.cont56
 
 invoke.cont56:                                    ; preds = %for.end.i130, %delete.notnull.i.i.i.i147, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeIS5_Lb0EEEm.exit.i.i143
@@ -4037,7 +4038,7 @@ for.body.i268:                                    ; preds = %_ZN5eastl9hashtable
   br i1 %isnull.i.i271, label %_ZN5eastl9allocator10deallocateEPvm.exit.i273, label %delete.notnull.i.i272
 
 delete.notnull.i.i272:                            ; preds = %for.body.i268
-  call void @_ZdaPv(ptr noundef nonnull %70) #12
+  call void @_ZdaPv(ptr noundef nonnull %70) #13
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i273
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i273:    ; preds = %delete.notnull.i.i272, %for.body.i268
@@ -4081,7 +4082,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %pNode.08.i.i.i291 = phi ptr [ %75, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i290 ], [ %74, %for.body.i.i.i286 ]
   %mpNext.i.i10.i292 = getelementptr inbounds i8, ptr %pNode.08.i.i.i291, i64 16
   %75 = load ptr, ptr %mpNext.i.i10.i292, align 8
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i291) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i291) #13
   %tobool.not.i.i.i293 = icmp eq ptr %75, null
   br i1 %tobool.not.i.i.i293, label %while.end.i.i.i294, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i290, !llvm.loop !14
 
@@ -4100,7 +4101,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   br i1 %or.cond.i.i.i300, label %invoke.cont88, label %delete.notnull.i.i.i.i301
 
 delete.notnull.i.i.i.i301:                        ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeIS5_Lb0EEEm.exit.i.i297
-  call void @_ZdaPv(ptr noundef nonnull %.pre1228) #12
+  call void @_ZdaPv(ptr noundef nonnull %.pre1228) #13
   br label %invoke.cont88
 
 invoke.cont88:                                    ; preds = %for.end.i284, %delete.notnull.i.i.i.i301, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeIS5_Lb0EEEm.exit.i.i297
@@ -4171,7 +4172,7 @@ invoke.cont95:                                    ; preds = %invoke.cont91
           to label %invoke.cont99 unwind label %lpad32.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont99:                                    ; preds = %invoke.cont95
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap30) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap30) #12
   call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEEC1ERKS7_(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap102, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp103)
   %mnElementCount.i364 = getelementptr inbounds i8, ptr %stringHashMap102, i64 24
   %82 = load i64, ptr %mnElementCount.i364, align 8
@@ -4269,7 +4270,7 @@ lpad105.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke
 
 lpad105:                                          ; preds = %lpad105.loopexit.split-lp.loopexit, %lpad105.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad105.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad105.loopexit
   %lpad.phi1105 = phi { ptr, i32 } [ %lpad.loopexit1103, %lpad105.loopexit ], [ %lpad.loopexit1106, %lpad105.loopexit.split-lp.loopexit ], [ %lpad.loopexit1110, %lpad105.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1111, %lpad105.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap102) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap102) #12
   br label %eh.resume
 
 for.end126:                                       ; preds = %for.inc124
@@ -4641,7 +4642,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %mpNext8.i.i = getelementptr inbounds i8, ptr %pNodeNext.0.lcssa.sink.i.i, i64 16
   %157 = load ptr, ptr %mpNext8.i.i, align 8, !noalias !246
   store ptr %157, ptr %pNodeNext.0.in.le.sink.i.i, align 8, !noalias !246
-  call void @_ZdaPv(ptr noundef nonnull %.sink.i511) #12, !noalias !246
+  call void @_ZdaPv(ptr noundef nonnull %.sink.i511) #13, !noalias !246
   %158 = load i64, ptr %mnElementCount.i364, align 8, !noalias !246
   %dec.i.i = add i64 %158, -1
   store i64 %dec.i.i, ptr %mnElementCount.i364, align 8, !noalias !246
@@ -4649,7 +4650,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   br i1 %isnull.i.i546, label %invoke.cont217, label %delete.notnull.i.i547
 
 delete.notnull.i.i547:                            ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5eraseENS_18hashtable_iteratorIS5_Lb1ELb0EEE.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %155) #12, !noalias !243
+  call void @_ZdaPv(ptr noundef nonnull %155) #13, !noalias !243
   %.pre1231 = load i64, ptr %mnElementCount.i364, align 8
   br label %invoke.cont217
 
@@ -4754,7 +4755,7 @@ for.body.i624:                                    ; preds = %_ZN5eastl9hashtable
   br i1 %isnull.i.i625, label %_ZN5eastl9allocator10deallocateEPvm.exit.i627, label %delete.notnull.i.i626
 
 delete.notnull.i.i626:                            ; preds = %for.body.i624
-  call void @_ZdaPv(ptr noundef nonnull %175) #12
+  call void @_ZdaPv(ptr noundef nonnull %175) #13
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i627
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i627:    ; preds = %delete.notnull.i.i626, %for.body.i624
@@ -4798,7 +4799,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %pNode.08.i.i.i644 = phi ptr [ %180, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i643 ], [ %179, %for.body.i.i.i639 ]
   %mpNext.i.i10.i645 = getelementptr inbounds i8, ptr %pNode.08.i.i.i644, i64 16
   %180 = load ptr, ptr %mpNext.i.i10.i645, align 8
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i644) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i644) #13
   %tobool.not.i.i.i646 = icmp eq ptr %180, null
   br i1 %tobool.not.i.i.i646, label %while.end.i.i.i647, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i643, !llvm.loop !14
 
@@ -4865,7 +4866,7 @@ invoke.cont261:                                   ; preds = %invoke.cont259
           to label %invoke.cont264 unwind label %lpad105.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont264:                                   ; preds = %invoke.cont261
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap102) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap102) #12
   call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEEC1ERKS7_(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp267)
   invoke void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEEC1ERKS8_RKS7_(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap2268, ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp269)
           to label %for.cond274.preheader unwind label %lpad270
@@ -4906,7 +4907,7 @@ lpad280.loopexit.split-lp:                        ; preds = %invoke.cont285, %fo
 
 for.end284:                                       ; preds = %for.inc282
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %allocator.i)
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap2268) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap2268) #12
   invoke void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEEC1ERKS8_RKS7_(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap2268, ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap1, ptr noundef nonnull align 1 dereferenceable(1) %allocator.i)
           to label %invoke.cont285 unwind label %lpad280.loopexit.split-lp
 
@@ -5229,13 +5230,13 @@ lpad290.loopexit.split-lp:                        ; preds = %invoke.cont291, %in
 
 lpad290:                                          ; preds = %lpad290.loopexit.split-lp, %lpad290.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad290.loopexit ], [ %lpad.loopexit.split-lp, %lpad290.loopexit.split-lp ]
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap3) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap3) #12
   br label %ehcleanup333
 
 for.end331:                                       ; preds = %for.inc329
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap3) #11
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap2268) #11
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap1) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap3) #12
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap2268) #12
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap1) #12
   call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEEC1ERKS7_(ptr noundef nonnull align 8 dereferenceable(45) %m, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp335)
   store i32 0, ptr %ref.tmp336, align 4
   invoke void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE16insert_or_assignES3_RKi(ptr nonnull sret(%"struct.eastl::pair") align 8 %tmp337, ptr noundef nonnull align 8 dereferenceable(45) %m, ptr noundef nonnull @.str.36, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp336)
@@ -5335,7 +5336,7 @@ for.body.i815:                                    ; preds = %_ZN5eastl9hashtable
   br i1 %isnull.i.i818, label %_ZN5eastl9allocator10deallocateEPvm.exit.i820, label %delete.notnull.i.i819
 
 delete.notnull.i.i819:                            ; preds = %for.body.i815
-  call void @_ZdaPv(ptr noundef nonnull %236) #12
+  call void @_ZdaPv(ptr noundef nonnull %236) #13
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i820
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i820:    ; preds = %delete.notnull.i.i819, %for.body.i815
@@ -5379,7 +5380,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %pNode.08.i.i.i838 = phi ptr [ %241, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i837 ], [ %240, %for.body.i.i.i833 ]
   %mpNext.i.i10.i839 = getelementptr inbounds i8, ptr %pNode.08.i.i.i838, i64 16
   %241 = load ptr, ptr %mpNext.i.i10.i839, align 8
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i838) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i838) #13
   %tobool.not.i.i.i840 = icmp eq ptr %241, null
   br i1 %tobool.not.i.i.i840, label %while.end.i.i.i841, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i837, !llvm.loop !14
 
@@ -5395,7 +5396,7 @@ invoke.cont373:                                   ; preds = %while.end.i.i.i841,
           to label %invoke.cont376 unwind label %lpad338
 
 invoke.cont376:                                   ; preds = %invoke.cont373
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %m) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %m) #12
   call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEEC1ERKS7_(ptr noundef nonnull align 8 dereferenceable(45) %m379, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp380)
   store i32 0, ptr %ref.tmp381, align 4
   invoke void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE16insert_or_assignES3_RKi(ptr nonnull sret(%"struct.eastl::pair") align 8 %tmp382, ptr noundef nonnull align 8 dereferenceable(45) %m379, ptr noundef nonnull @.str.36, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp381)
@@ -5445,7 +5446,7 @@ for.body.i864:                                    ; preds = %_ZN5eastl9hashtable
   br i1 %isnull.i.i867, label %_ZN5eastl9allocator10deallocateEPvm.exit.i869, label %delete.notnull.i.i868
 
 delete.notnull.i.i868:                            ; preds = %for.body.i864
-  call void @_ZdaPv(ptr noundef nonnull %248) #12
+  call void @_ZdaPv(ptr noundef nonnull %248) #13
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i869
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i869:    ; preds = %delete.notnull.i.i868, %for.body.i864
@@ -5489,7 +5490,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %pNode.08.i.i.i887 = phi ptr [ %253, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i886 ], [ %252, %for.body.i.i.i882 ]
   %mpNext.i.i10.i888 = getelementptr inbounds i8, ptr %pNode.08.i.i.i887, i64 16
   %253 = load ptr, ptr %mpNext.i.i10.i888, align 8
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i887) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i887) #13
   %tobool.not.i.i.i889 = icmp eq ptr %253, null
   br i1 %tobool.not.i.i.i889, label %while.end.i.i.i890, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i886, !llvm.loop !14
 
@@ -5505,7 +5506,7 @@ invoke.cont392:                                   ; preds = %while.end.i.i.i890,
           to label %invoke.cont395 unwind label %lpad383
 
 invoke.cont395:                                   ; preds = %invoke.cont392
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %m379) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %m379) #12
   call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEEC1ERKS7_(ptr noundef nonnull align 8 dereferenceable(45) %m398, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp399)
   store i32 0, ptr %ref.tmp400, align 4
   invoke void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE16insert_or_assignES3_RKi(ptr nonnull sret(%"struct.eastl::pair") align 8 %tmp401, ptr noundef nonnull align 8 dereferenceable(45) %m398, ptr noundef nonnull @.str.36, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp400)
@@ -5555,7 +5556,7 @@ for.body.i913:                                    ; preds = %_ZN5eastl9hashtable
   br i1 %isnull.i.i916, label %_ZN5eastl9allocator10deallocateEPvm.exit.i918, label %delete.notnull.i.i917
 
 delete.notnull.i.i917:                            ; preds = %for.body.i913
-  call void @_ZdaPv(ptr noundef nonnull %260) #12
+  call void @_ZdaPv(ptr noundef nonnull %260) #13
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i918
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i918:    ; preds = %delete.notnull.i.i917, %for.body.i913
@@ -5599,7 +5600,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %pNode.08.i.i.i936 = phi ptr [ %265, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i935 ], [ %264, %for.body.i.i.i931 ]
   %mpNext.i.i10.i937 = getelementptr inbounds i8, ptr %pNode.08.i.i.i936, i64 16
   %265 = load ptr, ptr %mpNext.i.i10.i937, align 8
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i936) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i936) #13
   %tobool.not.i.i.i938 = icmp eq ptr %265, null
   br i1 %tobool.not.i.i.i938, label %while.end.i.i.i939, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i935, !llvm.loop !14
 
@@ -5618,7 +5619,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   br i1 %or.cond.i.i.i945, label %invoke.cont411, label %delete.notnull.i.i.i.i946
 
 delete.notnull.i.i.i.i946:                        ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeIS5_Lb0EEEm.exit.i.i942
-  call void @_ZdaPv(ptr noundef nonnull %.pre1232) #12
+  call void @_ZdaPv(ptr noundef nonnull %.pre1232) #13
   br label %invoke.cont411
 
 invoke.cont411:                                   ; preds = %for.end.i929, %delete.notnull.i.i.i.i946, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoFreeNodesEPPNS_9hash_nodeIS5_Lb0EEEm.exit.i.i942
@@ -5631,7 +5632,7 @@ invoke.cont411:                                   ; preds = %for.end.i929, %dele
           to label %invoke.cont414 unwind label %lpad402
 
 invoke.cont414:                                   ; preds = %invoke.cont411
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %m398) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %m398) #12
   call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEEC1ERKS7_(ptr noundef nonnull align 8 dereferenceable(45) %m417, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp418)
   store i32 0, ptr %ref.tmp419, align 4
   invoke void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE16insert_or_assignES3_RKi(ptr nonnull sret(%"struct.eastl::pair") align 8 %tmp420, ptr noundef nonnull align 8 dereferenceable(45) %m417, ptr noundef nonnull @.str.36, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp419)
@@ -5681,7 +5682,7 @@ for.body.i968:                                    ; preds = %_ZN5eastl9hashtable
   br i1 %isnull.i.i971, label %_ZN5eastl9allocator10deallocateEPvm.exit.i973, label %delete.notnull.i.i972
 
 delete.notnull.i.i972:                            ; preds = %for.body.i968
-  call void @_ZdaPv(ptr noundef nonnull %272) #12
+  call void @_ZdaPv(ptr noundef nonnull %272) #13
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i973
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i973:    ; preds = %delete.notnull.i.i972, %for.body.i968
@@ -5725,7 +5726,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str
   %pNode.08.i.i.i991 = phi ptr [ %277, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i990 ], [ %276, %for.body.i.i.i986 ]
   %mpNext.i.i10.i992 = getelementptr inbounds i8, ptr %pNode.08.i.i.i991, i64 16
   %277 = load ptr, ptr %mpNext.i.i10.i992, align 8
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i991) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i991) #13
   %tobool.not.i.i.i993 = icmp eq ptr %277, null
   br i1 %tobool.not.i.i.i993, label %while.end.i.i.i994, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS5_Lb0EEE.exit.i.i.i990, !llvm.loop !14
 
@@ -5741,7 +5742,7 @@ invoke.cont430:                                   ; preds = %while.end.i.i.i994,
           to label %invoke.cont433 unwind label %lpad421
 
 invoke.cont433:                                   ; preds = %invoke.cont430
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %m417) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %m417) #12
   %mnBucketCount.i.i.i = getelementptr inbounds i8, ptr %m436, i64 16
   %mRehashPolicy.i.i.i = getelementptr inbounds i8, ptr %m436, i64 32
   store float 1.000000e+00, ptr %mRehashPolicy.i.i.i, align 8
@@ -5856,7 +5857,7 @@ invoke.cont460:                                   ; preds = %invoke.cont456
           to label %invoke.cont470 unwind label %lpad439
 
 invoke.cont470:                                   ; preds = %invoke.cont460
-  call void @_ZN5eastl15string_hash_mapI10TestObjectNS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %m436) #11
+  call void @_ZN5eastl15string_hash_mapI10TestObjectNS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %m436) #12
   %296 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %297 = load i64, ptr @_ZN17CountingAllocator16defaultCtorCountE, align 8
   %inc2.i = add i64 %297, 1
@@ -6019,11 +6020,11 @@ terminate.lpad.i:                                 ; preds = %invoke.cont524
   %322 = landingpad { ptr, i32 }
           catch ptr null
   %323 = extractvalue { ptr, i32 } %322, 0
-  call void @__clang_call_terminate(ptr %323) #13
+  call void @__clang_call_terminate(ptr %323) #14
   unreachable
 
 _ZN5eastl15string_hash_mapI10TestObjectNS_4hashIPKcEENS_12str_equal_toIS4_EE17CountingAllocatorED2Ev.exit: ; preds = %invoke.cont524
-  call void @_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m467) #11
+  call void @_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m467) #12
   %324 = load i64, ptr @_ZN17CountingAllocator16activeAllocCountE, align 8
   %cmp528 = icmp eq i64 %324, 0
   %call529 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp528, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 299, ptr noundef nonnull @.str.47)
@@ -6032,36 +6033,36 @@ _ZN5eastl15string_hash_mapI10TestObjectNS_4hashIPKcEENS_12str_equal_toIS4_EE17Co
 
 ehcleanup333:                                     ; preds = %lpad280.loopexit, %lpad280.loopexit.split-lp, %lpad290
   %.pn29 = phi { ptr, i32 } [ %lpad.phi, %lpad290 ], [ %lpad.loopexit1096, %lpad280.loopexit ], [ %lpad.loopexit.split-lp1097, %lpad280.loopexit.split-lp ]
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap2268) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap2268) #12
   br label %ehcleanup334
 
 ehcleanup334:                                     ; preds = %ehcleanup333, %lpad270
   %.pn29.pn = phi { ptr, i32 } [ %.pn29, %ehcleanup333 ], [ %187, %lpad270 ]
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap1) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap1) #12
   br label %eh.resume
 
 lpad338:                                          ; preds = %invoke.cont373, %invoke.cont367, %invoke.cont364, %invoke.cont363, %invoke.cont359, %invoke.cont356, %invoke.cont355, %invoke.cont351, %invoke.cont348, %invoke.cont347, %invoke.cont343, %invoke.cont340, %invoke.cont339, %for.end331
   %326 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %m) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %m) #12
   br label %eh.resume
 
 lpad383:                                          ; preds = %invoke.cont392, %invoke.cont387, %invoke.cont384, %invoke.cont376
   %327 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %m379) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %m379) #12
   br label %eh.resume
 
 lpad402:                                          ; preds = %invoke.cont411, %invoke.cont406, %invoke.cont403, %invoke.cont395
   %328 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %m398) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %m398) #12
   br label %eh.resume
 
 lpad421:                                          ; preds = %invoke.cont430, %invoke.cont425, %invoke.cont422, %invoke.cont414
   %329 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %m417) #11
+  call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %m417) #12
   br label %eh.resume
 
 lpad439:                                          ; preds = %invoke.cont460, %invoke.cont456, %_ZN10TestObjectD2Ev.exit1026, %invoke.cont445, %_ZN10TestObjectD2Ev.exit
@@ -6117,7 +6118,7 @@ _ZN10TestObjectD2Ev.exit1074:                     ; preds = %lpad453, %if.then.i
 
 ehcleanup466:                                     ; preds = %_ZN10TestObjectD2Ev.exit1074, %_ZN10TestObjectD2Ev.exit1067, %lpad439
   %.pn25 = phi { ptr, i32 } [ %330, %lpad439 ], [ %336, %_ZN10TestObjectD2Ev.exit1074 ], [ %331, %_ZN10TestObjectD2Ev.exit1067 ]
-  call void @_ZN5eastl15string_hash_mapI10TestObjectNS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %m436) #11
+  call void @_ZN5eastl15string_hash_mapI10TestObjectNS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %m436) #12
   br label %eh.resume
 
 lpad472:                                          ; preds = %invoke.cont520, %invoke.cont515, %invoke.cont511, %invoke.cont509, %_ZN10TestObjectD2Ev.exit1059, %invoke.cont493, %invoke.cont489, %invoke.cont487, %_ZN10TestObjectD2Ev.exit1046, %invoke.cont470
@@ -6173,7 +6174,7 @@ _ZN10TestObjectD2Ev.exit1088:                     ; preds = %lpad503, %if.then.i
 
 ehcleanup526:                                     ; preds = %_ZN10TestObjectD2Ev.exit1088, %_ZN10TestObjectD2Ev.exit1081, %lpad472
   %.pn27 = phi { ptr, i32 } [ %341, %lpad472 ], [ %347, %_ZN10TestObjectD2Ev.exit1088 ], [ %342, %_ZN10TestObjectD2Ev.exit1081 ]
-  call void @_ZN5eastl15string_hash_mapI10TestObjectNS_4hashIPKcEENS_12str_equal_toIS4_EE17CountingAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m467) #11
+  call void @_ZN5eastl15string_hash_mapI10TestObjectNS_4hashIPKcEENS_12str_equal_toIS4_EE17CountingAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m467) #12
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup526, %ehcleanup466, %lpad421, %lpad402, %lpad383, %lpad338, %ehcleanup334, %lpad105, %lpad32, %ehcleanup29
@@ -6181,7 +6182,7 @@ eh.resume:                                        ; preds = %ehcleanup526, %ehcl
   resume { ptr, i32 } %.pn32
 }
 
-declare noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN5eastleqIPKciNS_4hashIS2_EENS_12str_equal_toIS2_EENS_9allocatorELb0EEEbRKNS_8hash_mapIT_T0_T1_T2_T3_XT4_EEESG_(ptr noundef nonnull align 8 dereferenceable(45) %a, ptr noundef nonnull align 8 dereferenceable(45) %b) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -6352,7 +6353,7 @@ return:                                           ; preds = %_ZNK5eastl14hash_co
   ret i1 %retval.0
 }
 
-declare noundef i32 @_ZN2EA4StdC6StrcmpEPKcS2_(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @_ZN2EA4StdC6StrcmpEPKcS2_(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl15string_hash_mapI10TestObjectNS_4hashIPKcEENS_12str_equal_toIS4_EENS_9allocatorEE16insert_or_assignES4_RKS1_(ptr noalias sret(%"struct.eastl::pair.30") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef %key, ptr noundef nonnull align 8 dereferenceable(20) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6470,7 +6471,7 @@ if.then:                                          ; preds = %_ZN5eastl9hashtable
   br label %return
 
 if.else:                                          ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #11
   %add.i = add i64 %call.i, 1
   %call.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull align 1 %key, i64 %add.i, i1 false)
@@ -6595,7 +6596,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEENS_9allocatorENS_9use_firstIS6
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #11
   %add.i = add i64 %call.i, 1
   %call.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull align 1 %key, i64 %add.i, i1 false)
@@ -6740,7 +6741,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEENS_9allocatorENS_9use_firstIS6
   %7 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %inc3.i.i.i.i.i.i.i.i = add nsw i64 %7, 1
   store i64 %inc3.i.i.i.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i.i) #13
   %tobool.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i, label %while.end.i.i.i.i, label %while.body.i.i.i.i, !llvm.loop !306
 
@@ -6761,7 +6762,7 @@ invoke.cont.i.i:                                  ; preds = %while.end.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN5eastl8hash_mapIPKc10TestObjectNS_4hashIS2_EENS_12str_equal_toIS2_EENS_9allocatorELb0EED2Ev.exit, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %invoke.cont.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre.i.i) #13
   br label %_ZN5eastl8hash_mapIPKc10TestObjectNS_4hashIS2_EENS_12str_equal_toIS2_EENS_9allocatorELb0EED2Ev.exit
 
 _ZN5eastl8hash_mapIPKc10TestObjectNS_4hashIS2_EENS_12str_equal_toIS2_EENS_9allocatorELb0EED2Ev.exit: ; preds = %invoke.cont.thread.i.i, %invoke.cont.i.i, %delete.notnull.i.i.i.i
@@ -6771,7 +6772,7 @@ terminate.lpad:                                   ; preds = %entry
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #13
+  tail call void @__clang_call_terminate(ptr %10) #14
   unreachable
 }
 
@@ -6897,7 +6898,7 @@ if.then:                                          ; preds = %_ZN5eastl9hashtable
   br label %return
 
 if.else:                                          ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #11
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %add.i = add i64 %call.i, 1
   %vtable.i = load ptr, ptr %mAllocator.i.i, align 8
@@ -7025,7 +7026,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_fir
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #11
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %add.i = add i64 %call.i, 1
   %vtable.i = load ptr, ptr %mAllocator.i.i, align 8
@@ -7131,21 +7132,21 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #11
+  tail call void @_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #12
   ret void
 
 terminate.lpad:                                   ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #13
+  tail call void @__clang_call_terminate(ptr %1) #14
   unreachable
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 
-declare noundef ptr @_ZnamPKcijS0_i(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare noundef ptr @_ZnamPKcijS0_i(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN17CountingAllocator8allocateEmi(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %n, i32 noundef %flags) unnamed_addr #0 comdat align 2 {
@@ -7188,17 +7189,17 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17CountingAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void
 }
 
-declare noundef ptr @_ZnammmPKcijS0_i(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare noundef ptr @_ZnammmPKcijS0_i(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE28DoInsertValueExtraForwardingIS5_NS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS3_INS_18hashtable_iteratorIS5_Lb0ELb0EEEbEERS4_mPNS_9hash_nodeIS5_Lb0EEEOT_(ptr noalias sret(%"struct.eastl::pair") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(8) %k, i64 noundef %c, ptr noundef %pNodeNew, ptr noundef nonnull align 8 dereferenceable(12) %value) local_unnamed_addr #0 comdat align 2 {
@@ -7355,7 +7356,7 @@ return:                                           ; preds = %_ZNK5eastl14hash_co
   ret void
 }
 
-declare i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm(ptr noundef nonnull align 8 dereferenceable(45) %this, i64 noundef %nNewBucketCount) local_unnamed_addr #0 comdat align 2 {
@@ -7439,7 +7440,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %15, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS5_Lb0EEEm.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %for.end
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #13
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS5_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_iEENS_9allocatorENS_9use_firstIS5_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS5_Lb0EEEm.exit: ; preds = %entry, %for.end, %delete.notnull.i.i
@@ -7600,7 +7601,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EEN
   %conv65060 = phi i64 [ %conv65061, %for.body.us.i ], [ %conv6, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i ]
   %mpBucketArray5258 = phi ptr [ %mpBucketArray5259, %for.body.us.i ], [ %mpBucketArray, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i ]
   %pNode.addr.0.lcssa.i21 = phi ptr [ %pNode.addr.05.us.i, %for.body.us.i ], [ %pNode.addr.05.i, %_ZNK5eastl14hash_code_baseIPKcNS_4pairIKS2_7Align32EENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERS4_mPNS_9hash_nodeIS6_Lb0EEE.exit.loopexit.i ]
-  tail call void @_ZdaPv(ptr noundef nonnull %call.i6.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %call.i6.i.i) #13
   br label %return
 
 return:                                           ; preds = %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit, %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS3_INS_18hashtable_iteratorIS6_Lb0ELb0EEEbEERS4_mmPNS_9hash_nodeIS6_Lb0EEE.exit
@@ -7700,7 +7701,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %15, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %for.end
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #13
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_7Align32EENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit: ; preds = %entry, %for.end, %delete.notnull.i.i
@@ -7899,7 +7900,7 @@ for.body:                                         ; preds = %_ZN5eastl9hashtable
   br i1 %isnull.i, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %for.body
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #13
   br label %_ZN5eastl9allocator10deallocateEPvm.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %for.body, %delete.notnull.i
@@ -7962,7 +7963,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEENS_9allocatorENS_9use_firstIS6
   %14 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %inc3.i.i.i.i.i.i = add nsw i64 %14, 1
   store i64 %inc3.i.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   %tobool.not.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i10, !llvm.loop !306
 
@@ -8745,7 +8746,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %15, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %for.end
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #13
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEENS_9allocatorENS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit: ; preds = %entry, %for.end, %delete.notnull.i.i
@@ -8800,7 +8801,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %isnull.i.i, label %_ZN17CountingAllocator10deallocateEPvm.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %for.body
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %7) #13
   %.pre = load i64, ptr @_ZN17CountingAllocator16activeAllocCountE, align 8
   %.pre18 = load i64, ptr @_ZN17CountingAllocator17totalDeallocCountE, align 8
   br label %_ZN17CountingAllocator10deallocateEPvm.exit
@@ -8876,7 +8877,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_fir
   %21 = load i64, ptr @_ZN17CountingAllocator21activeAllocatedMemoryE, align 8
   %sub.i.i.i.i = add i64 %21, -40
   store i64 %sub.i.i.i.i, ptr @_ZN17CountingAllocator21activeAllocatedMemoryE, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   %tobool.not.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i10, !llvm.loop !391
 
@@ -8946,7 +8947,7 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_fir
   %10 = load i64, ptr @_ZN17CountingAllocator21activeAllocatedMemoryE, align 8
   %sub.i.i.i.i = add i64 %10, -40
   store i64 %sub.i.i.i.i, ptr @_ZN17CountingAllocator21activeAllocatedMemoryE, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !391
 
@@ -8980,7 +8981,7 @@ if.then.i:                                        ; preds = %invoke.cont
   br i1 %isnull.i.i.i, label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i
-  tail call void @_ZdaPv(ptr noundef nonnull %11) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %11) #13
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit: ; preds = %invoke.cont.thread, %invoke.cont, %if.then.i, %delete.notnull.i.i.i
@@ -9780,7 +9781,7 @@ delete.notnull.i.i.i:                             ; preds = %for.end
   %reass.sub = sub i64 %21, %22
   %sub.i.i = add i64 %reass.sub, -8
   store i64 %sub.i.i, ptr @_ZN17CountingAllocator21activeAllocatedMemoryE, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %18) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %18) #13
   br label %_ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_firstIS6_EENS_12str_equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit: ; preds = %entry, %for.end, %delete.notnull.i.i.i
@@ -9791,28 +9792,29 @@ _ZN5eastl9hashtableIPKcNS_4pairIKS2_10TestObjectEE17CountingAllocatorNS_9use_fir
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #8
+declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { nounwind }
-attributes #12 = { builtin nounwind }
-attributes #13 = { noreturn nounwind }
+attributes #3 = { cold nofree noreturn }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind }
+attributes #13 = { builtin nounwind }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

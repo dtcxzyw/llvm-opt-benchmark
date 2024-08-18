@@ -47,7 +47,7 @@ $_ZNSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
   ret void
 }
 
@@ -56,7 +56,7 @@ declare void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) u
 
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN17PreferenceFactoryD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
-  tail call void @llvm.trap() #16
+  tail call void @llvm.trap() #17
   unreachable
 }
 
@@ -70,13 +70,13 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN17PreferenceManager9fa
   br i1 %2, label %3, label %7, !prof !4
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #15
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #16
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapIiP17PreferenceFactoryED2Ev, ptr nonnull @_ZZN17PreferenceManager9factoriesEvE4inst, ptr nonnull @__dso_handle) #15
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #15
+  %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapIiP17PreferenceFactoryED2Ev, ptr nonnull @_ZZN17PreferenceManager9factoriesEvE4inst, ptr nonnull @__dso_handle) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #16
   br label %7
 
 7:                                                ; preds = %5, %3, %0
@@ -113,11 +113,11 @@ define linkonce_odr void @_ZN4QMapIiP17PreferenceFactoryED2Ev(ptr noundef nonnul
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #16
+  tail call void @__clang_call_terminate(ptr %14) #17
   unreachable
 
 _ZN8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS2_EEEED2Ev.exit.i: ; preds = %8
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #18
   br label %_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS4_EEEEED2Ev.exit
 
 _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS4_EEEEED2Ev.exit: ; preds = %1, %3, %5, %_ZN8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS2_EEEED2Ev.exit.i
@@ -147,13 +147,13 @@ define void @_ZN17PreferenceManagerD2Ev(ptr noundef nonnull align 8 dereferencea
   br i1 %3, label %4, label %_ZN17PreferenceManager9factoriesEv.exit, !prof !4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #15
+  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #16
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ZN17PreferenceManager9factoriesEv.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapIiP17PreferenceFactoryED2Ev, ptr nonnull @_ZZN17PreferenceManager9factoriesEvE4inst, ptr nonnull @__dso_handle) #15
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #15
+  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapIiP17PreferenceFactoryED2Ev, ptr nonnull @_ZZN17PreferenceManager9factoriesEvE4inst, ptr nonnull @__dso_handle) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #16
   br label %_ZN17PreferenceManager9factoriesEv.exit
 
 _ZN17PreferenceManager9factoriesEv.exit:          ; preds = %1, %4, %6
@@ -161,14 +161,14 @@ _ZN17PreferenceManager9factoriesEv.exit:          ; preds = %1, %4, %6
           to label %8 unwind label %9
 
 8:                                                ; preds = %_ZN17PreferenceManager9factoriesEv.exit
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
   ret void
 
 9:                                                ; preds = %_ZN17PreferenceManager9factoriesEv.exit
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #16
+  tail call void @__clang_call_terminate(ptr %11) #17
   unreachable
 }
 
@@ -194,7 +194,7 @@ _ZNK9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP17PreferenceFa
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #16
+  tail call void @__clang_call_terminate(ptr %10) #17
   unreachable
 
 _ZNSt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS1_EEE5clearEv.exit: ; preds = %4
@@ -229,11 +229,11 @@ _ZNSt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS1_EEE5clearEv.exit: ; pre
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #16
+  tail call void @__clang_call_terminate(ptr %26) #17
   unreachable
 
 _ZN8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS2_EEEED2Ev.exit.i: ; preds = %20
-  tail call void @_ZdlPv(ptr noundef nonnull %18) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #18
   br label %_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS4_EEEEE5resetEPSC_.exit
 
 _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS4_EEEEE5resetEPSC_.exit: ; preds = %15, %17, %_ZN8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS2_EEEED2Ev.exit.i
@@ -248,24 +248,25 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN17PreferenceManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN17PreferenceManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN17PreferenceManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN17PreferenceManager8instanceEv() local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -274,7 +275,7 @@ define noundef ptr @_ZN17PreferenceManager8instanceEv() local_unnamed_addr #6 al
   br i1 %.not, label %2, label %7
 
 2:                                                ; preds = %0
-  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
+  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
   invoke void @_ZN17PreferenceManagerC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef null)
           to label %4 unwind label %5
 
@@ -285,7 +286,7 @@ define noundef ptr @_ZN17PreferenceManager8instanceEv() local_unnamed_addr #6 al
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #18
   resume { ptr, i32 } %6
 
 7:                                                ; preds = %4, %0
@@ -294,7 +295,7 @@ define noundef ptr @_ZN17PreferenceManager8instanceEv() local_unnamed_addr #6 al
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 align 2 {
@@ -305,13 +306,13 @@ define void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noca
   br i1 %6, label %7, label %_ZN17PreferenceManager9factoriesEv.exit, !prof !4
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #15
+  %8 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #16
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %_ZN17PreferenceManager9factoriesEv.exit, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapIiP17PreferenceFactoryED2Ev, ptr nonnull @_ZZN17PreferenceManager9factoriesEvE4inst, ptr nonnull @__dso_handle) #15
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #15
+  %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapIiP17PreferenceFactoryED2Ev, ptr nonnull @_ZZN17PreferenceManager9factoriesEvE4inst, ptr nonnull @__dso_handle) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #16
   br label %_ZN17PreferenceManager9factoriesEv.exit
 
 _ZN17PreferenceManager9factoriesEv.exit:          ; preds = %3, %7, %9
@@ -371,13 +372,13 @@ _ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit: ; preds = %_ZN17PreferenceMa
   br i1 %30, label %31, label %_ZN17PreferenceManager9factoriesEv.exit6, !prof !4
 
 31:                                               ; preds = %28
-  %32 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #15
+  %32 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #16
   %.not.i5 = icmp eq i32 %32, 0
   br i1 %.not.i5, label %_ZN17PreferenceManager9factoriesEv.exit6, label %33
 
 33:                                               ; preds = %31
-  %34 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapIiP17PreferenceFactoryED2Ev, ptr nonnull @_ZZN17PreferenceManager9factoriesEvE4inst, ptr nonnull @__dso_handle) #15
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #15
+  %34 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapIiP17PreferenceFactoryED2Ev, ptr nonnull @_ZZN17PreferenceManager9factoriesEvE4inst, ptr nonnull @__dso_handle) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #16
   br label %_ZN17PreferenceManager9factoriesEv.exit6
 
 _ZN17PreferenceManager9factoriesEv.exit6:         ; preds = %28, %31, %33
@@ -400,7 +401,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QMapIiP1
   br label %_ZN4QMapIiP17PreferenceFactoryE6detachEv.exit
 
 _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS4_EEEEE5resetEPSC_.exit.i: ; preds = %2
-  %5 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
+  %5 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 0, ptr %6, align 8
@@ -473,7 +474,7 @@ _ZNSt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit: ; p
   br i1 %29, label %select.unfold.i.i, label %30
 
 30:                                               ; preds = %._crit_edge.thread.i.i.i
-  %31 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #19
+  %31 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #20
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %31, i64 32
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %32
@@ -498,12 +499,12 @@ select.unfold.i.i:                                ; preds = %32, %._crit_edge.th
 
 _ZNSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i: ; preds = %36, %select.unfold.i.i
   %40 = phi i1 [ true, %select.unfold.i.i ], [ %39, %36 ]
-  %41 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
+  %41 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
   %42 = getelementptr inbounds i8, ptr %41, i64 32
   store i32 %16, ptr %42, align 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds i8, ptr %41, i64 40
   store ptr null, ptr %.sroa.56.0..sroa_idx, align 8
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %40, ptr noundef nonnull %41, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %15) #15
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %40, ptr noundef nonnull %41, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %15) #16
   %43 = getelementptr inbounds i8, ptr %12, i64 48
   %44 = load i64, ptr %43, align 8
   %45 = add i64 %44, 1
@@ -530,13 +531,13 @@ define noundef ptr @_ZN17PreferenceManager13getPreferenceEP9PrefsItem(ptr nounde
   br i1 %7, label %8, label %_ZN17PreferenceManager9factoriesEv.exit, !prof !4
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #15
+  %9 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #16
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %_ZN17PreferenceManager9factoriesEv.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapIiP17PreferenceFactoryED2Ev, ptr nonnull @_ZZN17PreferenceManager9factoriesEvE4inst, ptr nonnull @__dso_handle) #15
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #15
+  %11 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapIiP17PreferenceFactoryED2Ev, ptr nonnull @_ZZN17PreferenceManager9factoriesEvE4inst, ptr nonnull @__dso_handle) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #16
   br label %_ZN17PreferenceManager9factoriesEv.exit
 
 _ZN17PreferenceManager9factoriesEv.exit:          ; preds = %4, %8, %10
@@ -584,13 +585,13 @@ _ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit: ; preds = %_ZNKSt8_Rb_treeIi
   br i1 %28, label %29, label %_ZN17PreferenceManager9factoriesEv.exit13, !prof !4
 
 29:                                               ; preds = %26
-  %30 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #15
+  %30 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #16
   %.not.i12 = icmp eq i32 %30, 0
   br i1 %.not.i12, label %_ZN17PreferenceManager9factoriesEv.exit13, label %31
 
 31:                                               ; preds = %29
-  %32 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapIiP17PreferenceFactoryED2Ev, ptr nonnull @_ZZN17PreferenceManager9factoriesEvE4inst, ptr nonnull @__dso_handle) #15
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #15
+  %32 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapIiP17PreferenceFactoryED2Ev, ptr nonnull @_ZZN17PreferenceManager9factoriesEvE4inst, ptr nonnull @__dso_handle) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #16
   br label %_ZN17PreferenceManager9factoriesEv.exit13
 
 _ZN17PreferenceManager9factoriesEv.exit13:        ; preds = %26, %29, %31
@@ -650,7 +651,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Se
   tail call void @_ZNSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.07) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %.07) #18
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
@@ -659,7 +660,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Se
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS4_EEEEE6detachEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -669,7 +670,7 @@ define linkonce_odr void @_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDat
   br i1 %.not, label %4, label %12
 
 4:                                                ; preds = %1
-  %5 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
+  %5 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 0, ptr %6, align 8
@@ -691,7 +692,7 @@ define linkonce_odr void @_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDat
   br i1 %.not2, label %_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS4_EEEEED2Ev.exit, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
+  %15 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
   store i32 0, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %15, i64 16
   store i32 0, ptr %16, align 8
@@ -765,17 +766,17 @@ _ZN8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS2_EEEEC2ERKSA_.
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #16
+  call void @__clang_call_terminate(ptr %44) #17
   unreachable
 
 _ZN8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS2_EEEED2Ev.exit.i: ; preds = %38
-  call void @_ZdlPv(ptr noundef nonnull %35) #17
+  call void @_ZdlPv(ptr noundef nonnull %35) #18
   br label %_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS4_EEEEED2Ev.exit
 
 45:                                               ; preds = %23
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %15) #17
+  call void @_ZdlPv(ptr noundef nonnull %15) #18
   resume { ptr, i32 } %46
 
 _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS4_EEEEED2Ev.exit: ; preds = %_ZN8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS2_EEEED2Ev.exit.i, %36, %_ZN8QMapDataISt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS2_EEEEC2ERKSA_.exit, %12, %4
@@ -785,7 +786,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP17PreferenceFac
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 32
-  %6 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
+  %6 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
   %7 = getelementptr inbounds i8, ptr %6, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %8 = load i32, ptr %1, align 8
@@ -821,12 +822,12 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryE
 17:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %18 = extractvalue { ptr, i32 } %lpad.phi, 0
-  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #15
+  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #16
   invoke void @_ZNSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6)
           to label %20 unwind label %37
 
 20:                                               ; preds = %17
-  invoke void @__cxa_rethrow() #20
+  invoke void @__cxa_rethrow() #21
           to label %43 unwind label %37
 
 21:                                               ; preds = %15, %4
@@ -838,7 +839,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryE
 .lr.ph:                                           ; preds = %21, %36
   %.037 = phi ptr [ %.0, %36 ], [ %.034, %21 ]
   %.03036 = phi ptr [ %22, %36 ], [ %6, %21 ]
-  %22 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
+  %22 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
           to label %23 unwind label %.loopexit
 
 23:                                               ; preds = %.lr.ph
@@ -889,7 +890,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryE
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #16
+  tail call void @__clang_call_terminate(ptr %42) #17
   unreachable
 
 43:                                               ; preds = %20
@@ -901,19 +902,19 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -924,18 +925,19 @@ attributes #5 = { nofree nounwind }
 attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { builtin nounwind }
-attributes #18 = { builtin allocsize(0) }
-attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { noreturn }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { builtin nounwind }
+attributes #19 = { builtin allocsize(0) }
+attributes #20 = { nounwind willreturn memory(read) }
+attributes #21 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

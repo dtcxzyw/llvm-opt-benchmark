@@ -35,7 +35,7 @@ $_ZN14VerilatedMutex6unlockEv = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16Vmycpu_top__SymsD2Ev(ptr noundef nonnull align 64 dereferenceable(19520) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
-  tail call void @_ZN20Vmycpu_top___024rootD1Ev(ptr noundef nonnull align 64 dereferenceable(19328) %2) #10
+  tail call void @_ZN20Vmycpu_top___024rootD1Ev(ptr noundef nonnull align 64 dereferenceable(19328) %2) #11
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN9VlDeleter9deleteAllEv(ptr noundef nonnull align 8 dereferenceable(128) %3)
           to label %4 unwind label %22
@@ -53,7 +53,7 @@ define dso_local void @_ZN16Vmycpu_top__SymsD2Ev(ptr noundef nonnull align 64 de
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %13) #11
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %13) #12
   br label %_ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit.i:   ; preds = %8, %4
@@ -68,18 +68,18 @@ _ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit.i:   ; preds = %8, %4
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
   %21 = sub i64 %19, %20
-  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %21) #11
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %21) #12
   br label %_ZN9VlDeleterD2Ev.exit
 
 22:                                               ; preds = %1
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #12
+  tail call void @__clang_call_terminate(ptr %24) #13
   unreachable
 
 _ZN9VlDeleterD2Ev.exit:                           ; preds = %_ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit.i, %16
-  tail call void @_ZN13VerilatedSymsD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #10
+  tail call void @_ZN13VerilatedSymsD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   ret void
 }
 
@@ -104,7 +104,7 @@ define linkonce_odr dso_local void @_ZN9VlDeleterD2Ev(ptr noundef nonnull align 
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
   %11 = sub i64 %9, %10
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %11) #11
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %11) #12
   br label %_ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit:     ; preds = %2, %6
@@ -119,7 +119,7 @@ _ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit:     ; preds = %2, %6
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %13 to i64
   %19 = sub i64 %17, %18
-  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %19) #11
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %19) #12
   br label %_ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit2
 
 _ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit2:    ; preds = %_ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit, %14
@@ -129,7 +129,7 @@ _ZNSt6vectorIP11VlDeletableSaIS1_EED2Ev.exit2:    ; preds = %_ZNSt6vectorIP11VlD
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #12
+  tail call void @__clang_call_terminate(ptr %22) #13
   unreachable
 }
 
@@ -164,29 +164,29 @@ define dso_local void @_ZN16Vmycpu_top__SymsC2EP16VerilatedContextPKcP10Vmycpu_t
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr %0, align 64
-  %17 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %16) #10
+  %17 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %16) #11
   %.not.i.i.i.i.i = icmp eq i32 %17, 0
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %15, %19
   %.03.i.i.i = phi i32 [ %20, %19 ], [ 0, %15 ]
-  %18 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %16) #10
+  %18 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %16) #11
   %.not.i.i2.i.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i2.i.i.i, label %.loopexit, label %19
 
 19:                                               ; preds = %.preheader.i.i.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !5
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
   %20 = add nuw nsw i32 %.03.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %20, 50000
   br i1 %exitcond.not.i.i.i, label %21, label %.preheader.i.i.i, !llvm.loop !6
 
 21:                                               ; preds = %19
-  %22 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %16) #10
+  %22 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %16) #11
   %.not.i.i.i.i = icmp eq i32 %22, 0
   br i1 %.not.i.i.i.i, label %.loopexit, label %23
 
 23:                                               ; preds = %21
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %22) #13
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %22) #14
           to label %.noexc unwind label %29
 
 .noexc:                                           ; preds = %23
@@ -195,7 +195,7 @@ define dso_local void @_ZN16Vmycpu_top__SymsC2EP16VerilatedContextPKcP10Vmycpu_t
 .loopexit:                                        ; preds = %.preheader.i.i.i, %21, %15
   %24 = getelementptr inbounds i8, ptr %16, i64 56
   store i8 12, ptr %24, align 8
-  %25 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #10
+  %25 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #11
   invoke void @_ZN20Vmycpu_top___024root12__VconfigureEb(ptr noundef nonnull align 64 dereferenceable(19328) %11, i1 noundef zeroext true)
           to label %26 unwind label %29
 
@@ -210,13 +210,13 @@ define dso_local void @_ZN16Vmycpu_top__SymsC2EP16VerilatedContextPKcP10Vmycpu_t
 29:                                               ; preds = %23, %.loopexit, %13, %12
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN20Vmycpu_top___024rootD1Ev(ptr noundef nonnull align 64 dereferenceable(19328) %11) #10
+  tail call void @_ZN20Vmycpu_top___024rootD1Ev(ptr noundef nonnull align 64 dereferenceable(19328) %11) #11
   br label %31
 
 31:                                               ; preds = %29, %27
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
-  tail call void @_ZN9VlDeleterD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #10
-  tail call void @_ZN13VerilatedSymsD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #10
+  tail call void @_ZN9VlDeleterD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #11
+  tail call void @_ZN13VerilatedSymsD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   resume { ptr, i32 } %.pn
 }
 
@@ -232,29 +232,29 @@ declare void @_ZN16VerilatedContext8timeunitEi(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN16VerilatedContext13timeprecisionEi(ptr noundef nonnull align 8 dereferenceable(608) %0, i32 noundef %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #10
+  %3 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #11
   %.not.i.i.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %2, %5
   %.03.i.i = phi i32 [ %6, %5 ], [ 0, %2 ]
-  %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #10
+  %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #11
   %.not.i.i2.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i2.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %5
 
 5:                                                ; preds = %.preheader.i.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !5
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
   %6 = add nuw nsw i32 %.03.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %6, 50000
   br i1 %exitcond.not.i.i, label %7, label %.preheader.i.i, !llvm.loop !6
 
 7:                                                ; preds = %5
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #10
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #11
   %.not.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %9
 
 9:                                                ; preds = %7
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %8) #13
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %8) #14
   unreachable
 
 _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2, %7
@@ -262,7 +262,7 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2,
   %10 = trunc i32 %spec.select to i8
   %11 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 %10, ptr %11, align 8
-  %12 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #10
+  %12 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #11
   ret void
 }
 
@@ -272,50 +272,51 @@ declare void @_ZN9VlDeleter9deleteAllEv(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #12
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
+  tail call void @_ZSt9terminatev() #13
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare ptr @llvm.ptr.annotation.p0.p0(ptr, ptr, ptr, i32, ptr) #5
+declare ptr @llvm.ptr.annotation.p0.p0(ptr, ptr, ptr, i32, ptr) #6
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN18VerilatedLockGuardC2ER14VerilatedMutex(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
-  %3 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %1) #10
+  %3 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %1) #11
   %.not.i.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i.i, label %_ZN14VerilatedMutex4lockEv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2, %5
   %.03.i = phi i32 [ %6, %5 ], [ 0, %2 ]
-  %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %1) #10
+  %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %1) #11
   %.not.i.i2.i = icmp eq i32 %4, 0
   br i1 %.not.i.i2.i, label %_ZN14VerilatedMutex4lockEv.exit, label %5
 
 5:                                                ; preds = %.preheader.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !5
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
   %6 = add nuw nsw i32 %.03.i, 1
   %exitcond.not.i = icmp eq i32 %6, 50000
   br i1 %exitcond.not.i, label %7, label %.preheader.i, !llvm.loop !6
 
 7:                                                ; preds = %5
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %1) #10
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %1) #11
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %_ZN14VerilatedMutex4lockEv.exit, label %9
 
 9:                                                ; preds = %7
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %8) #13
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %8) #14
   unreachable
 
 _ZN14VerilatedMutex4lockEv.exit:                  ; preds = %.preheader.i, %2, %7
@@ -325,35 +326,35 @@ _ZN14VerilatedMutex4lockEv.exit:                  ; preds = %.preheader.i, %2, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18VerilatedLockGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #10
+  %3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN14VerilatedMutex4lockEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #10
+  %2 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #11
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %_ZNSt5mutex4lockEv.exit, label %.preheader
 
 .preheader:                                       ; preds = %1, %4
   %.03 = phi i32 [ %5, %4 ], [ 0, %1 ]
-  %3 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #10
+  %3 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #11
   %.not.i.i2 = icmp eq i32 %3, 0
   br i1 %.not.i.i2, label %_ZNSt5mutex4lockEv.exit, label %4
 
 4:                                                ; preds = %.preheader
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !5
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
   %5 = add nuw nsw i32 %.03, 1
   %exitcond.not = icmp eq i32 %5, 50000
   br i1 %exitcond.not, label %6, label %.preheader, !llvm.loop !6
 
 6:                                                ; preds = %4
-  %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #10
+  %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #11
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %_ZNSt5mutex4lockEv.exit, label %8
 
 8:                                                ; preds = %6
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %7) #13
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %7) #14
   unreachable
 
 _ZNSt5mutex4lockEv.exit:                          ; preds = %.preheader, %6, %1
@@ -362,7 +363,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %.preheader, %6, %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN14VerilatedMutex8try_lockEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #10
+  %2 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %0) #11
   %.not.i = icmp eq i32 %2, 0
   ret i1 %.not.i
 }
@@ -371,14 +372,14 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN14VerilatedMutex8try_lockEv
 declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #8
+declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN14VerilatedMutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #2 comdat align 2 {
-  %2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #10
+  %2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #11
   ret void
 }
 
@@ -386,22 +387,23 @@ define linkonce_odr dso_local void @_ZN14VerilatedMutex6unlockEv(ptr noundef non
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { builtin nounwind }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { noreturn }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { builtin nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { noreturn }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

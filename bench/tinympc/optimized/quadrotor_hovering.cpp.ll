@@ -96,14 +96,14 @@ define dso_local noundef i32 @main() local_unnamed_addr #3 personality ptr @__gx
   %18 = alloca %"class.Eigen::Replicate", align 8
   %19 = alloca %"class.Eigen::Matrix.27", align 8
   %20 = alloca %"class.Eigen::CwiseBinaryOp.104", align 8
-  %21 = tail call noalias dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #15
+  %21 = tail call noalias dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #16
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.noexc.i.i, label %.preheader.i.i
 
 .noexc.i.i:                                       ; preds = %0
-  %23 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  %23 = tail call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %23, align 8
-  tail call void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  tail call void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
   unreachable
 
 .preheader.i.i:                                   ; preds = %0, %._crit_edge.i.i
@@ -130,14 +130,14 @@ define dso_local noundef i32 @main() local_unnamed_addr #3 personality ptr @__gx
   br i1 %exitcond492.not, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi12ELi1ELi12ELi12EEELi0ENS_6StrideILi0ELi0EEEEEEERKNS_9EigenBaseIT_EE.exit, label %.preheader.i.i, !llvm.loop !7
 
 _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi12ELi1ELi12ELi12EEELi0ENS_6StrideILi0ELi0EEEEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %._crit_edge.i.i
-  %31 = tail call noalias dereferenceable_or_null(384) ptr @malloc(i64 noundef 384) #15
+  %31 = tail call noalias dereferenceable_or_null(384) ptr @malloc(i64 noundef 384) #16
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %.preheader.i.i199
 
 33:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi12ELi1ELi12ELi12EEELi0ENS_6StrideILi0ELi0EEEEEEERKNS_9EigenBaseIT_EE.exit
-  %34 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  %34 = tail call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %34, align 8
-  invoke void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
           to label %.noexc.i.i42 unwind label %42
 
 .noexc.i.i42:                                     ; preds = %33
@@ -173,14 +173,14 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi12ELi1ELi12EL
 
 _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi4EEELi0ENS_6StrideILi0ELi0EEEEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %._crit_edge.i.i201
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %44 = tail call noalias dereferenceable_or_null(96) ptr @malloc(i64 noundef 96) #15
+  %44 = tail call noalias dereferenceable_or_null(96) ptr @malloc(i64 noundef 96) #16
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %.lr.ph.i.i.i.i.i.i.i
 
 46:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi4EEELi0ENS_6StrideILi0ELi0EEEEEEERKNS_9EigenBaseIT_EE.exit
-  %47 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  %47 = tail call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %47, align 8
-  invoke void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
           to label %.noexc4.i.i unwind label %51
 
 .noexc4.i.i:                                      ; preds = %46
@@ -192,7 +192,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi
   store i64 12, ptr %48, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %44, ptr noundef nonnull align 16 dereferenceable(96) @Q_data, i64 96, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %49 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #15
+  %49 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #16
   %50 = icmp eq ptr %49, null
   br i1 %50, label %54, label %59
 
@@ -200,13 +200,13 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi
   %52 = landingpad { ptr, i32 }
           cleanup
   %53 = load ptr, ptr %4, align 8
-  tail call void @free(ptr noundef %53) #16
+  tail call void @free(ptr noundef %53) #17
   br label %.body43
 
 54:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %55 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  %55 = tail call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %55, align 8
-  invoke void @__cxa_throw(ptr nonnull %55, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %55, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
           to label %.noexc4.i.i45 unwind label %56
 
 .noexc4.i.i45:                                    ; preds = %54
@@ -216,7 +216,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi
   %57 = landingpad { ptr, i32 }
           cleanup
   %58 = load ptr, ptr %5, align 8
-  tail call void @free(ptr noundef %58) #16
+  tail call void @free(ptr noundef %58) #17
   br label %.body46
 
 59:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -228,14 +228,14 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi
   %62 = getelementptr inbounds i8, ptr %49, i64 16
   %63 = load <2 x double>, ptr getelementptr inbounds (i8, ptr @R_data, i64 16), align 16
   store <2 x double> %63, ptr %62, align 16
-  %64 = tail call noalias dereferenceable_or_null(960) ptr @malloc(i64 noundef 960) #15
+  %64 = tail call noalias dereferenceable_or_null(960) ptr @malloc(i64 noundef 960) #16
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %.lr.ph.i.i.i.i.i.i.i48
 
 66:                                               ; preds = %59
-  %67 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  %67 = tail call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %67, align 8
-  invoke void @__cxa_throw(ptr nonnull %67, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %67, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
           to label %.noexc.i.i50 unwind label %71
 
 .noexc.i.i50:                                     ; preds = %66
@@ -255,14 +255,14 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi
   br label %.body51
 
 73:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i48
-  %74 = tail call noalias dereferenceable_or_null(960) ptr @malloc(i64 noundef 960) #15
+  %74 = tail call noalias dereferenceable_or_null(960) ptr @malloc(i64 noundef 960) #16
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %.lr.ph.i.i.i.i.i.i.i54
 
 76:                                               ; preds = %73
-  %77 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  %77 = tail call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %77, align 8
-  invoke void @__cxa_throw(ptr nonnull %77, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %77, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
           to label %.noexc.i.i56 unwind label %81
 
 .noexc.i.i56:                                     ; preds = %76
@@ -282,14 +282,14 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi
   br label %.body57
 
 83:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i54
-  %84 = tail call noalias dereferenceable_or_null(288) ptr @malloc(i64 noundef 288) #15
+  %84 = tail call noalias dereferenceable_or_null(288) ptr @malloc(i64 noundef 288) #16
   %85 = icmp eq ptr %84, null
   br i1 %85, label %86, label %.lr.ph.i.i.i.i.i.i.i61
 
 86:                                               ; preds = %83
-  %87 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  %87 = tail call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %87, align 8
-  invoke void @__cxa_throw(ptr nonnull %87, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %87, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
           to label %.noexc.i.i63 unwind label %91
 
 .noexc.i.i63:                                     ; preds = %86
@@ -309,14 +309,14 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi
   br label %.body64
 
 93:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i61
-  %94 = tail call noalias dereferenceable_or_null(288) ptr @malloc(i64 noundef 288) #15
+  %94 = tail call noalias dereferenceable_or_null(288) ptr @malloc(i64 noundef 288) #16
   %95 = icmp eq ptr %94, null
   br i1 %95, label %96, label %.lr.ph.i.i.i.i.i.i.i67
 
 96:                                               ; preds = %93
-  %97 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  %97 = tail call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %97, align 8
-  invoke void @__cxa_throw(ptr nonnull %97, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %97, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
           to label %.noexc.i.i69 unwind label %101
 
 .noexc.i.i69:                                     ; preds = %96
@@ -336,14 +336,14 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi
   br label %.body70
 
 _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEENS0_IdLi4ELi9ELi0ELi4ELi9EEEEEEERKNS_9EigenBaseIT_EE.exit72: ; preds = %.lr.ph.i.i.i.i.i.i.i67
-  %103 = tail call noalias dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #15
+  %103 = tail call noalias dereferenceable_or_null(1152) ptr @malloc(i64 noundef 1152) #16
   %104 = icmp eq ptr %103, null
   br i1 %104, label %105, label %107
 
 105:                                              ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEENS0_IdLi4ELi9ELi0ELi4ELi9EEEEEEERKNS_9EigenBaseIT_EE.exit72
-  %106 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  %106 = tail call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %106, align 8
-  invoke void @__cxa_throw(ptr nonnull %106, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %106, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
           to label %.noexc213 unwind label %.loopexit.split-lp
 
 .noexc213:                                        ; preds = %105
@@ -356,14 +356,14 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_14CwiseNullaryOpINS_8internal18
   %109 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 12, ptr %109, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1152) %103, ptr noundef nonnull align 8 dereferenceable(1152) %21, i64 1152, i1 false)
-  %110 = tail call noalias dereferenceable_or_null(384) ptr @malloc(i64 noundef 384) #15
+  %110 = tail call noalias dereferenceable_or_null(384) ptr @malloc(i64 noundef 384) #16
   %111 = icmp eq ptr %110, null
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %107
-  %113 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  %113 = tail call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %113, align 8
-  invoke void @__cxa_throw(ptr nonnull %113, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %113, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
           to label %.noexc218 unwind label %260
 
 .noexc218:                                        ; preds = %112
@@ -387,14 +387,14 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15DiagonalWrapperIKNS0_IdLin1EL
 
 117:                                              ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15DiagonalWrapperIKNS0_IdLin1ELi1ELi0ELin1ELi1EEEEEEERKNS_9EigenBaseIT_EE.exit
   %118 = load double, ptr @rho_value, align 8
-  %119 = call noalias dereferenceable_or_null(960) ptr @malloc(i64 noundef 960) #15
+  %119 = call noalias dereferenceable_or_null(960) ptr @malloc(i64 noundef 960) #16
   %120 = icmp eq ptr %119, null
   br i1 %120, label %121, label %123
 
 121:                                              ; preds = %117
-  %122 = call ptr @__cxa_allocate_exception(i64 8) #16
+  %122 = call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %122, align 8
-  invoke void @__cxa_throw(ptr nonnull %122, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %122, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
           to label %.noexc224 unwind label %266
 
 .noexc224:                                        ; preds = %121
@@ -407,14 +407,14 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15DiagonalWrapperIKNS0_IdLin1EL
   %125 = getelementptr inbounds i8, ptr %12, i64 16
   store i64 10, ptr %125, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(960) %119, ptr noundef nonnull align 8 dereferenceable(960) %64, i64 960, i1 false)
-  %126 = call noalias dereferenceable_or_null(960) ptr @malloc(i64 noundef 960) #15
+  %126 = call noalias dereferenceable_or_null(960) ptr @malloc(i64 noundef 960) #16
   %127 = icmp eq ptr %126, null
   br i1 %127, label %128, label %130
 
 128:                                              ; preds = %123
-  %129 = call ptr @__cxa_allocate_exception(i64 8) #16
+  %129 = call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %129, align 8
-  invoke void @__cxa_throw(ptr nonnull %129, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %129, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
           to label %.noexc230 unwind label %268
 
 .noexc230:                                        ; preds = %128
@@ -427,14 +427,14 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15DiagonalWrapperIKNS0_IdLin1EL
   %132 = getelementptr inbounds i8, ptr %13, i64 16
   store i64 10, ptr %132, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(960) %126, ptr noundef nonnull align 8 dereferenceable(960) %74, i64 960, i1 false)
-  %133 = call noalias dereferenceable_or_null(288) ptr @malloc(i64 noundef 288) #15
+  %133 = call noalias dereferenceable_or_null(288) ptr @malloc(i64 noundef 288) #16
   %134 = icmp eq ptr %133, null
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %130
-  %136 = call ptr @__cxa_allocate_exception(i64 8) #16
+  %136 = call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %136, align 8
-  invoke void @__cxa_throw(ptr nonnull %136, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %136, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
           to label %.noexc236 unwind label %270
 
 .noexc236:                                        ; preds = %135
@@ -447,14 +447,14 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15DiagonalWrapperIKNS0_IdLin1EL
   %139 = getelementptr inbounds i8, ptr %14, i64 16
   store i64 9, ptr %139, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %133, ptr noundef nonnull align 8 dereferenceable(288) %84, i64 288, i1 false)
-  %140 = call noalias dereferenceable_or_null(288) ptr @malloc(i64 noundef 288) #15
+  %140 = call noalias dereferenceable_or_null(288) ptr @malloc(i64 noundef 288) #16
   %141 = icmp eq ptr %140, null
   br i1 %141, label %142, label %144
 
 142:                                              ; preds = %137
-  %143 = call ptr @__cxa_allocate_exception(i64 8) #16
+  %143 = call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %143, align 8
-  invoke void @__cxa_throw(ptr nonnull %143, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %143, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
           to label %.noexc242 unwind label %272
 
 .noexc242:                                        ; preds = %142
@@ -472,21 +472,21 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15DiagonalWrapperIKNS0_IdLin1EL
 
 148:                                              ; preds = %144
   %149 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %149) #16
+  call void @free(ptr noundef %149) #17
   %150 = load ptr, ptr %14, align 8
-  call void @free(ptr noundef %150) #16
+  call void @free(ptr noundef %150) #17
   %151 = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %151) #16
+  call void @free(ptr noundef %151) #17
   %152 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %152) #16
+  call void @free(ptr noundef %152) #17
   %153 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %153) #16
+  call void @free(ptr noundef %153) #17
   %154 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %154) #16
+  call void @free(ptr noundef %154) #17
   %155 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %155) #16
+  call void @free(ptr noundef %155) #17
   %156 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %156) #16
+  call void @free(ptr noundef %156) #17
   %157 = load ptr, ptr %3, align 8
   %158 = getelementptr inbounds i8, ptr %157, i64 8
   %159 = load ptr, ptr %158, align 8
@@ -586,14 +586,14 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_9ReplicateINS0_IdLi12ELi1ELi0EL
   %224 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.0491, double noundef %223)
   %225 = load ptr, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  %226 = call noalias dereferenceable_or_null(96) ptr @malloc(i64 noundef 96) #15
+  %226 = call noalias dereferenceable_or_null(96) ptr @malloc(i64 noundef 96) #16
   %227 = icmp eq ptr %226, null
   br i1 %227, label %228, label %233
 
 228:                                              ; preds = %181
-  %229 = call ptr @__cxa_allocate_exception(i64 8) #16
+  %229 = call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %229, align 8
-  invoke void @__cxa_throw(ptr nonnull %229, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %229, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
           to label %.noexc4.i.i185 unwind label %230
 
 .noexc4.i.i185:                                   ; preds = %228
@@ -603,7 +603,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_9ReplicateINS0_IdLi12ELi1ELi0EL
   %231 = landingpad { ptr, i32 }
           cleanup
   %232 = load ptr, ptr %19, align 8
-  call void @free(ptr noundef %232) #16
+  call void @free(ptr noundef %232) #17
   br label %.body186
 
 233:                                              ; preds = %181
@@ -615,7 +615,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_9ReplicateINS0_IdLi12ELi1ELi0EL
 
 235:                                              ; preds = %233
   %236 = load ptr, ptr %19, align 8
-  call void @free(ptr noundef %236) #16
+  call void @free(ptr noundef %236) #17
   %237 = load ptr, ptr %3, align 8
   %238 = invoke i32 @tiny_solve(ptr noundef %237)
           to label %239 unwind label %.loopexit
@@ -640,7 +640,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_9ReplicateINS0_IdLi12ELi1ELi0EL
   %244 = landingpad { ptr, i32 }
           cleanup
   %245 = load ptr, ptr %1, align 8
-  call void @free(ptr noundef %245) #16
+  call void @free(ptr noundef %245) #17
   br label %.body186
 
 246:                                              ; preds = %239
@@ -662,7 +662,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_9ReplicateINS0_IdLi12ELi1ELi0EL
   %257 = getelementptr inbounds i8, ptr %247, i64 80
   %258 = load <2 x double>, ptr %257, align 16
   store <2 x double> %258, ptr %170, align 16
-  call void @free(ptr noundef %247) #16
+  call void @free(ptr noundef %247) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
   %259 = add nuw nsw i32 %.0491, 1
   %exitcond495.not = icmp eq i32 %259, 70
@@ -717,111 +717,111 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_9ReplicateINS0_IdLi12ELi1ELi0EL
   %275 = landingpad { ptr, i32 }
           cleanup
   %276 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %276) #16
+  call void @free(ptr noundef %276) #17
   br label %277
 
 277:                                              ; preds = %274, %272
   %.pn = phi { ptr, i32 } [ %275, %274 ], [ %273, %272 ]
   %278 = load ptr, ptr %14, align 8
-  call void @free(ptr noundef %278) #16
+  call void @free(ptr noundef %278) #17
   br label %279
 
 279:                                              ; preds = %277, %270
   %.pn.pn = phi { ptr, i32 } [ %.pn, %277 ], [ %271, %270 ]
   %280 = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %280) #16
+  call void @free(ptr noundef %280) #17
   br label %281
 
 281:                                              ; preds = %279, %268
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %279 ], [ %269, %268 ]
   %282 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %282) #16
+  call void @free(ptr noundef %282) #17
   br label %283
 
 283:                                              ; preds = %281, %266
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %281 ], [ %267, %266 ]
   %284 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %284) #16
+  call void @free(ptr noundef %284) #17
   br label %285
 
 285:                                              ; preds = %283, %264
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %283 ], [ %265, %264 ]
   %286 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %286) #16
+  call void @free(ptr noundef %286) #17
   br label %287
 
 287:                                              ; preds = %285, %262
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %285 ], [ %263, %262 ]
   %288 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %288) #16
+  call void @free(ptr noundef %288) #17
   br label %289
 
 289:                                              ; preds = %287, %260
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %287 ], [ %261, %260 ]
   %290 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %290) #16
+  call void @free(ptr noundef %290) #17
   br label %.body186
 
 291:                                              ; preds = %233
   %292 = landingpad { ptr, i32 }
           cleanup
   %293 = load ptr, ptr %19, align 8
-  call void @free(ptr noundef %293) #16
+  call void @free(ptr noundef %293) #17
   br label %.body186
 
 294:                                              ; preds = %246
-  call void @free(ptr noundef %94) #16
-  call void @free(ptr noundef %84) #16
-  call void @free(ptr noundef %74) #16
-  call void @free(ptr noundef %64) #16
+  call void @free(ptr noundef %94) #17
+  call void @free(ptr noundef %84) #17
+  call void @free(ptr noundef %74) #17
+  call void @free(ptr noundef %64) #17
   %295 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %295) #16
+  call void @free(ptr noundef %295) #17
   %296 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %296) #16
-  call void @free(ptr noundef %31) #16
-  call void @free(ptr noundef %21) #16
+  call void @free(ptr noundef %296) #17
+  call void @free(ptr noundef %31) #17
+  call void @free(ptr noundef %21) #17
   ret i32 0
 
 .body186:                                         ; preds = %.loopexit, %.loopexit.split-lp, %230, %243, %291, %289
   %.pn33 = phi { ptr, i32 } [ %292, %291 ], [ %.pn.pn.pn.pn.pn.pn.pn, %289 ], [ %231, %230 ], [ %244, %243 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @free(ptr noundef %94) #16
+  call void @free(ptr noundef %94) #17
   br label %.body70
 
 .body70:                                          ; preds = %101, %.body186
   %.pn33.pn = phi { ptr, i32 } [ %.pn33, %.body186 ], [ %102, %101 ]
-  call void @free(ptr noundef %84) #16
+  call void @free(ptr noundef %84) #17
   br label %.body64
 
 .body64:                                          ; preds = %91, %.body70
   %.pn33.pn.pn = phi { ptr, i32 } [ %.pn33.pn, %.body70 ], [ %92, %91 ]
-  call void @free(ptr noundef %74) #16
+  call void @free(ptr noundef %74) #17
   br label %.body57
 
 .body57:                                          ; preds = %81, %.body64
   %.pn33.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn, %.body64 ], [ %82, %81 ]
-  call void @free(ptr noundef %64) #16
+  call void @free(ptr noundef %64) #17
   br label %.body51
 
 .body51:                                          ; preds = %71, %.body57
   %.pn33.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn.pn, %.body57 ], [ %72, %71 ]
   %297 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %297) #16
+  call void @free(ptr noundef %297) #17
   br label %.body46
 
 .body46:                                          ; preds = %56, %.body51
   %.pn33.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn.pn.pn, %.body51 ], [ %57, %56 ]
   %298 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %298) #16
+  call void @free(ptr noundef %298) #17
   br label %.body43
 
 .body43:                                          ; preds = %51, %.body46
   %.pn33.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn.pn.pn.pn, %.body46 ], [ %52, %51 ]
-  call void @free(ptr noundef %31) #16
+  call void @free(ptr noundef %31) #17
   br label %.body
 
 .body:                                            ; preds = %42, %.body43
   %.pn33.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn.pn.pn.pn.pn, %.body43 ], [ %43, %42 ]
-  call void @free(ptr noundef %21) #16
+  call void @free(ptr noundef %21) #17
   resume { ptr, i32 } %.pn33.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -844,10 +844,11 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 comdat align 2 {
+define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 comdat align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -858,7 +859,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0E
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %11) #16
+  tail call void @free(ptr noundef %11) #17
   %12 = icmp sgt i64 %1, 0
   br i1 %12, label %13, label %.sink.split
 
@@ -867,21 +868,21 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0E
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  %16 = tail call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %16, align 8
-  tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
   unreachable
 
 17:                                               ; preds = %13
   %18 = shl nuw i64 %1, 3
-  %19 = tail call noalias ptr @malloc(i64 noundef %18) #15
+  %19 = tail call noalias ptr @malloc(i64 noundef %18) #16
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %.sink.split
 
 21:                                               ; preds = %17
-  %22 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  %22 = tail call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %22, align 8
-  tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
   unreachable
 
 .sink.split:                                      ; preds = %10, %17
@@ -896,10 +897,10 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0E
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 comdat align 2 {
+define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 comdat align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, %1
@@ -907,7 +908,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %8) #16
+  tail call void @free(ptr noundef %8) #17
   %9 = icmp sgt i64 %1, 0
   br i1 %9, label %10, label %.sink.split
 
@@ -916,21 +917,21 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
-  %13 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  %13 = tail call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %13, align 8
-  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
   unreachable
 
 14:                                               ; preds = %10
   %15 = shl nuw i64 %1, 3
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #15
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #16
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %.sink.split
 
 18:                                               ; preds = %14
-  %19 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  %19 = tail call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %19, align 8
-  tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
   unreachable
 
 .sink.split:                                      ; preds = %7, %14
@@ -944,10 +945,10 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_15DiagonalWrapperIKNS1_IdLin1ELi1ELi0ELin1ELi1EEEEEEERKNS_9EigenBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_15DiagonalWrapperIKNS1_IdLin1ELi1ELi0ELin1ELi1EEEEEEERKNS_9EigenBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Eigen::internal::assign_op", align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %1, align 8
@@ -979,9 +980,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIN
   br i1 %18, label %.invoke, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE16_resize_to_matchINS_15DiagonalWrapperIKNS1_IdLin1ELi1ELi0ELin1ELi1EEEEEEEvRKNS_9EigenBaseIT_EE.exit.i
 
 .invoke:                                          ; preds = %16, %8
-  %19 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  %19 = tail call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %19, align 8
-  invoke void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
           to label %.cont unwind label %22
 
 .cont:                                            ; preds = %.invoke
@@ -1005,12 +1006,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE16_resize_to_m
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = load ptr, ptr %0, align 8
-  call void @free(ptr noundef %24) #16
+  call void @free(ptr noundef %24) #17
   resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_15DiagonalWrapperIKNS2_IdLin1ELi1ELi0ELin1ELi1EEEEENS0_9assign_opIddEENS0_14Diagonal2DenseEvE3runERS3_RKS7_RKS9_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_15DiagonalWrapperIKNS2_IdLin1ELi1ELi0ELin1ELi1EEEEENS0_9assign_opIddEENS0_14Diagonal2DenseEvE3runERS3_RKS7_RKS9_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -1033,9 +1034,9 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdL
   br i1 %15, label %16, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
 
 16:                                               ; preds = %13
-  %17 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  %17 = tail call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %17, align 8
-  tail call void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  tail call void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
   unreachable
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit: ; preds = %11, %13
@@ -1087,7 +1088,7 @@ _ZN5Eigen8DiagonalINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0EEaSINS1_IdLin1ELi1E
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_9ReplicateINS2_IdLi12ELi1ELi0ELi12ELi1EEELi1ELi10EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(10) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_9ReplicateINS2_IdLi12ELi1ELi0ELi12ELi1EEELi1ELi10EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(10) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #7 comdat personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
@@ -1105,15 +1106,15 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %12) #16
-  %13 = tail call noalias dereferenceable_or_null(960) ptr @malloc(i64 noundef 960) #15
+  tail call void @free(ptr noundef %12) #17
+  %13 = tail call noalias dereferenceable_or_null(960) ptr @malloc(i64 noundef 960) #16
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.noexc, label %.sink.split.i.i
 
 .noexc:                                           ; preds = %11
-  %15 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  %15 = tail call ptr @__cxa_allocate_exception(i64 8) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %15, align 8
-  tail call void @__cxa_throw(ptr nonnull %15, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
+  tail call void @__cxa_throw(ptr nonnull %15, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
   unreachable
 
 .sink.split.i.i:                                  ; preds = %11
@@ -1168,10 +1169,10 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #9
+declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #10
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE12_set_noaliasINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_7ProductINS1_IdLin1ELin1ELi0ELin1ELin1EEENS1_IdLi12ELi1ELi0ELi12ELi1EEELi0EEEKNS9_ISA_NS_5BlockISA_Lin1ELi1ELb1EEELi0EEEEEEERS2_RKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE12_set_noaliasINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_7ProductINS1_IdLin1ELin1ELi0ELin1ELin1EEENS1_IdLi12ELi1ELi0ELi12ELi1EEELi0EEEKNS9_ISA_NS_5BlockISA_Lin1ELi1ELb1EEELi0EEEEEEERS2_RKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::internal::const_blas_data_mapper", align 8
   %4 = alloca %"class.Eigen::internal::const_blas_data_mapper.271", align 8
   %5 = alloca %"struct.Eigen::internal::assign_op", align 1
@@ -1246,7 +1247,7 @@ _ZN5Eigen8internal24call_assignment_no_aliasINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_7ProductINS2_IdLin1ELin1ELi0ELin1ELin1EEENS2_IdLi12ELi1ELi0ELi12ELi1EEELi0EEENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKS7_RKS9_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_7ProductINS2_IdLin1ELin1ELi0ELin1ELin1EEENS2_IdLi12ELi1ELi0ELi12ELi1EEELi0EEENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKS7_RKS9_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Eigen::internal::const_blas_data_mapper", align 8
   %5 = alloca %"class.Eigen::internal::const_blas_data_mapper.271", align 8
   %6 = load ptr, ptr %1, align 8
@@ -1333,10 +1334,10 @@ _ZN5Eigen8internal25generic_product_impl_baseINS_6MatrixIdLin1ELin1ELi0ELin1ELin
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #9
+declare double @llvm.fmuladd.f64(double, double, double) #10
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5Eigen8internal29general_matrix_vector_productIldNS0_22const_blas_data_mapperIdlLi0EEELi0ELb0EdNS2_IdlLi1EEELb0ELi0EE3runEllRKS3_RKS4_Pdld(i64 noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %4, i64 noundef %5, double noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr dso_local void @_ZN5Eigen8internal29general_matrix_vector_productIldNS0_22const_blas_data_mapperIdlLi0EEELi0ELb0EdNS2_IdlLi1EEELb0ELi0EE3runEllRKS3_RKS4_Pdld(i64 noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %4, i64 noundef %5, double noundef %6) local_unnamed_addr #11 comdat align 2 {
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
   %.sroa.20.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.20.0.copyload = load i64, ptr %.sroa.20.0..sroa_idx, align 8
@@ -1746,23 +1747,23 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal29general_matrix_vector_pr
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_quadrotor_hovering.cpp() #11 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_quadrotor_hovering.cpp() #12 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #14
+declare i64 @llvm.smin.i64(i64, i64) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1770,18 +1771,19 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind allocsize(0) }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn }
+attributes #6 = { cold noreturn }
+attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind allocsize(0) }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

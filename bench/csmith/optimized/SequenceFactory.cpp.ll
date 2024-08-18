@@ -44,7 +44,7 @@ define linkonce_odr dso_local void @_ZNSt3setIP8SequenceSt4lessIS1_ESaIS1_EED2Ev
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #10
+  tail call void @__clang_call_terminate(ptr %6) #11
   unreachable
 
 _ZNSt8_Rb_treeIP8SequenceS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EED2Ev.exit: ; preds = %1
@@ -53,7 +53,7 @@ _ZNSt8_Rb_treeIP8SequenceS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EED2Ev.exit: ; pr
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_ZN15SequenceFactory13make_sequenceEv() local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %1 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #11
+  %1 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #12
   %2 = load i8, ptr @_ZN14LinearSequence16default_sep_charE, align 1
   invoke void @_ZN14LinearSequenceC1Ec(ptr noundef nonnull align 8 dereferenceable(57) %1, i8 noundef signext %2)
           to label %3 unwind label %24
@@ -85,7 +85,7 @@ define dso_local noundef nonnull ptr @_ZN15SequenceFactory13make_sequenceEv() lo
   br i1 %8, label %select.unfold.i.i, label %9
 
 9:                                                ; preds = %._crit_edge.thread.i.i.i
-  %10 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #12
+  %10 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #13
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %10, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %11
@@ -109,10 +109,10 @@ select.unfold.i.i:                                ; preds = %11, %._crit_edge.th
 
 _ZNSt8_Rb_treeIP8SequenceS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i: ; preds = %15, %select.unfold.i.i
   %19 = phi i1 [ true, %select.unfold.i.i ], [ %18, %15 ]
-  %20 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
+  %20 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
   %21 = getelementptr inbounds i8, ptr %20, i64 32
   store ptr %1, ptr %21, align 8
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %19, ptr noundef nonnull %20, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8)) #13
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %19, ptr noundef nonnull %20, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8)) #14
   %22 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 40), align 8
   %23 = add i64 %22, 1
   store i64 %23, ptr getelementptr inbounds (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 40), align 8
@@ -124,7 +124,7 @@ _ZNSt3setIP8SequenceSt4lessIS1_ESaIS1_EE6insertERKS1_.exit: ; preds = %11, %_ZNS
 24:                                               ; preds = %0
   %25 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
   resume { ptr, i32 } %25
 }
 
@@ -155,11 +155,11 @@ define dso_local void @_ZN15SequenceFactory17destroy_sequencesEv() local_unnamed
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
   br label %9
 
 9:                                                ; preds = %.lr.ph, %5
-  %10 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.01.05) #12
+  %10 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.01.05) #13
   %.not = icmp eq ptr %10, getelementptr inbounds (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
@@ -172,7 +172,7 @@ define dso_local void @_ZN15SequenceFactory17destroy_sequencesEv() local_unnamed
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #10
+  tail call void @__clang_call_terminate(ptr %14) #11
   unreachable
 
 _ZNSt3setIP8SequenceSt4lessIS1_ESaIS1_EE5clearEv.exit: ; preds = %._crit_edge
@@ -185,14 +185,15 @@ _ZNSt3setIP8SequenceSt4lessIS1_ESaIS1_EE5clearEv.exit: ; preds = %._crit_edge
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #10
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #11
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt8_Rb_treeIP8SequenceS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -206,7 +207,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIP8SequenceS1_St9_IdentityIS1_
   tail call void @_ZNSt8_Rb_treeIP8SequenceS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.07) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %.07) #15
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
@@ -215,24 +216,24 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIP8SequenceS1_St9_IdentityIS1_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #8
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #8
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_SequenceFactory.cpp() #9 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_SequenceFactory.cpp() #10 section ".text.startup" personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8), align 8
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 16), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 24), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 32), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 40), align 8
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3setIP8SequenceSt4lessIS1_ESaIS1_EED2Ev, ptr nonnull @_ZN15SequenceFactory5seqs_E, ptr nonnull @__dso_handle) #13
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3setIP8SequenceSt4lessIS1_ESaIS1_EED2Ev, ptr nonnull @_ZN15SequenceFactory5seqs_E, ptr nonnull @__dso_handle) #14
   ret void
 }
 
@@ -244,13 +245,14 @@ attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { builtin allocsize(0) }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { nounwind }
-attributes #14 = { builtin nounwind }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { builtin allocsize(0) }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { nounwind }
+attributes #15 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

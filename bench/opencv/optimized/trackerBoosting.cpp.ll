@@ -309,7 +309,7 @@ define void @_ZNK2cv6legacy8tracking15TrackerBoosting6Params5writeERNS_11FileSto
   %12 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %13 unwind label %15
 
@@ -325,24 +325,24 @@ define void @_ZNK2cv6legacy8tracking15TrackerBoosting6Params5writeERNS_11FileSto
 17:                                               ; preds = %13
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #20
   br label %common.resume
 
 common.resume:                                    ; preds = %46, %48, %38, %40, %30, %32, %22, %24, %15, %17
   %.sink = phi ptr [ %12, %17 ], [ %12, %15 ], [ %10, %24 ], [ %10, %22 ], [ %8, %32 ], [ %8, %30 ], [ %6, %40 ], [ %6, %38 ], [ %4, %48 ], [ %4, %46 ]
   %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %25, %24 ], [ %23, %22 ], [ %33, %32 ], [ %31, %30 ], [ %41, %40 ], [ %39, %38 ], [ %49, %48 ], [ %47, %46 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #20
   resume { ptr, i32 } %common.resume.op
 
 _ZN2cvlsERNS_11FileStorageEPKc.exit:              ; preds = %13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #19
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
   %19 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(4) %0)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %20 unwind label %22
 
@@ -358,19 +358,19 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit:              ; preds = %13
 24:                                               ; preds = %20
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   br label %common.resume
 
 _ZN2cvlsERNS_11FileStorageEPKc.exit7:             ; preds = %20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   %26 = getelementptr inbounds i8, ptr %0, i64 4
   %27 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIfEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 4 dereferenceable(4) %26)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %28 unwind label %30
 
@@ -386,19 +386,19 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit7:             ; preds = %20
 32:                                               ; preds = %28
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   br label %common.resume
 
 _ZN2cvlsERNS_11FileStorageEPKc.exit9:             ; preds = %28
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   %35 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIfEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 4 dereferenceable(4) %34)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %36 unwind label %38
 
@@ -414,19 +414,19 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit9:             ; preds = %28
 40:                                               ; preds = %36
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   br label %common.resume
 
 _ZN2cvlsERNS_11FileStorageEPKc.exit11:            ; preds = %36
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %42 = getelementptr inbounds i8, ptr %0, i64 12
   %43 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull align 4 dereferenceable(4) %42)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %44 unwind label %46
 
@@ -442,12 +442,12 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit11:            ; preds = %36
 48:                                               ; preds = %44
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
   br label %common.resume
 
 _ZN2cvlsERNS_11FileStorageEPKc.exit13:            ; preds = %44
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %50 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIfEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull align 4 dereferenceable(4) %34)
@@ -471,12 +471,12 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvls
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %9
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %14 unwind label %16
 
 14:                                               ; preds = %13
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__._ZN2cvlsIiEERNS_11FileStorageES2_RKT_, ptr noundef nonnull @.str.6, i32 noundef 1201) #20
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__._ZN2cvlsIiEERNS_11FileStorageES2_RKT_, ptr noundef nonnull @.str.6, i32 noundef 1201) #21
           to label %15 unwind label %18
 
 15:                                               ; preds = %14
@@ -490,12 +490,12 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvls
 18:                                               ; preds = %14
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
   br label %20
 
 20:                                               ; preds = %18, %16
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   resume { ptr, i32 } %.pn
 
 21:                                               ; preds = %9
@@ -532,12 +532,12 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvls
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %9
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %14 unwind label %16
 
 14:                                               ; preds = %13
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__._ZN2cvlsIiEERNS_11FileStorageES2_RKT_, ptr noundef nonnull @.str.6, i32 noundef 1201) #20
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__._ZN2cvlsIiEERNS_11FileStorageES2_RKT_, ptr noundef nonnull @.str.6, i32 noundef 1201) #21
           to label %15 unwind label %18
 
 15:                                               ; preds = %14
@@ -551,12 +551,12 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvls
 18:                                               ; preds = %14
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
   br label %20
 
 20:                                               ; preds = %18, %16
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   resume { ptr, i32 } %.pn
 
 21:                                               ; preds = %9
@@ -578,7 +578,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvls
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv6legacy8tracking15TrackerBoosting6createERKNS2_6ParamsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.0") align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #21
+  %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #22
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc unwind label %27
 
@@ -589,7 +589,7 @@ define void @_ZN2cv6legacy8tracking15TrackerBoosting6createERKNS2_6ParamsE(ptr d
 4:                                                ; preds = %.noexc
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
   br label %.body
 
 6:                                                ; preds = %.noexc
@@ -598,19 +598,19 @@ define void @_ZN2cv6legacy8tracking15TrackerBoosting6createERKNS2_6ParamsE(ptr d
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull readonly align 4 dereferenceable(20) %1, i64 20, i1 false)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   store i8 0, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
+  %9 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %_ZN2cv3PtrINS_6legacy8tracking19TrackerBoostingImplEED2Ev.exit unwind label %10
 
 10:                                               ; preds = %6
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  %13 = tail call ptr @__cxa_begin_catch(ptr %12) #19
+  %13 = tail call ptr @__cxa_begin_catch(ptr %12) #20
   %14 = load ptr, ptr %3, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(84) %3) #19
-  invoke void @__cxa_rethrow() #20
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(84) %3) #20
+  invoke void @__cxa_rethrow() #21
           to label %22 unwind label %17
 
 17:                                               ; preds = %10
@@ -627,7 +627,7 @@ common.resume:                                    ; preds = %17, %.body
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #22
+  tail call void @__clang_call_terminate(ptr %21) #23
   unreachable
 
 22:                                               ; preds = %10
@@ -653,7 +653,7 @@ _ZN2cv3PtrINS_6legacy8tracking19TrackerBoostingImplEED2Ev.exit: ; preds = %6
 
 .body:                                            ; preds = %4, %27
   %eh.lpad-body = phi { ptr, i32 } [ %28, %27 ], [ %5, %4 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #24
   br label %common.resume
 }
 
@@ -677,7 +677,7 @@ define hidden void @_ZN2cv6legacy8tracking19TrackerBoostingImplC1ERKNS1_15Tracke
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
   resume { ptr, i32 } %7
 }
 
@@ -689,7 +689,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv6legacy8tracking15TrackerBoosting6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.0") align 8 %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.cv::legacy::tracking::TrackerBoosting::Params", align 4
-  %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #21
+  %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #22
   invoke void @_ZN2cv6legacy8tracking15TrackerBoosting6ParamsC1Ev(ptr noundef nonnull align 4 dereferenceable(20) %2)
           to label %4 unwind label %28
 
@@ -704,7 +704,7 @@ define void @_ZN2cv6legacy8tracking15TrackerBoosting6createEv(ptr dead_on_unwind
 5:                                                ; preds = %.noexc
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
+  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
   br label %.body
 
 7:                                                ; preds = %.noexc
@@ -713,19 +713,19 @@ define void @_ZN2cv6legacy8tracking15TrackerBoosting6createEv(ptr dead_on_unwind
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull readonly align 4 dereferenceable(20) %2, i64 20, i1 false)
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   store i8 0, ptr %9, align 8
-  %10 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
+  %10 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %_ZN2cv3PtrINS_6legacy8tracking19TrackerBoostingImplEED2Ev.exit unwind label %11
 
 11:                                               ; preds = %7
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  %14 = call ptr @__cxa_begin_catch(ptr %13) #19
+  %14 = call ptr @__cxa_begin_catch(ptr %13) #20
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(84) %3) #19
-  invoke void @__cxa_rethrow() #20
+  call void %17(ptr noundef nonnull align 8 dereferenceable(84) %3) #20
+  invoke void @__cxa_rethrow() #21
           to label %23 unwind label %18
 
 18:                                               ; preds = %11
@@ -742,7 +742,7 @@ common.resume:                                    ; preds = %18, %.body
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #22
+  call void @__clang_call_terminate(ptr %22) #23
   unreachable
 
 23:                                               ; preds = %11
@@ -768,7 +768,7 @@ _ZN2cv3PtrINS_6legacy8tracking19TrackerBoostingImplEED2Ev.exit: ; preds = %7
 
 .body:                                            ; preds = %5, %28
   %eh.lpad-body = phi { ptr, i32 } [ %29, %28 ], [ %6, %5 ]
-  call void @_ZdlPv(ptr noundef nonnull %3) #23
+  call void @_ZdlPv(ptr noundef nonnull %3) #24
   br label %common.resume
 }
 
@@ -877,18 +877,18 @@ define hidden noundef zeroext i1 @_ZN2cv6legacy8tracking19TrackerBoostingImpl8in
   %32 = alloca %"class.std::vector.86", align 8
   %33 = alloca %"struct.cv::Ptr.42", align 8
   %34 = alloca %"struct.cv::Ptr.42", align 8
-  tail call void @srand(i32 noundef 1) #19
-  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
+  tail call void @srand(i32 noundef 1) #20
+  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #20
   %35 = load i32, ptr %4, align 8
   %36 = and i32 %35, -4096
   %37 = or disjoint i32 %36, 4
   store i32 %37, ptr %4, align 8
-  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #19
+  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #20
   %38 = load i32, ptr %5, align 8
   %39 = and i32 %38, -4096
   %40 = or disjoint i32 %39, 6
   store i32 %40, ptr %5, align 8
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #19
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #20
   %41 = getelementptr inbounds i8, ptr %7, i64 16
   store i32 0, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %7, i64 20
@@ -938,7 +938,7 @@ define hidden noundef zeroext i1 @_ZN2cv6legacy8tracking19TrackerBoostingImpl8in
   %60 = load float, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %12, i64 4
   store float %60, ptr %61, align 4
-  %62 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
+  %62 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22
           to label %63 unwind label %87
 
 63:                                               ; preds = %55
@@ -946,19 +946,19 @@ define hidden noundef zeroext i1 @_ZN2cv6legacy8tracking19TrackerBoostingImpl8in
           to label %64 unwind label %93
 
 64:                                               ; preds = %63
-  %65 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
+  %65 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit unwind label %66
 
 66:                                               ; preds = %64
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  %69 = call ptr @__cxa_begin_catch(ptr %68) #19
+  %69 = call ptr @__cxa_begin_catch(ptr %68) #20
   %70 = load ptr, ptr %62, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
-  call void %72(ptr noundef nonnull align 8 dereferenceable(100) %62) #19
-  invoke void @__cxa_rethrow() #20
+  call void %72(ptr noundef nonnull align 8 dereferenceable(100) %62) #20
+  invoke void @__cxa_rethrow() #21
           to label %78 unwind label %73
 
 73:                                               ; preds = %66
@@ -971,7 +971,7 @@ define hidden noundef zeroext i1 @_ZN2cv6legacy8tracking19TrackerBoostingImpl8in
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #22
+  call void @__clang_call_terminate(ptr %77) #23
   unreachable
 
 78:                                               ; preds = %66
@@ -1014,7 +1014,7 @@ _ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit: ; preds = %64
 93:                                               ; preds = %63
   %94 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %62) #23
+  call void @_ZdlPv(ptr noundef nonnull %62) #24
   br label %.body
 
 95:                                               ; preds = %159, %156, %144, %_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit
@@ -1069,7 +1069,7 @@ _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS
   %117 = load ptr, ptr %99, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8
-  call void %119(ptr noundef nonnull align 8 dereferenceable(16) %99) #19
+  call void %119(ptr noundef nonnull align 8 dereferenceable(16) %99) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i67
 
 120:                                              ; preds = %110
@@ -1095,7 +1095,7 @@ _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS
   %129 = load ptr, ptr %99, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 16
   %131 = load ptr, ptr %130, align 8
-  call void %131(ptr noundef nonnull align 8 dereferenceable(16) %99) #19
+  call void %131(ptr noundef nonnull align 8 dereferenceable(16) %99) #20
   %132 = getelementptr inbounds i8, ptr %99, i64 12
   %133 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i65 = icmp eq i8 %133, 0
@@ -1120,7 +1120,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %141 = load ptr, ptr %99, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 24
   %143 = load ptr, ptr %142, align 8
-  call void %143(ptr noundef nonnull align 8 dereferenceable(16) %99) #19
+  call void %143(ptr noundef nonnull align 8 dereferenceable(16) %99) #20
   br label %144
 
 144:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i67, %139, %126, %109
@@ -1202,7 +1202,7 @@ _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS
   %180 = load ptr, ptr %162, align 8
   %181 = getelementptr inbounds i8, ptr %180, i64 16
   %182 = load ptr, ptr %181, align 8
-  call void %182(ptr noundef nonnull align 8 dereferenceable(16) %162) #19
+  call void %182(ptr noundef nonnull align 8 dereferenceable(16) %162) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i77
 
 183:                                              ; preds = %173
@@ -1228,7 +1228,7 @@ _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS
   %192 = load ptr, ptr %162, align 8
   %193 = getelementptr inbounds i8, ptr %192, i64 16
   %194 = load ptr, ptr %193, align 8
-  call void %194(ptr noundef nonnull align 8 dereferenceable(16) %162) #19
+  call void %194(ptr noundef nonnull align 8 dereferenceable(16) %162) #20
   %195 = getelementptr inbounds i8, ptr %162, i64 12
   %196 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i75 = icmp eq i8 %196, 0
@@ -1253,7 +1253,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %204 = load ptr, ptr %162, align 8
   %205 = getelementptr inbounds i8, ptr %204, i64 24
   %206 = load ptr, ptr %205, align 8
-  call void %206(ptr noundef nonnull align 8 dereferenceable(16) %162) #19
+  call void %206(ptr noundef nonnull align 8 dereferenceable(16) %162) #20
   br label %207
 
 207:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i77, %202, %189, %172
@@ -1303,13 +1303,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 231:                                              ; preds = %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit
   %232 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #20
   br label %996
 
 233:                                              ; preds = %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit71
   %234 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #20
   br label %960
 
 235:                                              ; preds = %220, %217, %207
@@ -1369,7 +1369,7 @@ _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS
   %261 = load ptr, ptr %239, align 8
   %262 = getelementptr inbounds i8, ptr %261, i64 16
   %263 = load ptr, ptr %262, align 8
-  call void %263(ptr noundef nonnull align 8 dereferenceable(16) %239) #19
+  call void %263(ptr noundef nonnull align 8 dereferenceable(16) %239) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i97
 
 264:                                              ; preds = %254
@@ -1395,7 +1395,7 @@ _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS
   %273 = load ptr, ptr %239, align 8
   %274 = getelementptr inbounds i8, ptr %273, i64 16
   %275 = load ptr, ptr %274, align 8
-  call void %275(ptr noundef nonnull align 8 dereferenceable(16) %239) #19
+  call void %275(ptr noundef nonnull align 8 dereferenceable(16) %239) #20
   %276 = getelementptr inbounds i8, ptr %239, i64 12
   %277 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i95 = icmp eq i8 %277, 0
@@ -1420,7 +1420,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %285 = load ptr, ptr %239, align 8
   %286 = getelementptr inbounds i8, ptr %285, i64 24
   %287 = load ptr, ptr %286, align 8
-  call void %287(ptr noundef nonnull align 8 dereferenceable(16) %239) #19
+  call void %287(ptr noundef nonnull align 8 dereferenceable(16) %239) #20
   br label %_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit98
 
 _ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit98: ; preds = %250, %270, %283, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i97
@@ -1444,7 +1444,7 @@ _ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit98: ; preds = %250, %
   %.sroa.0249.0.insert.ext = zext i32 %293 to i64
   %.sroa.0249.0.insert.insert = or disjoint i64 %.sroa.2250.0.insert.shift, %.sroa.0249.0.insert.ext
   store i64 %.sroa.0249.0.insert.insert, ptr %297, align 4
-  %298 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
+  %298 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
           to label %299 unwind label %325
 
 299:                                              ; preds = %288
@@ -1452,19 +1452,19 @@ _ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit98: ; preds = %250, %
           to label %300 unwind label %327
 
 300:                                              ; preds = %299
-  %301 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
+  %301 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit unwind label %302
 
 302:                                              ; preds = %300
   %303 = landingpad { ptr, i32 }
           catch ptr null
   %304 = extractvalue { ptr, i32 } %303, 0
-  %305 = call ptr @__cxa_begin_catch(ptr %304) #19
+  %305 = call ptr @__cxa_begin_catch(ptr %304) #20
   %306 = load ptr, ptr %298, align 8
   %307 = getelementptr inbounds i8, ptr %306, i64 8
   %308 = load ptr, ptr %307, align 8
-  call void %308(ptr noundef nonnull align 8 dereferenceable(72) %298) #19
-  invoke void @__cxa_rethrow() #20
+  call void %308(ptr noundef nonnull align 8 dereferenceable(72) %298) #20
+  invoke void @__cxa_rethrow() #21
           to label %314 unwind label %309
 
 309:                                              ; preds = %302
@@ -1477,7 +1477,7 @@ _ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit98: ; preds = %250, %
   %312 = landingpad { ptr, i32 }
           catch ptr null
   %313 = extractvalue { ptr, i32 } %312, 0
-  call void @__clang_call_terminate(ptr %313) #22
+  call void @__clang_call_terminate(ptr %313) #23
   unreachable
 
 314:                                              ; preds = %302
@@ -1505,7 +1505,7 @@ _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit: ; preds = 
 323:                                              ; preds = %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit91
   %324 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #20
   br label %.body99
 
 325:                                              ; preds = %288, %_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit98
@@ -1516,7 +1516,7 @@ _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit: ; preds = 
 327:                                              ; preds = %299
   %328 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %298) #23
+  call void @_ZdlPv(ptr noundef nonnull %298) #24
   br label %.body99
 
 329:                                              ; preds = %336, %333, %331, %_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit
@@ -1553,7 +1553,7 @@ _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit: ; preds = 
           to label %343 unwind label %783
 
 343:                                              ; preds = %342
-  %344 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #21
+  %344 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #22
           to label %345 unwind label %785
 
 345:                                              ; preds = %343
@@ -1580,19 +1580,19 @@ _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit: ; preds = 
           to label %355 unwind label %787
 
 355:                                              ; preds = %345
-  %356 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
+  %356 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %370 unwind label %357
 
 357:                                              ; preds = %355
   %358 = landingpad { ptr, i32 }
           catch ptr null
   %359 = extractvalue { ptr, i32 } %358, 0
-  %360 = call ptr @__cxa_begin_catch(ptr %359) #19
+  %360 = call ptr @__cxa_begin_catch(ptr %359) #20
   %361 = load ptr, ptr %344, align 8
   %362 = getelementptr inbounds i8, ptr %361, i64 8
   %363 = load ptr, ptr %362, align 8
-  call void %363(ptr noundef nonnull align 8 dereferenceable(132) %344) #19
-  invoke void @__cxa_rethrow() #20
+  call void %363(ptr noundef nonnull align 8 dereferenceable(132) %344) #20
+  invoke void @__cxa_rethrow() #21
           to label %369 unwind label %364
 
 364:                                              ; preds = %357
@@ -1605,7 +1605,7 @@ _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit: ; preds = 
   %367 = landingpad { ptr, i32 }
           catch ptr null
   %368 = extractvalue { ptr, i32 } %367, 0
-  call void @__clang_call_terminate(ptr %368) #22
+  call void @__clang_call_terminate(ptr %368) #23
   unreachable
 
 369:                                              ; preds = %357
@@ -1659,7 +1659,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %389 = load ptr, ptr %.pr.i.i.i.i, align 8
   %390 = getelementptr inbounds i8, ptr %389, i64 16
   %391 = load ptr, ptr %390, align 8
-  call void %391(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i) #19
+  call void %391(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i124
 
 392:                                              ; preds = %382
@@ -1685,7 +1685,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %401 = load ptr, ptr %.pr.i.i.i.i, align 8
   %402 = getelementptr inbounds i8, ptr %401, i64 16
   %403 = load ptr, ptr %402, align 8
-  call void %403(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i) #19
+  call void %403(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i) #20
   %404 = getelementptr inbounds i8, ptr %.pr.i.i.i.i, i64 12
   %405 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i122 = icmp eq i8 %405, 0
@@ -1710,7 +1710,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %413 = load ptr, ptr %.pr.i.i.i.i, align 8
   %414 = getelementptr inbounds i8, ptr %413, i64 24
   %415 = load ptr, ptr %414, align 8
-  call void %415(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i) #19
+  call void %415(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i124, %411, %398, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
@@ -1729,7 +1729,7 @@ _ZN2cv3PtrINS_6detail8tracking12TrackerModelEEaSINS_8tracking4impl20TrackerBoost
   %420 = load ptr, ptr %356, align 8
   %421 = getelementptr inbounds i8, ptr %420, i64 16
   %422 = load ptr, ptr %421, align 8
-  call void %422(ptr noundef nonnull align 8 dereferenceable(16) %356) #19
+  call void %422(ptr noundef nonnull align 8 dereferenceable(16) %356) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i130
 
 423:                                              ; preds = %_ZN2cv3PtrINS_6detail8tracking12TrackerModelEEaSINS_8tracking4impl20TrackerBoostingModelEEERS4_RKNS0_IT_EE.exit
@@ -1755,7 +1755,7 @@ _ZN2cv3PtrINS_6detail8tracking12TrackerModelEEaSINS_8tracking4impl20TrackerBoost
   %432 = load ptr, ptr %356, align 8
   %433 = getelementptr inbounds i8, ptr %432, i64 16
   %434 = load ptr, ptr %433, align 8
-  call void %434(ptr noundef nonnull align 8 dereferenceable(16) %356) #19
+  call void %434(ptr noundef nonnull align 8 dereferenceable(16) %356) #20
   %435 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i128 = icmp eq i8 %435, 0
   br i1 %.not.i.i.i.i.i.i.i128, label %439, label %436
@@ -1779,11 +1779,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %443 = load ptr, ptr %356, align 8
   %444 = getelementptr inbounds i8, ptr %443, i64 24
   %445 = load ptr, ptr %444, align 8
-  call void %445(ptr noundef nonnull align 8 dereferenceable(16) %356) #19
+  call void %445(ptr noundef nonnull align 8 dereferenceable(16) %356) #20
   br label %_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit
 
 _ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit: ; preds = %429, %441, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i130
-  %446 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
+  %446 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #22
           to label %447 unwind label %785
 
 447:                                              ; preds = %_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit
@@ -1806,19 +1806,19 @@ _ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit: ; preds = %429, %
   store ptr %446, ptr %25, align 8
   %457 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr null, ptr %457, align 8
-  %458 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
+  %458 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %472 unwind label %459
 
 459:                                              ; preds = %456
   %460 = landingpad { ptr, i32 }
           catch ptr null
   %461 = extractvalue { ptr, i32 } %460, 0
-  %462 = call ptr @__cxa_begin_catch(ptr %461) #19
+  %462 = call ptr @__cxa_begin_catch(ptr %461) #20
   %463 = load ptr, ptr %446, align 8
   %464 = getelementptr inbounds i8, ptr %463, i64 8
   %465 = load ptr, ptr %464, align 8
-  call void %465(ptr noundef nonnull align 8 dereferenceable(168) %446) #19
-  invoke void @__cxa_rethrow() #20
+  call void %465(ptr noundef nonnull align 8 dereferenceable(168) %446) #20
+  invoke void @__cxa_rethrow() #21
           to label %471 unwind label %466
 
 466:                                              ; preds = %459
@@ -1831,7 +1831,7 @@ _ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit: ; preds = %429, %
   %469 = landingpad { ptr, i32 }
           catch ptr null
   %470 = extractvalue { ptr, i32 } %469, 0
-  call void @__clang_call_terminate(ptr %470) #22
+  call void @__clang_call_terminate(ptr %470) #23
   unreachable
 
 471:                                              ; preds = %459
@@ -1885,7 +1885,7 @@ _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEEC2INS2_32TrackerStateEsti
   %492 = load ptr, ptr %484, align 8
   %493 = getelementptr inbounds i8, ptr %492, i64 16
   %494 = load ptr, ptr %493, align 8
-  call void %494(ptr noundef nonnull align 8 dereferenceable(16) %484) #19
+  call void %494(ptr noundef nonnull align 8 dereferenceable(16) %484) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i140
 
 495:                                              ; preds = %485
@@ -1911,7 +1911,7 @@ _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEEC2INS2_32TrackerStateEsti
   %504 = load ptr, ptr %484, align 8
   %505 = getelementptr inbounds i8, ptr %504, i64 16
   %506 = load ptr, ptr %505, align 8
-  call void %506(ptr noundef nonnull align 8 dereferenceable(16) %484) #19
+  call void %506(ptr noundef nonnull align 8 dereferenceable(16) %484) #20
   %507 = getelementptr inbounds i8, ptr %484, i64 12
   %508 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i138 = icmp eq i8 %508, 0
@@ -1936,7 +1936,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %516 = load ptr, ptr %484, align 8
   %517 = getelementptr inbounds i8, ptr %516, i64 24
   %518 = load ptr, ptr %517, align 8
-  call void %518(ptr noundef nonnull align 8 dereferenceable(16) %484) #19
+  call void %518(ptr noundef nonnull align 8 dereferenceable(16) %484) #20
   br label %_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit
 
 _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit: ; preds = %483, %501, %514, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i140
@@ -1986,7 +1986,7 @@ _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit: ; preds = %483
   %.sroa.0.0.insert.ext = zext i32 %546 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   store i64 %.sroa.0.0.insert.insert, ptr %522, align 4
-  %549 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
+  %549 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
           to label %550 unwind label %793
 
 550:                                              ; preds = %530
@@ -1996,19 +1996,19 @@ _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit: ; preds = %483
 551:                                              ; preds = %550
   store ptr %549, ptr %28, align 8
   store ptr null, ptr %523, align 8
-  %552 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
+  %552 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %566 unwind label %553
 
 553:                                              ; preds = %551
   %554 = landingpad { ptr, i32 }
           catch ptr null
   %555 = extractvalue { ptr, i32 } %554, 0
-  %556 = call ptr @__cxa_begin_catch(ptr %555) #19
+  %556 = call ptr @__cxa_begin_catch(ptr %555) #20
   %557 = load ptr, ptr %549, align 8
   %558 = getelementptr inbounds i8, ptr %557, i64 8
   %559 = load ptr, ptr %558, align 8
-  call void %559(ptr noundef nonnull align 8 dereferenceable(72) %549) #19
-  invoke void @__cxa_rethrow() #20
+  call void %559(ptr noundef nonnull align 8 dereferenceable(72) %549) #20
+  invoke void @__cxa_rethrow() #21
           to label %565 unwind label %560
 
 560:                                              ; preds = %553
@@ -2021,7 +2021,7 @@ _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit: ; preds = %483
   %563 = landingpad { ptr, i32 }
           catch ptr null
   %564 = extractvalue { ptr, i32 } %563, 0
-  call void @__clang_call_terminate(ptr %564) #22
+  call void @__clang_call_terminate(ptr %564) #23
   unreachable
 
 565:                                              ; preds = %553
@@ -2081,7 +2081,7 @@ _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20T
   %588 = load ptr, ptr %571, align 8
   %589 = getelementptr inbounds i8, ptr %588, i64 16
   %590 = load ptr, ptr %589, align 8
-  call void %590(ptr noundef nonnull align 8 dereferenceable(16) %571) #19
+  call void %590(ptr noundef nonnull align 8 dereferenceable(16) %571) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i151
 
 591:                                              ; preds = %581
@@ -2107,7 +2107,7 @@ _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20T
   %600 = load ptr, ptr %571, align 8
   %601 = getelementptr inbounds i8, ptr %600, i64 16
   %602 = load ptr, ptr %601, align 8
-  call void %602(ptr noundef nonnull align 8 dereferenceable(16) %571) #19
+  call void %602(ptr noundef nonnull align 8 dereferenceable(16) %571) #20
   %603 = getelementptr inbounds i8, ptr %571, i64 12
   %604 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i149 = icmp eq i8 %604, 0
@@ -2132,7 +2132,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %612 = load ptr, ptr %571, align 8
   %613 = getelementptr inbounds i8, ptr %612, i64 24
   %614 = load ptr, ptr %613, align 8
-  call void %614(ptr noundef nonnull align 8 dereferenceable(16) %571) #19
+  call void %614(ptr noundef nonnull align 8 dereferenceable(16) %571) #20
   br label %_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit152
 
 _ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit152: ; preds = %580, %597, %610, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i151
@@ -2186,7 +2186,7 @@ _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20T
   %635 = load ptr, ptr %618, align 8
   %636 = getelementptr inbounds i8, ptr %635, i64 16
   %637 = load ptr, ptr %636, align 8
-  call void %637(ptr noundef nonnull align 8 dereferenceable(16) %618) #19
+  call void %637(ptr noundef nonnull align 8 dereferenceable(16) %618) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i161
 
 638:                                              ; preds = %628
@@ -2212,7 +2212,7 @@ _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20T
   %647 = load ptr, ptr %618, align 8
   %648 = getelementptr inbounds i8, ptr %647, i64 16
   %649 = load ptr, ptr %648, align 8
-  call void %649(ptr noundef nonnull align 8 dereferenceable(16) %618) #19
+  call void %649(ptr noundef nonnull align 8 dereferenceable(16) %618) #20
   %650 = getelementptr inbounds i8, ptr %618, i64 12
   %651 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i159 = icmp eq i8 %651, 0
@@ -2237,7 +2237,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %659 = load ptr, ptr %618, align 8
   %660 = getelementptr inbounds i8, ptr %659, i64 24
   %661 = load ptr, ptr %660, align 8
-  call void %661(ptr noundef nonnull align 8 dereferenceable(16) %618) #19
+  call void %661(ptr noundef nonnull align 8 dereferenceable(16) %618) #20
   br label %_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit162
 
 _ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit162: ; preds = %627, %644, %657, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i161
@@ -2334,7 +2334,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25Track
   %703 = load ptr, ptr %679, align 8
   %704 = getelementptr inbounds i8, ptr %703, i64 16
   %705 = load ptr, ptr %704, align 8
-  call void %705(ptr noundef nonnull align 8 dereferenceable(16) %679) #19
+  call void %705(ptr noundef nonnull align 8 dereferenceable(16) %679) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i170
 
 706:                                              ; preds = %696
@@ -2360,7 +2360,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25Track
   %715 = load ptr, ptr %679, align 8
   %716 = getelementptr inbounds i8, ptr %715, i64 16
   %717 = load ptr, ptr %716, align 8
-  call void %717(ptr noundef nonnull align 8 dereferenceable(16) %679) #19
+  call void %717(ptr noundef nonnull align 8 dereferenceable(16) %679) #20
   %718 = getelementptr inbounds i8, ptr %679, i64 12
   %719 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i168 = icmp eq i8 %719, 0
@@ -2385,7 +2385,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %727 = load ptr, ptr %679, align 8
   %728 = getelementptr inbounds i8, ptr %727, i64 24
   %729 = load ptr, ptr %728, align 8
-  call void %729(ptr noundef nonnull align 8 dereferenceable(16) %679) #19
+  call void %729(ptr noundef nonnull align 8 dereferenceable(16) %679) #20
   br label %_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit171
 
 _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit171: ; preds = %695, %712, %725, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i170
@@ -2443,7 +2443,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25Track
   %756 = load ptr, ptr %731, align 8
   %757 = getelementptr inbounds i8, ptr %756, i64 16
   %758 = load ptr, ptr %757, align 8
-  call void %758(ptr noundef nonnull align 8 dereferenceable(16) %731) #19
+  call void %758(ptr noundef nonnull align 8 dereferenceable(16) %731) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i180
 
 759:                                              ; preds = %749
@@ -2469,7 +2469,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25Track
   %768 = load ptr, ptr %731, align 8
   %769 = getelementptr inbounds i8, ptr %768, i64 16
   %770 = load ptr, ptr %769, align 8
-  call void %770(ptr noundef nonnull align 8 dereferenceable(16) %731) #19
+  call void %770(ptr noundef nonnull align 8 dereferenceable(16) %731) #20
   %771 = getelementptr inbounds i8, ptr %731, i64 12
   %772 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i178 = icmp eq i8 %772, 0
@@ -2494,7 +2494,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %780 = load ptr, ptr %731, align 8
   %781 = getelementptr inbounds i8, ptr %780, i64 24
   %782 = load ptr, ptr %781, align 8
-  call void %782(ptr noundef nonnull align 8 dereferenceable(16) %731) #19
+  call void %782(ptr noundef nonnull align 8 dereferenceable(16) %731) #20
   br label %_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit181
 
 783:                                              ; preds = %342, %339, %337
@@ -2510,19 +2510,19 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 787:                                              ; preds = %345
   %788 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %344) #23
+  call void @_ZdlPv(ptr noundef nonnull %344) #24
   br label %.body117
 
 789:                                              ; preds = %447
   %790 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %446) #23
+  call void @_ZdlPv(ptr noundef nonnull %446) #24
   br label %.body117
 
 791:                                              ; preds = %_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEEC2INS2_32TrackerStateEstimatorAdaBoostingEEERKNS0_IT_EE.exit
   %792 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #20
   br label %.body141
 
 793:                                              ; preds = %530, %529
@@ -2533,13 +2533,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 795:                                              ; preds = %550
   %796 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %549) #23
+  call void @_ZdlPv(ptr noundef nonnull %549) #24
   br label %.body141
 
 797:                                              ; preds = %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit
   %798 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #19
+  call void @_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit194
 
 799:                                              ; preds = %665, %663, %_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit162, %_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit152
@@ -2550,7 +2550,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 801:                                              ; preds = %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit155
   %802 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #19
+  call void @_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit194
 
 803:                                              ; preds = %667
@@ -2586,7 +2586,7 @@ _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit181: ; preds
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %819
 
 819:                                              ; preds = %._crit_edge
-  call void @_ZdlPv(ptr noundef nonnull %818) #23
+  call void @_ZdlPv(ptr noundef nonnull %818) #24
   %.pre276 = load ptr, ptr %31, align 8
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
@@ -2596,7 +2596,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %819
   br i1 %.not.i.i.i182, label %_ZNSt6vectorIiSaIiEED2Ev.exit183, label %821
 
 821:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %820) #23
+  call void @_ZdlPv(ptr noundef nonnull %820) #24
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit183
 
 _ZNSt6vectorIiSaIiEED2Ev.exit183:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %821
@@ -2618,7 +2618,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit183:                 ; preds = %_ZNSt6vectorIiSaIiE
   %830 = load ptr, ptr %822, align 8
   %831 = getelementptr inbounds i8, ptr %830, i64 16
   %832 = load ptr, ptr %831, align 8
-  call void %832(ptr noundef nonnull align 8 dereferenceable(16) %822) #19
+  call void %832(ptr noundef nonnull align 8 dereferenceable(16) %822) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i189
 
 833:                                              ; preds = %823
@@ -2644,7 +2644,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit183:                 ; preds = %_ZNSt6vectorIiSaIiE
   %842 = load ptr, ptr %822, align 8
   %843 = getelementptr inbounds i8, ptr %842, i64 16
   %844 = load ptr, ptr %843, align 8
-  call void %844(ptr noundef nonnull align 8 dereferenceable(16) %822) #19
+  call void %844(ptr noundef nonnull align 8 dereferenceable(16) %822) #20
   %845 = getelementptr inbounds i8, ptr %822, i64 12
   %846 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i187 = icmp eq i8 %846, 0
@@ -2669,7 +2669,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %854 = load ptr, ptr %822, align 8
   %855 = getelementptr inbounds i8, ptr %854, i64 24
   %856 = load ptr, ptr %855, align 8
-  call void %856(ptr noundef nonnull align 8 dereferenceable(16) %822) #19
+  call void %856(ptr noundef nonnull align 8 dereferenceable(16) %822) #20
   br label %_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit190
 
 _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit190: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit183, %839, %852, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i189
@@ -2681,13 +2681,13 @@ _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit190: ; preds
 860:                                              ; preds = %807, %805
   %.sink = phi ptr [ %34, %807 ], [ %33, %805 ]
   %.pn49 = phi { ptr, i32 } [ %808, %807 ], [ %806, %805 ]
-  call void @_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #20
   %861 = load ptr, ptr %32, align 8
   %.not.i.i.i191 = icmp eq ptr %861, null
   br i1 %.not.i.i.i191, label %_ZNSt6vectorIiSaIiEED2Ev.exit192, label %862
 
 862:                                              ; preds = %860
-  call void @_ZdlPv(ptr noundef nonnull %861) #23
+  call void @_ZdlPv(ptr noundef nonnull %861) #24
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit192
 
 _ZNSt6vectorIiSaIiEED2Ev.exit192:                 ; preds = %862, %860, %803
@@ -2697,12 +2697,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit192:                 ; preds = %862, %860, %803
   br i1 %.not.i.i.i193, label %_ZNSt6vectorIiSaIiEED2Ev.exit194, label %864
 
 864:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit192
-  call void @_ZdlPv(ptr noundef nonnull %863) #23
+  call void @_ZdlPv(ptr noundef nonnull %863) #24
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit194
 
 _ZNSt6vectorIiSaIiEED2Ev.exit194:                 ; preds = %864, %_ZNSt6vectorIiSaIiEED2Ev.exit192, %801, %799, %797
   %.pn49.pn.pn = phi { ptr, i32 } [ %800, %799 ], [ %802, %801 ], [ %798, %797 ], [ %.pn49.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit192 ], [ %.pn49.pn, %864 ]
-  call void @_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #20
   br label %.body141
 
 ._crit_edge264:                                   ; preds = %_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit190, %_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit
@@ -2724,7 +2724,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit194:                 ; preds = %864, %_ZNSt6vectorI
   %873 = load ptr, ptr %865, align 8
   %874 = getelementptr inbounds i8, ptr %873, i64 16
   %875 = load ptr, ptr %874, align 8
-  call void %875(ptr noundef nonnull align 8 dereferenceable(16) %865) #19
+  call void %875(ptr noundef nonnull align 8 dereferenceable(16) %865) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i200
 
 876:                                              ; preds = %866
@@ -2750,7 +2750,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit194:                 ; preds = %864, %_ZNSt6vectorI
   %885 = load ptr, ptr %865, align 8
   %886 = getelementptr inbounds i8, ptr %885, i64 16
   %887 = load ptr, ptr %886, align 8
-  call void %887(ptr noundef nonnull align 8 dereferenceable(16) %865) #19
+  call void %887(ptr noundef nonnull align 8 dereferenceable(16) %865) #20
   %888 = getelementptr inbounds i8, ptr %865, i64 12
   %889 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i198 = icmp eq i8 %889, 0
@@ -2775,7 +2775,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %897 = load ptr, ptr %865, align 8
   %898 = getelementptr inbounds i8, ptr %897, i64 24
   %899 = load ptr, ptr %898, align 8
-  call void %899(ptr noundef nonnull align 8 dereferenceable(16) %865) #19
+  call void %899(ptr noundef nonnull align 8 dereferenceable(16) %865) #20
   br label %_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit
 
 _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit: ; preds = %._crit_edge264, %882, %895, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i200
@@ -2787,7 +2787,7 @@ _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit: ; p
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %903, %.lr.ph.i.i.i.i ], [ %900, %_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #20
   %903 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 96
   %.not.i.i.i.i201 = icmp eq ptr %903, %902
   br i1 %.not.i.i.i.i201, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !49
@@ -2802,7 +2802,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2c
   br i1 %.not.i.i.i202, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %905
 
 905:                                              ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %904) #23
+  call void @_ZdlPv(ptr noundef nonnull %904) #24
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %905
@@ -2814,7 +2814,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 .lr.ph.i.i.i.i204:                                ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, %.lr.ph.i.i.i.i204
   %.05.i.i.i.i205 = phi ptr [ %909, %.lr.ph.i.i.i.i204 ], [ %906, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i205) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i205) #20
   %909 = getelementptr inbounds i8, ptr %.05.i.i.i.i205, i64 96
   %.not.i.i.i.i206 = icmp eq ptr %909, %908
   br i1 %.not.i.i.i.i206, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i207, label %.lr.ph.i.i.i.i204, !llvm.loop !49
@@ -2829,22 +2829,22 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i209: ; preds = %_ZSt8_DestroyIP
   br i1 %.not.i.i.i210, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit211, label %911
 
 911:                                              ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i209
-  call void @_ZdlPv(ptr noundef nonnull %910) #23
+  call void @_ZdlPv(ptr noundef nonnull %910) #24
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit211
 
 .body141:                                         ; preds = %793, %560, %_ZNSt6vectorIiSaIiEED2Ev.exit194, %795, %791
   %.pn49.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit194 ], [ %796, %795 ], [ %792, %791 ], [ %794, %793 ], [ %561, %560 ]
-  call void @_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #20
   br label %.body117
 
 .body117:                                         ; preds = %364, %466, %785, %.body141, %789, %787
   %.pn49.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn.pn, %.body141 ], [ %790, %789 ], [ %788, %787 ], [ %365, %364 ], [ %786, %785 ], [ %467, %466 ]
-  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #19
+  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #20
   br label %912
 
 912:                                              ; preds = %.body117, %783
   %.pn49.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn.pn.pn, %.body117 ], [ %784, %783 ]
-  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #19
+  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #20
   br label %948
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit211:       ; preds = %911, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i209, %322
@@ -2866,7 +2866,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit211:       ; preds = %911, %_ZSt8_Destroy
   %921 = load ptr, ptr %913, align 8
   %922 = getelementptr inbounds i8, ptr %921, i64 16
   %923 = load ptr, ptr %922, align 8
-  call void %923(ptr noundef nonnull align 8 dereferenceable(16) %913) #19
+  call void %923(ptr noundef nonnull align 8 dereferenceable(16) %913) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i217
 
 924:                                              ; preds = %914
@@ -2892,7 +2892,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit211:       ; preds = %911, %_ZSt8_Destroy
   %933 = load ptr, ptr %913, align 8
   %934 = getelementptr inbounds i8, ptr %933, i64 16
   %935 = load ptr, ptr %934, align 8
-  call void %935(ptr noundef nonnull align 8 dereferenceable(16) %913) #19
+  call void %935(ptr noundef nonnull align 8 dereferenceable(16) %913) #20
   %936 = getelementptr inbounds i8, ptr %913, i64 12
   %937 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i215 = icmp eq i8 %937, 0
@@ -2917,12 +2917,12 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %945 = load ptr, ptr %913, align 8
   %946 = getelementptr inbounds i8, ptr %945, i64 24
   %947 = load ptr, ptr %946, align 8
-  call void %947(ptr noundef nonnull align 8 dereferenceable(16) %913) #19
+  call void %947(ptr noundef nonnull align 8 dereferenceable(16) %913) #20
   br label %_ZN2cv3PtrINS_6detail8tracking21TrackerContribFeatureEED2Ev.exit
 
 948:                                              ; preds = %912, %329
   %.pn49.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn.pn.pn.pn, %912 ], [ %330, %329 ]
-  call void @_ZN2cv3PtrINS_6detail8tracking21TrackerContribFeatureEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking21TrackerContribFeatureEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #20
   br label %.body99
 
 _ZN2cv3PtrINS_6detail8tracking21TrackerContribFeatureEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i217, %943, %930, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit211, %221, %226
@@ -2935,7 +2935,7 @@ _ZN2cv3PtrINS_6detail8tracking21TrackerContribFeatureEED2Ev.exit: ; preds = %_ZN
 
 .lr.ph.i.i.i.i219:                                ; preds = %_ZN2cv3PtrINS_6detail8tracking21TrackerContribFeatureEED2Ev.exit, %.lr.ph.i.i.i.i219
   %.05.i.i.i.i220 = phi ptr [ %952, %.lr.ph.i.i.i.i219 ], [ %949, %_ZN2cv3PtrINS_6detail8tracking21TrackerContribFeatureEED2Ev.exit ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i220) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i220) #20
   %952 = getelementptr inbounds i8, ptr %.05.i.i.i.i220, i64 96
   %.not.i.i.i.i221 = icmp eq ptr %952, %951
   br i1 %.not.i.i.i.i221, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i222, label %.lr.ph.i.i.i.i219, !llvm.loop !49
@@ -2950,7 +2950,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i224: ; preds = %_ZSt8_DestroyIP
   br i1 %.not.i.i.i225, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit226, label %954
 
 954:                                              ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i224
-  call void @_ZdlPv(ptr noundef nonnull %953) #23
+  call void @_ZdlPv(ptr noundef nonnull %953) #24
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit226
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit226:       ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i224, %954
@@ -2961,7 +2961,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit226:       ; preds = %_ZSt8_DestroyIPN2cv
 
 .lr.ph.i.i.i.i228:                                ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit226, %.lr.ph.i.i.i.i228
   %.05.i.i.i.i229 = phi ptr [ %957, %.lr.ph.i.i.i.i228 ], [ %955, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit226 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i229) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i229) #20
   %957 = getelementptr inbounds i8, ptr %.05.i.i.i.i229, i64 96
   %.not.i.i.i.i230 = icmp eq ptr %957, %956
   br i1 %.not.i.i.i.i230, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i231, label %.lr.ph.i.i.i.i228, !llvm.loop !49
@@ -2976,17 +2976,17 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i233: ; preds = %_ZSt8_DestroyIP
   br i1 %.not.i.i.i234, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit235, label %959
 
 959:                                              ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i233
-  call void @_ZdlPv(ptr noundef nonnull %958) #23
+  call void @_ZdlPv(ptr noundef nonnull %958) #24
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit235
 
 .body99:                                          ; preds = %325, %309, %948, %327, %323
   %.pn49.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn.pn.pn.pn.pn, %948 ], [ %328, %327 ], [ %324, %323 ], [ %326, %325 ], [ %310, %309 ]
-  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #19
+  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #20
   br label %960
 
 960:                                              ; preds = %.body99, %235, %233
   %.pn49.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn.pn.pn.pn.pn.pn, %.body99 ], [ %236, %235 ], [ %234, %233 ]
-  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #19
+  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #20
   br label %996
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit235:       ; preds = %959, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i233, %86
@@ -3009,7 +3009,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit235:       ; preds = %959, %_ZSt8_Destroy
   %969 = load ptr, ptr %961, align 8
   %970 = getelementptr inbounds i8, ptr %969, i64 16
   %971 = load ptr, ptr %970, align 8
-  call void %971(ptr noundef nonnull align 8 dereferenceable(16) %961) #19
+  call void %971(ptr noundef nonnull align 8 dereferenceable(16) %961) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i241
 
 972:                                              ; preds = %962
@@ -3035,7 +3035,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit235:       ; preds = %959, %_ZSt8_Destroy
   %981 = load ptr, ptr %961, align 8
   %982 = getelementptr inbounds i8, ptr %981, i64 16
   %983 = load ptr, ptr %982, align 8
-  call void %983(ptr noundef nonnull align 8 dereferenceable(16) %961) #19
+  call void %983(ptr noundef nonnull align 8 dereferenceable(16) %961) #20
   %984 = getelementptr inbounds i8, ptr %961, i64 12
   %985 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i239 = icmp eq i8 %985, 0
@@ -3060,25 +3060,25 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %993 = load ptr, ptr %961, align 8
   %994 = getelementptr inbounds i8, ptr %993, i64 24
   %995 = load ptr, ptr %994, align 8
-  call void %995(ptr noundef nonnull align 8 dereferenceable(16) %961) #19
+  call void %995(ptr noundef nonnull align 8 dereferenceable(16) %961) #20
   br label %_ZN2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEED2Ev.exit
 
 _ZN2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEED2Ev.exit: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit235, %978, %991, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i241
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #19
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #19
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #20
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #20
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #20
   ret i1 %.026
 
 996:                                              ; preds = %960, %231, %95
   %.pn49.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn.pn.pn.pn.pn.pn.pn, %960 ], [ %96, %95 ], [ %232, %231 ]
-  call void @_ZN2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
   br label %.body
 
 .body:                                            ; preds = %91, %89, %87, %73, %996, %93
   %.pn49.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn.pn.pn.pn.pn.pn.pn.pn, %996 ], [ %94, %93 ], [ %88, %87 ], [ %74, %73 ], [ %90, %89 ], [ %92, %91 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #19
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #19
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #20
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #20
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #20
   resume { ptr, i32 } %.pn49.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -3117,7 +3117,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerC
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
 
 14:                                               ; preds = %4
@@ -3143,7 +3143,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerC
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   %26 = getelementptr inbounds i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
@@ -3168,7 +3168,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %_ZNSt10shared_ptrIN2cv6detail8tracking16TrackerSamplerCSEED2Ev.exit
 
 _ZNSt10shared_ptrIN2cv6detail8tracking16TrackerSamplerCSEED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -3201,11 +3201,11 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3MatESaIS1_EEC2ERKS3_(ptr noun
   br i1 %11, label %.noexc.i, label %_ZNSt16allocator_traitsISaIN2cv3MatEEE8allocateERS2_m.exit.i.i.i
 
 .noexc.i:                                         ; preds = %10
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #20
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #21
   unreachable
 
 _ZNSt16allocator_traitsISaIN2cv3MatEEE8allocateERS2_m.exit.i.i.i: ; preds = %10
-  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #21
+  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #22
   br label %13
 
 13:                                               ; preds = %_ZNSt16allocator_traitsISaIN2cv3MatEEE8allocateERS2_m.exit.i.i.i, %2
@@ -3237,19 +3237,19 @@ _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  %25 = tail call ptr @__cxa_begin_catch(ptr %24) #19
+  %25 = tail call ptr @__cxa_begin_catch(ptr %24) #20
   %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i.i ], [ %14, %22 ]
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i.i.i) #19
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i.i.i) #20
   %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 96
   %.not.i.i.i.i.i.i = icmp eq ptr %26, %.014.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !49
 
 _ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i:     ; preds = %.lr.ph.i.i.i.i.i.i, %22
-  invoke void @__cxa_rethrow() #20
+  invoke void @__cxa_rethrow() #21
           to label %32 unwind label %27
 
 27:                                               ; preds = %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i
@@ -3262,7 +3262,7 @@ _ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i:     ; preds = %.lr.ph.i.i.i.i.i.i,
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #22
+  tail call void @__clang_call_terminate(ptr %31) #23
   unreachable
 
 32:                                               ; preds = %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i
@@ -3279,7 +3279,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv3MatESt6vector
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit, label %34
 
 34:                                               ; preds = %.body
-  tail call void @_ZdlPv(ptr noundef nonnull %33) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %33) #24
   br label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit:   ; preds = %34, %.body
@@ -3313,7 +3313,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_6detail8tracking25TrackerContribF
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
 
 14:                                               ; preds = %4
@@ -3339,7 +3339,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_6detail8tracking25TrackerContribF
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   %26 = getelementptr inbounds i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
@@ -3364,7 +3364,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %_ZNSt10shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit
 
 _ZNSt10shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -3400,7 +3400,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingMo
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
 
 14:                                               ; preds = %4
@@ -3426,7 +3426,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingMo
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   %26 = getelementptr inbounds i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
@@ -3451,7 +3451,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %_ZNSt10shared_ptrIN2cv8tracking4impl20TrackerBoostingModelEED2Ev.exit
 
 _ZNSt10shared_ptrIN2cv8tracking4impl20TrackerBoostingModelEED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -3483,7 +3483,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_6detail8tracking21TrackerStateEst
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
 
 14:                                               ; preds = %4
@@ -3509,7 +3509,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_6detail8tracking21TrackerStateEst
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   %26 = getelementptr inbounds i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
@@ -3534,7 +3534,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %_ZNSt10shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorEED2Ev.exit
 
 _ZNSt10shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorEED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -3578,7 +3578,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_6detail8tracking32TrackerStateEst
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
 
 14:                                               ; preds = %4
@@ -3604,7 +3604,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_6detail8tracking32TrackerStateEst
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   %26 = getelementptr inbounds i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
@@ -3629,7 +3629,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %_ZNSt10shared_ptrIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit
 
 _ZNSt10shared_ptrIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -3646,7 +3646,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef 
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i) #19
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i) #20
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 96
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !49
@@ -3661,7 +3661,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit:  ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit, label %7
 
 7:                                                ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
   br label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit, %7
@@ -3689,7 +3689,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_6detail8tracking21TrackerContribF
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
 
 14:                                               ; preds = %4
@@ -3715,7 +3715,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_6detail8tracking21TrackerContribF
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   %26 = getelementptr inbounds i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
@@ -3740,7 +3740,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %_ZNSt10shared_ptrIN2cv6detail8tracking21TrackerContribFeatureEED2Ev.exit
 
 _ZNSt10shared_ptrIN2cv6detail8tracking21TrackerContribFeatureEED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -3768,7 +3768,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_6detail8tracking30TrackerContribS
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
 
 14:                                               ; preds = %4
@@ -3794,7 +3794,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_6detail8tracking30TrackerContribS
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   %26 = getelementptr inbounds i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
@@ -3819,7 +3819,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %_ZNSt10shared_ptrIN2cv6detail8tracking30TrackerContribSamplerAlgorithmEED2Ev.exit
 
 _ZNSt10shared_ptrIN2cv6detail8tracking30TrackerContribSamplerAlgorithmEED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -3877,17 +3877,17 @@ define hidden noundef zeroext i1 @_ZN2cv6legacy8tracking19TrackerBoostingImpl10u
   %47 = alloca %"struct.cv::Ptr.64", align 8
   %48 = alloca %"struct.cv::Ptr.42", align 8
   %49 = alloca %"struct.cv::Ptr.42", align 8
-  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
+  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #20
   %50 = load i32, ptr %4, align 8
   %51 = and i32 %50, -4096
   %52 = or disjoint i32 %51, 4
   store i32 %52, ptr %4, align 8
-  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #19
+  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #20
   %53 = load i32, ptr %5, align 8
   %54 = and i32 %53, -4096
   %55 = or disjoint i32 %54, 6
   store i32 %55, ptr %5, align 8
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #19
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #20
   %56 = getelementptr inbounds i8, ptr %7, i64 16
   store i32 0, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %7, i64 20
@@ -3968,7 +3968,7 @@ define hidden noundef zeroext i1 @_ZN2cv6legacy8tracking19TrackerBoostingImpl10u
   br i1 %.not.i.i.not, label %94, label %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit
 
 94:                                               ; preds = %90
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 0) #20
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 0) #21
           to label %.noexc unwind label %218
 
 .noexc:                                           ; preds = %94
@@ -4023,7 +4023,7 @@ _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS
   %116 = load ptr, ptr %98, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8
-  call void %118(ptr noundef nonnull align 8 dereferenceable(16) %98) #19
+  call void %118(ptr noundef nonnull align 8 dereferenceable(16) %98) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
 
 119:                                              ; preds = %109
@@ -4049,7 +4049,7 @@ _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS
   %128 = load ptr, ptr %98, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 16
   %130 = load ptr, ptr %129, align 8
-  call void %130(ptr noundef nonnull align 8 dereferenceable(16) %98) #19
+  call void %130(ptr noundef nonnull align 8 dereferenceable(16) %98) #20
   %131 = getelementptr inbounds i8, ptr %98, i64 12
   %132 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %132, 0
@@ -4074,7 +4074,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %140 = load ptr, ptr %98, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 24
   %142 = load ptr, ptr %141, align 8
-  call void %142(ptr noundef nonnull align 8 dereferenceable(16) %98) #19
+  call void %142(ptr noundef nonnull align 8 dereferenceable(16) %98) #20
   br label %_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit
 
 _ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit: ; preds = %108, %125, %138, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -4112,7 +4112,7 @@ _ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit: ; preds = %108, %12
   br i1 %.not.i.i69.not, label %155, label %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit71
 
 155:                                              ; preds = %151
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 0) #20
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 0) #21
           to label %.noexc70 unwind label %222
 
 .noexc70:                                         ; preds = %155
@@ -4172,7 +4172,7 @@ _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS
   %181 = load ptr, ptr %159, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 16
   %183 = load ptr, ptr %182, align 8
-  call void %183(ptr noundef nonnull align 8 dereferenceable(16) %159) #19
+  call void %183(ptr noundef nonnull align 8 dereferenceable(16) %159) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i80
 
 184:                                              ; preds = %174
@@ -4198,7 +4198,7 @@ _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS
   %193 = load ptr, ptr %159, align 8
   %194 = getelementptr inbounds i8, ptr %193, i64 16
   %195 = load ptr, ptr %194, align 8
-  call void %195(ptr noundef nonnull align 8 dereferenceable(16) %159) #19
+  call void %195(ptr noundef nonnull align 8 dereferenceable(16) %159) #20
   %196 = getelementptr inbounds i8, ptr %159, i64 12
   %197 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i78 = icmp eq i8 %197, 0
@@ -4223,7 +4223,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %205 = load ptr, ptr %159, align 8
   %206 = getelementptr inbounds i8, ptr %205, i64 24
   %207 = load ptr, ptr %206, align 8
-  call void %207(ptr noundef nonnull align 8 dereferenceable(16) %159) #19
+  call void %207(ptr noundef nonnull align 8 dereferenceable(16) %159) #20
   br label %_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit81
 
 _ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit81: ; preds = %170, %190, %203, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i80
@@ -4256,7 +4256,7 @@ _ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit81: ; preds = %170, %
 220:                                              ; preds = %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit
   %221 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
   br label %1552
 
 222:                                              ; preds = %155, %148
@@ -4267,12 +4267,12 @@ _ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit81: ; preds = %170, %
 224:                                              ; preds = %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit74
   %225 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #20
   br label %1551
 
 226:                                              ; preds = %_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit81
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #19
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #20
   %227 = load ptr, ptr %70, align 8
   invoke void @_ZNK2cv6detail8tracking12TrackerModel24getTrackerStateEstimatorEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.64") align 8 %21, ptr noundef nonnull align 8 dereferenceable(100) %227)
           to label %228 unwind label %625
@@ -4325,7 +4325,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32Track
   %249 = load ptr, ptr %231, align 8
   %250 = getelementptr inbounds i8, ptr %249, i64 16
   %251 = load ptr, ptr %250, align 8
-  call void %251(ptr noundef nonnull align 8 dereferenceable(16) %231) #19
+  call void %251(ptr noundef nonnull align 8 dereferenceable(16) %231) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i89
 
 252:                                              ; preds = %242
@@ -4351,7 +4351,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32Track
   %261 = load ptr, ptr %231, align 8
   %262 = getelementptr inbounds i8, ptr %261, i64 16
   %263 = load ptr, ptr %262, align 8
-  call void %263(ptr noundef nonnull align 8 dereferenceable(16) %231) #19
+  call void %263(ptr noundef nonnull align 8 dereferenceable(16) %231) #20
   %264 = getelementptr inbounds i8, ptr %231, i64 12
   %265 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i87 = icmp eq i8 %265, 0
@@ -4376,7 +4376,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %273 = load ptr, ptr %231, align 8
   %274 = getelementptr inbounds i8, ptr %273, i64 24
   %275 = load ptr, ptr %274, align 8
-  call void %275(ptr noundef nonnull align 8 dereferenceable(16) %231) #19
+  call void %275(ptr noundef nonnull align 8 dereferenceable(16) %231) #20
   br label %_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit
 
 _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit: ; preds = %241, %258, %271, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i89
@@ -4398,7 +4398,7 @@ _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit: ; p
   %284 = load ptr, ptr %276, align 8
   %285 = getelementptr inbounds i8, ptr %284, i64 16
   %286 = load ptr, ptr %285, align 8
-  call void %286(ptr noundef nonnull align 8 dereferenceable(16) %276) #19
+  call void %286(ptr noundef nonnull align 8 dereferenceable(16) %276) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i95
 
 287:                                              ; preds = %277
@@ -4424,7 +4424,7 @@ _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit: ; p
   %296 = load ptr, ptr %276, align 8
   %297 = getelementptr inbounds i8, ptr %296, i64 16
   %298 = load ptr, ptr %297, align 8
-  call void %298(ptr noundef nonnull align 8 dereferenceable(16) %276) #19
+  call void %298(ptr noundef nonnull align 8 dereferenceable(16) %276) #20
   %299 = getelementptr inbounds i8, ptr %276, i64 12
   %300 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i93 = icmp eq i8 %300, 0
@@ -4449,7 +4449,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %308 = load ptr, ptr %276, align 8
   %309 = getelementptr inbounds i8, ptr %308, i64 24
   %310 = load ptr, ptr %309, align 8
-  call void %310(ptr noundef nonnull align 8 dereferenceable(16) %276) #19
+  call void %310(ptr noundef nonnull align 8 dereferenceable(16) %276) #20
   br label %_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit
 
 _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit, %293, %306, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i95
@@ -4511,14 +4511,14 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25Track
   br i1 %339, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i
 
 .noexc.i.i:                                       ; preds = %338
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #20
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #21
           to label %.noexc99 unwind label %631
 
 .noexc99:                                         ; preds = %.noexc.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %338
-  %340 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %334) #21
+  %340 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %334) #22
           to label %341 unwind label %631
 
 341:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i
@@ -4545,7 +4545,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %338
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %352
 
 352:                                              ; preds = %350
-  call void @_ZdlPv(ptr noundef nonnull %351) #23
+  call void @_ZdlPv(ptr noundef nonnull %351) #24
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %350, %352
@@ -4619,7 +4619,7 @@ _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20T
   %381 = load ptr, ptr %363, align 8
   %382 = getelementptr inbounds i8, ptr %381, i64 16
   %383 = load ptr, ptr %382, align 8
-  call void %383(ptr noundef nonnull align 8 dereferenceable(16) %363) #19
+  call void %383(ptr noundef nonnull align 8 dereferenceable(16) %363) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i110
 
 384:                                              ; preds = %374
@@ -4645,7 +4645,7 @@ _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20T
   %393 = load ptr, ptr %363, align 8
   %394 = getelementptr inbounds i8, ptr %393, i64 16
   %395 = load ptr, ptr %394, align 8
-  call void %395(ptr noundef nonnull align 8 dereferenceable(16) %363) #19
+  call void %395(ptr noundef nonnull align 8 dereferenceable(16) %363) #20
   %396 = getelementptr inbounds i8, ptr %363, i64 12
   %397 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i108 = icmp eq i8 %397, 0
@@ -4670,7 +4670,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %405 = load ptr, ptr %363, align 8
   %406 = getelementptr inbounds i8, ptr %405, i64 24
   %407 = load ptr, ptr %406, align 8
-  call void %407(ptr noundef nonnull align 8 dereferenceable(16) %363) #19
+  call void %407(ptr noundef nonnull align 8 dereferenceable(16) %363) #20
   br label %_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit
 
 _ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit: ; preds = %373, %390, %403, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i110
@@ -4720,7 +4720,7 @@ _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20T
   %427 = load ptr, ptr %409, align 8
   %428 = getelementptr inbounds i8, ptr %427, i64 16
   %429 = load ptr, ptr %428, align 8
-  call void %429(ptr noundef nonnull align 8 dereferenceable(16) %409) #19
+  call void %429(ptr noundef nonnull align 8 dereferenceable(16) %409) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i119
 
 430:                                              ; preds = %420
@@ -4746,7 +4746,7 @@ _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20T
   %439 = load ptr, ptr %409, align 8
   %440 = getelementptr inbounds i8, ptr %439, i64 16
   %441 = load ptr, ptr %440, align 8
-  call void %441(ptr noundef nonnull align 8 dereferenceable(16) %409) #19
+  call void %441(ptr noundef nonnull align 8 dereferenceable(16) %409) #20
   %442 = getelementptr inbounds i8, ptr %409, i64 12
   %443 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i117 = icmp eq i8 %443, 0
@@ -4771,7 +4771,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %451 = load ptr, ptr %409, align 8
   %452 = getelementptr inbounds i8, ptr %451, i64 24
   %453 = load ptr, ptr %452, align 8
-  call void %453(ptr noundef nonnull align 8 dereferenceable(16) %409) #19
+  call void %453(ptr noundef nonnull align 8 dereferenceable(16) %409) #20
   br label %_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit120
 
 _ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit120: ; preds = %419, %436, %449, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i119
@@ -4827,7 +4827,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32Track
   %476 = load ptr, ptr %458, align 8
   %477 = getelementptr inbounds i8, ptr %476, i64 16
   %478 = load ptr, ptr %477, align 8
-  call void %478(ptr noundef nonnull align 8 dereferenceable(16) %458) #19
+  call void %478(ptr noundef nonnull align 8 dereferenceable(16) %458) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i129
 
 479:                                              ; preds = %469
@@ -4853,7 +4853,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32Track
   %488 = load ptr, ptr %458, align 8
   %489 = getelementptr inbounds i8, ptr %488, i64 16
   %490 = load ptr, ptr %489, align 8
-  call void %490(ptr noundef nonnull align 8 dereferenceable(16) %458) #19
+  call void %490(ptr noundef nonnull align 8 dereferenceable(16) %458) #20
   %491 = getelementptr inbounds i8, ptr %458, i64 12
   %492 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i127 = icmp eq i8 %492, 0
@@ -4878,7 +4878,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %500 = load ptr, ptr %458, align 8
   %501 = getelementptr inbounds i8, ptr %500, i64 24
   %502 = load ptr, ptr %501, align 8
-  call void %502(ptr noundef nonnull align 8 dereferenceable(16) %458) #19
+  call void %502(ptr noundef nonnull align 8 dereferenceable(16) %458) #20
   br label %_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit130
 
 _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit130: ; preds = %468, %485, %498, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i129
@@ -4900,7 +4900,7 @@ _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit130: 
   %511 = load ptr, ptr %503, align 8
   %512 = getelementptr inbounds i8, ptr %511, i64 16
   %513 = load ptr, ptr %512, align 8
-  call void %513(ptr noundef nonnull align 8 dereferenceable(16) %503) #19
+  call void %513(ptr noundef nonnull align 8 dereferenceable(16) %503) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i136
 
 514:                                              ; preds = %504
@@ -4926,7 +4926,7 @@ _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit130: 
   %523 = load ptr, ptr %503, align 8
   %524 = getelementptr inbounds i8, ptr %523, i64 16
   %525 = load ptr, ptr %524, align 8
-  call void %525(ptr noundef nonnull align 8 dereferenceable(16) %503) #19
+  call void %525(ptr noundef nonnull align 8 dereferenceable(16) %503) #20
   %526 = getelementptr inbounds i8, ptr %503, i64 12
   %527 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i134 = icmp eq i8 %527, 0
@@ -4951,7 +4951,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %535 = load ptr, ptr %503, align 8
   %536 = getelementptr inbounds i8, ptr %535, i64 24
   %537 = load ptr, ptr %536, align 8
-  call void %537(ptr noundef nonnull align 8 dereferenceable(16) %503) #19
+  call void %537(ptr noundef nonnull align 8 dereferenceable(16) %503) #20
   br label %_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit137
 
 _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit137: ; preds = %_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit130, %520, %533, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i136
@@ -5007,7 +5007,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32Track
   %560 = load ptr, ptr %542, align 8
   %561 = getelementptr inbounds i8, ptr %560, i64 16
   %562 = load ptr, ptr %561, align 8
-  call void %562(ptr noundef nonnull align 8 dereferenceable(16) %542) #19
+  call void %562(ptr noundef nonnull align 8 dereferenceable(16) %542) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i146
 
 563:                                              ; preds = %553
@@ -5033,7 +5033,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32Track
   %572 = load ptr, ptr %542, align 8
   %573 = getelementptr inbounds i8, ptr %572, i64 16
   %574 = load ptr, ptr %573, align 8
-  call void %574(ptr noundef nonnull align 8 dereferenceable(16) %542) #19
+  call void %574(ptr noundef nonnull align 8 dereferenceable(16) %542) #20
   %575 = getelementptr inbounds i8, ptr %542, i64 12
   %576 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i144 = icmp eq i8 %576, 0
@@ -5058,7 +5058,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %584 = load ptr, ptr %542, align 8
   %585 = getelementptr inbounds i8, ptr %584, i64 24
   %586 = load ptr, ptr %585, align 8
-  call void %586(ptr noundef nonnull align 8 dereferenceable(16) %542) #19
+  call void %586(ptr noundef nonnull align 8 dereferenceable(16) %542) #20
   br label %_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit147
 
 _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit147: ; preds = %552, %569, %582, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i146
@@ -5080,7 +5080,7 @@ _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit147: 
   %595 = load ptr, ptr %587, align 8
   %596 = getelementptr inbounds i8, ptr %595, i64 16
   %597 = load ptr, ptr %596, align 8
-  call void %597(ptr noundef nonnull align 8 dereferenceable(16) %587) #19
+  call void %597(ptr noundef nonnull align 8 dereferenceable(16) %587) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i153
 
 598:                                              ; preds = %588
@@ -5106,7 +5106,7 @@ _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit147: 
   %607 = load ptr, ptr %587, align 8
   %608 = getelementptr inbounds i8, ptr %607, i64 16
   %609 = load ptr, ptr %608, align 8
-  call void %609(ptr noundef nonnull align 8 dereferenceable(16) %587) #19
+  call void %609(ptr noundef nonnull align 8 dereferenceable(16) %587) #20
   %610 = getelementptr inbounds i8, ptr %587, i64 12
   %611 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i151 = icmp eq i8 %611, 0
@@ -5131,7 +5131,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %619 = load ptr, ptr %587, align 8
   %620 = getelementptr inbounds i8, ptr %619, i64 24
   %621 = load ptr, ptr %620, align 8
-  call void %621(ptr noundef nonnull align 8 dereferenceable(16) %587) #19
+  call void %621(ptr noundef nonnull align 8 dereferenceable(16) %587) #20
   br label %_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit154
 
 _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit154: ; preds = %_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit147, %604, %617, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i153
@@ -5150,8 +5150,8 @@ _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit154: ; preds = %
 627:                                              ; preds = %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit
   %628 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #19
-  call void @_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #20
+  call void @_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit346
 
 629:                                              ; preds = %_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit
@@ -5172,19 +5172,19 @@ _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit154: ; preds = %
   br i1 %.not.i.i.i155, label %_ZNSt6vectorIiSaIiEED2Ev.exit156, label %636
 
 636:                                              ; preds = %633
-  call void @_ZdlPv(ptr noundef nonnull %635) #23
+  call void @_ZdlPv(ptr noundef nonnull %635) #24
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit156
 
 637:                                              ; preds = %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit
   %638 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #19
+  call void @_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #20
   br label %1506
 
 639:                                              ; preds = %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit113
   %640 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #19
+  call void @_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #20
   br label %1506
 
 641:                                              ; preds = %647, %_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit154, %_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit137, %_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit120
@@ -5195,15 +5195,15 @@ _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit154: ; preds = %
 643:                                              ; preds = %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit123
   %644 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #19
-  call void @_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #20
+  call void @_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #20
   br label %1506
 
 645:                                              ; preds = %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit140
   %646 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #19
-  call void @_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #20
+  call void @_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #20
   br label %1506
 
 647:                                              ; preds = %624
@@ -5259,7 +5259,7 @@ _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit154: ; preds = %
   br i1 %.not.i.i157.not, label %674, label %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit159
 
 674:                                              ; preds = %670
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 0) #20
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 0) #21
           to label %.noexc158 unwind label %817
 
 .noexc158:                                        ; preds = %674
@@ -5314,7 +5314,7 @@ _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS
   %696 = load ptr, ptr %678, align 8
   %697 = getelementptr inbounds i8, ptr %696, i64 16
   %698 = load ptr, ptr %697, align 8
-  call void %698(ptr noundef nonnull align 8 dereferenceable(16) %678) #19
+  call void %698(ptr noundef nonnull align 8 dereferenceable(16) %678) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i168
 
 699:                                              ; preds = %689
@@ -5340,7 +5340,7 @@ _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS
   %708 = load ptr, ptr %678, align 8
   %709 = getelementptr inbounds i8, ptr %708, i64 16
   %710 = load ptr, ptr %709, align 8
-  call void %710(ptr noundef nonnull align 8 dereferenceable(16) %678) #19
+  call void %710(ptr noundef nonnull align 8 dereferenceable(16) %678) #20
   %711 = getelementptr inbounds i8, ptr %678, i64 12
   %712 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i166 = icmp eq i8 %712, 0
@@ -5365,7 +5365,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %720 = load ptr, ptr %678, align 8
   %721 = getelementptr inbounds i8, ptr %720, i64 24
   %722 = load ptr, ptr %721, align 8
-  call void %722(ptr noundef nonnull align 8 dereferenceable(16) %678) #19
+  call void %722(ptr noundef nonnull align 8 dereferenceable(16) %678) #20
   br label %723
 
 723:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i168, %718, %705, %688
@@ -5411,7 +5411,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i170.not, label %744, label %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit172
 
 744:                                              ; preds = %740
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 0) #20
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 0) #21
           to label %.noexc171 unwind label %821
 
 .noexc171:                                        ; preds = %744
@@ -5466,7 +5466,7 @@ _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS
   %766 = load ptr, ptr %748, align 8
   %767 = getelementptr inbounds i8, ptr %766, i64 16
   %768 = load ptr, ptr %767, align 8
-  call void %768(ptr noundef nonnull align 8 dereferenceable(16) %748) #19
+  call void %768(ptr noundef nonnull align 8 dereferenceable(16) %748) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i181
 
 769:                                              ; preds = %759
@@ -5492,7 +5492,7 @@ _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS
   %778 = load ptr, ptr %748, align 8
   %779 = getelementptr inbounds i8, ptr %778, i64 16
   %780 = load ptr, ptr %779, align 8
-  call void %780(ptr noundef nonnull align 8 dereferenceable(16) %748) #19
+  call void %780(ptr noundef nonnull align 8 dereferenceable(16) %748) #20
   %781 = getelementptr inbounds i8, ptr %748, i64 12
   %782 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i179 = icmp eq i8 %782, 0
@@ -5517,7 +5517,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %790 = load ptr, ptr %748, align 8
   %791 = getelementptr inbounds i8, ptr %790, i64 24
   %792 = load ptr, ptr %791, align 8
-  call void %792(ptr noundef nonnull align 8 dereferenceable(16) %748) #19
+  call void %792(ptr noundef nonnull align 8 dereferenceable(16) %748) #20
   br label %793
 
 793:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i181, %788, %775, %758
@@ -5572,7 +5572,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 819:                                              ; preds = %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit162
   %820 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #20
   br label %1421
 
 821:                                              ; preds = %744, %806, %803, %793, %737
@@ -5583,7 +5583,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 823:                                              ; preds = %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit175
   %824 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %34) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %34) #20
   br label %1420
 
 825:                                              ; preds = %812
@@ -5646,7 +5646,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.sroa.0.0.insert.ext = zext i32 %855 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   store i64 %.sroa.0.0.insert.insert, ptr %858, align 4
-  %859 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
+  %859 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
           to label %860 unwind label %1286
 
 860:                                              ; preds = %838
@@ -5657,19 +5657,19 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store ptr %859, ptr %39, align 8
   %862 = getelementptr inbounds i8, ptr %39, i64 8
   store ptr null, ptr %862, align 8
-  %863 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
+  %863 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %877 unwind label %864
 
 864:                                              ; preds = %861
   %865 = landingpad { ptr, i32 }
           catch ptr null
   %866 = extractvalue { ptr, i32 } %865, 0
-  %867 = call ptr @__cxa_begin_catch(ptr %866) #19
+  %867 = call ptr @__cxa_begin_catch(ptr %866) #20
   %868 = load ptr, ptr %859, align 8
   %869 = getelementptr inbounds i8, ptr %868, i64 8
   %870 = load ptr, ptr %869, align 8
-  call void %870(ptr noundef nonnull align 8 dereferenceable(72) %859) #19
-  invoke void @__cxa_rethrow() #20
+  call void %870(ptr noundef nonnull align 8 dereferenceable(72) %859) #20
+  invoke void @__cxa_rethrow() #21
           to label %876 unwind label %871
 
 871:                                              ; preds = %864
@@ -5682,7 +5682,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %874 = landingpad { ptr, i32 }
           catch ptr null
   %875 = extractvalue { ptr, i32 } %874, 0
-  call void @__clang_call_terminate(ptr %875) #22
+  call void @__clang_call_terminate(ptr %875) #23
   unreachable
 
 876:                                              ; preds = %864
@@ -5743,7 +5743,7 @@ _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20T
   %900 = load ptr, ptr %882, align 8
   %901 = getelementptr inbounds i8, ptr %900, i64 16
   %902 = load ptr, ptr %901, align 8
-  call void %902(ptr noundef nonnull align 8 dereferenceable(16) %882) #19
+  call void %902(ptr noundef nonnull align 8 dereferenceable(16) %882) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i201
 
 903:                                              ; preds = %893
@@ -5769,7 +5769,7 @@ _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20T
   %912 = load ptr, ptr %882, align 8
   %913 = getelementptr inbounds i8, ptr %912, i64 16
   %914 = load ptr, ptr %913, align 8
-  call void %914(ptr noundef nonnull align 8 dereferenceable(16) %882) #19
+  call void %914(ptr noundef nonnull align 8 dereferenceable(16) %882) #20
   %915 = getelementptr inbounds i8, ptr %882, i64 12
   %916 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i199 = icmp eq i8 %916, 0
@@ -5794,7 +5794,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %924 = load ptr, ptr %882, align 8
   %925 = getelementptr inbounds i8, ptr %924, i64 24
   %926 = load ptr, ptr %925, align 8
-  call void %926(ptr noundef nonnull align 8 dereferenceable(16) %882) #19
+  call void %926(ptr noundef nonnull align 8 dereferenceable(16) %882) #20
   br label %_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit202
 
 _ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit202: ; preds = %892, %909, %922, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i201
@@ -5849,7 +5849,7 @@ _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20T
   %948 = load ptr, ptr %930, align 8
   %949 = getelementptr inbounds i8, ptr %948, i64 16
   %950 = load ptr, ptr %949, align 8
-  call void %950(ptr noundef nonnull align 8 dereferenceable(16) %930) #19
+  call void %950(ptr noundef nonnull align 8 dereferenceable(16) %930) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i211
 
 951:                                              ; preds = %941
@@ -5875,7 +5875,7 @@ _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20T
   %960 = load ptr, ptr %930, align 8
   %961 = getelementptr inbounds i8, ptr %960, i64 16
   %962 = load ptr, ptr %961, align 8
-  call void %962(ptr noundef nonnull align 8 dereferenceable(16) %930) #19
+  call void %962(ptr noundef nonnull align 8 dereferenceable(16) %930) #20
   %963 = getelementptr inbounds i8, ptr %930, i64 12
   %964 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i209 = icmp eq i8 %964, 0
@@ -5900,7 +5900,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %972 = load ptr, ptr %930, align 8
   %973 = getelementptr inbounds i8, ptr %972, i64 24
   %974 = load ptr, ptr %973, align 8
-  call void %974(ptr noundef nonnull align 8 dereferenceable(16) %930) #19
+  call void %974(ptr noundef nonnull align 8 dereferenceable(16) %930) #20
   br label %_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit212
 
 _ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit212: ; preds = %940, %957, %970, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i211
@@ -5966,7 +5966,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32Track
   %1001 = load ptr, ptr %983, align 8
   %1002 = getelementptr inbounds i8, ptr %1001, i64 16
   %1003 = load ptr, ptr %1002, align 8
-  call void %1003(ptr noundef nonnull align 8 dereferenceable(16) %983) #19
+  call void %1003(ptr noundef nonnull align 8 dereferenceable(16) %983) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i221
 
 1004:                                             ; preds = %994
@@ -5992,7 +5992,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32Track
   %1013 = load ptr, ptr %983, align 8
   %1014 = getelementptr inbounds i8, ptr %1013, i64 16
   %1015 = load ptr, ptr %1014, align 8
-  call void %1015(ptr noundef nonnull align 8 dereferenceable(16) %983) #19
+  call void %1015(ptr noundef nonnull align 8 dereferenceable(16) %983) #20
   %1016 = getelementptr inbounds i8, ptr %983, i64 12
   %1017 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i219 = icmp eq i8 %1017, 0
@@ -6017,7 +6017,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %1025 = load ptr, ptr %983, align 8
   %1026 = getelementptr inbounds i8, ptr %1025, i64 24
   %1027 = load ptr, ptr %1026, align 8
-  call void %1027(ptr noundef nonnull align 8 dereferenceable(16) %983) #19
+  call void %1027(ptr noundef nonnull align 8 dereferenceable(16) %983) #20
   br label %_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit222
 
 _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit222: ; preds = %993, %1010, %1023, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i221
@@ -6039,7 +6039,7 @@ _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit222: 
   %1036 = load ptr, ptr %1028, align 8
   %1037 = getelementptr inbounds i8, ptr %1036, i64 16
   %1038 = load ptr, ptr %1037, align 8
-  call void %1038(ptr noundef nonnull align 8 dereferenceable(16) %1028) #19
+  call void %1038(ptr noundef nonnull align 8 dereferenceable(16) %1028) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i228
 
 1039:                                             ; preds = %1029
@@ -6065,7 +6065,7 @@ _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit222: 
   %1048 = load ptr, ptr %1028, align 8
   %1049 = getelementptr inbounds i8, ptr %1048, i64 16
   %1050 = load ptr, ptr %1049, align 8
-  call void %1050(ptr noundef nonnull align 8 dereferenceable(16) %1028) #19
+  call void %1050(ptr noundef nonnull align 8 dereferenceable(16) %1028) #20
   %1051 = getelementptr inbounds i8, ptr %1028, i64 12
   %1052 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i226 = icmp eq i8 %1052, 0
@@ -6090,7 +6090,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %1060 = load ptr, ptr %1028, align 8
   %1061 = getelementptr inbounds i8, ptr %1060, i64 24
   %1062 = load ptr, ptr %1061, align 8
-  call void %1062(ptr noundef nonnull align 8 dereferenceable(16) %1028) #19
+  call void %1062(ptr noundef nonnull align 8 dereferenceable(16) %1028) #20
   br label %_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit229
 
 _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit229: ; preds = %_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit222, %1045, %1058, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i228
@@ -6146,7 +6146,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32Track
   %1085 = load ptr, ptr %1067, align 8
   %1086 = getelementptr inbounds i8, ptr %1085, i64 16
   %1087 = load ptr, ptr %1086, align 8
-  call void %1087(ptr noundef nonnull align 8 dereferenceable(16) %1067) #19
+  call void %1087(ptr noundef nonnull align 8 dereferenceable(16) %1067) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i238
 
 1088:                                             ; preds = %1078
@@ -6172,7 +6172,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32Track
   %1097 = load ptr, ptr %1067, align 8
   %1098 = getelementptr inbounds i8, ptr %1097, i64 16
   %1099 = load ptr, ptr %1098, align 8
-  call void %1099(ptr noundef nonnull align 8 dereferenceable(16) %1067) #19
+  call void %1099(ptr noundef nonnull align 8 dereferenceable(16) %1067) #20
   %1100 = getelementptr inbounds i8, ptr %1067, i64 12
   %1101 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i236 = icmp eq i8 %1101, 0
@@ -6197,7 +6197,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %1109 = load ptr, ptr %1067, align 8
   %1110 = getelementptr inbounds i8, ptr %1109, i64 24
   %1111 = load ptr, ptr %1110, align 8
-  call void %1111(ptr noundef nonnull align 8 dereferenceable(16) %1067) #19
+  call void %1111(ptr noundef nonnull align 8 dereferenceable(16) %1067) #20
   br label %_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit239
 
 _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit239: ; preds = %1077, %1094, %1107, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i238
@@ -6219,7 +6219,7 @@ _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit239: 
   %1120 = load ptr, ptr %1112, align 8
   %1121 = getelementptr inbounds i8, ptr %1120, i64 16
   %1122 = load ptr, ptr %1121, align 8
-  call void %1122(ptr noundef nonnull align 8 dereferenceable(16) %1112) #19
+  call void %1122(ptr noundef nonnull align 8 dereferenceable(16) %1112) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i245
 
 1123:                                             ; preds = %1113
@@ -6245,7 +6245,7 @@ _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit239: 
   %1132 = load ptr, ptr %1112, align 8
   %1133 = getelementptr inbounds i8, ptr %1132, i64 16
   %1134 = load ptr, ptr %1133, align 8
-  call void %1134(ptr noundef nonnull align 8 dereferenceable(16) %1112) #19
+  call void %1134(ptr noundef nonnull align 8 dereferenceable(16) %1112) #20
   %1135 = getelementptr inbounds i8, ptr %1112, i64 12
   %1136 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i243 = icmp eq i8 %1136, 0
@@ -6270,7 +6270,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %1144 = load ptr, ptr %1112, align 8
   %1145 = getelementptr inbounds i8, ptr %1144, i64 24
   %1146 = load ptr, ptr %1145, align 8
-  call void %1146(ptr noundef nonnull align 8 dereferenceable(16) %1112) #19
+  call void %1146(ptr noundef nonnull align 8 dereferenceable(16) %1112) #20
   br label %_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit246
 
 _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit246: ; preds = %_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev.exit239, %1129, %1142, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i245
@@ -6313,7 +6313,7 @@ _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit246: ; preds = %
   br i1 %.not.i.i247.not, label %.invoke, label %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking21TrackerContribFeatureEEEESaISD_EE2atEm.exit
 
 .invoke:                                          ; preds = %1223, %1163
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 0) #20
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 0) #21
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -6373,7 +6373,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25Track
   %1194 = load ptr, ptr %1170, align 8
   %1195 = getelementptr inbounds i8, ptr %1194, i64 16
   %1196 = load ptr, ptr %1195, align 8
-  call void %1196(ptr noundef nonnull align 8 dereferenceable(16) %1170) #19
+  call void %1196(ptr noundef nonnull align 8 dereferenceable(16) %1170) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i257
 
 1197:                                             ; preds = %1187
@@ -6399,7 +6399,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25Track
   %1206 = load ptr, ptr %1170, align 8
   %1207 = getelementptr inbounds i8, ptr %1206, i64 16
   %1208 = load ptr, ptr %1207, align 8
-  call void %1208(ptr noundef nonnull align 8 dereferenceable(16) %1170) #19
+  call void %1208(ptr noundef nonnull align 8 dereferenceable(16) %1170) #20
   %1209 = getelementptr inbounds i8, ptr %1170, i64 12
   %1210 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i255 = icmp eq i8 %1210, 0
@@ -6424,7 +6424,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %1218 = load ptr, ptr %1170, align 8
   %1219 = getelementptr inbounds i8, ptr %1218, i64 24
   %1220 = load ptr, ptr %1219, align 8
-  call void %1220(ptr noundef nonnull align 8 dereferenceable(16) %1170) #19
+  call void %1220(ptr noundef nonnull align 8 dereferenceable(16) %1170) #20
   br label %_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit
 
 _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit: ; preds = %1186, %1203, %1216, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i257
@@ -6496,7 +6496,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25Track
   %1255 = load ptr, ptr %1230, align 8
   %1256 = getelementptr inbounds i8, ptr %1255, i64 16
   %1257 = load ptr, ptr %1256, align 8
-  call void %1257(ptr noundef nonnull align 8 dereferenceable(16) %1230) #19
+  call void %1257(ptr noundef nonnull align 8 dereferenceable(16) %1230) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i269
 
 1258:                                             ; preds = %1248
@@ -6522,7 +6522,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25Track
   %1267 = load ptr, ptr %1230, align 8
   %1268 = getelementptr inbounds i8, ptr %1267, i64 16
   %1269 = load ptr, ptr %1268, align 8
-  call void %1269(ptr noundef nonnull align 8 dereferenceable(16) %1230) #19
+  call void %1269(ptr noundef nonnull align 8 dereferenceable(16) %1230) #20
   %1270 = getelementptr inbounds i8, ptr %1230, i64 12
   %1271 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i267 = icmp eq i8 %1271, 0
@@ -6547,7 +6547,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %1279 = load ptr, ptr %1230, align 8
   %1280 = getelementptr inbounds i8, ptr %1279, i64 24
   %1281 = load ptr, ptr %1280, align 8
-  call void %1281(ptr noundef nonnull align 8 dereferenceable(16) %1230) #19
+  call void %1281(ptr noundef nonnull align 8 dereferenceable(16) %1230) #20
   br label %_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit270
 
 1282:                                             ; preds = %830, %827, %825
@@ -6568,13 +6568,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 1288:                                             ; preds = %860
   %1289 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %859) #23
+  call void @_ZdlPv(ptr noundef nonnull %859) #24
   br label %.body
 
 1290:                                             ; preds = %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit195
   %1291 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #19
+  call void @_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit296
 
 1292:                                             ; preds = %978, %976, %_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit212, %_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev.exit202
@@ -6585,14 +6585,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 1294:                                             ; preds = %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit205
   %1295 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #19
+  call void @_ZN2cv3PtrINS_8tracking4impl20TrackerBoostingModelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit296
 
 1296:                                             ; preds = %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit215
   %1297 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %43) #19
-  call void @_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %43) #20
+  call void @_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit296
 
 1298:                                             ; preds = %_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit229
@@ -6603,8 +6603,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 1300:                                             ; preds = %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit232
   %1301 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %46) #19
-  call void @_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %47) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoostingEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %46) #20
+  call void @_ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %47) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit294
 
 .loopexit:                                        ; preds = %1160, %_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit
@@ -6620,13 +6620,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 1302:                                             ; preds = %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit251
   %1303 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %48) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %48) #20
   br label %1366
 
 1304:                                             ; preds = %1245, %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit263
   %1305 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %49) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %49) #20
   br label %1366
 
 _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit270: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i269, %1277, %1264, %1247, %1152, %1156
@@ -6647,7 +6647,7 @@ _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit270: ; preds
   br i1 %.not.i.i.i271, label %_ZNSt6vectorIiSaIiEED2Ev.exit272, label %1316
 
 1316:                                             ; preds = %._crit_edge
-  call void @_ZdlPv(ptr noundef nonnull %1315) #23
+  call void @_ZdlPv(ptr noundef nonnull %1315) #24
   %.pre = load ptr, ptr %42, align 8
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit272
 
@@ -6657,7 +6657,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit272:                 ; preds = %._crit_edge, %1316
   br i1 %.not.i.i.i273, label %_ZNSt6vectorIiSaIiEED2Ev.exit274, label %1318
 
 1318:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit272
-  call void @_ZdlPv(ptr noundef nonnull %1317) #23
+  call void @_ZdlPv(ptr noundef nonnull %1317) #24
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit274
 
 _ZNSt6vectorIiSaIiEED2Ev.exit274:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit272, %1318
@@ -6679,7 +6679,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit274:                 ; preds = %_ZNSt6vectorIiSaIiE
   %1327 = load ptr, ptr %1319, align 8
   %1328 = getelementptr inbounds i8, ptr %1327, i64 16
   %1329 = load ptr, ptr %1328, align 8
-  call void %1329(ptr noundef nonnull align 8 dereferenceable(16) %1319) #19
+  call void %1329(ptr noundef nonnull align 8 dereferenceable(16) %1319) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i280
 
 1330:                                             ; preds = %1320
@@ -6705,7 +6705,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit274:                 ; preds = %_ZNSt6vectorIiSaIiE
   %1339 = load ptr, ptr %1319, align 8
   %1340 = getelementptr inbounds i8, ptr %1339, i64 16
   %1341 = load ptr, ptr %1340, align 8
-  call void %1341(ptr noundef nonnull align 8 dereferenceable(16) %1319) #19
+  call void %1341(ptr noundef nonnull align 8 dereferenceable(16) %1319) #20
   %1342 = getelementptr inbounds i8, ptr %1319, i64 12
   %1343 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i278 = icmp eq i8 %1343, 0
@@ -6730,7 +6730,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %1351 = load ptr, ptr %1319, align 8
   %1352 = getelementptr inbounds i8, ptr %1351, i64 24
   %1353 = load ptr, ptr %1352, align 8
-  call void %1353(ptr noundef nonnull align 8 dereferenceable(16) %1319) #19
+  call void %1353(ptr noundef nonnull align 8 dereferenceable(16) %1319) #20
   br label %_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit281
 
 _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit281: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit274, %1336, %1349, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i280
@@ -6742,7 +6742,7 @@ _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit281: ; preds
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit281, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %1357, %.lr.ph.i.i.i.i ], [ %1354, %_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit281 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #20
   %1357 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 96
   %.not.i.i.i.i282 = icmp eq ptr %1357, %1356
   br i1 %.not.i.i.i.i282, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !49
@@ -6757,7 +6757,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2c
   br i1 %.not.i.i.i283, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %1359
 
 1359:                                             ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %1358) #23
+  call void @_ZdlPv(ptr noundef nonnull %1358) #24
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %1359
@@ -6769,7 +6769,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 .lr.ph.i.i.i.i285:                                ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, %.lr.ph.i.i.i.i285
   %.05.i.i.i.i286 = phi ptr [ %1363, %.lr.ph.i.i.i.i285 ], [ %1360, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i286) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i286) #20
   %1363 = getelementptr inbounds i8, ptr %.05.i.i.i.i286, i64 96
   %.not.i.i.i.i287 = icmp eq ptr %1363, %1362
   br i1 %.not.i.i.i.i287, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i288, label %.lr.ph.i.i.i.i285, !llvm.loop !49
@@ -6784,7 +6784,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i290: ; preds = %_ZSt8_DestroyIP
   br i1 %.not.i.i.i291, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit292, label %1365
 
 1365:                                             ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i290
-  call void @_ZdlPv(ptr noundef nonnull %1364) #23
+  call void @_ZdlPv(ptr noundef nonnull %1364) #24
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit292
 
 1366:                                             ; preds = %.loopexit, %.loopexit.split-lp, %1304, %1302
@@ -6794,7 +6794,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i290: ; preds = %_ZSt8_DestroyIP
   br i1 %.not.i.i.i293, label %_ZNSt6vectorIiSaIiEED2Ev.exit294, label %1368
 
 1368:                                             ; preds = %1366
-  call void @_ZdlPv(ptr noundef nonnull %1367) #23
+  call void @_ZdlPv(ptr noundef nonnull %1367) #24
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit294
 
 _ZNSt6vectorIiSaIiEED2Ev.exit294:                 ; preds = %1368, %1366, %1300, %1298
@@ -6804,22 +6804,22 @@ _ZNSt6vectorIiSaIiEED2Ev.exit294:                 ; preds = %1368, %1366, %1300,
   br i1 %.not.i.i.i295, label %_ZNSt6vectorIiSaIiEED2Ev.exit296, label %1370
 
 1370:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit294
-  call void @_ZdlPv(ptr noundef nonnull %1369) #23
+  call void @_ZdlPv(ptr noundef nonnull %1369) #24
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit296
 
 _ZNSt6vectorIiSaIiEED2Ev.exit296:                 ; preds = %1370, %_ZNSt6vectorIiSaIiEED2Ev.exit294, %1296, %1294, %1292, %1290
   %.pn52.pn.pn = phi { ptr, i32 } [ %1297, %1296 ], [ %1293, %1292 ], [ %1295, %1294 ], [ %1291, %1290 ], [ %.pn52.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit294 ], [ %.pn52.pn, %1370 ]
-  call void @_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #20
   br label %.body
 
 .body:                                            ; preds = %1286, %871, %_ZNSt6vectorIiSaIiEED2Ev.exit296, %1288
   %.pn52.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit296 ], [ %1289, %1288 ], [ %1287, %1286 ], [ %872, %871 ]
-  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #19
+  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #20
   br label %1371
 
 1371:                                             ; preds = %.body, %1284
   %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body ], [ %1285, %1284 ]
-  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #19
+  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #20
   br label %1419
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit292:       ; preds = %1365, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i290, %807, %812
@@ -6832,7 +6832,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit292:       ; preds = %1365, %_ZSt8_Destro
 
 .lr.ph.i.i.i.i298:                                ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit292, %.lr.ph.i.i.i.i298
   %.05.i.i.i.i299 = phi ptr [ %1375, %.lr.ph.i.i.i.i298 ], [ %1372, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit292 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i299) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i299) #20
   %1375 = getelementptr inbounds i8, ptr %.05.i.i.i.i299, i64 96
   %.not.i.i.i.i300 = icmp eq ptr %1375, %1374
   br i1 %.not.i.i.i.i300, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i301, label %.lr.ph.i.i.i.i298, !llvm.loop !49
@@ -6847,7 +6847,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i303: ; preds = %_ZSt8_DestroyIP
   br i1 %.not.i.i.i304, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit305, label %1377
 
 1377:                                             ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i303
-  call void @_ZdlPv(ptr noundef nonnull %1376) #23
+  call void @_ZdlPv(ptr noundef nonnull %1376) #24
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit305
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit305:       ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i303, %1377
@@ -6858,7 +6858,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit305:       ; preds = %_ZSt8_DestroyIPN2cv
 
 .lr.ph.i.i.i.i307:                                ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit305, %.lr.ph.i.i.i.i307
   %.05.i.i.i.i308 = phi ptr [ %1380, %.lr.ph.i.i.i.i307 ], [ %1378, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit305 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i308) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i308) #20
   %1380 = getelementptr inbounds i8, ptr %.05.i.i.i.i308, i64 96
   %.not.i.i.i.i309 = icmp eq ptr %1380, %1379
   br i1 %.not.i.i.i.i309, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i310, label %.lr.ph.i.i.i.i307, !llvm.loop !49
@@ -6873,7 +6873,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i312: ; preds = %_ZSt8_DestroyIP
   br i1 %.not.i.i.i313, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit314, label %1382
 
 1382:                                             ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i312
-  call void @_ZdlPv(ptr noundef nonnull %1381) #23
+  call void @_ZdlPv(ptr noundef nonnull %1381) #24
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit314
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit314:       ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i312, %1382
@@ -6896,7 +6896,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit314:       ; preds = %_ZSt8_DestroyIPN2cv
   %1392 = load ptr, ptr %1384, align 8
   %1393 = getelementptr inbounds i8, ptr %1392, i64 16
   %1394 = load ptr, ptr %1393, align 8
-  call void %1394(ptr noundef nonnull align 8 dereferenceable(16) %1384) #19
+  call void %1394(ptr noundef nonnull align 8 dereferenceable(16) %1384) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i320
 
 1395:                                             ; preds = %1385
@@ -6922,7 +6922,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit314:       ; preds = %_ZSt8_DestroyIPN2cv
   %1404 = load ptr, ptr %1384, align 8
   %1405 = getelementptr inbounds i8, ptr %1404, i64 16
   %1406 = load ptr, ptr %1405, align 8
-  call void %1406(ptr noundef nonnull align 8 dereferenceable(16) %1384) #19
+  call void %1406(ptr noundef nonnull align 8 dereferenceable(16) %1384) #20
   %1407 = getelementptr inbounds i8, ptr %1384, i64 12
   %1408 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i318 = icmp eq i8 %1408, 0
@@ -6947,22 +6947,22 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %1416 = load ptr, ptr %1384, align 8
   %1417 = getelementptr inbounds i8, ptr %1416, i64 24
   %1418 = load ptr, ptr %1417, align 8
-  call void %1418(ptr noundef nonnull align 8 dereferenceable(16) %1384) #19
+  call void %1418(ptr noundef nonnull align 8 dereferenceable(16) %1384) #20
   br label %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEED2Ev.exit
 
 1419:                                             ; preds = %1371, %1282
   %.pn52.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn.pn, %1371 ], [ %1283, %1282 ]
-  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #19
+  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #20
   br label %1420
 
 1420:                                             ; preds = %1419, %823, %821
   %.pn52.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn.pn.pn, %1419 ], [ %822, %821 ], [ %824, %823 ]
-  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #19
+  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #20
   br label %1421
 
 1421:                                             ; preds = %1420, %819, %817
   %.pn52.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn.pn.pn.pn, %1420 ], [ %818, %817 ], [ %820, %819 ]
-  call void @_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #20
   br label %1506
 
 _ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i320, %1414, %1401, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit314, %624
@@ -6994,7 +6994,7 @@ _ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEED2Ev.exit: ; preds = %_ZNSt1
   %1434 = load ptr, ptr %1426, align 8
   %1435 = getelementptr inbounds i8, ptr %1434, i64 16
   %1436 = load ptr, ptr %1435, align 8
-  call void %1436(ptr noundef nonnull align 8 dereferenceable(16) %1426) #19
+  call void %1436(ptr noundef nonnull align 8 dereferenceable(16) %1426) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i
 
 1437:                                             ; preds = %1427
@@ -7020,7 +7020,7 @@ _ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEED2Ev.exit: ; preds = %_ZNSt1
   %1446 = load ptr, ptr %1426, align 8
   %1447 = getelementptr inbounds i8, ptr %1446, i64 16
   %1448 = load ptr, ptr %1447, align 8
-  call void %1448(ptr noundef nonnull align 8 dereferenceable(16) %1426) #19
+  call void %1448(ptr noundef nonnull align 8 dereferenceable(16) %1426) #20
   %1449 = getelementptr inbounds i8, ptr %1426, i64 12
   %1450 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %1450, 0
@@ -7045,7 +7045,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %1458 = load ptr, ptr %1426, align 8
   %1459 = getelementptr inbounds i8, ptr %1458, i64 24
   %1460 = load ptr, ptr %1459, align 8
-  call void %1460(ptr noundef nonnull align 8 dereferenceable(16) %1426) #19
+  call void %1460(ptr noundef nonnull align 8 dereferenceable(16) %1426) #20
   br label %_ZSt8_DestroyISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfEEvPT_.exit.i.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i, %1456, %1443, %.lr.ph.i.i.i.i322
@@ -7063,7 +7063,7 @@ _ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_
   br i1 %.not.i.i.i326, label %_ZNSt6vectorISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EED2Ev.exit, label %1463
 
 1463:                                             ; preds = %_ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %1462) #23
+  call void @_ZdlPv(ptr noundef nonnull %1462) #24
   br label %_ZNSt6vectorISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exit.i, %1463
@@ -7085,7 +7085,7 @@ _ZNSt6vectorISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7
   %1472 = load ptr, ptr %1464, align 8
   %1473 = getelementptr inbounds i8, ptr %1472, i64 16
   %1474 = load ptr, ptr %1473, align 8
-  call void %1474(ptr noundef nonnull align 8 dereferenceable(16) %1464) #19
+  call void %1474(ptr noundef nonnull align 8 dereferenceable(16) %1464) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i332
 
 1475:                                             ; preds = %1465
@@ -7111,7 +7111,7 @@ _ZNSt6vectorISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7
   %1484 = load ptr, ptr %1464, align 8
   %1485 = getelementptr inbounds i8, ptr %1484, i64 16
   %1486 = load ptr, ptr %1485, align 8
-  call void %1486(ptr noundef nonnull align 8 dereferenceable(16) %1464) #19
+  call void %1486(ptr noundef nonnull align 8 dereferenceable(16) %1464) #20
   %1487 = getelementptr inbounds i8, ptr %1464, i64 12
   %1488 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i330 = icmp eq i8 %1488, 0
@@ -7136,7 +7136,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %1496 = load ptr, ptr %1464, align 8
   %1497 = getelementptr inbounds i8, ptr %1496, i64 24
   %1498 = load ptr, ptr %1497, align 8
-  call void %1498(ptr noundef nonnull align 8 dereferenceable(16) %1464) #19
+  call void %1498(ptr noundef nonnull align 8 dereferenceable(16) %1464) #20
   br label %_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit333
 
 _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit333: ; preds = %_ZNSt6vectorISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EED2Ev.exit, %1481, %1494, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i332
@@ -7145,11 +7145,11 @@ _ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit333: ; preds
   br i1 %.not.i.i.i334, label %_ZNSt6vectorIiSaIiEED2Ev.exit335, label %1500
 
 1500:                                             ; preds = %_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit333
-  call void @_ZdlPv(ptr noundef nonnull %1499) #23
+  call void @_ZdlPv(ptr noundef nonnull %1499) #24
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit335
 
 _ZNSt6vectorIiSaIiEED2Ev.exit335:                 ; preds = %_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev.exit333, %1500
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #20
   %1501 = load ptr, ptr %17, align 8
   %1502 = load ptr, ptr %353, align 8
   %.not4.i.i.i.i336 = icmp eq ptr %1501, %1502
@@ -7157,7 +7157,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit335:                 ; preds = %_ZN2cv3PtrINS_6deta
 
 .lr.ph.i.i.i.i337:                                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit335, %.lr.ph.i.i.i.i337
   %.05.i.i.i.i338 = phi ptr [ %1503, %.lr.ph.i.i.i.i337 ], [ %1501, %_ZNSt6vectorIiSaIiEED2Ev.exit335 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i338) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i338) #20
   %1503 = getelementptr inbounds i8, ptr %.05.i.i.i.i338, i64 96
   %.not.i.i.i.i339 = icmp eq ptr %1503, %1502
   br i1 %.not.i.i.i.i339, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i340, label %.lr.ph.i.i.i.i337, !llvm.loop !49
@@ -7172,17 +7172,17 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i342: ; preds = %_ZSt8_DestroyIP
   br i1 %.not.i.i.i343, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit344, label %1505
 
 1505:                                             ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i342
-  call void @_ZdlPv(ptr noundef nonnull %1504) #23
+  call void @_ZdlPv(ptr noundef nonnull %1504) #24
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit344
 
 1506:                                             ; preds = %1421, %645, %643, %641, %639, %637
   %.pn52.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn.pn.pn.pn.pn, %1421 ], [ %642, %641 ], [ %646, %645 ], [ %644, %643 ], [ %640, %639 ], [ %638, %637 ]
-  call void @_ZNSt6vectorISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #19
+  call void @_ZNSt6vectorISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit156
 
 _ZNSt6vectorIiSaIiEED2Ev.exit156:                 ; preds = %636, %633, %1506, %631
   %.pn52.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn.pn.pn.pn.pn.pn, %1506 ], [ %632, %631 ], [ %634, %633 ], [ %634, %636 ]
-  call void @_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking25TrackerContribFeatureHAAREED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #20
   br label %1507
 
 1507:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit156, %629
@@ -7192,13 +7192,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit156:                 ; preds = %636, %633, %1506, %
   br i1 %.not.i.i.i345, label %_ZNSt6vectorIiSaIiEED2Ev.exit346, label %1509
 
 1509:                                             ; preds = %1507
-  call void @_ZdlPv(ptr noundef nonnull %1508) #23
+  call void @_ZdlPv(ptr noundef nonnull %1508) #24
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit346
 
 _ZNSt6vectorIiSaIiEED2Ev.exit346:                 ; preds = %1509, %1507, %627, %625
   %.pn52.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %628, %627 ], [ %626, %625 ], [ %.pn52.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1507 ], [ %.pn52.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1509 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #19
-  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #20
+  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #20
   br label %1551
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit344:       ; preds = %1505, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i342, %_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit81
@@ -7210,7 +7210,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit344:       ; preds = %1505, %_ZSt8_Destro
 
 .lr.ph.i.i.i.i348:                                ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit344, %.lr.ph.i.i.i.i348
   %.05.i.i.i.i349 = phi ptr [ %1512, %.lr.ph.i.i.i.i348 ], [ %1510, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit344 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i349) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i349) #20
   %1512 = getelementptr inbounds i8, ptr %.05.i.i.i.i349, i64 96
   %.not.i.i.i.i350 = icmp eq ptr %1512, %1511
   br i1 %.not.i.i.i.i350, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i351, label %.lr.ph.i.i.i.i348, !llvm.loop !49
@@ -7225,7 +7225,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i353: ; preds = %_ZSt8_DestroyIP
   br i1 %.not.i.i.i354, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit355, label %1514
 
 1514:                                             ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i353
-  call void @_ZdlPv(ptr noundef nonnull %1513) #23
+  call void @_ZdlPv(ptr noundef nonnull %1513) #24
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit355
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit355:       ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i353, %1514
@@ -7248,7 +7248,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit355:       ; preds = %_ZSt8_DestroyIPN2cv
   %1524 = load ptr, ptr %1516, align 8
   %1525 = getelementptr inbounds i8, ptr %1524, i64 16
   %1526 = load ptr, ptr %1525, align 8
-  call void %1526(ptr noundef nonnull align 8 dereferenceable(16) %1516) #19
+  call void %1526(ptr noundef nonnull align 8 dereferenceable(16) %1516) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i361
 
 1527:                                             ; preds = %1517
@@ -7274,7 +7274,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit355:       ; preds = %_ZSt8_DestroyIPN2cv
   %1536 = load ptr, ptr %1516, align 8
   %1537 = getelementptr inbounds i8, ptr %1536, i64 16
   %1538 = load ptr, ptr %1537, align 8
-  call void %1538(ptr noundef nonnull align 8 dereferenceable(16) %1516) #19
+  call void %1538(ptr noundef nonnull align 8 dereferenceable(16) %1516) #20
   %1539 = getelementptr inbounds i8, ptr %1516, i64 12
   %1540 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i359 = icmp eq i8 %1540, 0
@@ -7299,30 +7299,30 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %1548 = load ptr, ptr %1516, align 8
   %1549 = getelementptr inbounds i8, ptr %1548, i64 24
   %1550 = load ptr, ptr %1549, align 8
-  call void %1550(ptr noundef nonnull align 8 dereferenceable(16) %1516) #19
+  call void %1550(ptr noundef nonnull align 8 dereferenceable(16) %1516) #20
   br label %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEED2Ev.exit362
 
 _ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEED2Ev.exit362: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit355, %1533, %1546, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i361
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #19
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #19
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #20
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #20
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #20
   ret i1 %.025
 
 1551:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit346, %224, %222
   %.pn52.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit346 ], [ %225, %224 ], [ %223, %222 ]
-  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #19
+  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #20
   br label %1552
 
 1552:                                             ; preds = %1551, %220, %218
   %.pn52.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1551 ], [ %219, %218 ], [ %221, %220 ]
-  call void @_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #19
+  call void @_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #20
   br label %1553
 
 1553:                                             ; preds = %216, %214, %1552, %212
   %.pn52.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1552 ], [ %213, %212 ], [ %215, %214 ], [ %217, %216 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #19
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #19
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #20
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #20
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #20
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -7373,7 +7373,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_6detail8tracking18TrackerTargetSt
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
 
 14:                                               ; preds = %4
@@ -7399,7 +7399,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_6detail8tracking18TrackerTargetSt
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   %26 = getelementptr inbounds i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
@@ -7424,7 +7424,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %_ZNSt10shared_ptrIN2cv6detail8tracking18TrackerTargetStateEED2Ev.exit
 
 _ZNSt10shared_ptrIN2cv6detail8tracking18TrackerTargetStateEED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -7460,7 +7460,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt4pairIN2cv3PtrINS1_6detail8track
   %14 = load ptr, ptr %6, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i
 
 17:                                               ; preds = %7
@@ -7486,7 +7486,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt4pairIN2cv3PtrINS1_6detail8track
   %26 = load ptr, ptr %6, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
-  tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
   %29 = getelementptr inbounds i8, ptr %6, i64 12
   %30 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %30, 0
@@ -7511,7 +7511,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %38 = load ptr, ptr %6, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
   br label %_ZSt8_DestroyISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfEEvPT_.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, %36, %23, %.lr.ph.i.i.i
@@ -7529,7 +7529,7 @@ _ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EED2Ev.exit, label %43
 
 43:                                               ; preds = %_ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %42) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %42) #24
   br label %_ZNSt12_Vector_baseISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EED2Ev.exit
 
 _ZNSt12_Vector_baseISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exit, %43
@@ -7538,13 +7538,13 @@ _ZNSt12_Vector_baseISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6legacy8tracking15TrackerBoostingD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @llvm.trap() #22
+  tail call void @llvm.trap() #23
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6legacy8tracking15TrackerBoostingD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @llvm.trap() #22
+  tail call void @llvm.trap() #23
   unreachable
 }
 
@@ -7572,16 +7572,16 @@ declare void @_ZN2cv6legacy8tracking7TrackerD0Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6legacy8tracking19TrackerBoostingImplD1Ev(ptr noundef nonnull align 8 dereferenceable(84) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking19TrackerBoostingImplE, i64 16)) #19
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking19TrackerBoostingImplE, i64 16)) #20
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6legacy8tracking19TrackerBoostingImplD0Ev(ptr noundef nonnull align 8 dereferenceable(84) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking19TrackerBoostingImplE, i64 16)) #19
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking19TrackerBoostingImplE, i64 16)) #20
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
@@ -7600,14 +7600,15 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
-  tail call void @_ZSt9terminatev() #22
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
+  tail call void @_ZSt9terminatev() #23
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 declare void @_ZN2cv6legacy8tracking7TrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #0
 
@@ -7615,13 +7616,13 @@ declare void @_ZN2cv6legacy8tracking7TrackerC2Ev(ptr noundef nonnull align 8 der
 declare void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #12
+declare void @llvm.trap() #13
 
 ; Function Attrs: nounwind
 declare void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #13
+declare void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #14
 
 declare void @_ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #0
 
@@ -7638,7 +7639,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6legacy8tracking19T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6legacy8tracking19TrackerBoostingImplELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
@@ -7653,7 +7654,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6legacy8tracking19T
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(84) %3) #19
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(84) %3) #20
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -7662,7 +7663,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6legacy8tracking19T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6legacy8tracking19TrackerBoostingImplELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
@@ -7681,7 +7682,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail8tracking16T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail8tracking16TrackerSamplerCSELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
@@ -7696,7 +7697,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail8tracking16T
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(100) %3) #19
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(100) %3) #20
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -7705,7 +7706,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail8tracking16T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail8tracking16TrackerSamplerCSELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
@@ -7715,10 +7716,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt15_Sp_counted_ptrIPN2cv6detail8trac
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.sse2.cvtsd2si(<2 x double>) #14
+declare i32 @llvm.x86.sse2.cvtsd2si(<2 x double>) #15
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #13
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #14
 
 declare void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #0
 
@@ -7729,7 +7730,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail8tracking25T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
@@ -7744,7 +7745,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail8tracking25T
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(72) %3) #19
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(72) %3) #20
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -7753,7 +7754,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail8tracking25T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
@@ -7769,7 +7770,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv8tracking4impl20Tra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv8tracking4impl20TrackerBoostingModelELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
@@ -7784,7 +7785,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv8tracking4impl20Tra
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(132) %3) #19
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(132) %3) #20
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -7793,7 +7794,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv8tracking4impl20Tra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv8tracking4impl20TrackerBoostingModelELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
@@ -7809,7 +7810,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail8tracking32T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
@@ -7824,7 +7825,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail8tracking32T
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(168) %3) #19
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(168) %3) #20
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -7833,7 +7834,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail8tracking32T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
@@ -7843,7 +7844,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt15_Sp_counted_ptrIPN2cv6detail8trac
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #13
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
@@ -7860,7 +7861,7 @@ define linkonce_odr void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_realloc_insertIJRKS
   br i1 %10, label %11, label %_ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #20
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #21
   unreachable
 
 _ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
@@ -7878,7 +7879,7 @@ _ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
 
 20:                                               ; preds = %_ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit
   %21 = mul nuw nsw i64 %16, 96
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #21
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #22
   br label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit, %20
@@ -7894,8 +7895,8 @@ _ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
   %.0911.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
-  tail call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i) #19
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i) #19
+  tail call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i) #20
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i) #20
   %25 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 96
   %26 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 96
   %.not.i.i.i.i = icmp eq ptr %25, %1
@@ -7910,8 +7911,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i27
   %.012.i.i.i.i28 = phi ptr [ %29, %.lr.ph.i.i.i.i27 ], [ %27, %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i.i29 = phi ptr [ %28, %.lr.ph.i.i.i.i27 ], [ %1, %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %.012.i.i.i.i28, ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i29) #19
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i29) #19
+  tail call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %.012.i.i.i.i28, ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i29) #20
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i29) #20
   %28 = getelementptr inbounds i8, ptr %.0911.i.i.i.i29, i64 96
   %29 = getelementptr inbounds i8, ptr %.012.i.i.i.i28, i64 96
   %.not.i.i.i.i30 = icmp eq ptr %28, %5
@@ -7923,7 +7924,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32: ; preds = %.l
   br i1 %.not.i33, label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit, label %30
 
 30:                                               ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
   br label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, %30
@@ -7938,12 +7939,12 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  %36 = tail call ptr @__cxa_begin_catch(ptr %35) #19
+  %36 = tail call ptr @__cxa_begin_catch(ptr %35) #20
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %.thread, label %39
 
 .thread:                                          ; preds = %33
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #19
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #20
   br label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit35
 
 37:                                               ; preds = %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit35
@@ -7953,11 +7954,11 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
           to label %40 unwind label %41
 
 39:                                               ; preds = %33
-  tail call void @_ZdlPv(ptr noundef nonnull %23) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %23) #24
   br label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit35
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit35: ; preds = %39, %.thread
-  invoke void @__cxa_rethrow() #20
+  invoke void @__cxa_rethrow() #21
           to label %44 unwind label %37
 
 40:                                               ; preds = %37
@@ -7967,7 +7968,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit35: ; preds = %39
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #22
+  tail call void @__clang_call_terminate(ptr %43) #23
   unreachable
 
 44:                                               ; preds = %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit35
@@ -7975,7 +7976,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit35: ; preds = %39
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
 declare void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
@@ -7983,27 +7984,27 @@ declare void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96),
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_trackerBoosting.cpp() #8 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
+declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+declare i64 @llvm.umin.i64(i64, i64) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -8017,18 +8018,19 @@ attributes #8 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no
 attributes #9 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nounwind }
-attributes #20 = { noreturn }
-attributes #21 = { builtin allocsize(0) }
-attributes #22 = { noreturn nounwind }
-attributes #23 = { builtin nounwind }
+attributes #12 = { cold nofree noreturn }
+attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nounwind }
+attributes #21 = { noreturn }
+attributes #22 = { builtin allocsize(0) }
+attributes #23 = { noreturn nounwind }
+attributes #24 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -28,7 +28,7 @@ define void @_ZN11ComprDataIOC2Ev(ptr noundef nonnull align 8 dereferenceable(26
           to label %6 unwind label %35
 
 6:                                                ; preds = %4
-  %7 = invoke noalias noundef nonnull dereferenceable(2520) ptr @_Znwm(i64 noundef 2520) #13
+  %7 = invoke noalias noundef nonnull dereferenceable(2520) ptr @_Znwm(i64 noundef 2520) #14
           to label %8 unwind label %37
 
 8:                                                ; preds = %6
@@ -38,7 +38,7 @@ define void @_ZN11ComprDataIOC2Ev(ptr noundef nonnull align 8 dereferenceable(26
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %7, ptr %10, align 8
-  %11 = invoke noalias noundef nonnull dereferenceable(2520) ptr @_Znwm(i64 noundef 2520) #13
+  %11 = invoke noalias noundef nonnull dereferenceable(2520) ptr @_Znwm(i64 noundef 2520) #14
           to label %12 unwind label %37
 
 12:                                               ; preds = %9
@@ -105,28 +105,28 @@ define void @_ZN11ComprDataIOC2Ev(ptr noundef nonnull align 8 dereferenceable(26
 39:                                               ; preds = %8
   %40 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #15
   br label %43
 
 41:                                               ; preds = %12
   %42 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #15
   br label %43
 
 43:                                               ; preds = %41, %39, %37
   %.pn = phi { ptr, i32 } [ %42, %41 ], [ %38, %37 ], [ %40, %39 ]
-  tail call void @_ZN8DataHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
+  tail call void @_ZN8DataHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   br label %44
 
 44:                                               ; preds = %43, %35
   %.pn.pn = phi { ptr, i32 } [ %.pn, %43 ], [ %36, %35 ]
-  tail call void @_ZN8DataHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  tail call void @_ZN8DataHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %45
 
 45:                                               ; preds = %44, %33
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %44 ], [ %34, %33 ]
-  tail call void @_ZN8DataHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #15
+  tail call void @_ZN8DataHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -195,8 +195,8 @@ define void @_ZN11ComprDataIOD2Ev(ptr noundef nonnull align 8 dereferenceable(26
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 dereferenceable(2516) %3) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 dereferenceable(2516) %3) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -206,17 +206,17 @@ define void @_ZN11ComprDataIOD2Ev(ptr noundef nonnull align 8 dereferenceable(26
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %6
-  tail call void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 dereferenceable(2516) %8) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #14
+  tail call void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 dereferenceable(2516) %8) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #15
   br label %11
 
 11:                                               ; preds = %10, %6
   %12 = getelementptr inbounds i8, ptr %0, i64 248
-  tail call void @_ZN8DataHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #15
+  tail call void @_ZN8DataHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
   %13 = getelementptr inbounds i8, ptr %0, i64 232
-  tail call void @_ZN8DataHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #15
+  tail call void @_ZN8DataHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #16
   %14 = getelementptr inbounds i8, ptr %0, i64 216
-  tail call void @_ZN8DataHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #15
+  tail call void @_ZN8DataHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #16
   ret void
 }
 
@@ -256,11 +256,11 @@ define linkonce_odr void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 derefere
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #16
+  tail call void @__clang_call_terminate(ptr %10) #17
   unreachable
 
 _ZN9CryptData13KDF5CacheItemD2Ev.exit:            ; preds = %.noexc3.i
-  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %.ptr1) #15
+  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %.ptr1) #16
   %11 = icmp eq i64 %.add, 328
   br i1 %11, label %12, label %2
 
@@ -294,11 +294,11 @@ _ZN9CryptData13KDF5CacheItemD2Ev.exit:            ; preds = %.noexc3.i
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #16
+  tail call void @__clang_call_terminate(ptr %23) #17
   unreachable
 
 _ZN9CryptData13KDF3CacheItemD2Ev.exit:            ; preds = %.noexc2.i5
-  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %16) #15
+  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %16) #16
   %24 = icmp eq ptr %16, %0
   br i1 %24, label %25, label %14
 
@@ -858,14 +858,15 @@ declare noundef i64 @_ZN4File10FileLengthEv(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25)) unnamed_addr #5
@@ -873,10 +874,10 @@ declare void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(2
 declare void @_Z9cleandataPvm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #12
+declare i64 @llvm.smin.i64(i64, i64) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -889,12 +890,13 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { builtin allocsize(0) }
-attributes #14 = { builtin nounwind }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn nounwind }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { builtin nounwind }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

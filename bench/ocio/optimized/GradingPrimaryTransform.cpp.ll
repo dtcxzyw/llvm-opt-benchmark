@@ -101,7 +101,7 @@ $_ZTSPFvPN19OpenColorIO_v2_4dev23GradingPrimaryTransformEE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_4dev23GradingPrimaryTransform6CreateENS_12GradingStyleE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, i32 noundef %style) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #12
+  %call = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev27GradingPrimaryTransformImplE, i64 16), ptr %call, align 8
   %m_data.i = getelementptr inbounds i8, ptr %call, i64 8
   invoke void @_ZN19OpenColorIO_v2_4dev20GradingPrimaryOpDataC1ENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(192) %m_data.i, i32 noundef %style)
@@ -111,19 +111,19 @@ invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %agg.result, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %_M_refcount.i.i, align 8
-  %call5.i.i.i4.i.i.i.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
+  %call5.i.i.i4.i.i.i.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEEC2INS0_27GradingPrimaryTransformImplEPFvPS1_EvEEPT_T0_.exit unwind label %invoke.cont7.i.i.i.i
 
 invoke.cont7.i.i.i.i:                             ; preds = %invoke.cont
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  %2 = tail call ptr @__cxa_begin_catch(ptr %1) #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %1) #15
   %vtable.i = load ptr, ptr %call, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %3 = load ptr, ptr %vfn.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(200) %call) #13
-  invoke void @__cxa_rethrow() #14
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(200) %call) #15
+  invoke void @__cxa_rethrow() #16
           to label %unreachable.i.i.i.i unwind label %lpad6.i.i.i.i
 
 lpad6.i.i.i.i:                                    ; preds = %invoke.cont7.i.i.i.i
@@ -140,7 +140,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad6.i.i.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #15
+  tail call void @__clang_call_terminate(ptr %6) #17
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %invoke.cont7.i.i.i.i
@@ -162,7 +162,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEEC2INS0_27Grad
 lpad:                                             ; preds = %entry
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #18
   br label %common.resume
 }
 
@@ -184,7 +184,7 @@ delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %t, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(200) %t) #13
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(200) %t) #15
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -209,11 +209,11 @@ entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(200) %this) #13
+  %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(200) %this) #15
   call void @_ZN19OpenColorIO_v2_4dev23GradingPrimaryTransform6CreateENS_12GradingStyleE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %transform, i32 noundef %call)
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %transform, align 8, !nonnull !4, !noundef !4
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev23GradingPrimaryTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev27GradingPrimaryTransformImplE, i64 0) #13
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev23GradingPrimaryTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev27GradingPrimaryTransformImplE, i64 0) #15
   %m_data.i1 = getelementptr inbounds i8, ptr %2, i64 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(192) ptr @_ZN19OpenColorIO_v2_4dev20GradingPrimaryOpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(192) %m_data.i1, ptr noundef nonnull align 8 dereferenceable(192) %m_data.i)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit unwind label %lpad
@@ -229,7 +229,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit: ; 
 lpad:                                             ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %transform) #13
+  call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %transform) #15
   resume { ptr, i32 } %4
 }
 
@@ -260,7 +260,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   br label %if.end8.sink.split.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
@@ -286,7 +286,7 @@ if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
@@ -311,7 +311,7 @@ if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
@@ -322,7 +322,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformELN9__gnu_cxx
 define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev27GradingPrimaryTransformImpl12getDirectionEv(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #3 align 2 {
 entry:
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
-  %call2 = tail call noundef i32 @_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData12getDirectionEv(ptr noundef nonnull align 8 dereferenceable(192) %m_data.i) #13
+  %call2 = tail call noundef i32 @_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData12getDirectionEv(ptr noundef nonnull align 8 dereferenceable(192) %m_data.i) #15
   ret i32 %call2
 }
 
@@ -333,7 +333,7 @@ declare noundef i32 @_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData12getDirecti
 define hidden void @_ZN19OpenColorIO_v2_4dev27GradingPrimaryTransformImpl12setDirectionENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(200) %this, i32 noundef %dir) unnamed_addr #3 align 2 {
 entry:
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN19OpenColorIO_v2_4dev20GradingPrimaryOpData12setDirectionENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(192) %m_data.i, i32 noundef %dir) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev20GradingPrimaryOpData12setDirectionENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(192) %m_data.i, i32 noundef %dir) #15
   ret void
 }
 
@@ -360,40 +360,40 @@ lpad:                                             ; preds = %invoke.cont, %entry
   %1 = landingpad { ptr, i32 }
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %2 = extractvalue { ptr, i32 } %1, 1
-  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #13
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #15
   %matches = icmp eq i32 %2, %3
   br i1 %matches, label %catch, label %eh.resume
 
 catch:                                            ; preds = %lpad
   %4 = extractvalue { ptr, i32 } %1, 0
-  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #13
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
+  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #15
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %errMsg, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %catch
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   %vtable5 = load ptr, ptr %5, align 8
   %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 16
   %6 = load ptr, ptr %vfn6, align 8
-  %call7 = call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+  %call7 = call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
   %call10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %errMsg, ptr noundef %call7)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont4
-  %exception = call ptr @__cxa_allocate_exception(i64 16) #13
-  %call11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %errMsg) #13
+  %exception = call ptr @__cxa_allocate_exception(i64 16) #15
+  %call11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %errMsg) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %call11)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont9
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #14
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %lpad8
 
 lpad3:                                            ; preds = %catch
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   br label %ehcleanup14
 
 lpad8:                                            ; preds = %invoke.cont13, %invoke.cont4
@@ -404,12 +404,12 @@ lpad8:                                            ; preds = %invoke.cont13, %inv
 lpad12:                                           ; preds = %invoke.cont9
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #13
+  call void @__cxa_free_exception(ptr %exception) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad12, %lpad8
   %.pn = phi { ptr, i32 } [ %8, %lpad8 ], [ %9, %lpad12 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errMsg) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errMsg) #15
   br label %ehcleanup14
 
 ehcleanup14:                                      ; preds = %ehcleanup, %lpad3
@@ -428,7 +428,7 @@ terminate.lpad:                                   ; preds = %ehcleanup14
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #15
+  call void @__clang_call_terminate(ptr %11) #17
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont13
@@ -461,7 +461,8 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
@@ -469,23 +470,24 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #15
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev27GradingPrimaryTransformImpl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 dereferenceable(200) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev27GradingPrimaryTransformImpl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 dereferenceable(200) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_metadata.i = getelementptr inbounds i8, ptr %this, i64 56
   ret ptr %m_metadata.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev27GradingPrimaryTransformImpl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 dereferenceable(200) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev27GradingPrimaryTransformImpl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 dereferenceable(200) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_metadata.i = getelementptr inbounds i8, ptr %this, i64 56
   ret ptr %m_metadata.i
@@ -499,7 +501,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev23GradingPrimaryTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev27GradingPrimaryTransformImplE, i64 0) #13
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev23GradingPrimaryTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev27GradingPrimaryTransformImplE, i64 0) #15
   %m_data.i2 = getelementptr inbounds i8, ptr %0, i64 8
   %call3 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_20GradingPrimaryOpDataES2_(ptr noundef nonnull align 8 dereferenceable(192) %m_data.i, ptr noundef nonnull align 8 dereferenceable(192) %m_data.i2)
           to label %return unwind label %terminate.lpad
@@ -512,14 +514,14 @@ terminate.lpad:                                   ; preds = %if.end
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #15
+  tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
 }
 
 declare noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_20GradingPrimaryOpDataES2_(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev27GradingPrimaryTransformImpl8getStyleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev27GradingPrimaryTransformImpl8getStyleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) unnamed_addr #11 align 2 {
 entry:
   %m_style.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i32, ptr %m_style.i, align 8
@@ -530,7 +532,7 @@ entry:
 define hidden void @_ZN19OpenColorIO_v2_4dev27GradingPrimaryTransformImpl8setStyleENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(200) %this, i32 noundef %style) unnamed_addr #3 align 2 {
 entry:
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN19OpenColorIO_v2_4dev20GradingPrimaryOpData8setStyleENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(192) %m_data.i, i32 noundef %style) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev20GradingPrimaryOpData8setStyleENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(192) %m_data.i, i32 noundef %style) #15
   ret void
 }
 
@@ -565,7 +567,7 @@ entry:
 define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev27GradingPrimaryTransformImpl9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #3 align 2 {
 entry:
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
-  %call2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(192) %m_data.i) #13
+  %call2 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(192) %m_data.i) #15
   ret i1 %call2
 }
 
@@ -618,7 +620,7 @@ if.then.i.i.i.i1:                                 ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %1) #15
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -644,7 +646,7 @@ if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %1) #15
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %11, 0
@@ -669,7 +671,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %14 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %1) #15
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev.exit: ; preds = %_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData26getDynamicPropertyInternalEv.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
@@ -722,7 +724,7 @@ if.then.i.i.i.i1:                                 ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %1) #15
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -748,7 +750,7 @@ if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %1) #15
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %11, 0
@@ -773,7 +775,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %14 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %1) #15
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev.exit: ; preds = %_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData26getDynamicPropertyInternalEv.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
@@ -794,7 +796,7 @@ invoke.cont1:                                     ; preds = %invoke.cont
   %vtable = load ptr, ptr %t, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
-  %call3 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %t) #13
+  %call3 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %t) #15
   %call5 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev26TransformDirectionToStringENS_18TransformDirectionE(i32 noundef %call3)
           to label %invoke.cont4 unwind label %terminate.lpad
 
@@ -810,7 +812,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   %vtable10 = load ptr, ptr %t, align 8
   %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 80
   %1 = load ptr, ptr %vfn11, align 8
-  %call12 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %t) #13
+  %call12 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %t) #15
   %call14 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev20GradingStyleToStringENS_12GradingStyleE(i32 noundef %call12)
           to label %invoke.cont13 unwind label %terminate.lpad
 
@@ -837,7 +839,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
   %vtable25 = load ptr, ptr %t, align 8
   %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 112
   %3 = load ptr, ptr %vfn26, align 8
-  %call27 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %t) #13
+  %call27 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %t) #15
   br i1 %call27, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont23
@@ -855,7 +857,7 @@ terminate.lpad:                                   ; preds = %if.end, %if.then, %
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #15
+  tail call void @__clang_call_terminate(ptr %5) #17
   unreachable
 }
 
@@ -1079,7 +1081,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev27GradingPrimaryTransfo
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev27GradingPrimaryTransformImplE, i64 16), ptr %this, align 8
   %m_data = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN19OpenColorIO_v2_4dev20GradingPrimaryOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %m_data) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev20GradingPrimaryOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %m_data) #15
   ret void
 }
 
@@ -1088,8 +1090,8 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev27GradingPrimaryTransfo
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev27GradingPrimaryTransformImplE, i64 16), ptr %this, align 8
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN19OpenColorIO_v2_4dev20GradingPrimaryOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %m_data.i) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZN19OpenColorIO_v2_4dev20GradingPrimaryOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %m_data.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
 
@@ -1107,7 +1109,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev27GradingPrimaryTransformImplEPFvPNS0_23GradingPrimaryTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
 
@@ -1128,14 +1130,14 @@ terminate.lpad:                                   ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #15
+  tail call void @__clang_call_terminate(ptr %3) #17
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev27GradingPrimaryTransformImplEPFvPNS0_23GradingPrimaryTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev27GradingPrimaryTransformImplEPFvPNS1_23GradingPrimaryTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
 
@@ -1153,7 +1155,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp4.not.i, label %cond.end, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(54) @_ZTSPFvPN19OpenColorIO_v2_4dev23GradingPrimaryTransformEE) #13
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(54) @_ZTSPFvPN19OpenColorIO_v2_4dev23GradingPrimaryTransformEE) #15
   %cmp7.i = icmp eq i32 %call6.i, 0
   br i1 %cmp7.i, label %cond.true, label %cond.end
 
@@ -1167,10 +1169,10 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for.p0(ptr) #11
+declare i32 @llvm.eh.typeid.for.p0(ptr) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1179,16 +1181,18 @@ attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nosync nounwind memory(none) }
-attributes #12 = { builtin allocsize(0) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { builtin nounwind }
+attributes #7 = { cold noreturn }
+attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nosync nounwind memory(none) }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

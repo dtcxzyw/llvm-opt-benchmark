@@ -628,14 +628,14 @@ for.end108:                                       ; preds = %for.body78
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12btAxisSweep3D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZN20btAxisSweep3InternalItED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) #9
+  tail call void @_ZN20btAxisSweep3InternalItED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12btAxisSweep3D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN20btAxisSweep3InternalItED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) #9
+  tail call void @_ZN20btAxisSweep3InternalItED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) #10
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN20btAxisSweep3InternalItEdlEPv.exit unwind label %terminate.lpad.i
 
@@ -643,7 +643,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #10
+  tail call void @__clang_call_terminate(ptr %1) #11
   unreachable
 
 _ZN20btAxisSweep3InternalItEdlEPv.exit:           ; preds = %entry
@@ -1305,14 +1305,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17bt32BitAxisSweep3D2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZN20btAxisSweep3InternalIjED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #9
+  tail call void @_ZN20btAxisSweep3InternalIjED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17bt32BitAxisSweep3D0Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN20btAxisSweep3InternalIjED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #9
+  tail call void @_ZN20btAxisSweep3InternalIjED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #10
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN20btAxisSweep3InternalIjEdlEPv.exit unwind label %terminate.lpad.i
 
@@ -1320,7 +1320,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #10
+  tail call void @__clang_call_terminate(ptr %1) #11
   unreachable
 
 _ZN20btAxisSweep3InternalIjEdlEPv.exit:           ; preds = %entry
@@ -2000,7 +2000,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %m_nullPairCache, align 8
   %vtable = load ptr, ptr %1, align 8
   %2 = load ptr, ptr %vtable, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #9
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
   %3 = load ptr, ptr %m_nullPairCache, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %3)
           to label %invoke.cont unwind label %terminate.lpad.loopexit.split-lp
@@ -2009,7 +2009,7 @@ invoke.cont:                                      ; preds = %if.then
   %4 = load ptr, ptr %m_raycastAccelerator, align 8
   %vtable4 = load ptr, ptr %4, align 8
   %5 = load ptr, ptr %vtable4, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(256) %4) #9
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(256) %4) #10
   %6 = load ptr, ptr %m_raycastAccelerator, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %6)
           to label %if.end unwind label %terminate.lpad.loopexit.split-lp
@@ -2044,7 +2044,7 @@ terminate.lpad.i:                                 ; preds = %delete.notnull
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #10
+  tail call void @__clang_call_terminate(ptr %10) #11
   unreachable
 
 delete.end:                                       ; preds = %delete.notnull, %for.end
@@ -2058,7 +2058,7 @@ if.then10:                                        ; preds = %delete.end
   %12 = load ptr, ptr %m_pairCache, align 8
   %vtable11 = load ptr, ptr %12, align 8
   %13 = load ptr, ptr %vtable11, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #9
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
   %14 = load ptr, ptr %m_pairCache, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %14)
           to label %if.end15 unwind label %terminate.lpad.loopexit.split-lp
@@ -2079,14 +2079,14 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %if.then, %invoke.co
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %15 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %15) #10
+  tail call void @__clang_call_terminate(ptr %15) #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAxisSweep3InternalItED0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN20btAxisSweep3InternalItED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) #9
+  tail call void @_ZN20btAxisSweep3InternalItED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) #10
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN20btAxisSweep3InternalItEdlEPv.exit unwind label %terminate.lpad.i
 
@@ -2094,7 +2094,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #10
+  tail call void @__clang_call_terminate(ptr %1) #11
   unreachable
 
 _ZN20btAxisSweep3InternalItEdlEPv.exit:           ; preds = %entry
@@ -2124,7 +2124,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #10
+  tail call void @__clang_call_terminate(ptr %3) #11
   unreachable
 
 _ZN20btAlignedObjectArrayI16btBroadphasePairED2Ev.exit: ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
@@ -2161,11 +2161,11 @@ terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #10
+  tail call void @__clang_call_terminate(ptr %3) #11
   unreachable
 
 _ZN15btNullPairCacheD2Ev.exit:                    ; preds = %entry, %if.then.i.i.i.i, %if.then3.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #12
   ret void
 }
 
@@ -2288,19 +2288,20 @@ entry:
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
-  tail call void @_ZSt9terminatev() #10
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
+  tail call void @_ZSt9terminatev() #11
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAxisSweep3InternalIjED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2316,7 +2317,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %m_nullPairCache, align 8
   %vtable = load ptr, ptr %1, align 8
   %2 = load ptr, ptr %vtable, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #9
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
   %3 = load ptr, ptr %m_nullPairCache, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %3)
           to label %invoke.cont unwind label %terminate.lpad.loopexit.split-lp
@@ -2325,7 +2326,7 @@ invoke.cont:                                      ; preds = %if.then
   %4 = load ptr, ptr %m_raycastAccelerator, align 8
   %vtable4 = load ptr, ptr %4, align 8
   %5 = load ptr, ptr %vtable4, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(256) %4) #9
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(256) %4) #10
   %6 = load ptr, ptr %m_raycastAccelerator, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %6)
           to label %if.end unwind label %terminate.lpad.loopexit.split-lp
@@ -2360,7 +2361,7 @@ terminate.lpad.i:                                 ; preds = %delete.notnull
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #10
+  tail call void @__clang_call_terminate(ptr %10) #11
   unreachable
 
 delete.end:                                       ; preds = %delete.notnull, %for.end
@@ -2374,7 +2375,7 @@ if.then10:                                        ; preds = %delete.end
   %12 = load ptr, ptr %m_pairCache, align 8
   %vtable11 = load ptr, ptr %12, align 8
   %13 = load ptr, ptr %vtable11, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #9
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
   %14 = load ptr, ptr %m_pairCache, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %14)
           to label %if.end15 unwind label %terminate.lpad.loopexit.split-lp
@@ -2395,14 +2396,14 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %if.then, %invoke.co
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %15 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %15) #10
+  tail call void @__clang_call_terminate(ptr %15) #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAxisSweep3InternalIjED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN20btAxisSweep3InternalIjED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #9
+  tail call void @_ZN20btAxisSweep3InternalIjED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #10
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN20btAxisSweep3InternalIjEdlEPv.exit unwind label %terminate.lpad.i
 
@@ -2410,7 +2411,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #10
+  tail call void @__clang_call_terminate(ptr %1) #11
   unreachable
 
 _ZN20btAxisSweep3InternalIjEdlEPv.exit:           ; preds = %entry
@@ -5983,10 +5984,10 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5995,11 +5996,12 @@ attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { builtin nounwind }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

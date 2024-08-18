@@ -76,7 +76,7 @@ for.body.i:                                       ; preds = %_Z16btNormalizeAngl
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %_Z16btNormalizeAnglef.exit.i ]
   %arrayidx.i = getelementptr inbounds float, ptr %ref.tmp, i64 %indvars.iv.i
   %0 = load float, ptr %arrayidx.i, align 4
-  %call.i.i.i = tail call noundef float @fmodf(float noundef %0, float noundef 0x401921FB60000000) #8
+  %call.i.i.i = tail call noundef float @fmodf(float noundef %0, float noundef 0x401921FB60000000) #9
   %cmp.i.i = fcmp olt float %call.i.i.i, 0xC00921FB60000000
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -108,7 +108,7 @@ for.body.i5:                                      ; preds = %_Z16btNormalizeAngl
   %indvars.iv.i6 = phi i64 [ 0, %invoke.cont5 ], [ %indvars.iv.next.i14, %_Z16btNormalizeAnglef.exit.i12 ]
   %arrayidx.i7 = getelementptr inbounds float, ptr %ref.tmp6, i64 %indvars.iv.i6
   %1 = load float, ptr %arrayidx.i7, align 4
-  %call.i.i.i8 = tail call noundef float @fmodf(float noundef %1, float noundef 0x401921FB60000000) #8
+  %call.i.i.i8 = tail call noundef float @fmodf(float noundef %1, float noundef 0x401921FB60000000) #9
   %cmp.i.i9 = fcmp olt float %call.i.i.i8, 0xC00921FB60000000
   br i1 %cmp.i.i9, label %if.then.i.i18, label %if.else.i.i10
 
@@ -160,7 +160,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #9
+  tail call void @__clang_call_terminate(ptr %1) #10
   unreachable
 
 _ZN30btGeneric6DofSpring2ConstraintdlEPv.exit:    ; preds = %entry
@@ -177,7 +177,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17btTypedConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #9
+  tail call void @llvm.trap() #10
   unreachable
 }
 
@@ -724,20 +724,21 @@ declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
-  tail call void @_ZSt9terminatev() #9
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
+  tail call void @_ZSt9terminatev() #10
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #6
+declare void @llvm.trap() #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -745,10 +746,11 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

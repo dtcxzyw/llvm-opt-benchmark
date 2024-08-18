@@ -91,9 +91,9 @@ define void @mupSetVarFactory(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = extractvalue { ptr, i32 } %7, 1
-  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %11 = icmp eq i32 %9, %10
-  %12 = tail call ptr @__cxa_begin_catch(ptr %8) #17
+  %12 = tail call ptr @__cxa_begin_catch(ptr %8) #19
   br i1 %11, label %13, label %21
 
 13:                                               ; preds = %6
@@ -123,7 +123,7 @@ define void @mupSetVarFactory(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %25 unwind label %32
 
 25:                                               ; preds = %22
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
   %26 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 120
@@ -143,7 +143,7 @@ define void @mupSetVarFactory(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 32:                                               ; preds = %22
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
   br label %35
 
 34:                                               ; preds = %29, %25
@@ -176,7 +176,7 @@ define void @mupSetVarFactory(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #18
+  call void @__clang_call_terminate(ptr %43) #20
   unreachable
 }
 
@@ -195,12 +195,13 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
-  tail call void @_ZSt9terminatev() #18
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @mupCreate(i32 noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -210,8 +211,8 @@ define noundef ptr @mupCreate(i32 noundef %0) local_unnamed_addr #3 personality 
   ]
 
 2:                                                ; preds = %1
-  %3 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #19
-  %4 = invoke noalias noundef nonnull dereferenceable(600) ptr @_Znwm(i64 noundef 600) #19
+  %3 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #21
+  %4 = invoke noalias noundef nonnull dereferenceable(600) ptr @_Znwm(i64 noundef 600) #21
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %2
@@ -227,7 +228,7 @@ define noundef ptr @mupCreate(i32 noundef %0) local_unnamed_addr #3 personality 
 7:                                                ; preds = %.noexc
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #22
   br label %.body
 
 9:                                                ; preds = %5, %2
@@ -236,8 +237,8 @@ define noundef ptr @mupCreate(i32 noundef %0) local_unnamed_addr #3 personality 
   br label %.body
 
 11:                                               ; preds = %1
-  %12 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #19
-  %13 = invoke noalias noundef nonnull dereferenceable(600) ptr @_Znwm(i64 noundef 600) #19
+  %12 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #21
+  %13 = invoke noalias noundef nonnull dereferenceable(600) ptr @_Znwm(i64 noundef 600) #21
           to label %.noexc7 unwind label %18
 
 .noexc7:                                          ; preds = %11
@@ -253,7 +254,7 @@ define noundef ptr @mupCreate(i32 noundef %0) local_unnamed_addr #3 personality 
 16:                                               ; preds = %.noexc7
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #22
   br label %.body
 
 18:                                               ; preds = %14, %11
@@ -278,15 +279,15 @@ define noundef ptr @mupCreate(i32 noundef %0) local_unnamed_addr #3 personality 
 .body:                                            ; preds = %18, %16, %9, %7
   %.sink18 = phi ptr [ %3, %7 ], [ %3, %9 ], [ %12, %16 ], [ %12, %18 ]
   %.pn = phi { ptr, i32 } [ %8, %7 ], [ %10, %9 ], [ %17, %16 ], [ %19, %18 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sink18) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %.sink18) #22
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 declare void @_ZN2mu6ParserC1Ev(ptr noundef nonnull align 8 dereferenceable(596)) unnamed_addr #0
 
@@ -295,7 +296,7 @@ declare void @_ZN2mu9ParserIntC1Ev(ptr noundef nonnull align 8 dereferenceable(5
 declare void @_ZN2mu11ParserErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @mupRelease(ptr noundef %0) local_unnamed_addr #7 {
+define void @mupRelease(ptr noundef %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -308,13 +309,13 @@ define void @mupRelease(ptr noundef %0) local_unnamed_addr #7 {
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(596) %4) #17
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(596) %4) #19
   br label %_ZN9ParserTagD2Ev.exit
 
 _ZN9ParserTagD2Ev.exit:                           ; preds = %3, %6
   %10 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %10) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %10) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   br label %11
 
 11:                                               ; preds = %_ZN9ParserTagD2Ev.exit, %1
@@ -330,9 +331,9 @@ define noundef ptr @mupGetVersion(ptr noundef %0) local_unnamed_addr #3 personal
           to label %5 unwind label %8
 
 5:                                                ; preds = %1
-  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
-  %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZL11s_tmpOutBuf, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %6) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
+  %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZL11s_tmpOutBuf, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %6) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   br label %41
 
 8:                                                ; preds = %1
@@ -341,9 +342,9 @@ define noundef ptr @mupGetVersion(ptr noundef %0) local_unnamed_addr #3 personal
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = extractvalue { ptr, i32 } %9, 1
-  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %13 = icmp eq i32 %11, %12
-  %14 = call ptr @__cxa_begin_catch(ptr %10) #17
+  %14 = call ptr @__cxa_begin_catch(ptr %10) #19
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %8
@@ -373,7 +374,7 @@ define noundef ptr @mupGetVersion(ptr noundef %0) local_unnamed_addr #3 personal
           to label %27 unwind label %34
 
 27:                                               ; preds = %24
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
   %28 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 120
@@ -393,7 +394,7 @@ define noundef ptr @mupGetVersion(ptr noundef %0) local_unnamed_addr #3 personal
 34:                                               ; preds = %24
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
   br label %37
 
 36:                                               ; preds = %31, %27
@@ -427,12 +428,12 @@ define noundef ptr @mupGetVersion(ptr noundef %0) local_unnamed_addr #3 personal
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #18
+  call void @__clang_call_terminate(ptr %45) #20
   unreachable
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 declare void @_ZNK2mu10ParserBase10GetVersionB5cxx11ENS_18EParserVersionInfoE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(596), i32 noundef) local_unnamed_addr #0
 
@@ -452,9 +453,9 @@ define noundef double @mupEval(ptr noundef %0) local_unnamed_addr #3 personality
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = extractvalue { ptr, i32 } %6, 1
-  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %10 = icmp eq i32 %8, %9
-  %11 = tail call ptr @__cxa_begin_catch(ptr %7) #17
+  %11 = tail call ptr @__cxa_begin_catch(ptr %7) #19
   br i1 %10, label %12, label %20
 
 12:                                               ; preds = %5
@@ -484,7 +485,7 @@ define noundef double @mupEval(ptr noundef %0) local_unnamed_addr #3 personality
           to label %24 unwind label %31
 
 24:                                               ; preds = %21
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
   %25 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 120
@@ -504,7 +505,7 @@ define noundef double @mupEval(ptr noundef %0) local_unnamed_addr #3 personality
 31:                                               ; preds = %21
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
   br label %34
 
 33:                                               ; preds = %28, %24
@@ -538,7 +539,7 @@ define noundef double @mupEval(ptr noundef %0) local_unnamed_addr #3 personality
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #18
+  call void @__clang_call_terminate(ptr %42) #20
   unreachable
 }
 
@@ -551,19 +552,19 @@ define noundef ptr @mupEvalMulti(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %4, label %5, label %33
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+  %6 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.6)
           to label %7 unwind label %8
 
 7:                                                ; preds = %5
-  invoke void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #23
           to label %50 unwind label %10
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  tail call void @__cxa_free_exception(ptr %6) #17
+  tail call void @__cxa_free_exception(ptr %6) #19
   br label %12
 
 10:                                               ; preds = %33, %7
@@ -576,9 +577,9 @@ define noundef ptr @mupEvalMulti(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %.pn = phi { ptr, i32 } [ %11, %10 ], [ %9, %8 ]
   %.022 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
-  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %14 = icmp eq i32 %.023, %13
-  %15 = tail call ptr @__cxa_begin_catch(ptr %.022) #17
+  %15 = tail call ptr @__cxa_begin_catch(ptr %.022) #19
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %12
@@ -608,7 +609,7 @@ define noundef ptr @mupEvalMulti(ptr noundef %0, ptr noundef %1) local_unnamed_a
           to label %28 unwind label %38
 
 28:                                               ; preds = %25
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
   %29 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 120
@@ -633,7 +634,7 @@ define noundef ptr @mupEvalMulti(ptr noundef %0, ptr noundef %1) local_unnamed_a
 38:                                               ; preds = %25
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
   br label %41
 
 40:                                               ; preds = %32, %28
@@ -667,7 +668,7 @@ define noundef ptr @mupEvalMulti(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #18
+  call void @__clang_call_terminate(ptr %49) #20
   unreachable
 
 50:                                               ; preds = %7
@@ -683,7 +684,8 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 
 declare noundef ptr @_ZNK2mu10ParserBase4EvalERi(ptr noundef nonnull align 8 dereferenceable(596), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
@@ -700,9 +702,9 @@ define void @mupEvalBulk(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = extractvalue { ptr, i32 } %7, 1
-  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %11 = icmp eq i32 %9, %10
-  %12 = tail call ptr @__cxa_begin_catch(ptr %8) #17
+  %12 = tail call ptr @__cxa_begin_catch(ptr %8) #19
   br i1 %11, label %13, label %21
 
 13:                                               ; preds = %6
@@ -732,7 +734,7 @@ define void @mupEvalBulk(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
           to label %25 unwind label %32
 
 25:                                               ; preds = %22
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
   %26 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 120
@@ -752,7 +754,7 @@ define void @mupEvalBulk(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
 32:                                               ; preds = %22
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
   br label %35
 
 34:                                               ; preds = %29, %25
@@ -785,7 +787,7 @@ define void @mupEvalBulk(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #18
+  call void @__clang_call_terminate(ptr %43) #20
   unreachable
 }
 
@@ -797,7 +799,7 @@ define void @mupSetExpr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 pe
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.mu::ParserError", align 8
   %6 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %7 unwind label %9
 
@@ -806,8 +808,8 @@ define void @mupSetExpr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 pe
           to label %8 unwind label %11
 
 8:                                                ; preds = %7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
   br label %43
 
 9:                                                ; preds = %2
@@ -820,17 +822,17 @@ define void @mupSetExpr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 pe
   %12 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %13
 
 13:                                               ; preds = %11, %9
   %.pn = phi { ptr, i32 } [ %12, %11 ], [ %10, %9 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.020 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
-  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %15 = icmp eq i32 %.020, %14
-  %16 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %16 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %15, label %17, label %25
 
 17:                                               ; preds = %13
@@ -860,7 +862,7 @@ define void @mupSetExpr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 pe
           to label %29 unwind label %36
 
 29:                                               ; preds = %26
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #19
   %30 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 120
@@ -880,7 +882,7 @@ define void @mupSetExpr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 pe
 36:                                               ; preds = %26
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #19
   br label %39
 
 38:                                               ; preds = %33, %29
@@ -913,7 +915,7 @@ define void @mupSetExpr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 pe
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #18
+  call void @__clang_call_terminate(ptr %47) #20
   unreachable
 }
 
@@ -925,7 +927,7 @@ define void @mupRemoveVar(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.mu::ParserError", align 8
   %6 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %7 unwind label %9
 
@@ -934,8 +936,8 @@ define void @mupRemoveVar(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 
           to label %8 unwind label %11
 
 8:                                                ; preds = %7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
   br label %43
 
 9:                                                ; preds = %2
@@ -948,17 +950,17 @@ define void @mupRemoveVar(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 
   %12 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %13
 
 13:                                               ; preds = %11, %9
   %.pn = phi { ptr, i32 } [ %12, %11 ], [ %10, %9 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.020 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
-  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %15 = icmp eq i32 %.020, %14
-  %16 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %16 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %15, label %17, label %25
 
 17:                                               ; preds = %13
@@ -988,7 +990,7 @@ define void @mupRemoveVar(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 
           to label %29 unwind label %36
 
 29:                                               ; preds = %26
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #19
   %30 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1008,7 +1010,7 @@ define void @mupRemoveVar(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 
 36:                                               ; preds = %26
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #19
   br label %39
 
 38:                                               ; preds = %33, %29
@@ -1041,7 +1043,7 @@ define void @mupRemoveVar(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #18
+  call void @__clang_call_terminate(ptr %47) #20
   unreachable
 }
 
@@ -1060,9 +1062,9 @@ define void @mupClearVar(ptr noundef %0) local_unnamed_addr #3 personality ptr @
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = extractvalue { ptr, i32 } %5, 1
-  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %9 = icmp eq i32 %7, %8
-  %10 = tail call ptr @__cxa_begin_catch(ptr %6) #17
+  %10 = tail call ptr @__cxa_begin_catch(ptr %6) #19
   br i1 %9, label %11, label %19
 
 11:                                               ; preds = %4
@@ -1092,7 +1094,7 @@ define void @mupClearVar(ptr noundef %0) local_unnamed_addr #3 personality ptr @
           to label %23 unwind label %30
 
 23:                                               ; preds = %20
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
   %24 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1112,7 +1114,7 @@ define void @mupClearVar(ptr noundef %0) local_unnamed_addr #3 personality ptr @
 30:                                               ; preds = %20
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
   br label %33
 
 32:                                               ; preds = %27, %23
@@ -1145,7 +1147,7 @@ define void @mupClearVar(ptr noundef %0) local_unnamed_addr #3 personality ptr @
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #18
+  call void @__clang_call_terminate(ptr %41) #20
   unreachable
 }
 
@@ -1164,9 +1166,9 @@ define void @mupClearConst(ptr noundef %0) local_unnamed_addr #3 personality ptr
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = extractvalue { ptr, i32 } %5, 1
-  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %9 = icmp eq i32 %7, %8
-  %10 = tail call ptr @__cxa_begin_catch(ptr %6) #17
+  %10 = tail call ptr @__cxa_begin_catch(ptr %6) #19
   br i1 %9, label %11, label %19
 
 11:                                               ; preds = %4
@@ -1196,7 +1198,7 @@ define void @mupClearConst(ptr noundef %0) local_unnamed_addr #3 personality ptr
           to label %23 unwind label %30
 
 23:                                               ; preds = %20
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
   %24 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1216,7 +1218,7 @@ define void @mupClearConst(ptr noundef %0) local_unnamed_addr #3 personality ptr
 30:                                               ; preds = %20
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
   br label %33
 
 32:                                               ; preds = %27, %23
@@ -1249,7 +1251,7 @@ define void @mupClearConst(ptr noundef %0) local_unnamed_addr #3 personality ptr
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #18
+  call void @__clang_call_terminate(ptr %41) #20
   unreachable
 }
 
@@ -1268,9 +1270,9 @@ define void @mupClearOprt(ptr noundef %0) local_unnamed_addr #3 personality ptr 
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = extractvalue { ptr, i32 } %5, 1
-  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %9 = icmp eq i32 %7, %8
-  %10 = tail call ptr @__cxa_begin_catch(ptr %6) #17
+  %10 = tail call ptr @__cxa_begin_catch(ptr %6) #19
   br i1 %9, label %11, label %19
 
 11:                                               ; preds = %4
@@ -1300,7 +1302,7 @@ define void @mupClearOprt(ptr noundef %0) local_unnamed_addr #3 personality ptr 
           to label %23 unwind label %30
 
 23:                                               ; preds = %20
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
   %24 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1320,7 +1322,7 @@ define void @mupClearOprt(ptr noundef %0) local_unnamed_addr #3 personality ptr 
 30:                                               ; preds = %20
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
   br label %33
 
 32:                                               ; preds = %27, %23
@@ -1353,7 +1355,7 @@ define void @mupClearOprt(ptr noundef %0) local_unnamed_addr #3 personality ptr 
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #18
+  call void @__clang_call_terminate(ptr %41) #20
   unreachable
 }
 
@@ -1372,9 +1374,9 @@ define void @mupClearFun(ptr noundef %0) local_unnamed_addr #3 personality ptr @
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = extractvalue { ptr, i32 } %5, 1
-  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %9 = icmp eq i32 %7, %8
-  %10 = tail call ptr @__cxa_begin_catch(ptr %6) #17
+  %10 = tail call ptr @__cxa_begin_catch(ptr %6) #19
   br i1 %9, label %11, label %19
 
 11:                                               ; preds = %4
@@ -1404,7 +1406,7 @@ define void @mupClearFun(ptr noundef %0) local_unnamed_addr #3 personality ptr @
           to label %23 unwind label %30
 
 23:                                               ; preds = %20
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
   %24 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1424,7 +1426,7 @@ define void @mupClearFun(ptr noundef %0) local_unnamed_addr #3 personality ptr @
 30:                                               ; preds = %20
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
   br label %33
 
 32:                                               ; preds = %27, %23
@@ -1457,7 +1459,7 @@ define void @mupClearFun(ptr noundef %0) local_unnamed_addr #3 personality ptr @
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #18
+  call void @__clang_call_terminate(ptr %41) #20
   unreachable
 }
 
@@ -1470,7 +1472,7 @@ define void @mupDefineFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %18
 
@@ -1493,14 +1495,14 @@ define void @mupDefineFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 17:                                               ; preds = %13
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %52
 
 18:                                               ; preds = %4
@@ -1517,17 +1519,17 @@ define void @mupDefineFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 
 .body:                                            ; preds = %15, %20
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %16, %15 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %22
 
 22:                                               ; preds = %.body, %18
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %19, %18 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %24 = icmp eq i32 %.022, %23
-  %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %25 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
@@ -1557,7 +1559,7 @@ define void @mupDefineFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %39 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1577,7 +1579,7 @@ define void @mupDefineFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 45:                                               ; preds = %35
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %48
 
 47:                                               ; preds = %42, %38
@@ -1610,7 +1612,7 @@ define void @mupDefineFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #18
+  call void @__clang_call_terminate(ptr %56) #20
   unreachable
 }
 
@@ -1630,7 +1632,7 @@ define void @mupDefineFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %18
 
@@ -1653,14 +1655,14 @@ define void @mupDefineFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 17:                                               ; preds = %13
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %52
 
 18:                                               ; preds = %4
@@ -1677,17 +1679,17 @@ define void @mupDefineFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 
 .body:                                            ; preds = %15, %20
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %16, %15 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %22
 
 22:                                               ; preds = %.body, %18
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %19, %18 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %24 = icmp eq i32 %.022, %23
-  %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %25 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
@@ -1717,7 +1719,7 @@ define void @mupDefineFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %39 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1737,7 +1739,7 @@ define void @mupDefineFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 45:                                               ; preds = %35
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %48
 
 47:                                               ; preds = %42, %38
@@ -1770,7 +1772,7 @@ define void @mupDefineFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #18
+  call void @__clang_call_terminate(ptr %56) #20
   unreachable
 }
 
@@ -1783,7 +1785,7 @@ define void @mupDefineFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %18
 
@@ -1806,14 +1808,14 @@ define void @mupDefineFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 17:                                               ; preds = %13
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %52
 
 18:                                               ; preds = %4
@@ -1830,17 +1832,17 @@ define void @mupDefineFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 
 .body:                                            ; preds = %15, %20
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %16, %15 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %22
 
 22:                                               ; preds = %.body, %18
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %19, %18 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %24 = icmp eq i32 %.022, %23
-  %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %25 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
@@ -1870,7 +1872,7 @@ define void @mupDefineFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %39 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1890,7 +1892,7 @@ define void @mupDefineFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 45:                                               ; preds = %35
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %48
 
 47:                                               ; preds = %42, %38
@@ -1923,7 +1925,7 @@ define void @mupDefineFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #18
+  call void @__clang_call_terminate(ptr %56) #20
   unreachable
 }
 
@@ -1936,7 +1938,7 @@ define void @mupDefineFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %18
 
@@ -1959,14 +1961,14 @@ define void @mupDefineFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 17:                                               ; preds = %13
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %52
 
 18:                                               ; preds = %4
@@ -1983,17 +1985,17 @@ define void @mupDefineFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 
 .body:                                            ; preds = %15, %20
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %16, %15 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %22
 
 22:                                               ; preds = %.body, %18
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %19, %18 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %24 = icmp eq i32 %.022, %23
-  %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %25 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
@@ -2023,7 +2025,7 @@ define void @mupDefineFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %39 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 120
@@ -2043,7 +2045,7 @@ define void @mupDefineFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 45:                                               ; preds = %35
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %48
 
 47:                                               ; preds = %42, %38
@@ -2076,7 +2078,7 @@ define void @mupDefineFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #18
+  call void @__clang_call_terminate(ptr %56) #20
   unreachable
 }
 
@@ -2089,7 +2091,7 @@ define void @mupDefineFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %18
 
@@ -2112,14 +2114,14 @@ define void @mupDefineFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 17:                                               ; preds = %13
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %52
 
 18:                                               ; preds = %4
@@ -2136,17 +2138,17 @@ define void @mupDefineFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 
 .body:                                            ; preds = %15, %20
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %16, %15 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %22
 
 22:                                               ; preds = %.body, %18
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %19, %18 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %24 = icmp eq i32 %.022, %23
-  %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %25 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
@@ -2176,7 +2178,7 @@ define void @mupDefineFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %39 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 120
@@ -2196,7 +2198,7 @@ define void @mupDefineFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 45:                                               ; preds = %35
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %48
 
 47:                                               ; preds = %42, %38
@@ -2229,7 +2231,7 @@ define void @mupDefineFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #18
+  call void @__clang_call_terminate(ptr %56) #20
   unreachable
 }
 
@@ -2242,7 +2244,7 @@ define void @mupDefineFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %18
 
@@ -2265,14 +2267,14 @@ define void @mupDefineFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 17:                                               ; preds = %13
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %52
 
 18:                                               ; preds = %4
@@ -2289,17 +2291,17 @@ define void @mupDefineFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 
 .body:                                            ; preds = %15, %20
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %16, %15 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %22
 
 22:                                               ; preds = %.body, %18
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %19, %18 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %24 = icmp eq i32 %.022, %23
-  %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %25 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
@@ -2329,7 +2331,7 @@ define void @mupDefineFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %39 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 120
@@ -2349,7 +2351,7 @@ define void @mupDefineFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 45:                                               ; preds = %35
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %48
 
 47:                                               ; preds = %42, %38
@@ -2382,7 +2384,7 @@ define void @mupDefineFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #18
+  call void @__clang_call_terminate(ptr %56) #20
   unreachable
 }
 
@@ -2395,7 +2397,7 @@ define void @mupDefineFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %18
 
@@ -2418,14 +2420,14 @@ define void @mupDefineFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 17:                                               ; preds = %13
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %52
 
 18:                                               ; preds = %4
@@ -2442,17 +2444,17 @@ define void @mupDefineFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 
 .body:                                            ; preds = %15, %20
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %16, %15 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %22
 
 22:                                               ; preds = %.body, %18
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %19, %18 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %24 = icmp eq i32 %.022, %23
-  %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %25 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
@@ -2482,7 +2484,7 @@ define void @mupDefineFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %39 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 120
@@ -2502,7 +2504,7 @@ define void @mupDefineFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 45:                                               ; preds = %35
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %48
 
 47:                                               ; preds = %42, %38
@@ -2535,7 +2537,7 @@ define void @mupDefineFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #18
+  call void @__clang_call_terminate(ptr %56) #20
   unreachable
 }
 
@@ -2548,7 +2550,7 @@ define void @mupDefineFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %18
 
@@ -2571,14 +2573,14 @@ define void @mupDefineFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 17:                                               ; preds = %13
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %52
 
 18:                                               ; preds = %4
@@ -2595,17 +2597,17 @@ define void @mupDefineFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 
 .body:                                            ; preds = %15, %20
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %16, %15 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %22
 
 22:                                               ; preds = %.body, %18
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %19, %18 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %24 = icmp eq i32 %.022, %23
-  %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %25 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
@@ -2635,7 +2637,7 @@ define void @mupDefineFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %39 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 120
@@ -2655,7 +2657,7 @@ define void @mupDefineFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 45:                                               ; preds = %35
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %48
 
 47:                                               ; preds = %42, %38
@@ -2688,7 +2690,7 @@ define void @mupDefineFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #18
+  call void @__clang_call_terminate(ptr %56) #20
   unreachable
 }
 
@@ -2701,7 +2703,7 @@ define void @mupDefineFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %18
 
@@ -2724,14 +2726,14 @@ define void @mupDefineFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 17:                                               ; preds = %13
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %52
 
 18:                                               ; preds = %4
@@ -2748,17 +2750,17 @@ define void @mupDefineFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 
 .body:                                            ; preds = %15, %20
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %16, %15 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %22
 
 22:                                               ; preds = %.body, %18
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %19, %18 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %24 = icmp eq i32 %.022, %23
-  %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %25 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
@@ -2788,7 +2790,7 @@ define void @mupDefineFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %39 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 120
@@ -2808,7 +2810,7 @@ define void @mupDefineFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 45:                                               ; preds = %35
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %48
 
 47:                                               ; preds = %42, %38
@@ -2841,7 +2843,7 @@ define void @mupDefineFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #18
+  call void @__clang_call_terminate(ptr %56) #20
   unreachable
 }
 
@@ -2854,7 +2856,7 @@ define void @mupDefineFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %18
 
@@ -2877,14 +2879,14 @@ define void @mupDefineFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 17:                                               ; preds = %13
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %52
 
 18:                                               ; preds = %4
@@ -2901,17 +2903,17 @@ define void @mupDefineFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 
 .body:                                            ; preds = %15, %20
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %16, %15 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %22
 
 22:                                               ; preds = %.body, %18
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %19, %18 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %24 = icmp eq i32 %.022, %23
-  %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %25 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
@@ -2941,7 +2943,7 @@ define void @mupDefineFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %39 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 120
@@ -2961,7 +2963,7 @@ define void @mupDefineFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 45:                                               ; preds = %35
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %48
 
 47:                                               ; preds = %42, %38
@@ -2994,7 +2996,7 @@ define void @mupDefineFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #18
+  call void @__clang_call_terminate(ptr %56) #20
   unreachable
 }
 
@@ -3007,7 +3009,7 @@ define void @mupDefineFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %18
 
@@ -3030,14 +3032,14 @@ define void @mupDefineFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 17:                                               ; preds = %13
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %52
 
 18:                                               ; preds = %4
@@ -3054,17 +3056,17 @@ define void @mupDefineFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
 
 .body:                                            ; preds = %15, %20
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %16, %15 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %22
 
 22:                                               ; preds = %.body, %18
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %19, %18 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %24 = icmp eq i32 %.022, %23
-  %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %25 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
@@ -3094,7 +3096,7 @@ define void @mupDefineFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %39 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 120
@@ -3114,7 +3116,7 @@ define void @mupDefineFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
 45:                                               ; preds = %35
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %48
 
 47:                                               ; preds = %42, %38
@@ -3147,7 +3149,7 @@ define void @mupDefineFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #18
+  call void @__clang_call_terminate(ptr %56) #20
   unreachable
 }
 
@@ -3160,7 +3162,7 @@ define void @mupDefineFunUserData0(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.mu::ParserError", align 8
   %10 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %11 unwind label %19
 
@@ -3183,14 +3185,14 @@ define void @mupDefineFunUserData0(ptr noundef %0, ptr noundef %1, ptr noundef %
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %.body
 
 18:                                               ; preds = %14
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br label %53
 
 19:                                               ; preds = %5
@@ -3207,17 +3209,17 @@ define void @mupDefineFunUserData0(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .body:                                            ; preds = %16, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %17, %16 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %23
 
 23:                                               ; preds = %.body, %19
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %20, %19 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %25 = icmp eq i32 %.023, %24
-  %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %26 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
@@ -3247,7 +3249,7 @@ define void @mupDefineFunUserData0(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   %40 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 120
@@ -3267,7 +3269,7 @@ define void @mupDefineFunUserData0(ptr noundef %0, ptr noundef %1, ptr noundef %
 46:                                               ; preds = %36
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   br label %49
 
 48:                                               ; preds = %43, %39
@@ -3300,7 +3302,7 @@ define void @mupDefineFunUserData0(ptr noundef %0, ptr noundef %1, ptr noundef %
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #18
+  call void @__clang_call_terminate(ptr %57) #20
   unreachable
 }
 
@@ -3313,7 +3315,7 @@ define void @mupDefineFunUserData1(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.mu::ParserError", align 8
   %10 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %11 unwind label %19
 
@@ -3336,14 +3338,14 @@ define void @mupDefineFunUserData1(ptr noundef %0, ptr noundef %1, ptr noundef %
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %.body
 
 18:                                               ; preds = %14
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br label %53
 
 19:                                               ; preds = %5
@@ -3360,17 +3362,17 @@ define void @mupDefineFunUserData1(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .body:                                            ; preds = %16, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %17, %16 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %23
 
 23:                                               ; preds = %.body, %19
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %20, %19 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %25 = icmp eq i32 %.023, %24
-  %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %26 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
@@ -3400,7 +3402,7 @@ define void @mupDefineFunUserData1(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   %40 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 120
@@ -3420,7 +3422,7 @@ define void @mupDefineFunUserData1(ptr noundef %0, ptr noundef %1, ptr noundef %
 46:                                               ; preds = %36
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   br label %49
 
 48:                                               ; preds = %43, %39
@@ -3453,7 +3455,7 @@ define void @mupDefineFunUserData1(ptr noundef %0, ptr noundef %1, ptr noundef %
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #18
+  call void @__clang_call_terminate(ptr %57) #20
   unreachable
 }
 
@@ -3466,7 +3468,7 @@ define void @mupDefineFunUserData2(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.mu::ParserError", align 8
   %10 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %11 unwind label %19
 
@@ -3489,14 +3491,14 @@ define void @mupDefineFunUserData2(ptr noundef %0, ptr noundef %1, ptr noundef %
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %.body
 
 18:                                               ; preds = %14
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br label %53
 
 19:                                               ; preds = %5
@@ -3513,17 +3515,17 @@ define void @mupDefineFunUserData2(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .body:                                            ; preds = %16, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %17, %16 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %23
 
 23:                                               ; preds = %.body, %19
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %20, %19 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %25 = icmp eq i32 %.023, %24
-  %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %26 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
@@ -3553,7 +3555,7 @@ define void @mupDefineFunUserData2(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   %40 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 120
@@ -3573,7 +3575,7 @@ define void @mupDefineFunUserData2(ptr noundef %0, ptr noundef %1, ptr noundef %
 46:                                               ; preds = %36
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   br label %49
 
 48:                                               ; preds = %43, %39
@@ -3606,7 +3608,7 @@ define void @mupDefineFunUserData2(ptr noundef %0, ptr noundef %1, ptr noundef %
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #18
+  call void @__clang_call_terminate(ptr %57) #20
   unreachable
 }
 
@@ -3619,7 +3621,7 @@ define void @mupDefineFunUserData3(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.mu::ParserError", align 8
   %10 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %11 unwind label %19
 
@@ -3642,14 +3644,14 @@ define void @mupDefineFunUserData3(ptr noundef %0, ptr noundef %1, ptr noundef %
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %.body
 
 18:                                               ; preds = %14
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br label %53
 
 19:                                               ; preds = %5
@@ -3666,17 +3668,17 @@ define void @mupDefineFunUserData3(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .body:                                            ; preds = %16, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %17, %16 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %23
 
 23:                                               ; preds = %.body, %19
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %20, %19 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %25 = icmp eq i32 %.023, %24
-  %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %26 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
@@ -3706,7 +3708,7 @@ define void @mupDefineFunUserData3(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   %40 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 120
@@ -3726,7 +3728,7 @@ define void @mupDefineFunUserData3(ptr noundef %0, ptr noundef %1, ptr noundef %
 46:                                               ; preds = %36
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   br label %49
 
 48:                                               ; preds = %43, %39
@@ -3759,7 +3761,7 @@ define void @mupDefineFunUserData3(ptr noundef %0, ptr noundef %1, ptr noundef %
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #18
+  call void @__clang_call_terminate(ptr %57) #20
   unreachable
 }
 
@@ -3772,7 +3774,7 @@ define void @mupDefineFunUserData4(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.mu::ParserError", align 8
   %10 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %11 unwind label %19
 
@@ -3795,14 +3797,14 @@ define void @mupDefineFunUserData4(ptr noundef %0, ptr noundef %1, ptr noundef %
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %.body
 
 18:                                               ; preds = %14
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br label %53
 
 19:                                               ; preds = %5
@@ -3819,17 +3821,17 @@ define void @mupDefineFunUserData4(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .body:                                            ; preds = %16, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %17, %16 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %23
 
 23:                                               ; preds = %.body, %19
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %20, %19 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %25 = icmp eq i32 %.023, %24
-  %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %26 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
@@ -3859,7 +3861,7 @@ define void @mupDefineFunUserData4(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   %40 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 120
@@ -3879,7 +3881,7 @@ define void @mupDefineFunUserData4(ptr noundef %0, ptr noundef %1, ptr noundef %
 46:                                               ; preds = %36
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   br label %49
 
 48:                                               ; preds = %43, %39
@@ -3912,7 +3914,7 @@ define void @mupDefineFunUserData4(ptr noundef %0, ptr noundef %1, ptr noundef %
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #18
+  call void @__clang_call_terminate(ptr %57) #20
   unreachable
 }
 
@@ -3925,7 +3927,7 @@ define void @mupDefineFunUserData5(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.mu::ParserError", align 8
   %10 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %11 unwind label %19
 
@@ -3948,14 +3950,14 @@ define void @mupDefineFunUserData5(ptr noundef %0, ptr noundef %1, ptr noundef %
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %.body
 
 18:                                               ; preds = %14
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br label %53
 
 19:                                               ; preds = %5
@@ -3972,17 +3974,17 @@ define void @mupDefineFunUserData5(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .body:                                            ; preds = %16, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %17, %16 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %23
 
 23:                                               ; preds = %.body, %19
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %20, %19 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %25 = icmp eq i32 %.023, %24
-  %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %26 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
@@ -4012,7 +4014,7 @@ define void @mupDefineFunUserData5(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   %40 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 120
@@ -4032,7 +4034,7 @@ define void @mupDefineFunUserData5(ptr noundef %0, ptr noundef %1, ptr noundef %
 46:                                               ; preds = %36
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   br label %49
 
 48:                                               ; preds = %43, %39
@@ -4065,7 +4067,7 @@ define void @mupDefineFunUserData5(ptr noundef %0, ptr noundef %1, ptr noundef %
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #18
+  call void @__clang_call_terminate(ptr %57) #20
   unreachable
 }
 
@@ -4078,7 +4080,7 @@ define void @mupDefineFunUserData6(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.mu::ParserError", align 8
   %10 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %11 unwind label %19
 
@@ -4101,14 +4103,14 @@ define void @mupDefineFunUserData6(ptr noundef %0, ptr noundef %1, ptr noundef %
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %.body
 
 18:                                               ; preds = %14
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br label %53
 
 19:                                               ; preds = %5
@@ -4125,17 +4127,17 @@ define void @mupDefineFunUserData6(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .body:                                            ; preds = %16, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %17, %16 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %23
 
 23:                                               ; preds = %.body, %19
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %20, %19 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %25 = icmp eq i32 %.023, %24
-  %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %26 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
@@ -4165,7 +4167,7 @@ define void @mupDefineFunUserData6(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   %40 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 120
@@ -4185,7 +4187,7 @@ define void @mupDefineFunUserData6(ptr noundef %0, ptr noundef %1, ptr noundef %
 46:                                               ; preds = %36
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   br label %49
 
 48:                                               ; preds = %43, %39
@@ -4218,7 +4220,7 @@ define void @mupDefineFunUserData6(ptr noundef %0, ptr noundef %1, ptr noundef %
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #18
+  call void @__clang_call_terminate(ptr %57) #20
   unreachable
 }
 
@@ -4231,7 +4233,7 @@ define void @mupDefineFunUserData7(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.mu::ParserError", align 8
   %10 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %11 unwind label %19
 
@@ -4254,14 +4256,14 @@ define void @mupDefineFunUserData7(ptr noundef %0, ptr noundef %1, ptr noundef %
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %.body
 
 18:                                               ; preds = %14
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br label %53
 
 19:                                               ; preds = %5
@@ -4278,17 +4280,17 @@ define void @mupDefineFunUserData7(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .body:                                            ; preds = %16, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %17, %16 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %23
 
 23:                                               ; preds = %.body, %19
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %20, %19 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %25 = icmp eq i32 %.023, %24
-  %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %26 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
@@ -4318,7 +4320,7 @@ define void @mupDefineFunUserData7(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   %40 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 120
@@ -4338,7 +4340,7 @@ define void @mupDefineFunUserData7(ptr noundef %0, ptr noundef %1, ptr noundef %
 46:                                               ; preds = %36
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   br label %49
 
 48:                                               ; preds = %43, %39
@@ -4371,7 +4373,7 @@ define void @mupDefineFunUserData7(ptr noundef %0, ptr noundef %1, ptr noundef %
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #18
+  call void @__clang_call_terminate(ptr %57) #20
   unreachable
 }
 
@@ -4384,7 +4386,7 @@ define void @mupDefineFunUserData8(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.mu::ParserError", align 8
   %10 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %11 unwind label %19
 
@@ -4407,14 +4409,14 @@ define void @mupDefineFunUserData8(ptr noundef %0, ptr noundef %1, ptr noundef %
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %.body
 
 18:                                               ; preds = %14
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br label %53
 
 19:                                               ; preds = %5
@@ -4431,17 +4433,17 @@ define void @mupDefineFunUserData8(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .body:                                            ; preds = %16, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %17, %16 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %23
 
 23:                                               ; preds = %.body, %19
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %20, %19 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %25 = icmp eq i32 %.023, %24
-  %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %26 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
@@ -4471,7 +4473,7 @@ define void @mupDefineFunUserData8(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   %40 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 120
@@ -4491,7 +4493,7 @@ define void @mupDefineFunUserData8(ptr noundef %0, ptr noundef %1, ptr noundef %
 46:                                               ; preds = %36
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   br label %49
 
 48:                                               ; preds = %43, %39
@@ -4524,7 +4526,7 @@ define void @mupDefineFunUserData8(ptr noundef %0, ptr noundef %1, ptr noundef %
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #18
+  call void @__clang_call_terminate(ptr %57) #20
   unreachable
 }
 
@@ -4537,7 +4539,7 @@ define void @mupDefineFunUserData9(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.mu::ParserError", align 8
   %10 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %11 unwind label %19
 
@@ -4560,14 +4562,14 @@ define void @mupDefineFunUserData9(ptr noundef %0, ptr noundef %1, ptr noundef %
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %.body
 
 18:                                               ; preds = %14
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br label %53
 
 19:                                               ; preds = %5
@@ -4584,17 +4586,17 @@ define void @mupDefineFunUserData9(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .body:                                            ; preds = %16, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %17, %16 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %23
 
 23:                                               ; preds = %.body, %19
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %20, %19 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %25 = icmp eq i32 %.023, %24
-  %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %26 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
@@ -4624,7 +4626,7 @@ define void @mupDefineFunUserData9(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   %40 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 120
@@ -4644,7 +4646,7 @@ define void @mupDefineFunUserData9(ptr noundef %0, ptr noundef %1, ptr noundef %
 46:                                               ; preds = %36
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   br label %49
 
 48:                                               ; preds = %43, %39
@@ -4677,7 +4679,7 @@ define void @mupDefineFunUserData9(ptr noundef %0, ptr noundef %1, ptr noundef %
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #18
+  call void @__clang_call_terminate(ptr %57) #20
   unreachable
 }
 
@@ -4690,7 +4692,7 @@ define void @mupDefineFunUserData10(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.mu::ParserError", align 8
   %10 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %11 unwind label %19
 
@@ -4713,14 +4715,14 @@ define void @mupDefineFunUserData10(ptr noundef %0, ptr noundef %1, ptr noundef 
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %.body
 
 18:                                               ; preds = %14
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br label %53
 
 19:                                               ; preds = %5
@@ -4737,17 +4739,17 @@ define void @mupDefineFunUserData10(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 .body:                                            ; preds = %16, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %17, %16 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %23
 
 23:                                               ; preds = %.body, %19
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %20, %19 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %25 = icmp eq i32 %.023, %24
-  %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %26 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
@@ -4777,7 +4779,7 @@ define void @mupDefineFunUserData10(ptr noundef %0, ptr noundef %1, ptr noundef 
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   %40 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 120
@@ -4797,7 +4799,7 @@ define void @mupDefineFunUserData10(ptr noundef %0, ptr noundef %1, ptr noundef 
 46:                                               ; preds = %36
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   br label %49
 
 48:                                               ; preds = %43, %39
@@ -4830,7 +4832,7 @@ define void @mupDefineFunUserData10(ptr noundef %0, ptr noundef %1, ptr noundef 
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #18
+  call void @__clang_call_terminate(ptr %57) #20
   unreachable
 }
 
@@ -4843,7 +4845,7 @@ define void @mupDefineBulkFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %16
 
@@ -4865,14 +4867,14 @@ define void @mupDefineBulkFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %14 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 15:                                               ; preds = %11
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %50
 
 16:                                               ; preds = %3
@@ -4889,17 +4891,17 @@ define void @mupDefineBulkFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 .body:                                            ; preds = %13, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %20
 
 20:                                               ; preds = %.body, %16
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %17, %16 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %22 = icmp eq i32 %.021, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
@@ -4929,7 +4931,7 @@ define void @mupDefineBulkFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -4949,7 +4951,7 @@ define void @mupDefineBulkFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %46
 
 45:                                               ; preds = %40, %36
@@ -4982,7 +4984,7 @@ define void @mupDefineBulkFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #18
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 }
 
@@ -4995,7 +4997,7 @@ define void @mupDefineBulkFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %16
 
@@ -5017,14 +5019,14 @@ define void @mupDefineBulkFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %14 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 15:                                               ; preds = %11
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %50
 
 16:                                               ; preds = %3
@@ -5041,17 +5043,17 @@ define void @mupDefineBulkFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 .body:                                            ; preds = %13, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %20
 
 20:                                               ; preds = %.body, %16
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %17, %16 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %22 = icmp eq i32 %.021, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
@@ -5081,7 +5083,7 @@ define void @mupDefineBulkFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -5101,7 +5103,7 @@ define void @mupDefineBulkFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %46
 
 45:                                               ; preds = %40, %36
@@ -5134,7 +5136,7 @@ define void @mupDefineBulkFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #18
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 }
 
@@ -5147,7 +5149,7 @@ define void @mupDefineBulkFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %16
 
@@ -5169,14 +5171,14 @@ define void @mupDefineBulkFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %14 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 15:                                               ; preds = %11
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %50
 
 16:                                               ; preds = %3
@@ -5193,17 +5195,17 @@ define void @mupDefineBulkFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 .body:                                            ; preds = %13, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %20
 
 20:                                               ; preds = %.body, %16
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %17, %16 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %22 = icmp eq i32 %.021, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
@@ -5233,7 +5235,7 @@ define void @mupDefineBulkFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -5253,7 +5255,7 @@ define void @mupDefineBulkFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %46
 
 45:                                               ; preds = %40, %36
@@ -5286,7 +5288,7 @@ define void @mupDefineBulkFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #18
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 }
 
@@ -5299,7 +5301,7 @@ define void @mupDefineBulkFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %16
 
@@ -5321,14 +5323,14 @@ define void @mupDefineBulkFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %14 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 15:                                               ; preds = %11
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %50
 
 16:                                               ; preds = %3
@@ -5345,17 +5347,17 @@ define void @mupDefineBulkFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 .body:                                            ; preds = %13, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %20
 
 20:                                               ; preds = %.body, %16
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %17, %16 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %22 = icmp eq i32 %.021, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
@@ -5385,7 +5387,7 @@ define void @mupDefineBulkFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -5405,7 +5407,7 @@ define void @mupDefineBulkFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %46
 
 45:                                               ; preds = %40, %36
@@ -5438,7 +5440,7 @@ define void @mupDefineBulkFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #18
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 }
 
@@ -5451,7 +5453,7 @@ define void @mupDefineBulkFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %16
 
@@ -5473,14 +5475,14 @@ define void @mupDefineBulkFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %14 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 15:                                               ; preds = %11
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %50
 
 16:                                               ; preds = %3
@@ -5497,17 +5499,17 @@ define void @mupDefineBulkFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 .body:                                            ; preds = %13, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %20
 
 20:                                               ; preds = %.body, %16
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %17, %16 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %22 = icmp eq i32 %.021, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
@@ -5537,7 +5539,7 @@ define void @mupDefineBulkFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -5557,7 +5559,7 @@ define void @mupDefineBulkFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %46
 
 45:                                               ; preds = %40, %36
@@ -5590,7 +5592,7 @@ define void @mupDefineBulkFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #18
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 }
 
@@ -5603,7 +5605,7 @@ define void @mupDefineBulkFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %16
 
@@ -5625,14 +5627,14 @@ define void @mupDefineBulkFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %14 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 15:                                               ; preds = %11
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %50
 
 16:                                               ; preds = %3
@@ -5649,17 +5651,17 @@ define void @mupDefineBulkFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 .body:                                            ; preds = %13, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %20
 
 20:                                               ; preds = %.body, %16
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %17, %16 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %22 = icmp eq i32 %.021, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
@@ -5689,7 +5691,7 @@ define void @mupDefineBulkFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -5709,7 +5711,7 @@ define void @mupDefineBulkFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %46
 
 45:                                               ; preds = %40, %36
@@ -5742,7 +5744,7 @@ define void @mupDefineBulkFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #18
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 }
 
@@ -5755,7 +5757,7 @@ define void @mupDefineBulkFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %16
 
@@ -5777,14 +5779,14 @@ define void @mupDefineBulkFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %14 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 15:                                               ; preds = %11
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %50
 
 16:                                               ; preds = %3
@@ -5801,17 +5803,17 @@ define void @mupDefineBulkFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 .body:                                            ; preds = %13, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %20
 
 20:                                               ; preds = %.body, %16
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %17, %16 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %22 = icmp eq i32 %.021, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
@@ -5841,7 +5843,7 @@ define void @mupDefineBulkFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -5861,7 +5863,7 @@ define void @mupDefineBulkFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %46
 
 45:                                               ; preds = %40, %36
@@ -5894,7 +5896,7 @@ define void @mupDefineBulkFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #18
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 }
 
@@ -5907,7 +5909,7 @@ define void @mupDefineBulkFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %16
 
@@ -5929,14 +5931,14 @@ define void @mupDefineBulkFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %14 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 15:                                               ; preds = %11
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %50
 
 16:                                               ; preds = %3
@@ -5953,17 +5955,17 @@ define void @mupDefineBulkFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 .body:                                            ; preds = %13, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %20
 
 20:                                               ; preds = %.body, %16
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %17, %16 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %22 = icmp eq i32 %.021, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
@@ -5993,7 +5995,7 @@ define void @mupDefineBulkFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -6013,7 +6015,7 @@ define void @mupDefineBulkFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %46
 
 45:                                               ; preds = %40, %36
@@ -6046,7 +6048,7 @@ define void @mupDefineBulkFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #18
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 }
 
@@ -6059,7 +6061,7 @@ define void @mupDefineBulkFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %16
 
@@ -6081,14 +6083,14 @@ define void @mupDefineBulkFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %14 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 15:                                               ; preds = %11
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %50
 
 16:                                               ; preds = %3
@@ -6105,17 +6107,17 @@ define void @mupDefineBulkFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 .body:                                            ; preds = %13, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %20
 
 20:                                               ; preds = %.body, %16
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %17, %16 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %22 = icmp eq i32 %.021, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
@@ -6145,7 +6147,7 @@ define void @mupDefineBulkFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -6165,7 +6167,7 @@ define void @mupDefineBulkFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %46
 
 45:                                               ; preds = %40, %36
@@ -6198,7 +6200,7 @@ define void @mupDefineBulkFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #18
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 }
 
@@ -6211,7 +6213,7 @@ define void @mupDefineBulkFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %16
 
@@ -6233,14 +6235,14 @@ define void @mupDefineBulkFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %14 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 15:                                               ; preds = %11
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %50
 
 16:                                               ; preds = %3
@@ -6257,17 +6259,17 @@ define void @mupDefineBulkFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 .body:                                            ; preds = %13, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %20
 
 20:                                               ; preds = %.body, %16
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %17, %16 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %22 = icmp eq i32 %.021, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
@@ -6297,7 +6299,7 @@ define void @mupDefineBulkFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -6317,7 +6319,7 @@ define void @mupDefineBulkFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %46
 
 45:                                               ; preds = %40, %36
@@ -6350,7 +6352,7 @@ define void @mupDefineBulkFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #18
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 }
 
@@ -6363,7 +6365,7 @@ define void @mupDefineBulkFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %16
 
@@ -6385,14 +6387,14 @@ define void @mupDefineBulkFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %14 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 15:                                               ; preds = %11
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %50
 
 16:                                               ; preds = %3
@@ -6409,17 +6411,17 @@ define void @mupDefineBulkFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 .body:                                            ; preds = %13, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %20
 
 20:                                               ; preds = %.body, %16
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %17, %16 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %22 = icmp eq i32 %.021, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
@@ -6449,7 +6451,7 @@ define void @mupDefineBulkFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -6469,7 +6471,7 @@ define void @mupDefineBulkFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %46
 
 45:                                               ; preds = %40, %36
@@ -6502,7 +6504,7 @@ define void @mupDefineBulkFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #18
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 }
 
@@ -6515,7 +6517,7 @@ define void @mupDefineBulkFunUserData0(ptr noundef %0, ptr noundef %1, ptr nound
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %17
 
@@ -6537,14 +6539,14 @@ define void @mupDefineBulkFunUserData0(ptr noundef %0, ptr noundef %1, ptr nound
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 16:                                               ; preds = %12
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %51
 
 17:                                               ; preds = %4
@@ -6561,17 +6563,17 @@ define void @mupDefineBulkFunUserData0(ptr noundef %0, ptr noundef %1, ptr nound
 
 .body:                                            ; preds = %14, %19
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %15, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %21
 
 21:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %23 = icmp eq i32 %.022, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %24 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
@@ -6601,7 +6603,7 @@ define void @mupDefineBulkFunUserData0(ptr noundef %0, ptr noundef %1, ptr nound
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 120
@@ -6621,7 +6623,7 @@ define void @mupDefineBulkFunUserData0(ptr noundef %0, ptr noundef %1, ptr nound
 44:                                               ; preds = %34
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %47
 
 46:                                               ; preds = %41, %37
@@ -6654,7 +6656,7 @@ define void @mupDefineBulkFunUserData0(ptr noundef %0, ptr noundef %1, ptr nound
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #18
+  call void @__clang_call_terminate(ptr %55) #20
   unreachable
 }
 
@@ -6667,7 +6669,7 @@ define void @mupDefineBulkFunUserData1(ptr noundef %0, ptr noundef %1, ptr nound
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %17
 
@@ -6689,14 +6691,14 @@ define void @mupDefineBulkFunUserData1(ptr noundef %0, ptr noundef %1, ptr nound
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 16:                                               ; preds = %12
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %51
 
 17:                                               ; preds = %4
@@ -6713,17 +6715,17 @@ define void @mupDefineBulkFunUserData1(ptr noundef %0, ptr noundef %1, ptr nound
 
 .body:                                            ; preds = %14, %19
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %15, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %21
 
 21:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %23 = icmp eq i32 %.022, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %24 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
@@ -6753,7 +6755,7 @@ define void @mupDefineBulkFunUserData1(ptr noundef %0, ptr noundef %1, ptr nound
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 120
@@ -6773,7 +6775,7 @@ define void @mupDefineBulkFunUserData1(ptr noundef %0, ptr noundef %1, ptr nound
 44:                                               ; preds = %34
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %47
 
 46:                                               ; preds = %41, %37
@@ -6806,7 +6808,7 @@ define void @mupDefineBulkFunUserData1(ptr noundef %0, ptr noundef %1, ptr nound
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #18
+  call void @__clang_call_terminate(ptr %55) #20
   unreachable
 }
 
@@ -6819,7 +6821,7 @@ define void @mupDefineBulkFunUserData2(ptr noundef %0, ptr noundef %1, ptr nound
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %17
 
@@ -6841,14 +6843,14 @@ define void @mupDefineBulkFunUserData2(ptr noundef %0, ptr noundef %1, ptr nound
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 16:                                               ; preds = %12
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %51
 
 17:                                               ; preds = %4
@@ -6865,17 +6867,17 @@ define void @mupDefineBulkFunUserData2(ptr noundef %0, ptr noundef %1, ptr nound
 
 .body:                                            ; preds = %14, %19
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %15, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %21
 
 21:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %23 = icmp eq i32 %.022, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %24 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
@@ -6905,7 +6907,7 @@ define void @mupDefineBulkFunUserData2(ptr noundef %0, ptr noundef %1, ptr nound
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 120
@@ -6925,7 +6927,7 @@ define void @mupDefineBulkFunUserData2(ptr noundef %0, ptr noundef %1, ptr nound
 44:                                               ; preds = %34
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %47
 
 46:                                               ; preds = %41, %37
@@ -6958,7 +6960,7 @@ define void @mupDefineBulkFunUserData2(ptr noundef %0, ptr noundef %1, ptr nound
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #18
+  call void @__clang_call_terminate(ptr %55) #20
   unreachable
 }
 
@@ -6971,7 +6973,7 @@ define void @mupDefineBulkFunUserData3(ptr noundef %0, ptr noundef %1, ptr nound
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %17
 
@@ -6993,14 +6995,14 @@ define void @mupDefineBulkFunUserData3(ptr noundef %0, ptr noundef %1, ptr nound
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 16:                                               ; preds = %12
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %51
 
 17:                                               ; preds = %4
@@ -7017,17 +7019,17 @@ define void @mupDefineBulkFunUserData3(ptr noundef %0, ptr noundef %1, ptr nound
 
 .body:                                            ; preds = %14, %19
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %15, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %21
 
 21:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %23 = icmp eq i32 %.022, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %24 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
@@ -7057,7 +7059,7 @@ define void @mupDefineBulkFunUserData3(ptr noundef %0, ptr noundef %1, ptr nound
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 120
@@ -7077,7 +7079,7 @@ define void @mupDefineBulkFunUserData3(ptr noundef %0, ptr noundef %1, ptr nound
 44:                                               ; preds = %34
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %47
 
 46:                                               ; preds = %41, %37
@@ -7110,7 +7112,7 @@ define void @mupDefineBulkFunUserData3(ptr noundef %0, ptr noundef %1, ptr nound
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #18
+  call void @__clang_call_terminate(ptr %55) #20
   unreachable
 }
 
@@ -7123,7 +7125,7 @@ define void @mupDefineBulkFunUserData4(ptr noundef %0, ptr noundef %1, ptr nound
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %17
 
@@ -7145,14 +7147,14 @@ define void @mupDefineBulkFunUserData4(ptr noundef %0, ptr noundef %1, ptr nound
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 16:                                               ; preds = %12
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %51
 
 17:                                               ; preds = %4
@@ -7169,17 +7171,17 @@ define void @mupDefineBulkFunUserData4(ptr noundef %0, ptr noundef %1, ptr nound
 
 .body:                                            ; preds = %14, %19
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %15, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %21
 
 21:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %23 = icmp eq i32 %.022, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %24 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
@@ -7209,7 +7211,7 @@ define void @mupDefineBulkFunUserData4(ptr noundef %0, ptr noundef %1, ptr nound
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 120
@@ -7229,7 +7231,7 @@ define void @mupDefineBulkFunUserData4(ptr noundef %0, ptr noundef %1, ptr nound
 44:                                               ; preds = %34
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %47
 
 46:                                               ; preds = %41, %37
@@ -7262,7 +7264,7 @@ define void @mupDefineBulkFunUserData4(ptr noundef %0, ptr noundef %1, ptr nound
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #18
+  call void @__clang_call_terminate(ptr %55) #20
   unreachable
 }
 
@@ -7275,7 +7277,7 @@ define void @mupDefineBulkFunUserData5(ptr noundef %0, ptr noundef %1, ptr nound
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %17
 
@@ -7297,14 +7299,14 @@ define void @mupDefineBulkFunUserData5(ptr noundef %0, ptr noundef %1, ptr nound
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 16:                                               ; preds = %12
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %51
 
 17:                                               ; preds = %4
@@ -7321,17 +7323,17 @@ define void @mupDefineBulkFunUserData5(ptr noundef %0, ptr noundef %1, ptr nound
 
 .body:                                            ; preds = %14, %19
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %15, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %21
 
 21:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %23 = icmp eq i32 %.022, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %24 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
@@ -7361,7 +7363,7 @@ define void @mupDefineBulkFunUserData5(ptr noundef %0, ptr noundef %1, ptr nound
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 120
@@ -7381,7 +7383,7 @@ define void @mupDefineBulkFunUserData5(ptr noundef %0, ptr noundef %1, ptr nound
 44:                                               ; preds = %34
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %47
 
 46:                                               ; preds = %41, %37
@@ -7414,7 +7416,7 @@ define void @mupDefineBulkFunUserData5(ptr noundef %0, ptr noundef %1, ptr nound
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #18
+  call void @__clang_call_terminate(ptr %55) #20
   unreachable
 }
 
@@ -7427,7 +7429,7 @@ define void @mupDefineBulkFunUserData6(ptr noundef %0, ptr noundef %1, ptr nound
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %17
 
@@ -7449,14 +7451,14 @@ define void @mupDefineBulkFunUserData6(ptr noundef %0, ptr noundef %1, ptr nound
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 16:                                               ; preds = %12
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %51
 
 17:                                               ; preds = %4
@@ -7473,17 +7475,17 @@ define void @mupDefineBulkFunUserData6(ptr noundef %0, ptr noundef %1, ptr nound
 
 .body:                                            ; preds = %14, %19
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %15, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %21
 
 21:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %23 = icmp eq i32 %.022, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %24 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
@@ -7513,7 +7515,7 @@ define void @mupDefineBulkFunUserData6(ptr noundef %0, ptr noundef %1, ptr nound
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 120
@@ -7533,7 +7535,7 @@ define void @mupDefineBulkFunUserData6(ptr noundef %0, ptr noundef %1, ptr nound
 44:                                               ; preds = %34
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %47
 
 46:                                               ; preds = %41, %37
@@ -7566,7 +7568,7 @@ define void @mupDefineBulkFunUserData6(ptr noundef %0, ptr noundef %1, ptr nound
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #18
+  call void @__clang_call_terminate(ptr %55) #20
   unreachable
 }
 
@@ -7579,7 +7581,7 @@ define void @mupDefineBulkFunUserData7(ptr noundef %0, ptr noundef %1, ptr nound
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %17
 
@@ -7601,14 +7603,14 @@ define void @mupDefineBulkFunUserData7(ptr noundef %0, ptr noundef %1, ptr nound
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 16:                                               ; preds = %12
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %51
 
 17:                                               ; preds = %4
@@ -7625,17 +7627,17 @@ define void @mupDefineBulkFunUserData7(ptr noundef %0, ptr noundef %1, ptr nound
 
 .body:                                            ; preds = %14, %19
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %15, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %21
 
 21:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %23 = icmp eq i32 %.022, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %24 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
@@ -7665,7 +7667,7 @@ define void @mupDefineBulkFunUserData7(ptr noundef %0, ptr noundef %1, ptr nound
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 120
@@ -7685,7 +7687,7 @@ define void @mupDefineBulkFunUserData7(ptr noundef %0, ptr noundef %1, ptr nound
 44:                                               ; preds = %34
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %47
 
 46:                                               ; preds = %41, %37
@@ -7718,7 +7720,7 @@ define void @mupDefineBulkFunUserData7(ptr noundef %0, ptr noundef %1, ptr nound
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #18
+  call void @__clang_call_terminate(ptr %55) #20
   unreachable
 }
 
@@ -7731,7 +7733,7 @@ define void @mupDefineBulkFunUserData8(ptr noundef %0, ptr noundef %1, ptr nound
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %17
 
@@ -7753,14 +7755,14 @@ define void @mupDefineBulkFunUserData8(ptr noundef %0, ptr noundef %1, ptr nound
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 16:                                               ; preds = %12
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %51
 
 17:                                               ; preds = %4
@@ -7777,17 +7779,17 @@ define void @mupDefineBulkFunUserData8(ptr noundef %0, ptr noundef %1, ptr nound
 
 .body:                                            ; preds = %14, %19
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %15, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %21
 
 21:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %23 = icmp eq i32 %.022, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %24 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
@@ -7817,7 +7819,7 @@ define void @mupDefineBulkFunUserData8(ptr noundef %0, ptr noundef %1, ptr nound
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 120
@@ -7837,7 +7839,7 @@ define void @mupDefineBulkFunUserData8(ptr noundef %0, ptr noundef %1, ptr nound
 44:                                               ; preds = %34
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %47
 
 46:                                               ; preds = %41, %37
@@ -7870,7 +7872,7 @@ define void @mupDefineBulkFunUserData8(ptr noundef %0, ptr noundef %1, ptr nound
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #18
+  call void @__clang_call_terminate(ptr %55) #20
   unreachable
 }
 
@@ -7883,7 +7885,7 @@ define void @mupDefineBulkFunUserData9(ptr noundef %0, ptr noundef %1, ptr nound
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %17
 
@@ -7905,14 +7907,14 @@ define void @mupDefineBulkFunUserData9(ptr noundef %0, ptr noundef %1, ptr nound
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 16:                                               ; preds = %12
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %51
 
 17:                                               ; preds = %4
@@ -7929,17 +7931,17 @@ define void @mupDefineBulkFunUserData9(ptr noundef %0, ptr noundef %1, ptr nound
 
 .body:                                            ; preds = %14, %19
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %15, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %21
 
 21:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %23 = icmp eq i32 %.022, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %24 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
@@ -7969,7 +7971,7 @@ define void @mupDefineBulkFunUserData9(ptr noundef %0, ptr noundef %1, ptr nound
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 120
@@ -7989,7 +7991,7 @@ define void @mupDefineBulkFunUserData9(ptr noundef %0, ptr noundef %1, ptr nound
 44:                                               ; preds = %34
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %47
 
 46:                                               ; preds = %41, %37
@@ -8022,7 +8024,7 @@ define void @mupDefineBulkFunUserData9(ptr noundef %0, ptr noundef %1, ptr nound
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #18
+  call void @__clang_call_terminate(ptr %55) #20
   unreachable
 }
 
@@ -8035,7 +8037,7 @@ define void @mupDefineBulkFunUserData10(ptr noundef %0, ptr noundef %1, ptr noun
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %17
 
@@ -8057,14 +8059,14 @@ define void @mupDefineBulkFunUserData10(ptr noundef %0, ptr noundef %1, ptr noun
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 16:                                               ; preds = %12
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %51
 
 17:                                               ; preds = %4
@@ -8081,17 +8083,17 @@ define void @mupDefineBulkFunUserData10(ptr noundef %0, ptr noundef %1, ptr noun
 
 .body:                                            ; preds = %14, %19
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %15, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %21
 
 21:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %23 = icmp eq i32 %.022, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %24 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
@@ -8121,7 +8123,7 @@ define void @mupDefineBulkFunUserData10(ptr noundef %0, ptr noundef %1, ptr noun
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 120
@@ -8141,7 +8143,7 @@ define void @mupDefineBulkFunUserData10(ptr noundef %0, ptr noundef %1, ptr noun
 44:                                               ; preds = %34
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %47
 
 46:                                               ; preds = %41, %37
@@ -8174,7 +8176,7 @@ define void @mupDefineBulkFunUserData10(ptr noundef %0, ptr noundef %1, ptr noun
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #18
+  call void @__clang_call_terminate(ptr %55) #20
   unreachable
 }
 
@@ -8187,7 +8189,7 @@ define void @mupDefineStrFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %16
 
@@ -8209,14 +8211,14 @@ define void @mupDefineStrFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %14 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 15:                                               ; preds = %11
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %50
 
 16:                                               ; preds = %3
@@ -8233,17 +8235,17 @@ define void @mupDefineStrFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 
 .body:                                            ; preds = %13, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %20
 
 20:                                               ; preds = %.body, %16
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %17, %16 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %22 = icmp eq i32 %.021, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
@@ -8273,7 +8275,7 @@ define void @mupDefineStrFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -8293,7 +8295,7 @@ define void @mupDefineStrFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %46
 
 45:                                               ; preds = %40, %36
@@ -8326,7 +8328,7 @@ define void @mupDefineStrFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #18
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 }
 
@@ -8339,7 +8341,7 @@ define void @mupDefineStrFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %16
 
@@ -8361,14 +8363,14 @@ define void @mupDefineStrFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %14 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 15:                                               ; preds = %11
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %50
 
 16:                                               ; preds = %3
@@ -8385,17 +8387,17 @@ define void @mupDefineStrFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 
 .body:                                            ; preds = %13, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %20
 
 20:                                               ; preds = %.body, %16
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %17, %16 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %22 = icmp eq i32 %.021, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
@@ -8425,7 +8427,7 @@ define void @mupDefineStrFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -8445,7 +8447,7 @@ define void @mupDefineStrFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %46
 
 45:                                               ; preds = %40, %36
@@ -8478,7 +8480,7 @@ define void @mupDefineStrFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #18
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 }
 
@@ -8491,7 +8493,7 @@ define void @mupDefineStrFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %16
 
@@ -8513,14 +8515,14 @@ define void @mupDefineStrFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %14 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 15:                                               ; preds = %11
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %50
 
 16:                                               ; preds = %3
@@ -8537,17 +8539,17 @@ define void @mupDefineStrFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 
 .body:                                            ; preds = %13, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %20
 
 20:                                               ; preds = %.body, %16
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %17, %16 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %22 = icmp eq i32 %.021, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
@@ -8577,7 +8579,7 @@ define void @mupDefineStrFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -8597,7 +8599,7 @@ define void @mupDefineStrFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %46
 
 45:                                               ; preds = %40, %36
@@ -8630,7 +8632,7 @@ define void @mupDefineStrFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #18
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 }
 
@@ -8643,7 +8645,7 @@ define void @mupDefineStrFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %16
 
@@ -8665,14 +8667,14 @@ define void @mupDefineStrFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %14 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 15:                                               ; preds = %11
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %50
 
 16:                                               ; preds = %3
@@ -8689,17 +8691,17 @@ define void @mupDefineStrFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 
 .body:                                            ; preds = %13, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %20
 
 20:                                               ; preds = %.body, %16
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %17, %16 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %22 = icmp eq i32 %.021, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
@@ -8729,7 +8731,7 @@ define void @mupDefineStrFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -8749,7 +8751,7 @@ define void @mupDefineStrFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %46
 
 45:                                               ; preds = %40, %36
@@ -8782,7 +8784,7 @@ define void @mupDefineStrFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #18
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 }
 
@@ -8795,7 +8797,7 @@ define void @mupDefineStrFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %16
 
@@ -8817,14 +8819,14 @@ define void @mupDefineStrFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %14 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 15:                                               ; preds = %11
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %50
 
 16:                                               ; preds = %3
@@ -8841,17 +8843,17 @@ define void @mupDefineStrFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 
 .body:                                            ; preds = %13, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %20
 
 20:                                               ; preds = %.body, %16
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %17, %16 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %22 = icmp eq i32 %.021, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
@@ -8881,7 +8883,7 @@ define void @mupDefineStrFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -8901,7 +8903,7 @@ define void @mupDefineStrFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %46
 
 45:                                               ; preds = %40, %36
@@ -8934,7 +8936,7 @@ define void @mupDefineStrFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #18
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 }
 
@@ -8947,7 +8949,7 @@ define void @mupDefineStrFunUserData1(ptr noundef %0, ptr noundef %1, ptr nounde
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %17
 
@@ -8969,14 +8971,14 @@ define void @mupDefineStrFunUserData1(ptr noundef %0, ptr noundef %1, ptr nounde
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 16:                                               ; preds = %12
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %51
 
 17:                                               ; preds = %4
@@ -8993,17 +8995,17 @@ define void @mupDefineStrFunUserData1(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .body:                                            ; preds = %14, %19
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %15, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %21
 
 21:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %23 = icmp eq i32 %.022, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %24 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
@@ -9033,7 +9035,7 @@ define void @mupDefineStrFunUserData1(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 120
@@ -9053,7 +9055,7 @@ define void @mupDefineStrFunUserData1(ptr noundef %0, ptr noundef %1, ptr nounde
 44:                                               ; preds = %34
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %47
 
 46:                                               ; preds = %41, %37
@@ -9086,7 +9088,7 @@ define void @mupDefineStrFunUserData1(ptr noundef %0, ptr noundef %1, ptr nounde
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #18
+  call void @__clang_call_terminate(ptr %55) #20
   unreachable
 }
 
@@ -9099,7 +9101,7 @@ define void @mupDefineStrFunUserData2(ptr noundef %0, ptr noundef %1, ptr nounde
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %17
 
@@ -9121,14 +9123,14 @@ define void @mupDefineStrFunUserData2(ptr noundef %0, ptr noundef %1, ptr nounde
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 16:                                               ; preds = %12
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %51
 
 17:                                               ; preds = %4
@@ -9145,17 +9147,17 @@ define void @mupDefineStrFunUserData2(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .body:                                            ; preds = %14, %19
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %15, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %21
 
 21:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %23 = icmp eq i32 %.022, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %24 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
@@ -9185,7 +9187,7 @@ define void @mupDefineStrFunUserData2(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 120
@@ -9205,7 +9207,7 @@ define void @mupDefineStrFunUserData2(ptr noundef %0, ptr noundef %1, ptr nounde
 44:                                               ; preds = %34
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %47
 
 46:                                               ; preds = %41, %37
@@ -9238,7 +9240,7 @@ define void @mupDefineStrFunUserData2(ptr noundef %0, ptr noundef %1, ptr nounde
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #18
+  call void @__clang_call_terminate(ptr %55) #20
   unreachable
 }
 
@@ -9251,7 +9253,7 @@ define void @mupDefineStrFunUserData3(ptr noundef %0, ptr noundef %1, ptr nounde
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %17
 
@@ -9273,14 +9275,14 @@ define void @mupDefineStrFunUserData3(ptr noundef %0, ptr noundef %1, ptr nounde
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 16:                                               ; preds = %12
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %51
 
 17:                                               ; preds = %4
@@ -9297,17 +9299,17 @@ define void @mupDefineStrFunUserData3(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .body:                                            ; preds = %14, %19
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %15, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %21
 
 21:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %23 = icmp eq i32 %.022, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %24 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
@@ -9337,7 +9339,7 @@ define void @mupDefineStrFunUserData3(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 120
@@ -9357,7 +9359,7 @@ define void @mupDefineStrFunUserData3(ptr noundef %0, ptr noundef %1, ptr nounde
 44:                                               ; preds = %34
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %47
 
 46:                                               ; preds = %41, %37
@@ -9390,7 +9392,7 @@ define void @mupDefineStrFunUserData3(ptr noundef %0, ptr noundef %1, ptr nounde
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #18
+  call void @__clang_call_terminate(ptr %55) #20
   unreachable
 }
 
@@ -9403,7 +9405,7 @@ define void @mupDefineStrFunUserData4(ptr noundef %0, ptr noundef %1, ptr nounde
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %17
 
@@ -9425,14 +9427,14 @@ define void @mupDefineStrFunUserData4(ptr noundef %0, ptr noundef %1, ptr nounde
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 16:                                               ; preds = %12
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %51
 
 17:                                               ; preds = %4
@@ -9449,17 +9451,17 @@ define void @mupDefineStrFunUserData4(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .body:                                            ; preds = %14, %19
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %15, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %21
 
 21:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %23 = icmp eq i32 %.022, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %24 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
@@ -9489,7 +9491,7 @@ define void @mupDefineStrFunUserData4(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 120
@@ -9509,7 +9511,7 @@ define void @mupDefineStrFunUserData4(ptr noundef %0, ptr noundef %1, ptr nounde
 44:                                               ; preds = %34
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %47
 
 46:                                               ; preds = %41, %37
@@ -9542,7 +9544,7 @@ define void @mupDefineStrFunUserData4(ptr noundef %0, ptr noundef %1, ptr nounde
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #18
+  call void @__clang_call_terminate(ptr %55) #20
   unreachable
 }
 
@@ -9555,7 +9557,7 @@ define void @mupDefineStrFunUserData5(ptr noundef %0, ptr noundef %1, ptr nounde
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %17
 
@@ -9577,14 +9579,14 @@ define void @mupDefineStrFunUserData5(ptr noundef %0, ptr noundef %1, ptr nounde
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 16:                                               ; preds = %12
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %51
 
 17:                                               ; preds = %4
@@ -9601,17 +9603,17 @@ define void @mupDefineStrFunUserData5(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .body:                                            ; preds = %14, %19
   %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %15, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %21
 
 21:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %23 = icmp eq i32 %.022, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %24 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
@@ -9641,7 +9643,7 @@ define void @mupDefineStrFunUserData5(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 120
@@ -9661,7 +9663,7 @@ define void @mupDefineStrFunUserData5(ptr noundef %0, ptr noundef %1, ptr nounde
 44:                                               ; preds = %34
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %47
 
 46:                                               ; preds = %41, %37
@@ -9694,7 +9696,7 @@ define void @mupDefineStrFunUserData5(ptr noundef %0, ptr noundef %1, ptr nounde
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #18
+  call void @__clang_call_terminate(ptr %55) #20
   unreachable
 }
 
@@ -9707,7 +9709,7 @@ define void @mupDefineMultFun(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %10 unwind label %18
 
@@ -9730,14 +9732,14 @@ define void @mupDefineMultFun(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 17:                                               ; preds = %13
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %52
 
 18:                                               ; preds = %4
@@ -9754,17 +9756,17 @@ define void @mupDefineMultFun(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 .body:                                            ; preds = %15, %20
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %16, %15 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %22
 
 22:                                               ; preds = %.body, %18
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %19, %18 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %24 = icmp eq i32 %.022, %23
-  %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %25 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
@@ -9794,7 +9796,7 @@ define void @mupDefineMultFun(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %39 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 120
@@ -9814,7 +9816,7 @@ define void @mupDefineMultFun(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 45:                                               ; preds = %35
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %48
 
 47:                                               ; preds = %42, %38
@@ -9847,7 +9849,7 @@ define void @mupDefineMultFun(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #18
+  call void @__clang_call_terminate(ptr %56) #20
   unreachable
 }
 
@@ -9860,7 +9862,7 @@ define void @mupDefineMultFunUserData(ptr noundef %0, ptr noundef %1, ptr nounde
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.mu::ParserError", align 8
   %10 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %11 unwind label %19
 
@@ -9883,14 +9885,14 @@ define void @mupDefineMultFunUserData(ptr noundef %0, ptr noundef %1, ptr nounde
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %.body
 
 18:                                               ; preds = %14
-  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br label %53
 
 19:                                               ; preds = %5
@@ -9907,17 +9909,17 @@ define void @mupDefineMultFunUserData(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .body:                                            ; preds = %16, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %17, %16 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %23
 
 23:                                               ; preds = %.body, %19
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %20, %19 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %25 = icmp eq i32 %.023, %24
-  %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %26 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
@@ -9947,7 +9949,7 @@ define void @mupDefineMultFunUserData(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   %40 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 120
@@ -9967,7 +9969,7 @@ define void @mupDefineMultFunUserData(ptr noundef %0, ptr noundef %1, ptr nounde
 46:                                               ; preds = %36
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   br label %49
 
 48:                                               ; preds = %43, %39
@@ -10000,7 +10002,7 @@ define void @mupDefineMultFunUserData(ptr noundef %0, ptr noundef %1, ptr nounde
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #18
+  call void @__clang_call_terminate(ptr %57) #20
   unreachable
 }
 
@@ -10012,7 +10014,7 @@ define void @mupDefineOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.mu::ParserError", align 8
   %10 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %11 unwind label %14
 
@@ -10022,8 +10024,8 @@ define void @mupDefineOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %13 unwind label %16
 
 13:                                               ; preds = %11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br label %48
 
 14:                                               ; preds = %6
@@ -10036,17 +10038,17 @@ define void @mupDefineOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %18
 
 18:                                               ; preds = %16, %14
   %.pn = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.024 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %20 = icmp eq i32 %.024, %19
-  %21 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %21 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %20, label %22, label %30
 
 22:                                               ; preds = %18
@@ -10076,7 +10078,7 @@ define void @mupDefineOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %34 unwind label %41
 
 34:                                               ; preds = %31
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   %35 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 120
@@ -10096,7 +10098,7 @@ define void @mupDefineOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 41:                                               ; preds = %31
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   br label %44
 
 43:                                               ; preds = %38, %34
@@ -10129,7 +10131,7 @@ define void @mupDefineOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #18
+  call void @__clang_call_terminate(ptr %52) #20
   unreachable
 }
 
@@ -10141,7 +10143,7 @@ define void @mupDefineVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.mu::ParserError", align 8
   %7 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %8 unwind label %10
 
@@ -10150,8 +10152,8 @@ define void @mupDefineVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
           to label %9 unwind label %12
 
 9:                                                ; preds = %8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
   br label %44
 
 10:                                               ; preds = %3
@@ -10164,17 +10166,17 @@ define void @mupDefineVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
   %13 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %14
 
 14:                                               ; preds = %12, %10
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
-  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %16 = icmp eq i32 %.021, %15
-  %17 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %17 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %16, label %18, label %26
 
 18:                                               ; preds = %14
@@ -10204,7 +10206,7 @@ define void @mupDefineVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
           to label %30 unwind label %37
 
 30:                                               ; preds = %27
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #19
   %31 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 120
@@ -10224,7 +10226,7 @@ define void @mupDefineVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
 37:                                               ; preds = %27
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #19
   br label %40
 
 39:                                               ; preds = %34, %30
@@ -10257,7 +10259,7 @@ define void @mupDefineVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #18
+  call void @__clang_call_terminate(ptr %48) #20
   unreachable
 }
 
@@ -10269,7 +10271,7 @@ define void @mupDefineBulkVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.mu::ParserError", align 8
   %7 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %8 unwind label %10
 
@@ -10278,8 +10280,8 @@ define void @mupDefineBulkVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %9 unwind label %12
 
 9:                                                ; preds = %8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
   br label %44
 
 10:                                               ; preds = %3
@@ -10292,17 +10294,17 @@ define void @mupDefineBulkVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %13 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %14
 
 14:                                               ; preds = %12, %10
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
-  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %16 = icmp eq i32 %.021, %15
-  %17 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %17 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %16, label %18, label %26
 
 18:                                               ; preds = %14
@@ -10332,7 +10334,7 @@ define void @mupDefineBulkVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %30 unwind label %37
 
 30:                                               ; preds = %27
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #19
   %31 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 120
@@ -10352,7 +10354,7 @@ define void @mupDefineBulkVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 37:                                               ; preds = %27
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #19
   br label %40
 
 39:                                               ; preds = %34, %30
@@ -10385,7 +10387,7 @@ define void @mupDefineBulkVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #18
+  call void @__clang_call_terminate(ptr %48) #20
   unreachable
 }
 
@@ -10395,7 +10397,7 @@ define void @mupDefineConst(ptr noundef %0, ptr noundef %1, double noundef %2) l
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.mu::ParserError", align 8
   %7 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %8 unwind label %10
 
@@ -10404,8 +10406,8 @@ define void @mupDefineConst(ptr noundef %0, ptr noundef %1, double noundef %2) l
           to label %9 unwind label %12
 
 9:                                                ; preds = %8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
   br label %44
 
 10:                                               ; preds = %3
@@ -10418,17 +10420,17 @@ define void @mupDefineConst(ptr noundef %0, ptr noundef %1, double noundef %2) l
   %13 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %14
 
 14:                                               ; preds = %12, %10
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
-  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %16 = icmp eq i32 %.021, %15
-  %17 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %17 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %16, label %18, label %26
 
 18:                                               ; preds = %14
@@ -10458,7 +10460,7 @@ define void @mupDefineConst(ptr noundef %0, ptr noundef %1, double noundef %2) l
           to label %30 unwind label %37
 
 30:                                               ; preds = %27
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #19
   %31 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 120
@@ -10478,7 +10480,7 @@ define void @mupDefineConst(ptr noundef %0, ptr noundef %1, double noundef %2) l
 37:                                               ; preds = %27
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #19
   br label %40
 
 39:                                               ; preds = %34, %30
@@ -10511,7 +10513,7 @@ define void @mupDefineConst(ptr noundef %0, ptr noundef %1, double noundef %2) l
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #18
+  call void @__clang_call_terminate(ptr %48) #20
   unreachable
 }
 
@@ -10525,12 +10527,12 @@ define void @mupDefineStrConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.mu::ParserError", align 8
   %9 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %10 unwind label %13
 
 10:                                               ; preds = %3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %11 unwind label %15
 
@@ -10539,10 +10541,10 @@ define void @mupDefineStrConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %12 unwind label %17
 
 12:                                               ; preds = %11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
   br label %50
 
 13:                                               ; preds = %3
@@ -10561,23 +10563,23 @@ define void @mupDefineStrConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %19
 
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %20
 
 20:                                               ; preds = %19, %13
   %.pn.pn = phi { ptr, i32 } [ %.pn, %19 ], [ %14, %13 ]
   %.0 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
-  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %22 = icmp eq i32 %.021, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
@@ -10607,7 +10609,7 @@ define void @mupDefineStrConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   %37 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -10627,7 +10629,7 @@ define void @mupDefineStrConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
   br label %46
 
 45:                                               ; preds = %40, %36
@@ -10660,7 +10662,7 @@ define void @mupDefineStrConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #18
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 }
 
@@ -10674,8 +10676,8 @@ define noundef ptr @mupGetExpr(ptr noundef %0) local_unnamed_addr #3 personality
           to label %5 unwind label %8
 
 5:                                                ; preds = %1
-  %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZL11s_tmpOutBuf, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %6) #17
+  %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
+  %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZL11s_tmpOutBuf, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %6) #19
   br label %41
 
 8:                                                ; preds = %1
@@ -10684,9 +10686,9 @@ define noundef ptr @mupGetExpr(ptr noundef %0) local_unnamed_addr #3 personality
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = extractvalue { ptr, i32 } %9, 1
-  %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %13 = icmp eq i32 %11, %12
-  %14 = tail call ptr @__cxa_begin_catch(ptr %10) #17
+  %14 = tail call ptr @__cxa_begin_catch(ptr %10) #19
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %8
@@ -10716,7 +10718,7 @@ define noundef ptr @mupGetExpr(ptr noundef %0) local_unnamed_addr #3 personality
           to label %27 unwind label %34
 
 27:                                               ; preds = %24
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
   %28 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 120
@@ -10736,7 +10738,7 @@ define noundef ptr @mupGetExpr(ptr noundef %0) local_unnamed_addr #3 personality
 34:                                               ; preds = %24
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
   br label %37
 
 36:                                               ; preds = %31, %27
@@ -10770,7 +10772,7 @@ define noundef ptr @mupGetExpr(ptr noundef %0) local_unnamed_addr #3 personality
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #18
+  call void @__clang_call_terminate(ptr %45) #20
   unreachable
 }
 
@@ -10782,7 +10784,7 @@ define void @mupDefinePostfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %12
 
@@ -10792,8 +10794,8 @@ define void @mupDefinePostfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2
           to label %11 unwind label %14
 
 11:                                               ; preds = %9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %46
 
 12:                                               ; preds = %4
@@ -10806,17 +10808,17 @@ define void @mupDefinePostfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %16
 
 16:                                               ; preds = %14, %12
   %.pn = phi { ptr, i32 } [ %15, %14 ], [ %13, %12 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %18 = icmp eq i32 %.022, %17
-  %19 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %19 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %18, label %20, label %28
 
 20:                                               ; preds = %16
@@ -10846,7 +10848,7 @@ define void @mupDefinePostfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2
           to label %32 unwind label %39
 
 32:                                               ; preds = %29
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %33 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 120
@@ -10866,7 +10868,7 @@ define void @mupDefinePostfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2
 39:                                               ; preds = %29
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %42
 
 41:                                               ; preds = %36, %32
@@ -10899,7 +10901,7 @@ define void @mupDefinePostfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #18
+  call void @__clang_call_terminate(ptr %50) #20
   unreachable
 }
 
@@ -10911,7 +10913,7 @@ define void @mupDefineInfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.mu::ParserError", align 8
   %8 = load ptr, ptr %0, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %9 unwind label %13
 
@@ -10922,8 +10924,8 @@ define void @mupDefineInfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
           to label %12 unwind label %15
 
 12:                                               ; preds = %9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %47
 
 13:                                               ; preds = %4
@@ -10936,17 +10938,17 @@ define void @mupDefineInfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
           catch ptr null
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %17
 
 17:                                               ; preds = %15, %13
   %.pn = phi { ptr, i32 } [ %16, %15 ], [ %14, %13 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %19 = icmp eq i32 %.022, %18
-  %20 = call ptr @__cxa_begin_catch(ptr %.0) #17
+  %20 = call ptr @__cxa_begin_catch(ptr %.0) #19
   br i1 %19, label %21, label %29
 
 21:                                               ; preds = %17
@@ -10976,7 +10978,7 @@ define void @mupDefineInfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
           to label %33 unwind label %40
 
 33:                                               ; preds = %30
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %34 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 120
@@ -10996,7 +10998,7 @@ define void @mupDefineInfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 40:                                               ; preds = %30
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %43
 
 42:                                               ; preds = %37, %33
@@ -11029,7 +11031,7 @@ define void @mupDefineInfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #18
+  call void @__clang_call_terminate(ptr %51) #20
   unreachable
 }
 
@@ -11131,7 +11133,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #18
+  call void @__clang_call_terminate(ptr %30) #20
   unreachable
 
 31:                                               ; preds = %15, %1
@@ -11140,9 +11142,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
   %34 = extractvalue { ptr, i32 } %32, 1
-  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %36 = icmp eq i32 %34, %35
-  %37 = call ptr @__cxa_begin_catch(ptr %33) #17
+  %37 = call ptr @__cxa_begin_catch(ptr %33) #19
   br i1 %36, label %38, label %46
 
 38:                                               ; preds = %31
@@ -11172,7 +11174,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
           to label %50 unwind label %57
 
 50:                                               ; preds = %47
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
   %51 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 120
@@ -11192,7 +11194,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
 57:                                               ; preds = %47
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
   br label %59
 
 59:                                               ; preds = %57, %55
@@ -11222,7 +11224,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #18
+  call void @__clang_call_terminate(ptr %65) #20
   unreachable
 }
 
@@ -11231,7 +11233,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZNK2mu10ParserBase6Get
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 32
-  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
+  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
   %7 = getelementptr inbounds i8, ptr %6, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit unwind label %8
@@ -11240,9 +11242,9 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #20
-  invoke void @__cxa_rethrow() #21
+  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #22
+  invoke void @__cxa_rethrow() #23
           to label %17 unwind label %12
 
 12:                                               ; preds = %8
@@ -11259,7 +11261,7 @@ common.resume:                                    ; preds = %62, %12
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #18
+  tail call void @__clang_call_terminate(ptr %16) #20
   unreachable
 
 17:                                               ; preds = %8
@@ -11303,12 +11305,12 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %41
   %eh.lpad-body = phi { ptr, i32 } [ %42, %41 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %30 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %31 = tail call ptr @__cxa_begin_catch(ptr %30) #17
+  %31 = tail call ptr @__cxa_begin_catch(ptr %30) #19
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6)
           to label %32 unwind label %62
 
 32:                                               ; preds = %.body
-  invoke void @__cxa_rethrow() #21
+  invoke void @__cxa_rethrow() #23
           to label %67 unwind label %62
 
 33:                                               ; preds = %28, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit
@@ -11320,7 +11322,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 .lr.ph:                                           ; preds = %33, %61
   %.038 = phi ptr [ %.0, %61 ], [ %.035, %33 ]
   %.03037 = phi ptr [ %34, %61 ], [ %6, %33 ]
-  %34 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
+  %34 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph
@@ -11333,9 +11335,9 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  %40 = tail call ptr @__cxa_begin_catch(ptr %39) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %34) #20
-  invoke void @__cxa_rethrow() #21
+  %40 = tail call ptr @__cxa_begin_catch(ptr %39) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %34) #22
+  invoke void @__cxa_rethrow() #23
           to label %46 unwind label %41
 
 41:                                               ; preds = %37
@@ -11348,7 +11350,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #18
+  tail call void @__clang_call_terminate(ptr %45) #20
   unreachable
 
 46:                                               ; preds = %37
@@ -11400,7 +11402,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  tail call void @__clang_call_terminate(ptr %66) #18
+  tail call void @__clang_call_terminate(ptr %66) #20
   unreachable
 
 67:                                               ; preds = %32
@@ -11420,8 +11422,8 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %.07) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %.07) #22
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
@@ -11504,9 +11506,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   %32 = extractvalue { ptr, i32 } %30, 1
-  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %34 = icmp eq i32 %32, %33
-  %35 = call ptr @__cxa_begin_catch(ptr %31) #17
+  %35 = call ptr @__cxa_begin_catch(ptr %31) #19
   br i1 %34, label %44, label %52
 
 36:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2ERKSD_.exit
@@ -11516,7 +11518,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
 .lr.ph:                                           ; preds = %36, %.lr.ph
   %.03142 = phi i32 [ %38, %.lr.ph ], [ 0, %36 ]
   %.sroa.0.041 = phi ptr [ %37, %.lr.ph ], [ %.0.i.i.i.i.i.i, %36 ]
-  %37 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0.041) #22
+  %37 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0.041) #24
   %38 = add nuw i32 %.03142, 1
   %exitcond.not = icmp eq i32 %38, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -11524,8 +11526,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
 ._crit_edge:                                      ; preds = %.lr.ph, %36
   %.sroa.0.0.lcssa = phi ptr [ %.0.i.i.i.i.i.i, %36 ], [ %37, %.lr.ph ]
   %39 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa, i64 32
-  %40 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %39) #17
-  %41 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZZ9mupGetVarE6szName, ptr noundef nonnull dereferenceable(1) %40, i64 noundef 1024) #17
+  %40 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %39) #19
+  %41 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZZ9mupGetVarE6szName, ptr noundef nonnull dereferenceable(1) %40, i64 noundef 1024) #19
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ9mupGetVarE6szName, i64 1023), align 1
   store ptr @_ZZ9mupGetVarE6szName, ptr %2, align 8
   %42 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa, i64 64
@@ -11560,7 +11562,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
           to label %56 unwind label %68
 
 56:                                               ; preds = %53
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %57 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 120
@@ -11583,7 +11585,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #18
+  call void @__clang_call_terminate(ptr %65) #20
   unreachable
 
 66:                                               ; preds = %60, %52
@@ -11594,7 +11596,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
 68:                                               ; preds = %53
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %70
 
 70:                                               ; preds = %68, %66
@@ -11625,15 +11627,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #18
+  call void @__clang_call_terminate(ptr %77) #20
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define i32 @mupGetExprVarNum(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -11704,7 +11706,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #18
+  call void @__clang_call_terminate(ptr %30) #20
   unreachable
 
 31:                                               ; preds = %15, %1
@@ -11713,9 +11715,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
   %34 = extractvalue { ptr, i32 } %32, 1
-  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %36 = icmp eq i32 %34, %35
-  %37 = call ptr @__cxa_begin_catch(ptr %33) #17
+  %37 = call ptr @__cxa_begin_catch(ptr %33) #19
   br i1 %36, label %38, label %46
 
 38:                                               ; preds = %31
@@ -11745,7 +11747,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
           to label %50 unwind label %57
 
 50:                                               ; preds = %47
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
   %51 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 120
@@ -11765,7 +11767,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
 57:                                               ; preds = %47
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
   br label %59
 
 59:                                               ; preds = %57, %55
@@ -11795,7 +11797,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #18
+  call void @__clang_call_terminate(ptr %65) #20
   unreachable
 }
 
@@ -11872,9 +11874,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   %32 = extractvalue { ptr, i32 } %30, 1
-  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %34 = icmp eq i32 %32, %33
-  %35 = call ptr @__cxa_begin_catch(ptr %31) #17
+  %35 = call ptr @__cxa_begin_catch(ptr %31) #19
   br i1 %34, label %36, label %44
 
 36:                                               ; preds = %29
@@ -11904,7 +11906,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
           to label %48 unwind label %68
 
 48:                                               ; preds = %45
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %49 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 120
@@ -11923,7 +11925,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
 .lr.ph:                                           ; preds = %53, %.lr.ph
   %.03142 = phi i32 [ %55, %.lr.ph ], [ 0, %53 ]
   %.sroa.0.041 = phi ptr [ %54, %.lr.ph ], [ %.0.i.i.i.i.i.i, %53 ]
-  %54 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0.041) #22
+  %54 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0.041) #24
   %55 = add nuw i32 %.03142, 1
   %exitcond.not = icmp eq i32 %55, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -11931,8 +11933,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
 ._crit_edge:                                      ; preds = %.lr.ph, %53
   %.sroa.0.0.lcssa = phi ptr [ %.0.i.i.i.i.i.i, %53 ], [ %54, %.lr.ph ]
   %56 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa, i64 32
-  %57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #17
-  %58 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZZ13mupGetExprVarE6szName, ptr noundef nonnull dereferenceable(1) %57, i64 noundef 1024) #17
+  %57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #19
+  %58 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZZ13mupGetExprVarE6szName, ptr noundef nonnull dereferenceable(1) %57, i64 noundef 1024) #19
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ13mupGetExprVarE6szName, i64 1023), align 1
   store ptr @_ZZ13mupGetExprVarE6szName, ptr %2, align 8
   %59 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa, i64 64
@@ -11951,7 +11953,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #18
+  call void @__clang_call_terminate(ptr %65) #20
   unreachable
 
 66:                                               ; preds = %52, %44
@@ -11962,7 +11964,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
 68:                                               ; preds = %45
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %70
 
 70:                                               ; preds = %68, %66
@@ -11993,7 +11995,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #18
+  call void @__clang_call_terminate(ptr %77) #20
   unreachable
 }
 
@@ -12066,7 +12068,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #18
+  call void @__clang_call_terminate(ptr %30) #20
   unreachable
 
 31:                                               ; preds = %15, %1
@@ -12075,9 +12077,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
   %34 = extractvalue { ptr, i32 } %32, 1
-  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %36 = icmp eq i32 %34, %35
-  %37 = call ptr @__cxa_begin_catch(ptr %33) #17
+  %37 = call ptr @__cxa_begin_catch(ptr %33) #19
   br i1 %36, label %38, label %46
 
 38:                                               ; preds = %31
@@ -12107,7 +12109,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
           to label %50 unwind label %57
 
 50:                                               ; preds = %47
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
   %51 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 120
@@ -12127,7 +12129,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
 57:                                               ; preds = %47
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
   br label %59
 
 59:                                               ; preds = %57, %55
@@ -12157,7 +12159,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #18
+  call void @__clang_call_terminate(ptr %65) #20
   unreachable
 }
 
@@ -12166,7 +12168,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZNK2mu10ParserBase8Get
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_dESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE7_M_copyILb0ENSE_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESJ_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 32
-  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
+  %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
   %7 = getelementptr inbounds i8, ptr %6, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_dESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE13_M_clone_nodeILb0ENSE_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESJ_RT0_.exit unwind label %8
@@ -12175,9 +12177,9 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #20
-  invoke void @__cxa_rethrow() #21
+  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #22
+  invoke void @__cxa_rethrow() #23
           to label %17 unwind label %12
 
 12:                                               ; preds = %8
@@ -12194,7 +12196,7 @@ common.resume:                                    ; preds = %62, %12
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #18
+  tail call void @__clang_call_terminate(ptr %16) #20
   unreachable
 
 17:                                               ; preds = %8
@@ -12238,12 +12240,12 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_d
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %41
   %eh.lpad-body = phi { ptr, i32 } [ %42, %41 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %30 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %31 = tail call ptr @__cxa_begin_catch(ptr %30) #17
+  %31 = tail call ptr @__cxa_begin_catch(ptr %30) #19
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_dESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6)
           to label %32 unwind label %62
 
 32:                                               ; preds = %.body
-  invoke void @__cxa_rethrow() #21
+  invoke void @__cxa_rethrow() #23
           to label %67 unwind label %62
 
 33:                                               ; preds = %28, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_dESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE13_M_clone_nodeILb0ENSE_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESJ_RT0_.exit
@@ -12255,7 +12257,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_d
 .lr.ph:                                           ; preds = %33, %61
   %.038 = phi ptr [ %.0, %61 ], [ %.035, %33 ]
   %.03037 = phi ptr [ %34, %61 ], [ %6, %33 ]
-  %34 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #19
+  %34 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph
@@ -12268,9 +12270,9 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_d
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  %40 = tail call ptr @__cxa_begin_catch(ptr %39) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %34) #20
-  invoke void @__cxa_rethrow() #21
+  %40 = tail call ptr @__cxa_begin_catch(ptr %39) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %34) #22
+  invoke void @__cxa_rethrow() #23
           to label %46 unwind label %41
 
 41:                                               ; preds = %37
@@ -12283,7 +12285,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_d
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #18
+  tail call void @__clang_call_terminate(ptr %45) #20
   unreachable
 
 46:                                               ; preds = %37
@@ -12335,7 +12337,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_d
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  tail call void @__clang_call_terminate(ptr %66) #18
+  tail call void @__clang_call_terminate(ptr %66) #20
   unreachable
 
 67:                                               ; preds = %32
@@ -12355,8 +12357,8 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %.07) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %.07) #22
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
@@ -12377,9 +12379,9 @@ define void @mupSetArgSep(ptr noundef %0, i8 noundef signext %1) local_unnamed_a
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = extractvalue { ptr, i32 } %6, 1
-  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %10 = icmp eq i32 %8, %9
-  %11 = tail call ptr @__cxa_begin_catch(ptr %7) #17
+  %11 = tail call ptr @__cxa_begin_catch(ptr %7) #19
   br i1 %10, label %12, label %20
 
 12:                                               ; preds = %5
@@ -12409,7 +12411,7 @@ define void @mupSetArgSep(ptr noundef %0, i8 noundef signext %1) local_unnamed_a
           to label %24 unwind label %31
 
 24:                                               ; preds = %21
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
   %25 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 120
@@ -12429,7 +12431,7 @@ define void @mupSetArgSep(ptr noundef %0, i8 noundef signext %1) local_unnamed_a
 31:                                               ; preds = %21
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
   br label %34
 
 33:                                               ; preds = %28, %24
@@ -12462,7 +12464,7 @@ define void @mupSetArgSep(ptr noundef %0, i8 noundef signext %1) local_unnamed_a
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #18
+  call void @__clang_call_terminate(ptr %42) #20
   unreachable
 }
 
@@ -12481,9 +12483,9 @@ define void @mupResetLocale(ptr noundef %0) local_unnamed_addr #3 personality pt
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = extractvalue { ptr, i32 } %5, 1
-  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %9 = icmp eq i32 %7, %8
-  %10 = tail call ptr @__cxa_begin_catch(ptr %6) #17
+  %10 = tail call ptr @__cxa_begin_catch(ptr %6) #19
   br i1 %9, label %11, label %19
 
 11:                                               ; preds = %4
@@ -12513,7 +12515,7 @@ define void @mupResetLocale(ptr noundef %0) local_unnamed_addr #3 personality pt
           to label %23 unwind label %30
 
 23:                                               ; preds = %20
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
   %24 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 120
@@ -12533,7 +12535,7 @@ define void @mupResetLocale(ptr noundef %0) local_unnamed_addr #3 personality pt
 30:                                               ; preds = %20
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
   br label %33
 
 32:                                               ; preds = %27, %23
@@ -12566,7 +12568,7 @@ define void @mupResetLocale(ptr noundef %0) local_unnamed_addr #3 personality pt
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #18
+  call void @__clang_call_terminate(ptr %41) #20
   unreachable
 }
 
@@ -12585,9 +12587,9 @@ define void @mupSetDecSep(ptr noundef %0, i8 noundef signext %1) local_unnamed_a
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = extractvalue { ptr, i32 } %6, 1
-  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %10 = icmp eq i32 %8, %9
-  %11 = tail call ptr @__cxa_begin_catch(ptr %7) #17
+  %11 = tail call ptr @__cxa_begin_catch(ptr %7) #19
   br i1 %10, label %12, label %20
 
 12:                                               ; preds = %5
@@ -12617,7 +12619,7 @@ define void @mupSetDecSep(ptr noundef %0, i8 noundef signext %1) local_unnamed_a
           to label %24 unwind label %31
 
 24:                                               ; preds = %21
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
   %25 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 120
@@ -12637,7 +12639,7 @@ define void @mupSetDecSep(ptr noundef %0, i8 noundef signext %1) local_unnamed_a
 31:                                               ; preds = %21
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
   br label %34
 
 33:                                               ; preds = %28, %24
@@ -12670,7 +12672,7 @@ define void @mupSetDecSep(ptr noundef %0, i8 noundef signext %1) local_unnamed_a
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #18
+  call void @__clang_call_terminate(ptr %42) #20
   unreachable
 }
 
@@ -12689,9 +12691,9 @@ define void @mupSetThousandsSep(ptr noundef %0, i8 noundef signext %1) local_unn
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = extractvalue { ptr, i32 } %6, 1
-  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %10 = icmp eq i32 %8, %9
-  %11 = tail call ptr @__cxa_begin_catch(ptr %7) #17
+  %11 = tail call ptr @__cxa_begin_catch(ptr %7) #19
   br i1 %10, label %12, label %20
 
 12:                                               ; preds = %5
@@ -12721,7 +12723,7 @@ define void @mupSetThousandsSep(ptr noundef %0, i8 noundef signext %1) local_unn
           to label %24 unwind label %31
 
 24:                                               ; preds = %21
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
   %25 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 120
@@ -12741,7 +12743,7 @@ define void @mupSetThousandsSep(ptr noundef %0, i8 noundef signext %1) local_unn
 31:                                               ; preds = %21
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
   br label %34
 
 33:                                               ; preds = %28, %24
@@ -12774,7 +12776,7 @@ define void @mupSetThousandsSep(ptr noundef %0, i8 noundef signext %1) local_unn
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #18
+  call void @__clang_call_terminate(ptr %42) #20
   unreachable
 }
 
@@ -12851,9 +12853,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   %32 = extractvalue { ptr, i32 } %30, 1
-  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %34 = icmp eq i32 %32, %33
-  %35 = call ptr @__cxa_begin_catch(ptr %31) #17
+  %35 = call ptr @__cxa_begin_catch(ptr %31) #19
   br i1 %34, label %36, label %44
 
 36:                                               ; preds = %29
@@ -12883,7 +12885,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
           to label %48 unwind label %68
 
 48:                                               ; preds = %45
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   %49 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 120
@@ -12902,7 +12904,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
 .lr.ph:                                           ; preds = %53, %.lr.ph
   %.03142 = phi i32 [ %55, %.lr.ph ], [ 0, %53 ]
   %.sroa.0.041 = phi ptr [ %54, %.lr.ph ], [ %.0.i.i.i.i.i.i, %53 ]
-  %54 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0.041) #22
+  %54 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0.041) #24
   %55 = add nuw i32 %.03142, 1
   %exitcond.not = icmp eq i32 %55, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
@@ -12910,8 +12912,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
 ._crit_edge:                                      ; preds = %.lr.ph, %53
   %.sroa.0.0.lcssa = phi ptr [ %.0.i.i.i.i.i.i, %53 ], [ %54, %.lr.ph ]
   %56 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa, i64 32
-  %57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #17
-  %58 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZZ11mupGetConstE6szName, ptr noundef nonnull dereferenceable(1) %57, i64 noundef 1024) #17
+  %57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #19
+  %58 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZZ11mupGetConstE6szName, ptr noundef nonnull dereferenceable(1) %57, i64 noundef 1024) #19
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ11mupGetConstE6szName, i64 1023), align 1
   store ptr @_ZZ11mupGetConstE6szName, ptr %2, align 8
   %59 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa, i64 64
@@ -12930,7 +12932,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #18
+  call void @__clang_call_terminate(ptr %65) #20
   unreachable
 
 66:                                               ; preds = %52, %44
@@ -12941,7 +12943,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
 68:                                               ; preds = %45
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
   br label %70
 
 70:                                               ; preds = %68, %66
@@ -12972,7 +12974,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #18
+  call void @__clang_call_terminate(ptr %77) #20
   unreachable
 }
 
@@ -12989,9 +12991,9 @@ define void @mupAddValIdent(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = extractvalue { ptr, i32 } %6, 1
-  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #19
   %10 = icmp eq i32 %8, %9
-  %11 = tail call ptr @__cxa_begin_catch(ptr %7) #17
+  %11 = tail call ptr @__cxa_begin_catch(ptr %7) #19
   br i1 %10, label %12, label %20
 
 12:                                               ; preds = %5
@@ -13021,7 +13023,7 @@ define void @mupAddValIdent(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
           to label %24 unwind label %31
 
 24:                                               ; preds = %21
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
   %25 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 120
@@ -13041,7 +13043,7 @@ define void @mupAddValIdent(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 31:                                               ; preds = %21
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #17
+  call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
   br label %34
 
 33:                                               ; preds = %28, %24
@@ -13074,14 +13076,14 @@ define void @mupAddValIdent(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #18
+  call void @__clang_call_terminate(ptr %42) #20
   unreachable
 }
 
 declare void @_ZN2mu10ParserBase11AddValIdentEPFiPKcPiPdE(ptr noundef nonnull align 8 dereferenceable(596), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @mupError(ptr nocapture noundef %0) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @mupError(ptr nocapture noundef %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load i8, ptr %2, align 8
   store i8 0, ptr %2, align 8
@@ -13091,14 +13093,14 @@ define range(i32 0, 2) i32 @mupError(ptr nocapture noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @mupErrorReset(ptr nocapture noundef writeonly %0) local_unnamed_addr #12 {
+define void @mupErrorReset(ptr nocapture noundef writeonly %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @mupSetErrorHandler(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #12 {
+define void @mupSetErrorHandler(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   ret void
@@ -13108,8 +13110,8 @@ define void @mupSetErrorHandler(ptr nocapture noundef writeonly %0, ptr noundef 
 define noundef nonnull ptr @mupGetErrorMsg(ptr noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2mu11ParserError6GetMsgB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(112) %2)
-  %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
-  %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZL11s_tmpOutBuf, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %4) #17
+  %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
+  %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZL11s_tmpOutBuf, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %4) #19
   ret ptr @_ZL11s_tmpOutBuf
 }
 
@@ -13119,8 +13121,8 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2mu11ParserError6Ge
 define noundef nonnull ptr @mupGetErrorToken(ptr noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2mu11ParserError8GetTokenB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(112) %2)
-  %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
-  %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZL11s_tmpOutBuf, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %4) #17
+  %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
+  %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZL11s_tmpOutBuf, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %4) #19
   ret ptr @_ZL11s_tmpOutBuf
 }
 
@@ -13146,18 +13148,18 @@ declare noundef i32 @_ZNK2mu11ParserError6GetPosEv(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @mupCreateVar() local_unnamed_addr #3 {
-  %1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
+  %1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store double 0.000000e+00, ptr %1, align 8
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @mupReleaseVar(ptr noundef %0) local_unnamed_addr #7 {
+define void @mupReleaseVar(ptr noundef %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   br label %4
 
 4:                                                ; preds = %3, %1
@@ -13165,20 +13167,20 @@ define void @mupReleaseVar(ptr noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_muParserDLL.cpp() #13 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_muParserDLL.cpp() #15 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::allocator", align 1
   %2 = alloca %"class.std::allocator", align 1
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
+  %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN2muL13ParserVersionB5cxx11E, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %__cxx_global_var_init.1.exit unwind label %4
 
 common.resume:                                    ; preds = %7, %4
   %.sink = phi ptr [ %1, %7 ], [ %2, %4 ]
   %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %5, %4 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #19
   resume { ptr, i32 } %common.resume.op
 
 4:                                                ; preds = %0
@@ -13187,11 +13189,11 @@ common.resume:                                    ; preds = %7, %4
   br label %common.resume
 
 __cxx_global_var_init.1.exit:                     ; preds = %0
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
-  %6 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN2muL13ParserVersionB5cxx11E, ptr nonnull @__dso_handle) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
+  %6 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN2muL13ParserVersionB5cxx11E, ptr nonnull @__dso_handle) #19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN2muL17ParserVersionDateB5cxx11E, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %1)
           to label %__cxx_global_var_init.2.exit unwind label %7
 
@@ -13201,47 +13203,49 @@ __cxx_global_var_init.1.exit:                     ; preds = %0
   br label %common.resume
 
 __cxx_global_var_init.2.exit:                     ; preds = %__cxx_global_var_init.1.exit
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #17
-  %9 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN2muL17ParserVersionDateB5cxx11E, ptr nonnull @__dso_handle) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #19
+  %9 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN2muL17ParserVersionDateB5cxx11E, ptr nonnull @__dso_handle) #19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for.p0(ptr) #14
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nosync nounwind memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { nounwind }
-attributes #18 = { noreturn nounwind }
-attributes #19 = { builtin allocsize(0) }
-attributes #20 = { builtin nounwind }
-attributes #21 = { noreturn }
-attributes #22 = { nounwind willreturn memory(read) }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold noreturn }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nosync nounwind memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #19 = { nounwind }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { builtin allocsize(0) }
+attributes #22 = { builtin nounwind }
+attributes #23 = { noreturn }
+attributes #24 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

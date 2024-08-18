@@ -348,7 +348,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #24
+  tail call void @__clang_call_terminate(ptr %3) #25
   unreachable
 }
 
@@ -384,7 +384,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #24
+  tail call void @__clang_call_terminate(ptr %3) #25
   unreachable
 }
 
@@ -2385,7 +2385,7 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
 lpad:                                             ; preds = %if.then.i.i.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %delta_x) #25
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %delta_x) #26
   resume { ptr, i32 } %13
 
 for.inc26:                                        ; preds = %for.body12, %for.body6
@@ -2447,7 +2447,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i55
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #24
+  tail call void @__clang_call_terminate(ptr %29) #25
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %entry, %for.end44, %if.then.i.i.i51, %if.then3.i.i.i55
@@ -2501,7 +2501,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #24
+  call void @__clang_call_terminate(ptr %4) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %invoke.cont, %if.then.i.i.i, %if.then3.i.i.i
@@ -2540,7 +2540,7 @@ terminate.lpad.i46:                               ; preds = %if.then3.i.i.i45
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #24
+  call void @__clang_call_terminate(ptr %9) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit47:          ; preds = %invoke.cont5, %if.then.i.i.i39, %if.then3.i.i.i45
@@ -3165,7 +3165,7 @@ for.end107:                                       ; preds = %for.inc105, %_ZN20b
 eh.resume:                                        ; preds = %lpad4, %lpad
   %ref.tmp3.sink = phi ptr [ %ref.tmp3, %lpad4 ], [ %ref.tmp, %lpad ]
   %.pn = phi { ptr, i32 } [ %64, %lpad4 ], [ %63, %lpad ]
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp3.sink) #25
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp3.sink) #26
   resume { ptr, i32 } %.pn
 }
 
@@ -3205,7 +3205,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #24
+  tail call void @__clang_call_terminate(ptr %6) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %for.body, %if.then.i.i.i, %if.then3.i.i.i
@@ -3476,7 +3476,7 @@ if.then11:                                        ; preds = %entry
 if.else:                                          ; preds = %entry
   %mul24 = fmul float %fAngle.1, 5.000000e-01
   %mul25 = fmul float %mul24, %timeStep
-  %call.i31 = tail call noundef float @sinf(float noundef %mul25) #25
+  %call.i31 = tail call noundef float @sinf(float noundef %mul25) #26
   %div27 = fdiv float %call.i31, %fAngle.1
   %14 = load float, ptr %angvel, align 4
   %mul.i32 = fmul float %14, %div27
@@ -3492,7 +3492,7 @@ if.end30:                                         ; preds = %if.else, %if.then11
   %mul8.i36.sink = phi float [ %mul8.i36, %if.else ], [ %mul8.i25, %if.then11 ]
   %mul35 = fmul float %fAngle.1, %timeStep
   %mul36 = fmul float %mul35, 5.000000e-01
-  %call.i43 = tail call noundef float @cosf(float noundef %mul36) #25
+  %call.i43 = tail call noundef float @cosf(float noundef %mul36) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %curTrans, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
@@ -5993,7 +5993,7 @@ invoke.cont86:                                    ; preds = %invoke.cont86.prehe
 lpad:                                             ; preds = %if.then.i.i.i
   %177 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %omega_helper) #25
+  call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %omega_helper) #26
   resume { ptr, i32 } %177
 
 for.inc96:                                        ; preds = %invoke.cont86, %for.body43
@@ -6264,7 +6264,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i555
   %268 = landingpad { ptr, i32 }
           catch ptr null
   %269 = extractvalue { ptr, i32 } %268, 0
-  tail call void @__clang_call_terminate(ptr %269) #24
+  tail call void @__clang_call_terminate(ptr %269) #25
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %cond.end165, %if.then.i.i.i551, %if.then3.i.i.i555
@@ -6355,7 +6355,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 lpad:                                             ; preds = %if.then.i.i.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %reduced_vel_tmp) #25
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %reduced_vel_tmp) #26
   resume { ptr, i32 } %13
 
 for.end:                                          ; preds = %for.body
@@ -6433,7 +6433,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i38
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #24
+  tail call void @__clang_call_terminate(ptr %34) #25
   unreachable
 
 if.end:                                           ; preds = %if.then3.i.i.i38, %for.end26, %if.then, %entry
@@ -6559,7 +6559,7 @@ for.body9:                                        ; preds = %for.body, %for.body
 lpad:                                             ; preds = %if.then.i.i.i
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %f_ext_r) #25
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %f_ext_r) #26
   resume { ptr, i32 } %33
 
 for.end:                                          ; preds = %for.body9
@@ -6582,7 +6582,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i45
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #24
+  tail call void @__clang_call_terminate(ptr %39) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %entry, %if.then3.i.i.i45
@@ -6763,7 +6763,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #24
+  tail call void @__clang_call_terminate(ptr %3) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
@@ -6793,7 +6793,7 @@ terminate.lpad.i10:                               ; preds = %if.then3.i.i.i9
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #24
+  tail call void @__clang_call_terminate(ptr %7) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit11:          ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i9
@@ -6823,7 +6823,7 @@ terminate.lpad.i21:                               ; preds = %if.then3.i.i.i20
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #24
+  tail call void @__clang_call_terminate(ptr %11) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit11, %if.then.i.i.i14, %if.then3.i.i.i20
@@ -6853,7 +6853,7 @@ terminate.lpad.i31:                               ; preds = %if.then3.i.i.i30
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #24
+  tail call void @__clang_call_terminate(ptr %15) #25
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit, %if.then.i.i.i24, %if.then3.i.i.i30
@@ -6883,7 +6883,7 @@ terminate.lpad.i41:                               ; preds = %if.then3.i.i.i40
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #24
+  tail call void @__clang_call_terminate(ptr %19) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit42:          ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, %if.then.i.i.i34, %if.then3.i.i.i40
@@ -6913,7 +6913,7 @@ terminate.lpad.i52:                               ; preds = %if.then3.i.i.i51
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #24
+  tail call void @__clang_call_terminate(ptr %23) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit53:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit42, %if.then.i.i.i45, %if.then3.i.i.i51
@@ -6943,7 +6943,7 @@ terminate.lpad.i63:                               ; preds = %if.then3.i.i.i62
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #24
+  tail call void @__clang_call_terminate(ptr %27) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit64:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit53, %if.then.i.i.i56, %if.then3.i.i.i62
@@ -6973,7 +6973,7 @@ terminate.lpad.i74:                               ; preds = %if.then3.i.i.i73
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #24
+  tail call void @__clang_call_terminate(ptr %31) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit75:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit64, %if.then.i.i.i67, %if.then3.i.i.i73
@@ -7003,7 +7003,7 @@ terminate.lpad.i85:                               ; preds = %if.then3.i.i.i84
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #24
+  tail call void @__clang_call_terminate(ptr %35) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit86:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit75, %if.then.i.i.i78, %if.then3.i.i.i84
@@ -7033,7 +7033,7 @@ terminate.lpad.i96:                               ; preds = %if.then3.i.i.i95
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #24
+  tail call void @__clang_call_terminate(ptr %39) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit97:          ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit86, %if.then.i.i.i89, %if.then3.i.i.i95
@@ -7063,7 +7063,7 @@ terminate.lpad.i107:                              ; preds = %if.then3.i.i.i106
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #24
+  tail call void @__clang_call_terminate(ptr %43) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit108:         ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit97, %if.then.i.i.i100, %if.then3.i.i.i106
@@ -7093,7 +7093,7 @@ terminate.lpad.i118:                              ; preds = %if.then3.i.i.i117
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  tail call void @__clang_call_terminate(ptr %47) #24
+  tail call void @__clang_call_terminate(ptr %47) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit119:         ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit108, %if.then.i.i.i111, %if.then3.i.i.i117
@@ -7123,7 +7123,7 @@ terminate.lpad.i129:                              ; preds = %if.then3.i.i.i128
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  tail call void @__clang_call_terminate(ptr %51) #24
+  tail call void @__clang_call_terminate(ptr %51) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit130:         ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit119, %if.then.i.i.i122, %if.then3.i.i.i128
@@ -7167,7 +7167,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i.
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #24
+  tail call void @__clang_call_terminate(ptr %57) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit.i.i.i:      ; preds = %if.then3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i
@@ -7202,7 +7202,7 @@ terminate.lpad.i138:                              ; preds = %if.then3.i.i.i137
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  tail call void @__clang_call_terminate(ptr %62) #24
+  tail call void @__clang_call_terminate(ptr %62) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIS_IfEED2Ev.exit:        ; preds = %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit.i.i, %if.then.i.i.i133, %if.then3.i.i.i137
@@ -7231,7 +7231,7 @@ terminate.lpad.i149:                              ; preds = %if.then3.i.i.i148
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  tail call void @__clang_call_terminate(ptr %66) #24
+  tail call void @__clang_call_terminate(ptr %66) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit150:         ; preds = %_ZN20btAlignedObjectArrayIS_IfEED2Ev.exit, %if.then.i.i.i142, %if.then3.i.i.i148
@@ -7261,7 +7261,7 @@ terminate.lpad.i160:                              ; preds = %if.then3.i.i.i159
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  tail call void @__clang_call_terminate(ptr %70) #24
+  tail call void @__clang_call_terminate(ptr %70) #25
   unreachable
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit161: ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit150, %if.then.i.i.i153, %if.then3.i.i.i159
@@ -7291,7 +7291,7 @@ terminate.lpad.i171:                              ; preds = %if.then3.i.i.i170
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  tail call void @__clang_call_terminate(ptr %74) #24
+  tail call void @__clang_call_terminate(ptr %74) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit172:         ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit161, %if.then.i.i.i164, %if.then3.i.i.i170
@@ -7321,7 +7321,7 @@ terminate.lpad.i182:                              ; preds = %if.then3.i.i.i181
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  tail call void @__clang_call_terminate(ptr %78) #24
+  tail call void @__clang_call_terminate(ptr %78) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit183:         ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit172, %if.then.i.i.i175, %if.then3.i.i.i181
@@ -7365,7 +7365,7 @@ terminate.lpad.i.i.i.i213:                        ; preds = %if.then3.i.i.i.i.i.
   %83 = landingpad { ptr, i32 }
           catch ptr null
   %84 = extractvalue { ptr, i32 } %83, 0
-  tail call void @__clang_call_terminate(ptr %84) #24
+  tail call void @__clang_call_terminate(ptr %84) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit.i.i.i207:   ; preds = %if.then3.i.i.i.i.i.i212, %if.then.i.i.i.i.i.i204, %for.body.i.i.i199
@@ -7400,7 +7400,7 @@ terminate.lpad.i195:                              ; preds = %if.then3.i.i.i194
   %88 = landingpad { ptr, i32 }
           catch ptr null
   %89 = extractvalue { ptr, i32 } %88, 0
-  tail call void @__clang_call_terminate(ptr %89) #24
+  tail call void @__clang_call_terminate(ptr %89) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIS_IfEED2Ev.exit214:     ; preds = %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit.i.i186, %if.then.i.i.i189, %if.then3.i.i.i194
@@ -7443,7 +7443,7 @@ terminate.lpad.i.i.i.i244:                        ; preds = %if.then3.i.i.i.i.i.
   %94 = landingpad { ptr, i32 }
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
-  tail call void @__clang_call_terminate(ptr %95) #24
+  tail call void @__clang_call_terminate(ptr %95) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit.i.i.i238:   ; preds = %if.then3.i.i.i.i.i.i243, %if.then.i.i.i.i.i.i235, %for.body.i.i.i230
@@ -7478,7 +7478,7 @@ terminate.lpad.i226:                              ; preds = %if.then3.i.i.i225
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  tail call void @__clang_call_terminate(ptr %100) #24
+  tail call void @__clang_call_terminate(ptr %100) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIS_IfEED2Ev.exit245:     ; preds = %_ZN20btAlignedObjectArrayIS_IfEE7destroyEii.exit.i.i217, %if.then.i.i.i220, %if.then3.i.i.i225
@@ -7488,14 +7488,14 @@ _ZN20btAlignedObjectArrayIS_IfEED2Ev.exit245:     ; preds = %_ZN20btAlignedObjec
   store i32 0, ptr %m_size.i.i.i215, align 4
   %m_capacity.i.i.i224 = getelementptr inbounds i8, ptr %this, i64 2088
   store i32 0, ptr %m_capacity.i.i.i224, align 8
-  tail call void @_ZN10btSoftBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(2064) %this) #25
+  tail call void @_ZN10btSoftBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(2064) %this) #26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23btReducedDeformableBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(3176) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN23btReducedDeformableBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(3176) %this) #25
+  tail call void @_ZN23btReducedDeformableBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(3176) %this) #26
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN17btCollisionObjectdlEPv.exit unwind label %terminate.lpad.i
 
@@ -7503,7 +7503,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #24
+  tail call void @__clang_call_terminate(ptr %1) #25
   unreachable
 
 _ZN17btCollisionObjectdlEPv.exit:                 ; preds = %entry
@@ -7597,7 +7597,7 @@ if.then:                                          ; preds = %entry
   %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
   %add9 = fadd float %add8, 1.000000e+00
-  %call.i = tail call noundef float @sqrtf(float noundef %add9) #25
+  %call.i = tail call noundef float @sqrtf(float noundef %add9) #26
   %mul = fmul float %call.i, 5.000000e-01
   %div = fdiv float 5.000000e-01, %call.i
   %arrayidx.i31 = getelementptr inbounds i8, ptr %this, i64 36
@@ -7646,7 +7646,7 @@ if.else:                                          ; preds = %entry
   %12 = load float, ptr %arrayidx82, align 4
   %sub83 = fsub float %sub76, %12
   %add84 = fadd float %sub83, 1.000000e+00
-  %call.i39 = tail call noundef float @sqrtf(float noundef %add84) #25
+  %call.i39 = tail call noundef float @sqrtf(float noundef %add84) #26
   %mul86 = fmul float %call.i39, 5.000000e-01
   %arrayidx88 = getelementptr inbounds [4 x float], ptr %temp, i64 0, i64 %idxprom
   store float %mul86, ptr %arrayidx88, align 4
@@ -7702,14 +7702,15 @@ declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #19 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #25
-  tail call void @_ZSt9terminatev() #24
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
+  tail call void @_ZSt9terminatev() #25
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #20
 
 declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #0
 
@@ -7768,7 +7769,7 @@ terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #24
+  tail call void @__clang_call_terminate(ptr %7) #25
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit.i:          ; preds = %if.then3.i.i.i.i, %if.then.i.i.i.i, %for.body.i
@@ -7923,24 +7924,24 @@ for.end:                                          ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_btReducedDeformableBody.cpp() #20 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_btReducedDeformableBody.cpp() #21 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #25
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #26
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #23
+declare float @llvm.sqrt.f32(float) #24
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7962,12 +7963,13 @@ attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #24 = { noreturn nounwind }
-attributes #25 = { nounwind }
+attributes #20 = { cold nofree noreturn }
+attributes #21 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #25 = { noreturn nounwind }
+attributes #26 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

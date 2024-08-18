@@ -52,12 +52,12 @@ define hidden void @_ZN7nanogui7Texture4initEv(ptr noundef nonnull align 8 deref
   br i1 %8, label %switch.lookup, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @__cxa_allocate_exception(i64 16) #8
+  %10 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull @.str)
           to label %11 unwind label %12
 
 11:                                               ; preds = %9
-  tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
+  tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
 12:                                               ; preds = %9
@@ -79,12 +79,12 @@ switch.lookup:                                    ; preds = %5
   br i1 %18, label %switch.lookup26, label %19
 
 19:                                               ; preds = %15
-  %20 = tail call ptr @__cxa_allocate_exception(i64 16) #8
+  %20 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull @.str.1)
           to label %21 unwind label %22
 
 21:                                               ; preds = %19
-  tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
+  tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
 22:                                               ; preds = %19
@@ -164,12 +164,12 @@ switch.lookup26:                                  ; preds = %15
   br label %66
 
 61:                                               ; preds = %41
-  %62 = tail call ptr @__cxa_allocate_exception(i64 16) #8
+  %62 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull @.str.2)
           to label %63 unwind label %64
 
 63:                                               ; preds = %61
-  tail call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
+  tail call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
 64:                                               ; preds = %61
@@ -183,7 +183,7 @@ switch.lookup26:                                  ; preds = %15
 67:                                               ; preds = %64, %22, %12
   %.sink25 = phi ptr [ %62, %64 ], [ %20, %22 ], [ %10, %12 ]
   %.pn = phi { ptr, i32 } [ %65, %64 ], [ %23, %22 ], [ %13, %12 ]
-  tail call void @__cxa_free_exception(ptr %.sink25) #8
+  tail call void @__cxa_free_exception(ptr %.sink25) #10
   resume { ptr, i32 } %.pn
 }
 
@@ -198,7 +198,8 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -371,12 +372,12 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   br i1 %38, label %39, label %.thread
 
 39:                                               ; preds = %37
-  %40 = tail call ptr @__cxa_allocate_exception(i64 16) #8
+  %40 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull @.str.9)
           to label %41 unwind label %42
 
 41:                                               ; preds = %39
-  tail call void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
+  tail call void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
 42:                                               ; preds = %39
@@ -403,12 +404,12 @@ switch.lookup101:                                 ; preds = %switch.hole_check10
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %.thread
-  %48 = tail call ptr @__cxa_allocate_exception(i64 16) #8
+  %48 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull @.str.10)
           to label %49 unwind label %50
 
 49:                                               ; preds = %47
-  tail call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
+  tail call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
 50:                                               ; preds = %47
@@ -422,12 +423,12 @@ switch.lookup101:                                 ; preds = %switch.hole_check10
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %52
-  %56 = tail call ptr @__cxa_allocate_exception(i64 16) #8
+  %56 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull @.str.11)
           to label %57 unwind label %58
 
 57:                                               ; preds = %55
-  tail call void @__cxa_throw(ptr nonnull %56, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
+  tail call void @__cxa_throw(ptr nonnull %56, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
 58:                                               ; preds = %55
@@ -441,7 +442,7 @@ switch.lookup101:                                 ; preds = %switch.hole_check10
 61:                                               ; preds = %58, %50, %42
   %.sink70 = phi ptr [ %56, %58 ], [ %48, %50 ], [ %40, %42 ]
   %.pn = phi { ptr, i32 } [ %59, %58 ], [ %51, %50 ], [ %43, %42 ]
-  tail call void @__cxa_free_exception(ptr %.sink70) #8
+  tail call void @__cxa_free_exception(ptr %.sink70) #10
   resume { ptr, i32 } %.pn
 }
 
@@ -464,18 +465,18 @@ define hidden void @_ZN7nanogui7Texture6uploadEPKh(ptr nocapture noundef nonnull
   br i1 %or.cond, label %10, label %15
 
 10:                                               ; preds = %2
-  %11 = tail call ptr @__cxa_allocate_exception(i64 16) #8
+  %11 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull @.str.3)
           to label %12 unwind label %13
 
 12:                                               ; preds = %10
-  tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
+  tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %11) #8
+  tail call void @__cxa_free_exception(ptr %11) #10
   resume { ptr, i32 } %14
 
 15:                                               ; preds = %2
@@ -592,7 +593,7 @@ declare void @glRenderbufferStorage(i32 noundef, i32 noundef, i32 noundef, i32 n
 declare void @glRenderbufferStorageMultisample(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7nanogui7TextureD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui7TextureD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui7TextureE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %2)
@@ -604,29 +605,30 @@ define hidden void @_ZN7nanogui7TextureD2Ev(ptr noundef nonnull align 8 derefere
           to label %5 unwind label %6
 
 5:                                                ; preds = %3
-  tail call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #8
+  tail call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #10
   ret void
 
 6:                                                ; preds = %3, %1
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #10
+  tail call void @__clang_call_terminate(ptr %8) #12
   unreachable
 }
 
 declare void @glDeleteTextures(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
-  tail call void @_ZSt9terminatev() #10
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
+  tail call void @_ZSt9terminatev() #12
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 declare void @glDeleteRenderbuffers(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -634,7 +636,7 @@ declare void @glDeleteRenderbuffers(i32 noundef, ptr noundef) local_unnamed_addr
 declare void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7nanogui7TextureD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui7TextureD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui7TextureE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %2)
@@ -649,17 +651,17 @@ define hidden void @_ZN7nanogui7TextureD0Ev(ptr noundef nonnull align 8 derefere
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #10
+  tail call void @__clang_call_terminate(ptr %7) #12
   unreachable
 
 _ZN7nanogui7TextureD2Ev.exit:                     ; preds = %3
-  tail call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #8
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #11
+  tail call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 declare void @glPixelStorei(i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -693,12 +695,12 @@ define hidden void @_ZN7nanogui7Texture17upload_sub_regionEPKhRKNS_5ArrayIiLm2EE
   br i1 %or.cond, label %12, label %17
 
 12:                                               ; preds = %4
-  %13 = tail call ptr @__cxa_allocate_exception(i64 16) #8
+  %13 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull @.str.4)
           to label %14 unwind label %15
 
 14:                                               ; preds = %12
-  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
+  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
 15:                                               ; preds = %12
@@ -716,12 +718,12 @@ define hidden void @_ZN7nanogui7Texture17upload_sub_regionEPKhRKNS_5ArrayIiLm2EE
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %17
-  %24 = tail call ptr @__cxa_allocate_exception(i64 16) #8
+  %24 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull @.str.5)
           to label %25 unwind label %26
 
 25:                                               ; preds = %23
-  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
+  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
 26:                                               ; preds = %23
@@ -750,12 +752,12 @@ define hidden void @_ZN7nanogui7Texture17upload_sub_regionEPKhRKNS_5ArrayIiLm2EE
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %35, %28
-  %45 = tail call ptr @__cxa_allocate_exception(i64 16) #8
+  %45 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull @.str.6)
           to label %46 unwind label %47
 
 46:                                               ; preds = %44
-  tail call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
+  tail call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
 47:                                               ; preds = %44
@@ -815,7 +817,7 @@ define hidden void @_ZN7nanogui7Texture17upload_sub_regionEPKhRKNS_5ArrayIiLm2EE
 76:                                               ; preds = %47, %26, %15
   %.sink = phi ptr [ %45, %47 ], [ %24, %26 ], [ %13, %15 ]
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %27, %26 ], [ %16, %15 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #8
+  tail call void @__cxa_free_exception(ptr %.sink) #10
   resume { ptr, i32 } %.pn
 }
 
@@ -832,12 +834,12 @@ define hidden void @_ZN7nanogui7Texture8downloadEPh(ptr noundef nonnull align 8 
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %2
-  %10 = tail call ptr @__cxa_allocate_exception(i64 16) #8
+  %10 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull @.str.7)
           to label %11 unwind label %12
 
 11:                                               ; preds = %9
-  tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
+  tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
 12:                                               ; preds = %9
@@ -852,12 +854,12 @@ define hidden void @_ZN7nanogui7Texture8downloadEPh(ptr noundef nonnull align 8 
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %14
-  %19 = tail call ptr @__cxa_allocate_exception(i64 16) #8
+  %19 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull @.str.8)
           to label %20 unwind label %21
 
 20:                                               ; preds = %18
-  tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
+  tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
 21:                                               ; preds = %18
@@ -886,7 +888,7 @@ define hidden void @_ZN7nanogui7Texture8downloadEPh(ptr noundef nonnull align 8 
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
   %37 = mul i64 %33, %36
-  %38 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %37) #12
+  %38 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %37) #14
   %39 = getelementptr inbounds i8, ptr %0, i64 24
   %40 = load i32, ptr %39, align 8
   %41 = add nsw i32 %40, -1
@@ -912,7 +914,7 @@ define hidden void @_ZN7nanogui7Texture8downloadEPh(ptr noundef nonnull align 8 
   br i1 %50, label %47, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit, !llvm.loop !7
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %47, %32
-  tail call void @_ZdaPv(ptr noundef nonnull %38) #11
+  tail call void @_ZdaPv(ptr noundef nonnull %38) #13
   br label %51
 
 51:                                               ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit, %23
@@ -921,7 +923,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %47, %32
 52:                                               ; preds = %21, %12
   %.sink = phi ptr [ %19, %21 ], [ %10, %12 ]
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %13, %12 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #8
+  tail call void @__cxa_free_exception(ptr %.sink) #10
   resume { ptr, i32 } %.pn
 }
 
@@ -930,10 +932,10 @@ declare void @glGetTexImage(i32 noundef, i32 noundef, i32 noundef, i32 noundef, 
 declare noundef i64 @_ZNK7nanogui7Texture15bytes_per_pixelEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7nanogui7Texture6resizeERKNS_5ArrayIiLm2EEE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
@@ -967,21 +969,23 @@ _ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit:           ; preds = %4
 declare void @glGenerateMipmap(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { builtin nounwind }
-attributes #12 = { builtin allocsize(0) }
+attributes #3 = { cold noreturn }
+attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { builtin nounwind }
+attributes #14 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -124,12 +124,12 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_13BarcodeFormatE(ptr dead_on_unwind no
 44:                                               ; preds = %38, %35, %32, %29
   %45 = phi ptr [ %39, %38 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXingL5NAMESE, i64 480), %29 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXingL5NAMESE, i64 504), %32 ], [ %37, %35 ]
   %46 = getelementptr inbounds i8, ptr %45, i64 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
   %47 = load i64, ptr %46, align 8, !tbaa !18
   %48 = getelementptr inbounds i8, ptr %45, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %49, i64 noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %3) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %49, i64 noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %3) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
   br label %50
 
 50:                                               ; preds = %44, %41
@@ -153,11 +153,11 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_5FlagsINS_13BarcodeFormatEEE(ptr dead_
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  tail call void @_ZN5ZXing8ToStringB5cxx11ENS_13BarcodeFormatE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef 0) #14
+  tail call void @_ZN5ZXing8ToStringB5cxx11ENS_13BarcodeFormatE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef 0) #15
   br label %120
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %9, ptr %3, align 8, !tbaa !13
   %10 = getelementptr inbounds i8, ptr %3, i64 8
@@ -184,19 +184,19 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_5FlagsINS_13BarcodeFormatEEE(ptr dead_
 
 24:                                               ; preds = %21, %8
   %25 = phi i64 [ %23, %21 ], [ -1, %8 ]
-  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i64 noundef %25) #14
+  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i64 noundef %25) #15
           to label %101 unwind label %109
 
 26:                                               ; preds = %76, %15
   %27 = phi i32 [ %11, %15 ], [ %77, %76 ]
   %28 = shl nuw i32 1, %27
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
-  invoke void @_ZN5ZXing8ToStringB5cxx11ENS_13BarcodeFormatE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, i32 noundef %28) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #14
+  invoke void @_ZN5ZXing8ToStringB5cxx11ENS_13BarcodeFormatE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, i32 noundef %28) #15
           to label %29 unwind label %79
 
 29:                                               ; preds = %26
-  %30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str) #14
+  %30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str) #15
           to label %31 unwind label %81
 
 31:                                               ; preds = %29
@@ -232,7 +232,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_5FlagsINS_13BarcodeFormatEEE(ptr dead_
   store i8 0, ptr %33, align 8, !tbaa !17
   %47 = load ptr, ptr %4, align 8, !tbaa !24
   %48 = load i64, ptr %17, align 8, !tbaa !15
-  %49 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %47, i64 noundef %48) #14
+  %49 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %47, i64 noundef %48) #15
           to label %50 unwind label %83
 
 50:                                               ; preds = %44
@@ -247,7 +247,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_5FlagsINS_13BarcodeFormatEEE(ptr dead_
   br label %57
 
 56:                                               ; preds = %50
-  call void @_ZdlPv(ptr noundef %51) #15
+  call void @_ZdlPv(ptr noundef %51) #16
   br label %57
 
 57:                                               ; preds = %56, %53
@@ -262,12 +262,12 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_5FlagsINS_13BarcodeFormatEEE(ptr dead_
   br label %64
 
 63:                                               ; preds = %57
-  call void @_ZdlPv(ptr noundef %58) #15
+  call void @_ZdlPv(ptr noundef %58) #16
   br label %64
 
 64:                                               ; preds = %63, %60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #14
   %65 = add i32 %27, 1
   %66 = call i32 @llvm.smax.i32(i32 %20, i32 %65)
   %67 = add nsw i32 %66, -1
@@ -314,7 +314,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_5FlagsINS_13BarcodeFormatEEE(ptr dead_
   br label %91
 
 90:                                               ; preds = %83
-  call void @_ZdlPv(ptr noundef %85) #15
+  call void @_ZdlPv(ptr noundef %85) #16
   br label %91
 
 91:                                               ; preds = %90, %87, %81
@@ -330,13 +330,13 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_5FlagsINS_13BarcodeFormatEEE(ptr dead_
   br label %99
 
 98:                                               ; preds = %91
-  call void @_ZdlPv(ptr noundef %93) #15
+  call void @_ZdlPv(ptr noundef %93) #16
   br label %99
 
 99:                                               ; preds = %98, %95, %79
   %100 = phi { ptr, i32 } [ %80, %79 ], [ %92, %95 ], [ %92, %98 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #14
   br label %111
 
 101:                                              ; preds = %24
@@ -351,11 +351,11 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_5FlagsINS_13BarcodeFormatEEE(ptr dead_
   br label %108
 
 107:                                              ; preds = %101
-  call void @_ZdlPv(ptr noundef %102) #15
+  call void @_ZdlPv(ptr noundef %102) #16
   br label %108
 
 108:                                              ; preds = %107, %104
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
   br label %120
 
 109:                                              ; preds = %24
@@ -376,11 +376,11 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_5FlagsINS_13BarcodeFormatEEE(ptr dead_
   br label %119
 
 118:                                              ; preds = %111
-  call void @_ZdlPv(ptr noundef %113) #15
+  call void @_ZdlPv(ptr noundef %113) #16
   br label %119
 
 119:                                              ; preds = %118, %115
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
   resume { ptr, i32 } %112
 
 120:                                              ; preds = %108, %7
@@ -393,12 +393,12 @@ declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(p
 ; Function Attrs: mustprogress optsize uwtable
 define noundef i32 @_ZN5ZXing23BarcodeFormatFromStringESt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
-  call fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 %0, ptr %1) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
+  call fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 %0, ptr %1) #15
   %.val = load ptr, ptr %3, align 8, !tbaa !24
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %.val2 = load i64, ptr %4, align 8, !tbaa !15
-  %5 = invoke fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %.val, i64 %.val2) #14
+  %5 = invoke fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %.val, i64 %.val2) #15
           to label %6 unwind label %15
 
 6:                                                ; preds = %2
@@ -414,11 +414,11 @@ define noundef i32 @_ZN5ZXing23BarcodeFormatFromStringESt17basic_string_viewIcSt
   br label %14
 
 13:                                               ; preds = %6
-  call void @_ZdlPv(ptr noundef %7) #15
+  call void @_ZdlPv(ptr noundef %7) #16
   br label %14
 
 14:                                               ; preds = %13, %10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
   ret i32 %5
 
 15:                                               ; preds = %2
@@ -436,11 +436,11 @@ define noundef i32 @_ZN5ZXing23BarcodeFormatFromStringESt17basic_string_viewIcSt
   br label %24
 
 23:                                               ; preds = %15
-  call void @_ZdlPv(ptr noundef %17) #15
+  call void @_ZdlPv(ptr noundef %17) #16
   br label %24
 
 24:                                               ; preds = %23, %20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
   resume { ptr, i32 } %16
 }
 
@@ -455,7 +455,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %7, ptr %6, align 8, !tbaa !13
   %8 = getelementptr inbounds i8, ptr %.0.val, i64 %.8.val
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %.0.val, ptr noundef %8) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %.0.val, ptr noundef %8) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %9, ptr %5, align 8, !tbaa !13
@@ -463,7 +463,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %11 = getelementptr inbounds i8, ptr %6, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !15
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, ptr noundef %13) #14
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, ptr noundef %13) #15
           to label %14 unwind label %192
 
 14:                                               ; preds = %0
@@ -475,7 +475,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %17 = getelementptr inbounds i8, ptr %5, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !15
   %19 = getelementptr inbounds i8, ptr %16, i64 %18
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %16, ptr noundef %19) #14
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %16, ptr noundef %19) #15
           to label %20 unwind label %169
 
 20:                                               ; preds = %14
@@ -487,7 +487,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %23 = getelementptr inbounds i8, ptr %4, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !15, !noalias !26
   %25 = getelementptr inbounds i8, ptr %22, i64 %24
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %22, ptr noundef %25) #14
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %22, ptr noundef %25) #15
           to label %26 unwind label %142
 
 26:                                               ; preds = %20
@@ -497,7 +497,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %29 = getelementptr inbounds i8, ptr %2, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !15, !noalias !26
   %31 = getelementptr inbounds i8, ptr %28, i64 %30
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %28, ptr noundef %31) #14
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %28, ptr noundef %31) #15
           to label %32 unwind label %39
 
 32:                                               ; preds = %26
@@ -512,7 +512,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br label %47
 
 38:                                               ; preds = %32
-  call void @_ZdlPv(ptr noundef %33) #15
+  call void @_ZdlPv(ptr noundef %33) #16
   br label %47
 
 39:                                               ; preds = %26
@@ -529,7 +529,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br label %154
 
 46:                                               ; preds = %39
-  call void @_ZdlPv(ptr noundef %41) #15
+  call void @_ZdlPv(ptr noundef %41) #16
   br label %154
 
 47:                                               ; preds = %38, %35
@@ -541,7 +541,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %50 = getelementptr inbounds i8, ptr %3, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !15
   %52 = getelementptr inbounds i8, ptr %49, i64 %51
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %49, ptr noundef %52) #14
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %49, ptr noundef %52) #15
           to label %.preheader unwind label %144
 
 .preheader:                                       ; preds = %47, %74
@@ -551,7 +551,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %.val = load i64, ptr %55, align 8, !tbaa !18
   %56 = getelementptr i8, ptr %54, i64 16
   %.val13 = load ptr, ptr %56, align 8, !tbaa !19
-  %57 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val, ptr %.val13) #14
+  %57 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val, ptr %.val13) #15
           to label %58 unwind label %115
 
 58:                                               ; preds = %.preheader
@@ -562,7 +562,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %.val14 = load i64, ptr %60, align 8, !tbaa !18
   %61 = getelementptr i8, ptr %54, i64 40
   %.val15 = load ptr, ptr %61, align 8, !tbaa !19
-  %62 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val14, ptr %.val15) #14
+  %62 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val14, ptr %.val15) #15
           to label %63 unwind label %115
 
 63:                                               ; preds = %59
@@ -573,7 +573,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %.val16 = load i64, ptr %65, align 8, !tbaa !18
   %66 = getelementptr i8, ptr %54, i64 64
   %.val17 = load ptr, ptr %66, align 8, !tbaa !19
-  %67 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val16, ptr %.val17) #14
+  %67 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val16, ptr %.val17) #15
           to label %68 unwind label %115
 
 68:                                               ; preds = %64
@@ -584,7 +584,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %.val18 = load i64, ptr %70, align 8, !tbaa !18
   %71 = getelementptr i8, ptr %54, i64 88
   %.val19 = load ptr, ptr %71, align 8, !tbaa !19
-  %72 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val18, ptr %.val19) #14
+  %72 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val18, ptr %.val19) #15
           to label %73 unwind label %115
 
 73:                                               ; preds = %69
@@ -611,7 +611,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %.val20 = load i64, ptr %83, align 8, !tbaa !18
   %84 = getelementptr i8, ptr %54, i64 112
   %.val21 = load ptr, ptr %84, align 8, !tbaa !19
-  %85 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val20, ptr %.val21) #14
+  %85 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val20, ptr %.val21) #15
           to label %86 unwind label %117
 
 86:                                               ; preds = %82
@@ -627,7 +627,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %.val22 = load i64, ptr %91, align 8, !tbaa !18
   %92 = getelementptr i8, ptr %90, i64 16
   %.val23 = load ptr, ptr %92, align 8, !tbaa !19
-  %93 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val22, ptr %.val23) #14
+  %93 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val22, ptr %.val23) #15
           to label %94 unwind label %117
 
 94:                                               ; preds = %89
@@ -643,7 +643,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %.val24 = load i64, ptr %99, align 8, !tbaa !18
   %100 = getelementptr i8, ptr %98, i64 16
   %.val25 = load ptr, ptr %100, align 8, !tbaa !19
-  %101 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val24, ptr %.val25) #14
+  %101 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.val24, ptr %.val25) #15
           to label %102 unwind label %117
 
 102:                                              ; preds = %97
@@ -678,7 +678,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br label %128
 
 114:                                              ; preds = %.loopexit
-  call void @_ZdlPv(ptr noundef %108) #15
+  call void @_ZdlPv(ptr noundef %108) #16
   br label %128
 
 115:                                              ; preds = %69, %64, %59, %.preheader
@@ -705,7 +705,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br label %146
 
 127:                                              ; preds = %119
-  call void @_ZdlPv(ptr noundef %121) #15
+  call void @_ZdlPv(ptr noundef %121) #16
   br label %146
 
 128:                                              ; preds = %114, %110
@@ -721,7 +721,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br label %135
 
 134:                                              ; preds = %128
-  call void @_ZdlPv(ptr noundef %129) #15
+  call void @_ZdlPv(ptr noundef %129) #16
   br label %135
 
 135:                                              ; preds = %134, %131
@@ -736,7 +736,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br label %162
 
 141:                                              ; preds = %135
-  call void @_ZdlPv(ptr noundef %136) #15
+  call void @_ZdlPv(ptr noundef %136) #16
   br label %162
 
 142:                                              ; preds = %20
@@ -762,7 +762,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br label %154
 
 153:                                              ; preds = %146
-  call void @_ZdlPv(ptr noundef %148) #15
+  call void @_ZdlPv(ptr noundef %148) #16
   br label %154
 
 154:                                              ; preds = %153, %150, %142, %46, %43
@@ -778,7 +778,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br label %171
 
 161:                                              ; preds = %154
-  call void @_ZdlPv(ptr noundef %156) #15
+  call void @_ZdlPv(ptr noundef %156) #16
   br label %171
 
 162:                                              ; preds = %141, %138
@@ -795,7 +795,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br label %179
 
 168:                                              ; preds = %162
-  call void @_ZdlPv(ptr noundef %163) #15
+  call void @_ZdlPv(ptr noundef %163) #16
   br label %179
 
 169:                                              ; preds = %14
@@ -816,7 +816,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br label %194
 
 178:                                              ; preds = %171
-  call void @_ZdlPv(ptr noundef %173) #15
+  call void @_ZdlPv(ptr noundef %173) #16
   br label %194
 
 179:                                              ; preds = %168, %165
@@ -832,7 +832,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br label %186
 
 185:                                              ; preds = %179
-  call void @_ZdlPv(ptr noundef %180) #15
+  call void @_ZdlPv(ptr noundef %180) #16
   br label %186
 
 186:                                              ; preds = %185, %182
@@ -865,7 +865,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br label %202
 
 201:                                              ; preds = %194
-  call void @_ZdlPv(ptr noundef %196) #15
+  call void @_ZdlPv(ptr noundef %196) #16
   br label %202
 
 202:                                              ; preds = %201, %198
@@ -875,9 +875,9 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
 ; Function Attrs: mustprogress optsize uwtable
 define internal fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 %1, ptr %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %2, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %4) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %2, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %4) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
   %5 = load ptr, ptr %0, align 8, !tbaa !24
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !15
@@ -889,7 +889,7 @@ define internal fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_
   %10 = phi ptr [ %15, %.preheader5 ], [ %5, %3 ]
   %11 = load i8, ptr %10, align 1, !tbaa !17
   %12 = sext i8 %11 to i32
-  %13 = call i32 @tolower(i32 noundef %12) #16
+  %13 = call i32 @tolower(i32 noundef %12) #17
   %14 = trunc i32 %13 to i8
   store i8 %14, ptr %10, align 1, !tbaa !17
   %15 = getelementptr i8, ptr %10, i64 1
@@ -1060,8 +1060,8 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
   %4 = alloca %"class.std::__cxx11::basic_istringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
-  call fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 %0, ptr %1) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
+  call fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 %0, ptr %1) #15
   %7 = load ptr, ptr %3, align 8, !tbaa !24
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !15
@@ -1088,12 +1088,12 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
   br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.split.thread, %2
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #13
-  invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 8) #14
+  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #14
+  invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 8) #15
           to label %16 unwind label %49
 
 16:                                               ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #14
   %17 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %17, ptr %5, align 8, !tbaa !13
   %18 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1106,7 +1106,7 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
   br label %21
 
 21:                                               ; preds = %53, %19
-  %22 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EES4_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i8 noundef signext 124) #14
+  %22 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EES4_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i8 noundef signext 124) #15
           to label %23 unwind label %51
 
 23:                                               ; preds = %21
@@ -1132,15 +1132,15 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
   br label %39
 
 38:                                               ; preds = %32
-  call void @_ZdlPv(ptr noundef %33) #15
+  call void @_ZdlPv(ptr noundef %33) #16
   br label %39
 
 39:                                               ; preds = %38, %35
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
-  call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
+  call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE) #18
   %40 = getelementptr inbounds i8, ptr %4, i64 120
-  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %40) #17
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #13
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %40) #18
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #14
   %41 = load ptr, ptr %3, align 8, !tbaa !24
   %42 = getelementptr inbounds i8, ptr %3, i64 16
   %43 = icmp eq ptr %41, %42
@@ -1153,11 +1153,11 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
   br label %48
 
 47:                                               ; preds = %39
-  call void @_ZdlPv(ptr noundef %41) #15
+  call void @_ZdlPv(ptr noundef %41) #16
   br label %48
 
 48:                                               ; preds = %47, %44
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
   ret i32 %20
 
 49:                                               ; preds = %.loopexit
@@ -1177,7 +1177,7 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
 
 56:                                               ; preds = %53
   %.val = load ptr, ptr %5, align 8, !tbaa !24
-  %57 = invoke fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %.val, i64 %54) #14
+  %57 = invoke fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %.val, i64 %54) #15
           to label %58 unwind label %65
 
 58:                                               ; preds = %56
@@ -1186,17 +1186,17 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
   br i1 %59, label %61, label %19, !llvm.loop !43
 
 61:                                               ; preds = %58
-  %62 = call ptr @__cxa_allocate_exception(i64 16) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(32) %5) #14
+  %62 = call ptr @__cxa_allocate_exception(i64 16) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #14
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(32) %5) #15
           to label %63 unwind label %67
 
 63:                                               ; preds = %61
-  invoke void @_ZNSt16invalid_argumentC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(32) %6) #14
+  invoke void @_ZNSt16invalid_argumentC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(32) %6) #15
           to label %64 unwind label %69
 
 64:                                               ; preds = %63
-  invoke void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #19
           to label %102 unwind label %69
 
 65:                                               ; preds = %56
@@ -1207,7 +1207,7 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
 67:                                               ; preds = %61
   %68 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #14
   br label %80
 
 69:                                               ; preds = %64, %63
@@ -1224,17 +1224,17 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
   %77 = load i64, ptr %76, align 8, !tbaa !15
   %78 = icmp ult i64 %77, 16
   call void @llvm.assume(i1 %78)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #14
   br i1 %70, label %80, label %82
 
 79:                                               ; preds = %69
-  call void @_ZdlPv(ptr noundef %72) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
+  call void @_ZdlPv(ptr noundef %72) #16
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #14
   br i1 %70, label %80, label %82
 
 80:                                               ; preds = %79, %75, %67
   %81 = phi { ptr, i32 } [ %68, %67 ], [ %71, %79 ], [ %71, %75 ]
-  call void @__cxa_free_exception(ptr %62) #13
+  call void @__cxa_free_exception(ptr %62) #14
   br label %82
 
 82:                                               ; preds = %80, %79, %75, %65, %51
@@ -1250,19 +1250,19 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
   br label %90
 
 89:                                               ; preds = %82
-  call void @_ZdlPv(ptr noundef %84) #15
+  call void @_ZdlPv(ptr noundef %84) #16
   br label %90
 
 90:                                               ; preds = %89, %86
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
-  call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
+  call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE) #18
   %91 = getelementptr inbounds i8, ptr %4, i64 120
-  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %91) #17
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %91) #18
   br label %92
 
 92:                                               ; preds = %90, %49
   %93 = phi { ptr, i32 } [ %83, %90 ], [ %50, %49 ]
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #14
   %94 = load ptr, ptr %3, align 8, !tbaa !24
   %95 = getelementptr inbounds i8, ptr %3, i64 16
   %96 = icmp eq ptr %94, %95
@@ -1275,11 +1275,11 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
   br label %101
 
 100:                                              ; preds = %92
-  call void @_ZdlPv(ptr noundef %94) #15
+  call void @_ZdlPv(ptr noundef %94) #16
   br label %101
 
 101:                                              ; preds = %100, %97
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
   resume { ptr, i32 } %93
 
 102:                                              ; preds = %64
@@ -1296,7 +1296,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %5, ptr %0, align 8, !tbaa !13
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1305,17 +1305,17 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !15
   %9 = add i64 %8, %4
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %9) #14
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %9) #15
           to label %10 unwind label %16
 
 10:                                               ; preds = %3
-  %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %4) #14
+  %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %4) #15
           to label %12 unwind label %16
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %2, align 8, !tbaa !24
   %14 = load i64, ptr %7, align 8, !tbaa !15
-  %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %13, i64 noundef %14) #14
+  %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %13, i64 noundef %14) #15
           to label %24 unwind label %16
 
 16:                                               ; preds = %12, %10, %3
@@ -1332,7 +1332,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
   br label %25
 
 23:                                               ; preds = %16
-  tail call void @_ZdlPv(ptr noundef %18) #15
+  tail call void @_ZdlPv(ptr noundef %18) #16
   br label %25
 
 24:                                               ; preds = %12
@@ -1348,15 +1348,16 @@ declare void @_ZNSt16invalid_argumentC1ERKNSt7__cxx1112basic_stringIcSt11char_tr
 ; Function Attrs: nounwind optsize
 declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress optsize uwtable
 define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 %.8.val, ptr %.16.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #13
-  call fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %2, i64 %.8.val, ptr %.16.val) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #14
+  call fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %2, i64 %.8.val, ptr %.16.val) #15
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !15
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1392,18 +1393,18 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5Z
   br label %25
 
 24:                                               ; preds = %17
-  call void @_ZdlPv(ptr noundef %18) #15
+  call void @_ZdlPv(ptr noundef %18) #16
   br label %25
 
 25:                                               ; preds = %24, %22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #14
   ret i1 %19
 }
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   %5 = ptrtoint ptr %2 to i64
   %6 = ptrtoint ptr %1 to i64
   %7 = sub i64 %5, %6
@@ -1416,7 +1417,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   br label %15
 
 11:                                               ; preds = %3
-  %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #14
+  %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #15
   store ptr %12, ptr %0, align 8, !tbaa !24
   %13 = load i64, ptr %4, align 8, !tbaa !18
   %14 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1446,7 +1447,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   %23 = load ptr, ptr %0, align 8, !tbaa !24
   %24 = getelementptr inbounds i8, ptr %23, i64 %21
   store i8 0, ptr %24, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
   ret void
 }
 
@@ -1454,22 +1455,22 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind optsize
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind optsize willreturn memory(read)
-declare i32 @tolower(i32 noundef) local_unnamed_addr #6
+declare i32 @tolower(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 
 ; Function Attrs: mustprogress optsize uwtable
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0 align 2
 
 ; Function Attrs: mustprogress nofree nounwind optsize willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress optsize uwtable
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0 align 2
@@ -1481,45 +1482,46 @@ declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0 align 2
 
 ; Function Attrs: mustprogress nounwind optsize uwtable
-declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef) unnamed_addr #9 align 2
+declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef) unnamed_addr #10 align 2
 
 ; Function Attrs: optsize
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
+declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #11
+declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #12
+declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
 
 attributes #0 = { mustprogress optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind optsize willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nofree nounwind optsize willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nounwind }
-attributes #14 = { optsize }
-attributes #15 = { builtin nounwind optsize }
-attributes #16 = { nounwind optsize willreturn memory(read) }
-attributes #17 = { nounwind optsize }
-attributes #18 = { noreturn }
+attributes #5 = { cold noreturn }
+attributes #6 = { nobuiltin nounwind optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind optsize willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nofree nounwind optsize willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
+attributes #14 = { nounwind }
+attributes #15 = { optsize }
+attributes #16 = { builtin nounwind optsize }
+attributes #17 = { nounwind optsize willreturn memory(read) }
+attributes #18 = { nounwind optsize }
+attributes #19 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 

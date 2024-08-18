@@ -46,7 +46,7 @@ entry:
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN7Imf_3_210CompressorD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
 entry:
-  tail call void @llvm.trap() #12
+  tail call void @llvm.trap() #13
   unreachable
 }
 
@@ -121,7 +121,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #13
+  %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
   invoke void @_ZN7Imf_3_213RleCompressorC1ERKNS_6HeaderEm(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 1 %hdr, i64 noundef %maxScanLineSize)
           to label %return unwind label %lpad
 
@@ -131,7 +131,7 @@ lpad:                                             ; preds = %sw.bb
   br label %eh.resume
 
 sw.bb1:                                           ; preds = %entry
-  %call2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   invoke void @_ZN7Imf_3_213ZipCompressorC1ERKNS_6HeaderEmm(ptr noundef nonnull align 8 dereferenceable(56) %call2, ptr noundef nonnull align 1 %hdr, i64 noundef %maxScanLineSize, i64 noundef 1)
           to label %return unwind label %lpad3
 
@@ -141,7 +141,7 @@ lpad3:                                            ; preds = %sw.bb1
   br label %eh.resume
 
 sw.bb5:                                           ; preds = %entry
-  %call6 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call6 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   invoke void @_ZN7Imf_3_213ZipCompressorC1ERKNS_6HeaderEmm(ptr noundef nonnull align 8 dereferenceable(56) %call6, ptr noundef nonnull align 1 %hdr, i64 noundef %maxScanLineSize, i64 noundef 16)
           to label %return unwind label %lpad7
 
@@ -151,7 +151,7 @@ lpad7:                                            ; preds = %sw.bb5
   br label %eh.resume
 
 sw.bb9:                                           ; preds = %entry
-  %call10 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #13
+  %call10 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #14
   invoke void @_ZN7Imf_3_213PizCompressorC1ERKNS_6HeaderEmm(ptr noundef nonnull align 8 dereferenceable(84) %call10, ptr noundef nonnull align 1 %hdr, i64 noundef %maxScanLineSize, i64 noundef 32)
           to label %return unwind label %lpad11
 
@@ -161,7 +161,7 @@ lpad11:                                           ; preds = %sw.bb9
   br label %eh.resume
 
 sw.bb13:                                          ; preds = %entry
-  %call14 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #13
+  %call14 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14
   invoke void @_ZN7Imf_3_215Pxr24CompressorC1ERKNS_6HeaderEmm(ptr noundef nonnull align 8 dereferenceable(60) %call14, ptr noundef nonnull align 1 %hdr, i64 noundef %maxScanLineSize, i64 noundef 16)
           to label %return unwind label %lpad15
 
@@ -171,7 +171,7 @@ lpad15:                                           ; preds = %sw.bb13
   br label %eh.resume
 
 sw.bb17:                                          ; preds = %entry
-  %call18 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #13
+  %call18 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #14
   invoke void @_ZN7Imf_3_213B44CompressorC1ERKNS_6HeaderEmmb(ptr noundef nonnull align 8 dereferenceable(84) %call18, ptr noundef nonnull align 1 %hdr, i64 noundef %maxScanLineSize, i64 noundef 32, i1 noundef zeroext false)
           to label %return unwind label %lpad19
 
@@ -181,7 +181,7 @@ lpad19:                                           ; preds = %sw.bb17
   br label %eh.resume
 
 sw.bb21:                                          ; preds = %entry
-  %call22 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #13
+  %call22 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #14
   invoke void @_ZN7Imf_3_213B44CompressorC1ERKNS_6HeaderEmmb(ptr noundef nonnull align 8 dereferenceable(84) %call22, ptr noundef nonnull align 1 %hdr, i64 noundef %maxScanLineSize, i64 noundef 32, i1 noundef zeroext true)
           to label %return unwind label %lpad23
 
@@ -191,7 +191,7 @@ lpad23:                                           ; preds = %sw.bb21
   br label %eh.resume
 
 sw.bb25:                                          ; preds = %entry
-  %call26 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #13
+  %call26 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #14
   %conv = trunc i64 %maxScanLineSize to i32
   invoke void @_ZN7Imf_3_213DwaCompressorC1ERKNS_6HeaderEiiNS0_13AcCompressionE(ptr noundef nonnull align 8 dereferenceable(296) %call26, ptr noundef nonnull align 1 %hdr, i32 noundef %conv, i32 noundef 32, i32 noundef 0)
           to label %return unwind label %lpad27
@@ -202,7 +202,7 @@ lpad27:                                           ; preds = %sw.bb25
   br label %eh.resume
 
 sw.bb29:                                          ; preds = %entry
-  %call30 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #13
+  %call30 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #14
   %conv31 = trunc i64 %maxScanLineSize to i32
   invoke void @_ZN7Imf_3_213DwaCompressorC1ERKNS_6HeaderEiiNS0_13AcCompressionE(ptr noundef nonnull align 8 dereferenceable(296) %call30, ptr noundef nonnull align 1 %hdr, i32 noundef %conv31, i32 noundef 256, i32 noundef 0)
           to label %return unwind label %lpad32
@@ -219,7 +219,7 @@ return:                                           ; preds = %entry, %sw.bb29, %s
 eh.resume:                                        ; preds = %lpad32, %lpad27, %lpad23, %lpad19, %lpad15, %lpad11, %lpad7, %lpad3, %lpad
   %call30.sink = phi ptr [ %call30, %lpad32 ], [ %call26, %lpad27 ], [ %call22, %lpad23 ], [ %call18, %lpad19 ], [ %call14, %lpad15 ], [ %call10, %lpad11 ], [ %call6, %lpad7 ], [ %call2, %lpad3 ], [ %call, %lpad ]
   %.pn = phi { ptr, i32 } [ %8, %lpad32 ], [ %7, %lpad27 ], [ %6, %lpad23 ], [ %5, %lpad19 ], [ %4, %lpad15 ], [ %3, %lpad11 ], [ %2, %lpad7 ], [ %1, %lpad3 ], [ %0, %lpad ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call30.sink) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %call30.sink) #15
   resume { ptr, i32 } %.pn
 }
 
@@ -250,18 +250,18 @@ entry:
   br i1 %0, label %switch.lookup, label %sw.default
 
 sw.default:                                       ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #15
+  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #16
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull @.str)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %sw.default
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #16
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #17
   unreachable
 
 lpad:                                             ; preds = %sw.default
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #15
+  tail call void @__cxa_free_exception(ptr %exception) #16
   resume { ptr, i32 } %1
 
 switch.lookup:                                    ; preds = %entry
@@ -280,7 +280,8 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZN7Iex_3_26ArgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN7Imf_3_217newTileCompressorENS_11CompressionEmmRKNS_6HeaderE(i32 noundef %c, i64 noundef %tileLineSize, i64 noundef %numTileLines, ptr noundef nonnull align 1 %hdr) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
@@ -298,7 +299,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #13
+  %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
   %cmp.not.i = icmp eq i64 %tileLineSize, 0
   br i1 %cmp.not.i, label %invoke.cont, label %land.lhs.true.i
 
@@ -308,12 +309,12 @@ land.lhs.true.i:                                  ; preds = %sw.bb
   br i1 %mul.ov.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 72) #15
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 72) #16
   invoke void @_ZN7Iex_3_211OverflowExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_211OverflowExcE, ptr nonnull @_ZN7Iex_3_211OverflowExcD1Ev) #16
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_211OverflowExcE, ptr nonnull @_ZN7Iex_3_211OverflowExcD1Ev) #17
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont.i
@@ -322,7 +323,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #15
+  tail call void @__cxa_free_exception(ptr %exception.i) #16
   br label %eh.resume
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %sw.bb
@@ -336,7 +337,7 @@ lpad:                                             ; preds = %invoke.cont.i, %inv
   br label %eh.resume
 
 sw.bb3:                                           ; preds = %entry, %entry
-  %call4 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call4 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   invoke void @_ZN7Imf_3_213ZipCompressorC1ERKNS_6HeaderEmm(ptr noundef nonnull align 8 dereferenceable(56) %call4, ptr noundef nonnull align 1 %hdr, i64 noundef %tileLineSize, i64 noundef %numTileLines)
           to label %return unwind label %lpad5
 
@@ -346,7 +347,7 @@ lpad5:                                            ; preds = %sw.bb3
   br label %eh.resume
 
 sw.bb7:                                           ; preds = %entry
-  %call8 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #13
+  %call8 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #14
   invoke void @_ZN7Imf_3_213PizCompressorC1ERKNS_6HeaderEmm(ptr noundef nonnull align 8 dereferenceable(84) %call8, ptr noundef nonnull align 1 %hdr, i64 noundef %tileLineSize, i64 noundef %numTileLines)
           to label %return unwind label %lpad9
 
@@ -356,7 +357,7 @@ lpad9:                                            ; preds = %sw.bb7
   br label %eh.resume
 
 sw.bb11:                                          ; preds = %entry
-  %call12 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #13
+  %call12 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14
   invoke void @_ZN7Imf_3_215Pxr24CompressorC1ERKNS_6HeaderEmm(ptr noundef nonnull align 8 dereferenceable(60) %call12, ptr noundef nonnull align 1 %hdr, i64 noundef %tileLineSize, i64 noundef %numTileLines)
           to label %return unwind label %lpad13
 
@@ -366,7 +367,7 @@ lpad13:                                           ; preds = %sw.bb11
   br label %eh.resume
 
 sw.bb15:                                          ; preds = %entry
-  %call16 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #13
+  %call16 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #14
   invoke void @_ZN7Imf_3_213B44CompressorC1ERKNS_6HeaderEmmb(ptr noundef nonnull align 8 dereferenceable(84) %call16, ptr noundef nonnull align 1 %hdr, i64 noundef %tileLineSize, i64 noundef %numTileLines, i1 noundef zeroext false)
           to label %return unwind label %lpad17
 
@@ -376,7 +377,7 @@ lpad17:                                           ; preds = %sw.bb15
   br label %eh.resume
 
 sw.bb19:                                          ; preds = %entry
-  %call20 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #13
+  %call20 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #14
   invoke void @_ZN7Imf_3_213B44CompressorC1ERKNS_6HeaderEmmb(ptr noundef nonnull align 8 dereferenceable(84) %call20, ptr noundef nonnull align 1 %hdr, i64 noundef %tileLineSize, i64 noundef %numTileLines, i1 noundef zeroext true)
           to label %return unwind label %lpad21
 
@@ -386,7 +387,7 @@ lpad21:                                           ; preds = %sw.bb19
   br label %eh.resume
 
 sw.bb23:                                          ; preds = %entry
-  %call24 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #13
+  %call24 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #14
   %conv = trunc i64 %tileLineSize to i32
   %conv25 = trunc i64 %numTileLines to i32
   invoke void @_ZN7Imf_3_213DwaCompressorC1ERKNS_6HeaderEiiNS0_13AcCompressionE(ptr noundef nonnull align 8 dereferenceable(296) %call24, ptr noundef nonnull align 1 %hdr, i32 noundef %conv, i32 noundef %conv25, i32 noundef 1)
@@ -398,7 +399,7 @@ lpad26:                                           ; preds = %sw.bb23
   br label %eh.resume
 
 sw.bb28:                                          ; preds = %entry
-  %call29 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #13
+  %call29 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #14
   %conv30 = trunc i64 %tileLineSize to i32
   %conv31 = trunc i64 %numTileLines to i32
   invoke void @_ZN7Imf_3_213DwaCompressorC1ERKNS_6HeaderEiiNS0_13AcCompressionE(ptr noundef nonnull align 8 dereferenceable(296) %call29, ptr noundef nonnull align 1 %hdr, i32 noundef %conv30, i32 noundef %conv31, i32 noundef 0)
@@ -416,7 +417,7 @@ return:                                           ; preds = %entry, %sw.bb28, %s
 eh.resume:                                        ; preds = %lpad, %lpad.i, %lpad32, %lpad26, %lpad21, %lpad17, %lpad13, %lpad9, %lpad5
   %call29.sink = phi ptr [ %call29, %lpad32 ], [ %call24, %lpad26 ], [ %call20, %lpad21 ], [ %call16, %lpad17 ], [ %call12, %lpad13 ], [ %call8, %lpad9 ], [ %call4, %lpad5 ], [ %call, %lpad.i ], [ %call, %lpad ]
   %.pn = phi { ptr, i32 } [ %8, %lpad32 ], [ %7, %lpad26 ], [ %6, %lpad21 ], [ %5, %lpad17 ], [ %4, %lpad13 ], [ %3, %lpad9 ], [ %2, %lpad5 ], [ %0, %lpad.i ], [ %1, %lpad ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call29.sink) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %call29.sink) #15
   resume { ptr, i32 } %.pn
 }
 
@@ -428,15 +429,15 @@ declare void @_ZN7Iex_3_211OverflowExcC1EPKc(ptr noundef nonnull align 8 derefer
 declare void @_ZN7Iex_3_211OverflowExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_ImfCompressor.cpp() #10 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_ImfCompressor.cpp() #11 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #11
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -448,13 +449,14 @@ attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { builtin allocsize(0) }
-attributes #14 = { builtin nounwind }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn }
+attributes #10 = { cold noreturn }
+attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { builtin nounwind }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

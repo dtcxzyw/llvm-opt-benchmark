@@ -42,19 +42,19 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_name = getelementptr inbounds i8, ptr %this, i64 16
-  %call = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %_name, ptr noundef nonnull dereferenceable(1) %name_, i64 noundef 15) #14
+  %call = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %_name, ptr noundef nonnull dereferenceable(1) %name_, i64 noundef 15) #15
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %_descriptor = getelementptr inbounds i8, ptr %this, i64 40
-  %call2 = tail call i32 @pthread_create(ptr noundef nonnull %_descriptor, ptr noundef null, ptr noundef nonnull @_ZL14thread_routinePv, ptr noundef nonnull %this) #14
+  %call2 = tail call i32 @pthread_create(ptr noundef nonnull %_descriptor, ptr noundef null, ptr noundef nonnull @_ZL14thread_routinePv, ptr noundef nonnull %this) #15
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %do.end, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %call5 = tail call ptr @strerror(i32 noundef %call2) #14
+  %call5 = tail call ptr @strerror(i32 noundef %call2) #15
   %0 = load ptr, ptr @stderr, align 8
-  %call6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %call5, ptr noundef nonnull @.str.1, i32 noundef 241) #15
+  %call6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %call5, ptr noundef nonnull @.str.1, i32 noundef 241) #16
   %1 = load ptr, ptr @stderr, align 8
   %call7 = tail call i32 @fflush(ptr noundef %1)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call5)
@@ -76,30 +76,30 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 define internal noundef ptr @_ZL14thread_routinePv(ptr noundef %arg_) #1 {
 entry:
   %signal_set = alloca %struct.__sigset_t, align 8
-  %call = call i32 @sigfillset(ptr noundef nonnull %signal_set) #14
+  %call = call i32 @sigfillset(ptr noundef nonnull %signal_set) #15
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @__errno_location() #16
+  %call1 = tail call ptr @__errno_location() #17
   %0 = load i32, ptr %call1, align 4
-  %call2 = call ptr @strerror(i32 noundef %0) #14
+  %call2 = call ptr @strerror(i32 noundef %0) #15
   %1 = load ptr, ptr @stderr, align 8
-  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %call2, ptr noundef nonnull @.str.1, i32 noundef 222) #15
+  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %call2, ptr noundef nonnull @.str.1, i32 noundef 222) #16
   %2 = load ptr, ptr @stderr, align 8
   %call4 = call i32 @fflush(ptr noundef %2)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call2)
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %call5 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %signal_set, ptr noundef null) #14
+  %call5 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %signal_set, ptr noundef null) #15
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %do.end13, label %if.then7
 
 if.then7:                                         ; preds = %do.end
-  %call9 = call ptr @strerror(i32 noundef %call5) #14
+  %call9 = call ptr @strerror(i32 noundef %call5) #15
   %3 = load ptr, ptr @stderr, align 8
-  %call10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef %call9, ptr noundef nonnull @.str.1, i32 noundef 224) #15
+  %call10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef %call9, ptr noundef nonnull @.str.1, i32 noundef 224) #16
   %4 = load ptr, ptr @stderr, align 8
   %call11 = call i32 @fflush(ptr noundef %4)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call9)
@@ -113,8 +113,8 @@ do.end13:                                         ; preds = %do.end, %if.then7
   br i1 %tobool.not.i, label %_ZN3zmq8thread_t15applyThreadNameEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %do.end13
-  %call.i = tail call i64 @pthread_self() #16
-  %call3.i = call i32 @pthread_setname_np(i64 noundef %call.i, ptr noundef nonnull %_name.i) #14
+  %call.i = tail call i64 @pthread_self() #17
+  %call3.i = call i32 @pthread_setname_np(i64 noundef %call.i, ptr noundef nonnull %_name.i) #15
   br label %_ZN3zmq8thread_t15applyThreadNameEv.exit
 
 _ZN3zmq8thread_t15applyThreadNameEv.exit:         ; preds = %do.end13, %if.end.i
@@ -152,9 +152,9 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %if.end7, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %call4 = tail call ptr @strerror(i32 noundef %call) #14
+  %call4 = tail call ptr @strerror(i32 noundef %call) #15
   %2 = load ptr, ptr @stderr, align 8
-  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef %call4, ptr noundef nonnull @.str.1, i32 noundef 249) #15
+  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef %call4, ptr noundef nonnull @.str.1, i32 noundef 249) #16
   %3 = load ptr, ptr @stderr, align 8
   %call6 = tail call i32 @fflush(ptr noundef %3)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call4)
@@ -169,10 +169,10 @@ declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3zmq8thread_t17is_current_threadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %call = tail call i64 @pthread_self() #16
+  %call = tail call i64 @pthread_self() #17
   %_descriptor = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_descriptor, align 8
-  %call2 = tail call i32 @pthread_equal(i64 noundef %call, i64 noundef %0) #16
+  %call2 = tail call i32 @pthread_equal(i64 noundef %call, i64 noundef %0) #17
   %tobool = icmp ne i32 %call2, 0
   ret i1 %tobool
 }
@@ -202,15 +202,15 @@ entry:
   %param = alloca %struct.sched_param, align 4
   %cpuset = alloca %struct.cpu_set_t, align 8
   store i32 0, ptr %policy, align 4
-  %call = tail call i64 @pthread_self() #16
-  %call2 = call i32 @pthread_getschedparam(i64 noundef %call, ptr noundef nonnull %policy, ptr noundef nonnull %param) #14
+  %call = tail call i64 @pthread_self() #17
+  %call2 = call i32 @pthread_getschedparam(i64 noundef %call, ptr noundef nonnull %policy, ptr noundef nonnull %param) #15
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call3 = call ptr @strerror(i32 noundef %call2) #14
+  %call3 = call ptr @strerror(i32 noundef %call2) #15
   %0 = load ptr, ptr @stderr, align 8
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %call3, ptr noundef nonnull @.str.1, i32 noundef 281) #15
+  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %call3, ptr noundef nonnull @.str.1, i32 noundef 281) #16
   %1 = load ptr, ptr @stderr, align 8
   %call5 = call i32 @fflush(ptr noundef %1)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call3)
@@ -251,14 +251,14 @@ if.then14:                                        ; preds = %if.else
   br label %if.end18
 
 if.end18:                                         ; preds = %if.else, %if.then14, %if.then12
-  %call20 = call i32 @pthread_setschedparam(i64 noundef %call, i32 noundef %3, ptr noundef nonnull %param) #14
+  %call20 = call i32 @pthread_setschedparam(i64 noundef %call, i32 noundef %3, ptr noundef nonnull %param) #15
   %tobool23.not = icmp eq i32 %call20, 0
   br i1 %tobool23.not, label %do.end30, label %if.then24
 
 if.then24:                                        ; preds = %if.end18
-  %call26 = call ptr @strerror(i32 noundef %call20) #14
+  %call26 = call ptr @strerror(i32 noundef %call20) #15
   %7 = load ptr, ptr @stderr, align 8
-  %call27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef %call26, ptr noundef nonnull @.str.1, i32 noundef 315) #15
+  %call27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef %call26, ptr noundef nonnull @.str.1, i32 noundef 315) #16
   %8 = load ptr, ptr @stderr, align 8
   %call28 = call i32 @fflush(ptr noundef %8)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call26)
@@ -272,16 +272,16 @@ do.end30:                                         ; preds = %if.end18, %if.then2
   br i1 %or.cond, label %if.then37, label %if.end50
 
 if.then37:                                        ; preds = %do.end30
-  %call38 = call i32 @nice(i32 noundef -20) #14
+  %call38 = call i32 @nice(i32 noundef -20) #15
   %cmp40.not = icmp eq i32 %call38, -1
   br i1 %cmp40.not, label %if.then42, label %if.end50
 
 if.then42:                                        ; preds = %if.then37
-  %call44 = tail call ptr @__errno_location() #16
+  %call44 = tail call ptr @__errno_location() #17
   %10 = load i32, ptr %call44, align 4
-  %call45 = call ptr @strerror(i32 noundef %10) #14
+  %call45 = call ptr @strerror(i32 noundef %10) #15
   %11 = load ptr, ptr @stderr, align 8
-  %call46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef %call45, ptr noundef nonnull @.str.1, i32 noundef 326) #15
+  %call46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef %call45, ptr noundef nonnull @.str.1, i32 noundef 326) #16
   %12 = load ptr, ptr @stderr, align 8
   %call47 = call i32 @fflush(ptr noundef %12)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call45)
@@ -320,19 +320,19 @@ cond.true:                                        ; preds = %for.body
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body, %cond.true
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.020) #17
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.020) #18
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %cond.end, %do.body53
-  %call68 = call i32 @pthread_setaffinity_np(i64 noundef %call, i64 noundef 128, ptr noundef nonnull %cpuset) #14
+  %call68 = call i32 @pthread_setaffinity_np(i64 noundef %call, i64 noundef 128, ptr noundef nonnull %cpuset) #15
   %tobool71.not = icmp eq i32 %call68, 0
   br i1 %tobool71.not, label %if.end79, label %if.then72
 
 if.then72:                                        ; preds = %for.end
-  %call74 = call ptr @strerror(i32 noundef %call68) #14
+  %call74 = call ptr @strerror(i32 noundef %call68) #15
   %17 = load ptr, ptr @stderr, align 8
-  %call75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef %call74, ptr noundef nonnull @.str.1, i32 noundef 343) #15
+  %call75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef %call74, ptr noundef nonnull @.str.1, i32 noundef 343) #16
   %18 = load ptr, ptr @stderr, align 8
   %call76 = call i32 @fflush(ptr noundef %18)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call74)
@@ -369,8 +369,8 @@ entry:
   br i1 %tobool.not, label %if.end6, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @pthread_self() #16
-  %call3 = tail call i32 @pthread_setname_np(i64 noundef %call, ptr noundef nonnull %_name) #14
+  %call = tail call i64 @pthread_self() #17
+  %call3 = tail call i32 @pthread_setname_np(i64 noundef %call, ptr noundef nonnull %_name) #15
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %entry
@@ -467,7 +467,7 @@ invoke.cont7:                                     ; preds = %while.cond.i.i4.i
 lpad:                                             ; preds = %if.then6
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE20_Reuse_or_alloc_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %__roan) #14
+  call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE20_Reuse_or_alloc_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %__roan) #15
   resume { ptr, i32 } %7
 
 if.end:                                           ; preds = %invoke.cont7, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE20_Reuse_or_alloc_nodeC2ERS5_.exit
@@ -480,7 +480,7 @@ terminate.lpad.i:                                 ; preds = %if.end
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #18
+  call void @__clang_call_terminate(ptr %11) #19
   unreachable
 
 if.end10:                                         ; preds = %if.end, %entry
@@ -505,7 +505,7 @@ terminate.lpad:                                   ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #18
+  tail call void @__clang_call_terminate(ptr %3) #19
   unreachable
 }
 
@@ -566,7 +566,7 @@ if.else37.i.i.i:                                  ; preds = %if.end.i.i.i
   br label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE13_M_clone_nodeILb0ENS5_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIiESA_RT0_.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
+  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
   br label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE13_M_clone_nodeILb0ENS5_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIiESA_RT0_.exit
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE13_M_clone_nodeILb0ENS5_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIiESA_RT0_.exit: ; preds = %if.then10.i.i.i, %while.end.i.i.i, %if.then28.i.i.i, %if.else.i.i.i, %if.else37.i.i.i, %if.end.i.i
@@ -608,12 +608,12 @@ lpad.loopexit.split-lp:                           ; preds = %if.then
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit56, %lpad.loopexit ], [ %lpad.loopexit.split-lp57, %lpad.loopexit.split-lp ]
   %10 = extractvalue { ptr, i32 } %lpad.phi, 0
-  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #14
+  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #15
   invoke void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %call5.i.i.i.i.sink.i.i)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %lpad
-  invoke void @__cxa_rethrow() #20
+  invoke void @__cxa_rethrow() #21
           to label %unreachable unwind label %lpad18
 
 if.end:                                           ; preds = %invoke.cont, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE13_M_clone_nodeILb0ENS5_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIiESA_RT0_.exit
@@ -678,7 +678,7 @@ if.else37.i.i.i49:                                ; preds = %if.end.i.i.i26
   br label %invoke.cont6
 
 if.end.i.i50:                                     ; preds = %while.body
-  %call5.i.i.i.i.i.i5152 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
+  %call5.i.i.i.i.i.i5152 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
           to label %invoke.cont6 unwind label %lpad.loopexit
 
 invoke.cont6:                                     ; preds = %if.else37.i.i.i49, %if.else.i.i.i32, %if.then28.i.i.i48, %while.end.i.i.i45, %if.then10.i.i.i38, %if.end.i.i50
@@ -731,7 +731,7 @@ terminate.lpad:                                   ; preds = %lpad18
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #18
+  tail call void @__clang_call_terminate(ptr %24) #19
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -753,7 +753,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
   %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #22
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !10
 
@@ -767,21 +767,22 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #18
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #19
   unreachable
 }
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #13
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -794,17 +795,18 @@ attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "f
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind }
-attributes #15 = { cold }
-attributes #16 = { nounwind willreturn memory(none) }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { noreturn nounwind }
-attributes #19 = { builtin allocsize(0) }
-attributes #20 = { noreturn }
-attributes #21 = { builtin nounwind }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind }
+attributes #16 = { cold }
+attributes #17 = { nounwind willreturn memory(none) }
+attributes #18 = { nounwind willreturn memory(read) }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { builtin allocsize(0) }
+attributes #21 = { noreturn }
+attributes #22 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

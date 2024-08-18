@@ -72,7 +72,7 @@ $_ZNSt6vectorIP6_frameN8nanobind6detail12py_allocatorIS1_EEE17_M_realloc_insertI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nanobind6detail6BufferD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %2) #22
+  tail call void @free(ptr noundef %2) #23
   ret void
 }
 
@@ -95,13 +95,13 @@ define void @_ZN8nanobind12python_errorC2Ev(ptr noundef nonnull align 8 derefere
   br i1 %.not, label %7, label %10
 
 7:                                                ; preds = %5
-  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #23
+  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #24
   unreachable
 
 8:                                                ; preds = %1
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %5
@@ -135,7 +135,7 @@ define void @_ZN8nanobind12python_errorD2Ev(ptr noundef nonnull align 8 derefere
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #23
+  tail call void @__clang_call_terminate(ptr %9) #24
   unreachable
 
 _ZN8nanobind18gil_scoped_acquireC2Ev.exit:        ; preds = %5
@@ -205,7 +205,7 @@ _ZL11_Py_XDECREFP7_object.exit8:                  ; preds = %25, %_ZL11_Py_XDECR
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #23
+  call void @__clang_call_terminate(ptr %34) #24
   unreachable
 
 _ZN8nanobind11error_scopeD2Ev.exit:               ; preds = %_ZL11_Py_XDECREFP7_object.exit8
@@ -216,47 +216,48 @@ _ZN8nanobind11error_scopeD2Ev.exit:               ; preds = %_ZL11_Py_XDECREFP7_
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #23
+  call void @__clang_call_terminate(ptr %37) #24
   unreachable
 
 _ZN8nanobind18gil_scoped_acquireD2Ev.exit:        ; preds = %_ZN8nanobind11error_scopeD2Ev.exit, %1
   %38 = getelementptr inbounds i8, ptr %0, i64 32
   %39 = load ptr, ptr %38, align 8
-  call void @free(ptr noundef %39) #22
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  call void @free(ptr noundef %39) #23
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
   ret void
 
 40:                                               ; preds = %28, %22, %16, %_ZN8nanobind18gil_scoped_acquireC2Ev.exit
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #23
+  call void @__clang_call_terminate(ptr %42) #24
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
-  tail call void @_ZSt9terminatev() #23
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8nanobind12python_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN8nanobind12python_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZN8nanobind12python_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8nanobind12python_errorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
@@ -286,7 +287,7 @@ define void @_ZN8nanobind12python_errorC2ERKS0_(ptr noundef nonnull align 8 dere
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #23
+  tail call void @__clang_call_terminate(ptr %17) #24
   unreachable
 
 _ZN8nanobind18gil_scoped_acquireC2Ev.exit:        ; preds = %13
@@ -323,7 +324,7 @@ _ZL11_Py_XINCREFP7_object.exit10:                 ; preds = %_ZL11_Py_XINCREFP7_
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #23
+  tail call void @__clang_call_terminate(ptr %31) #24
   unreachable
 
 _ZN8nanobind18gil_scoped_acquireD2Ev.exit:        ; preds = %_ZL11_Py_XINCREFP7_object.exit10, %2
@@ -343,7 +344,7 @@ _ZN8nanobind18gil_scoped_acquireD2Ev.exit:        ; preds = %_ZL11_Py_XINCREFP7_
 37:                                               ; preds = %34
   %38 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
   resume { ptr, i32 } %38
 
 39:                                               ; preds = %36, %_ZN8nanobind18gil_scoped_acquireD2Ev.exit
@@ -353,7 +354,7 @@ _ZN8nanobind18gil_scoped_acquireD2Ev.exit:        ; preds = %_ZL11_Py_XINCREFP7_
 declare hidden noundef ptr @_ZN8nanobind6detail12strdup_checkEPKc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8nanobind12python_errorC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #9 align 2 {
+define void @_ZN8nanobind12python_errorC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #10 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8nanobind12python_errorE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -383,7 +384,7 @@ define void @_ZN8nanobind12python_error7restoreEv(ptr nocapture noundef nonnull 
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %1
-  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #23
+  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #24
   unreachable
 
 5:                                                ; preds = %1
@@ -402,7 +403,7 @@ define void @_ZN8nanobind12python_error7restoreEv(ptr nocapture noundef nonnull 
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #23
+  tail call void @__clang_call_terminate(ptr %13) #24
   unreachable
 }
 
@@ -426,7 +427,7 @@ define noundef ptr @_ZNK8nanobind12python_error4whatEv(ptr noundef nonnull align
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #23
+  tail call void @__clang_call_terminate(ptr %11) #24
   unreachable
 
 _ZN8nanobind18gil_scoped_acquireC2Ev.exit:        ; preds = %7
@@ -447,7 +448,7 @@ _ZN8nanobind18gil_scoped_acquireC2Ev.exit:        ; preds = %7
   br i1 %.not48, label %19, label %20
 
 19:                                               ; preds = %17
-  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #23
+  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #24
   unreachable
 
 20:                                               ; preds = %17
@@ -576,14 +577,14 @@ _ZNSt6vectorIP6_frameN8nanobind6detail12py_allocatorIS1_EEE9push_backERKS1_.exit
   %70 = add i64 %65, 36
   %71 = sub i64 %70, %64
   %72 = add i64 %71, %69
-  %73 = call noalias ptr @malloc(i64 noundef %72) #25
+  %73 = call noalias ptr @malloc(i64 noundef %72) #26
   %.not.i.i.i = icmp eq ptr %73, null
   br i1 %.not.i.i.i, label %74, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i
 
 74:                                               ; preds = %63
   %75 = load ptr, ptr @stderr, align 8
-  %76 = call i64 @fwrite(ptr nonnull @.str.12, i64 54, i64 1, ptr %75) #26
-  call void @abort() #23
+  %76 = call i64 @fwrite(ptr nonnull @.str.12, i64 54, i64 1, ptr %75) #27
+  call void @abort() #24
   unreachable
 
 _ZN8nanobind6detail6Buffer6expandEm.exit.i.i:     ; preds = %63
@@ -591,7 +592,7 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i:     ; preds = %63
   %78 = add i64 %77, 1
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %68, i64 %78)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr align 1 %66, i64 %spec.select.i.i.i, i1 false)
-  call void @free(ptr noundef %66) #22
+  call void @free(ptr noundef %66) #23
   store ptr %73, ptr @_ZN8nanobind6detail3bufE, align 8
   %79 = getelementptr inbounds i8, ptr %73, i64 %72
   store ptr %79, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
@@ -635,14 +636,14 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i:     ; preds = %63
   %101 = add i64 %96, 9
   %102 = sub i64 %101, %95
   %103 = add i64 %102, %100
-  %104 = call noalias ptr @malloc(i64 noundef %103) #25
+  %104 = call noalias ptr @malloc(i64 noundef %103) #26
   %.not.i.i.i58 = icmp eq ptr %104, null
   br i1 %.not.i.i.i58, label %105, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i59
 
 105:                                              ; preds = %94
   %106 = load ptr, ptr @stderr, align 8
-  %107 = call i64 @fwrite(ptr nonnull @.str.12, i64 54, i64 1, ptr %106) #26
-  call void @abort() #23
+  %107 = call i64 @fwrite(ptr nonnull @.str.12, i64 54, i64 1, ptr %106) #27
+  call void @abort() #24
   unreachable
 
 _ZN8nanobind6detail6Buffer6expandEm.exit.i.i59:   ; preds = %94
@@ -650,7 +651,7 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i59:   ; preds = %94
   %109 = add i64 %108, 1
   %spec.select.i.i.i60 = call i64 @llvm.umin.i64(i64 %99, i64 %109)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %104, ptr align 1 %97, i64 %spec.select.i.i.i60, i1 false)
-  call void @free(ptr noundef %97) #22
+  call void @free(ptr noundef %97) #23
   store ptr %104, ptr @_ZN8nanobind6detail3bufE, align 8
   %110 = getelementptr inbounds i8, ptr %104, i64 %103
   store ptr %110, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
@@ -702,7 +703,7 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %_ZN8nanobind6object
   %128 = landingpad { ptr, i32 }
           catch ptr null
   %129 = extractvalue { ptr, i32 } %128, 0
-  call void @__clang_call_terminate(ptr %129) #23
+  call void @__clang_call_terminate(ptr %129) #24
   unreachable
 
 _ZN8nanobind3strD2Ev.exit:                        ; preds = %122, %123, %126
@@ -722,14 +723,14 @@ _ZN8nanobind3strD2Ev.exit:                        ; preds = %122, %123, %126
   %140 = add i64 %135, 9
   %141 = sub i64 %140, %134
   %142 = add i64 %141, %139
-  %143 = call noalias ptr @malloc(i64 noundef %142) #25
+  %143 = call noalias ptr @malloc(i64 noundef %142) #26
   %.not.i.i.i65 = icmp eq ptr %143, null
   br i1 %.not.i.i.i65, label %144, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i66
 
 144:                                              ; preds = %133
   %145 = load ptr, ptr @stderr, align 8
-  %146 = call i64 @fwrite(ptr nonnull @.str.12, i64 54, i64 1, ptr %145) #26
-  call void @abort() #23
+  %146 = call i64 @fwrite(ptr nonnull @.str.12, i64 54, i64 1, ptr %145) #27
+  call void @abort() #24
   unreachable
 
 _ZN8nanobind6detail6Buffer6expandEm.exit.i.i66:   ; preds = %133
@@ -737,7 +738,7 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i66:   ; preds = %133
   %148 = add i64 %147, 1
   %spec.select.i.i.i67 = call i64 @llvm.umin.i64(i64 %138, i64 %148)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %143, ptr align 1 %136, i64 %spec.select.i.i.i67, i1 false)
-  call void @free(ptr noundef %136) #22
+  call void @free(ptr noundef %136) #23
   store ptr %143, ptr @_ZN8nanobind6detail3bufE, align 8
   %149 = getelementptr inbounds i8, ptr %143, i64 %142
   store ptr %149, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
@@ -777,14 +778,14 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i66:   ; preds = %133
   %169 = add i64 %164, 6
   %170 = sub i64 %169, %163
   %171 = add i64 %170, %168
-  %172 = call noalias ptr @malloc(i64 noundef %171) #25
+  %172 = call noalias ptr @malloc(i64 noundef %171) #26
   %.not.i.i.i70 = icmp eq ptr %172, null
   br i1 %.not.i.i.i70, label %173, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i71
 
 173:                                              ; preds = %162
   %174 = load ptr, ptr @stderr, align 8
-  %175 = call i64 @fwrite(ptr nonnull @.str.12, i64 54, i64 1, ptr %174) #26
-  call void @abort() #23
+  %175 = call i64 @fwrite(ptr nonnull @.str.12, i64 54, i64 1, ptr %174) #27
+  call void @abort() #24
   unreachable
 
 _ZN8nanobind6detail6Buffer6expandEm.exit.i.i71:   ; preds = %162
@@ -792,7 +793,7 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i71:   ; preds = %162
   %177 = add i64 %176, 1
   %spec.select.i.i.i72 = call i64 @llvm.umin.i64(i64 %167, i64 %177)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %172, ptr align 1 %165, i64 %spec.select.i.i.i72, i1 false)
-  call void @free(ptr noundef %165) #22
+  call void @free(ptr noundef %165) #23
   store ptr %172, ptr @_ZN8nanobind6detail3bufE, align 8
   %178 = getelementptr inbounds i8, ptr %172, i64 %171
   store ptr %178, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
@@ -844,7 +845,7 @@ _ZNK8nanobind3str5c_strEv.exit76:                 ; preds = %_ZN8nanobind6object
   %196 = landingpad { ptr, i32 }
           catch ptr null
   %197 = extractvalue { ptr, i32 } %196, 0
-  call void @__clang_call_terminate(ptr %197) #23
+  call void @__clang_call_terminate(ptr %197) #24
   unreachable
 
 _ZN8nanobind3strD2Ev.exit79:                      ; preds = %190, %191, %194
@@ -861,14 +862,14 @@ _ZN8nanobind3strD2Ev.exit79:                      ; preds = %190, %191, %194
   %205 = sub i64 %203, %204
   %206 = shl i64 %205, 1
   %207 = add i64 %206, 2
-  %208 = call noalias ptr @malloc(i64 noundef %207) #25
+  %208 = call noalias ptr @malloc(i64 noundef %207) #26
   %.not.i.i81 = icmp eq ptr %208, null
   br i1 %.not.i.i81, label %209, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i
 
 209:                                              ; preds = %201
   %210 = load ptr, ptr @stderr, align 8
-  %211 = call i64 @fwrite(ptr nonnull @.str.12, i64 54, i64 1, ptr %210) #26
-  call void @abort() #23
+  %211 = call i64 @fwrite(ptr nonnull @.str.12, i64 54, i64 1, ptr %210) #27
+  call void @abort() #24
   unreachable
 
 _ZN8nanobind6detail6Buffer6expandEm.exit.i:       ; preds = %201
@@ -877,7 +878,7 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i:       ; preds = %201
   %214 = add i64 %213, 1
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %205, i64 %214)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %208, ptr align 1 %202, i64 %spec.select.i.i, i1 false)
-  call void @free(ptr noundef %202) #22
+  call void @free(ptr noundef %202) #23
   store ptr %208, ptr @_ZN8nanobind6detail3bufE, align 8
   %215 = getelementptr inbounds i8, ptr %208, i64 %207
   store ptr %215, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
@@ -931,7 +932,7 @@ _ZL10_Py_DECREFP7_object.exit86:                  ; preds = %_ZL10_Py_DECREFP7_o
   %230 = landingpad { ptr, i32 }
           catch ptr null
   %231 = extractvalue { ptr, i32 } %230, 0
-  call void @__clang_call_terminate(ptr %231) #23
+  call void @__clang_call_terminate(ptr %231) #24
   unreachable
 
 _ZNSt6vectorIP6_frameN8nanobind6detail12py_allocatorIS1_EEED2Ev.exit: ; preds = %228, %._crit_edge157, %_ZN8nanobind6detail6Buffer5clearEv.exit
@@ -975,7 +976,7 @@ _ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr
   %243 = landingpad { ptr, i32 }
           catch ptr null
   %244 = extractvalue { ptr, i32 } %243, 0
-  call void @__clang_call_terminate(ptr %244) #23
+  call void @__clang_call_terminate(ptr %244) #24
   unreachable
 
 245:                                              ; preds = %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit, %238, %241
@@ -1010,7 +1011,7 @@ _ZNK8nanobind3str5c_strEv.exit95:                 ; preds = %_ZN8nanobind6object
   %255 = landingpad { ptr, i32 }
           catch ptr null
   %256 = extractvalue { ptr, i32 } %255, 0
-  call void @__clang_call_terminate(ptr %256) #23
+  call void @__clang_call_terminate(ptr %256) #24
   unreachable
 
 _ZN8nanobind3strD2Ev.exit98:                      ; preds = %249, %250, %253
@@ -1030,14 +1031,14 @@ _ZN8nanobind3strD2Ev.exit98:                      ; preds = %249, %250, %253
   %267 = add i64 %262, 3
   %268 = sub i64 %267, %261
   %269 = add i64 %268, %266
-  %270 = call noalias ptr @malloc(i64 noundef %269) #25
+  %270 = call noalias ptr @malloc(i64 noundef %269) #26
   %.not.i.i.i100 = icmp eq ptr %270, null
   br i1 %.not.i.i.i100, label %271, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i101
 
 271:                                              ; preds = %260
   %272 = load ptr, ptr @stderr, align 8
-  %273 = call i64 @fwrite(ptr nonnull @.str.12, i64 54, i64 1, ptr %272) #26
-  call void @abort() #23
+  %273 = call i64 @fwrite(ptr nonnull @.str.12, i64 54, i64 1, ptr %272) #27
+  call void @abort() #24
   unreachable
 
 _ZN8nanobind6detail6Buffer6expandEm.exit.i.i101:  ; preds = %260
@@ -1045,7 +1046,7 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i101:  ; preds = %260
   %275 = add i64 %274, 1
   %spec.select.i.i.i102 = call i64 @llvm.umin.i64(i64 %265, i64 %275)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %270, ptr align 1 %263, i64 %spec.select.i.i.i102, i1 false)
-  call void @free(ptr noundef %263) #22
+  call void @free(ptr noundef %263) #23
   store ptr %270, ptr @_ZN8nanobind6detail3bufE, align 8
   %276 = getelementptr inbounds i8, ptr %270, i64 %269
   store ptr %276, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
@@ -1077,7 +1078,7 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i101:  ; preds = %260
   %287 = landingpad { ptr, i32 }
           catch ptr null
   %288 = extractvalue { ptr, i32 } %287, 0
-  call void @__clang_call_terminate(ptr %288) #23
+  call void @__clang_call_terminate(ptr %288) #24
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit:                     ; preds = %285, %282, %278, %_ZNSt6vectorIP6_frameN8nanobind6detail12py_allocatorIS1_EEED2Ev.exit
@@ -1116,7 +1117,7 @@ _ZNK8nanobind3str5c_strEv.exit107:                ; preds = %_ZN8nanobind3strC2E
   %299 = landingpad { ptr, i32 }
           catch ptr null
   %300 = extractvalue { ptr, i32 } %299, 0
-  call void @__clang_call_terminate(ptr %300) #23
+  call void @__clang_call_terminate(ptr %300) #24
   unreachable
 
 _ZN8nanobind3strD2Ev.exit110:                     ; preds = %297, %294, %293, %_ZN8nanobind6objectD2Ev.exit
@@ -1126,14 +1127,14 @@ _ZN8nanobind3strD2Ev.exit110:                     ; preds = %297, %294, %293, %_
   %304 = ptrtoint ptr %302 to i64
   %305 = add i64 %303, 1
   %306 = sub i64 %305, %304
-  %307 = call noalias ptr @malloc(i64 noundef %306) #25
+  %307 = call noalias ptr @malloc(i64 noundef %306) #26
   %.not.i111 = icmp eq ptr %307, null
   br i1 %.not.i111, label %308, label %311
 
 308:                                              ; preds = %_ZN8nanobind3strD2Ev.exit110
   %309 = load ptr, ptr @stderr, align 8
-  %310 = call i64 @fwrite(ptr nonnull @.str.14, i64 52, i64 1, ptr %309) #26
-  call void @abort() #23
+  %310 = call i64 @fwrite(ptr nonnull @.str.14, i64 52, i64 1, ptr %309) #27
+  call void @abort() #24
   unreachable
 
 311:                                              ; preds = %_ZN8nanobind3strD2Ev.exit110
@@ -1156,7 +1157,7 @@ _ZN8nanobind3strD2Ev.exit110:                     ; preds = %297, %294, %293, %_
   %317 = landingpad { ptr, i32 }
           catch ptr null
   %318 = extractvalue { ptr, i32 } %317, 0
-  call void @__clang_call_terminate(ptr %318) #23
+  call void @__clang_call_terminate(ptr %318) #24
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit114:                  ; preds = %315, %312, %311, %_ZN8nanobind18gil_scoped_acquireC2Ev.exit
@@ -1168,7 +1169,7 @@ _ZN8nanobind6objectD2Ev.exit114:                  ; preds = %315, %312, %311, %_
   %320 = landingpad { ptr, i32 }
           catch ptr null
   %321 = extractvalue { ptr, i32 } %320, 0
-  call void @__clang_call_terminate(ptr %321) #23
+  call void @__clang_call_terminate(ptr %321) #24
   unreachable
 
 _ZN8nanobind18gil_scoped_acquireD2Ev.exit:        ; preds = %_ZN8nanobind6objectD2Ev.exit114, %1
@@ -1193,7 +1194,7 @@ _ZN8nanobind18gil_scoped_acquireD2Ev.exit:        ; preds = %_ZN8nanobind6object
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit142, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp143, %.loopexit.split-lp.loopexit.split-lp ]
   %322 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %322) #23
+  call void @__clang_call_terminate(ptr %322) #24
   unreachable
 }
 
@@ -1209,7 +1210,7 @@ declare ptr @PyFrame_GetCode(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 %3
@@ -1229,14 +1230,14 @@ define linkonce_odr hidden void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr nou
   %16 = add i64 %.neg.i, %11
   %17 = sub i64 %16, %10
   %18 = add i64 %17, %15
-  %19 = tail call noalias ptr @malloc(i64 noundef %18) #25
+  %19 = tail call noalias ptr @malloc(i64 noundef %18) #26
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %20, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i
 
 20:                                               ; preds = %9
   %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 54, i64 1, ptr %21) #26
-  tail call void @abort() #23
+  %22 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 54, i64 1, ptr %21) #27
+  tail call void @abort() #24
   unreachable
 
 _ZN8nanobind6detail6Buffer6expandEm.exit.i:       ; preds = %9
@@ -1244,7 +1245,7 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i:       ; preds = %9
   %24 = add i64 %23, 1
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %14, i64 %24)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr align 1 %12, i64 %spec.select.i.i, i1 false)
-  tail call void @free(ptr noundef %12) #22
+  tail call void @free(ptr noundef %12) #23
   store ptr %19, ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %19, i64 %18
   store ptr %25, ptr %7, align 8
@@ -1283,7 +1284,7 @@ define linkonce_odr hidden void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #23
+  tail call void @__clang_call_terminate(ptr %9) #24
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit:                     ; preds = %1, %3, %6
@@ -1330,14 +1331,14 @@ define linkonce_odr hidden void @_ZN8nanobind6detail6Buffer10put_uint32Ej(ptr no
   %27 = add i64 %.0, %20
   %28 = sub i64 %26, %27
   %29 = add i64 %28, %25
-  %30 = tail call noalias ptr @malloc(i64 noundef %29) #25
+  %30 = tail call noalias ptr @malloc(i64 noundef %29) #26
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %31, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i
 
 31:                                               ; preds = %19
   %32 = load ptr, ptr @stderr, align 8
-  %33 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 54, i64 1, ptr %32) #26
-  tail call void @abort() #23
+  %33 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 54, i64 1, ptr %32) #27
+  tail call void @abort() #24
   unreachable
 
 _ZN8nanobind6detail6Buffer6expandEm.exit.i:       ; preds = %19
@@ -1345,7 +1346,7 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i:       ; preds = %19
   %35 = add i64 %34, 1
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %24, i64 %35)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %22, i64 %spec.select.i.i, i1 false)
-  tail call void @free(ptr noundef %22) #22
+  tail call void @free(ptr noundef %22) #23
   store ptr %30, ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %30, i64 %29
   store ptr %36, ptr %17, align 8
@@ -1367,7 +1368,7 @@ _ZN8nanobind6detail6Buffer3putEPKcm.exit:         ; preds = %12, %_ZN8nanobind6d
 declare i32 @PyFrame_GetLineNumber(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1390,7 +1391,7 @@ define linkonce_odr hidden void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull ali
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #23
+  tail call void @__clang_call_terminate(ptr %9) #24
   unreachable
 
 _ZNKR8nanobind6handle7dec_refEv.exit:             ; preds = %1, %3, %6
@@ -1412,7 +1413,7 @@ declare void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8nanobind17builtin_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   ret void
 }
 
@@ -1421,8 +1422,8 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8nanobind17builtin_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN8nanobind17builtin_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZN8nanobind17builtin_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
 
@@ -1430,7 +1431,7 @@ define void @_ZN8nanobind17builtin_exceptionD0Ev(ptr noundef nonnull align 8 der
 define void @_ZN8nanobind6detail29register_exception_translatorEPFvRKNSt15__exception_ptr13exception_ptrEPvES5_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 480
-  %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
+  %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %3, i64 496
   store ptr %5, ptr %6, align 8
@@ -1441,7 +1442,7 @@ define void @_ZN8nanobind6detail29register_exception_translatorEPFvRKNSt15__exce
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN8nanobind6detail13exception_newEP7_objectPKcS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
@@ -1470,13 +1471,13 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %8
 
 _ZN8nanobind6objectD2Ev.exit:                     ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %3
   %.str.7.sink = phi ptr [ @.str.4, %3 ], [ %spec.select, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
-  %12 = tail call noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKcS2_(ptr noundef nonnull %0, ptr noundef nonnull %.str.7.sink, ptr noundef null) #22, !noalias !21
+  %12 = tail call noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKcS2_(ptr noundef nonnull %0, ptr noundef nonnull %.str.7.sink, ptr noundef null) #23, !noalias !21
   store ptr %12, ptr %4, align 8
   %.not42 = icmp eq ptr %12, null
   br i1 %.not42, label %13, label %15
 
 13:                                               ; preds = %_ZN8nanobind6objectD2Ev.exit
-  invoke void (ptr, ...) @_ZN8nanobind6detail5raiseEPKcz(ptr noundef nonnull @.str.8) #29
+  invoke void (ptr, ...) @_ZN8nanobind6detail5raiseEPKcz(ptr noundef nonnull @.str.8) #30
           to label %14 unwind label %10
 
 14:                                               ; preds = %13
@@ -1501,7 +1502,7 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %17
   br i1 %.not43, label %21, label %26
 
 21:                                               ; preds = %20
-  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #23
+  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #24
   unreachable
 
 22:                                               ; preds = %17, %_ZNK8nanobind3str5c_strEv.exit
@@ -1512,7 +1513,7 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %17
 24:                                               ; preds = %33, %31
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
   br label %47
 
 26:                                               ; preds = %20
@@ -1523,7 +1524,7 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %17
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #23
+  tail call void @__clang_call_terminate(ptr %30) #24
   unreachable
 
 _ZN8nanobind7hasattrENS_6handleEPKc.exit:         ; preds = %26
@@ -1531,7 +1532,7 @@ _ZN8nanobind7hasattrENS_6handleEPKc.exit:         ; preds = %26
   br i1 %.not, label %33, label %31
 
 31:                                               ; preds = %_ZN8nanobind7hasattrENS_6handleEPKc.exit
-  invoke void (ptr, ...) @_ZN8nanobind6detail5raiseEPKcz(ptr noundef nonnull @.str.10) #29
+  invoke void (ptr, ...) @_ZN8nanobind6detail5raiseEPKcz(ptr noundef nonnull @.str.10) #30
           to label %32 unwind label %24
 
 32:                                               ; preds = %31
@@ -1560,7 +1561,7 @@ _ZN8nanobind6objectD2Ev.exit58:                   ; preds = %33
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #23
+  tail call void @__clang_call_terminate(ptr %40) #24
   unreachable
 
 _ZN8nanobind3strD2Ev.exit:                        ; preds = %37, %34, %_ZN8nanobind6objectD2Ev.exit58
@@ -1578,7 +1579,7 @@ _ZN8nanobind3strD2Ev.exit:                        ; preds = %37, %34, %_ZN8nanob
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  tail call void @__clang_call_terminate(ptr %46) #23
+  tail call void @__clang_call_terminate(ptr %46) #24
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit62:                   ; preds = %_ZN8nanobind3strD2Ev.exit, %43
@@ -1586,20 +1587,20 @@ _ZN8nanobind6objectD2Ev.exit62:                   ; preds = %_ZN8nanobind3strD2E
 
 47:                                               ; preds = %24, %22
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
-  call void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
+  call void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
   br label %48
 
 48:                                               ; preds = %47, %10
   %.pn.pn = phi { ptr, i32 } [ %.pn, %47 ], [ %11, %10 ]
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: noreturn
-declare void @_ZN8nanobind6detail5raiseEPKcz(ptr noundef, ...) local_unnamed_addr #13
+declare void @_ZN8nanobind6detail5raiseEPKcz(ptr noundef, ...) local_unnamed_addr #14
 
 declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #3
 
@@ -1609,7 +1610,7 @@ declare ptr @PyErr_NewException(ptr noundef, ptr noundef, ptr noundef) local_unn
 define void @_ZN8nanobind11chain_errorENS_6handleEPKcz(ptr %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call fastcc void @_ZN8nanobindL13chain_error_vENS_6handleEPKcP13__va_list_tag(ptr %0, ptr noundef %1, ptr noundef nonnull %3) #22
+  call fastcc void @_ZN8nanobindL13chain_error_vENS_6handleEPKcP13__va_list_tag(ptr %0, ptr noundef %1, ptr noundef nonnull %3) #23
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -1722,39 +1723,39 @@ _ZL10_Py_DECREFP7_object.exit7:                   ; preds = %_ZL10_Py_DECREFP7_o
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #23
+  call void @__clang_call_terminate(ptr %47) #24
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN8nanobind10raise_fromERNS_12python_errorENS_6handleEPKcz(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr %1, ptr noundef %2, ...) local_unnamed_addr #14 {
+define void @_ZN8nanobind10raise_fromERNS_12python_errorENS_6handleEPKcz(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr %1, ptr noundef %2, ...) local_unnamed_addr #15 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  tail call void @_ZN8nanobind12python_error7restoreEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #22
+  tail call void @_ZN8nanobind12python_error7restoreEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #23
   call void @llvm.va_start.p0(ptr nonnull %4)
-  call fastcc void @_ZN8nanobindL13chain_error_vENS_6handleEPKcP13__va_list_tag(ptr %1, ptr noundef %2, ptr noundef nonnull %4) #22
+  call fastcc void @_ZN8nanobindL13chain_error_vENS_6handleEPKcP13__va_list_tag(ptr %1, ptr noundef %2, ptr noundef nonnull %4) #23
   call void @llvm.va_end.p0(ptr nonnull %4)
-  call void @_ZN8nanobind6detail18raise_python_errorEv() #29
+  call void @_ZN8nanobind6detail18raise_python_errorEv() #30
   unreachable
 }
 
 ; Function Attrs: noreturn
-declare void @_ZN8nanobind6detail18raise_python_errorEv() local_unnamed_addr #13
+declare void @_ZN8nanobind6detail18raise_python_errorEv() local_unnamed_addr #14
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #16
+declare void @abort() local_unnamed_addr #17
 
 declare i32 @PyGILState_Ensure() local_unnamed_addr #3
 
 declare void @PyGILState_Release(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
 
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1791,7 +1792,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIP6_frameN8nanobind6detail12py_allo
   br i1 %10, label %11, label %_ZNKSt6vectorIP6_frameN8nanobind6detail12py_allocatorIS1_EEE12_M_check_lenEmPKc.exit
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.15) #29
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.15) #30
   unreachable
 
 _ZNKSt6vectorIP6_frameN8nanobind6detail12py_allocatorIS1_EEE12_M_check_lenEmPKc.exit: ; preds = %3
@@ -1817,14 +1818,14 @@ _ZNKSt6vectorIP6_frameN8nanobind6detail12py_allocatorIS1_EEE12_M_check_lenEmPKc.
   br i1 %.not.i.i.i, label %24, label %_ZNSt12_Vector_baseIP6_frameN8nanobind6detail12py_allocatorIS1_EEE11_M_allocateEm.exit
 
 24:                                               ; preds = %23
-  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.16) #23
+  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.16) #24
   unreachable
 
 25:                                               ; preds = %20
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #23
+  tail call void @__clang_call_terminate(ptr %27) #24
   unreachable
 
 _ZNSt12_Vector_baseIP6_frameN8nanobind6detail12py_allocatorIS1_EEE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIP6_frameN8nanobind6detail12py_allocatorIS1_EEE12_M_check_lenEmPKc.exit, %23
@@ -1878,7 +1879,7 @@ _ZNSt6vectorIP6_frameN8nanobind6detail12py_allocatorIS1_EEE11_S_relocateEPS1_S7_
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #23
+  tail call void @__clang_call_terminate(ptr %41) #24
   unreachable
 
 _ZNSt12_Vector_baseIP6_frameN8nanobind6detail12py_allocatorIS1_EEE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIP6_frameN8nanobind6detail12py_allocatorIS1_EEE11_S_relocateEPS1_S7_S7_RS5_.exit23, %38
@@ -1891,7 +1892,7 @@ _ZNSt12_Vector_baseIP6_frameN8nanobind6detail12py_allocatorIS1_EEE13_M_deallocat
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #3
 
@@ -1901,8 +1902,8 @@ declare void @_ZN8nanobind6detail4failEPKcz(ptr noundef, ...) local_unnamed_addr
 declare void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectPKcPS2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @_GLOBAL__sub_I_error.cpp() #18 section ".text.startup" {
-  %1 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #25
+define internal void @_GLOBAL__sub_I_error.cpp() #19 section ".text.startup" {
+  %1 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #26
   store ptr %1, ptr @_ZN8nanobind6detail3bufE, align 8
   %.not.i.i = icmp eq ptr %1, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), i8 0, i64 16, i1 false)
@@ -1910,8 +1911,8 @@ define internal void @_GLOBAL__sub_I_error.cpp() #18 section ".text.startup" {
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 54, i64 1, ptr %3) #26
-  tail call void @abort() #23
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 54, i64 1, ptr %3) #27
+  tail call void @abort() #24
   unreachable
 
 __cxx_global_var_init.exit:                       ; preds = %0
@@ -1919,27 +1920,27 @@ __cxx_global_var_init.exit:                       ; preds = %0
   store ptr %5, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
   store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %1, align 1
-  %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8nanobind6detail6BufferD2Ev, ptr nonnull @_ZN8nanobind6detail3bufE, ptr nonnull @__dso_handle) #22
+  %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8nanobind6detail6BufferD2Ev, ptr nonnull @_ZN8nanobind6detail3bufE, ptr nonnull @__dso_handle) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #20
+declare void @llvm.va_start.p0(ptr) #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #20
+declare void @llvm.va_end.p0(ptr) #21
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #21
+declare i64 @llvm.umax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #21
+declare i64 @llvm.umin.i64(i64, i64) #22
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
@@ -1948,29 +1949,30 @@ attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nounwind }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { builtin nounwind }
-attributes #25 = { nounwind allocsize(0) }
-attributes #26 = { cold }
-attributes #27 = { nounwind willreturn memory(read) }
-attributes #28 = { builtin allocsize(0) }
-attributes #29 = { noreturn }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nounwind }
+attributes #24 = { noreturn nounwind }
+attributes #25 = { builtin nounwind }
+attributes #26 = { nounwind allocsize(0) }
+attributes #27 = { cold }
+attributes #28 = { nounwind willreturn memory(read) }
+attributes #29 = { builtin allocsize(0) }
+attributes #30 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

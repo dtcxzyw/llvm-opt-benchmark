@@ -101,7 +101,7 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !5
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17btTypedConstraint12getFixedBodyEvE7s_fixed) #14
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17btTypedConstraint12getFixedBodyEvE7s_fixed) #15
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
@@ -111,8 +111,8 @@ init:                                             ; preds = %init.check
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %init
-  %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN11btRigidBodyD2Ev, ptr nonnull @_ZZN17btTypedConstraint12getFixedBodyEvE7s_fixed, ptr nonnull @__dso_handle) #14
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN17btTypedConstraint12getFixedBodyEvE7s_fixed) #14
+  %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN11btRigidBodyD2Ev, ptr nonnull @_ZZN17btTypedConstraint12getFixedBodyEvE7s_fixed, ptr nonnull @__dso_handle) #15
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN17btTypedConstraint12getFixedBodyEvE7s_fixed) #15
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont4, %init.check, %entry
@@ -123,7 +123,7 @@ init.end:                                         ; preds = %invoke.cont4, %init
 lpad:                                             ; preds = %init
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN17btTypedConstraint12getFixedBodyEvE7s_fixed) #14
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN17btTypedConstraint12getFixedBodyEvE7s_fixed) #15
   resume { ptr, i32 } %3
 }
 
@@ -392,7 +392,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #15
+  tail call void @__clang_call_terminate(ptr %3) #16
   unreachable
 
 _ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit: ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
@@ -403,7 +403,7 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit: ; preds = %entry, %if.
   store i32 0, ptr %m_size.i.i.i, align 4
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 608
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this) #14
+  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this) #15
   ret void
 }
 
@@ -426,7 +426,7 @@ entry:
   %m_halfRange = getelementptr inbounds i8, ptr %this, i64 4
   store float %div, ptr %m_halfRange, align 4
   %add = fadd float %div, %low
-  %call.i.i = tail call noundef float @fmodf(float noundef %add, float noundef 0x401921FB60000000) #14
+  %call.i.i = tail call noundef float @fmodf(float noundef %add, float noundef 0x401921FB60000000) #15
   %cmp.i = fcmp olt float %call.i.i, 0xC00921FB60000000
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -469,7 +469,7 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load float, ptr %this, align 4
   %sub = fsub float %angle, %1
-  %call.i.i = tail call noundef float @fmodf(float noundef %sub, float noundef 0x401921FB60000000) #14
+  %call.i.i = tail call noundef float @fmodf(float noundef %sub, float noundef 0x401921FB60000000) #15
   %cmp.i = fcmp olt float %call.i.i, 0xC00921FB60000000
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -541,7 +541,7 @@ if.then:                                          ; preds = %entry
   %1 = load float, ptr %angle, align 4
   %2 = load float, ptr %this, align 4
   %sub = fsub float %1, %2
-  %call.i.i = tail call noundef float @fmodf(float noundef %sub, float noundef 0x401921FB60000000) #14
+  %call.i.i = tail call noundef float @fmodf(float noundef %sub, float noundef 0x401921FB60000000) #15
   %cmp.i = fcmp olt float %call.i.i, 0xC00921FB60000000
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -573,7 +573,7 @@ if.then4:                                         ; preds = %_Z16btNormalizeAngl
 
 if.then6:                                         ; preds = %if.then4
   %add.i6 = fadd float %3, %5
-  %call.i.i.i = tail call noundef float @fmodf(float noundef %add.i6, float noundef 0x401921FB60000000) #14
+  %call.i.i.i = tail call noundef float @fmodf(float noundef %add.i6, float noundef 0x401921FB60000000) #15
   %cmp.i.i = fcmp olt float %call.i.i.i, 0xC00921FB60000000
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -591,7 +591,7 @@ if.then2.i.i:                                     ; preds = %if.else.i.i
 
 if.else:                                          ; preds = %if.then4
   %sub.i8 = fsub float %5, %3
-  %call.i.i.i9 = tail call noundef float @fmodf(float noundef %sub.i8, float noundef 0x401921FB60000000) #14
+  %call.i.i.i9 = tail call noundef float @fmodf(float noundef %sub.i8, float noundef 0x401921FB60000000) #15
   %cmp.i.i10 = fcmp olt float %call.i.i.i9, 0xC00921FB60000000
   br i1 %cmp.i.i10, label %if.then.i.i16, label %if.else.i.i11
 
@@ -623,7 +623,7 @@ entry:
   %m_halfRange = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load float, ptr %m_halfRange, align 4
   %add = fadd float %0, %1
-  %call.i.i = tail call noundef float @fmodf(float noundef %add, float noundef 0x401921FB60000000) #14
+  %call.i.i = tail call noundef float @fmodf(float noundef %add, float noundef 0x401921FB60000000) #15
   %cmp.i = fcmp olt float %call.i.i, 0xC00921FB60000000
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -651,7 +651,7 @@ entry:
   %m_halfRange = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load float, ptr %m_halfRange, align 4
   %sub = fsub float %0, %1
-  %call.i.i = tail call noundef float @fmodf(float noundef %sub, float noundef 0x401921FB60000000) #14
+  %call.i.i = tail call noundef float @fmodf(float noundef %sub, float noundef 0x401921FB60000000) #15
   %cmp.i = fcmp olt float %call.i.i, 0xC00921FB60000000
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -682,7 +682,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17btTypedConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #15
+  tail call void @llvm.trap() #16
   unreachable
 }
 
@@ -711,25 +711,26 @@ declare void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #15
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @fmodf(float noundef, float noundef) local_unnamed_addr #11
+declare float @fmodf(float noundef, float noundef) local_unnamed_addr #12
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #12
+declare void @llvm.trap() #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -742,11 +743,12 @@ attributes #7 = { mustprogress nofree nounwind willreturn memory(write, argmem: 
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn nounwind }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

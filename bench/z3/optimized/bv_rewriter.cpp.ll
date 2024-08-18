@@ -549,13 +549,13 @@ invoke.cont35:                                    ; preds = %invoke.cont32
   %frombool.i = zext i1 %call.i26 to i8
   %m_sort_sums.i = getelementptr inbounds i8, ptr %this, i64 88
   store i8 %frombool.i, ptr %m_sort_sums.i, align 8
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #19
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #21
   ret void
 
 lpad:                                             ; preds = %invoke.cont32, %invoke.cont29, %invoke.cont26, %invoke.cont23, %invoke.cont20, %invoke.cont17, %invoke.cont14, %invoke.cont11, %invoke.cont8, %invoke.cont5, %invoke.cont2, %invoke.cont, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #19
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #21
   resume { ptr, i32 } %13
 }
 
@@ -660,19 +660,19 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   %m_ast_order = getelementptr inbounds i8, ptr %this, i64 90
   %frombool24 = zext i1 %lnot to i8
   store i8 %frombool24, ptr %m_ast_order, align 2
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i13) #19
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #19
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i13) #21
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #21
   ret void
 
 lpad21:                                           ; preds = %invoke.cont20
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i13) #19
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i13) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad21, %lpad
   %.pn = phi { ptr, i32 } [ %9, %lpad21 ], [ %6, %lpad ]
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #19
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -1537,11 +1537,11 @@ if.end21:                                         ; preds = %if.end18
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end21
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %if.end21
@@ -1867,7 +1867,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %if.then2.i.i.i, %if
 lpad:                                             ; preds = %if.then2.i.i.i, %invoke.cont60, %invoke.cont58, %land.rhs.i.i50, %if.then50, %if.then55
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #21
   resume { ptr, i32 } %37
 
 cleanup:                                          ; preds = %land.lhs.true52, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %invoke.cont, %invoke.cont53
@@ -1884,7 +1884,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #21
+  call void @__clang_call_terminate(ptr %40) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -1997,7 +1997,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #21
+  call void @__clang_call_terminate(ptr %11) #23
   unreachable
 
 invoke.cont9:                                     ; preds = %.noexc.i
@@ -2135,13 +2135,13 @@ terminate.lpad.i.i:                               ; preds = %.noexc.i.i, %invoke
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #21
+  call void @__clang_call_terminate(ptr %26) #23
   unreachable
 
 lpad.i:                                           ; preds = %for.body
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v.i) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v.i) #21
   br label %lpad11.body
 
 invoke.cont15:                                    ; preds = %.noexc.i.i
@@ -2153,7 +2153,7 @@ invoke.cont15:                                    ; preds = %.noexc.i.i
 lpad:                                             ; preds = %if.end
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %eh.resume
 
 lpad11.loopexit:                                  ; preds = %if.then.i.i30, %if.end.i.i.i.i.i49
@@ -2168,8 +2168,8 @@ lpad11.loopexit.split-lp:                         ; preds = %invoke.cont28, %if.
 
 lpad11.body:                                      ; preds = %lpad11.loopexit, %lpad11.loopexit.split-lp, %lpad70.i, %lpad.i
   %eh.lpad-body = phi { ptr, i32 } [ %27, %lpad.i ], [ %33, %lpad70.i ], [ %lpad.loopexit, %lpad11.loopexit ], [ %lpad.loopexit.split-lp, %lpad11.loopexit.split-lp ]
-  call void @_ZN10ref_bufferI4expr11ast_managerLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %new_args) #19
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %minus_one) #19
+  call void @_ZN10ref_bufferI4expr11ast_managerLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %new_args) #21
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %minus_one) #21
   br label %eh.resume
 
 if.end18:                                         ; preds = %invoke.cont15
@@ -2191,7 +2191,7 @@ if.end18:                                         ; preds = %invoke.cont15
 lpad70.i:                                         ; preds = %if.end18
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a66.i) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a66.i) #21
   br label %lpad11.body
 
 cleanup88.i:                                      ; preds = %if.end18
@@ -2207,7 +2207,7 @@ terminate.lpad.i105.i:                            ; preds = %.noexc.i106.i, %cle
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #21
+  call void @__clang_call_terminate(ptr %36) #23
   unreachable
 
 invoke.cont23:                                    ; preds = %.noexc.i106.i
@@ -2387,14 +2387,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #21
+  call void @__clang_call_terminate(ptr %58) #23
   unreachable
 
 terminate.lpad.i.i83:                             ; preds = %if.then2.i.i.i.i.i.i
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #21
+  call void @__clang_call_terminate(ptr %60) #23
   unreachable
 
 _ZN10ref_bufferI4expr11ast_managerLj16EED2Ev.exit: ; preds = %invoke.cont5.i.i, %if.end.i.i.i.i.i.i.i
@@ -2416,7 +2416,7 @@ terminate.lpad.i92:                               ; preds = %if.then2.i.i.i91
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #21
+  call void @__clang_call_terminate(ptr %63) #23
   unreachable
 
 return:                                           ; preds = %if.then2.i.i.i91, %if.then.i.i.i85, %_ZN10ref_bufferI4expr11ast_managerLj16EED2Ev.exit, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
@@ -2579,13 +2579,13 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #21
+  call void @__clang_call_terminate(ptr %15) #23
   unreachable
 
 lpad11:                                           ; preds = %if.then2.i.i.i31, %invoke.cont10
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup
 
 cleanup:                                          ; preds = %.noexc.i, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
@@ -2602,7 +2602,7 @@ terminate.lpad.i35:                               ; preds = %.noexc.i36, %cleanu
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #21
+  call void @__clang_call_terminate(ptr %19) #23
   unreachable
 
 _ZN8rationalD2Ev.exit38:                          ; preds = %.noexc.i36
@@ -2610,7 +2610,7 @@ _ZN8rationalD2Ev.exit38:                          ; preds = %.noexc.i36
 
 ehcleanup:                                        ; preds = %lpad11, %lpad
   %.pn = phi { ptr, i32 } [ %7, %lpad ], [ %16, %lpad11 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -2629,11 +2629,11 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %entry
@@ -2658,7 +2658,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #21
+  call void @__clang_call_terminate(ptr %6) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -2700,7 +2700,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %if.end.i, %if.then.
 lpad:                                             ; preds = %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   resume { ptr, i32 } %12
 }
 
@@ -2755,11 +2755,11 @@ call.i.i.noexc:                                   ; preds = %invoke.cont
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont3, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.noexc
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %if.then.i.i.i.i.i.i
@@ -2902,7 +2902,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #21
+  call void @__clang_call_terminate(ptr %18) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -2945,7 +2945,7 @@ if.then2.i.i.i67:                                 ; preds = %if.then.i.i.i62
 lpad12:                                           ; preds = %if.else.i.i.i, %if.else.i.i.i.i.i
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup105
 
 if.end20:                                         ; preds = %_ZN8rationalD2Ev.exit
@@ -3061,7 +3061,7 @@ terminate.lpad.i93:                               ; preds = %.noexc.i94, %invoke
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #21
+  call void @__clang_call_terminate(ptr %41) #23
   unreachable
 
 _ZN8rationalD2Ev.exit96:                          ; preds = %.noexc.i94
@@ -3112,13 +3112,13 @@ terminate.lpad.i113:                              ; preds = %.noexc.i114, %invok
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #21
+  call void @__clang_call_terminate(ptr %48) #23
   unreachable
 
 lpad33:                                           ; preds = %if.then2.i.i.i110, %_ZN8rationalD2Ev.exit96, %invoke.cont31
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %rn) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %rn) #21
   br label %ehcleanup105
 
 if.end40:                                         ; preds = %if.then23
@@ -3192,7 +3192,7 @@ terminate.lpad.i164:                              ; preds = %.noexc.i165, %invok
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #21
+  call void @__clang_call_terminate(ptr %64) #23
   unreachable
 
 _ZN8rationalD2Ev.exit167:                         ; preds = %.noexc.i165
@@ -3209,7 +3209,7 @@ terminate.lpad.i168:                              ; preds = %.noexc.i169, %_ZN8r
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #21
+  call void @__clang_call_terminate(ptr %67) #23
   unreachable
 
 _ZN8rationalD2Ev.exit171:                         ; preds = %.noexc.i169
@@ -3226,7 +3226,7 @@ terminate.lpad.i172:                              ; preds = %.noexc.i173, %_ZN8r
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #21
+  call void @__clang_call_terminate(ptr %70) #23
   unreachable
 
 _ZN8rationalD2Ev.exit175:                         ; preds = %.noexc.i173
@@ -3271,12 +3271,12 @@ lpad48:                                           ; preds = %invoke.cont47
 lpad50:                                           ; preds = %invoke.cont49
   %76 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad50, %lpad48
   %.pn21 = phi { ptr, i32 } [ %76, %lpad50 ], [ %75, %lpad48 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44) #21
   br label %ehcleanup105
 
 if.end57:                                         ; preds = %invoke.cont21
@@ -3479,7 +3479,7 @@ terminate.lpad.i259:                              ; preds = %if.then2.i.i.i258
   %109 = landingpad { ptr, i32 }
           catch ptr null
   %110 = extractvalue { ptr, i32 } %109, 0
-  call void @__clang_call_terminate(ptr %110) #21
+  call void @__clang_call_terminate(ptr %110) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont100, %if.then.i.i.i253, %if.then2.i.i.i258
@@ -3501,7 +3501,7 @@ terminate.lpad.i267:                              ; preds = %if.then2.i.i.i266
   %112 = landingpad { ptr, i32 }
           catch ptr null
   %113 = extractvalue { ptr, i32 } %112, 0
-  call void @__clang_call_terminate(ptr %113) #21
+  call void @__clang_call_terminate(ptr %113) #23
   unreachable
 
 lpad80:                                           ; preds = %invoke.cont78
@@ -3512,12 +3512,12 @@ lpad80:                                           ; preds = %invoke.cont78
 lpad88:                                           ; preds = %if.then2.i.i.i249, %invoke.cont96, %invoke.cont94, %invoke.cont86
   %115 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cond) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cond) #21
   br label %ehcleanup103
 
 ehcleanup103:                                     ; preds = %lpad88, %lpad80
   %.pn = phi { ptr, i32 } [ %115, %lpad88 ], [ %114, %lpad80 ]
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %sum) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %sum) #21
   br label %ehcleanup105
 
 cleanup.sink.split:                               ; preds = %if.then.i.i.i206, %if.end.i204, %if.then2.i.i.i211, %if.then.i.i.i185, %if.end.i183, %if.then2.i.i.i190, %if.then.i.i.i62, %if.end.i60, %if.then2.i.i.i67, %if.then.i.i.i, %if.end.i, %if.then2.i.i.i
@@ -3540,7 +3540,7 @@ terminate.lpad.i269:                              ; preds = %.noexc.i270, %clean
   %117 = landingpad { ptr, i32 }
           catch ptr null
   %118 = extractvalue { ptr, i32 } %117, 0
-  call void @__clang_call_terminate(ptr %118) #21
+  call void @__clang_call_terminate(ptr %118) #23
   unreachable
 
 _ZN8rationalD2Ev.exit272:                         ; preds = %.noexc.i270
@@ -3556,7 +3556,7 @@ terminate.lpad.i273:                              ; preds = %.noexc.i274, %_ZN8r
   %120 = landingpad { ptr, i32 }
           catch ptr null
   %121 = extractvalue { ptr, i32 } %120, 0
-  call void @__clang_call_terminate(ptr %121) #21
+  call void @__clang_call_terminate(ptr %121) #23
   unreachable
 
 _ZN8rationalD2Ev.exit276:                         ; preds = %.noexc.i274
@@ -3564,8 +3564,8 @@ _ZN8rationalD2Ev.exit276:                         ; preds = %.noexc.i274
 
 ehcleanup105:                                     ; preds = %ehcleanup103, %ehcleanup, %lpad33, %lpad12, %lpad2
   %.pn23 = phi { ptr, i32 } [ %9, %lpad2 ], [ %49, %lpad33 ], [ %.pn21, %ehcleanup ], [ %23, %lpad12 ], [ %.pn, %ehcleanup103 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #21
   resume { ptr, i32 } %.pn23
 }
 
@@ -3616,11 +3616,11 @@ call.i.i.noexc:                                   ; preds = %invoke.cont
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont3, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.noexc
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %if.then.i.i.i.i.i.i
@@ -3763,7 +3763,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #21
+  call void @__clang_call_terminate(ptr %18) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -3806,7 +3806,7 @@ if.then2.i.i.i62:                                 ; preds = %if.then.i.i.i57
 lpad12:                                           ; preds = %if.else.i.i.i, %if.else.i.i.i.i.i
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup
 
 if.end20:                                         ; preds = %_ZN8rationalD2Ev.exit
@@ -3922,7 +3922,7 @@ terminate.lpad.i88:                               ; preds = %.noexc.i89, %invoke
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #21
+  call void @__clang_call_terminate(ptr %41) #23
   unreachable
 
 _ZN8rationalD2Ev.exit91:                          ; preds = %.noexc.i89
@@ -3973,13 +3973,13 @@ terminate.lpad.i108:                              ; preds = %.noexc.i109, %invok
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #21
+  call void @__clang_call_terminate(ptr %48) #23
   unreachable
 
 lpad33:                                           ; preds = %if.then2.i.i.i105, %_ZN8rationalD2Ev.exit91, %invoke.cont31
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %rn) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %rn) #21
   br label %ehcleanup
 
 if.end40:                                         ; preds = %if.then23
@@ -4015,7 +4015,7 @@ terminate.lpad.i115:                              ; preds = %.noexc.i116, %invok
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #21
+  call void @__clang_call_terminate(ptr %53) #23
   unreachable
 
 _ZN8rationalD2Ev.exit118:                         ; preds = %.noexc.i116
@@ -4055,7 +4055,7 @@ if.then2.i.i.i133:                                ; preds = %if.then.i.i.i128
 lpad45:                                           ; preds = %.noexc113, %invoke.cont44
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #21
   br label %ehcleanup
 
 if.end51:                                         ; preds = %invoke.cont21
@@ -4172,7 +4172,7 @@ terminate.lpad.i174:                              ; preds = %.noexc.i175, %clean
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #21
+  call void @__clang_call_terminate(ptr %72) #23
   unreachable
 
 _ZN8rationalD2Ev.exit177:                         ; preds = %.noexc.i175
@@ -4188,7 +4188,7 @@ terminate.lpad.i178:                              ; preds = %.noexc.i179, %_ZN8r
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #21
+  call void @__clang_call_terminate(ptr %75) #23
   unreachable
 
 _ZN8rationalD2Ev.exit181:                         ; preds = %.noexc.i179
@@ -4196,8 +4196,8 @@ _ZN8rationalD2Ev.exit181:                         ; preds = %.noexc.i179
 
 ehcleanup:                                        ; preds = %lpad45, %lpad33, %lpad12, %lpad2
   %.pn = phi { ptr, i32 } [ %9, %lpad2 ], [ %49, %lpad33 ], [ %58, %lpad45 ], [ %23, %lpad12 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -4253,11 +4253,11 @@ call.i.i.noexc:                                   ; preds = %invoke.cont
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont3, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.noexc
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %if.then.i.i.i.i.i.i
@@ -4448,13 +4448,13 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #21
+  call void @__clang_call_terminate(ptr %25) #23
   unreachable
 
 lpad54:                                           ; preds = %if.then2.i.i.i93, %invoke.cont53
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup175
 
 if.end59:                                         ; preds = %invoke.cont10
@@ -4556,7 +4556,7 @@ terminate.lpad.i117:                              ; preds = %.noexc.i118, %clean
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #21
+  call void @__clang_call_terminate(ptr %35) #23
   unreachable
 
 cleanup.done:                                     ; preds = %.noexc.i118
@@ -4646,7 +4646,7 @@ terminate.lpad.i148:                              ; preds = %.noexc.i149, %invok
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #21
+  call void @__clang_call_terminate(ptr %46) #23
   unreachable
 
 _ZN8rationalD2Ev.exit151:                         ; preds = %.noexc.i149
@@ -4662,7 +4662,7 @@ terminate.lpad.i152:                              ; preds = %.noexc.i153, %_ZN8r
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #21
+  call void @__clang_call_terminate(ptr %49) #23
   unreachable
 
 _ZN8rationalD2Ev.exit155:                         ; preds = %.noexc.i153
@@ -4679,13 +4679,13 @@ terminate.lpad.i156:                              ; preds = %.noexc.i157, %_ZN8r
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #21
+  call void @__clang_call_terminate(ptr %52) #23
   unreachable
 
 lpad65:                                           ; preds = %if.else.i.i.i.i112, %if.else.i.i.i.i.i.i
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63) #21
   br label %ehcleanup175
 
 lpad79:                                           ; preds = %invoke.cont77
@@ -4701,17 +4701,17 @@ lpad81:                                           ; preds = %invoke.cont80
 lpad83:                                           ; preds = %if.then2.i.i.i145, %invoke.cont82
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad83, %lpad81
   %.pn26 = phi { ptr, i32 } [ %56, %lpad83 ], [ %55, %lpad81 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78) #21
   br label %ehcleanup88
 
 ehcleanup88:                                      ; preds = %ehcleanup, %lpad79
   %.pn26.pn = phi { ptr, i32 } [ %.pn26, %ehcleanup ], [ %54, %lpad79 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76) #21
   br label %ehcleanup175
 
 if.else89:                                        ; preds = %invoke.cont72
@@ -4786,7 +4786,7 @@ terminate.lpad.i179:                              ; preds = %.noexc.i180, %invok
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #21
+  call void @__clang_call_terminate(ptr %65) #23
   unreachable
 
 _ZN8rationalD2Ev.exit182:                         ; preds = %.noexc.i180
@@ -4887,7 +4887,7 @@ if.then119:                                       ; preds = %call4.i.i.i.i.noexc
 lpad109:                                          ; preds = %.noexc177, %invoke.cont108
   %76 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp105) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp105) #21
   br label %ehcleanup175
 
 lpad116:                                          ; preds = %if.end122, %if.then119, %if.else.i.i, %if.else.i.i.i.i196
@@ -4956,7 +4956,7 @@ terminate.lpad.i226:                              ; preds = %.noexc.i227, %invok
   %83 = landingpad { ptr, i32 }
           catch ptr null
   %84 = extractvalue { ptr, i32 } %83, 0
-  call void @__clang_call_terminate(ptr %84) #21
+  call void @__clang_call_terminate(ptr %84) #23
   unreachable
 
 _ZN8rationalD2Ev.exit229:                         ; preds = %.noexc.i227
@@ -4968,7 +4968,7 @@ _ZN8rationalD2Ev.exit229:                         ; preds = %.noexc.i227
 lpad125:                                          ; preds = %if.else.i.i220, %.noexc223, %if.then.i.i222
   %86 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp123) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp123) #21
   br label %ehcleanup129
 
 for.end:                                          ; preds = %_ZN8rationalD2Ev.exit229, %_ZN8rationalC2Ei.exit193
@@ -4984,12 +4984,12 @@ terminate.lpad.i230:                              ; preds = %.noexc.i231, %for.e
   %88 = landingpad { ptr, i32 }
           catch ptr null
   %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #21
+  call void @__clang_call_terminate(ptr %89) #23
   unreachable
 
 ehcleanup129:                                     ; preds = %lpad125, %lpad116
   %.pn = phi { ptr, i32 } [ %86, %lpad125 ], [ %77, %lpad116 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %p) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %p) #21
   br label %ehcleanup175
 
 if.end130:                                        ; preds = %.noexc.i231, %_ZN8rationalD2Ev.exit182
@@ -5080,7 +5080,7 @@ invoke.cont152:                                   ; preds = %invoke.cont149
           to label %invoke.cont154 unwind label %lpad153
 
 invoke.cont154:                                   ; preds = %invoke.cont152
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp151) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp151) #21
   br i1 %call155, label %if.then157, label %invoke.cont162
 
 if.then157:                                       ; preds = %invoke.cont154
@@ -5089,14 +5089,14 @@ if.then157:                                       ; preds = %invoke.cont154
           to label %invoke.cont159 unwind label %lpad2
 
 invoke.cont159:                                   ; preds = %if.then157
-  %call160 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalaSEOS_(ptr noundef nonnull align 8 dereferenceable(32) %r1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp158) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp158) #19
+  %call160 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalaSEOS_(ptr noundef nonnull align 8 dereferenceable(32) %r1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp158) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp158) #21
   br label %invoke.cont162
 
 lpad153:                                          ; preds = %invoke.cont152
   %105 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp151) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp151) #21
   br label %ehcleanup175
 
 invoke.cont162:                                   ; preds = %invoke.cont154, %invoke.cont159
@@ -5134,7 +5134,7 @@ terminate.lpad.i266:                              ; preds = %.noexc.i267, %clean
   %111 = landingpad { ptr, i32 }
           catch ptr null
   %112 = extractvalue { ptr, i32 } %111, 0
-  call void @__clang_call_terminate(ptr %112) #21
+  call void @__clang_call_terminate(ptr %112) #23
   unreachable
 
 _ZN8rationalD2Ev.exit269:                         ; preds = %.noexc.i267
@@ -5150,7 +5150,7 @@ terminate.lpad.i270:                              ; preds = %.noexc.i271, %_ZN8r
   %114 = landingpad { ptr, i32 }
           catch ptr null
   %115 = extractvalue { ptr, i32 } %114, 0
-  call void @__clang_call_terminate(ptr %115) #21
+  call void @__clang_call_terminate(ptr %115) #23
   unreachable
 
 _ZN8rationalD2Ev.exit273:                         ; preds = %.noexc.i271
@@ -5158,8 +5158,8 @@ _ZN8rationalD2Ev.exit273:                         ; preds = %.noexc.i271
 
 ehcleanup175:                                     ; preds = %lpad65, %lpad153, %ehcleanup129, %lpad109, %ehcleanup88, %lpad54, %lpad2
   %.pn29 = phi { ptr, i32 } [ %9, %lpad2 ], [ %26, %lpad54 ], [ %.pn26.pn, %ehcleanup88 ], [ %.pn, %ehcleanup129 ], [ %76, %lpad109 ], [ %105, %lpad153 ], [ %53, %lpad65 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #21
   resume { ptr, i32 } %.pn29
 }
 
@@ -5329,7 +5329,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #21
+  call void @__clang_call_terminate(ptr %15) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -5439,7 +5439,7 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i:    ; preds = %.noexc69, %for.end.
 lpad18:                                           ; preds = %if.else.i.i, %.noexc, %if.then.i.i
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont14, %invoke.cont10
@@ -5659,11 +5659,11 @@ invoke.cont73:                                    ; preds = %if.then71
   br i1 %cmp.not.i.i.i.i.i167, label %invoke.cont76, label %if.then.i.i.i.i.i168.invoke
 
 if.then.i.i.i.i.i168.invoke:                      ; preds = %invoke.cont73, %if.then71, %invoke.cont64, %land.lhs.true62
-  %exception.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %if.then.i.i.i.i.i168.cont unwind label %lpad5.loopexit.split-lp.loopexit.split-lp
 
 if.then.i.i.i.i.i168.cont:                        ; preds = %if.then.i.i.i.i.i168.invoke
@@ -6067,8 +6067,8 @@ lpad109.loopexit.split-lp:                        ; preds = %for.end118, %invoke
 
 lpad109:                                          ; preds = %lpad109.loopexit.split-lp, %lpad109.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad109.loopexit ], [ %lpad.loopexit.split-lp, %lpad109.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %args2) #19
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %args1) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %args2) #21
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %args1) #21
   br label %ehcleanup
 
 for.end118.loopexit:                              ; preds = %for.inc116
@@ -6145,7 +6145,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i340
   %125 = landingpad { ptr, i32 }
           catch ptr null
   %126 = extractvalue { ptr, i32 } %125, 0
-  call void @__clang_call_terminate(ptr %126) #21
+  call void @__clang_call_terminate(ptr %126) #23
   unreachable
 
 _ZN10ptr_bufferI4exprLj16EED2Ev.exit:             ; preds = %invoke.cont128, %if.end.i.i.i.i.i340
@@ -6163,7 +6163,7 @@ terminate.lpad.i.i346:                            ; preds = %if.end.i.i.i.i.i345
   %128 = landingpad { ptr, i32 }
           catch ptr null
   %129 = extractvalue { ptr, i32 } %128, 0
-  call void @__clang_call_terminate(ptr %129) #21
+  call void @__clang_call_terminate(ptr %129) #23
   unreachable
 
 invoke.cont133:                                   ; preds = %for.end92, %land.lhs.true94, %land.lhs.true96
@@ -6272,7 +6272,7 @@ terminate.lpad.i385:                              ; preds = %.noexc.i386, %clean
   %145 = landingpad { ptr, i32 }
           catch ptr null
   %146 = extractvalue { ptr, i32 } %145, 0
-  call void @__clang_call_terminate(ptr %146) #21
+  call void @__clang_call_terminate(ptr %146) #23
   unreachable
 
 _ZN8rationalD2Ev.exit388:                         ; preds = %.noexc.i386
@@ -6288,7 +6288,7 @@ terminate.lpad.i389:                              ; preds = %.noexc.i390, %_ZN8r
   %148 = landingpad { ptr, i32 }
           catch ptr null
   %149 = extractvalue { ptr, i32 } %148, 0
-  call void @__clang_call_terminate(ptr %149) #21
+  call void @__clang_call_terminate(ptr %149) #23
   unreachable
 
 _ZN8rationalD2Ev.exit392:                         ; preds = %.noexc.i390
@@ -6342,14 +6342,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   %156 = landingpad { ptr, i32 }
           catch ptr null
   %157 = extractvalue { ptr, i32 } %156, 0
-  call void @__clang_call_terminate(ptr %157) #21
+  call void @__clang_call_terminate(ptr %157) #23
   unreachable
 
 terminate.lpad.i.i399:                            ; preds = %if.then2.i.i.i.i.i.i
   %158 = landingpad { ptr, i32 }
           catch ptr null
   %159 = extractvalue { ptr, i32 } %158, 0
-  call void @__clang_call_terminate(ptr %159) #21
+  call void @__clang_call_terminate(ptr %159) #23
   unreachable
 
 _ZN10ref_bufferI4expr11ast_managerLj16EED2Ev.exit: ; preds = %invoke.cont5.i.i, %if.end.i.i.i.i.i.i.i
@@ -6357,9 +6357,9 @@ _ZN10ref_bufferI4expr11ast_managerLj16EED2Ev.exit: ; preds = %invoke.cont5.i.i, 
 
 ehcleanup:                                        ; preds = %lpad5.loopexit, %lpad5.loopexit.split-lp.loopexit.split-lp, %lpad5.loopexit.split-lp.loopexit, %lpad109, %lpad18
   %.pn = phi { ptr, i32 } [ %29, %lpad18 ], [ %lpad.phi, %lpad109 ], [ %lpad.loopexit404, %lpad5.loopexit ], [ %lpad.loopexit407, %lpad5.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp408, %lpad5.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v2) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v1) #19
-  call void @_ZN10ref_bufferI4expr11ast_managerLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %new_args) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v2) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v1) #21
+  call void @_ZN10ref_bufferI4expr11ast_managerLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %new_args) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -6388,11 +6388,11 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %entry
@@ -6486,7 +6486,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #21
+  call void @__clang_call_terminate(ptr %12) #23
   unreachable
 
 lpad.loopexit415:                                 ; preds = %for.body
@@ -6502,7 +6502,7 @@ lpad.loopexit.split-lp416:                        ; preds = %if.then.i.i.i.i.i.i
 lpad11:                                           ; preds = %.noexc, %invoke.cont10
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup
 
 if.end13:                                         ; preds = %.noexc.i, %invoke.cont7
@@ -6618,13 +6618,13 @@ terminate.lpad.i123:                              ; preds = %.noexc.i124, %invok
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #21
+  call void @__clang_call_terminate(ptr %28) #23
   unreachable
 
 lpad27:                                           ; preds = %if.then2.i.i.i120, %invoke.cont26
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #21
   br label %ehcleanup
 
 if.end32:                                         ; preds = %if.end13, %invoke.cont14
@@ -6655,7 +6655,7 @@ terminate.lpad.i130:                              ; preds = %.noexc.i131, %invok
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #21
+  call void @__clang_call_terminate(ptr %33) #23
   unreachable
 
 _ZN8rationalD2Ev.exit133:                         ; preds = %.noexc.i131
@@ -6700,7 +6700,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit150:   ; preds = %if.then2.i.i.i148, 
 lpad35:                                           ; preds = %.noexc128, %invoke.cont34
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #21
   br label %ehcleanup
 
 if.end41:                                         ; preds = %invoke.cont
@@ -6737,11 +6737,11 @@ if.then44:                                        ; preds = %invoke.cont42
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont46, label %if.then.i.i.i.i.i.invoke
 
 if.then.i.i.i.i.i.invoke:                         ; preds = %call.i.i184.noexc, %if.then44
-  %exception.i.i.i.i.i.i.i.i190 = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i190 = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i190, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i191 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i190, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i191, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i190, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i190, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %if.then.i.i.i.i.i.cont unwind label %lpad.loopexit.split-lp416
 
 if.then.i.i.i.i.i.cont:                           ; preds = %if.then.i.i.i.i.i.invoke
@@ -6929,7 +6929,7 @@ lpad100.loopexit.split-lp:                        ; preds = %if.then99, %if.else
 
 lpad100:                                          ; preds = %lpad100.loopexit.split-lp, %lpad100.loopexit
   %lpad.phi414 = phi { ptr, i32 } [ %lpad.loopexit412, %lpad100.loopexit ], [ %lpad.loopexit.split-lp413, %lpad100.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #21
   br label %ehcleanup
 
 if.else102:                                       ; preds = %if.else95
@@ -6968,11 +6968,11 @@ call.i.i212.noexc:                                ; preds = %for.body113
   br i1 %cmp.not.i.i.i.i.i.i216, label %invoke.cont119, label %if.then.i.i.i.i.i.i217
 
 if.then.i.i.i.i.i.i217:                           ; preds = %call.i.i212.noexc
-  %exception.i.i.i.i.i.i.i.i218 = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i218 = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i218, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i219 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i218, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i219, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i218, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i218, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %.noexc221 unwind label %lpad100.loopexit.split-lp
 
 .noexc221:                                        ; preds = %if.then.i.i.i.i.i.i217
@@ -7112,7 +7112,7 @@ for.end:                                          ; preds = %_ZN6bufferIP4exprLb
           to label %invoke.cont155 unwind label %lpad100.loopexit.split-lp
 
 invoke.cont155:                                   ; preds = %for.end
-  call void @exit(i32 noundef 114) #22
+  call void @exit(i32 noundef 114) #24
   unreachable
 
 cleanup:                                          ; preds = %invoke.cont151, %invoke.cont136
@@ -7131,7 +7131,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %95 = landingpad { ptr, i32 }
           catch ptr null
   %96 = extractvalue { ptr, i32 } %95, 0
-  call void @__clang_call_terminate(ptr %96) #21
+  call void @__clang_call_terminate(ptr %96) #23
   unreachable
 
 for.inc156:                                       ; preds = %invoke.cont72
@@ -7145,7 +7145,7 @@ for.end158:                                       ; preds = %for.inc156, %if.the
           to label %invoke.cont159 unwind label %lpad.loopexit.split-lp416
 
 invoke.cont159:                                   ; preds = %for.end158
-  call void @exit(i32 noundef 114) #22
+  call void @exit(i32 noundef 114) #24
   unreachable
 
 invoke.cont162:                                   ; preds = %invoke.cont60
@@ -7307,7 +7307,7 @@ lpad184.loopexit.split-lp:                        ; preds = %invoke.cont212, %if
 
 lpad184:                                          ; preds = %lpad184.loopexit.split-lp, %lpad184.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad184.loopexit ], [ %lpad.loopexit.split-lp, %lpad184.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args182) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args182) #21
   br label %ehcleanup
 
 invoke.cont206:                                   ; preds = %for.inc203
@@ -7383,7 +7383,7 @@ terminate.lpad.i.i359:                            ; preds = %if.end.i.i.i.i.i358
   %137 = landingpad { ptr, i32 }
           catch ptr null
   %138 = extractvalue { ptr, i32 } %137, 0
-  call void @__clang_call_terminate(ptr %138) #21
+  call void @__clang_call_terminate(ptr %138) #23
   unreachable
 
 if.end223:                                        ; preds = %land.rhs.i.i153, %if.end41, %lor.lhs.false171.thread, %invoke.cont179
@@ -7419,15 +7419,15 @@ invoke.cont238:                                   ; preds = %if.then234
 lpad230:                                          ; preds = %invoke.cont238, %if.then234, %if.then227
   %142 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ep_res) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ep_res) #21
   br label %ehcleanup
 
 cleanup243:                                       ; preds = %invoke.cont238
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ep_res) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ep_res) #21
   br label %cleanup278
 
 if.end244.critedge:                               ; preds = %invoke.cont231
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ep_res) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ep_res) #21
   %bf.load.i.i.i.i.pre = load i32, ptr %m_kind.i.i.i151, align 4
   br label %if.end244
 
@@ -7552,12 +7552,12 @@ terminate.lpad.i394:                              ; preds = %.noexc.i395, %clean
   %165 = landingpad { ptr, i32 }
           catch ptr null
   %166 = extractvalue { ptr, i32 } %165, 0
-  call void @__clang_call_terminate(ptr %166) #21
+  call void @__clang_call_terminate(ptr %166) #23
   unreachable
 
 ehcleanup:                                        ; preds = %lpad.loopexit415, %lpad.loopexit.split-lp416, %lpad230, %lpad184, %lpad100, %lpad35, %lpad27, %lpad11
   %.pn = phi { ptr, i32 } [ %29, %lpad27 ], [ %39, %lpad35 ], [ %13, %lpad11 ], [ %lpad.phi414, %lpad100 ], [ %lpad.phi, %lpad184 ], [ %142, %lpad230 ], [ %lpad.loopexit417, %lpad.loopexit415 ], [ %lpad.loopexit.split-lp418, %lpad.loopexit.split-lp416 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #21
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %.noexc.i395, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
@@ -7578,11 +7578,11 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZNK9parameter7get_intEv.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK9parameter7get_intEv.exit:                    ; preds = %entry
@@ -7603,11 +7603,11 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZNK9parameter7get_intEv.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK9parameter7get_intEv.exit:                    ; preds = %entry
@@ -7750,7 +7750,7 @@ lpad.loopexit.split-lp:                           ; preds = %for.end, %if.then2.
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit22, %lpad.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %args) #21
   resume { ptr, i32 } %lpad.phi
 
 for.end.loopexit:                                 ; preds = %for.inc
@@ -7813,7 +7813,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #21
+  call void @__clang_call_terminate(ptr %21) #23
   unreachable
 
 return:                                           ; preds = %if.end.i.i.i.i.i, %invoke.cont9, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
@@ -7830,11 +7830,11 @@ entry:
   br i1 %cmp.not.i.i, label %_ZSt3getIiJiP3ast6symbolP7zstringP8rationaldjEERKT_RKSt7variantIJDpT0_EE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZSt3getIiJiP3ast6symbolP7zstringP8rationaldjEERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %entry
@@ -8049,7 +8049,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #21
+  call void @__clang_call_terminate(ptr %19) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -8080,7 +8080,7 @@ terminate.lpad.i13:                               ; preds = %.noexc.i14, %invoke
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #21
+  call void @__clang_call_terminate(ptr %23) #23
   unreachable
 
 _ZN8rationalD2Ev.exit16:                          ; preds = %.noexc.i14
@@ -8129,7 +8129,7 @@ lpad:                                             ; preds = %if.then.i.i.i.i.i.i
 lpad8:                                            ; preds = %.noexc, %invoke.cont7
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #21
   br label %ehcleanup
 
 if.end14:                                         ; preds = %invoke.cont
@@ -8153,11 +8153,11 @@ call.i.i.noexc:                                   ; preds = %if.then15
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont16, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.noexc
-  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %.noexc34 unwind label %lpad
 
 .noexc34:                                         ; preds = %if.then.i.i.i.i.i.i
@@ -8262,7 +8262,7 @@ lpad22.loopexit.split-lp:                         ; preds = %if.then.i42, %if.en
 
 lpad22:                                           ; preds = %lpad22.loopexit.split-lp, %lpad22.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad22.loopexit ], [ %lpad.loopexit.split-lp, %lpad22.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %args) #21
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.inc
@@ -8383,7 +8383,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #21
+  call void @__clang_call_terminate(ptr %57) #23
   unreachable
 
 cleanup:                                          ; preds = %if.end.i.i.i.i.i, %invoke.cont32, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit32, %if.end14
@@ -8400,12 +8400,12 @@ terminate.lpad.i91:                               ; preds = %.noexc.i92, %cleanu
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #21
+  call void @__clang_call_terminate(ptr %60) #23
   unreachable
 
 ehcleanup:                                        ; preds = %lpad22, %lpad8, %lpad
   %.pn = phi { ptr, i32 } [ %28, %lpad ], [ %29, %lpad8 ], [ %lpad.phi, %lpad22 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r) #21
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %.noexc.i92, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
@@ -8490,11 +8490,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %if.end
@@ -8825,7 +8825,7 @@ if.then50:                                        ; preds = %invoke.cont48
 lpad.i:                                           ; preds = %.noexc.i, %if.then50
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52) #21
   br label %ehcleanup376
 
 invoke.cont53:                                    ; preds = %.noexc.i
@@ -8877,7 +8877,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i149, %invok
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #21
+  call void @__clang_call_terminate(ptr %52) #23
   unreachable
 
 lpad47.loopexit:                                  ; preds = %for.body169, %land.lhs.true172
@@ -9009,7 +9009,7 @@ terminate.lpad.i191:                              ; preds = %.noexc.i192, %invok
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #21
+  call void @__clang_call_terminate(ptr %70) #23
   unreachable
 
 _ZN8rationalD2Ev.exit194:                         ; preds = %.noexc.i192
@@ -9025,7 +9025,7 @@ terminate.lpad.i195:                              ; preds = %.noexc.i196, %_ZN8r
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #21
+  call void @__clang_call_terminate(ptr %73) #23
   unreachable
 
 _ZN8rationalD2Ev.exit198:                         ; preds = %.noexc.i196
@@ -9042,7 +9042,7 @@ terminate.lpad.i199:                              ; preds = %.noexc.i200, %_ZN8r
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #21
+  call void @__clang_call_terminate(ptr %76) #23
   unreachable
 
 lpad71:                                           ; preds = %invoke.cont69
@@ -9058,17 +9058,17 @@ lpad73:                                           ; preds = %invoke.cont72
 lpad75:                                           ; preds = %if.then2.i.i.i188, %invoke.cont74
   %79 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad75, %lpad73
   %.pn77 = phi { ptr, i32 } [ %79, %lpad75 ], [ %78, %lpad73 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70) #21
   br label %ehcleanup80
 
 ehcleanup80:                                      ; preds = %ehcleanup, %lpad71
   %.pn77.pn = phi { ptr, i32 } [ %.pn77, %ehcleanup ], [ %77, %lpad71 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp68) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp68) #21
   br label %ehcleanup376
 
 invoke.cont82:                                    ; preds = %invoke.cont64
@@ -9290,7 +9290,7 @@ terminate.lpad.i285:                              ; preds = %.noexc.i286, %invok
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #21
+  call void @__clang_call_terminate(ptr %103) #23
   unreachable
 
 _ZN8rationalD2Ev.exit288:                         ; preds = %.noexc.i286
@@ -9306,7 +9306,7 @@ terminate.lpad.i289:                              ; preds = %.noexc.i290, %_ZN8r
   %105 = landingpad { ptr, i32 }
           catch ptr null
   %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #21
+  call void @__clang_call_terminate(ptr %106) #23
   unreachable
 
 _ZN8rationalD2Ev.exit292:                         ; preds = %.noexc.i290
@@ -9323,7 +9323,7 @@ terminate.lpad.i293:                              ; preds = %.noexc.i294, %_ZN8r
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  call void @__clang_call_terminate(ptr %109) #21
+  call void @__clang_call_terminate(ptr %109) #23
   unreachable
 
 lpad101:                                          ; preds = %invoke.cont99
@@ -9339,17 +9339,17 @@ lpad103:                                          ; preds = %invoke.cont102
 lpad105:                                          ; preds = %if.then2.i.i.i282, %invoke.cont104
   %112 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97) #21
   br label %ehcleanup111
 
 ehcleanup111:                                     ; preds = %lpad105, %lpad103
   %.pn74 = phi { ptr, i32 } [ %112, %lpad105 ], [ %111, %lpad103 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp100) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp100) #21
   br label %ehcleanup112
 
 ehcleanup112:                                     ; preds = %ehcleanup111, %lpad101
   %.pn74.pn = phi { ptr, i32 } [ %.pn74, %ehcleanup111 ], [ %110, %lpad101 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98) #21
   br label %ehcleanup376
 
 if.end.i.i301:                                    ; preds = %invoke.cont94
@@ -9597,7 +9597,7 @@ terminate.lpad.i393:                              ; preds = %.noexc.i394, %invok
   %134 = landingpad { ptr, i32 }
           catch ptr null
   %135 = extractvalue { ptr, i32 } %134, 0
-  call void @__clang_call_terminate(ptr %135) #21
+  call void @__clang_call_terminate(ptr %135) #23
   unreachable
 
 _ZN8rationalD2Ev.exit396:                         ; preds = %.noexc.i394
@@ -9613,7 +9613,7 @@ terminate.lpad.i397:                              ; preds = %.noexc.i398, %_ZN8r
   %137 = landingpad { ptr, i32 }
           catch ptr null
   %138 = extractvalue { ptr, i32 } %137, 0
-  call void @__clang_call_terminate(ptr %138) #21
+  call void @__clang_call_terminate(ptr %138) #23
   unreachable
 
 _ZN8rationalD2Ev.exit400:                         ; preds = %.noexc.i398
@@ -9630,7 +9630,7 @@ terminate.lpad.i401:                              ; preds = %.noexc.i402, %_ZN8r
   %140 = landingpad { ptr, i32 }
           catch ptr null
   %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #21
+  call void @__clang_call_terminate(ptr %141) #23
   unreachable
 
 _ZN8rationalD2Ev.exit404:                         ; preds = %.noexc.i402
@@ -9689,17 +9689,17 @@ lpad127:                                          ; preds = %invoke.cont126
 lpad129:                                          ; preds = %if.else.i.i7.i.i, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i
   %149 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp121) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp121) #21
   br label %ehcleanup133
 
 ehcleanup133:                                     ; preds = %lpad129, %lpad127
   %.pn = phi { ptr, i32 } [ %149, %lpad129 ], [ %148, %lpad127 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp124) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp124) #21
   br label %ehcleanup134
 
 ehcleanup134:                                     ; preds = %ehcleanup133, %lpad125
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup133 ], [ %147, %lpad125 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122) #21
   br label %ehcleanup376
 
 if.end140:                                        ; preds = %_ZN8rationalD2Ev.exit404
@@ -9866,7 +9866,7 @@ lpad186.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke
 
 lpad186:                                          ; preds = %lpad186.loopexit.split-lp.loopexit, %lpad186.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad186.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad186.loopexit
   %lpad.phi886 = phi { ptr, i32 } [ %lpad.loopexit884, %lpad186.loopexit ], [ %lpad.loopexit887, %lpad186.loopexit.split-lp.loopexit ], [ %lpad.loopexit890, %lpad186.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp891, %lpad186.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %non_zero_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %non_zero_args) #21
   br label %ehcleanup376
 
 while.end:                                        ; preds = %while.body189, %land.end
@@ -10065,7 +10065,7 @@ invoke.cont222:                                   ; preds = %while.end216
           to label %invoke.cont224 unwind label %lpad186.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont224:                                   ; preds = %invoke.cont222
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %non_zero_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %non_zero_args) #21
   br label %cleanup
 
 invoke.cont229.thread:                            ; preds = %land.rhs.i.i441, %land.lhs.true151, %land.rhs.i.i428, %land.lhs.true145, %invoke.cont149, %invoke.cont155
@@ -10141,7 +10141,7 @@ terminate.lpad.i576:                              ; preds = %.noexc.i577, %invok
   %203 = landingpad { ptr, i32 }
           catch ptr null
   %204 = extractvalue { ptr, i32 } %203, 0
-  call void @__clang_call_terminate(ptr %204) #21
+  call void @__clang_call_terminate(ptr %204) #23
   unreachable
 
 _ZN8rationalD2Ev.exit579:                         ; preds = %.noexc.i577
@@ -10372,7 +10372,7 @@ terminate.lpad.i646:                              ; preds = %.noexc.i647, %invok
   %226 = landingpad { ptr, i32 }
           catch ptr null
   %227 = extractvalue { ptr, i32 } %226, 0
-  call void @__clang_call_terminate(ptr %227) #21
+  call void @__clang_call_terminate(ptr %227) #23
   unreachable
 
 _ZN8rationalD2Ev.exit649:                         ; preds = %.noexc.i647
@@ -10388,7 +10388,7 @@ terminate.lpad.i650:                              ; preds = %.noexc.i651, %_ZN8r
   %229 = landingpad { ptr, i32 }
           catch ptr null
   %230 = extractvalue { ptr, i32 } %229, 0
-  call void @__clang_call_terminate(ptr %230) #21
+  call void @__clang_call_terminate(ptr %230) #23
   unreachable
 
 _ZN8rationalD2Ev.exit653:                         ; preds = %.noexc.i651
@@ -10408,7 +10408,7 @@ terminate.lpad.i654:                              ; preds = %.noexc.i655, %_ZN8r
   %232 = landingpad { ptr, i32 }
           catch ptr null
   %233 = extractvalue { ptr, i32 } %232, 0
-  call void @__clang_call_terminate(ptr %233) #21
+  call void @__clang_call_terminate(ptr %233) #23
   unreachable
 
 lpad266:                                          ; preds = %invoke.cont264
@@ -10424,17 +10424,17 @@ lpad268:                                          ; preds = %invoke.cont267
 lpad270:                                          ; preds = %if.end.i.i.i.i633, %if.then.i613, %invoke.cont269
   %236 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp262) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp262) #21
   br label %ehcleanup275
 
 ehcleanup275:                                     ; preds = %lpad270, %lpad268
   %.pn69 = phi { ptr, i32 } [ %236, %lpad270 ], [ %235, %lpad268 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp265) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp265) #21
   br label %ehcleanup276
 
 ehcleanup276:                                     ; preds = %ehcleanup275, %lpad266
   %.pn69.pn = phi { ptr, i32 } [ %.pn69, %ehcleanup275 ], [ %234, %lpad266 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp263) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp263) #21
   br label %ehcleanup312
 
 if.end277:                                        ; preds = %.noexc.i655.if.end277_crit_edge, %while.end257
@@ -10657,7 +10657,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %263 = landingpad { ptr, i32 }
           catch ptr null
   %264 = extractvalue { ptr, i32 } %263, 0
-  call void @__clang_call_terminate(ptr %264) #21
+  call void @__clang_call_terminate(ptr %264) #23
   unreachable
 
 _ZN10ptr_bufferI4exprLj16EED2Ev.exit:             ; preds = %invoke.cont310, %if.end.i.i.i.i.i
@@ -10673,13 +10673,13 @@ terminate.lpad.i731:                              ; preds = %.noexc.i732, %_ZN10
   %266 = landingpad { ptr, i32 }
           catch ptr null
   %267 = extractvalue { ptr, i32 } %266, 0
-  call void @__clang_call_terminate(ptr %267) #21
+  call void @__clang_call_terminate(ptr %267) #23
   unreachable
 
 ehcleanup312:                                     ; preds = %lpad250.loopexit, %lpad250.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad250.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad250.loopexit.split-lp.loopexit, %ehcleanup276
   %.pn72 = phi { ptr, i32 } [ %.pn69.pn, %ehcleanup276 ], [ %lpad.loopexit, %lpad250.loopexit ], [ %lpad.loopexit879, %lpad250.loopexit.split-lp.loopexit ], [ %lpad.loopexit882, %lpad250.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad250.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %exs) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %two) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %exs) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %two) #21
   br label %ehcleanup376
 
 if.end314:                                        ; preds = %invoke.cont229.thread, %invoke.cont229
@@ -10932,7 +10932,7 @@ terminate.lpad.i815:                              ; preds = %.noexc.i816, %clean
   %299 = landingpad { ptr, i32 }
           catch ptr null
   %300 = extractvalue { ptr, i32 } %299, 0
-  call void @__clang_call_terminate(ptr %300) #21
+  call void @__clang_call_terminate(ptr %300) #23
   unreachable
 
 _ZN8rationalD2Ev.exit818:                         ; preds = %.noexc.i816
@@ -10948,7 +10948,7 @@ terminate.lpad.i819:                              ; preds = %.noexc.i820, %_ZN8r
   %302 = landingpad { ptr, i32 }
           catch ptr null
   %303 = extractvalue { ptr, i32 } %302, 0
-  call void @__clang_call_terminate(ptr %303) #21
+  call void @__clang_call_terminate(ptr %303) #23
   unreachable
 
 _ZN8rationalD2Ev.exit822:                         ; preds = %.noexc.i820
@@ -10990,7 +10990,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i8
   %308 = landingpad { ptr, i32 }
           catch ptr null
   %309 = extractvalue { ptr, i32 } %308, 0
-  call void @__clang_call_terminate(ptr %309) #21
+  call void @__clang_call_terminate(ptr %309) #23
   unreachable
 
 _ZN13ast_fast_markILj2EED2Ev.exit:                ; preds = %invoke.cont.i, %if.end.i.i.i.i.i.i833
@@ -11032,7 +11032,7 @@ terminate.lpad.i.i.i852:                          ; preds = %if.end.i.i.i.i.i.i8
   %314 = landingpad { ptr, i32 }
           catch ptr null
   %315 = extractvalue { ptr, i32 } %314, 0
-  call void @__clang_call_terminate(ptr %315) #21
+  call void @__clang_call_terminate(ptr %315) #23
   unreachable
 
 _ZN13ast_fast_markILj1EED2Ev.exit:                ; preds = %invoke.cont.i846, %if.end.i.i.i.i.i.i851
@@ -11050,7 +11050,7 @@ terminate.lpad.i.i858:                            ; preds = %if.end.i.i.i.i.i857
   %317 = landingpad { ptr, i32 }
           catch ptr null
   %318 = extractvalue { ptr, i32 } %317, 0
-  call void @__clang_call_terminate(ptr %318) #21
+  call void @__clang_call_terminate(ptr %318) #23
   unreachable
 
 _ZN10ptr_bufferI4exprLj16EED2Ev.exit859:          ; preds = %_ZN13ast_fast_markILj1EED2Ev.exit, %if.end.i.i.i.i.i857
@@ -11068,21 +11068,21 @@ terminate.lpad.i.i865:                            ; preds = %if.end.i.i.i.i.i864
   %320 = landingpad { ptr, i32 }
           catch ptr null
   %321 = extractvalue { ptr, i32 } %320, 0
-  call void @__clang_call_terminate(ptr %321) #21
+  call void @__clang_call_terminate(ptr %321) #23
   unreachable
 
 ehcleanup376:                                     ; preds = %lpad47.loopexit, %lpad47.loopexit.split-lp.loopexit.split-lp, %lpad47.loopexit.split-lp.loopexit, %lpad.i, %ehcleanup312, %lpad186, %ehcleanup134, %ehcleanup112, %ehcleanup80
   %.pn80 = phi { ptr, i32 } [ %.pn77.pn, %ehcleanup80 ], [ %.pn74.pn, %ehcleanup112 ], [ %lpad.phi886, %lpad186 ], [ %.pn72, %ehcleanup312 ], [ %.pn.pn, %ehcleanup134 ], [ %38, %lpad.i ], [ %lpad.loopexit893, %lpad47.loopexit ], [ %lpad.loopexit896, %lpad47.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp897, %lpad47.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v2) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v1) #19
-  call void @_ZN13ast_fast_markILj2EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %neg_args) #19
-  call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %pos_args) #19
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v2) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v1) #21
+  call void @_ZN13ast_fast_markILj2EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %neg_args) #21
+  call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %pos_args) #21
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #21
   br label %ehcleanup386
 
 ehcleanup386:                                     ; preds = %lpad.loopexit899, %lpad.loopexit.split-lp900, %ehcleanup376
   %.pn84 = phi { ptr, i32 } [ %.pn80, %ehcleanup376 ], [ %lpad.loopexit901, %lpad.loopexit899 ], [ %lpad.loopexit.split-lp902, %lpad.loopexit.split-lp900 ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %flat_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %flat_args) #21
   resume { ptr, i32 } %.pn84
 
 return:                                           ; preds = %if.end.i.i.i.i.i864, %_ZN10ptr_bufferI4exprLj16EED2Ev.exit859, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
@@ -11168,11 +11168,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %if.end
@@ -11521,7 +11521,7 @@ if.then50:                                        ; preds = %invoke.cont48
 lpad.i:                                           ; preds = %.noexc.i, %if.then50
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51) #21
   br label %ehcleanup402
 
 invoke.cont52:                                    ; preds = %.noexc.i
@@ -11572,7 +11572,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i141, %invok
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #21
+  call void @__clang_call_terminate(ptr %52) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i141
@@ -11683,8 +11683,8 @@ invoke.cont81:                                    ; preds = %invoke.cont79
 lpad.i184:                                        ; preds = %.noexc.i185, %invoke.cont81
   %65 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74) #21
   br label %ehcleanup
 
 invoke.cont83:                                    ; preds = %.noexc.i185
@@ -11735,7 +11735,7 @@ terminate.lpad.i232:                              ; preds = %.noexc.i233, %invok
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #21
+  call void @__clang_call_terminate(ptr %79) #23
   unreachable
 
 _ZN8rationalD2Ev.exit235:                         ; preds = %.noexc.i233
@@ -11751,7 +11751,7 @@ terminate.lpad.i236:                              ; preds = %.noexc.i237, %_ZN8r
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #21
+  call void @__clang_call_terminate(ptr %82) #23
   unreachable
 
 _ZN8rationalD2Ev.exit239:                         ; preds = %.noexc.i237
@@ -11767,7 +11767,7 @@ terminate.lpad.i240:                              ; preds = %.noexc.i241, %_ZN8r
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #21
+  call void @__clang_call_terminate(ptr %85) #23
   unreachable
 
 _ZN8rationalD2Ev.exit243:                         ; preds = %.noexc.i241
@@ -11783,7 +11783,7 @@ terminate.lpad.i244:                              ; preds = %.noexc.i245, %_ZN8r
   %87 = landingpad { ptr, i32 }
           catch ptr null
   %88 = extractvalue { ptr, i32 } %87, 0
-  call void @__clang_call_terminate(ptr %88) #21
+  call void @__clang_call_terminate(ptr %88) #23
   unreachable
 
 lpad78:                                           ; preds = %invoke.cont76
@@ -11798,12 +11798,12 @@ lpad80:                                           ; preds = %invoke.cont79
 
 ehcleanup:                                        ; preds = %lpad.i184, %lpad80
   %.pn72 = phi { ptr, i32 } [ %65, %lpad.i184 ], [ %90, %lpad80 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77) #21
   br label %ehcleanup85
 
 ehcleanup85:                                      ; preds = %ehcleanup, %lpad78
   %.pn72.pn = phi { ptr, i32 } [ %.pn72, %ehcleanup ], [ %89, %lpad78 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75) #21
   br label %ehcleanup402
 
 if.end.i.i:                                       ; preds = %invoke.cont69
@@ -11941,8 +11941,8 @@ invoke.cont108:                                   ; preds = %invoke.cont106
 lpad.i293:                                        ; preds = %.noexc.i294, %invoke.cont108
   %103 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp100) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp101) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp100) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp101) #21
   br label %ehcleanup113
 
 invoke.cont110:                                   ; preds = %.noexc.i294
@@ -11993,7 +11993,7 @@ terminate.lpad.i341:                              ; preds = %.noexc.i342, %invok
   %116 = landingpad { ptr, i32 }
           catch ptr null
   %117 = extractvalue { ptr, i32 } %116, 0
-  call void @__clang_call_terminate(ptr %117) #21
+  call void @__clang_call_terminate(ptr %117) #23
   unreachable
 
 _ZN8rationalD2Ev.exit344:                         ; preds = %.noexc.i342
@@ -12009,7 +12009,7 @@ terminate.lpad.i345:                              ; preds = %.noexc.i346, %_ZN8r
   %119 = landingpad { ptr, i32 }
           catch ptr null
   %120 = extractvalue { ptr, i32 } %119, 0
-  call void @__clang_call_terminate(ptr %120) #21
+  call void @__clang_call_terminate(ptr %120) #23
   unreachable
 
 _ZN8rationalD2Ev.exit348:                         ; preds = %.noexc.i346
@@ -12025,7 +12025,7 @@ terminate.lpad.i349:                              ; preds = %.noexc.i350, %_ZN8r
   %122 = landingpad { ptr, i32 }
           catch ptr null
   %123 = extractvalue { ptr, i32 } %122, 0
-  call void @__clang_call_terminate(ptr %123) #21
+  call void @__clang_call_terminate(ptr %123) #23
   unreachable
 
 _ZN8rationalD2Ev.exit352:                         ; preds = %.noexc.i350
@@ -12041,7 +12041,7 @@ terminate.lpad.i353:                              ; preds = %.noexc.i354, %_ZN8r
   %125 = landingpad { ptr, i32 }
           catch ptr null
   %126 = extractvalue { ptr, i32 } %125, 0
-  call void @__clang_call_terminate(ptr %126) #21
+  call void @__clang_call_terminate(ptr %126) #23
   unreachable
 
 lpad105:                                          ; preds = %invoke.cont103
@@ -12056,12 +12056,12 @@ lpad107:                                          ; preds = %invoke.cont106
 
 ehcleanup113:                                     ; preds = %lpad.i293, %lpad107
   %.pn69 = phi { ptr, i32 } [ %103, %lpad.i293 ], [ %128, %lpad107 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104) #21
   br label %ehcleanup114
 
 ehcleanup114:                                     ; preds = %ehcleanup113, %lpad105
   %.pn69.pn = phi { ptr, i32 } [ %.pn69, %ehcleanup113 ], [ %127, %lpad105 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp102) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp102) #21
   br label %ehcleanup402
 
 if.end.i.i362:                                    ; preds = %invoke.cont96
@@ -12293,7 +12293,7 @@ land.rhs:                                         ; preds = %while.cond154.prehe
 lpad.i442:                                        ; preds = %.noexc.i443, %land.rhs
   %151 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp156) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp156) #21
   br label %ehcleanup233
 
 invoke.cont157:                                   ; preds = %.noexc.i443
@@ -12326,7 +12326,7 @@ terminate.lpad.i450:                              ; preds = %.noexc.i451, %clean
   %155 = landingpad { ptr, i32 }
           catch ptr null
   %156 = extractvalue { ptr, i32 } %155, 0
-  call void @__clang_call_terminate(ptr %156) #21
+  call void @__clang_call_terminate(ptr %156) #23
   unreachable
 
 cleanup.done:                                     ; preds = %.noexc.i451
@@ -12487,7 +12487,7 @@ land.rhs179:                                      ; preds = %if.end176, %_Z3divR
 lpad.i475:                                        ; preds = %.noexc.i476, %land.rhs179
   %169 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp180) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp180) #21
   br label %ehcleanup233
 
 cleanup.action188:                                ; preds = %.noexc.i476
@@ -12506,7 +12506,7 @@ terminate.lpad.i481:                              ; preds = %.noexc.i482, %clean
   %172 = landingpad { ptr, i32 }
           catch ptr null
   %173 = extractvalue { ptr, i32 } %172, 0
-  call void @__clang_call_terminate(ptr %173) #21
+  call void @__clang_call_terminate(ptr %173) #23
   unreachable
 
 cleanup.done189:                                  ; preds = %.noexc.i482
@@ -12744,7 +12744,7 @@ terminate.lpad.i575:                              ; preds = %if.then2.i.i.i574
   %203 = landingpad { ptr, i32 }
           catch ptr null
   %204 = extractvalue { ptr, i32 } %203, 0
-  call void @__clang_call_terminate(ptr %204) #21
+  call void @__clang_call_terminate(ptr %204) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %if.end232, %if.then.i.i.i569, %if.then2.i.i.i574
@@ -12798,14 +12798,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   %211 = landingpad { ptr, i32 }
           catch ptr null
   %212 = extractvalue { ptr, i32 } %211, 0
-  call void @__clang_call_terminate(ptr %212) #21
+  call void @__clang_call_terminate(ptr %212) #23
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %213 = landingpad { ptr, i32 }
           catch ptr null
   %214 = extractvalue { ptr, i32 } %213, 0
-  call void @__clang_call_terminate(ptr %214) #21
+  call void @__clang_call_terminate(ptr %214) #23
   unreachable
 
 _ZN10ref_bufferI4expr11ast_managerLj16EED2Ev.exit: ; preds = %invoke.cont5.i.i, %if.end.i.i.i.i.i.i.i
@@ -12821,14 +12821,14 @@ terminate.lpad.i586:                              ; preds = %.noexc.i587, %_ZN10
   %216 = landingpad { ptr, i32 }
           catch ptr null
   %217 = extractvalue { ptr, i32 } %216, 0
-  call void @__clang_call_terminate(ptr %217) #21
+  call void @__clang_call_terminate(ptr %217) #23
   unreachable
 
 ehcleanup233:                                     ; preds = %lpad147.loopexit, %lpad147.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad147.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad147.loopexit.split-lp.loopexit, %lpad.i442, %lpad.i475
   %.pn = phi { ptr, i32 } [ %151, %lpad.i442 ], [ %169, %lpad.i475 ], [ %lpad.loopexit921, %lpad147.loopexit ], [ %lpad.loopexit924, %lpad147.loopexit.split-lp.loopexit ], [ %lpad.loopexit927, %lpad147.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp928, %lpad147.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %not_t) #19
-  call void @_ZN10ref_bufferI4expr11ast_managerLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %exs) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %two) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %not_t) #21
+  call void @_ZN10ref_bufferI4expr11ast_managerLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %exs) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %two) #21
   br label %ehcleanup402
 
 if.end236:                                        ; preds = %invoke.cont123
@@ -12902,7 +12902,7 @@ terminate.lpad.i591:                              ; preds = %.noexc.i592, %clean
   %224 = landingpad { ptr, i32 }
           catch ptr null
   %225 = extractvalue { ptr, i32 } %224, 0
-  call void @__clang_call_terminate(ptr %225) #21
+  call void @__clang_call_terminate(ptr %225) #23
   unreachable
 
 _ZN8rationalD2Ev.exit594:                         ; preds = %.noexc.i592
@@ -12919,7 +12919,7 @@ terminate.lpad.i595:                              ; preds = %.noexc.i596, %_ZN8r
   %227 = landingpad { ptr, i32 }
           catch ptr null
   %228 = extractvalue { ptr, i32 } %227, 0
-  call void @__clang_call_terminate(ptr %228) #21
+  call void @__clang_call_terminate(ptr %228) #23
   unreachable
 
 _ZN8rationalD2Ev.exit598:                         ; preds = %.noexc.i596
@@ -12936,7 +12936,7 @@ terminate.lpad.i599:                              ; preds = %.noexc.i600, %_ZN8r
   %230 = landingpad { ptr, i32 }
           catch ptr null
   %231 = extractvalue { ptr, i32 } %230, 0
-  call void @__clang_call_terminate(ptr %231) #21
+  call void @__clang_call_terminate(ptr %231) #23
   unreachable
 
 cleanup.done282:                                  ; preds = %.noexc.i600, %land.end265
@@ -12972,17 +12972,17 @@ lpad258:                                          ; preds = %lor.rhs
 
 cleanup.action271:                                ; preds = %lpad258.thread, %lpad258
   %236 = phi { ptr, i32 } [ %219, %lpad258.thread ], [ %235, %lpad258 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp247) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp247) #21
   br label %cleanup.action278
 
 cleanup.action278:                                ; preds = %cleanup.action271, %lpad255
   %.pn66.ph = phi { ptr, i32 } [ %234, %lpad255 ], [ %236, %cleanup.action271 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp251) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp251) #21
   br label %cleanup.action285
 
 cleanup.action285:                                ; preds = %cleanup.action278, %lpad252
   %.pn66.pn.ph = phi { ptr, i32 } [ %233, %lpad252 ], [ %.pn66.ph, %cleanup.action278 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp248) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp248) #21
   br label %ehcleanup402
 
 invoke.cont297:                                   ; preds = %if.end236.thread, %cleanup.done282.invoke.cont297_crit_edge, %lor.lhs.false, %if.end236
@@ -13098,8 +13098,8 @@ lpad296.loopexit.split-lp:                        ; preds = %sw.bb357, %invoke.c
 
 lpad296:                                          ; preds = %lpad296.loopexit.split-lp, %lpad296.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad296.loopexit ], [ %lpad.loopexit.split-lp, %lpad296.loopexit.split-lp ]
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %c) #19
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %c) #21
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #21
   br label %ehcleanup402
 
 if.end308:                                        ; preds = %_ZN6bufferIP4exprLb0ELj16EE9push_backEOS1_.exit659, %invoke.cont297
@@ -13511,7 +13511,7 @@ terminate.lpad.i845:                              ; preds = %if.then2.i.i.i844
   %303 = landingpad { ptr, i32 }
           catch ptr null
   %304 = extractvalue { ptr, i32 } %303, 0
-  call void @__clang_call_terminate(ptr %304) #21
+  call void @__clang_call_terminate(ptr %304) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit846:      ; preds = %cleanup, %if.then.i.i.i839, %if.then2.i.i.i844
@@ -13529,7 +13529,7 @@ terminate.lpad.i.i852:                            ; preds = %if.end.i.i.i.i.i851
   %306 = landingpad { ptr, i32 }
           catch ptr null
   %307 = extractvalue { ptr, i32 } %306, 0
-  call void @__clang_call_terminate(ptr %307) #21
+  call void @__clang_call_terminate(ptr %307) #23
   unreachable
 
 cleanup401:                                       ; preds = %if.end.i.i.i.i.i851, %_ZN7obj_refI4expr11ast_managerED2Ev.exit846, %.noexc.i587, %invoke.cont288
@@ -13546,7 +13546,7 @@ terminate.lpad.i853:                              ; preds = %.noexc.i854, %clean
   %309 = landingpad { ptr, i32 }
           catch ptr null
   %310 = extractvalue { ptr, i32 } %309, 0
-  call void @__clang_call_terminate(ptr %310) #21
+  call void @__clang_call_terminate(ptr %310) #23
   unreachable
 
 _ZN8rationalD2Ev.exit856:                         ; preds = %.noexc.i854
@@ -13562,7 +13562,7 @@ terminate.lpad.i857:                              ; preds = %.noexc.i858, %_ZN8r
   %312 = landingpad { ptr, i32 }
           catch ptr null
   %313 = extractvalue { ptr, i32 } %312, 0
-  call void @__clang_call_terminate(ptr %313) #21
+  call void @__clang_call_terminate(ptr %313) #23
   unreachable
 
 _ZN8rationalD2Ev.exit860:                         ; preds = %.noexc.i858
@@ -13604,7 +13604,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i8
   %318 = landingpad { ptr, i32 }
           catch ptr null
   %319 = extractvalue { ptr, i32 } %318, 0
-  call void @__clang_call_terminate(ptr %319) #21
+  call void @__clang_call_terminate(ptr %319) #23
   unreachable
 
 _ZN13ast_fast_markILj2EED2Ev.exit:                ; preds = %invoke.cont.i, %if.end.i.i.i.i.i.i873
@@ -13646,7 +13646,7 @@ terminate.lpad.i.i.i892:                          ; preds = %if.end.i.i.i.i.i.i8
   %324 = landingpad { ptr, i32 }
           catch ptr null
   %325 = extractvalue { ptr, i32 } %324, 0
-  call void @__clang_call_terminate(ptr %325) #21
+  call void @__clang_call_terminate(ptr %325) #23
   unreachable
 
 _ZN13ast_fast_markILj1EED2Ev.exit:                ; preds = %invoke.cont.i886, %if.end.i.i.i.i.i.i891
@@ -13664,20 +13664,20 @@ terminate.lpad.i.i898:                            ; preds = %if.end.i.i.i.i.i897
   %327 = landingpad { ptr, i32 }
           catch ptr null
   %328 = extractvalue { ptr, i32 } %327, 0
-  call void @__clang_call_terminate(ptr %328) #21
+  call void @__clang_call_terminate(ptr %328) #23
   unreachable
 
 ehcleanup402:                                     ; preds = %lpad47.loopexit, %lpad47.loopexit.split-lp, %lpad258, %lpad.i, %cleanup.action285, %lpad296, %ehcleanup233, %ehcleanup114, %ehcleanup85
   %.pn75 = phi { ptr, i32 } [ %.pn72.pn, %ehcleanup85 ], [ %.pn69.pn, %ehcleanup114 ], [ %lpad.phi, %lpad296 ], [ %.pn66.pn.ph, %cleanup.action285 ], [ %.pn, %ehcleanup233 ], [ %38, %lpad.i ], [ %235, %lpad258 ], [ %lpad.loopexit930, %lpad47.loopexit ], [ %lpad.loopexit.split-lp931, %lpad47.loopexit.split-lp ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v2) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v1) #19
-  call void @_ZN13ast_fast_markILj2EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %neg_args) #19
-  call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %pos_args) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v2) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v1) #21
+  call void @_ZN13ast_fast_markILj2EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %neg_args) #21
+  call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %pos_args) #21
   br label %ehcleanup410
 
 ehcleanup410:                                     ; preds = %lpad.loopexit933, %lpad.loopexit.split-lp934, %ehcleanup402
   %.pn79 = phi { ptr, i32 } [ %.pn75, %ehcleanup402 ], [ %lpad.loopexit935, %lpad.loopexit933 ], [ %lpad.loopexit.split-lp936, %lpad.loopexit.split-lp934 ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %flat_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %flat_args) #21
   resume { ptr, i32 } %.pn79
 
 return:                                           ; preds = %if.end.i.i.i.i.i897, %_ZN13ast_fast_markILj1EED2Ev.exit, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
@@ -13801,7 +13801,7 @@ if.then6:                                         ; preds = %invoke.cont
 lpad.i:                                           ; preds = %.noexc.i, %if.then6
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup145
 
 invoke.cont7:                                     ; preds = %.noexc.i
@@ -13852,7 +13852,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i25, %invoke
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #21
+  call void @__clang_call_terminate(ptr %27) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i25
@@ -14034,7 +14034,7 @@ lpad18.loopexit.split-lp:                         ; preds = %for.end, %if.then2.
 
 lpad18:                                           ; preds = %lpad18.loopexit.split-lp, %lpad18.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad18.loopexit ], [ %lpad.loopexit.split-lp, %lpad18.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #21
   br label %ehcleanup145
 
 for.end.loopexit:                                 ; preds = %for.inc
@@ -14097,7 +14097,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #21
+  call void @__clang_call_terminate(ptr %62) #23
   unreachable
 
 _ZNK11ast_manager6is_iteEPK4expr.exit.i:          ; preds = %invoke.cont15
@@ -14151,7 +14151,7 @@ if.then45:                                        ; preds = %invoke.cont43
 lpad.i95:                                         ; preds = %.noexc.i96, %if.then45
   %71 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46) #21
   br label %ehcleanup145
 
 invoke.cont47:                                    ; preds = %.noexc.i96
@@ -14202,7 +14202,7 @@ terminate.lpad.i144:                              ; preds = %.noexc.i145, %invok
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #21
+  call void @__clang_call_terminate(ptr %85) #23
   unreachable
 
 _ZN8rationalD2Ev.exit147:                         ; preds = %.noexc.i145
@@ -14317,7 +14317,7 @@ if.then68:                                        ; preds = %invoke.cont66
 lpad.i192:                                        ; preds = %.noexc.i193, %if.then68
   %104 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69) #21
   br label %ehcleanup145
 
 invoke.cont70:                                    ; preds = %.noexc.i193
@@ -14368,7 +14368,7 @@ terminate.lpad.i241:                              ; preds = %.noexc.i242, %invok
   %117 = landingpad { ptr, i32 }
           catch ptr null
   %118 = extractvalue { ptr, i32 } %117, 0
-  call void @__clang_call_terminate(ptr %118) #21
+  call void @__clang_call_terminate(ptr %118) #23
   unreachable
 
 _ZN8rationalD2Ev.exit244:                         ; preds = %.noexc.i242
@@ -14581,18 +14581,18 @@ invoke.cont136:                                   ; preds = %invoke.cont125
 lpad115:                                          ; preds = %invoke.cont123, %invoke.cont136, %invoke.cont125, %if.then121, %land.lhs.true118, %if.then109
   %153 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %nt) #19
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ns) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %nt) #21
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ns) #21
   br label %ehcleanup145
 
 cleanup:                                          ; preds = %invoke.cont116, %invoke.cont119
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %nt) #19
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ns) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %nt) #21
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ns) #21
   br label %cleanup144
 
 cleanup144.critedge:                              ; preds = %invoke.cont136
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %nt) #19
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ns) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %nt) #21
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ns) #21
   br label %cleanup144
 
 cleanup144:                                       ; preds = %land.rhs.i.i.i285, %if.end105, %_ZNK14bv_recognizers9is_bv_addEPK4expr.exit.i, %land.lhs.true.i292, %if.end.i.i.i.i.i, %invoke.cont37, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit263, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit165, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit41, %if.end83, %cleanup, %cleanup144.critedge, %invoke.cont100
@@ -14609,12 +14609,12 @@ terminate.lpad.i302:                              ; preds = %.noexc.i303, %clean
   %155 = landingpad { ptr, i32 }
           catch ptr null
   %156 = extractvalue { ptr, i32 } %155, 0
-  call void @__clang_call_terminate(ptr %156) #21
+  call void @__clang_call_terminate(ptr %156) #23
   unreachable
 
 ehcleanup145:                                     ; preds = %lpad.i, %lpad, %lpad.i192, %lpad.i95, %lpad115, %lpad18
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad18 ], [ %153, %lpad115 ], [ %13, %lpad.i ], [ %71, %lpad.i95 ], [ %33, %lpad ], [ %104, %lpad.i192 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %val) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %val) #21
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %.noexc.i303, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
@@ -14732,7 +14732,7 @@ lpad.loopexit.split-lp:                           ; preds = %for.end, %invoke.co
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit12, %lpad.loopexit ], [ %lpad.loopexit.split-lp13, %lpad.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #21
   resume { ptr, i32 } %lpad.phi
 
 for.end.loopexit:                                 ; preds = %for.inc
@@ -14801,7 +14801,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #21
+  call void @__clang_call_terminate(ptr %22) #23
   unreachable
 
 _ZN10ptr_bufferI4exprLj16EED2Ev.exit:             ; preds = %invoke.cont13, %if.end.i.i.i.i.i
@@ -14918,7 +14918,7 @@ lpad.loopexit.split-lp:                           ; preds = %for.end, %if.then2.
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit9, %lpad.loopexit ], [ %lpad.loopexit.split-lp10, %lpad.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #21
   resume { ptr, i32 } %lpad.phi
 
 for.end.loopexit:                                 ; preds = %for.inc
@@ -14981,7 +14981,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #21
+  call void @__clang_call_terminate(ptr %20) #23
   unreachable
 
 _ZN10ptr_bufferI4exprLj16EED2Ev.exit:             ; preds = %invoke.cont10, %if.end.i.i.i.i.i
@@ -15267,11 +15267,11 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %entry
@@ -15368,11 +15368,11 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %entry
@@ -15489,7 +15489,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i16, %invoke
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #21
+  call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i16
@@ -15505,7 +15505,7 @@ terminate.lpad.i18:                               ; preds = %.noexc.i19, %_ZN8ra
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #21
+  call void @__clang_call_terminate(ptr %11) #23
   unreachable
 
 _ZN8rationalD2Ev.exit21:                          ; preds = %.noexc.i19
@@ -15524,8 +15524,8 @@ lpad6:                                            ; preds = %invoke.cont5
 
 ehcleanup:                                        ; preds = %lpad.i, %lpad6
   %.pn = phi { ptr, i32 } [ %13, %lpad6 ], [ %3, %lpad.i ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #21
   br label %ehcleanup12
 
 cleanup:                                          ; preds = %invoke.cont, %_ZN8rationalD2Ev.exit21
@@ -15542,7 +15542,7 @@ terminate.lpad.i22:                               ; preds = %.noexc.i23, %cleanu
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #21
+  call void @__clang_call_terminate(ptr %16) #23
   unreachable
 
 _ZN8rationalD2Ev.exit25:                          ; preds = %.noexc.i23
@@ -15550,7 +15550,7 @@ _ZN8rationalD2Ev.exit25:                          ; preds = %.noexc.i23
 
 ehcleanup12:                                      ; preds = %ehcleanup, %lpad
   %.pn2 = phi { ptr, i32 } [ %12, %lpad ], [ %.pn, %ehcleanup ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #21
   resume { ptr, i32 } %.pn2
 }
 
@@ -15660,7 +15660,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i16, %invoke
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #21
+  call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i16
@@ -15676,7 +15676,7 @@ terminate.lpad.i18:                               ; preds = %.noexc.i19, %_ZN8ra
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #21
+  call void @__clang_call_terminate(ptr %11) #23
   unreachable
 
 _ZN8rationalD2Ev.exit21:                          ; preds = %.noexc.i19
@@ -15694,11 +15694,11 @@ call.i.i.i.noexc:                                 ; preds = %_ZN8rationalD2Ev.ex
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %call.i.i.i.noexc
-  %exception.i.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %.noexc23 unwind label %lpad
 
 .noexc23:                                         ; preds = %if.then.i.i.i.i.i.i.i
@@ -15723,8 +15723,8 @@ lpad6:                                            ; preds = %invoke.cont5
 
 ehcleanup:                                        ; preds = %lpad.i, %lpad6
   %.pn = phi { ptr, i32 } [ %17, %lpad6 ], [ %3, %lpad.i ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #21
   br label %ehcleanup12
 
 cleanup:                                          ; preds = %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit.i, %invoke.cont
@@ -15741,7 +15741,7 @@ terminate.lpad.i25:                               ; preds = %.noexc.i26, %cleanu
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #21
+  call void @__clang_call_terminate(ptr %20) #23
   unreachable
 
 _ZN8rationalD2Ev.exit28:                          ; preds = %.noexc.i26
@@ -15749,7 +15749,7 @@ _ZN8rationalD2Ev.exit28:                          ; preds = %.noexc.i26
 
 ehcleanup12:                                      ; preds = %ehcleanup, %lpad
   %.pn2 = phi { ptr, i32 } [ %16, %lpad ], [ %.pn, %ehcleanup ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #21
   resume { ptr, i32 } %.pn2
 }
 
@@ -16005,11 +16005,11 @@ call.i.i.noexc:                                   ; preds = %for.end
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.noexc
-  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %.noexc67 unwind label %lpad21.loopexit.split-lp
 
 .noexc67:                                         ; preds = %if.then.i.i.i.i.i.i
@@ -16157,7 +16157,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #21
+  call void @__clang_call_terminate(ptr %49) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -16173,7 +16173,7 @@ terminate.lpad.i119:                              ; preds = %.noexc.i120, %_ZN8r
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #21
+  call void @__clang_call_terminate(ptr %52) #23
   unreachable
 
 invoke.cont75:                                    ; preds = %.noexc.i120
@@ -16215,11 +16215,11 @@ call.i.i.noexc144:                                ; preds = %invoke.cont77
   br i1 %cmp.not.i.i.i.i.i.i140, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i.i.i.i141
 
 if.then.i.i.i.i.i.i141:                           ; preds = %call.i.i.noexc144
-  %exception.i.i.i.i.i.i.i.i142 = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i142 = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i142, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i143 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i142, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i143, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i142, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i142, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %.noexc146 unwind label %lpad51.loopexit.split-lp
 
 .noexc146:                                        ; preds = %if.then.i.i.i.i.i.i141
@@ -16248,13 +16248,13 @@ lpad65:                                           ; preds = %if.then2.i.i.i115, 
 
 ehcleanup:                                        ; preds = %lpad.i.i, %lpad65
   %.pn = phi { ptr, i32 } [ %62, %lpad65 ], [ %41, %lpad.i.i ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp61) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp61) #21
   br label %ehcleanup85
 
 ehcleanup85:                                      ; preds = %lpad51.loopexit, %lpad51.loopexit.split-lp, %ehcleanup
   %.pn31 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit393, %lpad51.loopexit ], [ %lpad.loopexit.split-lp394, %lpad51.loopexit.split-lp ]
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %tmp) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %tmp) #21
   br label %ehcleanup96
 
 for.end86:                                        ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit
@@ -16368,19 +16368,19 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #21
+  call void @__clang_call_terminate(ptr %79) #23
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %80 = landingpad { ptr, i32 }
           catch ptr null
   %81 = extractvalue { ptr, i32 } %80, 0
-  call void @__clang_call_terminate(ptr %81) #21
+  call void @__clang_call_terminate(ptr %81) #23
   unreachable
 
 ehcleanup96:                                      ; preds = %lpad21.loopexit, %lpad21.loopexit.split-lp, %ehcleanup85
   %.pn33 = phi { ptr, i32 } [ %.pn31, %ehcleanup85 ], [ %lpad.loopexit396, %lpad21.loopexit ], [ %lpad.loopexit.split-lp397, %lpad21.loopexit.split-lp ]
-  call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %args) #19
+  call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %args) #21
   br label %ehcleanup176
 
 if.end97:                                         ; preds = %land.rhs.i.i, %if.end, %invoke.cont6
@@ -16476,7 +16476,7 @@ lpad105.loopexit.split-lp:                        ; preds = %cond.false.i219, %i
 
 lpad105:                                          ; preds = %lpad105.loopexit.split-lp, %lpad105.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad105.loopexit ], [ %lpad.loopexit.split-lp, %lpad105.loopexit.split-lp ]
-  call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %args101) #19
+  call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %args101) #21
   br label %ehcleanup176
 
 for.end125:                                       ; preds = %for.inc123
@@ -16591,14 +16591,14 @@ terminate.lpad.i.i.i.i263:                        ; preds = %if.then.i.i.i.i.i26
   %110 = landingpad { ptr, i32 }
           catch ptr null
   %111 = extractvalue { ptr, i32 } %110, 0
-  call void @__clang_call_terminate(ptr %111) #21
+  call void @__clang_call_terminate(ptr %111) #23
   unreachable
 
 terminate.lpad.i.i265:                            ; preds = %if.then2.i.i.i.i.i.i264
   %112 = landingpad { ptr, i32 }
           catch ptr null
   %113 = extractvalue { ptr, i32 } %112, 0
-  call void @__clang_call_terminate(ptr %113) #21
+  call void @__clang_call_terminate(ptr %113) #23
   unreachable
 
 if.end136:                                        ; preds = %invoke.cont98
@@ -16744,7 +16744,7 @@ lpad144.loopexit.split-lp:                        ; preds = %cond.false.i309, %i
 
 lpad144:                                          ; preds = %lpad144.loopexit.split-lp, %lpad144.loopexit
   %lpad.phi387 = phi { ptr, i32 } [ %lpad.loopexit385, %lpad144.loopexit ], [ %lpad.loopexit.split-lp386, %lpad144.loopexit.split-lp ]
-  call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %args140) #19
+  call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %args140) #21
   br label %ehcleanup176
 
 for.end164:                                       ; preds = %for.inc162
@@ -16859,14 +16859,14 @@ terminate.lpad.i.i.i.i354:                        ; preds = %if.then.i.i.i.i.i35
   %151 = landingpad { ptr, i32 }
           catch ptr null
   %152 = extractvalue { ptr, i32 } %151, 0
-  call void @__clang_call_terminate(ptr %152) #21
+  call void @__clang_call_terminate(ptr %152) #23
   unreachable
 
 terminate.lpad.i.i356:                            ; preds = %if.then2.i.i.i.i.i.i355
   %153 = landingpad { ptr, i32 }
           catch ptr null
   %154 = extractvalue { ptr, i32 } %153, 0
-  call void @__clang_call_terminate(ptr %154) #21
+  call void @__clang_call_terminate(ptr %154) #23
   unreachable
 
 cleanup.sink.split:                               ; preds = %if.then.i.i.i48, %if.end.i46, %if.then2.i.i.i53, %if.then.i.i.i, %if.end.i, %if.then2.i.i.i
@@ -16888,7 +16888,7 @@ terminate.lpad.i358:                              ; preds = %.noexc.i359, %clean
   %156 = landingpad { ptr, i32 }
           catch ptr null
   %157 = extractvalue { ptr, i32 } %156, 0
-  call void @__clang_call_terminate(ptr %157) #21
+  call void @__clang_call_terminate(ptr %157) #23
   unreachable
 
 _ZN8rationalD2Ev.exit361:                         ; preds = %.noexc.i359
@@ -16896,7 +16896,7 @@ _ZN8rationalD2Ev.exit361:                         ; preds = %.noexc.i359
 
 ehcleanup176:                                     ; preds = %lpad.loopexit388, %lpad.loopexit.split-lp389, %lpad144, %lpad105, %ehcleanup96
   %.pn35 = phi { ptr, i32 } [ %.pn33, %ehcleanup96 ], [ %lpad.phi, %lpad105 ], [ %lpad.phi387, %lpad144 ], [ %lpad.loopexit390, %lpad.loopexit388 ], [ %lpad.loopexit.split-lp391, %lpad.loopexit.split-lp389 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #21
   resume { ptr, i32 } %.pn35
 }
 
@@ -16983,7 +16983,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #21
+  call void @__clang_call_terminate(ptr %14) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -17023,7 +17023,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 lpad:                                             ; preds = %if.then2.i.i.i27, %if.then.i.i.i.i.i.i, %land.lhs.true, %if.then2.i.i.i, %_ZN8rationalD2Ev.exit, %if.then, %entry
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %val) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %val) #21
   resume { ptr, i32 } %19
 
 if.end:                                           ; preds = %invoke.cont
@@ -17068,11 +17068,11 @@ call.i.i.noexc:                                   ; preds = %land.lhs.true
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont15, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.noexc
-  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %.noexc14 unwind label %lpad
 
 .noexc14:                                         ; preds = %if.then.i.i.i.i.i.i
@@ -17133,7 +17133,7 @@ terminate.lpad.i30:                               ; preds = %.noexc.i31, %cleanu
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #21
+  call void @__clang_call_terminate(ptr %38) #23
   unreachable
 
 _ZN8rationalD2Ev.exit33:                          ; preds = %.noexc.i31
@@ -17153,11 +17153,11 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZNK9parameter7get_intEv.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK9parameter7get_intEv.exit:                    ; preds = %entry
@@ -17400,7 +17400,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #21
+  call void @__clang_call_terminate(ptr %15) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -17416,7 +17416,7 @@ terminate.lpad.i22:                               ; preds = %.noexc.i23, %_ZN8ra
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #21
+  call void @__clang_call_terminate(ptr %18) #23
   unreachable
 
 _ZN8rationalD2Ev.exit25:                          ; preds = %.noexc.i23
@@ -17433,7 +17433,7 @@ terminate.lpad.i26:                               ; preds = %.noexc.i27, %_ZN8ra
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #21
+  call void @__clang_call_terminate(ptr %21) #23
   unreachable
 
 lpad:                                             ; preds = %entry, %if.then
@@ -17454,17 +17454,17 @@ lpad7:                                            ; preds = %invoke.cont6
 lpad9:                                            ; preds = %cond.false.invoke, %if.then2.i.i.i, %if.else.i.i7.i.i, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad9, %lpad7
   %.pn = phi { ptr, i32 } [ %25, %lpad9 ], [ %24, %lpad7 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #21
   br label %ehcleanup18
 
 ehcleanup18:                                      ; preds = %ehcleanup, %lpad5
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %23, %lpad5 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #21
   br label %ehcleanup19
 
 cleanup:                                          ; preds = %.noexc.i27, %invoke.cont
@@ -17481,7 +17481,7 @@ terminate.lpad.i30:                               ; preds = %.noexc.i31, %cleanu
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #21
+  call void @__clang_call_terminate(ptr %28) #23
   unreachable
 
 _ZN8rationalD2Ev.exit33:                          ; preds = %.noexc.i31
@@ -17489,7 +17489,7 @@ _ZN8rationalD2Ev.exit33:                          ; preds = %.noexc.i31
 
 ehcleanup19:                                      ; preds = %ehcleanup18, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup18 ], [ %22, %lpad ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r) #21
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -17792,7 +17792,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #21
+  call void @__clang_call_terminate(ptr %18) #23
   unreachable
 
 lpad:                                             ; preds = %for.end
@@ -17812,7 +17812,7 @@ lpad8.loopexit.split-lp:                          ; preds = %while.end, %if.then
 
 lpad8:                                            ; preds = %lpad8.loopexit.split-lp, %lpad8.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad8.loopexit ], [ %lpad.loopexit.split-lp, %lpad8.loopexit.split-lp ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %two) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %two) #21
   br label %ehcleanup
 
 if.end18:                                         ; preds = %.noexc.i, %invoke.cont9
@@ -17868,7 +17868,7 @@ terminate.lpad.i29:                               ; preds = %.noexc.i30, %invoke
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #21
+  call void @__clang_call_terminate(ptr %26) #23
   unreachable
 
 _ZN8rationalD2Ev.exit32:                          ; preds = %.noexc.i30
@@ -17884,12 +17884,12 @@ terminate.lpad.i33:                               ; preds = %.noexc.i34, %_ZN8ra
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #21
+  call void @__clang_call_terminate(ptr %29) #23
   unreachable
 
 ehcleanup:                                        ; preds = %lpad8, %lpad
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad8 ], [ %19, %lpad ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %val) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %val) #21
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %land.lhs.true, %.noexc.i34, %entry
@@ -18034,7 +18034,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #21
+  call void @__clang_call_terminate(ptr %16) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -18077,7 +18077,7 @@ terminate.lpad.i37:                               ; preds = %.noexc.i38, %invoke
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #21
+  call void @__clang_call_terminate(ptr %21) #23
   unreachable
 
 _ZN8rationalD2Ev.exit40:                          ; preds = %.noexc.i38
@@ -18137,13 +18137,13 @@ if.then2.i.i.i56:                                 ; preds = %if.then.i.i.i51
 lpad18:                                           ; preds = %.noexc21, %invoke.cont17
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup
 
 lpad22:                                           ; preds = %.noexc35, %invoke.cont21
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #21
   br label %ehcleanup
 
 cleanup.sink.split:                               ; preds = %if.then.i.i.i51, %if.end.i49, %if.then2.i.i.i56, %if.then.i.i.i, %if.end.i, %if.then2.i.i.i
@@ -18165,7 +18165,7 @@ terminate.lpad.i59:                               ; preds = %.noexc.i60, %cleanu
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #21
+  call void @__clang_call_terminate(ptr %36) #23
   unreachable
 
 _ZN8rationalD2Ev.exit62:                          ; preds = %.noexc.i60
@@ -18181,7 +18181,7 @@ terminate.lpad.i63:                               ; preds = %.noexc.i64, %_ZN8ra
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #21
+  call void @__clang_call_terminate(ptr %39) #23
   unreachable
 
 _ZN8rationalD2Ev.exit66:                          ; preds = %.noexc.i64
@@ -18189,8 +18189,8 @@ _ZN8rationalD2Ev.exit66:                          ; preds = %.noexc.i64
 
 ehcleanup:                                        ; preds = %lpad22, %lpad18, %lpad2
   %.pn = phi { ptr, i32 } [ %11, %lpad2 ], [ %33, %lpad22 ], [ %32, %lpad18 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %bit) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %bit) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -18448,7 +18448,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #21
+  call void @__clang_call_terminate(ptr %41) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -18465,13 +18465,13 @@ terminate.lpad.i61:                               ; preds = %.noexc.i62, %_ZN8ra
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #21
+  call void @__clang_call_terminate(ptr %44) #23
   unreachable
 
 lpad50:                                           ; preds = %invoke.cont49
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48) #21
   br label %ehcleanup95
 
 if.end53:                                         ; preds = %.noexc.i62, %invoke.cont43
@@ -18540,7 +18540,7 @@ terminate.lpad.i109:                              ; preds = %.noexc.i110, %invok
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #21
+  call void @__clang_call_terminate(ptr %61) #23
   unreachable
 
 _ZN8rationalD2Ev.exit112:                         ; preds = %.noexc.i110
@@ -18557,13 +18557,13 @@ terminate.lpad.i113:                              ; preds = %.noexc.i114, %_ZN8r
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #21
+  call void @__clang_call_terminate(ptr %64) #23
   unreachable
 
 lpad59:                                           ; preds = %invoke.cont58
   %65 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #21
   br label %ehcleanup95
 
 if.end62:                                         ; preds = %.noexc.i114, %if.end53
@@ -18687,7 +18687,7 @@ lpad64:                                           ; preds = %invoke.cont63
 lpad73:                                           ; preds = %if.then2.i.i.i158, %if.else.i.i.i.i138, %if.else.i.i.i.i.i.i, %if.then2.i.i.i135, %if.else.i.i, %if.else.i.i.i.i
   %83 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r) #21
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont65
@@ -18804,7 +18804,7 @@ terminate.lpad.i161:                              ; preds = %.noexc.i162, %if.en
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #21
+  call void @__clang_call_terminate(ptr %100) #23
   unreachable
 
 _ZN8rationalD2Ev.exit164:                         ; preds = %.noexc.i162
@@ -18821,12 +18821,12 @@ terminate.lpad.i165:                              ; preds = %.noexc.i166, %_ZN8r
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #21
+  call void @__clang_call_terminate(ptr %103) #23
   unreachable
 
 ehcleanup:                                        ; preds = %lpad73, %lpad64
   %.pn = phi { ptr, i32 } [ %83, %lpad73 ], [ %82, %lpad64 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %lim) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %lim) #21
   br label %ehcleanup95
 
 cleanup.sink.split:                               ; preds = %if.then.i.i.i51, %if.end.i49, %if.then2.i.i.i56, %if.then.i.i.i, %if.end.i, %if.then2.i.i.i
@@ -18848,7 +18848,7 @@ terminate.lpad.i169:                              ; preds = %.noexc.i170, %clean
   %105 = landingpad { ptr, i32 }
           catch ptr null
   %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #21
+  call void @__clang_call_terminate(ptr %106) #23
   unreachable
 
 _ZN8rationalD2Ev.exit172:                         ; preds = %.noexc.i170
@@ -18864,7 +18864,7 @@ terminate.lpad.i173:                              ; preds = %.noexc.i174, %_ZN8r
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  call void @__clang_call_terminate(ptr %109) #21
+  call void @__clang_call_terminate(ptr %109) #23
   unreachable
 
 _ZN8rationalD2Ev.exit176:                         ; preds = %.noexc.i174
@@ -18872,8 +18872,8 @@ _ZN8rationalD2Ev.exit176:                         ; preds = %.noexc.i174
 
 ehcleanup95:                                      ; preds = %ehcleanup, %lpad59, %lpad50, %lpad2
   %.pn12 = phi { ptr, i32 } [ %13, %lpad2 ], [ %.pn, %ehcleanup ], [ %65, %lpad59 ], [ %45, %lpad50 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a1_val) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a0_val) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a1_val) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a0_val) #21
   resume { ptr, i32 } %.pn12
 }
 
@@ -19156,7 +19156,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #21
+  call void @__clang_call_terminate(ptr %38) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -19172,7 +19172,7 @@ terminate.lpad.i76:                               ; preds = %.noexc.i77, %_ZN8ra
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #21
+  call void @__clang_call_terminate(ptr %41) #23
   unreachable
 
 lpad35:                                           ; preds = %invoke.cont34
@@ -19183,12 +19183,12 @@ lpad35:                                           ; preds = %invoke.cont34
 lpad38:                                           ; preds = %if.then2.i.i.i72, %if.else.i.i, %if.else.i.i.i.i
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %lim) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %lim) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad38, %lpad35
   %.pn = phi { ptr, i32 } [ %43, %lpad38 ], [ %42, %lpad35 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mr) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mr) #21
   br label %ehcleanup46
 
 cleanup.sink.split:                               ; preds = %if.then.i.i.i46, %if.end.i44, %if.then2.i.i.i51, %if.then.i.i.i, %if.end.i, %if.then2.i.i.i
@@ -19210,7 +19210,7 @@ terminate.lpad.i80:                               ; preds = %.noexc.i81, %cleanu
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #21
+  call void @__clang_call_terminate(ptr %46) #23
   unreachable
 
 _ZN8rationalD2Ev.exit83:                          ; preds = %.noexc.i81
@@ -19226,7 +19226,7 @@ terminate.lpad.i84:                               ; preds = %.noexc.i85, %_ZN8ra
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #21
+  call void @__clang_call_terminate(ptr %49) #23
   unreachable
 
 _ZN8rationalD2Ev.exit87:                          ; preds = %.noexc.i85
@@ -19234,8 +19234,8 @@ _ZN8rationalD2Ev.exit87:                          ; preds = %.noexc.i85
 
 ehcleanup46:                                      ; preds = %ehcleanup, %lpad2
   %.pn7 = phi { ptr, i32 } [ %12, %lpad2 ], [ %.pn, %ehcleanup ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a1_val) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a0_val) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a1_val) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a0_val) #21
   resume { ptr, i32 } %.pn7
 }
 
@@ -19360,11 +19360,11 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %entry
@@ -19389,7 +19389,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #21
+  call void @__clang_call_terminate(ptr %7) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -19415,7 +19415,7 @@ terminate.lpad.i12:                               ; preds = %.noexc.i13, %invoke
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #21
+  call void @__clang_call_terminate(ptr %10) #23
   unreachable
 
 _ZN8rationalD2Ev.exit15:                          ; preds = %.noexc.i13
@@ -19432,7 +19432,7 @@ terminate.lpad.i16:                               ; preds = %.noexc.i17, %_ZN8ra
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #21
+  call void @__clang_call_terminate(ptr %13) #23
   unreachable
 
 _ZN8rationalD2Ev.exit19:                          ; preds = %.noexc.i17
@@ -19489,13 +19489,13 @@ lpad5:                                            ; preds = %_ZN8rationalD2Ev.ex
 lpad7:                                            ; preds = %invoke.cont6
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #21
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad5, %lpad7, %lpad
   %ref.tmp4.sink = phi ptr [ %ref.tmp, %lpad ], [ %ref.tmp4, %lpad7 ], [ %ref.tmp4, %lpad5 ]
   %.pn.pn = phi { ptr, i32 } [ %22, %lpad ], [ %24, %lpad7 ], [ %23, %lpad5 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.sink) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.sink) #21
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -19519,11 +19519,11 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %entry
@@ -19580,7 +19580,7 @@ if.then2.i.i.i15.i:                               ; preds = %if.then.i.i.i10.i
 
 common.resume:                                    ; preds = %ehcleanup21, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %13, %lpad.i ], [ %.pn.pn, %ehcleanup21 ]
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %a1) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %a1) #21
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then2.i.i.i15.i, %call2.i.i.i.noexc, %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit
@@ -19721,7 +19721,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i18
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #21
+  call void @__clang_call_terminate(ptr %34) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont19, %if.then.i.i.i13, %if.then2.i.i.i18
@@ -19746,7 +19746,7 @@ terminate.lpad.i26:                               ; preds = %if.then2.i.i.i25
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #21
+  call void @__clang_call_terminate(ptr %39) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit27:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then.i.i.i20, %if.then2.i.i.i25
@@ -19771,7 +19771,7 @@ terminate.lpad.i35:                               ; preds = %if.then2.i.i.i34
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #21
+  call void @__clang_call_terminate(ptr %44) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit36:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit27, %if.then.i.i.i29, %if.then2.i.i.i34
@@ -19785,12 +19785,12 @@ lpad4:                                            ; preds = %invoke.cont
 lpad10:                                           ; preds = %if.then2.i.i.i, %invoke.cont15, %invoke.cont13, %invoke.cont9
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %r) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %r) #21
   br label %ehcleanup21
 
 ehcleanup21:                                      ; preds = %lpad4, %lpad10, %lpad.i8
   %.pn.pn = phi { ptr, i32 } [ %22, %lpad.i8 ], [ %46, %lpad10 ], [ %45, %lpad4 ]
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %a2) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %a2) #21
   br label %common.resume
 }
 
@@ -19872,7 +19872,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i9
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #21
+  tail call void @__clang_call_terminate(ptr %11) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont14, %if.then.i.i.i4, %if.then2.i.i.i9
@@ -19896,7 +19896,7 @@ terminate.lpad.i17:                               ; preds = %if.then2.i.i.i16
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #21
+  tail call void @__clang_call_terminate(ptr %15) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit18:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then.i.i.i11, %if.then2.i.i.i16
@@ -19905,8 +19905,8 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit18:       ; preds = %_ZN7obj_refI4expr11
 lpad3:                                            ; preds = %if.then2.i.i.i, %invoke.cont5, %invoke.cont4, %entry
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %l2) #19
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %l1) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %l2) #21
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %l1) #21
   resume { ptr, i32 } %16
 }
 
@@ -19975,11 +19975,11 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %entry
@@ -20004,7 +20004,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #21
+  call void @__clang_call_terminate(ptr %7) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -20102,7 +20102,7 @@ terminate.lpad.i23:                               ; preds = %if.then2.i.i.i22
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #21
+  call void @__clang_call_terminate(ptr %26) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont25, %if.then.i.i.i17, %if.then2.i.i.i22
@@ -20111,13 +20111,13 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont25, %if.
 lpad:                                             ; preds = %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %eh.resume
 
 lpad5:                                            ; preds = %if.then2.i.i.i, %invoke.cont19, %invoke.cont14, %invoke.cont11, %invoke.cont8, %_ZN8rationalD2Ev.exit, %invoke.cont6
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %bvsaddo) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %bvsaddo) #21
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad5, %lpad
@@ -20306,7 +20306,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #21
+  call void @__clang_call_terminate(ptr %22) #23
   unreachable
 
 if.end18:                                         ; preds = %.noexc.i, %if.end
@@ -20371,7 +20371,7 @@ terminate.lpad.i157:                              ; preds = %.noexc.i158, %invok
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #21
+  call void @__clang_call_terminate(ptr %38) #23
   unreachable
 
 if.end26:                                         ; preds = %.noexc.i158
@@ -20562,7 +20562,7 @@ terminate.lpad.i239:                              ; preds = %.noexc.i240, %invok
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #21
+  call void @__clang_call_terminate(ptr %66) #23
   unreachable
 
 _ZN8rationalD2Ev.exit242:                         ; preds = %.noexc.i240
@@ -20579,7 +20579,7 @@ terminate.lpad.i243:                              ; preds = %.noexc.i244, %_ZN8r
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #21
+  call void @__clang_call_terminate(ptr %69) #23
   unreachable
 
 _ZN8rationalD2Ev.exit246:                         ; preds = %.noexc.i244
@@ -20667,7 +20667,7 @@ terminate.lpad.i301:                              ; preds = %.noexc.i302, %invok
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #21
+  call void @__clang_call_terminate(ptr %86) #23
   unreachable
 
 _ZN8rationalD2Ev.exit304:                         ; preds = %.noexc.i302
@@ -20683,7 +20683,7 @@ terminate.lpad.i305:                              ; preds = %.noexc.i306, %_ZN8r
   %88 = landingpad { ptr, i32 }
           catch ptr null
   %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #21
+  call void @__clang_call_terminate(ptr %89) #23
   unreachable
 
 _ZN8rationalD2Ev.exit308:                         ; preds = %.noexc.i306
@@ -20700,7 +20700,7 @@ terminate.lpad.i309:                              ; preds = %.noexc.i310, %_ZN8r
   %91 = landingpad { ptr, i32 }
           catch ptr null
   %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #21
+  call void @__clang_call_terminate(ptr %92) #23
   unreachable
 
 lpad48.loopexit:                                  ; preds = %while.body
@@ -20716,7 +20716,7 @@ lpad48.loopexit.split-lp:                         ; preds = %if.then45, %_ZN8rat
 lpad50:                                           ; preds = %invoke.cont49
   %93 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #21
   br label %ehcleanup391
 
 lpad58:                                           ; preds = %invoke.cont56
@@ -20727,12 +20727,12 @@ lpad58:                                           ; preds = %invoke.cont56
 lpad60:                                           ; preds = %invoke.cont59
   %95 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad60, %lpad58
   %.pn66 = phi { ptr, i32 } [ %95, %lpad60 ], [ %94, %lpad58 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54) #21
   br label %ehcleanup391
 
 if.else:                                          ; preds = %if.then43
@@ -20803,7 +20803,7 @@ terminate.lpad.i368:                              ; preds = %.noexc.i369, %invok
   %109 = landingpad { ptr, i32 }
           catch ptr null
   %110 = extractvalue { ptr, i32 } %109, 0
-  call void @__clang_call_terminate(ptr %110) #21
+  call void @__clang_call_terminate(ptr %110) #23
   unreachable
 
 _ZN8rationalD2Ev.exit371:                         ; preds = %.noexc.i369
@@ -20890,7 +20890,7 @@ terminate.lpad.i427:                              ; preds = %.noexc.i428, %invok
   %126 = landingpad { ptr, i32 }
           catch ptr null
   %127 = extractvalue { ptr, i32 } %126, 0
-  call void @__clang_call_terminate(ptr %127) #21
+  call void @__clang_call_terminate(ptr %127) #23
   unreachable
 
 _ZN8rationalD2Ev.exit430:                         ; preds = %.noexc.i428
@@ -20906,7 +20906,7 @@ terminate.lpad.i431:                              ; preds = %.noexc.i432, %_ZN8r
   %129 = landingpad { ptr, i32 }
           catch ptr null
   %130 = extractvalue { ptr, i32 } %129, 0
-  call void @__clang_call_terminate(ptr %130) #21
+  call void @__clang_call_terminate(ptr %130) #23
   unreachable
 
 _ZN8rationalD2Ev.exit434:                         ; preds = %.noexc.i432
@@ -20923,7 +20923,7 @@ terminate.lpad.i435:                              ; preds = %.noexc.i436, %_ZN8r
   %132 = landingpad { ptr, i32 }
           catch ptr null
   %133 = extractvalue { ptr, i32 } %132, 0
-  call void @__clang_call_terminate(ptr %133) #21
+  call void @__clang_call_terminate(ptr %133) #23
   unreachable
 
 lpad70:                                           ; preds = %invoke.cont68
@@ -20934,12 +20934,12 @@ lpad70:                                           ; preds = %invoke.cont68
 lpad72:                                           ; preds = %invoke.cont71
   %135 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69) #21
   br label %ehcleanup76
 
 ehcleanup76:                                      ; preds = %lpad72, %lpad70
   %.pn = phi { ptr, i32 } [ %135, %lpad72 ], [ %134, %lpad70 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #21
   br label %ehcleanup391
 
 if.end78:                                         ; preds = %.noexc.i436, %.noexc.i310, %invoke.cont40
@@ -21420,7 +21420,7 @@ land.lhs.true150:                                 ; preds = %invoke.cont148
           to label %invoke.cont158 unwind label %lpad140
 
 invoke.cont158:                                   ; preds = %land.lhs.true150
-  %call156 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalaSEOS_(ptr noundef nonnull align 8 dereferenceable(32) %r1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp151) #19
+  %call156 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalaSEOS_(ptr noundef nonnull align 8 dereferenceable(32) %r1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp151) #21
   %196 = load i32, ptr %r1, align 8
   %cmp.i.i.i.i625 = icmp sgt i32 %196, 0
   %197 = load i32, ptr %r2, align 8
@@ -21472,7 +21472,7 @@ terminate.lpad.i628:                              ; preds = %.noexc.i629, %clean
   %202 = landingpad { ptr, i32 }
           catch ptr null
   %203 = extractvalue { ptr, i32 } %202, 0
-  call void @__clang_call_terminate(ptr %203) #21
+  call void @__clang_call_terminate(ptr %203) #23
   unreachable
 
 _ZN8rationalD2Ev.exit631:                         ; preds = %.noexc.i629
@@ -21489,7 +21489,7 @@ terminate.lpad.i632:                              ; preds = %.noexc.i633, %_ZN8r
   %205 = landingpad { ptr, i32 }
           catch ptr null
   %206 = extractvalue { ptr, i32 } %205, 0
-  call void @__clang_call_terminate(ptr %206) #21
+  call void @__clang_call_terminate(ptr %206) #23
   unreachable
 
 _ZN8rationalD2Ev.exit635:                         ; preds = %.noexc.i633
@@ -21506,7 +21506,7 @@ terminate.lpad.i636:                              ; preds = %.noexc.i637, %_ZN8r
   %208 = landingpad { ptr, i32 }
           catch ptr null
   %209 = extractvalue { ptr, i32 } %208, 0
-  call void @__clang_call_terminate(ptr %209) #21
+  call void @__clang_call_terminate(ptr %209) #23
   unreachable
 
 cleanup.action208:                                ; preds = %.noexc.i637, %invoke.cont170
@@ -21524,7 +21524,7 @@ terminate.lpad.i640:                              ; preds = %.noexc.i641, %clean
   %212 = landingpad { ptr, i32 }
           catch ptr null
   %213 = extractvalue { ptr, i32 } %212, 0
-  call void @__clang_call_terminate(ptr %213) #21
+  call void @__clang_call_terminate(ptr %213) #23
   unreachable
 
 cleanup.action215:                                ; preds = %.noexc.i641, %invoke.cont158
@@ -21542,7 +21542,7 @@ terminate.lpad.i644:                              ; preds = %.noexc.i645, %clean
   %216 = landingpad { ptr, i32 }
           catch ptr null
   %217 = extractvalue { ptr, i32 } %216, 0
-  call void @__clang_call_terminate(ptr %217) #21
+  call void @__clang_call_terminate(ptr %217) #23
   unreachable
 
 cleanup.action222:                                ; preds = %.noexc.i645, %invoke.cont139, %invoke.cont141, %invoke.cont145, %invoke.cont148
@@ -21560,7 +21560,7 @@ terminate.lpad.i648:                              ; preds = %.noexc.i649, %clean
   %220 = landingpad { ptr, i32 }
           catch ptr null
   %221 = extractvalue { ptr, i32 } %220, 0
-  call void @__clang_call_terminate(ptr %221) #21
+  call void @__clang_call_terminate(ptr %221) #23
   unreachable
 
 cleanup.done223:                                  ; preds = %.noexc.i649
@@ -21631,7 +21631,7 @@ terminate.lpad.i667:                              ; preds = %.noexc.i668, %invok
   %230 = landingpad { ptr, i32 }
           catch ptr null
   %231 = extractvalue { ptr, i32 } %230, 0
-  call void @__clang_call_terminate(ptr %231) #21
+  call void @__clang_call_terminate(ptr %231) #23
   unreachable
 
 _ZN8rationalD2Ev.exit670:                         ; preds = %.noexc.i668
@@ -21648,7 +21648,7 @@ terminate.lpad.i671:                              ; preds = %.noexc.i672, %_ZN8r
   %233 = landingpad { ptr, i32 }
           catch ptr null
   %234 = extractvalue { ptr, i32 } %233, 0
-  call void @__clang_call_terminate(ptr %234) #21
+  call void @__clang_call_terminate(ptr %234) #23
   unreachable
 
 lpad140:                                          ; preds = %land.lhs.true147, %land.lhs.true150, %land.lhs.true143
@@ -21679,32 +21679,32 @@ lpad183:                                          ; preds = %invoke.cont179
 lpad186:                                          ; preds = %invoke.cont184
   %240 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp181) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp181) #21
   br label %cleanup.action198
 
 cleanup.action198:                                ; preds = %lpad183, %lpad186
   %.pn68 = phi { ptr, i32 } [ %240, %lpad186 ], [ %239, %lpad183 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp172) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp172) #21
   br label %cleanup.action205
 
 cleanup.action205:                                ; preds = %lpad176, %cleanup.action198
   %.pn68.pn = phi { ptr, i32 } [ %.pn68, %cleanup.action198 ], [ %238, %lpad176 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp173) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp173) #21
   br label %cleanup.action212
 
 cleanup.action212:                                ; preds = %lpad169, %cleanup.action205
   %.pn68.pn.pn = phi { ptr, i32 } [ %.pn68.pn, %cleanup.action205 ], [ %237, %lpad169 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp166) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp166) #21
   br label %cleanup.action219
 
 cleanup.action219:                                ; preds = %lpad157, %cleanup.action212
   %.pn68.pn.pn.pn = phi { ptr, i32 } [ %.pn68.pn.pn, %cleanup.action212 ], [ %236, %lpad157 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp151) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp151) #21
   br label %cleanup.action226
 
 cleanup.action226:                                ; preds = %lpad140, %cleanup.action219
   %.pn68.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn68.pn.pn.pn, %cleanup.action219 ], [ %235, %lpad140 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp136) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp136) #21
   br label %ehcleanup391
 
 lpad234:                                          ; preds = %invoke.cont233
@@ -21715,12 +21715,12 @@ lpad234:                                          ; preds = %invoke.cont233
 lpad238:                                          ; preds = %if.then2.i.i.i664, %invoke.cont239, %invoke.cont237
   %242 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp231) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp231) #21
   br label %ehcleanup246
 
 ehcleanup246:                                     ; preds = %lpad238, %lpad234
   %.pn76 = phi { ptr, i32 } [ %242, %lpad238 ], [ %241, %lpad234 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp232) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp232) #21
   br label %ehcleanup391
 
 if.end247:                                        ; preds = %if.end120
@@ -21793,8 +21793,8 @@ invoke.cont269:                                   ; preds = %invoke.cont267
           to label %invoke.cont271 unwind label %lpad266
 
 invoke.cont271:                                   ; preds = %invoke.cont269
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp261) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp262) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp261) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp262) #21
   %call276 = invoke noundef zeroext i1 @_ZgtRK8rationalS1_(ptr noundef nonnull align 8 dereferenceable(32) %r1, ptr noundef nonnull align 8 dereferenceable(32) %r2)
           to label %invoke.cont275 unwind label %lpad48.loopexit.split-lp
 
@@ -21827,7 +21827,7 @@ invoke.cont290:                                   ; preds = %invoke.cont288
           to label %invoke.cont292 unwind label %lpad285
 
 invoke.cont292:                                   ; preds = %invoke.cont290
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp283) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp283) #21
   br label %cleanup
 
 lpad264:                                          ; preds = %invoke.cont263
@@ -21838,18 +21838,18 @@ lpad264:                                          ; preds = %invoke.cont263
 lpad266:                                          ; preds = %invoke.cont267, %invoke.cont269, %invoke.cont265
   %261 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp261) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp261) #21
   br label %ehcleanup274
 
 ehcleanup274:                                     ; preds = %lpad266, %lpad264
   %.pn74 = phi { ptr, i32 } [ %261, %lpad266 ], [ %260, %lpad264 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp262) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp262) #21
   br label %ehcleanup391
 
 lpad285:                                          ; preds = %invoke.cont288, %invoke.cont286, %invoke.cont290, %invoke.cont284
   %262 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp283) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp283) #21
   br label %ehcleanup391
 
 if.else295:                                       ; preds = %invoke.cont275
@@ -21885,13 +21885,13 @@ invoke.cont311:                                   ; preds = %invoke.cont309
           to label %invoke.cont313 unwind label %lpad306
 
 invoke.cont313:                                   ; preds = %invoke.cont311
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp304) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp304) #21
   br label %cleanup
 
 lpad306:                                          ; preds = %invoke.cont309, %invoke.cont307, %invoke.cont311, %invoke.cont305
   %268 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp304) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp304) #21
   br label %ehcleanup391
 
 if.end318:                                        ; preds = %if.end120.thread, %land.rhs.i.i.i680, %land.lhs.true251, %_ZNK14bv_recognizers9is_bv_addEPK4expr.exit.i684, %land.lhs.true.i688, %land.rhs.i.i.i, %land.lhs.true124, %_ZNK14bv_recognizers9is_bv_addEPK4expr.exit.i, %land.lhs.true.i, %invoke.cont133, %invoke.cont130, %land.lhs.true122, %cleanup.done223, %if.end247, %invoke.cont256
@@ -21944,11 +21944,11 @@ call.i.noexc:                                     ; preds = %if.then340
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK7bv_util11get_bv_sizeEPK4expr.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %call.i.noexc
-  %exception.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %.noexc709 unwind label %lpad48.loopexit.split-lp
 
 .noexc709:                                        ; preds = %if.then.i.i.i.i.i
@@ -22047,7 +22047,7 @@ terminate.lpad.i725:                              ; preds = %.noexc.i726, %clean
   %281 = landingpad { ptr, i32 }
           catch ptr null
   %282 = extractvalue { ptr, i32 } %281, 0
-  call void @__clang_call_terminate(ptr %282) #21
+  call void @__clang_call_terminate(ptr %282) #23
   unreachable
 
 _ZN8rationalD2Ev.exit728:                         ; preds = %.noexc.i726
@@ -22063,13 +22063,13 @@ terminate.lpad.i729:                              ; preds = %.noexc.i730, %_ZN8r
   %284 = landingpad { ptr, i32 }
           catch ptr null
   %285 = extractvalue { ptr, i32 } %284, 0
-  call void @__clang_call_terminate(ptr %285) #21
+  call void @__clang_call_terminate(ptr %285) #23
   unreachable
 
 ehcleanup391:                                     ; preds = %lpad48.loopexit, %lpad48.loopexit.split-lp, %cleanup.action226, %lpad306, %lpad285, %ehcleanup274, %ehcleanup246, %ehcleanup76, %ehcleanup, %lpad50
   %.pn78 = phi { ptr, i32 } [ %.pn76, %ehcleanup246 ], [ %262, %lpad285 ], [ %268, %lpad306 ], [ %.pn74, %ehcleanup274 ], [ %.pn68.pn.pn.pn.pn, %cleanup.action226 ], [ %.pn66, %ehcleanup ], [ %93, %lpad50 ], [ %.pn, %ehcleanup76 ], [ %lpad.loopexit, %lpad48.loopexit ], [ %lpad.loopexit.split-lp, %lpad48.loopexit.split-lp ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %upper) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %lower) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %upper) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %lower) #21
   br label %ehcleanup395
 
 cleanup394.sink.split:                            ; preds = %if.then.i.i.i169, %if.end.i167, %if.then2.i.i.i174, %if.then.i.i.i, %if.end.i, %if.then2.i.i.i
@@ -22091,7 +22091,7 @@ terminate.lpad.i733:                              ; preds = %.noexc.i734, %clean
   %287 = landingpad { ptr, i32 }
           catch ptr null
   %288 = extractvalue { ptr, i32 } %287, 0
-  call void @__clang_call_terminate(ptr %288) #21
+  call void @__clang_call_terminate(ptr %288) #23
   unreachable
 
 _ZN8rationalD2Ev.exit736:                         ; preds = %.noexc.i734
@@ -22107,7 +22107,7 @@ terminate.lpad.i737:                              ; preds = %.noexc.i738, %_ZN8r
   %290 = landingpad { ptr, i32 }
           catch ptr null
   %291 = extractvalue { ptr, i32 } %290, 0
-  call void @__clang_call_terminate(ptr %291) #21
+  call void @__clang_call_terminate(ptr %291) #23
   unreachable
 
 _ZN8rationalD2Ev.exit740:                         ; preds = %.noexc.i738
@@ -22123,7 +22123,7 @@ terminate.lpad.i741:                              ; preds = %.noexc.i742, %_ZN8r
   %293 = landingpad { ptr, i32 }
           catch ptr null
   %294 = extractvalue { ptr, i32 } %293, 0
-  call void @__clang_call_terminate(ptr %294) #21
+  call void @__clang_call_terminate(ptr %294) #23
   unreachable
 
 _ZN8rationalD2Ev.exit744:                         ; preds = %.noexc.i742
@@ -22131,9 +22131,9 @@ _ZN8rationalD2Ev.exit744:                         ; preds = %.noexc.i742
 
 ehcleanup395:                                     ; preds = %ehcleanup391, %lpad4
   %.pn81 = phi { ptr, i32 } [ %6, %lpad4 ], [ %.pn78, %ehcleanup391 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r3) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r3) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #21
   resume { ptr, i32 } %.pn81
 }
 
@@ -22656,11 +22656,11 @@ entry:
   br i1 %cmp.not.i.i.i.i, label %_ZNK7bv_util11get_bv_sizeEPK4sort.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %exception.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK7bv_util11get_bv_sizeEPK4sort.exit:           ; preds = %entry
@@ -22744,11 +22744,11 @@ call.i.noexc:                                     ; preds = %if.end7
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont8, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %call.i.noexc
-  %exception.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %.noexc unwind label %lpad4
 
 .noexc:                                           ; preds = %if.then.i.i.i.i.i
@@ -22957,13 +22957,13 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #21
+  call void @__clang_call_terminate(ptr %32) #23
   unreachable
 
 lpad25:                                           ; preds = %if.then2.i.i.i62, %invoke.cont26, %invoke.cont24
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup96
 
 if.end32:                                         ; preds = %call4.i.i.i.i.noexc46, %if.then.i.i.i.i44, %invoke.cont19
@@ -22988,7 +22988,7 @@ terminate.lpad.i66:                               ; preds = %.noexc.i67, %invoke
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #21
+  call void @__clang_call_terminate(ptr %36) #23
   unreachable
 
 _ZN8rationalD2Ev.exit69:                          ; preds = %.noexc.i67
@@ -23017,7 +23017,7 @@ terminate.lpad.i70:                               ; preds = %.noexc.i71, %invoke
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #21
+  call void @__clang_call_terminate(ptr %39) #23
   unreachable
 
 _ZN8rationalD2Ev.exit73:                          ; preds = %.noexc.i71
@@ -23034,7 +23034,7 @@ terminate.lpad.i74:                               ; preds = %.noexc.i75, %_ZN8ra
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #21
+  call void @__clang_call_terminate(ptr %42) #23
   unreachable
 
 _ZN8rationalD2Ev.exit77:                          ; preds = %.noexc.i75
@@ -23143,7 +23143,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit128:   ; preds = %if.then2.i.i.i126, 
 lpad35:                                           ; preds = %invoke.cont34
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #21
   br label %ehcleanup96
 
 lpad39:                                           ; preds = %_ZN8rationalD2Ev.exit69
@@ -23159,18 +23159,18 @@ lpad41:                                           ; preds = %invoke.cont40
 lpad43:                                           ; preds = %invoke.cont42
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad43, %lpad41
   %.pn = phi { ptr, i32 } [ %57, %lpad43 ], [ %56, %lpad41 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #21
   br label %ehcleanup95
 
 lpad47:                                           ; preds = %invoke.cont86.invoke, %invoke.cont88.invoke, %invoke.cont84, %invoke.cont79, %invoke.cont75, %if.else72, %if.then62, %if.then2.i.i.i126, %invoke.cont54, %if.then50, %if.else.i.i7.i.i91, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i82
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %upper) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %upper) #21
   br label %ehcleanup95
 
 invoke.cont60:                                    ; preds = %if.then.i.i.i.i105, %call4.i.i.i.i.noexc107, %invoke.cont48, %if.then.i.i16.i.i98
@@ -23240,7 +23240,7 @@ terminate.lpad.i153:                              ; preds = %.noexc.i154, %if.en
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #21
+  call void @__clang_call_terminate(ptr %79) #23
   unreachable
 
 _ZN8rationalD2Ev.exit156:                         ; preds = %.noexc.i154
@@ -23257,12 +23257,12 @@ terminate.lpad.i157:                              ; preds = %.noexc.i158, %_ZN8r
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #21
+  call void @__clang_call_terminate(ptr %82) #23
   unreachable
 
 ehcleanup95:                                      ; preds = %lpad47, %ehcleanup, %lpad39
   %.pn14 = phi { ptr, i32 } [ %58, %lpad47 ], [ %.pn, %ehcleanup ], [ %55, %lpad39 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %lower) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %lower) #21
   br label %ehcleanup96
 
 cleanup:                                          ; preds = %.noexc.i158, %.noexc.i, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %invoke.cont5
@@ -23279,7 +23279,7 @@ terminate.lpad.i161:                              ; preds = %.noexc.i162, %clean
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #21
+  call void @__clang_call_terminate(ptr %85) #23
   unreachable
 
 _ZN8rationalD2Ev.exit164:                         ; preds = %.noexc.i162
@@ -23295,7 +23295,7 @@ terminate.lpad.i165:                              ; preds = %.noexc.i166, %_ZN8r
   %87 = landingpad { ptr, i32 }
           catch ptr null
   %88 = extractvalue { ptr, i32 } %87, 0
-  call void @__clang_call_terminate(ptr %88) #21
+  call void @__clang_call_terminate(ptr %88) #23
   unreachable
 
 _ZN8rationalD2Ev.exit168:                         ; preds = %.noexc.i166
@@ -23320,14 +23320,14 @@ terminate.lpad.i175:                              ; preds = %if.then2.i.i.i174
   %92 = landingpad { ptr, i32 }
           catch ptr null
   %93 = extractvalue { ptr, i32 } %92, 0
-  call void @__clang_call_terminate(ptr %93) #21
+  call void @__clang_call_terminate(ptr %93) #23
   unreachable
 
 ehcleanup96:                                      ; preds = %ehcleanup95, %lpad35, %lpad25, %lpad4
   %.pn16 = phi { ptr, i32 } [ %1, %lpad4 ], [ %33, %lpad25 ], [ %.pn14, %ehcleanup95 ], [ %54, %lpad35 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %b0_val) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a0_val) #19
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %common) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %b0_val) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a0_val) #21
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %common) #21
   resume { ptr, i32 } %.pn16
 
 return:                                           ; preds = %if.then2.i.i.i174, %if.then.i.i.i169, %_ZN8rationalD2Ev.exit168, %entry
@@ -23550,7 +23550,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #21
+  call void @__clang_call_terminate(ptr %15) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -23559,7 +23559,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 lpad:                                             ; preds = %if.else.i.i7.i.i24, %if.else.i.i.i.i17, %if.else.i.i, %.noexc, %if.then.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   resume { ptr, i32 } %16
 }
 
@@ -23582,7 +23582,7 @@ terminate.lpad:                                   ; preds = %.noexc, %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #23
   unreachable
 }
 
@@ -23616,7 +23616,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #21
+  tail call void @__clang_call_terminate(ptr %4) #23
   unreachable
 }
 
@@ -23777,14 +23777,14 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #21
+  call void @__clang_call_terminate(ptr %20) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   br i1 %cmp, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %_ZN8rationalD2Ev.exit
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #21
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %_ZN8rationalD2Ev.exit
@@ -23823,14 +23823,14 @@ terminate.lpad.i106:                              ; preds = %.noexc.i107, %invok
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #21
+  call void @__clang_call_terminate(ptr %24) #23
   unreachable
 
 _ZN8rationalD2Ev.exit109:                         ; preds = %.noexc.i107
   br i1 %cmp38, label %cleanup.action55, label %cleanup.done56
 
 cleanup.action55:                                 ; preds = %_ZN8rationalD2Ev.exit109
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #21
   br label %cleanup.done56
 
 cleanup.done56:                                   ; preds = %cleanup.action55, %_ZN8rationalD2Ev.exit109
@@ -23917,7 +23917,7 @@ lpad27:                                           ; preds = %cond.false, %invoke
 lpad31:                                           ; preds = %cond.end
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad31, %lpad27
@@ -23925,7 +23925,7 @@ ehcleanup:                                        ; preds = %lpad31, %lpad27
   br i1 %cmp, label %cleanup.action34, label %ehcleanup169
 
 cleanup.action34:                                 ; preds = %ehcleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #21
   br label %ehcleanup169
 
 lpad42:                                           ; preds = %cond.true39
@@ -23941,7 +23941,7 @@ lpad45:                                           ; preds = %cond.false47, %invo
 lpad51:                                           ; preds = %cond.end49
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #21
   br label %ehcleanup57
 
 ehcleanup57:                                      ; preds = %lpad51, %lpad45
@@ -23949,7 +23949,7 @@ ehcleanup57:                                      ; preds = %lpad51, %lpad45
   br i1 %cmp38, label %cleanup.action59, label %ehcleanup166
 
 cleanup.action59:                                 ; preds = %ehcleanup57
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #21
   br label %ehcleanup166
 
 lpad61:                                           ; preds = %if.else.i.i7.i.i.i, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i, %invoke.cont65, %if.then64
@@ -24079,7 +24079,7 @@ lpad87.loopexit.split-lp:                         ; preds = %invoke.cont88, %for
 
 lpad87:                                           ; preds = %lpad87.loopexit.split-lp, %lpad87.loopexit
   %lpad.phi256 = phi { ptr, i32 } [ %lpad.loopexit254, %lpad87.loopexit ], [ %lpad.loopexit.split-lp255, %lpad87.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #21
   br label %ehcleanup162
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
@@ -24093,7 +24093,7 @@ invoke.cont100:                                   ; preds = %for.end
           to label %invoke.cont102 unwind label %lpad87.loopexit.split-lp
 
 invoke.cont102:                                   ; preds = %invoke.cont100
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #21
   br label %if.end113
 
 if.else:                                          ; preds = %if.end77
@@ -24226,7 +24226,7 @@ lpad119.loopexit.split-lp:                        ; preds = %invoke.cont120, %fo
 
 lpad119:                                          ; preds = %lpad119.loopexit.split-lp, %lpad119.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad119.loopexit ], [ %lpad.loopexit.split-lp, %lpad119.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args116) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args116) #21
   br label %ehcleanup162
 
 for.end133:                                       ; preds = %for.inc131, %for.cond124.preheader
@@ -24240,7 +24240,7 @@ invoke.cont138:                                   ; preds = %for.end133
           to label %invoke.cont140 unwind label %lpad119.loopexit.split-lp
 
 invoke.cont140:                                   ; preds = %invoke.cont138
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args116) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args116) #21
   br label %if.end152
 
 if.else143:                                       ; preds = %if.end113
@@ -24267,14 +24267,14 @@ invoke.cont158:                                   ; preds = %if.end152
           to label %invoke.cont160 unwind label %lpad106
 
 invoke.cont160:                                   ; preds = %invoke.cont158
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_b) #19
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_a) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_b) #21
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_a) #21
   br label %cleanup
 
 ehcleanup162:                                     ; preds = %lpad119, %lpad106, %lpad87
   %.pn66 = phi { ptr, i32 } [ %lpad.phi256, %lpad87 ], [ %lpad.phi, %lpad119 ], [ %50, %lpad106 ]
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_b) #19
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_a) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_b) #21
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_a) #21
   br label %ehcleanup164
 
 cleanup:                                          ; preds = %invoke.cont65, %invoke.cont160
@@ -24292,7 +24292,7 @@ terminate.lpad.i168:                              ; preds = %.noexc.i169, %clean
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #21
+  call void @__clang_call_terminate(ptr %68) #23
   unreachable
 
 _ZN8rationalD2Ev.exit171:                         ; preds = %.noexc.i169
@@ -24309,17 +24309,17 @@ terminate.lpad.i172:                              ; preds = %.noexc.i173, %_ZN8r
   %70 = landingpad { ptr, i32 }
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #21
+  call void @__clang_call_terminate(ptr %71) #23
   unreachable
 
 ehcleanup164:                                     ; preds = %ehcleanup162, %lpad61
   %.pn68 = phi { ptr, i32 } [ %37, %lpad61 ], [ %.pn66, %ehcleanup162 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %hi_bf) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %hi_bf) #21
   br label %ehcleanup166
 
 ehcleanup166:                                     ; preds = %ehcleanup57, %cleanup.action59, %ehcleanup164, %lpad42
   %.pn68.pn = phi { ptr, i32 } [ %.pn68, %ehcleanup164 ], [ %.pn64, %cleanup.action59 ], [ %.pn64, %ehcleanup57 ], [ %34, %lpad42 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %hi_af) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %hi_af) #21
   br label %ehcleanup169
 
 cleanup168:                                       ; preds = %.noexc.i173, %invoke.cont14, %invoke.cont19
@@ -24337,7 +24337,7 @@ terminate.lpad.i176:                              ; preds = %.noexc.i177, %clean
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #21
+  call void @__clang_call_terminate(ptr %74) #23
   unreachable
 
 _ZN8rationalD2Ev.exit179:                         ; preds = %.noexc.i177
@@ -24353,7 +24353,7 @@ terminate.lpad.i180:                              ; preds = %.noexc.i181, %_ZN8r
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #21
+  call void @__clang_call_terminate(ptr %77) #23
   unreachable
 
 _ZN8rationalD2Ev.exit183:                         ; preds = %.noexc.i181
@@ -24361,8 +24361,8 @@ _ZN8rationalD2Ev.exit183:                         ; preds = %.noexc.i181
 
 ehcleanup169:                                     ; preds = %ehcleanup, %cleanup.action34, %ehcleanup166, %lpad11
   %.pn68.pn.pn = phi { ptr, i32 } [ %.pn68.pn, %ehcleanup166 ], [ %.pn, %cleanup.action34 ], [ %.pn, %ehcleanup ], [ %31, %lpad11 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %bf) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %af) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %bf) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %af) #21
   resume { ptr, i32 } %.pn68.pn.pn
 
 if.end172:                                        ; preds = %_ZN8rationalD2Ev.exit183, %if.end
@@ -24631,7 +24631,7 @@ entry:
 lpad:                                             ; preds = %.noexc, %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
+  tail call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   resume { ptr, i32 } %1
 
 nrvo.skipdtor:                                    ; preds = %.noexc
@@ -24846,7 +24846,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #23
   unreachable
 
 _ZN6bufferIP4exprLb0ELj16EED2Ev.exit:             ; preds = %entry, %if.end.i.i.i.i
@@ -24992,7 +24992,7 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %if.then.i.i8.i.i, %
 lpad:                                             ; preds = %_ZN8rationalC2ERKS_.exit
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
+  tail call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   resume { ptr, i32 } %4
 
 nrvo.skipdtor:                                    ; preds = %_ZN8rationalC2ERKS_.exit
@@ -25148,7 +25148,7 @@ entry:
 lpad:                                             ; preds = %.noexc, %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
+  tail call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   resume { ptr, i32 } %1
 
 nrvo.skipdtor:                                    ; preds = %.noexc
@@ -25276,7 +25276,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #21
+  call void @__clang_call_terminate(ptr %9) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -25285,7 +25285,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 lpad:                                             ; preds = %if.else.i.i7.i.i21, %if.else.i.i.i.i14, %_ZN8rationalC2ERKS_.exit
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   resume { ptr, i32 } %10
 }
 
@@ -25323,7 +25323,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #21
+  call void @__clang_call_terminate(ptr %3) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -25332,7 +25332,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 lpad:                                             ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   resume { ptr, i32 } %4
 }
 
@@ -25454,7 +25454,7 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then.i.i.i.i.i.i
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit18, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp19, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %val) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %val) #21
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %invoke.cont
@@ -25513,11 +25513,11 @@ call.i.i.noexc:                                   ; preds = %while.body
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont17, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.noexc
-  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then.i.i.i.i.i.i
@@ -25539,7 +25539,7 @@ while.end:                                        ; preds = %if.then8, %if.then2
           to label %invoke.cont22 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont22:                                    ; preds = %while.end
-  call void @exit(i32 noundef 114) #22
+  call void @exit(i32 noundef 114) #24
   unreachable
 
 cleanup:                                          ; preds = %land.rhs.i.i, %if.end, %invoke.cont6, %invoke.cont2, %invoke.cont4
@@ -25556,7 +25556,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #21
+  call void @__clang_call_terminate(ptr %18) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -25618,11 +25618,11 @@ if.end:                                           ; preds = %_ZNK14bv_recognizer
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK7bv_util11get_bv_sizeEPK4expr.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end
-  %exception.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK7bv_util11get_bv_sizeEPK4expr.exit:           ; preds = %if.end
@@ -25743,11 +25743,11 @@ call.i66.noexc:                                   ; preds = %if.then35
   br i1 %cmp.not.i.i.i.i.i70, label %invoke.cont37, label %if.then.i.i.i.i.i71.invoke
 
 if.then.i.i.i.i.i71.invoke:                       ; preds = %call.i66.noexc, %call.i78.noexc
-  %exception.i.i.i.i.i.i.i84 = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i84 = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i84, align 8
   %_M_reason.i.i.i.i.i.i.i.i85 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i84, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i85, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i84, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i84, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %if.then.i.i.i.i.i71.cont unwind label %lpad.loopexit.split-lp
 
 if.then.i.i.i.i.i71.cont:                         ; preds = %if.then.i.i.i.i.i71.invoke
@@ -25874,8 +25874,8 @@ lpad63.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then2.i.i.i, %in
 
 lpad63:                                           ; preds = %lpad63.loopexit.split-lp.loopexit, %lpad63.loopexit.split-lp.loopexit.split-lp, %lpad63.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad63.loopexit ], [ %lpad.loopexit229, %lpad63.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp230, %lpad63.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_concat_args) #19
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_concat_args) #21
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #21
   br label %ehcleanup
 
 cond.true82:                                      ; preds = %land.lhs.true72
@@ -26076,7 +26076,7 @@ sw.bb:                                            ; preds = %if.else130
           to label %invoke.cont135 unwind label %lpad63.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont135:                                   ; preds = %sw.bb
-  call void @exit(i32 noundef 114) #22
+  call void @exit(i32 noundef 114) #24
   unreachable
 
 sw.bb137:                                         ; preds = %if.else130
@@ -26241,7 +26241,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #21
+  call void @__clang_call_terminate(ptr %86) #23
   unreachable
 
 _ZN10ptr_bufferI4exprLj16EED2Ev.exit:             ; preds = %invoke.cont168, %if.end.i.i.i.i.i
@@ -26259,7 +26259,7 @@ terminate.lpad.i.i211:                            ; preds = %if.end.i.i.i.i.i210
   %88 = landingpad { ptr, i32 }
           catch ptr null
   %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #21
+  call void @__clang_call_terminate(ptr %89) #23
   unreachable
 
 cleanup:                                          ; preds = %if.end54, %invoke.cont49, %invoke.cont37, %if.end.i.i.i.i.i210, %_ZN10ptr_bufferI4exprLj16EED2Ev.exit
@@ -26276,12 +26276,12 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup
   %91 = landingpad { ptr, i32 }
           catch ptr null
   %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #21
+  call void @__clang_call_terminate(ptr %92) #23
   unreachable
 
 ehcleanup:                                        ; preds = %lpad.loopexit232, %lpad.loopexit.split-lp, %lpad63
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad63 ], [ %lpad.loopexit233, %lpad.loopexit232 ], [ %lpad.loopexit.split-lp234, %lpad.loopexit.split-lp ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %val) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %val) #21
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %land.rhs.i.i, %entry, %.noexc.i, %_ZNK7bv_util11get_bv_sizeEPK4expr.exit, %_ZNK14bv_recognizers9is_bv_mulEPK4expr.exit
@@ -26623,7 +26623,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #21
+  call void @__clang_call_terminate(ptr %15) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -26632,7 +26632,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 lpad:                                             ; preds = %if.else.i.i7.i.i24, %if.else.i.i.i.i17, %if.else.i.i, %.noexc, %if.then.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   resume { ptr, i32 } %16
 }
 
@@ -26779,7 +26779,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #21
+  call void @__clang_call_terminate(ptr %15) #23
   unreachable
 
 invoke.cont6:                                     ; preds = %.noexc.i
@@ -26928,7 +26928,7 @@ terminate.lpad.i68:                               ; preds = %.noexc.i69, %invoke
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #21
+  call void @__clang_call_terminate(ptr %37) #23
   unreachable
 
 _ZN8rationalD2Ev.exit71:                          ; preds = %.noexc.i69
@@ -26944,7 +26944,7 @@ terminate.lpad.i72:                               ; preds = %.noexc.i73, %_ZN8ra
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #21
+  call void @__clang_call_terminate(ptr %40) #23
   unreachable
 
 _ZN8rationalD2Ev.exit75:                          ; preds = %.noexc.i73
@@ -26961,7 +26961,7 @@ terminate.lpad.i76:                               ; preds = %.noexc.i77, %_ZN8ra
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #21
+  call void @__clang_call_terminate(ptr %43) #23
   unreachable
 
 lpad28:                                           ; preds = %invoke.cont26
@@ -26977,17 +26977,17 @@ lpad30:                                           ; preds = %invoke.cont29
 lpad32:                                           ; preds = %if.then2.i.i.i65, %invoke.cont33, %invoke.cont31
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad32, %lpad30
   %.pn = phi { ptr, i32 } [ %46, %lpad32 ], [ %45, %lpad30 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #21
   br label %ehcleanup39
 
 ehcleanup39:                                      ; preds = %ehcleanup, %lpad28
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %44, %lpad28 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #21
   br label %ehcleanup96
 
 if.end:                                           ; preds = %invoke.cont6
@@ -27103,7 +27103,7 @@ terminate.lpad.i144:                              ; preds = %.noexc.i145, %invok
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #21
+  call void @__clang_call_terminate(ptr %69) #23
   unreachable
 
 _ZN8rationalD2Ev.exit147:                         ; preds = %.noexc.i145
@@ -27130,7 +27130,7 @@ _ZN8rationalD2Ev.exit147:                         ; preds = %.noexc.i145
 lpad.i:                                           ; preds = %.noexc.i150, %_ZN8rationalD2Ev.exit147
   %71 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55) #21
   br label %ehcleanup96
 
 invoke.cont56:                                    ; preds = %.noexc.i150
@@ -27183,13 +27183,13 @@ terminate.lpad.i168:                              ; preds = %.noexc.i169, %invok
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #21
+  call void @__clang_call_terminate(ptr %79) #23
   unreachable
 
 lpad57:                                           ; preds = %if.then2.i.i.i165, %invoke.cont56
   %80 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55) #21
   br label %ehcleanup96
 
 if.end63:                                         ; preds = %invoke.cont48
@@ -27284,11 +27284,11 @@ call.i.i.noexc:                                   ; preds = %if.end77
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont78, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.noexc
-  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %.noexc206 unwind label %lpad2
 
 .noexc206:                                        ; preds = %if.then.i.i.i.i.i.i
@@ -27372,7 +27372,7 @@ terminate.lpad.i233:                              ; preds = %.noexc.i234, %clean
   %107 = landingpad { ptr, i32 }
           catch ptr null
   %108 = extractvalue { ptr, i32 } %107, 0
-  call void @__clang_call_terminate(ptr %108) #21
+  call void @__clang_call_terminate(ptr %108) #23
   unreachable
 
 _ZN8rationalD2Ev.exit236:                         ; preds = %.noexc.i234
@@ -27388,7 +27388,7 @@ terminate.lpad.i237:                              ; preds = %.noexc.i238, %_ZN8r
   %110 = landingpad { ptr, i32 }
           catch ptr null
   %111 = extractvalue { ptr, i32 } %110, 0
-  call void @__clang_call_terminate(ptr %111) #21
+  call void @__clang_call_terminate(ptr %111) #23
   unreachable
 
 _ZN8rationalD2Ev.exit240:                         ; preds = %.noexc.i238
@@ -27396,8 +27396,8 @@ _ZN8rationalD2Ev.exit240:                         ; preds = %.noexc.i238
 
 ehcleanup96:                                      ; preds = %lpad2, %lpad.i, %lpad57, %ehcleanup39
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup39 ], [ %80, %lpad57 ], [ %23, %lpad2 ], [ %71, %lpad.i ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #21
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -27502,7 +27502,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #21
+  call void @__clang_call_terminate(ptr %15) #23
   unreachable
 
 invoke.cont6:                                     ; preds = %.noexc.i
@@ -27631,7 +27631,7 @@ terminate.lpad.i64:                               ; preds = %.noexc.i65, %invoke
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #21
+  call void @__clang_call_terminate(ptr %33) #23
   unreachable
 
 _ZN8rationalD2Ev.exit67:                          ; preds = %.noexc.i65
@@ -27647,7 +27647,7 @@ terminate.lpad.i68:                               ; preds = %.noexc.i69, %_ZN8ra
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #21
+  call void @__clang_call_terminate(ptr %36) #23
   unreachable
 
 _ZN8rationalD2Ev.exit71:                          ; preds = %.noexc.i69
@@ -27664,7 +27664,7 @@ terminate.lpad.i72:                               ; preds = %.noexc.i73, %_ZN8ra
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #21
+  call void @__clang_call_terminate(ptr %39) #23
   unreachable
 
 lpad19:                                           ; preds = %invoke.cont17
@@ -27680,17 +27680,17 @@ lpad21:                                           ; preds = %invoke.cont20
 lpad23:                                           ; preds = %if.then2.i.i.i61, %invoke.cont22
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad23, %lpad21
   %.pn = phi { ptr, i32 } [ %42, %lpad23 ], [ %41, %lpad21 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #21
   br label %ehcleanup28
 
 ehcleanup28:                                      ; preds = %ehcleanup, %lpad19
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %40, %lpad19 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #21
   br label %ehcleanup97
 
 if.end:                                           ; preds = %invoke.cont6
@@ -27806,7 +27806,7 @@ terminate.lpad.i142:                              ; preds = %.noexc.i143, %invok
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #21
+  call void @__clang_call_terminate(ptr %65) #23
   unreachable
 
 _ZN8rationalD2Ev.exit145:                         ; preds = %.noexc.i143
@@ -27833,7 +27833,7 @@ _ZN8rationalD2Ev.exit145:                         ; preds = %.noexc.i143
 lpad.i:                                           ; preds = %.noexc.i148, %_ZN8rationalD2Ev.exit145
   %67 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44) #21
   br label %ehcleanup97
 
 invoke.cont45:                                    ; preds = %.noexc.i148
@@ -27886,13 +27886,13 @@ terminate.lpad.i166:                              ; preds = %.noexc.i167, %invok
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #21
+  call void @__clang_call_terminate(ptr %75) #23
   unreachable
 
 lpad46:                                           ; preds = %if.then2.i.i.i163, %invoke.cont45
   %76 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44) #21
   br label %ehcleanup97
 
 if.end52:                                         ; preds = %invoke.cont37
@@ -28046,11 +28046,11 @@ call.i.i.noexc:                                   ; preds = %if.end78
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont79, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.noexc
-  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %.noexc222 unwind label %lpad2
 
 .noexc222:                                        ; preds = %if.then.i.i.i.i.i.i
@@ -28134,7 +28134,7 @@ terminate.lpad.i247:                              ; preds = %.noexc.i248, %clean
   %114 = landingpad { ptr, i32 }
           catch ptr null
   %115 = extractvalue { ptr, i32 } %114, 0
-  call void @__clang_call_terminate(ptr %115) #21
+  call void @__clang_call_terminate(ptr %115) #23
   unreachable
 
 _ZN8rationalD2Ev.exit250:                         ; preds = %.noexc.i248
@@ -28150,7 +28150,7 @@ terminate.lpad.i251:                              ; preds = %.noexc.i252, %_ZN8r
   %117 = landingpad { ptr, i32 }
           catch ptr null
   %118 = extractvalue { ptr, i32 } %117, 0
-  call void @__clang_call_terminate(ptr %118) #21
+  call void @__clang_call_terminate(ptr %118) #23
   unreachable
 
 _ZN8rationalD2Ev.exit254:                         ; preds = %.noexc.i252
@@ -28158,8 +28158,8 @@ _ZN8rationalD2Ev.exit254:                         ; preds = %.noexc.i252
 
 ehcleanup97:                                      ; preds = %lpad2, %lpad.i, %lpad46, %ehcleanup28
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup28 ], [ %76, %lpad46 ], [ %23, %lpad2 ], [ %67, %lpad.i ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #21
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -28212,7 +28212,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #21
+  call void @__clang_call_terminate(ptr %3) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -28221,7 +28221,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 lpad:                                             ; preds = %_ZN8rationalC2Ej.exit
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   resume { ptr, i32 } %4
 }
 
@@ -28322,7 +28322,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #21
+  call void @__clang_call_terminate(ptr %15) #23
   unreachable
 
 invoke.cont6:                                     ; preds = %.noexc.i
@@ -28522,7 +28522,7 @@ terminate.lpad.i113:                              ; preds = %.noexc.i114, %invok
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #21
+  call void @__clang_call_terminate(ptr %51) #23
   unreachable
 
 _ZN8rationalD2Ev.exit116:                         ; preds = %.noexc.i114
@@ -28549,7 +28549,7 @@ _ZN8rationalD2Ev.exit116:                         ; preds = %.noexc.i114
 lpad.i:                                           ; preds = %.noexc.i119, %_ZN8rationalD2Ev.exit116
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35) #21
   br label %ehcleanup
 
 invoke.cont36:                                    ; preds = %.noexc.i119
@@ -28602,13 +28602,13 @@ terminate.lpad.i136:                              ; preds = %.noexc.i137, %invok
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #21
+  call void @__clang_call_terminate(ptr %61) #23
   unreachable
 
 lpad37:                                           ; preds = %if.then2.i.i.i133, %invoke.cont36
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35) #21
   br label %ehcleanup
 
 invoke.cont44:                                    ; preds = %invoke.cont28
@@ -28701,11 +28701,11 @@ call.i.i.noexc:                                   ; preds = %if.end60
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont61, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.noexc
-  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %.noexc171 unwind label %lpad2
 
 .noexc171:                                        ; preds = %if.then.i.i.i.i.i.i
@@ -28788,7 +28788,7 @@ terminate.lpad.i193:                              ; preds = %.noexc.i194, %clean
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #21
+  call void @__clang_call_terminate(ptr %90) #23
   unreachable
 
 _ZN8rationalD2Ev.exit196:                         ; preds = %.noexc.i194
@@ -28804,7 +28804,7 @@ terminate.lpad.i197:                              ; preds = %.noexc.i198, %_ZN8r
   %92 = landingpad { ptr, i32 }
           catch ptr null
   %93 = extractvalue { ptr, i32 } %92, 0
-  call void @__clang_call_terminate(ptr %93) #21
+  call void @__clang_call_terminate(ptr %93) #23
   unreachable
 
 _ZN8rationalD2Ev.exit200:                         ; preds = %.noexc.i198
@@ -28812,8 +28812,8 @@ _ZN8rationalD2Ev.exit200:                         ; preds = %.noexc.i198
 
 ehcleanup:                                        ; preds = %lpad2, %lpad.i, %lpad37
   %.pn = phi { ptr, i32 } [ %62, %lpad37 ], [ %23, %lpad2 ], [ %53, %lpad.i ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -28942,7 +28942,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #21
+  call void @__clang_call_terminate(ptr %10) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -28958,7 +28958,7 @@ terminate.lpad.i18:                               ; preds = %.noexc.i19, %_ZN8ra
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #21
+  call void @__clang_call_terminate(ptr %13) #23
   unreachable
 
 _ZN8rationalD2Ev.exit21:                          ; preds = %.noexc.i19
@@ -28975,7 +28975,7 @@ terminate.lpad.i22:                               ; preds = %.noexc.i23, %_ZN8ra
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #21
+  call void @__clang_call_terminate(ptr %16) #23
   unreachable
 
 lpad:                                             ; preds = %entry, %if.then
@@ -28996,17 +28996,17 @@ lpad7:                                            ; preds = %invoke.cont6
 lpad9:                                            ; preds = %if.else.i.i7.i.i, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad9, %lpad7
   %.pn = phi { ptr, i32 } [ %20, %lpad9 ], [ %19, %lpad7 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #21
   br label %ehcleanup12
 
 ehcleanup12:                                      ; preds = %ehcleanup, %lpad5
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %18, %lpad5 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #21
   br label %ehcleanup13
 
 cleanup:                                          ; preds = %.noexc.i23, %invoke.cont
@@ -29023,7 +29023,7 @@ terminate.lpad.i26:                               ; preds = %.noexc.i27, %cleanu
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #21
+  call void @__clang_call_terminate(ptr %23) #23
   unreachable
 
 _ZN8rationalD2Ev.exit29:                          ; preds = %.noexc.i27
@@ -29031,7 +29031,7 @@ _ZN8rationalD2Ev.exit29:                          ; preds = %.noexc.i27
 
 ehcleanup13:                                      ; preds = %ehcleanup12, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup12 ], [ %17, %lpad ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r) #21
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -29084,7 +29084,7 @@ if.then:                                          ; preds = %invoke.cont
 lpad.i:                                           ; preds = %.noexc.i, %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %lpad.body
 
 invoke.cont2:                                     ; preds = %.noexc.i
@@ -29135,7 +29135,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i8, %invoke.
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #21
+  call void @__clang_call_terminate(ptr %16) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i8
@@ -29180,7 +29180,7 @@ lpad:                                             ; preds = %if.then2.i.i.i25, %
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %22, %lpad ], [ %2, %lpad.i ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r) #21
   resume { ptr, i32 } %eh.lpad-body
 
 if.end:                                           ; preds = %invoke.cont
@@ -29259,7 +29259,7 @@ terminate.lpad.i28:                               ; preds = %.noexc.i29, %cleanu
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #21
+  call void @__clang_call_terminate(ptr %36) #23
   unreachable
 
 _ZN8rationalD2Ev.exit31:                          ; preds = %.noexc.i29
@@ -29464,7 +29464,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #21
+  call void @__clang_call_terminate(ptr %15) #23
   unreachable
 
 invoke.cont9:                                     ; preds = %.noexc.i
@@ -29657,7 +29657,7 @@ terminate.lpad.i141:                              ; preds = %.noexc.i142, %invok
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #21
+  call void @__clang_call_terminate(ptr %51) #23
   unreachable
 
 _ZN8rationalD2Ev.exit144:                         ; preds = %.noexc.i142
@@ -29990,7 +29990,7 @@ terminate.lpad.i245:                              ; preds = %.noexc.i246, %invok
   %101 = landingpad { ptr, i32 }
           catch ptr null
   %102 = extractvalue { ptr, i32 } %101, 0
-  call void @__clang_call_terminate(ptr %102) #21
+  call void @__clang_call_terminate(ptr %102) #23
   unreachable
 
 _ZN8rationalD2Ev.exit248:                         ; preds = %.noexc.i246
@@ -30006,7 +30006,7 @@ terminate.lpad.i249:                              ; preds = %.noexc.i250, %_ZN8r
   %104 = landingpad { ptr, i32 }
           catch ptr null
   %105 = extractvalue { ptr, i32 } %104, 0
-  call void @__clang_call_terminate(ptr %105) #21
+  call void @__clang_call_terminate(ptr %105) #23
   unreachable
 
 _ZN8rationalD2Ev.exit252:                         ; preds = %.noexc.i250
@@ -30023,7 +30023,7 @@ terminate.lpad.i253:                              ; preds = %.noexc.i254, %_ZN8r
   %107 = landingpad { ptr, i32 }
           catch ptr null
   %108 = extractvalue { ptr, i32 } %107, 0
-  call void @__clang_call_terminate(ptr %108) #21
+  call void @__clang_call_terminate(ptr %108) #23
   unreachable
 
 _ZN8rationalD2Ev.exit256:                         ; preds = %.noexc.i254
@@ -30090,17 +30090,17 @@ lpad93:                                           ; preds = %invoke.cont92
 lpad95:                                           ; preds = %invoke.cont94
   %119 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp87) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp87) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad95, %lpad93
   %.pn = phi { ptr, i32 } [ %119, %lpad95 ], [ %118, %lpad93 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp90) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp90) #21
   br label %ehcleanup98
 
 ehcleanup98:                                      ; preds = %ehcleanup, %lpad91
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %117, %lpad91 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88) #21
   br label %ehcleanup160
 
 if.else113:                                       ; preds = %if.end62
@@ -30267,11 +30267,11 @@ call.i.i.noexc363:                                ; preds = %if.end141
   br i1 %cmp.not.i.i.i.i.i.i359, label %invoke.cont142, label %if.then.i.i.i.i.i.i360.invoke
 
 if.then.i.i.i.i.i.i360.invoke:                    ; preds = %call.i.i.noexc363, %call.i.i.noexc
-  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %if.then.i.i.i.i.i.i360.cont unwind label %lpad2
 
 if.then.i.i.i.i.i.i360.cont:                      ; preds = %if.then.i.i.i.i.i.i360.invoke
@@ -30351,7 +30351,7 @@ terminate.lpad.i394:                              ; preds = %.noexc.i395, %clean
   %160 = landingpad { ptr, i32 }
           catch ptr null
   %161 = extractvalue { ptr, i32 } %160, 0
-  call void @__clang_call_terminate(ptr %161) #21
+  call void @__clang_call_terminate(ptr %161) #23
   unreachable
 
 _ZN8rationalD2Ev.exit397:                         ; preds = %.noexc.i395
@@ -30367,7 +30367,7 @@ terminate.lpad.i398:                              ; preds = %.noexc.i399, %_ZN8r
   %163 = landingpad { ptr, i32 }
           catch ptr null
   %164 = extractvalue { ptr, i32 } %163, 0
-  call void @__clang_call_terminate(ptr %164) #21
+  call void @__clang_call_terminate(ptr %164) #23
   unreachable
 
 _ZN8rationalD2Ev.exit401:                         ; preds = %.noexc.i399
@@ -30375,8 +30375,8 @@ _ZN8rationalD2Ev.exit401:                         ; preds = %.noexc.i399
 
 ehcleanup160:                                     ; preds = %ehcleanup98, %lpad2
   %.pn42 = phi { ptr, i32 } [ %23, %lpad2 ], [ %.pn.pn, %ehcleanup98 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #21
   resume { ptr, i32 } %.pn42
 }
 
@@ -30490,7 +30490,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #21
+  call void @__clang_call_terminate(ptr %15) #23
   unreachable
 
 invoke.cont7:                                     ; preds = %.noexc.i
@@ -30606,7 +30606,7 @@ terminate.lpad.i89:                               ; preds = %.noexc.i90, %invoke
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #21
+  call void @__clang_call_terminate(ptr %39) #23
   unreachable
 
 invoke.cont23:                                    ; preds = %.noexc.i90
@@ -30710,7 +30710,7 @@ terminate.lpad.i125:                              ; preds = %.noexc.i126, %invok
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #21
+  call void @__clang_call_terminate(ptr %54) #23
   unreachable
 
 _ZN8rationalD2Ev.exit128:                         ; preds = %.noexc.i126
@@ -30736,7 +30736,7 @@ terminate.lpad.i131:                              ; preds = %.noexc.i132, %invok
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #21
+  call void @__clang_call_terminate(ptr %58) #23
   unreachable
 
 _ZN8rationalD2Ev.exit134:                         ; preds = %.noexc.i132
@@ -30788,7 +30788,7 @@ terminate.lpad.i140:                              ; preds = %.noexc.i141, %invok
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #21
+  call void @__clang_call_terminate(ptr %64) #23
   unreachable
 
 invoke.cont59:                                    ; preds = %.noexc.i141
@@ -30850,7 +30850,7 @@ if.else.i.i7.i.i:                                 ; preds = %_ZN11mpq_managerILb
 lpad42:                                           ; preds = %invoke.cont41
   %68 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #21
   br label %ehcleanup166
 
 lpad46:                                           ; preds = %_ZN8rationalD2Ev.exit128
@@ -30861,7 +30861,7 @@ lpad46:                                           ; preds = %_ZN8rationalD2Ev.ex
 lpad48:                                           ; preds = %invoke.cont47
   %70 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45) #21
   br label %ehcleanup124
 
 lpad54:                                           ; preds = %invoke.cont53
@@ -30909,10 +30909,10 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %invoke.cont87 unwind label %lpad86
 
 invoke.cont87:                                    ; preds = %invoke.cont85
-  %call88 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalaSEOS_(ptr noundef nonnull align 8 dereferenceable(32) %r, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82) #19
+  %call88 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalaSEOS_(ptr noundef nonnull align 8 dereferenceable(32) %r, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82) #21
   br label %if.end116
 
 lpad84:                                           ; preds = %invoke.cont83
@@ -30923,12 +30923,12 @@ lpad84:                                           ; preds = %invoke.cont83
 lpad86:                                           ; preds = %invoke.cont85
   %78 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad86, %lpad84
   %.pn = phi { ptr, i32 } [ %78, %lpad86 ], [ %77, %lpad84 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82) #21
   br label %ehcleanup121
 
 invoke.cont93:                                    ; preds = %invoke.cont67
@@ -30945,15 +30945,15 @@ invoke.cont99:                                    ; preds = %if.then95
           to label %invoke.cont101 unwind label %lpad100
 
 invoke.cont101:                                   ; preds = %invoke.cont99
-  %call102 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalaSEOS_(ptr noundef nonnull align 8 dereferenceable(32) %r, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98) #19
+  %call102 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalaSEOS_(ptr noundef nonnull align 8 dereferenceable(32) %r, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98) #21
   br label %if.end116
 
 lpad100:                                          ; preds = %invoke.cont99
   %80 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98) #21
   br label %ehcleanup121
 
 if.else104:                                       ; preds = %invoke.cont73, %invoke.cont93
@@ -30966,15 +30966,15 @@ invoke.cont108:                                   ; preds = %if.else104
           to label %invoke.cont110 unwind label %lpad109
 
 invoke.cont110:                                   ; preds = %invoke.cont108
-  %call111 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalaSEOS_(ptr noundef nonnull align 8 dereferenceable(32) %r, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp105) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp105) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp107) #19
+  %call111 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalaSEOS_(ptr noundef nonnull align 8 dereferenceable(32) %r, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp105) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp105) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp107) #21
   br label %if.end116
 
 lpad109:                                          ; preds = %invoke.cont108
   %82 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp107) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp107) #21
   br label %ehcleanup121
 
 if.end116:                                        ; preds = %if.then.i.i8.i.i, %if.else.i.i7.i.i, %if.then69, %invoke.cont101, %invoke.cont110, %invoke.cont87
@@ -31026,7 +31026,7 @@ terminate.lpad.i189:                              ; preds = %.noexc.i190, %invok
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #21
+  call void @__clang_call_terminate(ptr %90) #23
   unreachable
 
 _ZN8rationalD2Ev.exit192:                         ; preds = %.noexc.i190
@@ -31043,7 +31043,7 @@ terminate.lpad.i193:                              ; preds = %.noexc.i194, %_ZN8r
   %92 = landingpad { ptr, i32 }
           catch ptr null
   %93 = extractvalue { ptr, i32 } %92, 0
-  call void @__clang_call_terminate(ptr %93) #21
+  call void @__clang_call_terminate(ptr %93) #23
   unreachable
 
 _ZN8rationalD2Ev.exit196:                         ; preds = %.noexc.i194
@@ -31060,7 +31060,7 @@ terminate.lpad.i197:                              ; preds = %.noexc.i198, %_ZN8r
   %95 = landingpad { ptr, i32 }
           catch ptr null
   %96 = extractvalue { ptr, i32 } %95, 0
-  call void @__clang_call_terminate(ptr %96) #21
+  call void @__clang_call_terminate(ptr %96) #23
   unreachable
 
 _ZN8rationalD2Ev.exit200:                         ; preds = %.noexc.i198
@@ -31077,24 +31077,24 @@ terminate.lpad.i201:                              ; preds = %.noexc.i202, %_ZN8r
   %98 = landingpad { ptr, i32 }
           catch ptr null
   %99 = extractvalue { ptr, i32 } %98, 0
-  call void @__clang_call_terminate(ptr %99) #21
+  call void @__clang_call_terminate(ptr %99) #23
   unreachable
 
 ehcleanup121:                                     ; preds = %lpad109, %lpad100, %ehcleanup, %lpad58
   %.pn21 = phi { ptr, i32 } [ %72, %lpad58 ], [ %.pn, %ehcleanup ], [ %80, %lpad100 ], [ %82, %lpad109 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r) #21
   br label %ehcleanup123
 
 ehcleanup123:                                     ; preds = %lpad.i, %ehcleanup121, %lpad54
   %ref.tmp51.sink = phi ptr [ %ref.tmp51, %lpad.i ], [ %u, %ehcleanup121 ], [ %ref.tmp51, %lpad54 ]
   %.pn21.pn.pn = phi { ptr, i32 } [ %60, %lpad.i ], [ %.pn21, %ehcleanup121 ], [ %71, %lpad54 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51.sink) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %abs_r2) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51.sink) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %abs_r2) #21
   br label %ehcleanup124
 
 ehcleanup124:                                     ; preds = %ehcleanup123, %lpad48, %lpad46
   %.pn21.pn.pn.pn = phi { ptr, i32 } [ %.pn21.pn.pn, %ehcleanup123 ], [ %70, %lpad48 ], [ %69, %lpad46 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %abs_r1) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %abs_r1) #21
   br label %ehcleanup166
 
 if.end125:                                        ; preds = %if.end36
@@ -31203,11 +31203,11 @@ call.i.i.noexc:                                   ; preds = %if.end143
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont144, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.noexc
-  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %.noexc242 unwind label %lpad2
 
 .noexc242:                                        ; preds = %if.then.i.i.i.i.i.i
@@ -31290,7 +31290,7 @@ terminate.lpad.i264:                              ; preds = %.noexc.i265, %clean
   %128 = landingpad { ptr, i32 }
           catch ptr null
   %129 = extractvalue { ptr, i32 } %128, 0
-  call void @__clang_call_terminate(ptr %129) #21
+  call void @__clang_call_terminate(ptr %129) #23
   unreachable
 
 _ZN8rationalD2Ev.exit267:                         ; preds = %.noexc.i265
@@ -31306,7 +31306,7 @@ terminate.lpad.i268:                              ; preds = %.noexc.i269, %_ZN8r
   %131 = landingpad { ptr, i32 }
           catch ptr null
   %132 = extractvalue { ptr, i32 } %131, 0
-  call void @__clang_call_terminate(ptr %132) #21
+  call void @__clang_call_terminate(ptr %132) #23
   unreachable
 
 _ZN8rationalD2Ev.exit271:                         ; preds = %.noexc.i269
@@ -31314,8 +31314,8 @@ _ZN8rationalD2Ev.exit271:                         ; preds = %.noexc.i269
 
 ehcleanup166:                                     ; preds = %ehcleanup124, %lpad42, %lpad2
   %.pn26 = phi { ptr, i32 } [ %23, %lpad2 ], [ %.pn21.pn.pn.pn, %ehcleanup124 ], [ %68, %lpad42 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r2) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r1) #21
   resume { ptr, i32 } %.pn26
 }
 
@@ -31382,7 +31382,7 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %if.then.i.i8.i.i, %
 lpad:                                             ; preds = %_ZN8rationalC2ERKS_.exit
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
+  tail call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   resume { ptr, i32 } %4
 
 nrvo.skipdtor:                                    ; preds = %_ZN8rationalC2ERKS_.exit
@@ -31440,7 +31440,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #21
+  call void @__clang_call_terminate(ptr %5) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -31449,7 +31449,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 lpad:                                             ; preds = %_ZNK10arith_util6pluginEv.exit.i, %if.then.i.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   resume { ptr, i32 } %6
 }
 
@@ -31510,14 +31510,14 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #21
+  tail call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
 terminate.lpad.i:                                 ; preds = %if.then2.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #21
+  tail call void @__clang_call_terminate(ptr %10) #23
   unreachable
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %entry, %invoke.cont8.i, %if.then.i.i.i.i
@@ -31566,11 +31566,11 @@ if.end:                                           ; preds = %_ZNK14bv_recognizer
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %if.end
@@ -31654,7 +31654,7 @@ invoke.cont29:                                    ; preds = %land.rhs.i.i24
 lpad:                                             ; preds = %land.rhs.i.i24, %for.body24
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #21
   resume { ptr, i32 } %19
 
 for.inc33:                                        ; preds = %land.lhs.true, %invoke.cont27, %invoke.cont29
@@ -31676,7 +31676,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #21
+  call void @__clang_call_terminate(ptr %22) #23
   unreachable
 
 return:                                           ; preds = %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, %land.rhs.i.i, %entry, %.noexc.i, %if.end10, %for.end, %_ZNK14bv_recognizers9is_bv_mulEPK4expr.exit
@@ -31773,7 +31773,7 @@ call.i.i.noexc:                                   ; preds = %entry
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.noexc
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   br label %if.then.i.i.i.i.i.i.invoke
 
 if.then.i.i.i.i.i.i.invoke:                       ; preds = %if.then.i.i.i.i.i.i37, %if.then.i.i.i.i.i.i
@@ -31781,7 +31781,7 @@ if.then.i.i.i.i.i.i.invoke:                       ; preds = %if.then.i.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i38.sink64, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i38.sink64, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i39, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i38.sink64, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i38.sink64, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %if.then.i.i.i.i.i.i.cont unwind label %lpad.loopexit.split-lp
 
 if.then.i.i.i.i.i.i.cont:                         ; preds = %if.then.i.i.i.i.i.i.invoke
@@ -31855,8 +31855,8 @@ invoke.cont7:                                     ; preds = %while.body
 lpad.i:                                           ; preds = %.noexc.i, %invoke.cont7
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #21
   br label %ehcleanup
 
 invoke.cont9:                                     ; preds = %.noexc.i
@@ -31907,7 +31907,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i24, %invoke
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #21
+  call void @__clang_call_terminate(ptr %21) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i24
@@ -31923,7 +31923,7 @@ terminate.lpad.i26:                               ; preds = %.noexc.i27, %_ZN8ra
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #21
+  call void @__clang_call_terminate(ptr %24) #23
   unreachable
 
 lpad.loopexit:                                    ; preds = %while.body
@@ -31978,7 +31978,7 @@ call.i.i.noexc40:                                 ; preds = %if.then14
   br i1 %cmp.not.i.i.i.i.i.i36, label %invoke.cont19, label %if.then.i.i.i.i.i.i37
 
 if.then.i.i.i.i.i.i37:                            ; preds = %call.i.i.noexc40
-  %exception.i.i.i.i.i.i.i.i38 = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i38 = call ptr @__cxa_allocate_exception(i64 16) #21
   br label %if.then.i.i.i.i.i.i.invoke
 
 invoke.cont19:                                    ; preds = %call.i.i.noexc40
@@ -32015,7 +32015,7 @@ terminate.lpad.i46:                               ; preds = %.noexc.i47, %cleanu
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #21
+  call void @__clang_call_terminate(ptr %40) #23
   unreachable
 
 _ZN8rationalD2Ev.exit49:                          ; preds = %.noexc.i47
@@ -32023,7 +32023,7 @@ _ZN8rationalD2Ev.exit49:                          ; preds = %.noexc.i47
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i
   %.pn = phi { ptr, i32 } [ %7, %lpad.i ], [ %lpad.loopexit50, %lpad.loopexit ], [ %lpad.loopexit.split-lp51, %lpad.loopexit.split-lp ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -32085,14 +32085,14 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #21
+  tail call void @__clang_call_terminate(ptr %7) #23
   unreachable
 
 terminate.lpad.i:                                 ; preds = %if.then2.i.i.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #21
+  tail call void @__clang_call_terminate(ptr %9) #23
   unreachable
 
 _ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EED2Ev.exit: ; preds = %invoke.cont5.i, %if.end.i.i.i.i.i.i
@@ -32180,11 +32180,11 @@ if.then:                                          ; preds = %_ZNK14bv_recognizer
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %if.then
@@ -32200,11 +32200,11 @@ _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %if.then
   br i1 %cmp.not.i.i.i.i.i.i27, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit31, label %if.then.i.i.i.i.i.i28
 
 if.then.i.i.i.i.i.i28:                            ; preds = %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit
-  %exception.i.i.i.i.i.i.i.i29 = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i29 = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i29, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i29, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i30, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i29, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i29, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit31:     ; preds = %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit
@@ -32380,8 +32380,8 @@ lpad19.loopexit.split-lp:                         ; preds = %_ZNK15ref_vector_co
 
 lpad19:                                           ; preds = %lpad19.loopexit.split-lp, %lpad19.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad19.loopexit ], [ %lpad.loopexit.split-lp, %lpad19.loopexit.split-lp ]
-  call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %args2) #19
-  call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %args1) #19
+  call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %args2) #21
+  call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %args1) #21
   resume { ptr, i32 } %lpad.phi
 
 invoke.cont34:                                    ; preds = %for.inc
@@ -32513,14 +32513,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #21
+  call void @__clang_call_terminate(ptr %64) #23
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #21
+  call void @__clang_call_terminate(ptr %66) #23
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %invoke.cont54, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -32575,14 +32575,14 @@ terminate.lpad.i.i.i.i111:                        ; preds = %if.then.i.i.i.i.i10
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #21
+  call void @__clang_call_terminate(ptr %75) #23
   unreachable
 
 terminate.lpad.i.i113:                            ; preds = %if.then2.i.i.i.i.i.i112
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #21
+  call void @__clang_call_terminate(ptr %77) #23
   unreachable
 
 for.inc57:                                        ; preds = %land.rhs.i.i, %for.body, %_ZNK14bv_recognizers9is_concatEPK4expr.exit
@@ -32639,7 +32639,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #21
+  tail call void @__clang_call_terminate(ptr %5) #23
   unreachable
 
 _ZN10ptr_bufferI3astLj16EED2Ev.exit:              ; preds = %invoke.cont, %if.end.i.i.i.i.i
@@ -32689,7 +32689,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #21
+  tail call void @__clang_call_terminate(ptr %5) #23
   unreachable
 
 _ZN10ptr_bufferI3astLj16EED2Ev.exit:              ; preds = %invoke.cont, %if.end.i.i.i.i.i
@@ -32950,13 +32950,13 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i32
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #21
+  call void @__clang_call_terminate(ptr %34) #23
   unreachable
 
 lpad:                                             ; preds = %if.then2.i.i.i29, %invoke.cont10, %if.then2.i.i.i, %_ZN10ptr_vectorI4exprEC2EjPKPS0_.exit
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10ptr_vectorI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %new_args) #19
+  call void @_ZN10ptr_vectorI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %new_args) #21
   resume { ptr, i32 } %35
 
 for.inc:                                          ; preds = %land.lhs.true.i, %_ZNK14bv_recognizers9is_bv_shlEPK4expr.exit.i, %for.body, %land.rhs.i.i.i
@@ -32985,7 +32985,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #23
   unreachable
 
 _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %entry, %if.then.i.i
@@ -33113,11 +33113,11 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %entry
@@ -33281,15 +33281,15 @@ lpad6.i:                                          ; preds = %if.then20
   %m_counts2.i = getelementptr inbounds i8, ptr %rw, i64 64
   %m_counts1.i = getelementptr inbounds i8, ptr %rw, i64 56
   %m_todo2.i = getelementptr inbounds i8, ptr %rw, i64 48
-  call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_counts2.i) #19
-  call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_counts1.i) #19
-  call void @_ZN10ptr_vectorI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_todo2.i) #19
-  call void @_ZN10ptr_vectorI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_todo1.i) #19
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #19
+  call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_counts2.i) #21
+  call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_counts1.i) #21
+  call void @_ZN10ptr_vectorI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_todo2.i) #21
+  call void @_ZN10ptr_vectorI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_todo1.i) #21
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #21
   br label %ehcleanup175
 
 invoke.cont24:                                    ; preds = %if.then20
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #19
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #21
   %call27 = invoke noundef ptr @_ZN13bool_rewriter5mk_eqEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(72) %rw, ptr noundef %26, ptr noundef %rhs.addr.0)
           to label %invoke.cont26 unwind label %lpad25
 
@@ -33357,7 +33357,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i.i
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #21
+  call void @__clang_call_terminate(ptr %39) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %if.then2.i.i.i.i, %if.then.i.i.i.i, %invoke.cont41
@@ -33380,7 +33380,7 @@ terminate.lpad.i74:                               ; preds = %if.then2.i.i.i73
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #21
+  call void @__clang_call_terminate(ptr %42) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit75:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then.i.i.i68, %if.then2.i.i.i73
@@ -33402,11 +33402,11 @@ terminate.lpad.i83:                               ; preds = %if.then2.i.i.i82
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #21
+  call void @__clang_call_terminate(ptr %45) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit84:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit75, %if.then.i.i.i77, %if.then2.i.i.i82
-  call void @_ZN13bool_rewriterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %rw) #19
+  call void @_ZN13bool_rewriterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %rw) #21
   br label %cleanup174
 
 lpad25:                                           ; preds = %invoke.cont24
@@ -33422,17 +33422,17 @@ lpad30:                                           ; preds = %invoke.cont29
 lpad36:                                           ; preds = %invoke.cont34
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %e2) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %e2) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad36, %lpad30
   %.pn19 = phi { ptr, i32 } [ %48, %lpad36 ], [ %47, %lpad30 ]
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %e1) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %e1) #21
   br label %ehcleanup43
 
 ehcleanup43:                                      ; preds = %ehcleanup, %lpad25
   %.pn19.pn = phi { ptr, i32 } [ %.pn19, %ehcleanup ], [ %46, %lpad25 ]
-  call void @_ZN13bool_rewriterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %rw) #19
+  call void @_ZN13bool_rewriterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %rw) #21
   br label %ehcleanup175
 
 _ZNK14bv_recognizers9is_bv_notEPK4expr.exit.i:    ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit.i
@@ -33527,7 +33527,7 @@ terminate.lpad.i125:                              ; preds = %.noexc.i, %invoke.c
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #21
+  call void @__clang_call_terminate(ptr %62) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -33543,7 +33543,7 @@ terminate.lpad.i127:                              ; preds = %.noexc.i128, %_ZN8r
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #21
+  call void @__clang_call_terminate(ptr %65) #23
   unreachable
 
 lpad52:                                           ; preds = %invoke.cont51
@@ -33554,12 +33554,12 @@ lpad52:                                           ; preds = %invoke.cont51
 lpad54:                                           ; preds = %if.then2.i.i.i122, %invoke.cont55, %invoke.cont53
   %67 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp49) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp49) #21
   br label %ehcleanup62
 
 ehcleanup62:                                      ; preds = %lpad54, %lpad52
   %.pn = phi { ptr, i32 } [ %67, %lpad54 ], [ %66, %lpad52 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50) #21
   br label %ehcleanup175
 
 if.end63:                                         ; preds = %land.rhs.i.i.i31, %land.lhs.true.i, %_ZNK14bv_recognizers9is_bv_notEPK4expr.exit.i, %if.end7
@@ -33729,7 +33729,7 @@ lpad79.loopexit.split-lp:                         ; preds = %invoke.cont96, %inv
 
 lpad79:                                           ; preds = %lpad79.loopexit.split-lp, %lpad79.loopexit
   %lpad.phi256 = phi { ptr, i32 } [ %lpad.loopexit254, %lpad79.loopexit ], [ %lpad.loopexit.split-lp255, %lpad79.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #21
   br label %ehcleanup175
 
 for.end.loopexit:                                 ; preds = %for.inc
@@ -33762,7 +33762,7 @@ invoke.cont105:                                   ; preds = %if.else
 
 cleanup:                                          ; preds = %invoke.cont105, %invoke.cont98
   %retval.2 = phi i32 [ 1, %invoke.cont98 ], [ 2, %invoke.cont105 ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #21
   br label %cleanup174
 
 invoke.cont112:                                   ; preds = %invoke.cont67
@@ -33902,7 +33902,7 @@ lpad132.loopexit.split-lp:                        ; preds = %invoke.cont157, %in
 
 lpad132:                                          ; preds = %lpad132.loopexit.split-lp, %lpad132.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad132.loopexit ], [ %lpad.loopexit.split-lp, %lpad132.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args130) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args130) #21
   br label %ehcleanup175
 
 for.end155.loopexit:                              ; preds = %for.inc153
@@ -33935,7 +33935,7 @@ invoke.cont167:                                   ; preds = %if.else163
 
 cleanup171:                                       ; preds = %invoke.cont167, %invoke.cont159
   %retval.3 = phi i32 [ 1, %invoke.cont159 ], [ 2, %invoke.cont167 ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args130) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args130) #21
   br label %cleanup174
 
 cleanup174:                                       ; preds = %land.rhs.i.i135, %invoke.cont64, %.noexc.i128, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %invoke.cont112, %invoke.cont, %cleanup171, %cleanup, %_ZN7obj_refI4expr11ast_managerED2Ev.exit84
@@ -33952,12 +33952,12 @@ terminate.lpad.i225:                              ; preds = %.noexc.i226, %clean
   %116 = landingpad { ptr, i32 }
           catch ptr null
   %117 = extractvalue { ptr, i32 } %116, 0
-  call void @__clang_call_terminate(ptr %117) #21
+  call void @__clang_call_terminate(ptr %117) #23
   unreachable
 
 ehcleanup175:                                     ; preds = %lpad132, %lpad79, %ehcleanup62, %ehcleanup43, %lpad6.i, %lpad
   %.pn22 = phi { ptr, i32 } [ %10, %lpad ], [ %.pn19.pn, %ehcleanup43 ], [ %29, %lpad6.i ], [ %.pn, %ehcleanup62 ], [ %lpad.phi256, %lpad79 ], [ %lpad.phi, %lpad132 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #21
   resume { ptr, i32 } %.pn22
 
 return:                                           ; preds = %.noexc.i226, %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit
@@ -34025,7 +34025,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit.i:    ; preds = %if.then2.i.i.i.i, %
 lpad:                                             ; preds = %if.then2.i.i.i.i, %if.then.i, %entry
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #19
+  tail call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #21
   resume { ptr, i32 } %6
 
 nrvo.skipdtor:                                    ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit.i, %call.i.noexc
@@ -34049,7 +34049,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #23
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
@@ -34067,7 +34067,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #21
+  tail call void @__clang_call_terminate(ptr %5) #23
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5:                        ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i2
@@ -34085,7 +34085,7 @@ terminate.lpad.i.i9:                              ; preds = %if.then.i.i.i7
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #21
+  tail call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
 _ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %_ZN7svectorIjjED2Ev.exit5, %if.then.i.i.i7
@@ -34103,7 +34103,7 @@ terminate.lpad.i.i13:                             ; preds = %if.then.i.i.i11
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #21
+  tail call void @__clang_call_terminate(ptr %11) #23
   unreachable
 
 _ZN10ptr_vectorI4exprED2Ev.exit14:                ; preds = %_ZN10ptr_vectorI4exprED2Ev.exit, %if.then.i.i.i11
@@ -34129,11 +34129,11 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %entry
@@ -34303,7 +34303,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 lpad.i:                                           ; preds = %.noexc.i, %for.body
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup
 
 invoke.cont24:                                    ; preds = %.noexc.i
@@ -34322,7 +34322,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i46, %invoke
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #21
+  call void @__clang_call_terminate(ptr %30) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i46
@@ -34488,7 +34488,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #21
+  call void @__clang_call_terminate(ptr %50) #23
   unreachable
 
 _ZN10ptr_bufferI4exprLj16EED2Ev.exit:             ; preds = %invoke.cont38, %if.end.i.i.i.i.i
@@ -34504,13 +34504,13 @@ terminate.lpad.i61:                               ; preds = %.noexc.i62, %_ZN10p
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #21
+  call void @__clang_call_terminate(ptr %53) #23
   unreachable
 
 ehcleanup:                                        ; preds = %lpad21.loopexit, %lpad21.loopexit.split-lp, %lpad.i
   %.pn = phi { ptr, i32 } [ %26, %lpad.i ], [ %lpad.loopexit, %lpad21.loopexit ], [ %lpad.loopexit.split-lp, %lpad21.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %two) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %two) #21
   br label %ehcleanup41
 
 cleanup:                                          ; preds = %land.rhs.i.i, %if.end7, %.noexc.i62, %invoke.cont15, %invoke.cont
@@ -34527,12 +34527,12 @@ terminate.lpad.i65:                               ; preds = %.noexc.i66, %cleanu
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #21
+  call void @__clang_call_terminate(ptr %56) #23
   unreachable
 
 ehcleanup41:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #21
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %.noexc.i66, %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit
@@ -34656,11 +34656,11 @@ call.i.i.noexc:                                   ; preds = %while.body
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.invoke
 
 if.then.i.i.i.i.i.i.invoke:                       ; preds = %call.i.i.noexc, %call.i.i.noexc57
-  %exception.i.i.i.i.i.i.i.i55 = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i55 = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i55, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i55, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i56, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i55, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i55, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
           to label %if.then.i.i.i.i.i.i.cont unwind label %lpad.loopexit.split-lp
 
 if.then.i.i.i.i.i.i.cont:                         ; preds = %if.then.i.i.i.i.i.i.invoke
@@ -34791,7 +34791,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.i.i.i
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit144, %lpad.loopexit ], [ %lpad.loopexit.split-lp145, %lpad.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_eqs) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_eqs) #21
   resume { ptr, i32 } %lpad.phi
 
 if.else37:                                        ; preds = %invoke.cont20
@@ -35000,7 +35000,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #21
+  call void @__clang_call_terminate(ptr %49) #23
   unreachable
 
 _ZN10ptr_bufferI4exprLj16EED2Ev.exit:             ; preds = %invoke.cont77, %if.end.i.i.i.i.i
@@ -35392,7 +35392,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 lpad:                                             ; preds = %if.then2.i.i.i, %if.end30, %invoke.cont
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %t2) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %t2) #21
   resume { ptr, i32 } %28
 
 if.else:                                          ; preds = %if.end8
@@ -35435,7 +35435,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i62
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #21
+  tail call void @__clang_call_terminate(ptr %35) #23
   unreachable
 
 return:                                           ; preds = %land.rhs.i.i32, %lor.lhs.false5, %land.rhs.i.i18, %if.end, %if.then2.i.i.i62, %if.then.i.i.i57, %invoke.cont33, %_ZNK14bv_recognizers10is_numeralEPK4expr.exit26, %_ZNK13poly_rewriterI16bv_rewriter_coreE6is_addEP4expr.exit40
@@ -35906,7 +35906,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #21
+  call void @__clang_call_terminate(ptr %18) #23
   unreachable
 
 lpad2:                                            ; preds = %if.end83, %land.lhs.true7, %land.lhs.true
@@ -35922,7 +35922,7 @@ lpad12:                                           ; preds = %if.then15, %invoke.
 lpad18:                                           ; preds = %if.then2.i.i.i, %invoke.cont19, %invoke.cont17
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup82
 
 invoke.cont25:                                    ; preds = %invoke.cont13
@@ -35992,7 +35992,7 @@ invoke.cont37:                                    ; preds = %if.then34
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36) #21
   %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %new_c2, i64 4
   %bf.load.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i, 1
@@ -36030,7 +36030,7 @@ lpad27:                                           ; preds = %if.then2.i.i.i100, 
 lpad38:                                           ; preds = %invoke.cont37
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36) #21
   br label %ehcleanup80
 
 lpad40:                                           ; preds = %if.then43, %if.else, %invoke.cont45
@@ -36064,22 +36064,22 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %invoke.cont61 unwind label %lpad54
 
 invoke.cont61:                                    ; preds = %invoke.cont59
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52) #21
   br label %if.end63
 
 lpad54:                                           ; preds = %invoke.cont57, %invoke.cont55, %invoke.cont59, %invoke.cont53
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52) #21
   br label %ehcleanup
 
 if.end63:                                         ; preds = %invoke.cont45, %invoke.cont61
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %new_c2) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %new_c2) #21
   br label %cleanup
 
 ehcleanup:                                        ; preds = %lpad54, %lpad40
   %.pn = phi { ptr, i32 } [ %39, %lpad40 ], [ %44, %lpad54 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %new_c2) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %new_c2) #21
   br label %ehcleanup80
 
 if.end64:                                         ; preds = %land.rhs.i.i.i62, %invoke.cont25, %_ZNK14bv_recognizers9is_bv_mulEPK4expr.exit.i66, %land.lhs.true.i70, %invoke.cont32
@@ -36152,7 +36152,7 @@ terminate.lpad.i103:                              ; preds = %.noexc.i104, %clean
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #21
+  call void @__clang_call_terminate(ptr %55) #23
   unreachable
 
 cleanup81:                                        ; preds = %.noexc.i104, %.noexc.i
@@ -36170,7 +36170,7 @@ terminate.lpad.i107:                              ; preds = %.noexc.i108, %clean
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #21
+  call void @__clang_call_terminate(ptr %58) #23
   unreachable
 
 _ZN8rationalD2Ev.exit110:                         ; preds = %.noexc.i108
@@ -36179,12 +36179,12 @@ _ZN8rationalD2Ev.exit110:                         ; preds = %.noexc.i108
 
 ehcleanup80:                                      ; preds = %ehcleanup, %lpad38, %lpad27
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %38, %lpad38 ], [ %37, %lpad27 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c2_val) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c2_val) #21
   br label %ehcleanup82
 
 ehcleanup82:                                      ; preds = %ehcleanup80, %lpad18, %lpad12
   %.pn20 = phi { ptr, i32 } [ %21, %lpad18 ], [ %20, %lpad12 ], [ %.pn.pn, %ehcleanup80 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %rhs_val) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %rhs_val) #21
   br label %ehcleanup147
 
 if.end83:                                         ; preds = %land.rhs.i.i.i, %invoke.cont, %_ZNK14bv_recognizers9is_bv_mulEPK4expr.exit.i, %land.lhs.true.i, %_ZN8rationalD2Ev.exit110, %invoke.cont8, %invoke.cont5
@@ -36379,13 +36379,13 @@ terminate.lpad.i168:                              ; preds = %.noexc.i169, %invok
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #21
+  call void @__clang_call_terminate(ptr %82) #23
   unreachable
 
 lpad124:                                          ; preds = %if.then2.i.i.i165, %invoke.cont131, %invoke.cont129, %invoke.cont125, %invoke.cont123
   %83 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122) #21
   br label %ehcleanup140
 
 cleanup139:                                       ; preds = %invoke.cont98, %.noexc.i169, %for.end
@@ -36403,7 +36403,7 @@ terminate.lpad.i172:                              ; preds = %.noexc.i173, %clean
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #21
+  call void @__clang_call_terminate(ptr %86) #23
   unreachable
 
 _ZN8rationalD2Ev.exit175:                         ; preds = %.noexc.i173
@@ -36419,7 +36419,7 @@ terminate.lpad.i176:                              ; preds = %.noexc.i177, %_ZN8r
   %88 = landingpad { ptr, i32 }
           catch ptr null
   %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #21
+  call void @__clang_call_terminate(ptr %89) #23
   unreachable
 
 _ZN8rationalD2Ev.exit179:                         ; preds = %.noexc.i177
@@ -36427,8 +36427,8 @@ _ZN8rationalD2Ev.exit179:                         ; preds = %.noexc.i177
 
 ehcleanup140:                                     ; preds = %lpad101.loopexit, %lpad101.loopexit.split-lp, %lpad124
   %.pn22 = phi { ptr, i32 } [ %83, %lpad124 ], [ %lpad.loopexit, %lpad101.loopexit ], [ %lpad.loopexit.split-lp, %lpad101.loopexit.split-lp ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c2_inv_val) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c2_val97) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c2_inv_val) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c2_val97) #21
   br label %ehcleanup147
 
 if.end145:                                        ; preds = %_ZN8rationalD2Ev.exit179, %land.lhs.true87, %invoke.cont85
@@ -36448,7 +36448,7 @@ terminate.lpad.i180:                              ; preds = %.noexc.i181, %clean
   %91 = landingpad { ptr, i32 }
           catch ptr null
   %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #21
+  call void @__clang_call_terminate(ptr %92) #23
   unreachable
 
 _ZN8rationalD2Ev.exit183:                         ; preds = %.noexc.i181
@@ -36464,7 +36464,7 @@ terminate.lpad.i184:                              ; preds = %.noexc.i185, %_ZN8r
   %94 = landingpad { ptr, i32 }
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #21
+  call void @__clang_call_terminate(ptr %95) #23
   unreachable
 
 _ZN8rationalD2Ev.exit187:                         ; preds = %.noexc.i185
@@ -36472,8 +36472,8 @@ _ZN8rationalD2Ev.exit187:                         ; preds = %.noexc.i185
 
 ehcleanup147:                                     ; preds = %ehcleanup140, %ehcleanup82, %lpad2
   %.pn22.pn.pn = phi { ptr, i32 } [ %.pn22, %ehcleanup140 ], [ %19, %lpad2 ], [ %.pn20, %ehcleanup82 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c_inv_val) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c_val) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c_inv_val) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c_val) #21
   resume { ptr, i32 } %.pn22.pn.pn
 }
 
@@ -36812,8 +36812,8 @@ invoke.cont59:                                    ; preds = %invoke.cont56
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %invoke.cont59
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br i1 %call62, label %if.then63, label %cleanup
 
 if.then63:                                        ; preds = %invoke.cont61
@@ -36833,12 +36833,12 @@ lpad58:                                           ; preds = %invoke.cont56
 lpad60:                                           ; preds = %invoke.cont59
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad60, %lpad58
   %.pn = phi { ptr, i32 } [ %44, %lpad60 ], [ %43, %lpad58 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup71
 
 cleanup:                                          ; preds = %_ZNK14bv_recognizers10is_bv_uremEPK4expr.exit.i, %land.rhs.i.i.i85, %invoke.cont, %invoke.cont38, %invoke.cont41, %invoke.cont61, %invoke.cont65, %if.then49
@@ -36856,7 +36856,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #21
+  call void @__clang_call_terminate(ptr %47) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -36872,7 +36872,7 @@ terminate.lpad.i101:                              ; preds = %.noexc.i102, %_ZN8r
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #21
+  call void @__clang_call_terminate(ptr %50) #23
   unreachable
 
 _ZN8rationalD2Ev.exit104:                         ; preds = %.noexc.i102
@@ -37020,15 +37020,15 @@ if.then106:                                       ; preds = %invoke.cont104
 
 ehcleanup71:                                      ; preds = %ehcleanup, %lpad34
   %.pn24 = phi { ptr, i32 } [ %40, %lpad34 ], [ %.pn, %ehcleanup ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %rhs_val) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %divisor_val) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %rhs_val) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %divisor_val) #21
   br label %eh.resume
 
 lpad78:                                           ; preds = %if.then146.invoke, %if.then141.invoke, %invoke.cont148.invoke, %if.end119, %if.then92
   %83 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_rhs) #19
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_lhs) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_rhs) #21
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_lhs) #21
   br label %eh.resume
 
 if.end114:                                        ; preds = %land.rhs.i.i.i165, %land.lhs.true101, %land.rhs.i.i.i151, %if.then96, %invoke.cont104, %invoke.cont99
@@ -37101,7 +37101,7 @@ terminate.lpad.i184:                              ; preds = %if.then2.i.i.i183
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #21
+  call void @__clang_call_terminate(ptr %98) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %cleanup153, %if.then.i.i.i178, %if.then2.i.i.i183
@@ -37126,7 +37126,7 @@ terminate.lpad.i192:                              ; preds = %if.then2.i.i.i191
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #21
+  call void @__clang_call_terminate(ptr %103) #23
   unreachable
 
 return.sink.split:                                ; preds = %if.then2.i.i.i55, %if.then.i.i.i50, %if.end.i48, %if.then2.i.i.i, %if.then.i.i.i, %if.end.i
@@ -38705,7 +38705,7 @@ lpad181.loopexit.split-lp:                        ; preds = %cond.end287, %invok
 
 lpad181.body:                                     ; preds = %lpad181.loopexit, %lpad181.loopexit.split-lp, %lpad70.i
   %eh.lpad-body = phi { ptr, i32 } [ %209, %lpad70.i ], [ %lpad.loopexit, %lpad181.loopexit ], [ %lpad.loopexit.split-lp, %lpad181.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_rhs_monomials) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_rhs_monomials) #21
   br label %ehcleanup
 
 if.end193:                                        ; preds = %land.rhs.i.i.i.i617, %for.body186, %invoke.cont190
@@ -38829,7 +38829,7 @@ invoke.cont211:                                   ; preds = %invoke.cont210
 lpad70.i:                                         ; preds = %invoke.cont211
   %209 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a66.i) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a66.i) #21
   br label %lpad181.body
 
 cleanup88.i:                                      ; preds = %invoke.cont211
@@ -38845,7 +38845,7 @@ terminate.lpad.i105.i:                            ; preds = %.noexc.i106.i, %cle
   %211 = landingpad { ptr, i32 }
           catch ptr null
   %212 = extractvalue { ptr, i32 } %211, 0
-  call void @__clang_call_terminate(ptr %212) #21
+  call void @__clang_call_terminate(ptr %212) #23
   unreachable
 
 invoke.cont214:                                   ; preds = %.noexc.i106.i
@@ -39187,7 +39187,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i812
   %252 = landingpad { ptr, i32 }
           catch ptr null
   %253 = extractvalue { ptr, i32 } %252, 0
-  call void @__clang_call_terminate(ptr %253) #21
+  call void @__clang_call_terminate(ptr %253) #23
   unreachable
 
 _ZN10ptr_bufferI4exprLj16EED2Ev.exit:             ; preds = %invoke.cont309, %if.end.i.i.i.i.i812
@@ -39205,7 +39205,7 @@ terminate.lpad.i.i818:                            ; preds = %if.end.i.i.i.i.i817
   %255 = landingpad { ptr, i32 }
           catch ptr null
   %256 = extractvalue { ptr, i32 } %255, 0
-  call void @__clang_call_terminate(ptr %256) #21
+  call void @__clang_call_terminate(ptr %256) #23
   unreachable
 
 _ZN10ptr_bufferI4exprLj16EED2Ev.exit819:          ; preds = %_ZN10ptr_bufferI4exprLj16EED2Ev.exit, %if.end.i.i.i.i.i817
@@ -39231,7 +39231,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %.noexc.i.i.i.i, %fo
   %260 = landingpad { ptr, i32 }
           catch ptr null
   %261 = extractvalue { ptr, i32 } %260, 0
-  call void @__clang_call_terminate(ptr %261) #21
+  call void @__clang_call_terminate(ptr %261) #23
   unreachable
 
 _ZN8rationalD2Ev.exit.i.i.i:                      ; preds = %.noexc.i.i.i.i
@@ -39258,17 +39258,17 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i827
   %263 = landingpad { ptr, i32 }
           catch ptr null
   %264 = extractvalue { ptr, i32 } %263, 0
-  call void @__clang_call_terminate(ptr %264) #21
+  call void @__clang_call_terminate(ptr %264) #23
   unreachable
 
 ehcleanup:                                        ; preds = %lpad181.body, %lpad133
   %.pn = phi { ptr, i32 } [ %146, %lpad133 ], [ %eh.lpad-body, %lpad181.body ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_lhs_monomials) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_lhs_monomials) #21
   br label %ehcleanup311
 
 ehcleanup311:                                     ; preds = %lpad65.loopexit, %lpad65.loopexit.split-lp.loopexit.split-lp, %lpad65.loopexit.split-lp.loopexit, %ehcleanup
   %.pn45 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit916, %lpad65.loopexit ], [ %lpad.loopexit921, %lpad65.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp922, %lpad65.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN6bufferI8rationalLb1ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(528) %coeffs) #19
+  call void @_ZN6bufferI8rationalLb1ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(528) %coeffs) #21
   br label %ehcleanup312
 
 cleanup:                                          ; preds = %if.end.i.i.i.i827, %_ZN6bufferI8rationalLb1ELj16EE16destroy_elementsEv.exit.i.i, %if.else57, %invoke.cont59, %invoke.cont53, %invoke.cont17
@@ -39285,7 +39285,7 @@ terminate.lpad.i828:                              ; preds = %.noexc.i, %cleanup
   %266 = landingpad { ptr, i32 }
           catch ptr null
   %267 = extractvalue { ptr, i32 } %266, 0
-  call void @__clang_call_terminate(ptr %267) #21
+  call void @__clang_call_terminate(ptr %267) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -39301,7 +39301,7 @@ terminate.lpad.i830:                              ; preds = %.noexc.i831, %_ZN8r
   %269 = landingpad { ptr, i32 }
           catch ptr null
   %270 = extractvalue { ptr, i32 } %269, 0
-  call void @__clang_call_terminate(ptr %270) #21
+  call void @__clang_call_terminate(ptr %270) #23
   unreachable
 
 _ZN8rationalD2Ev.exit833:                         ; preds = %.noexc.i831
@@ -39343,7 +39343,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   %275 = landingpad { ptr, i32 }
           catch ptr null
   %276 = extractvalue { ptr, i32 } %275, 0
-  call void @__clang_call_terminate(ptr %276) #21
+  call void @__clang_call_terminate(ptr %276) #23
   unreachable
 
 _ZN13ast_fast_markILj2EED2Ev.exit:                ; preds = %invoke.cont.i, %if.end.i.i.i.i.i.i
@@ -39385,7 +39385,7 @@ terminate.lpad.i.i.i861:                          ; preds = %if.end.i.i.i.i.i.i8
   %281 = landingpad { ptr, i32 }
           catch ptr null
   %282 = extractvalue { ptr, i32 } %281, 0
-  call void @__clang_call_terminate(ptr %282) #21
+  call void @__clang_call_terminate(ptr %282) #23
   unreachable
 
 _ZN13ast_fast_markILj1EED2Ev.exit:                ; preds = %invoke.cont.i855, %if.end.i.i.i.i.i.i860
@@ -39393,14 +39393,14 @@ _ZN13ast_fast_markILj1EED2Ev.exit:                ; preds = %invoke.cont.i855, %
 
 ehcleanup312:                                     ; preds = %lpad6.loopexit, %lpad6.loopexit.split-lp.loopexit.split-lp, %lpad6.loopexit.split-lp.loopexit, %ehcleanup311
   %.pn47 = phi { ptr, i32 } [ %.pn45, %ehcleanup311 ], [ %lpad.loopexit924, %lpad6.loopexit ], [ %lpad.loopexit927, %lpad6.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp928, %lpad6.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c) #21
   br label %ehcleanup316
 
 ehcleanup316:                                     ; preds = %ehcleanup312, %lpad
   %.pn47.pn.pn = phi { ptr, i32 } [ %.pn47, %ehcleanup312 ], [ %16, %lpad ]
-  call void @_ZN13ast_fast_markILj2EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %multiple) #19
-  call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %visited) #19
+  call void @_ZN13ast_fast_markILj2EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %multiple) #21
+  call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %visited) #21
   resume { ptr, i32 } %.pn47.pn.pn
 }
 
@@ -39480,7 +39480,7 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %if.then.i.i8.i.i, %
 lpad:                                             ; preds = %_ZN8rationalC2ERKS_.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   resume { ptr, i32 } %5
 
 nrvo.skipdtor:                                    ; preds = %_ZN8rationalC2ERKS_.exit
@@ -39549,7 +39549,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %land.end
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #21
+  call void @__clang_call_terminate(ptr %5) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -39558,7 +39558,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 lpad:                                             ; preds = %land.rhs, %land.lhs.true, %call.i.i.noexc, %entry
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #21
   resume { ptr, i32 } %6
 }
 
@@ -40010,9 +40010,9 @@ cond.end:                                         ; preds = %cond.false, %invoke
 lpad68:                                           ; preds = %if.then138.invoke, %invoke.cont141.invoke, %cond.false, %land.lhs.true74, %land.lhs.true71, %invoke.cont67, %cond.end, %if.then79
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %t_n) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %e_n) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %rhs_n) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %t_n) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %e_n) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %rhs_n) #21
   resume { ptr, i32 } %51
 
 if.end88:                                         ; preds = %if.then77
@@ -40139,9 +40139,9 @@ invoke.cont141.invoke:                            ; preds = %if.then138.invoke, 
 cleanup:                                          ; preds = %invoke.cont141.invoke, %invoke.cont92, %invoke.cont89, %invoke.cont104, %land.lhs.true135, %land.lhs.true122, %invoke.cont101, %invoke.cont120, %invoke.cont123, %invoke.cont69, %invoke.cont72, %invoke.cont75, %invoke.cont136, %invoke.cont130, %cond.end
   %retval.1 = phi i32 [ 0, %cond.end ], [ undef, %invoke.cont130 ], [ undef, %invoke.cont136 ], [ undef, %invoke.cont75 ], [ undef, %invoke.cont72 ], [ undef, %invoke.cont69 ], [ undef, %invoke.cont123 ], [ undef, %invoke.cont120 ], [ undef, %invoke.cont101 ], [ undef, %land.lhs.true122 ], [ undef, %land.lhs.true135 ], [ undef, %invoke.cont104 ], [ undef, %invoke.cont89 ], [ undef, %invoke.cont92 ], [ %77, %invoke.cont141.invoke ]
   %switch = phi i1 [ false, %cond.end ], [ true, %invoke.cont130 ], [ true, %invoke.cont136 ], [ true, %invoke.cont75 ], [ true, %invoke.cont72 ], [ true, %invoke.cont69 ], [ true, %invoke.cont123 ], [ true, %invoke.cont120 ], [ true, %invoke.cont101 ], [ true, %land.lhs.true122 ], [ true, %land.lhs.true135 ], [ true, %invoke.cont104 ], [ true, %invoke.cont89 ], [ true, %invoke.cont92 ], [ false, %invoke.cont141.invoke ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %t_n) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %e_n) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %rhs_n) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %t_n) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %e_n) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %rhs_n) #21
   br i1 %switch, label %if.end152, label %return
 
 if.end152:                                        ; preds = %land.rhs.i.i57, %land.lhs.true32, %cleanup, %if.then39, %if.end61, %land.lhs.true37, %land.lhs.true35, %_ZNK11ast_manager5is_eqEPK4expr.exit, %if.end31
@@ -40204,11 +40204,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %if.end
@@ -40326,7 +40326,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %if.then2.i.i.i, %if
 lpad:                                             ; preds = %if.then2.i.i.i, %if.then, %entry
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #21
   resume { ptr, i32 } %7
 
 nrvo.skipdtor:                                    ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %invoke.cont
@@ -40349,11 +40349,11 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %entry
@@ -40449,7 +40449,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i21
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #21
+  call void @__clang_call_terminate(ptr %26) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont21, %if.then.i.i.i16, %if.then2.i.i.i21
@@ -40458,7 +40458,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont21, %if.
 lpad:                                             ; preds = %if.then2.i.i.i, %invoke.cont16, %invoke.cont11, %invoke.cont9, %invoke.cont, %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %r) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %r) #21
   resume { ptr, i32 } %27
 }
 
@@ -40479,11 +40479,11 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK11bv_rewriter11get_bv_sizeEP4expr.exit:       ; preds = %entry
@@ -40628,7 +40628,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i31
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #21
+  call void @__clang_call_terminate(ptr %32) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont25, %if.then.i.i.i26, %if.then2.i.i.i31
@@ -40654,7 +40654,7 @@ terminate.lpad.i39:                               ; preds = %if.then2.i.i.i38
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #21
+  call void @__clang_call_terminate(ptr %37) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit40:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then.i.i.i33, %if.then2.i.i.i38
@@ -40668,12 +40668,12 @@ lpad:                                             ; preds = %invoke.cont9, %invo
 lpad15:                                           ; preds = %if.then2.i.i.i, %invoke.cont18, %if.then2.i.i.i.i, %if.end.i, %invoke.cont11
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %non_neg_sum) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %non_neg_sum) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad15, %lpad
   %.pn = phi { ptr, i32 } [ %39, %lpad15 ], [ %38, %lpad ]
-  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %r) #19
+  call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %r) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -40777,11 +40777,11 @@ entry:
   br i1 %cmp.not.i.i.i.i, label %_ZNK7bv_util11get_bv_sizeEPK4sort.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %exception.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i, i64 8
   store ptr @.str.30, ptr %_M_reason.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22
   unreachable
 
 _ZNK7bv_util11get_bv_sizeEPK4sort.exit:           ; preds = %entry
@@ -40846,7 +40846,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %_ZNK7bv_
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #21
+  call void @__clang_call_terminate(ptr %18) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -40879,7 +40879,7 @@ entry:
 define weak_odr hidden noundef i32 @_ZNK13poly_rewriterI16bv_rewriter_coreE15power_decl_kindEv(ptr noundef nonnull align 8 dereferenceable(92) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.31, i32 noundef 45, ptr noundef nonnull @.str.1)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 }
 
@@ -40887,7 +40887,7 @@ entry:
 define weak_odr hidden noundef zeroext i1 @_ZNK13poly_rewriterI16bv_rewriter_coreE8is_powerEP4expr(ptr noundef nonnull align 8 dereferenceable(92) %this, ptr noundef %t) local_unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.31, i32 noundef 45, ptr noundef nonnull @.str.1)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 }
 
@@ -40895,7 +40895,7 @@ entry:
 define weak_odr hidden noundef ptr @_ZN13poly_rewriterI16bv_rewriter_coreE14get_power_bodyEP4exprR8rational(ptr noundef nonnull align 8 dereferenceable(92) %this, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(32) %k) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.31, i32 noundef 45, ptr noundef nonnull @.str.1)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 }
 
@@ -40944,7 +40944,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #21
+  call void @__clang_call_terminate(ptr %4) #23
   unreachable
 
 lpad:                                             ; preds = %sw.bb
@@ -41018,7 +41018,7 @@ terminate.lpad.i105:                              ; preds = %.noexc.i106, %clean
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #21
+  call void @__clang_call_terminate(ptr %13) #23
   unreachable
 
 return:                                           ; preds = %.noexc.i106, %.noexc.i, %sw.bb2
@@ -41028,7 +41028,7 @@ return:                                           ; preds = %.noexc.i106, %.noex
 eh.resume:                                        ; preds = %lpad70, %lpad
   %a66.sink = phi ptr [ %a66, %lpad70 ], [ %ref.tmp, %lpad ]
   %.pn.pn.pn = phi { ptr, i32 } [ %8, %lpad70 ], [ %5, %lpad ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a66.sink) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a66.sink) #21
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -41093,13 +41093,13 @@ terminate.lpad.i.i:                               ; preds = %.noexc.i.i, %invoke
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #21
+  call void @__clang_call_terminate(ptr %7) #23
   unreachable
 
 lpad.i:                                           ; preds = %if.else
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v.i) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v.i) #21
   resume { ptr, i32 } %8
 
 _ZNK13poly_rewriterI16bv_rewriter_coreE7is_zeroEP4expr.exit: ; preds = %.noexc.i.i
@@ -41159,7 +41159,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #21
+  call void @__clang_call_terminate(ptr %3) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -41170,7 +41170,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 lpad:                                             ; preds = %entry
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #21
   resume { ptr, i32 } %5
 }
 
@@ -41217,13 +41217,13 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #21
+  call void @__clang_call_terminate(ptr %4) #23
   unreachable
 
 lpad:                                             ; preds = %sw.bb
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   resume { ptr, i32 } %5
 
 sw.bb2:                                           ; preds = %entry
@@ -41716,8 +41716,8 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; 
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit226, %lpad.loopexit ], [ %lpad.loopexit228, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit231, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit234, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp235, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %todo) #19
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %flat_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %todo) #21
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %flat_args) #21
   resume { ptr, i32 } %lpad.phi
 
 if.else:                                          ; preds = %land.rhs.i.i92, %while.body, %invoke.cont31
@@ -41939,7 +41939,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i215
   %95 = landingpad { ptr, i32 }
           catch ptr null
   %96 = extractvalue { ptr, i32 } %95, 0
-  call void @__clang_call_terminate(ptr %96) #21
+  call void @__clang_call_terminate(ptr %96) #23
   unreachable
 
 _ZN10ptr_bufferI4exprLj16EED2Ev.exit:             ; preds = %cleanup, %if.end.i.i.i.i.i215
@@ -41957,7 +41957,7 @@ terminate.lpad.i.i221:                            ; preds = %if.end.i.i.i.i.i220
   %98 = landingpad { ptr, i32 }
           catch ptr null
   %99 = extractvalue { ptr, i32 } %98, 0
-  call void @__clang_call_terminate(ptr %99) #21
+  call void @__clang_call_terminate(ptr %99) #23
   unreachable
 
 if.end76:                                         ; preds = %for.inc, %entry, %land.rhs.i.i.i.i34, %land.lhs.true, %land.rhs.i.i, %lor.lhs.false2, %_ZNK13poly_rewriterI16bv_rewriter_coreE10is_numeralEP4expr.exit42, %_ZNK13poly_rewriterI16bv_rewriter_coreE6is_mulEP4expr.exit
@@ -42545,7 +42545,7 @@ lpad106.loopexit.split-lp:                        ; preds = %for.end124, %invoke
 
 lpad106:                                          ; preds = %lpad106.loopexit.split-lp, %lpad106.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad106.loopexit ], [ %lpad.loopexit.split-lp, %lpad106.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_add_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_add_args) #21
   br label %ehcleanup
 
 for.end124.loopexit:                              ; preds = %for.inc122
@@ -42563,7 +42563,7 @@ invoke.cont129:                                   ; preds = %for.end124
           to label %invoke.cont131 unwind label %lpad106.loopexit.split-lp
 
 invoke.cont131:                                   ; preds = %invoke.cont129
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_add_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_add_args) #21
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont101, %land.lhs.true96, %if.then66, %invoke.cont77, %invoke.cont87, %invoke.cont131
@@ -42580,12 +42580,12 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #21
+  call void @__clang_call_terminate(ptr %68) #23
   unreachable
 
 ehcleanup:                                        ; preds = %lpad106, %lpad63
   %.pn67 = phi { ptr, i32 } [ %53, %lpad63 ], [ %lpad.phi, %lpad106 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c_prime) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c_prime) #21
   br label %ehcleanup329
 
 if.end133:                                        ; preds = %if.end53
@@ -42747,7 +42747,7 @@ lpad148.loopexit.split-lp:                        ; preds = %for.end158, %invoke
 
 lpad148:                                          ; preds = %lpad148.loopexit.split-lp, %lpad148.loopexit
   %lpad.phi647 = phi { ptr, i32 } [ %lpad.loopexit645, %lpad148.loopexit ], [ %lpad.loopexit.split-lp646, %lpad148.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_args) #21
   br label %ehcleanup329
 
 for.inc156:                                       ; preds = %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit, %invoke.cont149
@@ -42816,7 +42816,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #21
+  call void @__clang_call_terminate(ptr %100) #23
   unreachable
 
 if.end171:                                        ; preds = %invoke.cont139, %lor.lhs.false135
@@ -42884,7 +42884,7 @@ lpad181.loopexit.split-lp:                        ; preds = %if.then205, %if.end
 
 lpad181:                                          ; preds = %lpad181.loopexit.split-lp, %lpad181.loopexit
   %lpad.phi656 = phi { ptr, i32 } [ %lpad.loopexit654, %lpad181.loopexit ], [ %lpad.loopexit.split-lp655, %lpad181.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %new_args) #21
   br label %ehcleanup329
 
 if.end185:                                        ; preds = %land.rhs.i.i.i.i271, %for.body178, %invoke.cont182
@@ -43062,7 +43062,7 @@ terminate.lpad.i.i331:                            ; preds = %if.end.i.i.i.i.i330
   %124 = landingpad { ptr, i32 }
           catch ptr null
   %125 = extractvalue { ptr, i32 } %124, 0
-  call void @__clang_call_terminate(ptr %125) #21
+  call void @__clang_call_terminate(ptr %125) #23
   unreachable
 
 if.end228:                                        ; preds = %if.end171
@@ -43503,8 +43503,8 @@ lpad273.loopexit.split-lp.loopexit.split-lp:      ; preds = %invoke.cont314, %in
 
 lpad273:                                          ; preds = %lpad273.loopexit.split-lp.loopexit, %lpad273.loopexit.split-lp.loopexit.split-lp, %lpad273.loopexit
   %lpad.phi650 = phi { ptr, i32 } [ %lpad.loopexit648, %lpad273.loopexit ], [ %lpad.loopexit651, %lpad273.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp652, %lpad273.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_args272) #19
-  call void @_ZN10ref_bufferI4expr11ast_managerLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %sum) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_args272) #21
+  call void @_ZN10ref_bufferI4expr11ast_managerLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %sum) #21
   br label %ehcleanup323
 
 if.end278:                                        ; preds = %invoke.cont274
@@ -43709,7 +43709,7 @@ terminate.lpad.i.i602:                            ; preds = %if.end.i.i.i.i.i601
   %201 = landingpad { ptr, i32 }
           catch ptr null
   %202 = extractvalue { ptr, i32 } %201, 0
-  call void @__clang_call_terminate(ptr %202) #21
+  call void @__clang_call_terminate(ptr %202) #23
   unreachable
 
 _ZN10ptr_bufferI4exprLj16EED2Ev.exit603:          ; preds = %cleanup318, %if.end.i.i.i.i.i601
@@ -43763,14 +43763,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   %209 = landingpad { ptr, i32 }
           catch ptr null
   %210 = extractvalue { ptr, i32 } %209, 0
-  call void @__clang_call_terminate(ptr %210) #21
+  call void @__clang_call_terminate(ptr %210) #23
   unreachable
 
 terminate.lpad.i.i612:                            ; preds = %if.then2.i.i.i.i.i.i
   %211 = landingpad { ptr, i32 }
           catch ptr null
   %212 = extractvalue { ptr, i32 } %211, 0
-  call void @__clang_call_terminate(ptr %212) #21
+  call void @__clang_call_terminate(ptr %212) #23
   unreachable
 
 _ZN10ref_bufferI4expr11ast_managerLj16EED2Ev.exit: ; preds = %invoke.cont5.i.i, %if.end.i.i.i.i.i.i.i
@@ -43788,7 +43788,7 @@ terminate.lpad.i.i618:                            ; preds = %if.end.i.i.i.i.i617
   %214 = landingpad { ptr, i32 }
           catch ptr null
   %215 = extractvalue { ptr, i32 } %214, 0
-  call void @__clang_call_terminate(ptr %215) #21
+  call void @__clang_call_terminate(ptr %215) #23
   unreachable
 
 _ZN7sbufferIPP4exprLj16EED2Ev.exit:               ; preds = %_ZN10ref_bufferI4expr11ast_managerLj16EED2Ev.exit, %if.end.i.i.i.i.i617
@@ -43806,7 +43806,7 @@ terminate.lpad.i.i624:                            ; preds = %if.end.i.i.i.i.i623
   %217 = landingpad { ptr, i32 }
           catch ptr null
   %218 = extractvalue { ptr, i32 } %217, 0
-  call void @__clang_call_terminate(ptr %218) #21
+  call void @__clang_call_terminate(ptr %218) #23
   unreachable
 
 _ZN7sbufferIjLj16EED2Ev.exit:                     ; preds = %_ZN7sbufferIPP4exprLj16EED2Ev.exit, %if.end.i.i.i.i.i623
@@ -43824,14 +43824,14 @@ terminate.lpad.i.i630:                            ; preds = %if.end.i.i.i.i.i629
   %220 = landingpad { ptr, i32 }
           catch ptr null
   %221 = extractvalue { ptr, i32 } %220, 0
-  call void @__clang_call_terminate(ptr %221) #21
+  call void @__clang_call_terminate(ptr %221) #23
   unreachable
 
 ehcleanup323:                                     ; preds = %lpad273, %lpad239
   %.pn = phi { ptr, i32 } [ %155, %lpad239 ], [ %lpad.phi650, %lpad273 ]
-  call void @_ZN7sbufferIPP4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %sums) #19
-  call void @_ZN7sbufferIjLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %it) #19
-  call void @_ZN7sbufferIjLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %szs) #19
+  call void @_ZN7sbufferIPP4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %sums) #21
+  call void @_ZN7sbufferIjLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %it) #21
+  call void @_ZN7sbufferIjLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %szs) #21
   br label %ehcleanup329
 
 cleanup328.sink.split:                            ; preds = %if.then.i.i.i142, %if.end.i140, %if.then2.i.i.i147, %if.then.i.i.i115, %if.end.i113, %if.then2.i.i.i120, %if.then.i.i.i, %if.end.i, %if.then2.i.i.i
@@ -43853,12 +43853,12 @@ terminate.lpad.i632:                              ; preds = %.noexc.i633, %clean
   %223 = landingpad { ptr, i32 }
           catch ptr null
   %224 = extractvalue { ptr, i32 } %223, 0
-  call void @__clang_call_terminate(ptr %224) #21
+  call void @__clang_call_terminate(ptr %224) #23
   unreachable
 
 ehcleanup329:                                     ; preds = %lpad25.loopexit, %lpad25.loopexit.split-lp, %ehcleanup323, %lpad181, %lpad148, %ehcleanup
   %.pn69 = phi { ptr, i32 } [ %.pn67, %ehcleanup ], [ %lpad.phi647, %lpad148 ], [ %lpad.phi656, %lpad181 ], [ %.pn, %ehcleanup323 ], [ %lpad.loopexit657, %lpad25.loopexit ], [ %lpad.loopexit.split-lp658, %lpad25.loopexit.split-lp ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c) #21
   br label %ehcleanup331
 
 cleanup330:                                       ; preds = %.noexc.i633, %land.lhs.true8, %invoke.cont19
@@ -43875,7 +43875,7 @@ terminate.lpad.i636:                              ; preds = %.noexc.i637, %clean
   %226 = landingpad { ptr, i32 }
           catch ptr null
   %227 = extractvalue { ptr, i32 } %226, 0
-  call void @__clang_call_terminate(ptr %227) #21
+  call void @__clang_call_terminate(ptr %227) #23
   unreachable
 
 _ZN8rationalD2Ev.exit639:                         ; preds = %.noexc.i637
@@ -43883,7 +43883,7 @@ _ZN8rationalD2Ev.exit639:                         ; preds = %.noexc.i637
 
 ehcleanup331:                                     ; preds = %ehcleanup329, %lpad
   %.pn69.pn = phi { ptr, i32 } [ %.pn69, %ehcleanup329 ], [ %10, %lpad ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a) #21
   resume { ptr, i32 } %.pn69.pn
 }
 
@@ -43966,7 +43966,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #23
   unreachable
 
 _ZN6bufferIPP4exprLb0ELj16EED2Ev.exit:            ; preds = %entry, %if.end.i.i.i.i
@@ -43991,7 +43991,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #23
   unreachable
 
 _ZN6bufferIjLb0ELj16EED2Ev.exit:                  ; preds = %entry, %if.end.i.i.i.i
@@ -44183,7 +44183,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %if.end
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #21
+  call void @__clang_call_terminate(ptr %23) #23
   unreachable
 
 return:                                           ; preds = %.noexc.i, %if.then
@@ -44460,7 +44460,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %for.end31
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit86, %lpad.loopexit ], [ %lpad.loopexit88, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit91, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp92, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %flat_args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %flat_args) #21
   resume { ptr, i32 } %lpad.phi
 
 if.else:                                          ; preds = %land.rhs.i.i28, %for.body6, %invoke.cont9
@@ -44602,7 +44602,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i83
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #21
+  call void @__clang_call_terminate(ptr %51) #23
   unreachable
 
 if.end49:                                         ; preds = %for.inc, %entry
@@ -45343,7 +45343,7 @@ lpad70.loopexit.split-lp:                         ; preds = %.noexc421.invoke, %
 
 lpad70:                                           ; preds = %lpad70.loopexit.split-lp, %lpad70.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad70.loopexit ], [ %lpad.loopexit.split-lp, %lpad70.loopexit.split-lp ]
-  call void @_ZN10ref_bufferI4expr11ast_managerLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %new_args) #19
+  call void @_ZN10ref_bufferI4expr11ast_managerLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %new_args) #21
   br label %ehcleanup
 
 if.end77:                                         ; preds = %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit, %invoke.cont71
@@ -45994,14 +45994,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   %151 = landingpad { ptr, i32 }
           catch ptr null
   %152 = extractvalue { ptr, i32 } %151, 0
-  call void @__clang_call_terminate(ptr %152) #21
+  call void @__clang_call_terminate(ptr %152) #23
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %153 = landingpad { ptr, i32 }
           catch ptr null
   %154 = extractvalue { ptr, i32 } %153, 0
-  call void @__clang_call_terminate(ptr %154) #21
+  call void @__clang_call_terminate(ptr %154) #23
   unreachable
 
 _ZN10ref_bufferI4expr11ast_managerLj16EED2Ev.exit: ; preds = %invoke.cont5.i.i, %if.end.i.i.i.i.i.i.i
@@ -46027,7 +46027,7 @@ terminate.lpad.i.i.i.i463:                        ; preds = %.noexc.i.i.i.i, %fo
   %158 = landingpad { ptr, i32 }
           catch ptr null
   %159 = extractvalue { ptr, i32 } %158, 0
-  call void @__clang_call_terminate(ptr %159) #21
+  call void @__clang_call_terminate(ptr %159) #23
   unreachable
 
 _ZN8rationalD2Ev.exit.i.i.i:                      ; preds = %.noexc.i.i.i.i
@@ -46054,12 +46054,12 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   %161 = landingpad { ptr, i32 }
           catch ptr null
   %162 = extractvalue { ptr, i32 } %161, 0
-  call void @__clang_call_terminate(ptr %162) #21
+  call void @__clang_call_terminate(ptr %162) #23
   unreachable
 
 ehcleanup:                                        ; preds = %lpad31.loopexit, %lpad31.loopexit.split-lp, %lpad70
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad70 ], [ %lpad.loopexit709, %lpad31.loopexit ], [ %lpad.loopexit.split-lp710, %lpad31.loopexit.split-lp ]
-  call void @_ZN6bufferI8rationalLb1ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(528) %coeffs) #19
+  call void @_ZN6bufferI8rationalLb1ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(528) %coeffs) #21
   br label %ehcleanup267
 
 if.else170:                                       ; preds = %invoke.cont28
@@ -46210,7 +46210,7 @@ lpad194.loopexit.split-lp:                        ; preds = %.noexc597.invoke, %
 
 lpad194:                                          ; preds = %lpad194.loopexit.split-lp, %lpad194.loopexit
   %lpad.phi714 = phi { ptr, i32 } [ %lpad.loopexit712, %lpad194.loopexit ], [ %lpad.loopexit.split-lp713, %lpad194.loopexit.split-lp ]
-  call void @_ZN10ref_bufferI4expr11ast_managerLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %new_args191) #19
+  call void @_ZN10ref_bufferI4expr11ast_managerLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %new_args191) #21
   br label %ehcleanup267
 
 if.end201:                                        ; preds = %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit524, %invoke.cont195
@@ -46508,14 +46508,14 @@ terminate.lpad.i.i.i.i660:                        ; preds = %if.end.i.i.i.i.i.i.
   %217 = landingpad { ptr, i32 }
           catch ptr null
   %218 = extractvalue { ptr, i32 } %217, 0
-  call void @__clang_call_terminate(ptr %218) #21
+  call void @__clang_call_terminate(ptr %218) #23
   unreachable
 
 terminate.lpad.i.i662:                            ; preds = %if.then2.i.i.i.i.i.i661
   %219 = landingpad { ptr, i32 }
           catch ptr null
   %220 = extractvalue { ptr, i32 } %219, 0
-  call void @__clang_call_terminate(ptr %220) #21
+  call void @__clang_call_terminate(ptr %220) #23
   unreachable
 
 cleanup266:                                       ; preds = %invoke.cont183, %if.end.i.i.i.i.i.i.i659, %invoke.cont5.i.i654, %if.end.i.i.i.i, %_ZN6bufferI8rationalLb1ELj16EE16destroy_elementsEv.exit.i.i, %if.then176
@@ -46558,7 +46558,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   %225 = landingpad { ptr, i32 }
           catch ptr null
   %226 = extractvalue { ptr, i32 } %225, 0
-  call void @__clang_call_terminate(ptr %226) #21
+  call void @__clang_call_terminate(ptr %226) #23
   unreachable
 
 _ZN13ast_fast_markILj2EED2Ev.exit:                ; preds = %invoke.cont.i, %if.end.i.i.i.i.i.i
@@ -46600,7 +46600,7 @@ terminate.lpad.i.i.i691:                          ; preds = %if.end.i.i.i.i.i.i6
   %231 = landingpad { ptr, i32 }
           catch ptr null
   %232 = extractvalue { ptr, i32 } %231, 0
-  call void @__clang_call_terminate(ptr %232) #21
+  call void @__clang_call_terminate(ptr %232) #23
   unreachable
 
 _ZN13ast_fast_markILj1EED2Ev.exit:                ; preds = %invoke.cont.i685, %if.end.i.i.i.i.i.i690
@@ -46616,7 +46616,7 @@ terminate.lpad.i692:                              ; preds = %.noexc.i, %_ZN13ast
   %234 = landingpad { ptr, i32 }
           catch ptr null
   %235 = extractvalue { ptr, i32 } %234, 0
-  call void @__clang_call_terminate(ptr %235) #21
+  call void @__clang_call_terminate(ptr %235) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -46632,7 +46632,7 @@ terminate.lpad.i695:                              ; preds = %.noexc.i696, %_ZN8r
   %237 = landingpad { ptr, i32 }
           catch ptr null
   %238 = extractvalue { ptr, i32 } %237, 0
-  call void @__clang_call_terminate(ptr %238) #21
+  call void @__clang_call_terminate(ptr %238) #23
   unreachable
 
 _ZN8rationalD2Ev.exit699:                         ; preds = %.noexc.i696
@@ -46640,10 +46640,10 @@ _ZN8rationalD2Ev.exit699:                         ; preds = %.noexc.i696
 
 ehcleanup267:                                     ; preds = %lpad2.loopexit, %lpad2.loopexit.split-lp, %lpad194, %ehcleanup
   %.pn44 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.phi714, %lpad194 ], [ %lpad.loopexit715, %lpad2.loopexit ], [ %lpad.loopexit.split-lp716, %lpad2.loopexit.split-lp ]
-  call void @_ZN13ast_fast_markILj2EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %multiple) #19
-  call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %visited) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c) #19
+  call void @_ZN13ast_fast_markILj2EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %multiple) #21
+  call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %visited) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c) #21
   resume { ptr, i32 } %.pn44
 }
 
@@ -47395,7 +47395,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %93 = landingpad { ptr, i32 }
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0
-  call void @__clang_call_terminate(ptr %94) #21
+  call void @__clang_call_terminate(ptr %94) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -47410,7 +47410,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 lpad113:                                          ; preds = %invoke.cont112
   %97 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp111) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp111) #21
   br label %ehcleanup
 
 if.else122:                                       ; preds = %for.body.i.i.i183, %for.inc36.i.i.i, %for.body20.i.i.i, %for.cond18.preheader.i.i.i, %land.lhs.true
@@ -47489,7 +47489,7 @@ for.end19.i.i:                                    ; preds = %for.cond11.preheade
           to label %.noexc259 unwind label %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc259:                                        ; preds = %for.end19.i.i
-  call void @exit(i32 noundef 114) #22
+  call void @exit(i32 noundef 114) #24
   unreachable
 
 for.inc21.sink.split.i.i:                         ; preds = %for.body8.i.i, %for.body13.i.i
@@ -47644,7 +47644,7 @@ for.end56.i:                                      ; preds = %for.cond27.preheade
           to label %.noexc244 unwind label %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc244:                                        ; preds = %for.end56.i
-  call void @exit(i32 noundef 114) #22
+  call void @exit(i32 noundef 114) #24
   unreachable
 
 for.inc125:                                       ; preds = %if.then14.i, %if.end21.i, %if.then37.i, %if.end48.i, %invoke.cont87
@@ -47718,7 +47718,7 @@ terminate.lpad.i.i:                               ; preds = %for.cond.preheader.
   %125 = landingpad { ptr, i32 }
           catch ptr null
   %126 = extractvalue { ptr, i32 } %125, 0
-  call void @__clang_call_terminate(ptr %126) #21
+  call void @__clang_call_terminate(ptr %126) #23
   unreachable
 
 _ZN7obj_mapI4exprjED2Ev.exit:                     ; preds = %cleanup, %for.cond.preheader.i.i.i.i
@@ -47737,7 +47737,7 @@ terminate.lpad.i220:                              ; preds = %if.end.i.i.i.i219
   %128 = landingpad { ptr, i32 }
           catch ptr null
   %129 = extractvalue { ptr, i32 } %128, 0
-  call void @__clang_call_terminate(ptr %129) #21
+  call void @__clang_call_terminate(ptr %129) #23
   unreachable
 
 _ZN6bufferIbLb1ELj16EED2Ev.exit:                  ; preds = %_ZN7obj_mapI4exprjED2Ev.exit, %if.end.i.i.i.i219
@@ -47755,7 +47755,7 @@ terminate.lpad.i.i225:                            ; preds = %if.end.i.i.i.i.i224
   %131 = landingpad { ptr, i32 }
           catch ptr null
   %132 = extractvalue { ptr, i32 } %131, 0
-  call void @__clang_call_terminate(ptr %132) #21
+  call void @__clang_call_terminate(ptr %132) #23
   unreachable
 
 _ZN10ptr_bufferI4exprLj16EED2Ev.exit:             ; preds = %_ZN6bufferIbLb1ELj16EED2Ev.exit, %if.end.i.i.i.i.i224
@@ -47773,23 +47773,23 @@ terminate.lpad.i.i231:                            ; preds = %if.end.i.i.i.i.i230
   %134 = landingpad { ptr, i32 }
           catch ptr null
   %135 = extractvalue { ptr, i32 } %134, 0
-  call void @__clang_call_terminate(ptr %135) #21
+  call void @__clang_call_terminate(ptr %135) #23
   unreachable
 
 ehcleanup:                                        ; preds = %lpad35.loopexit, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad35.loopexit.split-lp.loopexit, %lpad113
   %.pn = phi { ptr, i32 } [ %97, %lpad113 ], [ %lpad.loopexit, %lpad35.loopexit ], [ %lpad.loopexit286, %lpad35.loopexit.split-lp.loopexit ], [ %lpad.loopexit290, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN7obj_mapI4exprjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mul_map) #19
+  call void @_ZN7obj_mapI4exprjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mul_map) #21
   br label %ehcleanup143
 
 ehcleanup143:                                     ; preds = %ehcleanup, %lpad32
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %63, %lpad32 ]
-  call void @_ZN6bufferIbLb1ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %valid) #19
+  call void @_ZN6bufferIbLb1ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %valid) #21
   br label %ehcleanup145
 
 ehcleanup145:                                     ; preds = %lpad.loopexit292, %lpad.loopexit.split-lp293, %ehcleanup143
   %.pn22 = phi { ptr, i32 } [ %.pn.pn, %ehcleanup143 ], [ %lpad.loopexit294, %lpad.loopexit292 ], [ %lpad.loopexit.split-lp295, %lpad.loopexit.split-lp293 ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %muls) #19
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %adds) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %muls) #21
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %adds) #21
   resume { ptr, i32 } %.pn22
 
 return:                                           ; preds = %if.end.i.i.i.i.i230, %_ZN10ptr_bufferI4exprLj16EED2Ev.exit, %entry
@@ -48291,7 +48291,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #21
+  call void @__clang_call_terminate(ptr %67) #23
   unreachable
 
 lpad48.loopexit:                                  ; preds = %if.then.i.i210
@@ -48311,7 +48311,7 @@ lpad48.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then.i.i241, %if
 
 lpad48.body:                                      ; preds = %lpad48.loopexit, %lpad48.loopexit.split-lp.loopexit.split-lp, %lpad48.loopexit.split-lp.loopexit, %lpad70.i
   %eh.lpad-body = phi { ptr, i32 } [ %91, %lpad70.i ], [ %lpad.loopexit, %lpad48.loopexit ], [ %lpad.loopexit308, %lpad48.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp309, %lpad48.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %g) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %g) #21
   br label %ehcleanup
 
 if.end63:                                         ; preds = %.noexc.i, %invoke.cont56
@@ -48450,7 +48450,7 @@ invoke.cont73:                                    ; preds = %.noexc163, %lor.lhs
 lpad70.i:                                         ; preds = %invoke.cont73
   %91 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a66.i) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %a66.i) #21
   br label %lpad48.body
 
 cleanup88.i:                                      ; preds = %invoke.cont73
@@ -48466,7 +48466,7 @@ terminate.lpad.i105.i:                            ; preds = %.noexc.i106.i, %cle
   %93 = landingpad { ptr, i32 }
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0
-  call void @__clang_call_terminate(ptr %94) #21
+  call void @__clang_call_terminate(ptr %94) #23
   unreachable
 
 invoke.cont80:                                    ; preds = %.noexc.i106.i
@@ -48714,7 +48714,7 @@ terminate.lpad.i247:                              ; preds = %.noexc.i248, %if.en
   %132 = landingpad { ptr, i32 }
           catch ptr null
   %133 = extractvalue { ptr, i32 } %132, 0
-  call void @__clang_call_terminate(ptr %133) #21
+  call void @__clang_call_terminate(ptr %133) #23
   unreachable
 
 if.end117:                                        ; preds = %land.rhs.i.i75, %for.body40, %.noexc.i248, %invoke.cont43
@@ -48824,14 +48824,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i26
   %148 = landingpad { ptr, i32 }
           catch ptr null
   %149 = extractvalue { ptr, i32 } %148, 0
-  call void @__clang_call_terminate(ptr %149) #21
+  call void @__clang_call_terminate(ptr %149) #23
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %150 = landingpad { ptr, i32 }
           catch ptr null
   %151 = extractvalue { ptr, i32 } %150, 0
-  call void @__clang_call_terminate(ptr %151) #21
+  call void @__clang_call_terminate(ptr %151) #23
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %for.end120, %cleanup, %invoke.cont8.i.i, %if.then.i.i.i.i.i269
@@ -48887,14 +48887,14 @@ terminate.lpad.i.i.i.i291:                        ; preds = %if.then.i.i.i.i.i28
   %159 = landingpad { ptr, i32 }
           catch ptr null
   %160 = extractvalue { ptr, i32 } %159, 0
-  call void @__clang_call_terminate(ptr %160) #21
+  call void @__clang_call_terminate(ptr %160) #23
   unreachable
 
 terminate.lpad.i.i293:                            ; preds = %if.then2.i.i.i.i.i.i292
   %161 = landingpad { ptr, i32 }
           catch ptr null
   %162 = extractvalue { ptr, i32 } %161, 0
-  call void @__clang_call_terminate(ptr %162) #21
+  call void @__clang_call_terminate(ptr %162) #23
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit294:  ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %invoke.cont8.i.i286, %if.then.i.i.i.i.i289
@@ -48912,7 +48912,7 @@ terminate.lpad.i.i296:                            ; preds = %if.end.i.i.i.i.i
   %164 = landingpad { ptr, i32 }
           catch ptr null
   %165 = extractvalue { ptr, i32 } %164, 0
-  call void @__clang_call_terminate(ptr %165) #21
+  call void @__clang_call_terminate(ptr %165) #23
   unreachable
 
 _ZN10ptr_bufferI4exprLj16EED2Ev.exit:             ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit294, %if.end.i.i.i.i.i
@@ -48928,15 +48928,15 @@ terminate.lpad.i.i298:                            ; preds = %for.cond.preheader.
   %167 = landingpad { ptr, i32 }
           catch ptr null
   %168 = extractvalue { ptr, i32 } %167, 0
-  call void @__clang_call_terminate(ptr %168) #21
+  call void @__clang_call_terminate(ptr %168) #23
   unreachable
 
 ehcleanup:                                        ; preds = %lpad5.loopexit, %lpad5.loopexit.split-lp.loopexit.split-lp, %lpad5.loopexit.split-lp.loopexit, %lpad48.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad48.body ], [ %lpad.loopexit311, %lpad5.loopexit ], [ %lpad.loopexit313, %lpad5.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp314, %lpad5.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %pinned) #19
-  call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %bs) #19
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %adds) #19
-  call void @_ZN13obj_hashtableI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %shared) #19
+  call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %pinned) #21
+  call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %bs) #21
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %adds) #21
+  call void @_ZN13obj_hashtableI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %shared) #21
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %for.cond.preheader.i.i.i.i, %_ZN10ptr_bufferI4exprLj16EED2Ev.exit, %entry
@@ -48970,7 +48970,7 @@ terminate.lpad.i.i.i:                             ; preds = %.noexc.i.i.i, %for.
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #21
+  tail call void @__clang_call_terminate(ptr %4) #23
   unreachable
 
 _ZN8rationalD2Ev.exit.i.i:                        ; preds = %.noexc.i.i.i
@@ -49001,7 +49001,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #21
+  tail call void @__clang_call_terminate(ptr %7) #23
   unreachable
 }
 
@@ -49407,7 +49407,7 @@ lpad55.loopexit.split-lp:                         ; preds = %for.end68
 
 lpad55:                                           ; preds = %lpad55.loopexit.split-lp, %lpad55.loopexit
   %lpad.phi141 = phi { ptr, i32 } [ %lpad.loopexit139, %lpad55.loopexit ], [ %lpad.loopexit.split-lp140, %lpad55.loopexit.split-lp ]
-  call void @_ZN13obj_hashtableI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %tmp) #19
+  call void @_ZN13obj_hashtableI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %tmp) #21
   br label %ehcleanup
 
 for.end68:                                        ; preds = %for.inc66, %invoke.cont52
@@ -49427,7 +49427,7 @@ terminate.lpad.i.i:                               ; preds = %for.cond.preheader.
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #21
+  call void @__clang_call_terminate(ptr %40) #23
   unreachable
 
 _ZN13obj_hashtableI4exprED2Ev.exit:               ; preds = %invoke.cont69, %for.cond.preheader.i.i.i.i
@@ -49474,7 +49474,7 @@ lpad76.loopexit.split-lp:                         ; preds = %for.end92
 
 lpad76:                                           ; preds = %lpad76.loopexit.split-lp, %lpad76.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad76.loopexit ], [ %lpad.loopexit.split-lp, %lpad76.loopexit.split-lp ]
-  call void @_ZN8ast_markD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %is_marked) #19
+  call void @_ZN8ast_markD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %is_marked) #21
   br label %ehcleanup
 
 if.end88:                                         ; preds = %invoke.cont85
@@ -49555,7 +49555,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #21
+  call void @__clang_call_terminate(ptr %59) #23
   unreachable
 
 cleanup:                                          ; preds = %invoke.cont85, %.noexc.i
@@ -49574,7 +49574,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i.i121
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #21
+  call void @__clang_call_terminate(ptr %62) #23
   unreachable
 
 _ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev.exit.i: ; preds = %if.end.i.i.i.i121, %cleanup
@@ -49591,7 +49591,7 @@ terminate.lpad.i.i4.i:                            ; preds = %if.end.i.i.i3.i
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #21
+  call void @__clang_call_terminate(ptr %65) #23
   unreachable
 
 cleanup96:                                        ; preds = %if.end.i.i.i3.i, %_ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev.exit.i, %if.end70
@@ -49610,12 +49610,12 @@ terminate.lpad.i.i123:                            ; preds = %if.end.i.i.i.i.i
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #21
+  call void @__clang_call_terminate(ptr %68) #23
   unreachable
 
 ehcleanup:                                        ; preds = %lpad10.loopexit, %lpad10.loopexit.split-lp.loopexit.split-lp, %lpad10.loopexit.split-lp.loopexit, %lpad76, %lpad55
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad76 ], [ %lpad.phi141, %lpad55 ], [ %lpad.loopexit136, %lpad10.loopexit ], [ %lpad.loopexit142, %lpad10.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp143, %lpad10.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %adds) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %adds) #21
   br label %ehcleanup98
 
 cleanup97:                                        ; preds = %if.end.i.i.i.i.i, %cleanup96, %invoke.cont6
@@ -49632,7 +49632,7 @@ terminate.lpad.i124:                              ; preds = %.noexc.i125, %clean
   %70 = landingpad { ptr, i32 }
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #21
+  call void @__clang_call_terminate(ptr %71) #23
   unreachable
 
 _ZN8rationalD2Ev.exit127:                         ; preds = %.noexc.i125
@@ -49648,13 +49648,13 @@ terminate.lpad.i128:                              ; preds = %.noexc.i129, %_ZN8r
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #21
+  call void @__clang_call_terminate(ptr %74) #23
   unreachable
 
 ehcleanup98:                                      ; preds = %ehcleanup, %lpad5
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %9, %lpad5 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %g1) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %k) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %g1) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %k) #21
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %if.then, %.noexc.i129
@@ -49788,7 +49788,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #21
+  call void @__clang_call_terminate(ptr %17) #23
   unreachable
 
 lpad:                                             ; preds = %land.lhs.true, %if.then10
@@ -49799,7 +49799,7 @@ lpad:                                             ; preds = %land.lhs.true, %if.
 lpad12:                                           ; preds = %invoke.cont11
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup
 
 for.body.lr.ph:                                   ; preds = %invoke.cont, %invoke.cont8, %if.end, %call.i.i.noexc
@@ -49941,7 +49941,7 @@ lpad16.loopexit.split-lp:                         ; preds = %_ZN6bufferIP4exprLb
 
 lpad16:                                           ; preds = %lpad16.loopexit.split-lp, %lpad16.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad16.loopexit ], [ %lpad.loopexit.split-lp, %lpad16.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %adds) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %adds) #21
   br label %ehcleanup
 
 if.else:                                          ; preds = %land.rhs.i.i, %for.body, %invoke.cont22
@@ -50074,7 +50074,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #21
+  call void @__clang_call_terminate(ptr %55) #23
   unreachable
 
 cleanup:                                          ; preds = %if.end.i.i.i.i.i, %invoke.cont66, %.noexc.i
@@ -50091,12 +50091,12 @@ terminate.lpad.i93:                               ; preds = %.noexc.i94, %cleanu
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #21
+  call void @__clang_call_terminate(ptr %58) #23
   unreachable
 
 ehcleanup:                                        ; preds = %lpad16, %lpad12, %lpad
   %.pn = phi { ptr, i32 } [ %19, %lpad12 ], [ %18, %lpad ], [ %lpad.phi, %lpad16 ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %k) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %k) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -50115,7 +50115,7 @@ terminate.lpad.i:                                 ; preds = %for.cond.preheader.
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #23
   unreachable
 
 _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev.exit: ; preds = %entry, %for.cond.preheader.i.i.i
@@ -50273,7 +50273,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit21, %lpad.loopexit ], [ %lpad.loopexit.split-lp22, %lpad.loopexit.split-lp ]
-  call void @_ZN7svectorIP4exprjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %to_remove) #19
+  call void @_ZN7svectorIP4exprjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %to_remove) #21
   resume { ptr, i32 } %lpad.phi
 
 for.inc:                                          ; preds = %if.then.i.i, %if.then22.i.i, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit
@@ -50330,7 +50330,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #21
+  call void @__clang_call_terminate(ptr %27) #23
   unreachable
 
 _ZN7svectorIP4exprjED2Ev.exit:                    ; preds = %while.body.i.i.i, %invoke.cont12, %invoke.cont1, %while.cond.preheader, %if.then.i.i.i
@@ -50358,7 +50358,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #23
   unreachable
 
 _ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev.exit: ; preds = %entry, %if.end.i.i.i
@@ -50375,7 +50375,7 @@ terminate.lpad.i.i4:                              ; preds = %if.end.i.i.i3
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #21
+  tail call void @__clang_call_terminate(ptr %5) #23
   unreachable
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit: ; preds = %_ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev.exit, %if.end.i.i.i3
@@ -50502,7 +50502,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #21
+  call void @__clang_call_terminate(ptr %9) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -50511,7 +50511,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 lpad:                                             ; preds = %if.else.i.i7.i.i21, %if.else.i.i.i.i14, %_ZN8rationalC2ERKS_.exit
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   resume { ptr, i32 } %10
 }
 
@@ -50670,8 +50670,8 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.end118, %if.end.
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit240, %lpad.loopexit ], [ %lpad.loopexit242, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp243, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m2) #19
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m1) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m2) #21
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m1) #21
   resume { ptr, i32 } %lpad.phi
 
 if.else:                                          ; preds = %land.rhs.i.i, %for.body, %invoke.cont5
@@ -51073,7 +51073,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #21
+  call void @__clang_call_terminate(ptr %79) #23
   unreachable
 
 _ZN10ptr_bufferI4exprLj16EED2Ev.exit:             ; preds = %invoke.cont125, %if.end.i.i.i.i.i
@@ -51091,7 +51091,7 @@ terminate.lpad.i.i235:                            ; preds = %if.end.i.i.i.i.i234
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #21
+  call void @__clang_call_terminate(ptr %82) #23
   unreachable
 
 _ZN10ptr_bufferI4exprLj16EED2Ev.exit236:          ; preds = %_ZN10ptr_bufferI4exprLj16EED2Ev.exit, %if.end.i.i.i.i.i234
@@ -51113,7 +51113,7 @@ terminate.lpad.i:                                 ; preds = %for.cond.preheader.
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #23
   unreachable
 
 _ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EED2Ev.exit: ; preds = %entry, %for.cond.preheader.i.i.i
@@ -51142,7 +51142,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #23
   unreachable
 }
 
@@ -51312,7 +51312,7 @@ terminate.lpad.i44:                               ; preds = %.noexc.i45, %cleanu
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #21
+  call void @__clang_call_terminate(ptr %22) #23
   unreachable
 
 _ZN8rationalD2Ev.exit47:                          ; preds = %.noexc.i45
@@ -51369,12 +51369,12 @@ lpad:                                             ; preds = %entry
 lpad2:                                            ; preds = %invoke.cont
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7obj_mapI4exprjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_expr2pos) #19
+  tail call void @_ZN7obj_mapI4exprjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_expr2pos) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %1, %lpad2 ], [ %0, %lpad ]
-  tail call void @_ZN16bv_rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #19
+  tail call void @_ZN16bv_rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -51404,7 +51404,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #21
+  tail call void @__clang_call_terminate(ptr %4) #23
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %entry, %if.then.i.i.i, %if.then2.i.i.i
@@ -51623,7 +51623,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.end45
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit66, %lpad.loopexit ], [ %lpad.loopexit.split-lp67, %lpad.loopexit.split-lp ]
-  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %args) #19
+  call void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %args) #21
   resume { ptr, i32 } %lpad.phi
 
 if.end15:                                         ; preds = %land.rhs.i.i21, %while.body, %invoke.cont4, %if.then6
@@ -51801,7 +51801,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #21
+  call void @__clang_call_terminate(ptr %39) #23
   unreachable
 
 return:                                           ; preds = %land.rhs.i.i, %entry, %if.end.i.i.i.i.i, %cleanup, %_ZNK13poly_rewriterI16bv_rewriter_coreE6is_addEP4expr.exit, %_Z9is_groundPK4expr.exit
@@ -52059,8 +52059,8 @@ lpad4.loopexit.split-lp.loopexit.split-lp:        ; preds = %land.lhs.true27
 
 lpad4:                                            ; preds = %lpad4.loopexit.split-lp.loopexit, %lpad4.loopexit.split-lp.loopexit.split-lp, %lpad4.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad4.loopexit ], [ %lpad.loopexit57, %lpad4.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp58, %lpad4.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %offset) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %c) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %offset) #21
   br label %ehcleanup34
 
 for.end.loopexit:                                 ; preds = %for.cond
@@ -52153,7 +52153,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #21
+  call void @__clang_call_terminate(ptr %32) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -52169,7 +52169,7 @@ terminate.lpad.i48:                               ; preds = %.noexc.i49, %_ZN8ra
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #21
+  call void @__clang_call_terminate(ptr %35) #23
   unreachable
 
 _ZN8rationalD2Ev.exit51:                          ; preds = %.noexc.i49
@@ -52185,7 +52185,7 @@ terminate.lpad.i52:                               ; preds = %.noexc.i53, %_ZN8ra
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #21
+  call void @__clang_call_terminate(ptr %38) #23
   unreachable
 
 _ZN8rationalD2Ev.exit55:                          ; preds = %.noexc.i53
@@ -52193,7 +52193,7 @@ _ZN8rationalD2Ev.exit55:                          ; preds = %.noexc.i53
 
 ehcleanup34:                                      ; preds = %lpad4, %lpad
   %.pn.pn = phi { ptr, i32 } [ %lpad.phi, %lpad4 ], [ %18, %lpad ]
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %g) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %g) #21
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -52344,8 +52344,8 @@ if.end14:                                         ; preds = %lor.lhs.false
 lpad.i:                                           ; preds = %.noexc.i, %if.end14
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #19
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #21
   resume { ptr, i32 } %29
 
 invoke.cont:                                      ; preds = %.noexc.i
@@ -52426,7 +52426,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i19, %invoke
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #21
+  call void @__clang_call_terminate(ptr %41) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i19
@@ -52443,7 +52443,7 @@ terminate.lpad.i21:                               ; preds = %.noexc.i22, %_ZN8ra
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #21
+  call void @__clang_call_terminate(ptr %44) #23
   unreachable
 
 _ZN8rationalD2Ev.exit24:                          ; preds = %.noexc.i22
@@ -52616,17 +52616,18 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt18bad_variant_accessD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   ret void
 }
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -52639,7 +52640,7 @@ entry:
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
@@ -52651,15 +52652,16 @@ declare noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef n
 declare noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
-  tail call void @_ZSt9terminatev() #21
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
+  tail call void @_ZSt9terminatev() #23
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 declare void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
@@ -52861,7 +52863,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #23
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %entry, %if.then.i.i
@@ -52869,7 +52871,7 @@ _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 declare noundef i32 @_ZN13bool_rewriter11mk_ite_coreEP4exprS1_S1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
@@ -53186,7 +53188,7 @@ for.inc54:                                        ; preds = %for.body29, %if.the
 
 for.end56:                                        ; preds = %for.inc54, %for.cond27.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.44, i32 noundef 404, ptr noundef nonnull @.str.1)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 
 return:                                           ; preds = %if.end48, %if.then37, %if.end21, %if.then14
@@ -53263,7 +53265,7 @@ for.inc17.i:                                      ; preds = %for.body13.i
 
 for.end19.i:                                      ; preds = %for.cond11.preheader.i, %for.inc17.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.44, i32 noundef 212, ptr noundef nonnull @.str.1)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 
 for.inc21.sink.split.i:                           ; preds = %for.body8.i, %for.body13.i
@@ -53335,30 +53337,30 @@ lor.lhs.false:                                    ; preds = %if.else
   br i1 %cmp16.not, label %if.end, label %if.then17
 
 if.then17:                                        ; preds = %lor.lhs.false, %if.else
-  %exception = tail call ptr @__cxa_allocate_exception(i64 40) #19
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #19
+  %exception = tail call ptr @__cxa_allocate_exception(i64 40) #21
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.45, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #22
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #21
   br label %eh.resume
 
 cleanup.action:                                   ; preds = %if.then17
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #19
-  call void @__cxa_free_exception(ptr %exception) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #21
+  call void @__cxa_free_exception(ptr %exception) #21
   br label %eh.resume
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -53392,7 +53394,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.46) #20
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.46) #22
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -53401,11 +53403,11 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #21
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #19
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #21
   %add.ptr = getelementptr inbounds i8, ptr %__s, i64 %call.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__s, ptr noundef nonnull %add.ptr)
           to label %invoke.cont4 unwind label %lpad
@@ -53419,7 +53421,7 @@ define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull 
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
   %m_msg = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #21
   ret void
 }
 
@@ -53438,7 +53440,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #12
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -53467,7 +53469,7 @@ terminate.lpad.i:                                 ; preds = %if.else
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #23
   unreachable
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -53476,7 +53478,7 @@ if.end:                                           ; preds = %if.else, %if.then
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #21
   store ptr null, ptr %__guard, align 8
   %3 = load i64, ptr %__dnew, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %3)
@@ -53488,12 +53490,12 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 lpad:                                             ; preds = %invoke.cont, %if.end
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #19
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #21
   resume { ptr, i32 } %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -53526,7 +53528,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #23
   unreachable
 }
 
@@ -54135,7 +54137,7 @@ if.end16:                                         ; preds = %if.then9, %if.else1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
@@ -54578,7 +54580,7 @@ terminate.lpad.i44.i44:                           ; preds = %.noexc.i45.i45, %cl
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #21
+  call void @__clang_call_terminate(ptr %22) #23
   unreachable
 
 _ZNK13poly_rewriterI16bv_rewriter_coreE6mon_lt7ordinalEP4expr.exit73: ; preds = %.noexc.i45.i45
@@ -54677,7 +54679,7 @@ terminate.lpad.i44.i:                             ; preds = %.noexc.i45.i, %clea
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #21
+  call void @__clang_call_terminate(ptr %42) #23
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEclIPP4exprSA_EEbT_T0_.exit: ; preds = %.noexc.i45.i
@@ -54797,7 +54799,7 @@ terminate.lpad.i44.i150:                          ; preds = %.noexc.i45.i151, %c
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #21
+  call void @__clang_call_terminate(ptr %65) #23
   unreachable
 
 _ZNK13poly_rewriterI16bv_rewriter_coreE6mon_lt7ordinalEP4expr.exit179: ; preds = %.noexc.i45.i151
@@ -54896,7 +54898,7 @@ terminate.lpad.i44.i97:                           ; preds = %.noexc.i45.i98, %cl
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #21
+  call void @__clang_call_terminate(ptr %85) #23
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEclIPP4exprSA_EEbT_T0_.exit20: ; preds = %.noexc.i45.i98
@@ -55099,7 +55101,7 @@ terminate.lpad.i44.i36:                           ; preds = %.noexc.i45.i37, %cl
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #21
+  call void @__clang_call_terminate(ptr %27) #23
   unreachable
 
 _ZNK13poly_rewriterI16bv_rewriter_coreE6mon_lt7ordinalEP4expr.exit65: ; preds = %.noexc.i45.i37
@@ -55198,7 +55200,7 @@ terminate.lpad.i44.i:                             ; preds = %.noexc.i45.i, %clea
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #21
+  call void @__clang_call_terminate(ptr %47) #23
   unreachable
 
 _ZNK13poly_rewriterI16bv_rewriter_coreE6mon_lt7ordinalEP4expr.exit: ; preds = %.noexc.i45.i
@@ -55359,7 +55361,7 @@ terminate.lpad.i44.i27:                           ; preds = %.noexc.i45.i28, %cl
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #21
+  call void @__clang_call_terminate(ptr %22) #23
   unreachable
 
 _ZNK13poly_rewriterI16bv_rewriter_coreE6mon_lt7ordinalEP4expr.exit56: ; preds = %.noexc.i45.i28
@@ -55458,7 +55460,7 @@ terminate.lpad.i44.i:                             ; preds = %.noexc.i45.i, %clea
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #21
+  call void @__clang_call_terminate(ptr %42) #23
   unreachable
 
 _ZNK13poly_rewriterI16bv_rewriter_coreE6mon_lt7ordinalEP4expr.exit: ; preds = %.noexc.i45.i
@@ -55615,7 +55617,7 @@ for.inc54:                                        ; preds = %for.body29, %if.the
 
 for.end56:                                        ; preds = %for.inc54, %for.cond27.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.44, i32 noundef 404, ptr noundef nonnull @.str.1)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 
 return:                                           ; preds = %if.end48, %if.then37, %if.end21, %if.then14
@@ -55691,7 +55693,7 @@ for.inc17.i:                                      ; preds = %for.body13.i
 
 for.end19.i:                                      ; preds = %for.cond11.preheader.i, %for.inc17.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.44, i32 noundef 212, ptr noundef nonnull @.str.1)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 
 for.inc21.sink.split.i:                           ; preds = %for.body8.i, %for.body13.i
@@ -55791,7 +55793,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %for.body
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #21
+  tail call void @__clang_call_terminate(ptr %12) #23
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -55941,7 +55943,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #23
   unreachable
 
 _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %entry, %if.then.i.i
@@ -56021,7 +56023,7 @@ for.inc17.i:                                      ; preds = %for.body13.i
 
 for.end19.i:                                      ; preds = %for.cond11.preheader.i, %for.inc17.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.44, i32 noundef 212, ptr noundef nonnull @.str.1)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 
 for.inc21.sink.split.i:                           ; preds = %for.body8.i, %for.body13.i
@@ -56060,27 +56062,27 @@ return:                                           ; preds = %entry, %_ZN14core_h
 declare noundef zeroext i1 @_ZN6memory16is_out_of_memoryEv() local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_bv_rewriter.cpp() #15 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_bv_rewriter.cpp() #17 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #16
+declare i32 @llvm.umin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #18
+declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #16
+declare i32 @llvm.umax.i32(i32, i32) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -56091,21 +56093,23 @@ attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-ma
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #19 = { nounwind }
-attributes #20 = { noreturn }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { cold noreturn nounwind }
-attributes #23 = { builtin nounwind }
+attributes #9 = { cold noreturn }
+attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold nofree noreturn }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #21 = { nounwind }
+attributes #22 = { noreturn }
+attributes #23 = { noreturn nounwind }
+attributes #24 = { cold noreturn nounwind }
+attributes #25 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

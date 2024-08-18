@@ -30,13 +30,13 @@ declare i32 @sleep(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define noalias noundef ptr @zmq_stopwatch_start() local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #16
+  %call = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #17
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 35) #17
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 35) #18
   %1 = load ptr, ptr @stderr, align 8
   %call2 = tail call i32 @fflush(ptr noundef %1)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.2)
@@ -76,7 +76,7 @@ entry:
   %call.i = tail call noundef i64 @_ZN3zmq7clock_t6now_usEv()
   %0 = load i64, ptr %watch_, align 8
   %sub.i = sub i64 %call.i, %0
-  tail call void @free(ptr noundef %watch_) #18
+  tail call void @free(ptr noundef %watch_) #19
   ret i64 %sub.i
 }
 
@@ -86,7 +86,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @zmq_threadstart(ptr noundef %func_, ptr noundef %arg_) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef dereferenceable_or_null(104) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 104, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #19
+  %call = tail call noalias noundef dereferenceable_or_null(104) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 104, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #20
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %if.then, label %new.cont
 
@@ -114,7 +114,7 @@ new.cont:                                         ; preds = %entry
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 57) #17
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 57) #18
   %2 = load ptr, ptr @stderr, align 8
   %call2 = tail call i32 @fflush(ptr noundef %2)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.2)
@@ -146,11 +146,11 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #20
+  tail call void @__clang_call_terminate(ptr %2) #21
   unreachable
 
 _ZN3zmq8thread_tD2Ev.exit:                        ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %thread_) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %thread_) #22
   ret void
 }
 
@@ -171,7 +171,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp112.not, label %while.end16, label %while.body
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @__errno_location() #22
+  %call = tail call ptr @__errno_location() #23
   store i32 22, ptr %call, align 4
   br label %return
 
@@ -238,7 +238,7 @@ declare ptr @__errno_location() local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @zmq_z85_decode(ptr noundef writeonly %dest_, ptr nocapture noundef readonly %string_) local_unnamed_addr #9 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string_) #23
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string_) #24
   %cmp = icmp ugt i64 %call, 4
   %rem = urem i64 %call, 5
   %cmp1.not = icmp eq i64 %rem, 0
@@ -314,7 +314,7 @@ while.end34:                                      ; preds = %if.end33
   br i1 %6, label %return, label %error_inval
 
 error_inval:                                      ; preds = %if.end11, %if.end4, %while.body, %while.end34, %entry
-  %call39 = tail call ptr @__errno_location() #22
+  %call39 = tail call ptr @__errno_location() #23
   store i32 22, ptr %call39, align 4
   br label %return
 
@@ -329,7 +329,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
 define noundef i32 @zmq_curve_keypair(ptr nocapture noundef readnone %z85_public_key_, ptr nocapture noundef readnone %z85_secret_key_) local_unnamed_addr #11 {
 entry:
-  %call = tail call ptr @__errno_location() #22
+  %call = tail call ptr @__errno_location() #23
   store i32 95, ptr %call, align 4
   ret i32 -1
 }
@@ -337,7 +337,7 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
 define noundef i32 @zmq_curve_public(ptr nocapture noundef readnone %z85_public_key_, ptr nocapture noundef readnone %z85_secret_key_) local_unnamed_addr #11 {
 entry:
-  %call = tail call ptr @__errno_location() #22
+  %call = tail call ptr @__errno_location() #23
   store i32 95, ptr %call, align 4
   ret i32 -1
 }
@@ -345,7 +345,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noalias noundef ptr @zmq_atomic_counter_new() local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias noundef dereferenceable_or_null(8) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 8, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #19
+  %call = tail call noalias noundef dereferenceable_or_null(8) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 8, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #20
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %if.then, label %new.cont
 
@@ -355,7 +355,7 @@ new.cont:                                         ; preds = %entry
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 258) #17
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 258) #18
   %1 = load ptr, ptr @stderr, align 8
   %call2 = tail call i32 @fflush(ptr noundef %1)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.2)
@@ -403,7 +403,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -416,14 +416,15 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #15 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
-  tail call void @_ZSt9terminatev() #20
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
+  tail call void @_ZSt9terminatev() #21
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -438,7 +439,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
   %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #22
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !9
 
@@ -462,14 +463,15 @@ attributes #12 = { mustprogress nofree norecurse nounwind willreturn memory(argm
 attributes #13 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nounwind allocsize(0) }
-attributes #17 = { cold }
-attributes #18 = { nounwind }
-attributes #19 = { builtin nounwind allocsize(0) }
-attributes #20 = { noreturn nounwind }
-attributes #21 = { builtin nounwind }
-attributes #22 = { nounwind willreturn memory(none) }
-attributes #23 = { nounwind willreturn memory(read) }
+attributes #16 = { cold nofree noreturn }
+attributes #17 = { nounwind allocsize(0) }
+attributes #18 = { cold }
+attributes #19 = { nounwind }
+attributes #20 = { builtin nounwind allocsize(0) }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { builtin nounwind }
+attributes #23 = { nounwind willreturn memory(none) }
+attributes #24 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

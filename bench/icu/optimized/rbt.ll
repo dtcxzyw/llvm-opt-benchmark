@@ -71,7 +71,7 @@ invoke.cont:                                      ; preds = %if.end
 lpad:                                             ; preds = %invoke.cont21, %invoke.cont17, %if.end15, %if.end
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7520TransliteratorParserD1Ev(ptr noundef nonnull align 8 dereferenceable(498) %parser) #6
+  call void @_ZN6icu_7520TransliteratorParserD1Ev(ptr noundef nonnull align 8 dereferenceable(498) %parser) #7
   resume { ptr, i32 } %2
 
 if.end6:                                          ; preds = %invoke.cont
@@ -108,7 +108,7 @@ invoke.cont21:                                    ; preds = %invoke.cont17
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %invoke.cont21, %invoke.cont, %if.then14
-  call void @_ZN6icu_7520TransliteratorParserD1Ev(ptr noundef nonnull align 8 dereferenceable(498) %parser) #6
+  call void @_ZN6icu_7520TransliteratorParserD1Ev(ptr noundef nonnull align 8 dereferenceable(498) %parser) #7
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %entry, %cleanup
@@ -144,7 +144,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #6
+  tail call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #7
   resume { ptr, i32 } %0
 }
 
@@ -176,7 +176,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #6
+  tail call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #7
   resume { ptr, i32 } %0
 }
 
@@ -203,7 +203,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #6
+  tail call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #7
   resume { ptr, i32 } %0
 }
 
@@ -224,7 +224,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 1168) #6
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 1168) #7
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -240,8 +240,8 @@ new.cont:                                         ; preds = %new.notnull, %if.th
 lpad:                                             ; preds = %new.notnull
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #6
-  tail call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #6
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #7
+  tail call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #7
   resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %new.cont, %entry
@@ -274,12 +274,12 @@ if.then:                                          ; preds = %entry
   br i1 %isnull, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  tail call void @_ZN6icu_7523TransliterationRuleDataD1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %1) #6
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %1) #6
+  tail call void @_ZN6icu_7523TransliterationRuleDataD1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %1) #7
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %1) #7
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %delete.notnull, %entry
-  tail call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #6
+  tail call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #7
   ret void
 }
 
@@ -289,15 +289,15 @@ declare void @_ZN6icu_7523TransliterationRuleDataD1Ev(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7523RuleBasedTransliteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN6icu_7523RuleBasedTransliteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) #6
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #6
+  tail call void @_ZN6icu_7523RuleBasedTransliteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) #7
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7523RuleBasedTransliterator5cloneEv(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 104) #6
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 104) #7
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -311,7 +311,7 @@ new.cont:                                         ; preds = %new.notnull, %entry
 lpad:                                             ; preds = %new.notnull
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #6
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #7
   resume { ptr, i32 } %0
 }
 
@@ -335,7 +335,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #7
+  tail call void @__clang_call_terminate(ptr %4) #8
   unreachable
 
 _ZN6icu_755MutexD2Ev.exit:                        ; preds = %entry
@@ -352,7 +352,7 @@ terminate.lpad.i10:                               ; preds = %if.then3
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #7
+  tail call void @__clang_call_terminate(ptr %6) #8
   unreachable
 
 if.end5:                                          ; preds = %if.then3, %_ZN6icu_755MutexD2Ev.exit
@@ -398,7 +398,7 @@ terminate.lpad.i12:                               ; preds = %if.then16
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #7
+  tail call void @__clang_call_terminate(ptr %14) #8
   unreachable
 
 _ZN6icu_755MutexD2Ev.exit13:                      ; preds = %if.then16
@@ -469,14 +469,15 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514Transliter
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #6
-  tail call void @_ZSt9terminatev() #7
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
+  tail call void @_ZSt9terminatev() #8
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -484,8 +485,9 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

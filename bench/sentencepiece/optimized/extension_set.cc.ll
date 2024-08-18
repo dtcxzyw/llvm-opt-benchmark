@@ -258,7 +258,7 @@ define void @_ZN6google8protobuf8internal15ExtensionFinderD2Ev(ptr nocapture non
 
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN6google8protobuf8internal15ExtensionFinderD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
-  tail call void @llvm.trap() #22
+  tail call void @llvm.trap() #23
   unreachable
 }
 
@@ -404,7 +404,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet17RegisterExtensionEPKNS0
 
 .critedge25.sink.split:                           ; preds = %21, %18, %15
   %.sink = phi ptr [ %6, %15 ], [ %8, %18 ], [ %10, %21 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #24
   br label %.critedge25
 
 .critedge25:                                      ; preds = %.critedge25.sink.split, %5
@@ -438,7 +438,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet17RegisterExtensionEPKNS0
 30:                                               ; preds = %28, %26, %24
   %.sink29 = phi ptr [ %10, %28 ], [ %8, %26 ], [ %6, %24 ]
   %.pn = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ], [ %25, %24 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink29) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink29) #24
   resume { ptr, i32 } %.pn
 }
 
@@ -463,12 +463,12 @@ define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_18Register
   br i1 %8, label %9, label %19, !prof !7
 
 9:                                                ; preds = %3
-  %10 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf8internal12_GLOBAL__N_18RegisterEPKNS0_11MessageLiteEiNS1_13ExtensionInfoEE21local_static_registry) #23
+  %10 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf8internal12_GLOBAL__N_18RegisterEPKNS0_11MessageLiteEiNS1_13ExtensionInfoEE21local_static_registry) #24
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %19, label %11
 
 11:                                               ; preds = %9
-  %12 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
+  %12 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #25
           to label %13 unwind label %151
 
 13:                                               ; preds = %11
@@ -487,7 +487,7 @@ define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_18Register
 
 _ZN6google8protobuf8internal16OnShutdownDeleteISt13unordered_mapISt4pairIPKNS0_11MessageLiteEiENS1_13ExtensionInfoENS1_12_GLOBAL__N_115ExtensionHasherESt8equal_toIS8_ESaIS4_IKS8_S9_EEEEEPT_SJ_.exit: ; preds = %13
   store ptr %12, ptr @_ZZN6google8protobuf8internal12_GLOBAL__N_18RegisterEPKNS0_11MessageLiteEiNS1_13ExtensionInfoEE21local_static_registry, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6google8protobuf8internal12_GLOBAL__N_18RegisterEPKNS0_11MessageLiteEiNS1_13ExtensionInfoEE21local_static_registry) #23
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6google8protobuf8internal12_GLOBAL__N_18RegisterEPKNS0_11MessageLiteEiNS1_13ExtensionInfoEE21local_static_registry) #24
   br label %19
 
 19:                                               ; preds = %_ZN6google8protobuf8internal16OnShutdownDeleteISt13unordered_mapISt4pairIPKNS0_11MessageLiteEiENS1_13ExtensionInfoENS1_12_GLOBAL__N_115ExtensionHasherESt8equal_toIS8_ESaIS4_IKS8_S9_EEEEEPT_SJ_.exit, %9, %3
@@ -579,7 +579,7 @@ _ZNKSt10_HashtableISt4pairIPKN6google8protobuf11MessageLiteEiES0_IKS6_NS2_8inter
   %.val1716.i.i.i.i.i.i = phi i64 [ %.val17.i.i.i.i.i.i, %39 ], [ %.val1712.i.i.i.i.i.i, %.thread.i.i.i.i.i.i ], [ %.val1712.i.i.i.i.i.i, %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_equals_trIS7_EEbRKT_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i.i.i.i.i.i.i ], [ %.val1712.i.i.i.i.i.i, %56 ]
   %60 = phi ptr [ %43, %39 ], [ %26, %.thread.i.i.i.i.i.i ], [ %26, %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_equals_trIS7_EEbRKT_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i.i.i.i.i.i.i ], [ %26, %56 ]
   %61 = phi i64 [ %42, %39 ], [ %25, %.thread.i.i.i.i.i.i ], [ %25, %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_equals_trIS7_EEbRKT_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i.i.i.i.i.i.i ], [ %25, %56 ]
-  %62 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
+  %62 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   store ptr null, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 8
   store ptr %0, ptr %63, align 8
@@ -621,14 +621,14 @@ _ZNKSt10_HashtableISt4pairIPKN6google8protobuf11MessageLiteEiES0_IKS6_NS2_8inter
   br i1 %79, label %.noexc.i.i.i.i.i.i.i.i.i.i.i, label %.noexc7.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %78
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #25
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
           to label %.noexc.i.i.i.i.i.i.i.i unwind label %103
 
 .noexc.i.i.i.i.i.i.i.i:                           ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i.i
   unreachable
 
 .noexc7.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %78
-  invoke void @_ZSt17__throw_bad_allocv() #25
+  invoke void @_ZSt17__throw_bad_allocv() #26
           to label %.noexc5.i.i.i.i.i.i.i.i unwind label %103
 
 .noexc5.i.i.i.i.i.i.i.i:                          ; preds = %.noexc7.i.i.i.i.i.i.i.i.i.i.i
@@ -636,7 +636,7 @@ _ZNKSt10_HashtableISt4pairIPKN6google8protobuf11MessageLiteEiES0_IKS6_NS2_8inter
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKS2_IPKN6google8protobuf11MessageLiteEiENS4_8internal13ExtensionInfoEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %76
   %80 = shl nuw nsw i64 %72, 3
-  %81 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %80) #24
+  %81 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %80) #25
           to label %.noexc6.i.i.i.i.i.i.i.i unwind label %103
 
 .noexc6.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKS2_IPKN6google8protobuf11MessageLiteEiENS4_8internal13ExtensionInfoEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i.i.i.i.i
@@ -702,16 +702,16 @@ _ZNSt10_HashtableISt4pairIPKN6google8protobuf11MessageLiteEiES0_IKS6_NS2_8intern
 100:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i
   %101 = load i64, ptr %60, align 8
   %102 = shl i64 %101, 3
-  tail call void @_ZdlPvm(ptr noundef %97, i64 noundef %102) #26
+  tail call void @_ZdlPvm(ptr noundef %97, i64 noundef %102) #27
   br label %_ZNSt10_HashtableISt4pairIPKN6google8protobuf11MessageLiteEiES0_IKS6_NS2_8internal13ExtensionInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS6_ENS8_12_GLOBAL__N_115ExtensionHasherENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i.i.i.i
 
 103:                                              ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKS2_IPKN6google8protobuf11MessageLiteEiENS4_8internal13ExtensionInfoEELb1EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i.i.i.i.i.i, %.noexc7.i.i.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i.i.i.i.i
   %104 = landingpad { ptr, i32 }
           catch ptr null
   %105 = extractvalue { ptr, i32 } %104, 0
-  %106 = tail call ptr @__cxa_begin_catch(ptr %105) #23
+  %106 = tail call ptr @__cxa_begin_catch(ptr %105) #24
   store i64 %67, ptr %66, align 8
-  invoke void @__cxa_rethrow() #25
+  invoke void @__cxa_rethrow() #26
           to label %112 unwind label %107
 
 107:                                              ; preds = %103
@@ -724,7 +724,7 @@ _ZNSt10_HashtableISt4pairIPKN6google8protobuf11MessageLiteEiES0_IKS6_NS2_8intern
   %110 = landingpad { ptr, i32 }
           catch ptr null
   %111 = extractvalue { ptr, i32 } %110, 0
-  tail call void @__clang_call_terminate(ptr %111) #22
+  tail call void @__clang_call_terminate(ptr %111) #23
   unreachable
 
 112:                                              ; preds = %103
@@ -788,7 +788,7 @@ common.resume:                                    ; preds = %151, %157, %_ZNSt10
 
 _ZNSt10_HashtableISt4pairIPKN6google8protobuf11MessageLiteEiES0_IKS6_NS2_8internal13ExtensionInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS6_ENS8_12_GLOBAL__N_115ExtensionHasherENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit37.i.i.i.i.i.i: ; preds = %132, %107
   %eh.lpad-body.i.i.i.i.i.i = phi { ptr, i32 } [ %133, %132 ], [ %108, %107 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef 64) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef 64) #27
   br label %common.resume
 
 _ZN6google8protobuf18InsertIfNotPresentISt13unordered_mapISt4pairIPKNS0_11MessageLiteEiENS0_8internal13ExtensionInfoENS8_12_GLOBAL__N_115ExtensionHasherESt8equal_toIS7_ESaIS3_IKS7_S9_EEEEEbPT_RKNSI_10value_type10first_typeERKNSK_11second_typeE.exit: ; preds = %119, %129
@@ -830,14 +830,14 @@ _ZN6google8protobuf18InsertIfNotPresentISt13unordered_mapISt4pairIPKNS0_11Messag
           to label %150 unwind label %155
 
 150:                                              ; preds = %149
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   br label %158
 
 151:                                              ; preds = %13, %11
   %152 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6google8protobuf8internal12_GLOBAL__N_18RegisterEPKNS0_11MessageLiteEiNS1_13ExtensionInfoEE21local_static_registry) #23
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6google8protobuf8internal12_GLOBAL__N_18RegisterEPKNS0_11MessageLiteEiNS1_13ExtensionInfoEE21local_static_registry) #24
   br label %common.resume
 
 153:                                              ; preds = %137, %.loopexit
@@ -848,12 +848,12 @@ _ZN6google8protobuf18InsertIfNotPresentISt13unordered_mapISt4pairIPKNS0_11Messag
 155:                                              ; preds = %149, %147, %145, %143, %141
   %156 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   br label %157
 
 157:                                              ; preds = %155, %153
   %.pn = phi { ptr, i32 } [ %156, %155 ], [ %154, %153 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   br label %common.resume
 
 158:                                              ; preds = %_ZN6google8protobuf18InsertIfNotPresentISt13unordered_mapISt4pairIPKNS0_11MessageLiteEiENS0_8internal13ExtensionInfoENS8_12_GLOBAL__N_115ExtensionHasherESt8equal_toIS7_ESaIS3_IKS7_S9_EEEEEbPT_RKNSI_10value_type10first_typeERKNSK_11second_typeE.exit, %150
@@ -878,7 +878,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet21RegisterEnumExtensionEP
           to label %13 unwind label %16
 
 13:                                               ; preds = %12
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #24
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %13
@@ -901,7 +901,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet21RegisterEnumExtensionEP
 16:                                               ; preds = %12, %10
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #24
   resume { ptr, i32 } %17
 }
 
@@ -930,7 +930,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet24RegisterMessageExtensio
           to label %14 unwind label %17
 
 14:                                               ; preds = %13
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #24
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %14
@@ -951,7 +951,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet24RegisterMessageExtensio
 17:                                               ; preds = %13, %11
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #24
   resume { ptr, i32 } %18
 }
 
@@ -995,7 +995,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSetD2Ev(ptr nocapture nounde
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i.i
-  %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.06.i.i) #27
+  %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.06.i.i) #28
   %.not.i.i = icmp eq ptr %15, %13
   br i1 %.not.i.i, label %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_D1EvE3$_0EET_S5_.exit", label %.lr.ph.i.i, !llvm.loop !11
 
@@ -1038,17 +1038,17 @@ define void @_ZN6google8protobuf8internal12ExtensionSetD2Ev(ptr nocapture nounde
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #22
+  tail call void @__clang_call_terminate(ptr %33) #23
   unreachable
 
 _ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEED2Ev.exit: ; preds = %28
-  tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef 48) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef 48) #27
   br label %37
 
 34:                                               ; preds = %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_D1EvE3$_0EET_S5_.exit"
   %35 = shl nuw nsw i16 %23, 5
   %36 = zext nneg i16 %35 to i64
-  tail call void @_ZdaPvm(ptr noundef %25, i64 noundef %36) #23
+  tail call void @_ZdaPvm(ptr noundef %25, i64 noundef %36) #24
   br label %37
 
 37:                                               ; preds = %34, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEED2Ev.exit, %26, %1
@@ -1067,37 +1067,38 @@ _ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pa
 38:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %39 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %39) #22
+  tail call void @__clang_call_terminate(ptr %39) #23
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
-  tail call void @_ZSt9terminatev() #22
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
+  tail call void @_ZSt9terminatev() #23
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf8internal12ExtensionSet13DeleteFlatMapEPKNS2_8KeyValueEt(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #10 align 2 {
   %3 = zext i16 %1 to i64
   %4 = shl nuw nsw i64 %3, 5
-  tail call void @_ZdaPvm(ptr noundef %0, i64 noundef %4) #23
+  tail call void @_ZdaPvm(ptr noundef %0, i64 noundef %4) #24
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
+declare void @_ZdaPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet3HasEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet3HasEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i16, ptr %3, align 8
   %5 = icmp ugt i16 %4, 256
@@ -1184,7 +1185,7 @@ _ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit.thread: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
+define noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i16, ptr %3, align 8
   %5 = icmp ugt i16 %4, 256
@@ -1265,7 +1266,7 @@ _ZNK6google8protobuf8internal12ExtensionSet20FindOrNullInLargeMapEi.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet13NumExtensionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet13NumExtensionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8
   %4 = icmp ugt i16 %3, 256
@@ -1289,7 +1290,7 @@ define noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet13NumExtensionsEv
   %13 = xor i8 %12, 1
   %14 = zext nneg i8 %13 to i32
   %spec.select = add nuw nsw i32 %.2, %14
-  %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.09.i.i) #27
+  %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.09.i.i) #28
   %.not.i.i = icmp eq ptr %15, %10
   br i1 %.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_13NumExtensionsEvE3$_0EET_S5_.exit", label %.lr.ph.i.i, !llvm.loop !15
 
@@ -1486,13 +1487,13 @@ define noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet9Extension7GetSiz
           to label %43 unwind label %44
 
 43:                                               ; preds = %42
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #24
   br label %46
 
 44:                                               ; preds = %42, %40
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #24
   resume { ptr, i32 } %45
 
 46:                                               ; preds = %43, %36, %33, %30, %27, %24, %21, %18, %15, %12, %9
@@ -1588,7 +1589,7 @@ select.unfold11:                                  ; preds = %_ZNSt3mapIiN6google
           to label %43 unwind label %44
 
 43:                                               ; preds = %42
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #24
   br label %58
 
 44:                                               ; preds = %42, %select.unfold11
@@ -1613,7 +1614,7 @@ _ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit: ; preds = %37, %
           to label %52 unwind label %53
 
 52:                                               ; preds = %51
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #24
   br label %55
 
 53:                                               ; preds = %51, %49
@@ -1633,7 +1634,7 @@ _ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit: ; preds = %37, %
 59:                                               ; preds = %53, %44
   %.sink = phi ptr [ %5, %53 ], [ %3, %44 ]
   %.pn = phi { ptr, i32 } [ %54, %53 ], [ %45, %44 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #24
   resume { ptr, i32 } %.pn
 }
 
@@ -1721,7 +1722,7 @@ _ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit.thread: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
+define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i16, ptr %3, align 8
   %5 = icmp ugt i16 %4, 256
@@ -1921,7 +1922,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet9Extension5ClearEv(ptr no
 
 55:                                               ; preds = %49
   %56 = load ptr, ptr %0, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #24
   br label %67
 
 57:                                               ; preds = %49
@@ -1955,7 +1956,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINS0_11MessageLiteEE5ClearEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet8GetInt32Eii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet8GetInt32Eii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i16, ptr %4, align 8
   %6 = icmp ugt i16 %5, 256
@@ -2172,13 +2173,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %44 unwind label %45
 
 44:                                               ; preds = %43
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   unreachable
 
 45:                                               ; preds = %43, %41, %select.unfold8
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   resume { ptr, i32 } %46
 
 .critedge:                                        ; preds = %36, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -2283,13 +2284,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %46 unwind label %47
 
 46:                                               ; preds = %45
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   unreachable
 
 47:                                               ; preds = %45, %43, %select.unfold8
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   resume { ptr, i32 } %48
 
 .critedge:                                        ; preds = %38, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -2330,14 +2331,14 @@ define void @_ZN6google8protobuf8internal12ExtensionSet8AddInt32EihbiPKNS0_15Fie
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %13
-  %21 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %21 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIiEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %37 unwind label %22
 
 22:                                               ; preds = %20
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 16) #27
   resume { ptr, i32 } %23
 
 24:                                               ; preds = %13
@@ -2377,7 +2378,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
 declare void @_ZN6google8protobuf13RepeatedFieldIiE3AddERKi(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet8GetInt64Eil(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet8GetInt64Eil(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i16, ptr %4, align 8
   %6 = icmp ugt i16 %5, 256
@@ -2582,13 +2583,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %44 unwind label %45
 
 44:                                               ; preds = %43
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   unreachable
 
 45:                                               ; preds = %43, %41, %select.unfold8
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   resume { ptr, i32 } %46
 
 .critedge:                                        ; preds = %36, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -2693,13 +2694,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %46 unwind label %47
 
 46:                                               ; preds = %45
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   unreachable
 
 47:                                               ; preds = %45, %43, %select.unfold8
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   resume { ptr, i32 } %48
 
 .critedge:                                        ; preds = %38, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -2740,14 +2741,14 @@ define void @_ZN6google8protobuf8internal12ExtensionSet8AddInt64EihblPKNS0_15Fie
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %13
-  %21 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %21 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIlEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %37 unwind label %22
 
 22:                                               ; preds = %20
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 16) #27
   resume { ptr, i32 } %23
 
 24:                                               ; preds = %13
@@ -2787,7 +2788,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
 declare void @_ZN6google8protobuf13RepeatedFieldIlE3AddERKl(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet9GetUInt32Eij(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet9GetUInt32Eij(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i16, ptr %4, align 8
   %6 = icmp ugt i16 %5, 256
@@ -2992,13 +2993,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %44 unwind label %45
 
 44:                                               ; preds = %43
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   unreachable
 
 45:                                               ; preds = %43, %41, %select.unfold8
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   resume { ptr, i32 } %46
 
 .critedge:                                        ; preds = %36, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -3103,13 +3104,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %46 unwind label %47
 
 46:                                               ; preds = %45
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   unreachable
 
 47:                                               ; preds = %45, %43, %select.unfold8
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   resume { ptr, i32 } %48
 
 .critedge:                                        ; preds = %38, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -3150,14 +3151,14 @@ define void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt32EihbjPKNS0_15Fi
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %13
-  %21 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %21 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIjEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %37 unwind label %22
 
 22:                                               ; preds = %20
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 16) #27
   resume { ptr, i32 } %23
 
 24:                                               ; preds = %13
@@ -3197,7 +3198,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
 declare void @_ZN6google8protobuf13RepeatedFieldIjE3AddERKj(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet9GetUInt64Eim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet9GetUInt64Eim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i16, ptr %4, align 8
   %6 = icmp ugt i16 %5, 256
@@ -3402,13 +3403,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %44 unwind label %45
 
 44:                                               ; preds = %43
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   unreachable
 
 45:                                               ; preds = %43, %41, %select.unfold8
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   resume { ptr, i32 } %46
 
 .critedge:                                        ; preds = %36, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -3513,13 +3514,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %46 unwind label %47
 
 46:                                               ; preds = %45
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   unreachable
 
 47:                                               ; preds = %45, %43, %select.unfold8
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   resume { ptr, i32 } %48
 
 .critedge:                                        ; preds = %38, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -3560,14 +3561,14 @@ define void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt64EihbmPKNS0_15Fi
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %13
-  %21 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %21 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldImEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %37 unwind label %22
 
 22:                                               ; preds = %20
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 16) #27
   resume { ptr, i32 } %23
 
 24:                                               ; preds = %13
@@ -3607,7 +3608,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
 declare void @_ZN6google8protobuf13RepeatedFieldImE3AddERKm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef float @_ZNK6google8protobuf8internal12ExtensionSet8GetFloatEif(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK6google8protobuf8internal12ExtensionSet8GetFloatEif(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i16, ptr %4, align 8
   %6 = icmp ugt i16 %5, 256
@@ -3812,13 +3813,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %44 unwind label %45
 
 44:                                               ; preds = %43
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   unreachable
 
 45:                                               ; preds = %43, %41, %select.unfold8
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   resume { ptr, i32 } %46
 
 .critedge:                                        ; preds = %36, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -3923,13 +3924,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %46 unwind label %47
 
 46:                                               ; preds = %45
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   unreachable
 
 47:                                               ; preds = %45, %43, %select.unfold8
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   resume { ptr, i32 } %48
 
 .critedge:                                        ; preds = %38, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -3970,14 +3971,14 @@ define void @_ZN6google8protobuf8internal12ExtensionSet8AddFloatEihbfPKNS0_15Fie
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %13
-  %21 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %21 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIfEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %37 unwind label %22
 
 22:                                               ; preds = %20
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 16) #27
   resume { ptr, i32 } %23
 
 24:                                               ; preds = %13
@@ -4017,7 +4018,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
 declare void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef double @_ZNK6google8protobuf8internal12ExtensionSet9GetDoubleEid(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK6google8protobuf8internal12ExtensionSet9GetDoubleEid(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i16, ptr %4, align 8
   %6 = icmp ugt i16 %5, 256
@@ -4222,13 +4223,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %44 unwind label %45
 
 44:                                               ; preds = %43
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   unreachable
 
 45:                                               ; preds = %43, %41, %select.unfold8
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   resume { ptr, i32 } %46
 
 .critedge:                                        ; preds = %36, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -4333,13 +4334,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %46 unwind label %47
 
 46:                                               ; preds = %45
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   unreachable
 
 47:                                               ; preds = %45, %43, %select.unfold8
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   resume { ptr, i32 } %48
 
 .critedge:                                        ; preds = %38, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -4380,14 +4381,14 @@ define void @_ZN6google8protobuf8internal12ExtensionSet9AddDoubleEihbdPKNS0_15Fi
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %13
-  %21 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %21 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIdEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %37 unwind label %22
 
 22:                                               ; preds = %20
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 16) #27
   resume { ptr, i32 } %23
 
 24:                                               ; preds = %13
@@ -4427,7 +4428,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
 declare void @_ZN6google8protobuf13RepeatedFieldIdE3AddERKd(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet7GetBoolEib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet7GetBoolEib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i16, ptr %4, align 8
   %6 = icmp ugt i16 %5, 256
@@ -4634,13 +4635,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %44 unwind label %45
 
 44:                                               ; preds = %43
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   unreachable
 
 45:                                               ; preds = %43, %41, %select.unfold8
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   resume { ptr, i32 } %46
 
 .critedge:                                        ; preds = %36, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -4747,13 +4748,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %47 unwind label %48
 
 47:                                               ; preds = %46
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   unreachable
 
 48:                                               ; preds = %46, %44, %select.unfold8
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   resume { ptr, i32 } %49
 
 .critedge:                                        ; preds = %39, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -4795,14 +4796,14 @@ define void @_ZN6google8protobuf8internal12ExtensionSet7AddBoolEihbbPKNS0_15Fiel
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %14
-  %22 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %22 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIbEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %22)
           to label %38 unwind label %23
 
 23:                                               ; preds = %21
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 16) #27
   resume { ptr, i32 } %24
 
 25:                                               ; preds = %14
@@ -4842,7 +4843,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
 declare void @_ZN6google8protobuf13RepeatedFieldIbE3AddERKb(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet19GetRawRepeatedFieldEiPKv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef readnone %2) local_unnamed_addr #13 align 2 {
+define noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet19GetRawRepeatedFieldEiPKv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef readnone %2) local_unnamed_addr #14 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i16, ptr %4, align 8
   %6 = icmp ugt i16 %5, 256
@@ -4965,7 +4966,7 @@ define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeat
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %19
-  %23 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %23 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIiEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %.sink.split unwind label %24
 
@@ -4976,7 +4977,7 @@ common.resume:                                    ; preds = %184, %164, %144, %1
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef 16) #27
   br label %common.resume
 
 26:                                               ; preds = %19
@@ -5008,14 +5009,14 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %39
-  %43 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %43 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIlEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %43)
           to label %.sink.split unwind label %44
 
 44:                                               ; preds = %42
   %45 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef 16) #27
   br label %common.resume
 
 46:                                               ; preds = %39
@@ -5047,14 +5048,14 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit175: ; 
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %59
-  %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIjEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %63)
           to label %.sink.split unwind label %64
 
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %63, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %63, i64 noundef 16) #27
   br label %common.resume
 
 66:                                               ; preds = %59
@@ -5086,14 +5087,14 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit177: ; 
   br i1 %81, label %82, label %86
 
 82:                                               ; preds = %79
-  %83 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %83 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldImEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %83)
           to label %.sink.split unwind label %84
 
 84:                                               ; preds = %82
   %85 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef 16) #27
   br label %common.resume
 
 86:                                               ; preds = %79
@@ -5125,14 +5126,14 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit179: ; 
   br i1 %101, label %102, label %106
 
 102:                                              ; preds = %99
-  %103 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %103 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIdEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %103)
           to label %.sink.split unwind label %104
 
 104:                                              ; preds = %102
   %105 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %103, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %103, i64 noundef 16) #27
   br label %common.resume
 
 106:                                              ; preds = %99
@@ -5164,14 +5165,14 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit181: ; 
   br i1 %121, label %122, label %126
 
 122:                                              ; preds = %119
-  %123 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %123 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIfEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %123)
           to label %.sink.split unwind label %124
 
 124:                                              ; preds = %122
   %125 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %123, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %123, i64 noundef 16) #27
   br label %common.resume
 
 126:                                              ; preds = %119
@@ -5203,14 +5204,14 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit183: ; 
   br i1 %141, label %142, label %146
 
 142:                                              ; preds = %139
-  %143 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %143 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIbEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %143)
           to label %.sink.split unwind label %144
 
 144:                                              ; preds = %142
   %145 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %143, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %143, i64 noundef 16) #27
   br label %common.resume
 
 146:                                              ; preds = %139
@@ -5242,14 +5243,14 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit185: ; 
   br i1 %161, label %162, label %166
 
 162:                                              ; preds = %159
-  %163 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %163 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIiEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %163)
           to label %.sink.split unwind label %164
 
 164:                                              ; preds = %162
   %165 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %163, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %163, i64 noundef 16) #27
   br label %common.resume
 
 166:                                              ; preds = %159
@@ -5281,14 +5282,14 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit187: ; 
   br i1 %181, label %182, label %186
 
 182:                                              ; preds = %179
-  %183 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+  %183 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %183)
           to label %.sink.split unwind label %184
 
 184:                                              ; preds = %182
   %185 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %183, i64 noundef 24) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %183, i64 noundef 24) #27
   br label %common.resume
 
 186:                                              ; preds = %179
@@ -5320,7 +5321,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit189: ; 
   br i1 %201, label %202, label %204
 
 202:                                              ; preds = %199
-  %203 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+  %203 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %203, i8 0, i64 24, i1 false)
   br label %.sink.split
 
@@ -5449,7 +5450,7 @@ select.unfold7:                                   ; preds = %_ZNSt3mapIiN6google
           to label %43 unwind label %45
 
 43:                                               ; preds = %42
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #24
   unreachable
 
 .critedge:                                        ; preds = %35, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -5460,12 +5461,12 @@ select.unfold7:                                   ; preds = %_ZNSt3mapIiN6google
 45:                                               ; preds = %42, %40, %select.unfold7
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #24
   resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet7GetEnumEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet7GetEnumEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i16, ptr %4, align 8
   %6 = icmp ugt i16 %5, 256
@@ -5670,13 +5671,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %44 unwind label %45
 
 44:                                               ; preds = %43
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   unreachable
 
 45:                                               ; preds = %43, %41, %select.unfold8
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   resume { ptr, i32 } %46
 
 .critedge:                                        ; preds = %36, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -5779,13 +5780,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %46 unwind label %47
 
 46:                                               ; preds = %45
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   unreachable
 
 47:                                               ; preds = %45, %43, %select.unfold8
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   resume { ptr, i32 } %48
 
 .critedge:                                        ; preds = %38, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -5824,14 +5825,14 @@ define void @_ZN6google8protobuf8internal12ExtensionSet7AddEnumEihbiPKNS0_15Fiel
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %13
-  %21 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %21 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIiEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %37 unwind label %22
 
 22:                                               ; preds = %20
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 16) #27
   resume { ptr, i32 } %23
 
 24:                                               ; preds = %13
@@ -5869,7 +5870,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet9GetStringEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef nonnull readnone align 8 dereferenceable(32) %2) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet9GetStringEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef nonnull readnone align 8 dereferenceable(32) %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i16, ptr %4, align 8
   %6 = icmp ugt i16 %5, 256
@@ -5982,7 +5983,7 @@ define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5c
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %10
-  %16 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
+  %16 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
   br label %30
 
 17:                                               ; preds = %10
@@ -6009,7 +6010,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
 
 30:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %15
   %.sink = phi ptr [ %29, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ], [ %16, %15 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #24
   store ptr %.sink, ptr %6, align 8
   br label %31
 
@@ -6112,13 +6113,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %44 unwind label %45
 
 44:                                               ; preds = %43
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   unreachable
 
 45:                                               ; preds = %43, %41, %select.unfold8
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   resume { ptr, i32 } %46
 
 .critedge:                                        ; preds = %36, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -6220,13 +6221,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %44 unwind label %45
 
 44:                                               ; preds = %43
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   unreachable
 
 45:                                               ; preds = %43, %41, %select.unfold8
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   resume { ptr, i32 } %46
 
 .critedge:                                        ; preds = %36, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -6264,14 +6265,14 @@ define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet9AddStringB5cxx11E
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %10
-  %17 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+  %17 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %33 unwind label %18
 
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 24) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 24) #27
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %10
@@ -6632,7 +6633,7 @@ _ZN6google8protobuf5Arena3OwnINS0_11MessageLiteEEEvPT_.exit: ; preds = %65
   %92 = load ptr, ptr %89, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
-  tail call void %94(ptr noundef nonnull align 8 dereferenceable(16) %89) #23
+  tail call void %94(ptr noundef nonnull align 8 dereferenceable(16) %89) #24
   %.pre = load ptr, ptr %0, align 8
   br label %95
 
@@ -6811,7 +6812,7 @@ _ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit.i: ; preds = %38, 
   %70 = load ptr, ptr %67, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
-  tail call void %72(ptr noundef nonnull align 8 dereferenceable(16) %67) #23
+  tail call void %72(ptr noundef nonnull align 8 dereferenceable(16) %67) #24
   br label %73
 
 73:                                               ; preds = %66, %69, %63
@@ -6931,7 +6932,7 @@ _ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit: ; preds = %35, %_
   %54 = load ptr, ptr %51, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  tail call void %56(ptr noundef nonnull align 8 dereferenceable(8) %51) #23
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(8) %51) #24
   br label %70
 
 57:                                               ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit
@@ -7199,7 +7200,7 @@ _ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit: ; preds = %35, %_
   %54 = load ptr, ptr %51, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  tail call void %56(ptr noundef nonnull align 8 dereferenceable(8) %51) #23
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(8) %51) #24
   br label %57
 
 57:                                               ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit, %43, %53, %50
@@ -7366,13 +7367,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %44 unwind label %45
 
 44:                                               ; preds = %43
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   unreachable
 
 45:                                               ; preds = %43, %41, %select.unfold8
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   resume { ptr, i32 } %46
 
 .critedge:                                        ; preds = %36, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -7477,13 +7478,13 @@ select.unfold8:                                   ; preds = %_ZNSt3mapIiN6google
           to label %44 unwind label %45
 
 44:                                               ; preds = %43
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   unreachable
 
 45:                                               ; preds = %43, %41, %select.unfold8
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   resume { ptr, i32 } %46
 
 .critedge:                                        ; preds = %36, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -7522,7 +7523,7 @@ define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10AddMessageEihRKN
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %11
-  %17 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+  %17 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   br label %32
 
@@ -7685,13 +7686,13 @@ select.unfold17:                                  ; preds = %_ZNSt3mapIiN6google
           to label %43 unwind label %44
 
 43:                                               ; preds = %42
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #24
   br label %.critedge
 
 44:                                               ; preds = %42, %40, %select.unfold17
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #24
   resume { ptr, i32 } %45
 
 .critedge:                                        ; preds = %35, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i, %43
@@ -7887,13 +7888,13 @@ select.unfold7:                                   ; preds = %_ZNSt3mapIiN6google
           to label %43 unwind label %44
 
 43:                                               ; preds = %42
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #24
   unreachable
 
 44:                                               ; preds = %42, %40, %select.unfold7
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #24
   resume { ptr, i32 } %45
 
 .critedge:                                        ; preds = %35, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
@@ -8022,13 +8023,13 @@ select.unfold37:                                  ; preds = %_ZNSt3mapIiN6google
           to label %45 unwind label %46
 
 45:                                               ; preds = %44
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #24
   br label %.critedge
 
 46:                                               ; preds = %44, %42, %select.unfold37
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #24
   resume { ptr, i32 } %47
 
 .critedge:                                        ; preds = %37, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i, %45
@@ -8151,7 +8152,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet5ClearEv(ptr nocapture no
   %.sroa.0.06.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %9, %7 ]
   %11 = getelementptr inbounds i8, ptr %.sroa.0.06.i.i, i64 40
   tail call void @_ZN6google8protobuf8internal12ExtensionSet9Extension5ClearEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
-  %12 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.06.i.i) #27
+  %12 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.06.i.i) #28
   %.not.i.i = icmp eq ptr %12, %10
   br i1 %.not.i.i, label %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_5ClearEvE3$_0EET_S5_.exit", label %.lr.ph.i.i, !llvm.loop !19
 
@@ -8281,11 +8282,11 @@ _ZN6google8protobuf8internal12_GLOBAL__N_111SizeOfUnionIPNS1_12ExtensionSet8KeyV
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds i8, ptr %.022.i, i64 32
-  %63 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.013.020.i) #27
+  %63 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.013.020.i) #28
   br label %66
 
 64:                                               ; preds = %59
-  %65 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.013.020.i) #27
+  %65 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.013.020.i) #28
   br label %66
 
 66:                                               ; preds = %64, %61, %57
@@ -8306,7 +8307,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_111SizeOfUnionIPNS1_12ExtensionSet8KeyV
 .lr.ph.i.i.i:                                     ; preds = %.critedge.i, %.lr.ph.i.i.i
   %.06.i.i.i = phi i64 [ %69, %.lr.ph.i.i.i ], [ 0, %.critedge.i ]
   %.sroa.02.05.i.i.i = phi ptr [ %68, %.lr.ph.i.i.i ], [ %.sroa.013.0.lcssa.i, %.critedge.i ]
-  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i.i) #27
+  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i.i) #28
   %69 = add nuw nsw i64 %.06.i.i.i, 1
   %.not.i.i.i = icmp eq ptr %68, %50
   br i1 %.not.i.i.i, label %.sink.split, label %.lr.ph.i.i.i, !llvm.loop !23
@@ -8346,7 +8347,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_111SizeOfUnionIPNS1_12ExtensionSet8KeyV
   %87 = load i32, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i, i64 40
   tail call void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeFromEiRKNS2_9ExtensionE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %87, ptr noundef nonnull readonly align 8 dereferenceable(24) %88)
-  %89 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.08.i.i) #27
+  %89 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.08.i.i) #28
   %.not.i.i = icmp eq ptr %89, %85
   br i1 %.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNS2_9MergeFromERKS2_E3$_0EET_S7_.exit", label %.lr.ph.i.i, !llvm.loop !24
 
@@ -8407,7 +8408,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet12GrowCapacityEm(ptr noca
   br i1 %22, label %24, label %28
 
 24:                                               ; preds = %23
-  %25 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
+  %25 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = getelementptr inbounds i8, ptr %25, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %25, i8 0, i64 32, i1 false)
@@ -8484,10 +8485,10 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
 
 _ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE10_M_insert_IS7_NSD_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i.i.i: ; preds = %57, %55
   %62 = phi i1 [ true, %55 ], [ %61, %57 ]
-  %63 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
+  %63 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   %64 = getelementptr inbounds i8, ptr %63, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %62, ptr noundef nonnull %63, ptr noundef nonnull %54, ptr noundef nonnull align 8 dereferenceable(32) %47) #23
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %62, ptr noundef nonnull %63, ptr noundef nonnull %54, ptr noundef nonnull align 8 dereferenceable(32) %47) #24
   %65 = load i64, ptr %48, align 8
   %66 = add i64 %65, 1
   store i64 %66, ptr %48, align 8
@@ -8504,7 +8505,7 @@ _ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pa
   br i1 %22, label %69, label %.critedge67
 
 69:                                               ; preds = %.critedge
-  %70 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %68) #28
+  %70 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %68) #29
   br label %83
 
 .critedge67:                                      ; preds = %.critedge
@@ -8549,7 +8550,7 @@ _ZSt4copyIPKN6google8protobuf8internal12ExtensionSet8KeyValueEPS4_ET0_T_S9_S8_.e
   %88 = load i16, ptr %4, align 8
   %89 = zext i16 %88 to i64
   %90 = shl nuw nsw i64 %89, 5
-  call void @_ZdaPvm(ptr noundef %15, i64 noundef %90) #23
+  call void @_ZdaPvm(ptr noundef %15, i64 noundef %90) #24
   br label %91
 
 91:                                               ; preds = %87, %_ZSt4copyIPKN6google8protobuf8internal12ExtensionSet8KeyValueEPS4_ET0_T_S9_S8_.exit
@@ -8630,7 +8631,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeF
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %32
-  %36 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %36 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIiEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %36)
           to label %52 unwind label %37
 
@@ -8641,7 +8642,7 @@ common.resume:                                    ; preds = %451, %237, %212, %1
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef 16) #27
   br label %common.resume
 
 39:                                               ; preds = %32
@@ -8691,14 +8692,14 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %57
-  %61 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %61 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIlEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %61)
           to label %77 unwind label %62
 
 62:                                               ; preds = %60
   %63 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef 16) #27
   br label %common.resume
 
 64:                                               ; preds = %57
@@ -8748,14 +8749,14 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit269: ; 
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %82
-  %86 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %86 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIjEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %86)
           to label %102 unwind label %87
 
 87:                                               ; preds = %85
   %88 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %86, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %86, i64 noundef 16) #27
   br label %common.resume
 
 89:                                               ; preds = %82
@@ -8805,14 +8806,14 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit271: ; 
   br i1 %109, label %110, label %114
 
 110:                                              ; preds = %107
-  %111 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %111 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldImEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %111)
           to label %127 unwind label %112
 
 112:                                              ; preds = %110
   %113 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %111, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %111, i64 noundef 16) #27
   br label %common.resume
 
 114:                                              ; preds = %107
@@ -8862,14 +8863,14 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit273: ; 
   br i1 %134, label %135, label %139
 
 135:                                              ; preds = %132
-  %136 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %136 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIfEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %136)
           to label %152 unwind label %137
 
 137:                                              ; preds = %135
   %138 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef 16) #27
   br label %common.resume
 
 139:                                              ; preds = %132
@@ -8919,14 +8920,14 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit275: ; 
   br i1 %159, label %160, label %164
 
 160:                                              ; preds = %157
-  %161 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %161 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIdEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %161)
           to label %177 unwind label %162
 
 162:                                              ; preds = %160
   %163 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %161, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %161, i64 noundef 16) #27
   br label %common.resume
 
 164:                                              ; preds = %157
@@ -8976,14 +8977,14 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit277: ; 
   br i1 %184, label %185, label %189
 
 185:                                              ; preds = %182
-  %186 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %186 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIbEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %186)
           to label %202 unwind label %187
 
 187:                                              ; preds = %185
   %188 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %186, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %186, i64 noundef 16) #27
   br label %common.resume
 
 189:                                              ; preds = %182
@@ -9033,14 +9034,14 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit279: ; 
   br i1 %209, label %210, label %214
 
 210:                                              ; preds = %207
-  %211 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %211 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN6google8protobuf13RepeatedFieldIiEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %211)
           to label %227 unwind label %212
 
 212:                                              ; preds = %210
   %213 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef 16) #27
   br label %common.resume
 
 214:                                              ; preds = %207
@@ -9090,14 +9091,14 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit281: ; 
   br i1 %234, label %235, label %239
 
 235:                                              ; preds = %232
-  %236 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+  %236 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %236)
           to label %252 unwind label %237
 
 237:                                              ; preds = %235
   %238 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %236, i64 noundef 24) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %236, i64 noundef 24) #27
   br label %common.resume
 
 239:                                              ; preds = %232
@@ -9143,7 +9144,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit283: ; 
   br i1 %259, label %260, label %262
 
 260:                                              ; preds = %257
-  %261 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+  %261 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %261, i8 0, i64 24, i1 false)
   br label %276
 
@@ -9490,13 +9491,13 @@ _ZN6google8protobuf8internal12ExtensionSet7SetEnumEihiPKNS0_15FieldDescriptorE.e
           to label %450 unwind label %451
 
 450:                                              ; preds = %446
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   br label %.loopexit
 
 451:                                              ; preds = %446
   %452 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   br label %common.resume
 
 453:                                              ; preds = %319
@@ -9667,7 +9668,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal12ExtensionSet9SetStringEi
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %11
-  %17 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
+  %17 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
   br label %31
 
 18:                                               ; preds = %11
@@ -9694,7 +9695,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; p
 
 31:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i, %16
   %.sink.i = phi ptr [ %30, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %17, %16 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #24
   store ptr %.sink.i, ptr %7, align 8
   br label %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit
 
@@ -9704,7 +9705,7 @@ _ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15Field
   %34 = load i8, ptr %33, align 2
   %35 = and i8 %34, -16
   store i8 %35, ptr %33, align 2
-  %36 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %3) #23
+  %36 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   ret void
 }
 
@@ -9775,7 +9776,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet4SwapEPS2_(ptr noundef no
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i.i.i
-  %34 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.06.i.i.i) #27
+  %34 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.06.i.i.i) #28
   %.not.i.i.i = icmp eq ptr %34, %32
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal12ExtensionSet5ClearEv.exit, label %.lr.ph.i.i.i, !llvm.loop !19
 
@@ -9824,7 +9825,7 @@ _ZN6google8protobuf8internal12ExtensionSet5ClearEv.exit: ; preds = %.noexc9, %.n
           to label %.noexc18 unwind label %.loopexit
 
 .noexc18:                                         ; preds = %.lr.ph.i.i.i15
-  %53 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.06.i.i.i16) #27
+  %53 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.06.i.i.i16) #28
   %.not.i.i.i17 = icmp eq ptr %53, %51
   br i1 %.not.i.i.i17, label %_ZN6google8protobuf8internal12ExtensionSet5ClearEv.exit20, label %.lr.ph.i.i.i15, !llvm.loop !19
 
@@ -9852,7 +9853,7 @@ _ZN6google8protobuf8internal12ExtensionSet5ClearEv.exit20: ; preds = %.noexc19, 
           to label %61 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 61:                                               ; preds = %_ZN6google8protobuf8internal12ExtensionSet5ClearEv.exit20
-  call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
+  call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #24
   br label %62
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i15
@@ -9882,7 +9883,7 @@ _ZN6google8protobuf8internal12ExtensionSet5ClearEv.exit20: ; preds = %.noexc19, 
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp28, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
+  call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #24
   resume { ptr, i32 } %lpad.phi
 
 62:                                               ; preds = %61, %7
@@ -10177,13 +10178,13 @@ _ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit99: ; preds = %120,
           to label %127 unwind label %128
 
 127:                                              ; preds = %126
-  call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
+  call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #24
   br label %208
 
 128:                                              ; preds = %126, %125, %124, %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit99, %88
   %129 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
+  call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #24
   resume { ptr, i32 } %129
 
 130:                                              ; preds = %80
@@ -10405,7 +10406,7 @@ define { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noca
   br i1 %16, label %select.unfold.i.i, label %17
 
 17:                                               ; preds = %._crit_edge.thread.i.i.i
-  %18 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #27
+  %18 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #28
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %18, i64 32
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %19
@@ -10430,12 +10431,12 @@ select.unfold.i.i:                                ; preds = %19, %._crit_edge.th
 
 _ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE10_M_insert_IS7_NSD_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i.i: ; preds = %23, %select.unfold.i.i
   %27 = phi i1 [ true, %select.unfold.i.i ], [ %26, %23 ]
-  %28 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
+  %28 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   %29 = getelementptr inbounds i8, ptr %28, i64 32
   store i32 %1, ptr %29, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, i64 28, i1 false)
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef nonnull %28, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %10) #23
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef nonnull %28, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %10) #24
   %30 = getelementptr inbounds i8, ptr %7, i64 40
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, 1
@@ -10619,7 +10620,7 @@ define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitia
   br i1 %57, label %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit, label %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit.thread
 
 _ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit: ; preds = %26, %54, %50, %42, %.preheader.i, %.lr.ph35
-  %58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.017.034) #27
+  %58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.017.034) #28
   %.not22 = icmp eq ptr %58, %10
   br i1 %.not22, label %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit.thread, label %.lr.ph35
 
@@ -10852,13 +10853,13 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet32FindExten
           to label %26 unwind label %27
 
 26:                                               ; preds = %25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #24
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_111is_packableENS1_14WireFormatLite8WireTypeE.exit.thread
 
 27:                                               ; preds = %25, %23
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #24
   resume { ptr, i32 } %28
 
 _ZN6google8protobuf8internal12_GLOBAL__N_111is_packableENS1_14WireFormatLite8WireTypeE.exit.thread: ; preds = %26, %22, %22, %22
@@ -11631,13 +11632,13 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit404: ; preds = %34
           to label %374 unwind label %375
 
 374:                                              ; preds = %373
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #24
   br label %.loopexit
 
 375:                                              ; preds = %373, %371
   %376 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #24
   resume { ptr, i32 } %376
 
 .loopexit:                                        ; preds = %368, %338, %317, %298, %280, %262, %243, %225, %204, %181, %163, %144, %126, %107, %.preheader675, %.preheader672, %.preheader669, %.preheader666, %.preheader663, %.preheader660, %.preheader657, %.preheader654, %.preheader651, %.preheader648, %.preheader645, %.preheader642, %.preheader639, %.preheader, %374, %34
@@ -12808,7 +12809,7 @@ define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10ParseFieldEmPKcP
   br i1 %25, label %.noexc, label %27
 
 .noexc:                                           ; preds = %24
-  %26 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
+  %26 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %26, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
@@ -12838,7 +12839,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; p
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %.noexc, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
   %.sink25.i = phi ptr [ %39, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %26, %.noexc ]
   %40 = getelementptr inbounds i8, ptr %.sink25.i, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #24
   %41 = ptrtoint ptr %.sink25.i to i64
   %42 = or i64 %41, 1
   %43 = inttoptr i64 %42 to ptr
@@ -13059,13 +13060,13 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal12ExtensionSet27Par
           to label %136 unwind label %137
 
 136:                                              ; preds = %135
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #24
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 137:                                              ; preds = %135, %133
   %138 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #24
   resume { ptr, i32 } %138
 
 139:                                              ; preds = %7
@@ -14030,7 +14031,7 @@ _ZN6google8protobuf8internal12ExtensionSet7SetEnumEihiPKNS0_15FieldDescriptorE.e
   br i1 %670, label %671, label %673
 
 671:                                              ; preds = %666
-  %672 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
+  %672 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
   br label %686
 
 673:                                              ; preds = %666
@@ -14057,7 +14058,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; p
 
 686:                                              ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i, %671
   %.sink.i = phi ptr [ %685, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %672, %671 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #24
   store ptr %.sink.i, ptr %662, align 8
   br label %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit
 
@@ -14205,7 +14206,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23Par
   %7 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.google::protobuf::internal::ParseContext", align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
   %10 = getelementptr inbounds i8, ptr %4, i64 92
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   %12 = getelementptr inbounds i8, ptr %4, i64 28
@@ -14351,7 +14352,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread96: ; preds = %3
 
 .body:                                            ; preds = %.loopexit.split-lp, %.loopexit223.loopexit.split-lp, %.loopexit223.loopexit, %132
   %eh.lpad-body = phi { ptr, i32 } [ %133, %132 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit227, %.loopexit223.loopexit ], [ %lpad.loopexit.split-lp228, %.loopexit223.loopexit.split-lp ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
   resume { ptr, i32 } %eh.lpad-body
 
 83:                                               ; preds = %80, %63
@@ -14482,7 +14483,7 @@ _ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_I
           to label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread180 unwind label %132
 
 _ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread180: ; preds = %131
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   br label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120
@@ -14490,7 +14491,7 @@ _ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteE
 132:                                              ; preds = %131, %.noexc66
   %133 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #24
   br label %.body
 
 .thread:                                          ; preds = %128, %128, %128
@@ -14509,8 +14510,8 @@ _ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteE
   br i1 %135, label %.thread179, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120
 
 _ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120: ; preds = %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i.i.i.i.i.i, %120, %95, %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread180, %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread178, %87, %102, %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit
-  %136 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
-  %137 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
+  %136 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
+  %137 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
   %138 = load ptr, ptr %3, align 8
   %139 = ptrtoint ptr %138 to i64
   %140 = and i64 %139, 1
@@ -14528,7 +14529,7 @@ _ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteE
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %145
-  %148 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
+  %148 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
           to label %.noexc47 unwind label %.loopexit.split-lp
 
 .noexc47:                                         ; preds = %147
@@ -14564,7 +14565,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; p
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %.noexc47, %.noexc49
   %.sink25.i = phi ptr [ %161, %.noexc49 ], [ %148, %.noexc47 ]
   %162 = getelementptr inbounds i8, ptr %.sink25.i, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %162) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %162) #24
   %163 = ptrtoint ptr %.sink25.i to i64
   %164 = or i64 %163, 1
   %165 = inttoptr i64 %164 to ptr
@@ -14641,8 +14642,8 @@ _ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLite
   store i32 %199, ptr %19, align 8
   store i32 -2147483648, ptr %20, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
-  %200 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
-  %201 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
+  %200 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
+  %201 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
   store i32 0, ptr %18, align 4
   %202 = icmp sgt i64 %201, 16
   br i1 %202, label %203, label %208
@@ -14821,7 +14822,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %251, %.noexc63, %26
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %276, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, %221, %65, %42, %270
   %.031 = phi ptr [ %.0.i62, %270 ], [ %spec.select, %42 ], [ null, %65 ], [ %49, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %276 ], [ null, %_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ], [ null, %221 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
   ret ptr %.031
 }
 
@@ -14994,7 +14995,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet23ParseMess
   %12 = alloca %"class.google::protobuf::io::CodedInputStream", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = getelementptr inbounds i8, ptr %9, i64 1
   %15 = getelementptr inbounds i8, ptr %12, i64 8
@@ -15089,12 +15090,12 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i: ; preds = %53
 
 57:                                               ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i
   %.06775.i = phi i32 [ %50, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i ], [ %55, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i ]
-  %58 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
+  %58 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
   br i1 %58, label %.outer.backedge, label %59
 
 59:                                               ; preds = %57
-  %60 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
-  %61 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
+  %60 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
+  %61 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
   %62 = trunc i64 %61 to i32
   store ptr %60, ptr %12, align 8
   %sext.i = shl i64 %61, 32
@@ -15156,13 +15157,13 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i: ; preds = %53
           to label %82 unwind label %83
 
 82:                                               ; preds = %81
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #24
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_111is_packableENS1_14WireFormatLite8WireTypeE.exit.thread.i.i
 
 83:                                               ; preds = %81, %.noexc53.i
   %84 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #24
   br label %.body.i
 
 _ZN6google8protobuf8internal12_GLOBAL__N_111is_packableENS1_14WireFormatLite8WireTypeE.exit.thread.i.i: ; preds = %82, %78, %78, %78
@@ -15205,12 +15206,12 @@ _ZN6google8protobuf8internal12_GLOBAL__N_111is_packableENS1_14WireFormatLite8Wir
 
 .body.i:                                          ; preds = %95, %83
   %eh.lpad-body.i = phi { ptr, i32 } [ %96, %95 ], [ %84, %83 ]
-  call void @_ZN6google8protobuf2io16CodedInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %12) #23
+  call void @_ZN6google8protobuf2io16CodedInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %12) #24
   br label %.body58.i
 
 97:                                               ; preds = %94
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
-  call void @_ZN6google8protobuf2io16CodedInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %12) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
+  call void @_ZN6google8protobuf2io16CodedInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %12) #24
   br label %.outer.backedge
 
 98:                                               ; preds = %43
@@ -15363,13 +15364,13 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit.i: ; pr
           to label %165 unwind label %166
 
 165:                                              ; preds = %164
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #24
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_111is_packableENS1_14WireFormatLite8WireTypeE.exit.thread.i55.i
 
 166:                                              ; preds = %164, %.noexc57.i
   %167 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #24
   br label %.body58.i
 
 _ZN6google8protobuf8internal12_GLOBAL__N_111is_packableENS1_14WireFormatLite8WireTypeE.exit.thread.i55.i: ; preds = %165, %161, %161, %161
@@ -15417,12 +15418,12 @@ _ZZN6google8protobuf8internal12ExtensionSet23ParseMessageSetItemLiteEPNS0_2io16C
   br label %31, !llvm.loop !50
 
 .critedge.i:                                      ; preds = %94
-  call void @_ZN6google8protobuf2io16CodedInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %12) #23
+  call void @_ZN6google8protobuf2io16CodedInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %12) #24
   br label %_ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_12ExtensionSet23ParseMessageSetItemLiteEPNS0_2io16CodedInputStreamEPNS1_15ExtensionFinderEPNS1_12FieldSkipperEE6MSLiteEEbS6_T_.exit
 
 .body58.i:                                        ; preds = %.loopexit, %.loopexit.split-lp, %166, %.body.i
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %167, %166 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
   resume { ptr, i32 } %.pn.i
 
 _ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_12ExtensionSet23ParseMessageSetItemLiteEPNS0_2io16CodedInputStreamEPNS1_15ExtensionFinderEPNS1_12FieldSkipperEE6MSLiteEEbS6_T_.exit.loopexit: ; preds = %43
@@ -15430,7 +15431,7 @@ _ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_12ExtensionSet23Parse
 
 _ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_12ExtensionSet23ParseMessageSetItemLiteEPNS0_2io16CodedInputStreamEPNS1_15ExtensionFinderEPNS1_12FieldSkipperEE6MSLiteEEbS6_T_.exit: ; preds = %43, %175, %_ZZN6google8protobuf8internal12ExtensionSet23ParseMessageSetItemLiteEPNS0_2io16CodedInputStreamEPNS1_15ExtensionFinderEPNS1_12FieldSkipperEEN6MSLite9SkipFieldEjS5_.exit.i, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit43.i, %148, %_ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_12ExtensionSet23ParseMessageSetItemLiteEPNS0_2io16CodedInputStreamEPNS1_15ExtensionFinderEPNS1_12FieldSkipperEE6MSLiteEEbS6_T_.exit.loopexit, %.critedge.i
   %.131.i = phi i1 [ false, %.critedge.i ], [ true, %_ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_12ExtensionSet23ParseMessageSetItemLiteEPNS0_2io16CodedInputStreamEPNS1_15ExtensionFinderEPNS1_12FieldSkipperEE6MSLiteEEbS6_T_.exit.loopexit ], [ false, %148 ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit43.i ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i ], [ false, %_ZZN6google8protobuf8internal12ExtensionSet23ParseMessageSetItemLiteEPNS0_2io16CodedInputStreamEPNS1_15ExtensionFinderEPNS1_12FieldSkipperEEN6MSLite9SkipFieldEjS5_.exit.i ], [ false, %175 ], [ false, %43 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12)
   ret i1 %.131.i
@@ -15455,13 +15456,13 @@ _ZN6google8protobuf2io17CodedOutputStreamC2EPNS1_20ZeroCopyOutputStreamE.exit:
           to label %11 unwind label %12
 
 11:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStreamC2EPNS1_20ZeroCopyOutputStreamE.exit
-  call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #23
+  call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #24
   ret i1 %10
 
 12:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStreamC2EPNS1_20ZeroCopyOutputStreamE.exit
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #23
+  call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #24
   resume { ptr, i32 } %13
 }
 
@@ -15514,7 +15515,7 @@ _ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pa
 21:                                               ; preds = %.lr.ph39
   %22 = getelementptr inbounds i8, ptr %.sroa.0.037, i64 40
   %23 = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet9Extension44InternalSerializeFieldWithCachedSizesToArrayEiPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %22, i32 noundef %19, ptr noundef %.02038, ptr noundef %4)
-  %24 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.037) #27
+  %24 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.037) #28
   %.not29 = icmp eq ptr %24, %12
   br i1 %.not29, label %.critedge, label %.lr.ph39, !llvm.loop !51
 
@@ -16463,13 +16464,13 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
           to label %436 unwind label %437
 
 436:                                              ; preds = %435
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #24
   br label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit1193
 
 437:                                              ; preds = %435, %433
   %438 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #24
   resume { ptr, i32 } %438
 
 439:                                              ; preds = %10
@@ -17966,7 +17967,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1153: ; preds = 
   %.0.i1152 = phi ptr [ %1162, %1161 ], [ %.281548, %1159 ]
   %1163 = load ptr, ptr %0, align 8
   %1164 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3GetEi(ptr noundef nonnull align 8 dereferenceable(24) %1163, i32 noundef %.08761549)
-  %1165 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1164) #23
+  %1165 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1164) #24
   %1166 = icmp sgt i64 %1165, 127
   br i1 %1166, label %.critedge, label %1167
 
@@ -18029,7 +18030,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit.thread: ; preds = %11
   %1191 = trunc i64 %1165 to i8
   %1192 = getelementptr inbounds i8, ptr %.0916, i64 1
   store i8 %1191, ptr %.0916, align 1
-  %1193 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1164) #23
+  %1193 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1164) #24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1192, ptr align 1 %1193, i64 %1165, i1 false)
   %1194 = getelementptr inbounds i8, ptr %1192, i64 %1165
   br label %1195
@@ -18057,7 +18058,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1156: ; preds = 
   %.0.i1155 = phi ptr [ %1203, %1202 ], [ %.291544, %1200 ]
   %1204 = load ptr, ptr %0, align 8
   %1205 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3GetEi(ptr noundef nonnull align 8 dereferenceable(24) %1204, i32 noundef %.08751545)
-  %1206 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1205) #23
+  %1206 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1205) #24
   %1207 = icmp sgt i64 %1206, 127
   br i1 %1207, label %.critedge2, label %1208
 
@@ -18120,7 +18121,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit1157.thread: ; preds =
   %1232 = trunc i64 %1206 to i8
   %1233 = getelementptr inbounds i8, ptr %.0913, i64 1
   store i8 %1232, ptr %.0913, align 1
-  %1234 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1205) #23
+  %1234 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1205) #24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1233, ptr align 1 %1234, i64 %1206, i1 false)
   %1235 = getelementptr inbounds i8, ptr %1233, i64 %1206
   br label %1236
@@ -19583,7 +19584,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1307: ; 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1314: ; preds = %1946, %1948
   %.0.i1313 = phi ptr [ %1949, %1948 ], [ %2, %1946 ]
   %1950 = load ptr, ptr %0, align 8
-  %1951 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1950) #23
+  %1951 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1950) #24
   %1952 = icmp sgt i64 %1951, 127
   br i1 %1952, label %.critedge4, label %1953
 
@@ -19664,7 +19665,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit1315.thread: ; preds =
   %1994 = trunc i64 %1951 to i8
   %1995 = getelementptr inbounds i8, ptr %.0909, i64 1
   store i8 %1994, ptr %.0909, align 1
-  %1996 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1950) #23
+  %1996 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1950) #24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1995, ptr align 1 %1996, i64 %1951, i1 false)
   %1997 = getelementptr inbounds i8, ptr %1995, i64 %1951
   br label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit1193
@@ -19681,7 +19682,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit1315.thread: ; preds =
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1318: ; preds = %1998, %2000
   %.0.i1317 = phi ptr [ %2001, %2000 ], [ %2, %1998 ]
   %2002 = load ptr, ptr %0, align 8
-  %2003 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2002) #23
+  %2003 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2002) #24
   %2004 = icmp sgt i64 %2003, 127
   br i1 %2004, label %.critedge6, label %2005
 
@@ -19762,7 +19763,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit1319.thread: ; preds =
   %2046 = trunc i64 %2003 to i8
   %2047 = getelementptr inbounds i8, ptr %.0891, i64 1
   store i8 %2046, ptr %.0891, align 1
-  %2048 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2002) #23
+  %2048 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2002) #24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2047, ptr align 1 %2048, i64 %2003, i1 false)
   %2049 = getelementptr inbounds i8, ptr %2047, i64 %2003
   br label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit1193
@@ -20041,7 +20042,7 @@ define noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet49InternalSeriali
   %15 = load i32, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i, i64 40
   %17 = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet9Extension53InternalSerializeMessageSetItemWithCachedSizesToArrayEiPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 dereferenceable(24) %16, i32 noundef %15, ptr noundef %13, ptr noundef %2)
-  %18 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.09.i.i) #27
+  %18 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.09.i.i) #28
   %.not.i.i = icmp eq ptr %18, %12
   br i1 %.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_49InternalSerializeMessageSetWithCachedSizesToArrayEPhPNS0_2io19EpsCopyOutputStreamEE3$_0EET_S9_.exit", label %.lr.ph.i.i, !llvm.loop !86
 
@@ -20092,7 +20093,7 @@ define noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet8ByteSizeEv(ptr n
   %13 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i, i64 40
   %14 = tail call noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet9Extension8ByteSizeEi(ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef %12)
   %15 = add i64 %14, %.1
-  %16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.08.i.i) #27
+  %16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.08.i.i) #28
   %.not.i.i = icmp eq ptr %16, %10
   br i1 %.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_8ByteSizeEvE3$_0EET_S5_.exit", label %.lr.ph.i.i, !llvm.loop !88
 
@@ -20437,13 +20438,13 @@ _ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit: ; preds = %.lr.ph2
           to label %185 unwind label %186
 
 185:                                              ; preds = %184
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #24
   br label %.thread
 
 186:                                              ; preds = %184, %182
   %187 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #24
   resume { ptr, i32 } %187
 
 .thread:                                          ; preds = %14, %185
@@ -20723,7 +20724,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit171: ; preds = %.lr
   %.0152218 = phi i32 [ %385, %.lr.ph220 ], [ 0, %364 ]
   %372 = load ptr, ptr %0, align 8
   %373 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3GetEi(ptr noundef nonnull align 8 dereferenceable(24) %372, i32 noundef %.0152218)
-  %374 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %373) #23
+  %374 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %373) #24
   %375 = trunc i64 %374 to i32
   %376 = or i32 %375, 1
   %377 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %376, i1 true)
@@ -20755,7 +20756,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit171: ; preds = %.lr
   %.0151214 = phi i32 [ %410, %.lr.ph216 ], [ 0, %389 ]
   %397 = load ptr, ptr %0, align 8
   %398 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3GetEi(ptr noundef nonnull align 8 dereferenceable(24) %397, i32 noundef %.0151214)
-  %399 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %398) #23
+  %399 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %398) #24
   %400 = trunc i64 %399 to i32
   %401 = or i32 %400, 1
   %402 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %401, i1 true)
@@ -21063,7 +21064,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit176: ; preds = %553
 
 618:                                              ; preds = %540
   %619 = load ptr, ptr %0, align 8
-  %620 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %619) #23
+  %620 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %619) #24
   %621 = trunc i64 %620 to i32
   %622 = or i32 %621, 1
   %623 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %622, i1 true)
@@ -21078,7 +21079,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit176: ; preds = %553
 
 631:                                              ; preds = %540
   %632 = load ptr, ptr %0, align 8
-  %633 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %632) #23
+  %633 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %632) #24
   %634 = trunc i64 %633 to i32
   %635 = or i32 %634, 1
   %636 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %635, i1 true)
@@ -21240,8 +21241,8 @@ define void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noc
   br i1 %13, label %93, label %14
 
 14:                                               ; preds = %11
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 16) #26
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 16) #27
   br label %93
 
 15:                                               ; preds = %10
@@ -21250,8 +21251,8 @@ define void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noc
   br i1 %17, label %93, label %18
 
 18:                                               ; preds = %15
-  tail call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 16) #26
+  tail call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 16) #27
   br label %93
 
 19:                                               ; preds = %10
@@ -21260,8 +21261,8 @@ define void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noc
   br i1 %21, label %93, label %22
 
 22:                                               ; preds = %19
-  tail call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 16) #26
+  tail call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 16) #27
   br label %93
 
 23:                                               ; preds = %10
@@ -21270,8 +21271,8 @@ define void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noc
   br i1 %25, label %93, label %26
 
 26:                                               ; preds = %23
-  tail call void @_ZN6google8protobuf13RepeatedFieldImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 16) #26
+  tail call void @_ZN6google8protobuf13RepeatedFieldImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 16) #27
   br label %93
 
 27:                                               ; preds = %10
@@ -21280,8 +21281,8 @@ define void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noc
   br i1 %29, label %93, label %30
 
 30:                                               ; preds = %27
-  tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef 16) #26
+  tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef 16) #27
   br label %93
 
 31:                                               ; preds = %10
@@ -21290,8 +21291,8 @@ define void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noc
   br i1 %33, label %93, label %34
 
 34:                                               ; preds = %31
-  tail call void @_ZN6google8protobuf13RepeatedFieldIdED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef 16) #26
+  tail call void @_ZN6google8protobuf13RepeatedFieldIdED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef 16) #27
   br label %93
 
 35:                                               ; preds = %10
@@ -21300,8 +21301,8 @@ define void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noc
   br i1 %37, label %93, label %38
 
 38:                                               ; preds = %35
-  tail call void @_ZN6google8protobuf13RepeatedFieldIbED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %36) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef 16) #26
+  tail call void @_ZN6google8protobuf13RepeatedFieldIbED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %36) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef 16) #27
   br label %93
 
 39:                                               ; preds = %10
@@ -21310,8 +21311,8 @@ define void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noc
   br i1 %41, label %93, label %42
 
 42:                                               ; preds = %39
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef 16) #26
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef 16) #27
   br label %93
 
 43:                                               ; preds = %10
@@ -21320,8 +21321,8 @@ define void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noc
   br i1 %45, label %93, label %46
 
 46:                                               ; preds = %43
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef 24) #26
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef 24) #27
   br label %93
 
 47:                                               ; preds = %10
@@ -21359,7 +21360,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noc
   %63 = load ptr, ptr %60, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %60) #23
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %60) #24
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerINS0_11MessageLiteEE6DeleteEPS3_PNS0_5ArenaE.exit.i.i
 
 _ZN6google8protobuf8internal18GenericTypeHandlerINS0_11MessageLiteEE6DeleteEPS3_PNS0_5ArenaE.exit.i.i: ; preds = %62, %.lr.ph.i.i
@@ -21378,11 +21379,11 @@ _ZN6google8protobuf8internal18GenericTypeHandlerINS0_11MessageLiteEE6DeleteEPS3_
   %69 = sext i32 %68 to i64
   %70 = shl nsw i64 %69, 3
   %71 = add nsw i64 %70, 8
-  tail call void @_ZdlPvm(ptr noundef %66, i64 noundef %71) #23
+  tail call void @_ZdlPvm(ptr noundef %66, i64 noundef %71) #24
   br label %_ZN6google8protobuf16RepeatedPtrFieldINS0_11MessageLiteEED2Ev.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldINS0_11MessageLiteEED2Ev.exit: ; preds = %50, %._crit_edge.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef 24) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef 24) #27
   br label %93
 
 72:                                               ; preds = %1
@@ -21397,8 +21398,8 @@ _ZN6google8protobuf16RepeatedPtrFieldINS0_11MessageLiteEED2Ev.exit: ; preds = %5
   br i1 %75, label %93, label %76
 
 76:                                               ; preds = %73
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef 32) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef 32) #27
   br label %93
 
 77:                                               ; preds = %72
@@ -21417,7 +21418,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINS0_11MessageLiteEED2Ev.exit: ; preds = %5
   %85 = load ptr, ptr %81, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
-  tail call void %87(ptr noundef nonnull align 8 dereferenceable(8) %81) #23
+  tail call void %87(ptr noundef nonnull align 8 dereferenceable(8) %81) #24
   br label %93
 
 88:                                               ; preds = %77
@@ -21427,7 +21428,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINS0_11MessageLiteEED2Ev.exit: ; preds = %5
   %90 = load ptr, ptr %81, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8
-  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %81) #23
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %81) #24
   br label %93
 
 93:                                               ; preds = %76, %73, %88, %89, %83, %84, %72, %10, %14, %11, %18, %15, %22, %19, %26, %23, %30, %27, %34, %31, %38, %35, %42, %39, %46, %43, %_ZN6google8protobuf16RepeatedPtrFieldINS0_11MessageLiteEED2Ev.exit, %47
@@ -21464,7 +21465,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet20LazyMessageExtension15U
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet20FindOrNullInLargeMapEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
+define noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet20FindOrNullInLargeMapEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -21504,7 +21505,7 @@ _ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet20FindOrNullInLargeMapEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
+define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet20FindOrNullInLargeMapEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -21544,7 +21545,7 @@ _ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6google8protobuf8internal25RepeatedPrimitiveDefaults16default_instanceEv() local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
@@ -21553,12 +21554,12 @@ define noundef ptr @_ZN6google8protobuf8internal25RepeatedPrimitiveDefaults16def
   br i1 %2, label %3, label %9, !prof !7
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf8internal25RepeatedPrimitiveDefaults16default_instanceEvE8instance) #23
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf8internal25RepeatedPrimitiveDefaults16default_instanceEvE8instance) #24
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = invoke noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #24
+  %6 = invoke noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #25
           to label %7 unwind label %11
 
 7:                                                ; preds = %5
@@ -21571,7 +21572,7 @@ define noundef ptr @_ZN6google8protobuf8internal25RepeatedPrimitiveDefaults16def
 
 _ZN6google8protobuf8internal16OnShutdownDeleteINS1_25RepeatedPrimitiveDefaultsEEEPT_S5_.exit: ; preds = %8
   store ptr %6, ptr @_ZZN6google8protobuf8internal25RepeatedPrimitiveDefaults16default_instanceEvE8instance, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6google8protobuf8internal25RepeatedPrimitiveDefaults16default_instanceEvE8instance) #23
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6google8protobuf8internal25RepeatedPrimitiveDefaults16default_instanceEvE8instance) #24
   br label %9
 
 9:                                                ; preds = %_ZN6google8protobuf8internal16OnShutdownDeleteINS1_25RepeatedPrimitiveDefaultsEEEPT_S5_.exit, %3, %0
@@ -21586,12 +21587,12 @@ _ZN6google8protobuf8internal16OnShutdownDeleteINS1_25RepeatedPrimitiveDefaultsEE
 13:                                               ; preds = %7
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 112) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 112) #27
   br label %15
 
 15:                                               ; preds = %13, %11
   %.pn = phi { ptr, i32 } [ %12, %11 ], [ %14, %13 ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6google8protobuf8internal25RepeatedPrimitiveDefaults16default_instanceEvE8instance) #23
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6google8protobuf8internal25RepeatedPrimitiveDefaults16default_instanceEvE8instance) #24
   resume { ptr, i32 } %.pn
 }
 
@@ -21599,7 +21600,7 @@ _ZN6google8protobuf8internal16OnShutdownDeleteINS1_25RepeatedPrimitiveDefaultsEE
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal25RepeatedPrimitiveDefaultsC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -21664,32 +21665,32 @@ define linkonce_odr void @_ZN6google8protobuf8internal25RepeatedPrimitiveDefault
 24:                                               ; preds = %11
   %25 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #24
   br label %26
 
 26:                                               ; preds = %24, %22
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
-  tail call void @_ZN6google8protobuf13RepeatedFieldIdED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldIdED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #24
   br label %27
 
 27:                                               ; preds = %26, %20
   %.pn.pn = phi { ptr, i32 } [ %.pn, %26 ], [ %21, %20 ]
-  tail call void @_ZN6google8protobuf13RepeatedFieldImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #24
   br label %28
 
 28:                                               ; preds = %27, %18
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %27 ], [ %19, %18 ]
-  tail call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
   br label %29
 
 29:                                               ; preds = %28, %16
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %28 ], [ %17, %16 ]
-  tail call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
   br label %30
 
 30:                                               ; preds = %29, %14
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %29 ], [ %15, %14 ]
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
 
@@ -21706,12 +21707,12 @@ define noundef ptr @_ZN6google8protobuf8internal24RepeatedStringTypeTraits23GetD
   br i1 %2, label %3, label %9, !prof !7
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf8internal24RepeatedStringTypeTraits23GetDefaultRepeatedFieldB5cxx11EvE8instanceB5cxx11) #23
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf8internal24RepeatedStringTypeTraits23GetDefaultRepeatedFieldB5cxx11EvE8instanceB5cxx11) #24
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+  %6 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
           to label %7 unwind label %11
 
 7:                                                ; preds = %5
@@ -21724,7 +21725,7 @@ define noundef ptr @_ZN6google8protobuf8internal24RepeatedStringTypeTraits23GetD
 
 _ZN6google8protobuf8internal16OnShutdownDeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_SC_.exit: ; preds = %8
   store ptr %6, ptr @_ZZN6google8protobuf8internal24RepeatedStringTypeTraits23GetDefaultRepeatedFieldB5cxx11EvE8instanceB5cxx11, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6google8protobuf8internal24RepeatedStringTypeTraits23GetDefaultRepeatedFieldB5cxx11EvE8instanceB5cxx11) #23
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6google8protobuf8internal24RepeatedStringTypeTraits23GetDefaultRepeatedFieldB5cxx11EvE8instanceB5cxx11) #24
   br label %9
 
 9:                                                ; preds = %_ZN6google8protobuf8internal16OnShutdownDeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_SC_.exit, %3, %0
@@ -21739,12 +21740,12 @@ _ZN6google8protobuf8internal16OnShutdownDeleteINS0_16RepeatedPtrFieldINSt7__cxx1
 13:                                               ; preds = %7
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 24) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 24) #27
   br label %15
 
 15:                                               ; preds = %13, %11
   %.pn = phi { ptr, i32 } [ %12, %11 ], [ %14, %13 ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6google8protobuf8internal24RepeatedStringTypeTraits23GetDefaultRepeatedFieldB5cxx11EvE8instanceB5cxx11) #23
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6google8protobuf8internal24RepeatedStringTypeTraits23GetDefaultRepeatedFieldB5cxx11EvE8instanceB5cxx11) #24
   resume { ptr, i32 } %.pn
 }
 
@@ -21775,14 +21776,14 @@ define noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet9Extension53Inter
           to label %16 unwind label %18
 
 16:                                               ; preds = %15
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #24
   %17 = call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet9Extension44InternalSerializeFieldWithCachedSizesToArrayEiPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
   br label %99
 
 18:                                               ; preds = %15, %13
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #24
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %9
@@ -22106,7 +22107,7 @@ define noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet18MessageSetByteS
 "_ZZNK6google8protobuf8internal12ExtensionSet18MessageSetByteSizeEvENK3$_0clEiRKNS2_9ExtensionE.exit.i.i": ; preds = %48, %24, %22
   %.09.i.i.i.i = phi i64 [ %23, %22 ], [ %58, %48 ], [ 0, %24 ]
   %59 = add i64 %.09.i.i.i.i, %.1
-  %60 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.08.i.i) #27
+  %60 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.08.i.i) #28
   %.not.i.i = icmp eq ptr %60, %10
   br i1 %.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_18MessageSetByteSizeEvE3$_0EET_S5_.exit", label %12, !llvm.loop !109
 
@@ -22205,7 +22206,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal24GeneratedExtensionFinderD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #27
   ret void
 }
 
@@ -22216,7 +22217,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal12ExtensionSet20LazyMessag
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal12ExtensionSet20LazyMessageExtensionD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @llvm.trap() #22
+  tail call void @llvm.trap() #23
   unreachable
 }
 
@@ -22250,7 +22251,7 @@ define internal void @_ZZN6google8protobuf8internal16OnShutdownDeleteISt13unorde
 .lr.ph.i.i.i.i.i:                                 ; preds = %3, %.lr.ph.i.i.i.i.i
   %.06.i.i.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i.i.i ], [ %.val.i.i.i.i, %3 ]
   %5 = load ptr, ptr %.06.i.i.i.i.i, align 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i.i, i64 noundef 64) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i.i, i64 noundef 64) #27
   %.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt10_HashtableISt4pairIPKN6google8protobuf11MessageLiteEiES0_IKS6_NS2_8internal13ExtensionInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS6_ENS8_12_GLOBAL__N_115ExtensionHasherENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !111
 
@@ -22269,11 +22270,11 @@ _ZNSt10_HashtableISt4pairIPKN6google8protobuf11MessageLiteEiES0_IKS6_NS2_8intern
 13:                                               ; preds = %_ZNSt10_HashtableISt4pairIPKN6google8protobuf11MessageLiteEiES0_IKS6_NS2_8internal13ExtensionInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS6_ENS8_12_GLOBAL__N_115ExtensionHasherENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
   %14 = load i64, ptr %7, align 8
   %15 = shl i64 %14, 3
-  tail call void @_ZdlPvm(ptr noundef %10, i64 noundef %15) #26
+  tail call void @_ZdlPvm(ptr noundef %10, i64 noundef %15) #27
   br label %_ZNSt13unordered_mapISt4pairIPKN6google8protobuf11MessageLiteEiENS2_8internal13ExtensionInfoENS7_12_GLOBAL__N_115ExtensionHasherESt8equal_toIS6_ESaIS0_IKS6_S8_EEED2Ev.exit.i
 
 _ZNSt13unordered_mapISt4pairIPKN6google8protobuf11MessageLiteEiENS2_8internal13ExtensionInfoENS7_12_GLOBAL__N_115ExtensionHasherESt8equal_toIS6_ESaIS0_IKS6_S8_EEED2Ev.exit.i: ; preds = %13, %_ZNSt10_HashtableISt4pairIPKN6google8protobuf11MessageLiteEiES0_IKS6_NS2_8internal13ExtensionInfoEESaISA_ENSt8__detail10_Select1stESt8equal_toIS6_ENS8_12_GLOBAL__N_115ExtensionHasherENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #27
   br label %_ZZN6google8protobuf8internal16OnShutdownDeleteISt13unordered_mapISt4pairIPKNS0_11MessageLiteEiENS1_13ExtensionInfoENS1_12_GLOBAL__N_115ExtensionHasherESt8equal_toIS8_ESaIS4_IKS8_S9_EEEEEPT_SJ_ENKUlPKvE_clESL_.exit
 
 _ZZN6google8protobuf8internal16OnShutdownDeleteISt13unordered_mapISt4pairIPKNS0_11MessageLiteEiENS1_13ExtensionInfoENS1_12_GLOBAL__N_115ExtensionHasherESt8equal_toIS8_ESaIS4_IKS8_S9_EEEEEPT_SJ_ENKUlPKvE_clESL_.exit: ; preds = %1, %_ZNSt13unordered_mapISt4pairIPKN6google8protobuf11MessageLiteEiENS2_8internal13ExtensionInfoENS7_12_GLOBAL__N_115ExtensionHasherESt8equal_toIS6_ESaIS0_IKS6_S8_EEED2Ev.exit.i
@@ -22285,10 +22286,10 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #17
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #18
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #17
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #18
 
 declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
@@ -22304,7 +22305,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12
   tail call void @_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 64) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 64) #27
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !112
 
@@ -22328,10 +22329,10 @@ declare noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj
 declare void @_ZN6google8protobuf2io17CodedOutputStreamC2EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #18
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #18
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #19
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -22372,7 +22373,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal16InternalMetadata2
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
+  %12 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %12, i8 0, i64 40, i1 false)
   br label %26
 
@@ -22402,7 +22403,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
 26:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %11
   %.sink25 = phi ptr [ %25, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ], [ %12, %11 ]
   %27 = getelementptr inbounds i8, ptr %.sink25, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #24
   %28 = ptrtoint ptr %.sink25 to i64
   %29 = or i64 %28, 1
   %30 = inttoptr i64 %29 to ptr
@@ -22420,7 +22421,7 @@ declare noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndA
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv(ptr noundef %0) #10 comdat {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   ret void
 }
 
@@ -22428,18 +22429,18 @@ declare noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv(ptr noundef %0) #10 comdat {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
   ret void
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #16
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #17
 
 declare void @_ZN6google8protobuf13RepeatedFieldIiEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINS0_13RepeatedFieldIiEEEEvPv(ptr noundef %0) #10 comdat {
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
   ret void
 }
 
@@ -22447,7 +22448,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIlEC1EPNS0_5ArenaE(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINS0_13RepeatedFieldIlEEEEvPv(ptr noundef %0) #10 comdat {
-  tail call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
   ret void
 }
 
@@ -22455,7 +22456,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIjEC1EPNS0_5ArenaE(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINS0_13RepeatedFieldIjEEEEvPv(ptr noundef %0) #10 comdat {
-  tail call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
   ret void
 }
 
@@ -22463,7 +22464,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldImEC1EPNS0_5ArenaE(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINS0_13RepeatedFieldImEEEEvPv(ptr noundef %0) #10 comdat {
-  tail call void @_ZN6google8protobuf13RepeatedFieldImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
   ret void
 }
 
@@ -22471,7 +22472,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIfEC1EPNS0_5ArenaE(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINS0_13RepeatedFieldIfEEEEvPv(ptr noundef %0) #10 comdat {
-  tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
   ret void
 }
 
@@ -22479,7 +22480,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIdEC1EPNS0_5ArenaE(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINS0_13RepeatedFieldIdEEEEvPv(ptr noundef %0) #10 comdat {
-  tail call void @_ZN6google8protobuf13RepeatedFieldIdED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldIdED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
   ret void
 }
 
@@ -22487,7 +22488,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIbEC1EPNS0_5ArenaE(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINS0_13RepeatedFieldIbEEEEvPv(ptr noundef %0) #10 comdat {
-  tail call void @_ZN6google8protobuf13RepeatedFieldIbED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldIbED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
   ret void
 }
 
@@ -22495,7 +22496,7 @@ declare void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv(ptr noundef %0) #10 comdat {
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #24
   ret void
 }
 
@@ -22530,7 +22531,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINS
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %11) #23
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %11) #24
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerINS0_11MessageLiteEE6DeleteEPS3_PNS0_5ArenaE.exit.i.i
 
 _ZN6google8protobuf8internal18GenericTypeHandlerINS0_11MessageLiteEE6DeleteEPS3_PNS0_5ArenaE.exit.i.i: ; preds = %13, %.lr.ph.i.i
@@ -22549,7 +22550,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerINS0_11MessageLiteEE6DeleteEPS3_
   %20 = sext i32 %19 to i64
   %21 = shl nsw i64 %20, 3
   %22 = add nsw i64 %21, 8
-  tail call void @_ZdlPvm(ptr noundef %17, i64 noundef %22) #23
+  tail call void @_ZdlPvm(ptr noundef %17, i64 noundef %22) #24
   br label %_ZN6google8protobuf16RepeatedPtrFieldINS0_11MessageLiteEED2Ev.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldINS0_11MessageLiteEED2Ev.exit: ; preds = %1, %._crit_edge.i.i
@@ -22568,7 +22569,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19arena_delete_objectINS0_
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
   br label %7
 
 7:                                                ; preds = %3, %1
@@ -22660,7 +22661,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase20Ad
   %51 = load ptr, ptr %46, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
-  tail call void %53(ptr noundef nonnull align 8 dereferenceable(16) %46) #23
+  tail call void %53(ptr noundef nonnull align 8 dereferenceable(16) %46) #24
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_16RepeatedPtrFieldINS0_11MessageLiteEE11TypeHandlerEEEvPNT_4TypeE.exit
 
 54:                                               ; preds = %40
@@ -22705,7 +22706,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 declare void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
 
 declare noundef ptr @_ZN6google8protobuf8internal17PackedInt32ParserEPvPKcPNS1_12ParseContextE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -23044,7 +23045,7 @@ define linkonce_odr void @_ZZN6google8protobuf8internal19PackedEnumParserArgINSt
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
-  %27 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
+  %27 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %27, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
@@ -23074,7 +23075,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; p
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %26, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
   %.sink25.i = phi ptr [ %40, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %27, %26 ]
   %41 = getelementptr inbounds i8, ptr %.sink25.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #24
   %42 = ptrtoint ptr %.sink25.i to i64
   %43 = or i64 %42, 1
   %44 = inttoptr i64 %43 to ptr
@@ -23132,7 +23133,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 declare noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -23151,7 +23152,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectISt
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #22
+  tail call void @__clang_call_terminate(ptr %6) #23
   unreachable
 
 _ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEED2Ev.exit: ; preds = %1
@@ -23211,7 +23212,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8in
   br i1 %25, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #27
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #28
   %.phi.trans.insert80 = getelementptr inbounds i8, ptr %27, i64 32
   %.pre81 = load i32, ptr %.phi.trans.insert80, align 4
   %.pre82 = load i32, ptr %2, align 4
@@ -23241,7 +23242,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8in
   br i1 %40, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE24_M_get_insert_unique_posERS1_.exit, label %41
 
 41:                                               ; preds = %37
-  %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
+  %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #28
   %43 = getelementptr inbounds i8, ptr %42, i64 32
   %44 = load i32, ptr %43, align 4
   %45 = icmp slt i32 %44, %34
@@ -23281,7 +23282,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8in
   br i1 %55, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #27
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #28
   %.phi.trans.insert78 = getelementptr inbounds i8, ptr %57, i64 32
   %.pre79 = load i32, ptr %.phi.trans.insert78, align 4
   br label %58
@@ -23306,7 +23307,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8in
   br i1 %66, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE24_M_get_insert_unique_posERS1_.exit, label %67
 
 67:                                               ; preds = %63
-  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #27
+  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #28
   %69 = getelementptr inbounds i8, ptr %68, i64 32
   %70 = load i32, ptr %69, align 4
   %71 = icmp slt i32 %34, %70
@@ -23348,7 +23349,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8in
   br i1 %83, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #27
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #28
   %.phi.trans.insert = getelementptr inbounds i8, ptr %85, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %86
@@ -23461,7 +23462,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #22
+  tail call void @__clang_call_terminate(ptr %34) #23
   unreachable
 
 _ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE5clearEv.exit.i: ; preds = %31
@@ -23478,9 +23479,9 @@ _ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt
 
 .lr.ph.i2:                                        ; preds = %.critedge.i, %.lr.ph.i2
   %.sroa.06.09.i = phi ptr [ %36, %.lr.ph.i2 ], [ %.sroa.037.0.i, %.critedge.i ]
-  %36 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.09.i) #27
-  %37 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.06.09.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef 64) #26
+  %36 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.09.i) #28
+  %37 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.06.09.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef 64) #27
   %38 = load i64, ptr %25, align 8
   %39 = add i64 %38, -1
   store i64 %39, ptr %25, align 8
@@ -23497,7 +23498,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZZN6google8protobuf8internal16OnShutdownDeleteINS1_25RepeatedPrimitiveDefaultsEEEPT_S5_ENUlPKvE_8__invokeES7_(ptr noundef %0) #8 comdat align 2 {
@@ -23513,19 +23514,19 @@ define linkonce_odr void @_ZZN6google8protobuf8internal16OnShutdownDeleteINS1_25
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 96
-  tail call void @_ZN6google8protobuf13RepeatedFieldIbED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldIbED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
   %6 = getelementptr inbounds i8, ptr %1, i64 80
-  tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #24
   %7 = getelementptr inbounds i8, ptr %1, i64 64
-  tail call void @_ZN6google8protobuf13RepeatedFieldIdED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldIdED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #24
   %8 = getelementptr inbounds i8, ptr %1, i64 48
-  tail call void @_ZN6google8protobuf13RepeatedFieldImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #24
   %9 = getelementptr inbounds i8, ptr %1, i64 32
-  tail call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #23
+  tail call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #24
   %10 = getelementptr inbounds i8, ptr %1, i64 16
-  tail call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #23
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 112) #26
+  tail call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #24
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 112) #27
   br label %11
 
 11:                                               ; preds = %4, %2
@@ -23538,8 +23539,8 @@ define linkonce_odr void @_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_16
   br i1 %2, label %_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_SC_ENKUlPKvE_clESE_.exit, label %3
 
 3:                                                ; preds = %1
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #26
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #27
   br label %_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_SC_ENKUlPKvE_clESE_.exit
 
 _ZZN6google8protobuf8internal16OnShutdownDeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_SC_ENKUlPKvE_clESE_.exit: ; preds = %1, %3
@@ -23549,17 +23550,17 @@ _ZZN6google8protobuf8internal16OnShutdownDeleteINS0_16RepeatedPtrFieldINSt7__cxx
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream18WriteStringOutlineEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_extension_set.cc() #20 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_extension_set.cc() #21 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #24
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -23573,23 +23574,24 @@ attributes #8 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { noreturn nounwind }
-attributes #23 = { nounwind }
-attributes #24 = { builtin allocsize(0) }
-attributes #25 = { noreturn }
-attributes #26 = { builtin nounwind }
-attributes #27 = { nounwind willreturn memory(read) }
-attributes #28 = { allocsize(0) }
+attributes #12 = { cold nofree noreturn }
+attributes #13 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { noreturn nounwind }
+attributes #24 = { nounwind }
+attributes #25 = { builtin allocsize(0) }
+attributes #26 = { noreturn }
+attributes #27 = { builtin nounwind }
+attributes #28 = { nounwind willreturn memory(read) }
+attributes #29 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

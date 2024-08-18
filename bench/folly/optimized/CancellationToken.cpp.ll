@@ -17,8 +17,8 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly6detail17CancellationStateD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN5folly6detail17CancellationStateD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #8
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #9
+  tail call void @_ZN5folly6detail17CancellationStateD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #9
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
   ret void
 }
 
@@ -36,20 +36,21 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
-  tail call void @_ZSt9terminatev() #10
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
+  tail call void @_ZSt9terminatev() #11
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEb(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %callback, i1 noundef zeroext %incrementRefCountIfSuccessful) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -76,7 +77,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #10
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 
 "_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.i": ; preds = %if.end12.i, %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.lr.ph.i"
@@ -97,11 +98,11 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.then.i19.i:                                    ; preds = %if.then4.i
   %inc.i.i = add nuw nsw i32 %sleeper.sroa.4.031.i, 1
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.then4.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i.i) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i.i) #9
   store i64 0, ptr %__ts.i.i.i, align 8, !tbaa !15
   store i64 500000, ptr %tv_nsec.i.i.i, align 8, !tbaa !18
   br label %while.cond.i.i.i
@@ -115,20 +116,20 @@ call11.i.noexc.i.i:                               ; preds = %while.cond.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %while.end.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %call11.i.noexc.i.i
-  %call12.i.i.i = tail call ptr @__errno_location() #11
+  %call12.i.i.i = tail call ptr @__errno_location() #12
   %5 = load i32, ptr %call12.i.i.i, align 4, !tbaa !19
   %cmp13.i.i.i = icmp eq i32 %5, 4
   br i1 %cmp13.i.i.i, label %while.cond.i.i.i, label %while.end.i.i.i, !llvm.loop !21
 
 while.end.i.i.i:                                  ; preds = %land.rhs.i.i.i, %call11.i.noexc.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i.i) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i.i) #9
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i
 
 terminate.lpad.i.i:                               ; preds = %while.cond.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #10
+  call void @__clang_call_terminate(ptr %7) #11
   unreachable
 
 _ZN5folly6detail7Sleeper4waitEv.exit.i:           ; preds = %while.end.i.i.i, %if.then.i19.i
@@ -179,7 +180,7 @@ return:                                           ; preds = %"_ZZN5folly6detail1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly6detail17CancellationState28unlockAndIncrementTokenCountEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #5 align 2 {
+define void @_ZN5folly6detail17CancellationState28unlockAndIncrementTokenCountEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
 entry:
   %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw sub ptr %state_, i64 -6 release, align 8
@@ -187,17 +188,17 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly6detail17CancellationState6unlockEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #5 align 2 {
+define void @_ZN5folly6detail17CancellationState6unlockEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
 entry:
   %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw sub ptr %state_, i64 2 release, align 8
   ret void
 }
 
-declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #7
+declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly6detail17CancellationState14removeCallbackEPNS_20CancellationCallbackE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %callback) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -223,11 +224,11 @@ while.body.i:                                     ; preds = %do.body.i, %_ZN5fol
 
 if.then.i.i:                                      ; preds = %while.body.i
   %inc.i.i = add nuw nsw i32 %sleeper.sroa.4.117.i, 1
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i
 
 if.end.i.i.i:                                     ; preds = %while.body.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i.i) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i.i) #9
   store i64 0, ptr %__ts.i.i.i, align 8, !tbaa !15
   store i64 500000, ptr %tv_nsec.i.i.i, align 8, !tbaa !18
   br label %while.cond.i.i.i
@@ -241,20 +242,20 @@ call11.i.noexc.i.i:                               ; preds = %while.cond.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %while.end.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %call11.i.noexc.i.i
-  %call12.i.i.i = tail call ptr @__errno_location() #11
+  %call12.i.i.i = tail call ptr @__errno_location() #12
   %1 = load i32, ptr %call12.i.i.i, align 4, !tbaa !19
   %cmp13.i.i.i = icmp eq i32 %1, 4
   br i1 %cmp13.i.i.i, label %while.cond.i.i.i, label %while.end.i.i.i, !llvm.loop !35
 
 while.end.i.i.i:                                  ; preds = %land.rhs.i.i.i, %call11.i.noexc.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i.i) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i.i) #9
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i
 
 terminate.lpad.i.i:                               ; preds = %while.cond.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #10
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 
 _ZN5folly6detail7Sleeper4waitEv.exit.i:           ; preds = %while.end.i.i.i, %if.then.i.i
@@ -303,7 +304,7 @@ if.end19:                                         ; preds = %_ZN5folly6detail17C
   %12 = atomicrmw sub ptr %state_.i, i64 2 release, align 8
   %signallingThreadId_ = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %signallingThreadId_, align 8, !tbaa !38
-  %call.i = tail call i64 @pthread_self() #11
+  %call.i = tail call i64 @pthread_self() #12
   %cmp.i48 = icmp eq i64 %agg.tmp.sroa.0.0.copyload, %call.i
   br i1 %cmp.i48, label %if.then25, label %while.cond30.preheader
 
@@ -335,11 +336,11 @@ while.body33:                                     ; preds = %_ZN5folly6detail7Sl
 
 if.then.i:                                        ; preds = %while.body33
   %inc.i = add nuw nsw i32 %sleeper.sroa.4.056, 1
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
   br label %_ZN5folly6detail7Sleeper4waitEv.exit
 
 if.end.i.i:                                       ; preds = %while.body33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i) #9
   store i64 0, ptr %__ts.i.i, align 8, !tbaa !15
   store i64 500000, ptr %tv_nsec.i.i, align 8, !tbaa !18
   br label %while.cond.i.i
@@ -353,20 +354,20 @@ call11.i.noexc.i:                                 ; preds = %while.cond.i.i
   br i1 %cmp.i.i, label %land.rhs.i.i, label %while.end.i.i
 
 land.rhs.i.i:                                     ; preds = %call11.i.noexc.i
-  %call12.i.i = tail call ptr @__errno_location() #11
+  %call12.i.i = tail call ptr @__errno_location() #12
   %16 = load i32, ptr %call12.i.i, align 4, !tbaa !19
   %cmp13.i.i = icmp eq i32 %16, 4
   br i1 %cmp13.i.i, label %while.cond.i.i, label %while.end.i.i, !llvm.loop !41
 
 while.end.i.i:                                    ; preds = %land.rhs.i.i, %call11.i.noexc.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i) #9
   br label %_ZN5folly6detail7Sleeper4waitEv.exit
 
 terminate.lpad.i:                                 ; preds = %while.cond.i.i
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #10
+  call void @__clang_call_terminate(ptr %18) #11
   unreachable
 
 _ZN5folly6detail7Sleeper4waitEv.exit:             ; preds = %while.end.i.i, %if.then.i
@@ -385,7 +386,7 @@ return.sink.split:                                ; preds = %if.end35, %if.end
   %vtable.i53 = load ptr, ptr %this, align 8, !tbaa !7
   %vfn.i54 = getelementptr inbounds i8, ptr %vtable.i53, i64 8
   %22 = load ptr, ptr %vfn.i54, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(32) %this) #8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(32) %this) #9
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end35, %if.end
@@ -415,11 +416,11 @@ while.body:                                       ; preds = %do.body, %_ZN5folly
 
 if.then.i:                                        ; preds = %while.body
   %inc.i = add nuw nsw i32 %sleeper.sroa.4.117, 1
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
   br label %_ZN5folly6detail7Sleeper4waitEv.exit
 
 if.end.i.i:                                       ; preds = %while.body
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i) #9
   store i64 0, ptr %__ts.i.i, align 8, !tbaa !15
   store i64 500000, ptr %tv_nsec.i.i, align 8, !tbaa !18
   br label %while.cond.i.i
@@ -433,20 +434,20 @@ call11.i.noexc.i:                                 ; preds = %while.cond.i.i
   br i1 %cmp.i.i, label %land.rhs.i.i, label %while.end.i.i
 
 land.rhs.i.i:                                     ; preds = %call11.i.noexc.i
-  %call12.i.i = tail call ptr @__errno_location() #11
+  %call12.i.i = tail call ptr @__errno_location() #12
   %1 = load i32, ptr %call12.i.i, align 4, !tbaa !19
   %cmp13.i.i = icmp eq i32 %1, 4
   br i1 %cmp13.i.i, label %while.cond.i.i, label %while.end.i.i, !llvm.loop !43
 
 while.end.i.i:                                    ; preds = %land.rhs.i.i, %call11.i.noexc.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i) #9
   br label %_ZN5folly6detail7Sleeper4waitEv.exit
 
 terminate.lpad.i:                                 ; preds = %while.cond.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #10
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 
 _ZN5folly6detail7Sleeper4waitEv.exit:             ; preds = %while.end.i.i, %if.then.i
@@ -484,7 +485,7 @@ delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %this, align 8, !tbaa !7
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %this) #8
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %this) #9
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %entry
@@ -492,7 +493,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @pthread_self() local_unnamed_addr #7
+declare i64 @pthread_self() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN5folly6detail17CancellationState19requestCancellationEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -523,11 +524,11 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.then.i.i:                                      ; preds = %if.then4.i
   %inc.i.i = add nuw nsw i32 %sleeper.sroa.4.027.i, 1
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.then4.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i.i) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i.i) #9
   store i64 0, ptr %__ts.i.i.i, align 8, !tbaa !15
   store i64 500000, ptr %tv_nsec.i.i.i, align 8, !tbaa !18
   br label %while.cond.i.i.i
@@ -541,20 +542,20 @@ call11.i.noexc.i.i:                               ; preds = %while.cond.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %while.end.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %call11.i.noexc.i.i
-  %call12.i.i.i = tail call ptr @__errno_location() #11
+  %call12.i.i.i = tail call ptr @__errno_location() #12
   %1 = load i32, ptr %call12.i.i.i, align 4, !tbaa !19
   %cmp13.i.i.i = icmp eq i32 %1, 4
   br i1 %cmp13.i.i.i, label %while.cond.i.i.i, label %while.end.i.i.i, !llvm.loop !45
 
 while.end.i.i.i:                                  ; preds = %land.rhs.i.i.i, %call11.i.noexc.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i.i) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i.i) #9
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i
 
 terminate.lpad.i.i:                               ; preds = %while.cond.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #10
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 
 _ZN5folly6detail7Sleeper4waitEv.exit.i:           ; preds = %while.end.i.i.i, %if.then.i.i
@@ -580,7 +581,7 @@ if.end13.i:                                       ; preds = %_ZNSt13__atomic_bas
   br i1 %cmp.i.not.i, label %if.else.i, label %return, !llvm.loop !46
 
 if.end:                                           ; preds = %if.else7.i
-  %call.i = tail call i64 @pthread_self() #11
+  %call.i = tail call i64 @pthread_self() #12
   %signallingThreadId_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %call.i, ptr %signallingThreadId_, align 8, !tbaa !38
   %head_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -605,7 +606,7 @@ if.end10:                                         ; preds = %if.then7, %while.bo
   %prevNext_11 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr null, ptr %prevNext_11, align 8, !tbaa !29
   %11 = atomicrmw sub ptr %state_.i, i64 2 release, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %destructorHasRunInsideCallback) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %destructorHasRunInsideCallback) #9
   store i8 0, ptr %destructorHasRunInsideCallback, align 1, !tbaa !40
   %destructorHasRunInsideCallback_ = getelementptr inbounds i8, ptr %9, i64 96
   store ptr %destructorHasRunInsideCallback, ptr %destructorHasRunInsideCallback_, align 16, !tbaa !39
@@ -619,7 +620,7 @@ terminate.lpad.i:                                 ; preds = %if.end10
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #10
+  call void @__clang_call_terminate(ptr %14) #11
   unreachable
 
 _ZN5folly20CancellationCallback14invokeCallbackEv.exit: ; preds = %if.end10
@@ -637,7 +638,7 @@ if.end15:                                         ; preds = %if.then13, %_ZN5fol
   br i1 %cmp6.not.not, label %cleanup.thread, label %if.end18
 
 cleanup.thread:                                   ; preds = %if.end15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %destructorHasRunInsideCallback) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %destructorHasRunInsideCallback) #9
   br label %return
 
 if.end18:                                         ; preds = %if.end15
@@ -658,11 +659,11 @@ while.body.i:                                     ; preds = %do.body.i, %_ZN5fol
 
 if.then.i.i47:                                    ; preds = %while.body.i
   %inc.i.i48 = add nuw nsw i32 %sleeper.sroa.4.117.i, 1
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i39
 
 if.end.i.i.i32:                                   ; preds = %while.body.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i.i29) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i.i29) #9
   store i64 0, ptr %__ts.i.i.i29, align 8, !tbaa !15
   store i64 500000, ptr %tv_nsec.i.i.i31, align 8, !tbaa !18
   br label %while.cond.i.i.i33
@@ -676,20 +677,20 @@ call11.i.noexc.i.i36:                             ; preds = %while.cond.i.i.i33
   br i1 %cmp.i.i.i37, label %land.rhs.i.i.i44, label %while.end.i.i.i38
 
 land.rhs.i.i.i44:                                 ; preds = %call11.i.noexc.i.i36
-  %call12.i.i.i45 = tail call ptr @__errno_location() #11
+  %call12.i.i.i45 = tail call ptr @__errno_location() #12
   %17 = load i32, ptr %call12.i.i.i45, align 4, !tbaa !19
   %cmp13.i.i.i46 = icmp eq i32 %17, 4
   br i1 %cmp13.i.i.i46, label %while.cond.i.i.i33, label %while.end.i.i.i38, !llvm.loop !49
 
 while.end.i.i.i38:                                ; preds = %land.rhs.i.i.i44, %call11.i.noexc.i.i36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i.i29) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i.i29) #9
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i39
 
 terminate.lpad.i.i35:                             ; preds = %while.cond.i.i.i33
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #10
+  call void @__clang_call_terminate(ptr %19) #11
   unreachable
 
 _ZN5folly6detail7Sleeper4waitEv.exit.i39:         ; preds = %while.end.i.i.i38, %if.then.i.i47
@@ -712,7 +713,7 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i43: 
   br label %do.body.i
 
 cleanup:                                          ; preds = %do.cond.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %destructorHasRunInsideCallback) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %destructorHasRunInsideCallback) #9
   %24 = load ptr, ptr %head_, align 8, !tbaa !24
   %cmp.not = icmp eq ptr %24, null
   br i1 %cmp.not, label %while.end, label %while.body
@@ -753,11 +754,11 @@ if.then4:                                         ; preds = %if.else
 
 if.then.i:                                        ; preds = %if.then4
   %inc.i = add nuw nsw i32 %sleeper.sroa.4.027, 1
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
   br label %_ZN5folly6detail7Sleeper4waitEv.exit
 
 if.end.i.i:                                       ; preds = %if.then4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i) #9
   store i64 0, ptr %__ts.i.i, align 8, !tbaa !15
   store i64 500000, ptr %tv_nsec.i.i, align 8, !tbaa !18
   br label %while.cond.i.i
@@ -771,20 +772,20 @@ call11.i.noexc.i:                                 ; preds = %while.cond.i.i
   br i1 %cmp.i.i, label %land.rhs.i.i, label %while.end.i.i
 
 land.rhs.i.i:                                     ; preds = %call11.i.noexc.i
-  %call12.i.i = tail call ptr @__errno_location() #11
+  %call12.i.i = tail call ptr @__errno_location() #12
   %1 = load i32, ptr %call12.i.i, align 4, !tbaa !19
   %cmp13.i.i = icmp eq i32 %1, 4
   br i1 %cmp13.i.i, label %while.cond.i.i, label %while.end.i.i, !llvm.loop !51
 
 while.end.i.i:                                    ; preds = %land.rhs.i.i, %call11.i.noexc.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i) #9
   br label %_ZN5folly6detail7Sleeper4waitEv.exit
 
 terminate.lpad.i:                                 ; preds = %while.cond.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #10
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 
 _ZN5folly6detail7Sleeper4waitEv.exit:             ; preds = %while.end.i.i, %if.then.i
@@ -818,14 +819,15 @@ attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { builtin nounwind }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind willreturn memory(none) }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { builtin nounwind }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

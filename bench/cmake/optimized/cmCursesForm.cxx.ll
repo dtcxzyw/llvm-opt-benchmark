@@ -80,7 +80,7 @@ define dso_local void @_ZN12cmCursesFormD2Ev(ptr nocapture noundef nonnull align
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #12
+  tail call void @__clang_call_terminate(ptr %13) #13
   unreachable
 }
 
@@ -90,28 +90,29 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #12
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #13
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 declare i32 @free_form(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN12cmCursesFormD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
-  tail call void @llvm.trap() #12
+define dso_local void @_ZN12cmCursesFormD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+  tail call void @llvm.trap() #13
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #7
+declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12cmCursesForm10DebugStartEv() local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN12cmCursesForm10DebugStartEv() local_unnamed_addr #9 align 2 {
   store i8 1, ptr @_ZN12cmCursesForm5DebugE, align 1
   tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) @_ZN12cmCursesForm9DebugFileE, ptr noundef nonnull @.str, i32 noundef 16)
   ret void
@@ -120,7 +121,7 @@ define dso_local void @_ZN12cmCursesForm10DebugStartEv() local_unnamed_addr #8 a
 declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12cmCursesForm8DebugEndEv() local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN12cmCursesForm8DebugEndEv() local_unnamed_addr #9 align 2 {
   %1 = load i8, ptr @_ZN12cmCursesForm5DebugE, align 1
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %4
@@ -137,7 +138,7 @@ define dso_local void @_ZN12cmCursesForm8DebugEndEv() local_unnamed_addr #8 alig
 declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12cmCursesForm10LogMessageEPKc(ptr noundef %0) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN12cmCursesForm10LogMessageEPKc(ptr noundef %0) local_unnamed_addr #9 align 2 {
   %2 = load i8, ptr @_ZN12cmCursesForm5DebugE, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %7
@@ -158,7 +159,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12cmCursesForm12HandleResizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN12cmCursesForm12HandleResizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #9 align 2 {
   %2 = tail call i32 @endwin()
   %3 = tail call ptr @initscr()
   %4 = icmp eq ptr %3, null
@@ -166,7 +167,7 @@ define dso_local void @_ZN12cmCursesForm12HandleResizeEv(ptr noundef nonnull ali
 
 5:                                                ; preds = %1
   %6 = tail call i64 @write(i32 noundef 2, ptr noundef nonnull @_ZZN12cmCursesForm12HandleResizeEvE6errmsg, i64 noundef 37)
-  tail call void @exit(i32 noundef 1) #14
+  tail call void @exit(i32 noundef 1) #15
   unreachable
 
 7:                                                ; preds = %1
@@ -209,10 +210,10 @@ declare i32 @endwin() local_unnamed_addr #0
 declare ptr @initscr() local_unnamed_addr #0
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #10
+declare void @exit(i32 noundef) local_unnamed_addr #11
 
 declare i32 @noecho() local_unnamed_addr #0
 
@@ -230,9 +231,9 @@ define linkonce_odr dso_local void @_ZN12cmCursesForm8AddErrorERKNSt7__cxx1112ba
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_cmCursesForm.cxx() #11 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_cmCursesForm.cxx() #12 section ".text.startup" {
   tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248) @_ZN12cmCursesForm9DebugFileE)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev, ptr nonnull @_ZN12cmCursesForm9DebugFileE, ptr nonnull @__dso_handle) #13
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev, ptr nonnull @_ZN12cmCursesForm9DebugFileE, ptr nonnull @__dso_handle) #14
   ret void
 }
 
@@ -242,15 +243,16 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #8 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind }
-attributes #14 = { cold noreturn nounwind }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #9 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind }
+attributes #15 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

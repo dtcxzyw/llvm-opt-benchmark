@@ -123,7 +123,7 @@ define void @_ZN12SubAllocator16StopSubAllocatorEv(ptr nocapture noundef nonnull
   store i64 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
-  tail call void @free(ptr noundef %5) #21
+  tail call void @free(ptr noundef %5) #22
   br label %6
 
 6:                                                ; preds = %3, %1
@@ -149,7 +149,7 @@ define noundef zeroext i1 @_ZN12SubAllocator17StartSubAllocatorEi(ptr nocapture 
   store i64 0, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 176
   %10 = load ptr, ptr %9, align 8
-  tail call void @free(ptr noundef %10) #21
+  tail call void @free(ptr noundef %10) #22
   br label %_ZN12SubAllocator16StopSubAllocatorEv.exit
 
 _ZN12SubAllocator16StopSubAllocatorEv.exit:       ; preds = %7, %8
@@ -157,7 +157,7 @@ _ZN12SubAllocator16StopSubAllocatorEv.exit:       ; preds = %7, %8
   %12 = mul i32 %11, 20
   %13 = add i32 %12, 40
   %14 = zext i32 %13 to i64
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #22
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #23
   %16 = getelementptr inbounds i8, ptr %0, i64 176
   store ptr %15, ptr %16, align 8
   %17 = icmp eq ptr %15, null
@@ -796,9 +796,9 @@ _ZN12SubAllocator12AllocContextEv.exit:           ; preds = %60
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %_ZN12SubAllocator12AllocContextEv.exit
-  %71 = tail call ptr @__cxa_allocate_exception(i64 8) #21
+  %71 = tail call ptr @__cxa_allocate_exception(i64 8) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %71, align 8
-  tail call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
+  tail call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
   unreachable
 
 72:                                               ; preds = %_ZN12SubAllocator12AllocContextEv.exit.thread, %_ZN12SubAllocator12AllocContextEv.exit
@@ -865,9 +865,9 @@ _ZN12SubAllocator10AllocUnitsEi.exit:             ; preds = %90, %98
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %_ZN12SubAllocator10AllocUnitsEi.exit
-  %108 = tail call ptr @__cxa_allocate_exception(i64 8) #21
+  %108 = tail call ptr @__cxa_allocate_exception(i64 8) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %108, align 8
-  tail call void @__cxa_throw(ptr nonnull %108, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
+  tail call void @__cxa_throw(ptr nonnull %108, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
   unreachable
 
 109:                                              ; preds = %_ZN12SubAllocator10AllocUnitsEi.exit.thread, %_ZN12SubAllocator10AllocUnitsEi.exit
@@ -976,7 +976,8 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8ModelPPM14StartModelRareEi(ptr noundef nonnull align 8 dereferenceable(19648) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
@@ -1035,7 +1036,7 @@ define void @_ZN8ModelPPM14StartModelRareEi(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN14RARPPM_CONTEXT7rescaleEP8ModelPPM(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr nocapture noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN14RARPPM_CONTEXT7rescaleEP8ModelPPM(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr nocapture noundef %1) local_unnamed_addr #10 align 2 {
   %3 = alloca %struct.RARPPM_STATE, align 1
   %4 = load i16, ptr %0, align 1
   %5 = zext i16 %4 to i32
@@ -1328,7 +1329,7 @@ _ZN12SubAllocator11ShrinkUnitsEPvii.exit:         ; preds = %104, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8ModelPPM7CleanUpEv(ptr noundef nonnull align 8 dereferenceable(19648) %0) local_unnamed_addr #0 align 2 {
@@ -1341,7 +1342,7 @@ _ZN12SubAllocator16StopSubAllocatorEv.exit:       ; preds = %1
   store i64 0, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 19288
   %5 = load ptr, ptr %4, align 8
-  tail call void @free(ptr noundef %5) #21
+  tail call void @free(ptr noundef %5) #22
   %.pr = load i64, ptr %2, align 8
   switch i64 %.pr, label %6 [
     i64 1048576, label %_ZN12SubAllocator17StartSubAllocatorEi.exit
@@ -1351,11 +1352,11 @@ _ZN12SubAllocator16StopSubAllocatorEv.exit:       ; preds = %1
 6:                                                ; preds = %_ZN12SubAllocator16StopSubAllocatorEv.exit
   store i64 0, ptr %2, align 8
   %7 = load ptr, ptr %4, align 8
-  tail call void @free(ptr noundef %7) #21
+  tail call void @free(ptr noundef %7) #22
   br label %_ZN12SubAllocator16StopSubAllocatorEv.exit.i
 
 _ZN12SubAllocator16StopSubAllocatorEv.exit.i:     ; preds = %_ZN12SubAllocator16StopSubAllocatorEv.exit, %1, %6
-  %8 = tail call noalias dereferenceable_or_null(1747660) ptr @malloc(i64 noundef 1747660) #22
+  %8 = tail call noalias dereferenceable_or_null(1747660) ptr @malloc(i64 noundef 1747660) #23
   %9 = getelementptr inbounds i8, ptr %0, i64 19288
   store ptr %8, ptr %9, align 8
   %10 = icmp eq ptr %8, null
@@ -1502,7 +1503,7 @@ _ZN10RangeCoder11InitDecoderEP6Unpack.exit:       ; preds = %23
   store i64 0, ptr %37, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 19288
   %42 = load ptr, ptr %41, align 8
-  tail call void @free(ptr noundef %42) #21
+  tail call void @free(ptr noundef %42) #22
   br label %_ZN12SubAllocator16StopSubAllocatorEv.exit
 
 43:                                               ; preds = %30
@@ -1518,7 +1519,7 @@ _ZN10RangeCoder11InitDecoderEP6Unpack.exit:       ; preds = %23
   store i64 0, ptr %37, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 19288
   %49 = load ptr, ptr %48, align 8
-  tail call void @free(ptr noundef %49) #21
+  tail call void @free(ptr noundef %49) #22
   br label %_ZN12SubAllocator16StopSubAllocatorEv.exit.i
 
 _ZN12SubAllocator16StopSubAllocatorEv.exit.i:     ; preds = %47, %46
@@ -1526,7 +1527,7 @@ _ZN12SubAllocator16StopSubAllocatorEv.exit.i:     ; preds = %47, %46
   %51 = mul i32 %50, 20
   %52 = add i32 %51, 40
   %53 = zext i32 %52 to i64
-  %54 = tail call noalias ptr @malloc(i64 noundef %53) #22
+  %54 = tail call noalias ptr @malloc(i64 noundef %53) #23
   %55 = getelementptr inbounds i8, ptr %0, i64 19288
   store ptr %54, ptr %55, align 8
   %56 = icmp eq ptr %54, null
@@ -3366,7 +3367,7 @@ _ZN6Unpack13UnpWriteBuf20Ev.exit22:               ; preds = %199, %208
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6Unpack11UnpInitDataEb(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
+define void @_ZN6Unpack11UnpInitDataEb(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
   br i1 %1, label %13, label %3
 
 3:                                                ; preds = %2
@@ -3447,7 +3448,7 @@ _ZN6Unpack13UnpInitData20Ei.exit:                 ; preds = %13
   br i1 %41, label %43, label %42
 
 42:                                               ; preds = %36
-  tail call void @_ZdlPv(ptr noundef nonnull %40) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %40) #25
   %.pre.i.i = load i64, ptr %33, align 8
   br label %43
 
@@ -3481,7 +3482,7 @@ _ZN6Unpack13UnpInitData20Ei.exit:                 ; preds = %13
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %50
-  tail call void @_ZdlPv(ptr noundef nonnull %54) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %54) #25
   %.pre17.i.i = load i64, ptr %47, align 8
   br label %57
 
@@ -5287,7 +5288,7 @@ declare noundef i32 @_ZN8BitInput8fgetbitsEv(ptr noundef nonnull align 8 derefer
 declare void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6Unpack12CopyString15Ejj(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
+define void @_ZN6Unpack12CopyString15Ejj(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = zext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 19840
   %6 = load i64, ptr %5, align 8
@@ -5422,7 +5423,7 @@ define void @_ZN6Unpack8CorrHuffEPtPh(ptr nocapture noundef nonnull readnone ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6Unpack12CopyString20Ejj(ptr noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
+define void @_ZN6Unpack12CopyString20Ejj(ptr noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = getelementptr inbounds i8, ptr %0, i64 144
   %6 = load i32, ptr %5, align 8
@@ -5448,7 +5449,7 @@ define void @_ZN6Unpack12CopyString20Ejj(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = load i64, ptr %4, align 8
   %6 = zext i32 %2 to i64
@@ -7831,7 +7832,7 @@ define void @_ZN6Unpack13UnpInitData20Ei(ptr nocapture noundef nonnull writeonly
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #12
+declare i32 @llvm.abs.i32(i32, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Unpack8Unpack29Eb(ptr noundef nonnull align 8 dereferenceable(59688) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
@@ -9530,7 +9531,7 @@ define void @_ZN6Unpack13UnpWriteBuf30Ev(ptr noundef nonnull align 8 dereference
   br i1 %83, label %85, label %84
 
 84:                                               ; preds = %71
-  tail call void @_ZdlPv(ptr noundef nonnull %82) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %82) #25
   %.pre = load ptr, ptr %7, align 8
   br label %85
 
@@ -9599,7 +9600,7 @@ define void @_ZN6Unpack13UnpWriteBuf30Ev(ptr noundef nonnull align 8 dereference
   br i1 %122, label %124, label %123
 
 123:                                              ; preds = %109
-  tail call void @_ZdlPv(ptr noundef nonnull %121) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %121) #25
   %.pre133 = load ptr, ptr %7, align 8
   br label %124
 
@@ -9796,7 +9797,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %.thread, %26
   br i1 %25, label %_ZN5ArrayIhED2Ev.exit, label %32
 
 32:                                               ; preds = %31
-  tail call void @free(ptr noundef nonnull %malloc.i) #21
+  tail call void @free(ptr noundef nonnull %malloc.i) #22
   br label %_ZN5ArrayIhED2Ev.exit
 
 _ZN5ArrayIhED2Ev.exit:                            ; preds = %31, %32
@@ -9821,7 +9822,7 @@ _ZN6Unpack17SafePPMDecodeCharEv.exit35:           ; preds = %.noexc
 
 .thread46:                                        ; preds = %35, %37
   %.148 = phi i1 [ false, %37 ], [ %36, %35 ]
-  tail call void @free(ptr noundef nonnull %malloc.i) #21
+  tail call void @free(ptr noundef nonnull %malloc.i) #22
   br label %_ZN5ArrayIhED2Ev.exit38
 
 _ZN5ArrayIhED2Ev.exit38:                          ; preds = %.thread46, %37, %_ZN6Unpack17SafePPMDecodeCharEv.exit33.thread, %_ZN6Unpack17SafePPMDecodeCharEv.exit32.thread, %_ZN6Unpack17SafePPMDecodeCharEv.exit31.thread, %_ZN6Unpack17SafePPMDecodeCharEv.exit.thread, %20
@@ -10045,7 +10046,7 @@ _ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge:       ; preds = %_ZN6Unpack12UnpRead
 
 84:                                               ; preds = %.thread38, %83
   %lpad.phi40 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.thread38 ], [ %lpad.loopexit, %83 ]
-  tail call void @free(ptr noundef nonnull %malloc.i) #21
+  tail call void @free(ptr noundef nonnull %malloc.i) #22
   br label %_ZN5ArrayIhED2Ev.exit
 
 _ZN5ArrayIhED2Ev.exit:                            ; preds = %83, %84
@@ -10086,7 +10087,7 @@ _ZN5ArrayIhED2Ev.exit:                            ; preds = %83, %84
 
 .loopexit31.thread:                               ; preds = %103, %.loopexit31
   %.143 = phi i1 [ false, %.loopexit31 ], [ %104, %103 ]
-  tail call void @free(ptr noundef nonnull %malloc.i) #21
+  tail call void @free(ptr noundef nonnull %malloc.i) #22
   br label %_ZN5ArrayIhED2Ev.exit24
 
 _ZN5ArrayIhED2Ev.exit24:                          ; preds = %.loopexit31.thread, %.loopexit31, %33
@@ -10171,7 +10172,7 @@ define noundef zeroext i1 @_ZN6Unpack9AddVMCodeEjPhj(ptr noundef nonnull align 8
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %23
-  tail call void @_ZdlPv(ptr noundef nonnull %27) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %27) #25
   %.pre.i = load i64, ptr %20, align 8
   br label %30
 
@@ -10202,7 +10203,7 @@ define noundef zeroext i1 @_ZN6Unpack9AddVMCodeEjPhj(ptr noundef nonnull align 8
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %37
-  tail call void @_ZdlPv(ptr noundef nonnull %41) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %41) #25
   %.pre17.i = load i64, ptr %34, align 8
   br label %44
 
@@ -10245,7 +10246,7 @@ _ZN6Unpack13InitFilters30Eb.exit:                 ; preds = %44, %._crit_edge.i
   %65 = getelementptr inbounds i8, ptr %0, i64 59664
   store i32 %.076, ptr %65, align 8
   %66 = icmp eq i64 %57, %54
-  %67 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
+  %67 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
   %68 = getelementptr inbounds i8, ptr %67, i64 16
   %69 = getelementptr inbounds i8, ptr %67, i64 56
   store i32 0, ptr %69, align 8
@@ -10257,7 +10258,7 @@ _ZN6Unpack13InitFilters30Eb.exit:                 ; preds = %44, %._crit_edge.i
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %70
-  tail call void @_ZdlPv(ptr noundef nonnull %67) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %67) #25
   br label %276
 
 73:                                               ; preds = %70
@@ -10295,7 +10296,7 @@ _ZN6Unpack13InitFilters30Eb.exit:                 ; preds = %44, %._crit_edge.i
   %..i = tail call i64 @llvm.umax.i64(i64 %83, i64 %87)
   %88 = load ptr, ptr %55, align 8
   %89 = shl i64 %..i, 3
-  %90 = tail call ptr @realloc(ptr noundef %88, i64 noundef %89) #26
+  %90 = tail call ptr @realloc(ptr noundef %88, i64 noundef %89) #27
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %93
 
@@ -10312,7 +10313,7 @@ _ZN6Unpack13InitFilters30Eb.exit:                 ; preds = %44, %._crit_edge.i
 94:                                               ; preds = %._crit_edge141, %93
   %95 = phi ptr [ %90, %93 ], [ %.pre142, %._crit_edge141 ]
   %96 = phi i64 [ %.pre, %93 ], [ %74, %._crit_edge141 ]
-  %97 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
+  %97 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
   %98 = getelementptr inbounds i8, ptr %97, i64 16
   %99 = getelementptr inbounds i8, ptr %97, i64 56
   store i32 0, ptr %99, align 8
@@ -10361,7 +10362,7 @@ _ZN6Unpack13InitFilters30Eb.exit:                 ; preds = %44, %._crit_edge.i
   %..i.i = tail call i64 @llvm.umax.i64(i64 %117, i64 %121)
   %122 = load ptr, ptr %60, align 8
   %123 = shl i64 %..i.i, 2
-  %124 = tail call ptr @realloc(ptr noundef %122, i64 noundef %123) #26
+  %124 = tail call ptr @realloc(ptr noundef %122, i64 noundef %123) #27
   %125 = icmp eq ptr %124, null
   br i1 %125, label %126, label %127
 
@@ -10439,7 +10440,7 @@ _ZN5ArrayIiE4PushEi.exit:                         ; preds = %._ZN5ArrayIiE3AddEm
   br i1 %161, label %162, label %.thread
 
 162:                                              ; preds = %160
-  tail call void @_ZdlPv(ptr noundef nonnull %67) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %67) #25
   br label %276
 
 .thread:                                          ; preds = %137, %160
@@ -10474,7 +10475,7 @@ _ZN5ArrayIiE4PushEi.exit:                         ; preds = %._ZN5ArrayIiE3AddEm
   %..i103 = tail call i64 @llvm.umax.i64(i64 %173, i64 %177)
   %178 = load ptr, ptr %138, align 8
   %179 = shl i64 %..i103, 3
-  %180 = tail call ptr @realloc(ptr noundef %178, i64 noundef %179) #26
+  %180 = tail call ptr @realloc(ptr noundef %178, i64 noundef %179) #27
   %181 = icmp eq ptr %180, null
   br i1 %181, label %182, label %183
 
@@ -10641,7 +10642,7 @@ _ZN5ArrayIP14UnpackFilter30E3AddEm.exit106:       ; preds = %183, %.thread, %._c
   br i1 %.not.i107, label %_ZN5ArrayIhED2Ev.exit, label %261
 
 261:                                              ; preds = %259
-  call void @free(ptr noundef nonnull %260) #21
+  call void @free(ptr noundef nonnull %260) #22
   br label %_ZN5ArrayIhED2Ev.exit
 
 .lr.ph151:                                        ; preds = %.lr.ph129.preheader, %.lr.ph129
@@ -10680,7 +10681,7 @@ _ZN5ArrayIP14UnpackFilter30E3AddEm.exit106:       ; preds = %183, %.thread, %._c
   br i1 %.not.i108, label %_ZN5ArrayIhED2Ev.exit109, label %272
 
 272:                                              ; preds = %.loopexit
-  call void @free(ptr noundef nonnull %271) #21
+  call void @free(ptr noundef nonnull %271) #22
   br label %_ZN5ArrayIhED2Ev.exit109
 
 _ZN5ArrayIhED2Ev.exit109:                         ; preds = %.loopexit, %272
@@ -10705,7 +10706,7 @@ declare void @_ZN5RarVM4InitEv(ptr noundef nonnull align 8 dereferenceable(40)) 
 declare noundef i32 @_ZN5RarVM8ReadDataER8BitInput(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6Unpack13InitFilters30Eb(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
+define void @_ZN6Unpack13InitFilters30Eb(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
   br i1 %1, label %20, label %3
 
 3:                                                ; preds = %2
@@ -10732,7 +10733,7 @@ define void @_ZN6Unpack13InitFilters30Eb(ptr nocapture noundef nonnull align 8 d
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %9
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #25
   %.pre = load i64, ptr %6, align 8
   br label %16
 
@@ -10766,7 +10767,7 @@ define void @_ZN6Unpack13InitFilters30Eb(ptr nocapture noundef nonnull align 8 d
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %24
-  tail call void @_ZdlPv(ptr noundef nonnull %28) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %28) #25
   %.pre17 = load i64, ptr %21, align 8
   br label %31
 
@@ -10782,15 +10783,15 @@ define void @_ZN6Unpack13InitFilters30Eb(ptr nocapture noundef nonnull align 8 d
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #15
 
 declare void @_ZN5RarVM7PrepareEPhjP18VM_PreparedProgram(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
 
 declare noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 dereferenceable(266), ptr noundef, i64 noundef) local_unnamed_addr #5
 
@@ -11011,7 +11012,7 @@ define void @_ZN6Unpack11ExecuteCodeEP18VM_PreparedProgram(ptr noundef nonnull a
 declare void @_ZN5RarVM7ExecuteEP18VM_PreparedProgram(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6Unpack13UnpInitData30Eb(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
+define void @_ZN6Unpack13UnpInitData30Eb(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
   br i1 %1, label %.thread, label %3
 
 3:                                                ; preds = %2
@@ -11046,7 +11047,7 @@ define void @_ZN6Unpack13UnpInitData30Eb(ptr nocapture noundef nonnull align 8 d
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %13
-  tail call void @_ZdlPv(ptr noundef nonnull %17) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %17) #25
   %.pre.i = load i64, ptr %10, align 8
   br label %20
 
@@ -11080,7 +11081,7 @@ define void @_ZN6Unpack13UnpInitData30Eb(ptr nocapture noundef nonnull align 8 d
   br i1 %32, label %34, label %33
 
 33:                                               ; preds = %27
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %31) #25
   %.pre17.i = load i64, ptr %24, align 8
   br label %34
 
@@ -13200,7 +13201,7 @@ define void @_ZN6Unpack11UnpWriteBufEv(ptr noundef nonnull align 8 dereferenceab
   %75 = add i64 %74, %73
   %..i.i = tail call i64 @llvm.umax.i64(i64 %71, i64 %75)
   %76 = load ptr, ptr %13, align 8
-  %77 = tail call ptr @realloc(ptr noundef %76, i64 noundef %..i.i) #26
+  %77 = tail call ptr @realloc(ptr noundef %76, i64 noundef %..i.i) #27
   %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %_ZN5ArrayIhE3AddEm.exit.i
 
@@ -13543,7 +13544,7 @@ _ZN16FragmentedWindow8CopyDataEPhmm.exit:         ; preds = %_ZN16FragmentedWind
   %..i.i130 = tail call i64 @llvm.umax.i64(i64 %229, i64 %233)
   %234 = load ptr, ptr %10, align 8
   %235 = shl i64 %..i.i130, 4
-  %236 = tail call ptr @realloc(ptr noundef %234, i64 noundef %235) #26
+  %236 = tail call ptr @realloc(ptr noundef %234, i64 noundef %235) #27
   %237 = icmp eq ptr %236, null
   br i1 %237, label %238, label %_ZN5ArrayI12UnpackFilterE3AddEm.exit.i
 
@@ -13609,7 +13610,7 @@ _ZN5ArrayI12UnpackFilterE5AllocEm.exit._crit_edge: ; preds = %_ZN5ArrayI12Unpack
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZN16FragmentedWindowixEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %0, i64 noundef %1) local_unnamed_addr #15 align 2 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZN16FragmentedWindowixEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %0, i64 noundef %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %4, %1
@@ -13653,7 +13654,7 @@ define noundef nonnull align 1 dereferenceable(1) ptr @_ZN16FragmentedWindowixEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN16FragmentedWindow10CopyStringEjjRmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4) local_unnamed_addr #9 align 2 {
+define void @_ZN16FragmentedWindow10CopyStringEjjRmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4) local_unnamed_addr #10 align 2 {
   %.not18 = icmp eq i32 %1, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -14103,7 +14104,7 @@ define linkonce_odr void @_ZN5ArrayI12UnpackFilterE4PushES0_(ptr noundef nonnull
   %..i = tail call i64 @llvm.umax.i64(i64 %16, i64 %20)
   %21 = load ptr, ptr %0, align 8
   %22 = shl i64 %..i, 4
-  %23 = tail call ptr @realloc(ptr noundef %21, i64 noundef %22) #26
+  %23 = tail call ptr @realloc(ptr noundef %21, i64 noundef %22) #27
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
@@ -14129,7 +14130,7 @@ _ZN5ArrayI12UnpackFilterE3AddEm.exit:             ; preds = %._ZN5ArrayI12Unpack
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN16FragmentedWindow8CopyDataEPhmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #16 align 2 {
+define void @_ZN16FragmentedWindow8CopyDataEPhmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #17 align 2 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -14350,7 +14351,7 @@ define noundef ptr @_ZN6Unpack11ApplyFilterEPhjP12UnpackFilter(ptr nocapture nou
   %87 = add i64 %86, %85
   %..i.i = tail call i64 @llvm.umax.i64(i64 %83, i64 %87)
   %88 = load ptr, ptr %71, align 8
-  %89 = tail call ptr @realloc(ptr noundef %88, i64 noundef %..i.i) #26
+  %89 = tail call ptr @realloc(ptr noundef %88, i64 noundef %..i.i) #27
   %90 = icmp eq ptr %89, null
   br i1 %90, label %91, label %_ZN5ArrayIhE3AddEm.exit.i
 
@@ -14402,7 +14403,7 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %._ZN5ArrayIhE5Alloc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN16FragmentedWindow12GetBlockSizeEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #15 align 2 {
+define noundef i64 @_ZN16FragmentedWindow12GetBlockSizeEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #16 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 256
   br label %6
 
@@ -14471,7 +14472,7 @@ define void @_ZN16FragmentedWindowC2Ev(ptr nocapture noundef nonnull writeonly a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16FragmentedWindowD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(512) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16FragmentedWindowD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(512) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -14482,7 +14483,7 @@ define void @_ZN16FragmentedWindowD2Ev(ptr nocapture noundef nonnull align 8 der
   br i1 %.not.i, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %4) #21
+  tail call void @free(ptr noundef nonnull %4) #22
   store ptr null, ptr %3, align 8
   br label %6
 
@@ -14496,7 +14497,7 @@ _ZN16FragmentedWindow5ResetEv.exit:               ; preds = %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16FragmentedWindow5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(512) %0) local_unnamed_addr #11 align 2 {
+define void @_ZN16FragmentedWindow5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(512) %0) local_unnamed_addr #12 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %6
@@ -14507,7 +14508,7 @@ define void @_ZN16FragmentedWindow5ResetEv(ptr nocapture noundef nonnull align 8
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %4) #21
+  tail call void @free(ptr noundef nonnull %4) #22
   store ptr null, ptr %3, align 8
   br label %6
 
@@ -14532,7 +14533,7 @@ define void @_ZN16FragmentedWindow4InitEm(ptr nocapture noundef nonnull align 8 
   br i1 %.not.i, label %7, label %6
 
 6:                                                ; preds = %3
-  tail call void @free(ptr noundef nonnull %5) #21
+  tail call void @free(ptr noundef nonnull %5) #22
   store ptr null, ptr %4, align 8
   br label %7
 
@@ -14572,9 +14573,9 @@ _ZN16FragmentedWindow5ResetEv.exit.preheader:     ; preds = %7
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %9, %13
-  %16 = tail call ptr @__cxa_allocate_exception(i64 8) #21
+  %16 = tail call ptr @__cxa_allocate_exception(i64 8) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %16, align 8
-  tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
+  tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
   unreachable
 
 _ZN16FragmentedWindow5ResetEv.exit:               ; preds = %.lr.ph
@@ -14593,9 +14594,9 @@ _ZN16FragmentedWindow5ResetEv.exit._crit_edge:    ; preds = %_ZN16FragmentedWind
   br i1 %20, label %23, label %_ZN16FragmentedWindow5ResetEv.exit._crit_edge.thread
 
 23:                                               ; preds = %_ZN16FragmentedWindow5ResetEv.exit._crit_edge
-  %24 = tail call ptr @__cxa_allocate_exception(i64 8) #21
+  %24 = tail call ptr @__cxa_allocate_exception(i64 8) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %24, align 8
-  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
+  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
   unreachable
 
 _ZN16FragmentedWindow5ResetEv.exit._crit_edge.thread: ; preds = %_ZN16FragmentedWindow5ResetEv.exit.preheader, %_ZN16FragmentedWindow5ResetEv.exit._crit_edge
@@ -14754,7 +14755,7 @@ _ZN6Unpack8InitHuffEv.exit:                       ; preds = %56
 66:                                               ; preds = %12
   %67 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5RarVMD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #21
+  tail call void @_ZN5RarVMD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #22
   br label %68
 
 68:                                               ; preds = %66, %64
@@ -14768,12 +14769,12 @@ _ZN6Unpack8InitHuffEv.exit:                       ; preds = %56
   store i64 0, ptr %69, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 58728
   %73 = load ptr, ptr %72, align 8
-  tail call void @free(ptr noundef %73) #21
+  tail call void @free(ptr noundef %73) #22
   br label %_ZN8ModelPPMD2Ev.exit
 
 _ZN8ModelPPMD2Ev.exit:                            ; preds = %71, %68, %62
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %.pn.pn.pn.pn.pn, %68 ], [ %.pn.pn.pn.pn.pn, %71 ]
-  tail call void @_ZN16FragmentedWindowD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %7) #21
+  tail call void @_ZN16FragmentedWindowD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %7) #22
   br label %74
 
 74:                                               ; preds = %_ZN8ModelPPMD2Ev.exit, %60
@@ -14783,7 +14784,7 @@ _ZN8ModelPPMD2Ev.exit:                            ; preds = %71, %68, %62
   br i1 %.not.i22, label %_ZN5ArrayI12UnpackFilterED2Ev.exit, label %76
 
 76:                                               ; preds = %74
-  tail call void @free(ptr noundef nonnull %75) #21
+  tail call void @free(ptr noundef nonnull %75) #22
   br label %_ZN5ArrayI12UnpackFilterED2Ev.exit
 
 _ZN5ArrayI12UnpackFilterED2Ev.exit:               ; preds = %76, %74
@@ -14792,7 +14793,7 @@ _ZN5ArrayI12UnpackFilterED2Ev.exit:               ; preds = %76, %74
   br i1 %.not.i23, label %_ZN5ArrayIhED2Ev.exit, label %78
 
 78:                                               ; preds = %_ZN5ArrayI12UnpackFilterED2Ev.exit
-  tail call void @free(ptr noundef nonnull %77) #21
+  tail call void @free(ptr noundef nonnull %77) #22
   br label %_ZN5ArrayIhED2Ev.exit
 
 _ZN5ArrayIhED2Ev.exit:                            ; preds = %_ZN5ArrayI12UnpackFilterED2Ev.exit, %78
@@ -14801,11 +14802,11 @@ _ZN5ArrayIhED2Ev.exit:                            ; preds = %_ZN5ArrayI12UnpackF
   br i1 %.not.i24, label %_ZN5ArrayIhED2Ev.exit25, label %80
 
 80:                                               ; preds = %_ZN5ArrayIhED2Ev.exit
-  tail call void @free(ptr noundef nonnull %79) #21
+  tail call void @free(ptr noundef nonnull %79) #22
   br label %_ZN5ArrayIhED2Ev.exit25
 
 _ZN5ArrayIhED2Ev.exit25:                          ; preds = %_ZN5ArrayIhED2Ev.exit, %80
-  tail call void @_ZN8BitInputD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #21
+  tail call void @_ZN8BitInputD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #22
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -14820,7 +14821,7 @@ declare void @_ZN8BitInputD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) 
 declare void @_ZN5RarVMD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6UnpackD2Ev(ptr noundef nonnull align 8 dereferenceable(59688) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6UnpackD2Ev(ptr noundef nonnull align 8 dereferenceable(59688) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 59640
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 59664
@@ -14844,7 +14845,7 @@ define void @_ZN6UnpackD2Ev(ptr noundef nonnull align 8 dereferenceable(59688) %
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %7
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #25
   %.pre.i = load i64, ptr %4, align 8
   br label %14
 
@@ -14875,7 +14876,7 @@ define void @_ZN6UnpackD2Ev(ptr noundef nonnull align 8 dereferenceable(59688) %
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %21
-  tail call void @_ZdlPv(ptr noundef nonnull %25) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %25) #25
   %.pre17.i = load i64, ptr %18, align 8
   br label %28
 
@@ -14893,7 +14894,7 @@ define void @_ZN6UnpackD2Ev(ptr noundef nonnull align 8 dereferenceable(59688) %
   br i1 %.not, label %35, label %34
 
 34:                                               ; preds = %.loopexit
-  tail call void @free(ptr noundef nonnull %33) #21
+  tail call void @free(ptr noundef nonnull %33) #22
   br label %35
 
 35:                                               ; preds = %34, %.loopexit
@@ -14903,7 +14904,7 @@ define void @_ZN6UnpackD2Ev(ptr noundef nonnull align 8 dereferenceable(59688) %
   br i1 %.not.i1, label %_ZN5ArrayIiED2Ev.exit, label %38
 
 38:                                               ; preds = %35
-  tail call void @free(ptr noundef nonnull %37) #21
+  tail call void @free(ptr noundef nonnull %37) #22
   br label %_ZN5ArrayIiED2Ev.exit
 
 _ZN5ArrayIiED2Ev.exit:                            ; preds = %35, %38
@@ -14913,7 +14914,7 @@ _ZN5ArrayIiED2Ev.exit:                            ; preds = %35, %38
   br i1 %.not.i2, label %_ZN5ArrayIP14UnpackFilter30ED2Ev.exit, label %41
 
 41:                                               ; preds = %_ZN5ArrayIiED2Ev.exit
-  tail call void @free(ptr noundef nonnull %40) #21
+  tail call void @free(ptr noundef nonnull %40) #22
   br label %_ZN5ArrayIP14UnpackFilter30ED2Ev.exit
 
 _ZN5ArrayIP14UnpackFilter30ED2Ev.exit:            ; preds = %_ZN5ArrayIiED2Ev.exit, %41
@@ -14923,14 +14924,14 @@ _ZN5ArrayIP14UnpackFilter30ED2Ev.exit:            ; preds = %_ZN5ArrayIiED2Ev.ex
   br i1 %.not.i3, label %_ZN5ArrayIP14UnpackFilter30ED2Ev.exit4, label %44
 
 44:                                               ; preds = %_ZN5ArrayIP14UnpackFilter30ED2Ev.exit
-  tail call void @free(ptr noundef nonnull %43) #21
+  tail call void @free(ptr noundef nonnull %43) #22
   br label %_ZN5ArrayIP14UnpackFilter30ED2Ev.exit4
 
 _ZN5ArrayIP14UnpackFilter30ED2Ev.exit4:           ; preds = %_ZN5ArrayIP14UnpackFilter30ED2Ev.exit, %44
   %45 = getelementptr inbounds i8, ptr %0, i64 59544
-  tail call void @_ZN8BitInputD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #21
+  tail call void @_ZN8BitInputD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #22
   %46 = getelementptr inbounds i8, ptr %0, i64 59504
-  tail call void @_ZN5RarVMD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %46) #21
+  tail call void @_ZN5RarVMD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %46) #22
   %47 = getelementptr inbounds i8, ptr %0, i64 58552
   %48 = load i64, ptr %47, align 8
   %.not.i.i.i = icmp eq i64 %48, 0
@@ -14940,19 +14941,19 @@ _ZN5ArrayIP14UnpackFilter30ED2Ev.exit4:           ; preds = %_ZN5ArrayIP14Unpack
   store i64 0, ptr %47, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 58728
   %51 = load ptr, ptr %50, align 8
-  tail call void @free(ptr noundef %51) #21
+  tail call void @free(ptr noundef %51) #22
   br label %_ZN8ModelPPMD2Ev.exit
 
 _ZN8ModelPPMD2Ev.exit:                            ; preds = %_ZN5ArrayIP14UnpackFilter30ED2Ev.exit4, %49
   %52 = getelementptr inbounds i8, ptr %0, i64 19320
-  tail call void @_ZN16FragmentedWindowD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %52) #21
+  tail call void @_ZN16FragmentedWindowD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %52) #22
   %53 = getelementptr inbounds i8, ptr %0, i64 96
   %54 = load ptr, ptr %53, align 8
   %.not.i5 = icmp eq ptr %54, null
   br i1 %.not.i5, label %_ZN5ArrayI12UnpackFilterED2Ev.exit, label %55
 
 55:                                               ; preds = %_ZN8ModelPPMD2Ev.exit
-  tail call void @free(ptr noundef nonnull %54) #21
+  tail call void @free(ptr noundef nonnull %54) #22
   br label %_ZN5ArrayI12UnpackFilterED2Ev.exit
 
 _ZN5ArrayI12UnpackFilterED2Ev.exit:               ; preds = %_ZN8ModelPPMD2Ev.exit, %55
@@ -14962,7 +14963,7 @@ _ZN5ArrayI12UnpackFilterED2Ev.exit:               ; preds = %_ZN8ModelPPMD2Ev.ex
   br i1 %.not.i6, label %_ZN5ArrayIhED2Ev.exit, label %58
 
 58:                                               ; preds = %_ZN5ArrayI12UnpackFilterED2Ev.exit
-  tail call void @free(ptr noundef nonnull %57) #21
+  tail call void @free(ptr noundef nonnull %57) #22
   br label %_ZN5ArrayIhED2Ev.exit
 
 _ZN5ArrayIhED2Ev.exit:                            ; preds = %_ZN5ArrayI12UnpackFilterED2Ev.exit, %58
@@ -14972,12 +14973,12 @@ _ZN5ArrayIhED2Ev.exit:                            ; preds = %_ZN5ArrayI12UnpackF
   br i1 %.not.i7, label %_ZN5ArrayIhED2Ev.exit8, label %61
 
 61:                                               ; preds = %_ZN5ArrayIhED2Ev.exit
-  tail call void @free(ptr noundef nonnull %60) #21
+  tail call void @free(ptr noundef nonnull %60) #22
   br label %_ZN5ArrayIhED2Ev.exit8
 
 _ZN5ArrayIhED2Ev.exit8:                           ; preds = %_ZN5ArrayIhED2Ev.exit, %61
   %62 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZN8BitInputD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %62) #21
+  tail call void @_ZN8BitInputD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %62) #22
   ret void
 }
 
@@ -15025,9 +15026,9 @@ define void @_ZN6Unpack4InitEmb(ptr nocapture noundef nonnull align 8 dereferenc
   br i1 %18, label %19, label %.thread33
 
 19:                                               ; preds = %.thread
-  %20 = tail call ptr @__cxa_allocate_exception(i64 8) #21
+  %20 = tail call ptr @__cxa_allocate_exception(i64 8) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %20, align 8
-  tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
+  tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
   unreachable
 
 .thread33:                                        ; preds = %..thread33_crit_edge, %.thread, %16
@@ -15038,7 +15039,7 @@ define void @_ZN6Unpack4InitEmb(ptr nocapture noundef nonnull align 8 dereferenc
   br i1 %24, label %.thread34, label %25
 
 25:                                               ; preds = %.thread33
-  %26 = tail call noalias ptr @malloc(i64 noundef %spec.store.select1) #22
+  %26 = tail call noalias ptr @malloc(i64 noundef %spec.store.select1) #23
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.thread34, label %36
 
@@ -15048,9 +15049,9 @@ define void @_ZN6Unpack4InitEmb(ptr nocapture noundef nonnull align 8 dereferenc
   br i1 %or.cond, label %29, label %31
 
 29:                                               ; preds = %.thread34
-  %30 = tail call ptr @__cxa_allocate_exception(i64 8) #21
+  %30 = tail call ptr @__cxa_allocate_exception(i64 8) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %30, align 8
-  tail call void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
+  tail call void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
   unreachable
 
 31:                                               ; preds = %.thread34
@@ -15060,7 +15061,7 @@ define void @_ZN6Unpack4InitEmb(ptr nocapture noundef nonnull align 8 dereferenc
   br i1 %.not29, label %.thread39, label %34
 
 34:                                               ; preds = %31
-  tail call void @free(ptr noundef nonnull %33) #21
+  tail call void @free(ptr noundef nonnull %33) #22
   store ptr null, ptr %32, align 8
   br label %.thread39
 
@@ -15114,7 +15115,7 @@ define void @_ZN6Unpack4InitEmb(ptr nocapture noundef nonnull align 8 dereferenc
   br i1 %.not31, label %58, label %57
 
 57:                                               ; preds = %.loopexit
-  tail call void @free(ptr noundef nonnull %56) #21
+  tail call void @free(ptr noundef nonnull %56) #22
   br label %58
 
 58:                                               ; preds = %57, %.loopexit
@@ -15392,42 +15393,42 @@ _ZN14RARPPM_CONTEXT11createChildEP8ModelPPMP12RARPPM_STATERS2_.exit.thread: ; pr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #12
+declare i32 @llvm.bswap.i32(i32) #13
 
 declare void @_ZN12ErrorHandler13GeneralErrMsgEPKwz(ptr noundef nonnull align 4 dereferenceable(14), ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #17
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #18
+declare i32 @llvm.umin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
+declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #18
+declare i32 @llvm.umax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #18
+declare i32 @llvm.smin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #18
+declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #18
+declare i64 @llvm.smin.i64(i64, i64) #19
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #20
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #21
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -15438,24 +15439,25 @@ attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #21 = { nounwind }
-attributes #22 = { nounwind allocsize(0) }
-attributes #23 = { noreturn }
-attributes #24 = { builtin nounwind }
-attributes #25 = { builtin allocsize(0) }
-attributes #26 = { nounwind allocsize(1) }
+attributes #9 = { cold noreturn }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #22 = { nounwind }
+attributes #23 = { nounwind allocsize(0) }
+attributes #24 = { noreturn }
+attributes #25 = { builtin nounwind }
+attributes #26 = { builtin allocsize(0) }
+attributes #27 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

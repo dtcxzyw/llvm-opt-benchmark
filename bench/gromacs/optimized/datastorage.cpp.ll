@@ -172,7 +172,7 @@ define void @_ZN3gmx27AnalysisDataParallelOptionsC2Ei(ptr nocapture noundef nonn
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx27AnalysisDataParallelOptionsC1EiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 72) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx27AnalysisDataParallelOptionsC1EiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 72) #21
   unreachable
 
 5:                                                ; preds = %2
@@ -309,7 +309,7 @@ define void @_ZN3gmx8internal23AnalysisDataStorageImpl12extendBufferEm(ptr nound
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #21
   unreachable
 
 7:                                                ; preds = %2
@@ -329,7 +329,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataE
   %18 = ptrtoint ptr %17 to i64
   %19 = sub i64 %18, %12
   %20 = shl nuw nsw i64 %1, 3
-  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #20
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #22
   %.not10.i.i.i.i = icmp eq ptr %10, %17
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit.i, label %.lr.ph.i.i.i.i
 
@@ -356,7 +356,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14def
   br i1 %.not.i8.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i, label %26
 
 26:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %25) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %25) #23
   br label %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i
 
 _ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i: ; preds = %26, %_ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit.i
@@ -386,7 +386,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14def
 36:                                               ; preds = %.lr.ph, %_ZNSt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS2_EED2Ev.exit
   %37 = phi i32 [ %.pre24, %.lr.ph ], [ %72, %_ZNSt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS2_EED2Ev.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  %38 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #20, !noalias !12
+  %38 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #22, !noalias !12
   invoke void @_ZN3gmx8internal28AnalysisDataStorageFrameDataC1EPNS0_23AnalysisDataStorageImplEi(ptr noundef nonnull align 8 dereferenceable(84) %38, ptr noundef nonnull %0, i32 noundef %37)
           to label %_ZSt11make_uniqueIN3gmx8internal28AnalysisDataStorageFrameDataEJPNS1_23AnalysisDataStorageImplERiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %39, !noalias !12
 
@@ -397,7 +397,7 @@ common.resume:                                    ; preds = %78, %39
 39:                                               ; preds = %36
   %40 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %38) #21, !noalias !12
+  tail call void @_ZdlPv(ptr noundef nonnull %38) #23, !noalias !12
   br label %common.resume
 
 _ZSt11make_uniqueIN3gmx8internal28AnalysisDataStorageFrameDataEJPNS1_23AnalysisDataStorageImplERiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %36
@@ -425,7 +425,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14def
   br i1 %51, label %52, label %_ZNKSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
 
 52:                                               ; preds = %46
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #19
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #21
           to label %.noexc14 unwind label %.loopexit.split-lp
 
 .noexc14:                                         ; preds = %52
@@ -443,7 +443,7 @@ _ZNKSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14de
 
 58:                                               ; preds = %_ZNKSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
   %59 = shl nuw nsw i64 %57, 3
-  %60 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #20
+  %60 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #22
           to label %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i6 unwind label %.loopexit
 
 _ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i6: ; preds = %58, %_ZNKSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
@@ -473,7 +473,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14def
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit, label %67
 
 67:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
-  tail call void @_ZdlPv(ptr noundef nonnull %47) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %47) #23
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
 
 _ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %67
@@ -509,7 +509,7 @@ _ZNSt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_delet
 
 78:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZNSt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
+  call void @_ZNSt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
   br label %common.resume
 
 ._crit_edge:                                      ; preds = %_ZNSt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS2_EED2Ev.exit, %_ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit
@@ -544,8 +544,8 @@ define linkonce_odr void @_ZNSt10unique_ptrIN3gmx8internal28AnalysisDataStorageF
   br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i: ; preds = %3
-  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %5) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #21
+  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %5) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #23
   br label %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit.i.i
 
 _ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i, %3
@@ -556,7 +556,7 @@ _ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.e
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit.i.i, label %8
 
 8:                                                ; preds = %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #23
   br label %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit.i.i: ; preds = %8, %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit.i.i
@@ -566,11 +566,11 @@ _ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit.i.i: ; preds = %8
   br i1 %.not.i.i.i1.i.i, label %_ZNKSt14default_deleteIN3gmx8internal28AnalysisDataStorageFrameDataEEclEPS2_.exit, label %11
 
 11:                                               ; preds = %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #23
   br label %_ZNKSt14default_deleteIN3gmx8internal28AnalysisDataStorageFrameDataEEclEPS2_.exit
 
 _ZNKSt14default_deleteIN3gmx8internal28AnalysisDataStorageFrameDataEEclEPS2_.exit: ; preds = %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit.i.i, %11
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
   br label %12
 
 12:                                               ; preds = %_ZNKSt14default_deleteIN3gmx8internal28AnalysisDataStorageFrameDataEEclEPS2_.exit, %1
@@ -583,26 +583,27 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
-  tail call void @_ZSt9terminatev() #23
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
+  tail call void @_ZSt9terminatev() #25
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx8internal23AnalysisDataStorageImpl12rotateBufferEv(ptr nocapture noundef nonnull align 8 dereferenceable(92) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -632,7 +633,7 @@ define void @_ZN3gmx8internal23AnalysisDataStorageImpl12rotateBufferEv(ptr nocap
   br i1 %.not.i, label %22, label %21
 
 21:                                               ; preds = %1
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal28AnalysisDataStorageFrameData10clearFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 559) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal28AnalysisDataStorageFrameData10clearFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 559) #21
   unreachable
 
 22:                                               ; preds = %1
@@ -688,7 +689,7 @@ define void @_ZN3gmx8internal28AnalysisDataStorageFrameData10clearFrameEi(ptr no
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal28AnalysisDataStorageFrameData10clearFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 559) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal28AnalysisDataStorageFrameData10clearFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 559) #21
   unreachable
 
 7:                                                ; preds = %2
@@ -740,7 +741,7 @@ define void @_ZN3gmx8internal23AnalysisDataStorageImpl15getFrameBuilderEv(ptr de
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
+  %9 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
   %10 = load ptr, ptr %1, align 8
   invoke void @_ZN3gmx24AnalysisDataStorageFrameC1ERKNS_20AbstractAnalysisDataE(ptr noundef nonnull align 8 dereferenceable(45) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %11 unwind label %12
@@ -752,7 +753,7 @@ define void @_ZN3gmx8internal23AnalysisDataStorageImpl15getFrameBuilderEv(ptr de
 12:                                               ; preds = %8
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #23
   resume { ptr, i32 } %13
 
 14:                                               ; preds = %2
@@ -768,8 +769,8 @@ define void @_ZN3gmx8internal23AnalysisDataStorageImpl15getFrameBuilderEv(ptr de
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE8pop_backEv.exit, label %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i: ; preds = %14
-  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %19) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %19) #21
+  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %19) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %19) #23
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE8pop_backEv.exit
 
 _ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE8pop_backEv.exit: ; preds = %14, %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i
@@ -812,7 +813,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit: ; pre
   br i1 %24, label %25, label %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
 
 _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread: ; preds = %2, %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl11finishFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 482) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl11finishFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 482) #21
   unreachable
 
 25:                                               ; preds = %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit
@@ -825,7 +826,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %25
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl11finishFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 486) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl11finishFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 486) #21
   unreachable
 
 33:                                               ; preds = %25
@@ -833,7 +834,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
   br i1 %.not, label %35, label %34
 
 34:                                               ; preds = %33
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl11finishFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 487) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl11finishFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 487) #21
   unreachable
 
 35:                                               ; preds = %33
@@ -843,7 +844,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %35
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl11finishFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 488) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl11finishFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 488) #21
   unreachable
 
 40:                                               ; preds = %35
@@ -875,7 +876,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS
   br i1 %56, label %57, label %_ZNKSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i
 
 57:                                               ; preds = %51
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #19
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #21
           to label %.noexc17 unwind label %81
 
 .noexc17:                                         ; preds = %57
@@ -893,7 +894,7 @@ _ZNKSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteI
 
 63:                                               ; preds = %_ZNKSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i
   %64 = shl nuw nsw i64 %62, 3
-  %65 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %64) #20
+  %65 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %64) #22
           to label %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i unwind label %81
 
 _ZNSt12_Vector_baseISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i: ; preds = %63, %_ZNKSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i
@@ -924,7 +925,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit, label %73
 
 73:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
-  tail call void @_ZdlPv(ptr noundef nonnull %52) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %52) #23
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
 
 _ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %73
@@ -955,8 +956,8 @@ _ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.e
   br i1 %.not.i13, label %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit15, label %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i14
 
 _ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i14: ; preds = %81
-  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %83) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %83) #21
+  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %83) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %83) #23
   br label %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit15
 
 _ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit15: ; preds = %81, %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i14
@@ -991,7 +992,7 @@ define void @_ZN3gmx8internal28AnalysisDataStorageFrameData11finishFrameEb(ptr d
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %7
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal28AnalysisDataStorageFrameData11finishFrameEbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 607) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal28AnalysisDataStorageFrameData11finishFrameEbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 607) #21
   unreachable
 
 22:                                               ; preds = %7
@@ -1079,7 +1080,7 @@ _ZN3gmx24AnalysisDataStorageFrame11clearValuesEv.exit: ; preds = %.lr.ph.i, %22,
   br i1 %74, label %75, label %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EE5resetEPS1_.exit
 
 75:                                               ; preds = %69
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal28AnalysisDataStorageFrameData11finishFrameEbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 617) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal28AnalysisDataStorageFrameData11finishFrameEbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 617) #21
   unreachable
 
 _ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %50, %_ZN3gmx24AnalysisDataStorageFrame11clearValuesEv.exit, %69
@@ -1102,7 +1103,7 @@ define void @_ZN3gmx8internal23AnalysisDataStorageImpl17finishFrameSerialEi(ptr 
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %2
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl17finishFrameSerialEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 500) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl17finishFrameSerialEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 500) #21
   unreachable
 
 9:                                                ; preds = %2
@@ -1135,7 +1136,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit: ; pre
   br i1 %30, label %31, label %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
 
 _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread: ; preds = %9, %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl17finishFrameSerialEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 502) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl17finishFrameSerialEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 502) #21
   unreachable
 
 31:                                               ; preds = %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit
@@ -1148,7 +1149,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
   br i1 %37, label %39, label %38
 
 38:                                               ; preds = %31
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl17finishFrameSerialEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 505) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl17finishFrameSerialEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 505) #21
   unreachable
 
 39:                                               ; preds = %31
@@ -1158,7 +1159,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %39
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl17finishFrameSerialEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 506) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl17finishFrameSerialEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 506) #21
   unreachable
 
 44:                                               ; preds = %39
@@ -1166,7 +1167,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
   br i1 %.not23, label %46, label %45
 
 45:                                               ; preds = %44
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl17finishFrameSerialEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 508) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal23AnalysisDataStorageImpl17finishFrameSerialEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 508) #21
   unreachable
 
 46:                                               ; preds = %44
@@ -1301,7 +1302,7 @@ define void @_ZN3gmx8internal28AnalysisDataStorageFrameDataC2EPNS0_23AnalysisDat
   br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %3
-  invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal28AnalysisDataStorageFrameDataC1EPNS0_23AnalysisDataStorageImplEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 541) #19
+  invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal28AnalysisDataStorageFrameDataC1EPNS0_23AnalysisDataStorageImplEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 541) #21
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %9
@@ -1367,7 +1368,7 @@ define void @_ZN3gmx8internal28AnalysisDataStorageFrameDataC2EPNS0_23AnalysisDat
   br i1 %41, label %42, label %_ZNKSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 42:                                               ; preds = %36
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #19
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #21
           to label %.noexc8 unwind label %.loopexit.split-lp
 
 .noexc8:                                          ; preds = %42
@@ -1385,7 +1386,7 @@ _ZNKSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 48:                                               ; preds = %_ZNKSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE12_M_check_lenEmPKc.exit.i
   %49 = shl nuw nsw i64 %47, 4
-  %50 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #20
+  %50 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #22
           to label %.noexc9 unwind label %.loopexit
 
 .noexc9:                                          ; preds = %48, %_ZNKSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE12_M_check_lenEmPKc.exit.i
@@ -1417,7 +1418,7 @@ _ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2
   br i1 %.not.i36.i, label %.noexc5, label %59
 
 59:                                               ; preds = %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i
-  tail call void @_ZdlPv(ptr noundef nonnull %37) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %37) #23
   br label %.noexc5
 
 .noexc5:                                          ; preds = %59, %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i
@@ -1449,8 +1450,8 @@ _ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE12emplace_backIJRiS5_S5_iEE
   br i1 %.not.i6, label %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i: ; preds = %63
-  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %64) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %64) #21
+  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %64) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %64) #23
   br label %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit: ; preds = %63, %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i
@@ -1460,7 +1461,7 @@ _ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.e
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit, label %66
 
 66:                                               ; preds = %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %65) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %65) #23
   br label %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit, %66
@@ -1469,7 +1470,7 @@ _ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit: ; preds = %_ZNSt
   br i1 %.not.i.i.i7, label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev.exit, label %68
 
 68:                                               ; preds = %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %67) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %67) #23
   br label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit, %68
@@ -1486,7 +1487,7 @@ declare noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef 
 declare noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx8internal28AnalysisDataStorageFrameData10startFrameERKNS_23AnalysisDataFrameHeaderESt10unique_ptrINS_24AnalysisDataStorageFrameESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef %2) local_unnamed_addr #1 align 2 {
@@ -1503,8 +1504,8 @@ define void @_ZN3gmx8internal28AnalysisDataStorageFrameData10startFrameERKNS_23A
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EEaSEOS4_.exit, label %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i: ; preds = %3
-  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %8) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #21
+  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %8) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #23
   %.pre = load ptr, ptr %6, align 8
   br label %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EEaSEOS4_.exit
 
@@ -1523,7 +1524,7 @@ define void @_ZN3gmx24AnalysisDataStorageFrame13selectDataSetEi(ptr nocapture no
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx24AnalysisDataStorageFrame13selectDataSetEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 672) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx24AnalysisDataStorageFrame13selectDataSetEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 672) #21
   unreachable
 
 5:                                                ; preds = %2
@@ -1538,7 +1539,7 @@ define void @_ZN3gmx24AnalysisDataStorageFrame13selectDataSetEi(ptr nocapture no
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %9, %5
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx24AnalysisDataStorageFrame13selectDataSetEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 674) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx24AnalysisDataStorageFrame13selectDataSetEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 674) #21
   unreachable
 
 13:                                               ; preds = %9
@@ -1552,7 +1553,7 @@ define void @_ZN3gmx24AnalysisDataStorageFrame13selectDataSetEi(ptr nocapture no
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %15
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx24AnalysisDataStorageFrame13selectDataSetEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 676) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx24AnalysisDataStorageFrame13selectDataSetEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 676) #21
   unreachable
 
 20:                                               ; preds = %13, %15
@@ -1687,7 +1688,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl11needStorageEv.exit.thread: ; preds =
   br i1 %71, label %72, label %_ZNKSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 72:                                               ; preds = %66
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #21
   unreachable
 
 _ZNKSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %66
@@ -1702,7 +1703,7 @@ _ZNKSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 78:                                               ; preds = %_ZNKSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE12_M_check_lenEmPKc.exit.i
   %79 = shl nuw nsw i64 %77, 4
-  %80 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %79) #20
+  %80 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %79) #22
   br label %81
 
 81:                                               ; preds = %78, %_ZNKSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE12_M_check_lenEmPKc.exit.i
@@ -1735,7 +1736,7 @@ _ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2
   br i1 %.not.i36.i, label %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE17_M_realloc_insertIJmRKiRiS7_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %91
 
 91:                                               ; preds = %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i
-  call void @_ZdlPv(ptr noundef nonnull %67) #21
+  call void @_ZdlPv(ptr noundef nonnull %67) #23
   br label %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE17_M_realloc_insertIJmRKiRiS7_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit
 
 _ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE17_M_realloc_insertIJmRKiRiS7_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i, %91
@@ -1800,7 +1801,7 @@ define linkonce_odr ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_t
   br i1 %22, label %23, label %_ZNKSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
 23:                                               ; preds = %17
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #21
   unreachable
 
 _ZNKSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %17
@@ -1815,7 +1816,7 @@ _ZNKSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ;
 
 29:                                               ; preds = %_ZNKSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %30 = shl nuw nsw i64 %28, 4
-  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #20
+  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #22
   br label %_ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE11_M_allocateEm.exit.i.i.i
 
 _ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %29, %_ZNKSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -1841,7 +1842,7 @@ _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit2
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %37
 
 37:                                               ; preds = %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %18) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #23
   br label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %37, %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
@@ -1888,11 +1889,11 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   br i1 %18, label %19, label %_ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE11_M_allocateEm.exit.i
 
 19:                                               ; preds = %17
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #21
   unreachable
 
 _ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE11_M_allocateEm.exit.i: ; preds = %17
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #20
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #22
   %.not7.i.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not7.i.i.i.i.i, label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
@@ -1909,7 +1910,7 @@ _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx
   br i1 %.not.i, label %_ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE13_M_deallocateEPS1_m.exit, label %25
 
 25:                                               ; preds = %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #23
   br label %_ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit, %25
@@ -1979,7 +1980,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx17AnalysisDataValueESt6vectorIS3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3gmx24AnalysisDataStorageFrame11clearValuesEv(ptr nocapture noundef nonnull align 8 dereferenceable(45) %0) local_unnamed_addr #11 align 2 {
+define void @_ZN3gmx24AnalysisDataStorageFrame11clearValuesEv(ptr nocapture noundef nonnull align 8 dereferenceable(45) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 44
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
@@ -2007,7 +2008,7 @@ define void @_ZN3gmx24AnalysisDataStorageFrame11clearValuesEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx24AnalysisDataStorageFrameC2ERKNS_20AbstractAnalysisDataE(ptr noundef nonnull align 8 dereferenceable(45) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -2059,7 +2060,7 @@ define void @_ZN3gmx24AnalysisDataStorageFrameC2ERKNS_20AbstractAnalysisDataE(pt
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev.exit, label %19
 
 19:                                               ; preds = %17
-  tail call void @_ZdlPv(ptr noundef nonnull %18) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #23
   br label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev.exit: ; preds = %17, %19
@@ -2113,7 +2114,7 @@ _ZSt27__uninitialized_default_n_aIPN3gmx17AnalysisDataValueEmS1_ET_S3_T0_RSaIT1_
   br i1 %23, label %24, label %_ZNKSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 24:                                               ; preds = %22
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.27) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.27) #21
   unreachable
 
 _ZNKSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %22
@@ -2121,7 +2122,7 @@ _ZNKSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12_M_check_lenEmPKc.exit.i: ; pre
   %25 = add nuw nsw i64 %.sroa.speculated.i.i, %9
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 576460752303423487)
   %27 = shl nuw nsw i64 %26, 4
-  %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #20
+  %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #22
   %29 = getelementptr inbounds i8, ptr %28, i64 %8
   %30 = shl nuw nsw i64 %12, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %29, i8 0, i64 %30, i1 false)
@@ -2142,7 +2143,7 @@ _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.
   br i1 %.not.i36.i, label %_ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE13_M_deallocateEPS1_m.exit37.i, label %33
 
 33:                                               ; preds = %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #23
   br label %_ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE13_M_deallocateEPS1_m.exit37.i
 
 _ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE13_M_deallocateEPS1_m.exit37.i: ; preds = %33, %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
@@ -2178,7 +2179,7 @@ define void @_ZN3gmx24AnalysisDataStorageFrameD2Ev(ptr nocapture noundef nonnull
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
   br label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev.exit: ; preds = %1, %4
@@ -2192,7 +2193,7 @@ define void @_ZN3gmx24AnalysisDataStorageFrame14finishPointSetEv(ptr nocapture n
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx24AnalysisDataStorageFrame14finishPointSetEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 690) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx24AnalysisDataStorageFrame14finishPointSetEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 690) #21
   unreachable
 
 4:                                                ; preds = %1
@@ -2202,7 +2203,7 @@ define void @_ZN3gmx24AnalysisDataStorageFrame14finishPointSetEv(ptr nocapture n
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx24AnalysisDataStorageFrame14finishPointSetEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 692) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx24AnalysisDataStorageFrame14finishPointSetEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 692) #21
   unreachable
 
 9:                                                ; preds = %4
@@ -2302,7 +2303,7 @@ define void @_ZN3gmx24AnalysisDataStorageFrame11finishFrameEv(ptr nocapture noun
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx24AnalysisDataStorageFrame11finishFrameEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 720) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx24AnalysisDataStorageFrame11finishFrameEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 720) #21
   unreachable
 
 4:                                                ; preds = %1
@@ -2315,7 +2316,7 @@ define void @_ZN3gmx24AnalysisDataStorageFrame11finishFrameEv(ptr nocapture noun
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19AnalysisDataStorageC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #20
+  %2 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
   invoke void @_ZN3gmx8internal23AnalysisDataStorageImplC1Ev(ptr noundef nonnull align 8 dereferenceable(92) %2)
           to label %3 unwind label %4
 
@@ -2326,7 +2327,7 @@ define void @_ZN3gmx19AnalysisDataStorageC2Ev(ptr nocapture noundef nonnull writ
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
   resume { ptr, i32 } %5
 }
 
@@ -2351,8 +2352,8 @@ define void @_ZN3gmx19AnalysisDataStorageD2Ev(ptr nocapture noundef nonnull alig
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %8) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #21
+  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %8) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #23
   br label %_ZSt8_DestroyISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
@@ -2371,13 +2372,13 @@ _ZSt8_DestroyIPSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_delete
   br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3gmx8internal23AnalysisDataStorageImplEEclEPS2_.exit.i, label %11
 
 11:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #23
   br label %_ZNKSt14default_deleteIN3gmx8internal23AnalysisDataStorageImplEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN3gmx8internal23AnalysisDataStorageImplEEclEPS2_.exit.i: ; preds = %11, %_ZSt8_DestroyIPSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   %12 = getelementptr inbounds i8, ptr %2, i64 24
-  tail call void @_ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #21
+  tail call void @_ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
   br label %_ZNSt10unique_ptrIN3gmx8internal23AnalysisDataStorageImplESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx8internal23AnalysisDataStorageImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN3gmx8internal23AnalysisDataStorageImplEEclEPS2_.exit.i
@@ -2406,8 +2407,8 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDa
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i.i.i.i.i: ; preds = %6
-  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %8) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #21
+  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %8) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #23
   br label %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i.i.i.i.i, %6
@@ -2418,7 +2419,7 @@ _ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.e
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit.i.i.i.i.i.i.i, label %11
 
 11:                                               ; preds = %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #23
   br label %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit.i.i.i.i.i.i.i
 
 _ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit.i.i.i.i.i.i.i: ; preds = %11, %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i
@@ -2428,11 +2429,11 @@ _ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit.i.i.i.i.i.i.i: ; 
   br i1 %.not.i.i.i1.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3gmx8internal28AnalysisDataStorageFrameDataEEclEPS2_.exit.i.i.i.i.i, label %14
 
 14:                                               ; preds = %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #23
   br label %_ZNKSt14default_deleteIN3gmx8internal28AnalysisDataStorageFrameDataEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3gmx8internal28AnalysisDataStorageFrameDataEEclEPS2_.exit.i.i.i.i.i: ; preds = %14, %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EED2Ev.exit.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #23
   br label %_ZSt8_DestroyISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN3gmx8internal28AnalysisDataStorageFrameDataEEclEPS2_.exit.i.i.i.i.i, %.lr.ph.i.i.i
@@ -2451,7 +2452,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14d
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %17
 
 17:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %16) #23
   br label %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EED2Ev.exit
 
 _ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit, %17
@@ -2531,7 +2532,7 @@ declare void @_ZN3gmx20AnalysisDataFrameRefC1Ev(ptr noundef nonnull align 8 dere
 declare void @_ZN3gmx20AnalysisDataFrameRefC1ERKNS_23AnalysisDataFrameHeaderERKSt6vectorINS_17AnalysisDataValueESaIS5_EERKS4_INS_24AnalysisDataPointSetInfoESaISA_EE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 4 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN3gmx19AnalysisDataStorage14requestStorageEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZN3gmx19AnalysisDataStorage14requestStorageEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
   %3 = icmp eq i32 %1, -1
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -2680,7 +2681,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit: ; pre
   br i1 %51, label %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread, label %62
 
 _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread: ; preds = %30, %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit
-  %52 = tail call ptr @__cxa_allocate_exception(i64 24) #22
+  %52 = tail call ptr @__cxa_allocate_exception(i64 24) #24
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.6)
           to label %53 unwind label %.thread
 
@@ -2701,7 +2702,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
           to label %56 unwind label %59
 
 56:                                               ; preds = %54
-  invoke void @__cxa_throw(ptr %52, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #19
+  invoke void @__cxa_throw(ptr %52, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #21
           to label %116 unwind label %59
 
 .thread:                                          ; preds = %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
@@ -2712,21 +2713,21 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
 .thread45:                                        ; preds = %53
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #22
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   br label %61
 
 59:                                               ; preds = %54, %56
   %.0 = phi i1 [ false, %56 ], [ true, %54 ]
   %60 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
-  call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #22
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #22
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
+  call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #24
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   br i1 %.0, label %61, label %common.resume
 
 61:                                               ; preds = %.thread45, %.thread, %59
   %.pn.pn44 = phi { ptr, i32 } [ %57, %.thread ], [ %60, %59 ], [ %58, %.thread45 ]
-  call void @__cxa_free_exception(ptr %52) #22
+  call void @__cxa_free_exception(ptr %52) #24
   br label %common.resume
 
 62:                                               ; preds = %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit
@@ -2746,7 +2747,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %65
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx19AnalysisDataStorage10startFrameERKNS_23AnalysisDataFrameHeaderEENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 828) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx19AnalysisDataStorage10startFrameERKNS_23AnalysisDataFrameHeaderEENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 828) #21
   unreachable
 
 72:                                               ; preds = %65
@@ -2756,7 +2757,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
   br i1 %75, label %77, label %76
 
 76:                                               ; preds = %72
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.12, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx19AnalysisDataStorage10startFrameERKNS_23AnalysisDataFrameHeaderEENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 830) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.12, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx19AnalysisDataStorage10startFrameERKNS_23AnalysisDataFrameHeaderEENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 830) #21
   unreachable
 
 77:                                               ; preds = %72
@@ -2768,7 +2769,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
   br i1 %82, label %83, label %88
 
 83:                                               ; preds = %77
-  %84 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20, !noalias !63
+  %84 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22, !noalias !63
   %85 = load ptr, ptr %66, align 8, !noalias !63
   invoke void @_ZN3gmx24AnalysisDataStorageFrameC1ERKNS_20AbstractAnalysisDataE(ptr noundef nonnull align 8 dereferenceable(45) %84, ptr noundef nonnull align 8 dereferenceable(16) %85)
           to label %_ZN3gmx8internal23AnalysisDataStorageImpl15getFrameBuilderEv.exit unwind label %86, !noalias !63
@@ -2780,7 +2781,7 @@ common.resume:                                    ; preds = %61, %59, %86
 86:                                               ; preds = %83
   %87 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %84) #21, !noalias !63
+  tail call void @_ZdlPv(ptr noundef nonnull %84) #23, !noalias !63
   br label %common.resume
 
 88:                                               ; preds = %77
@@ -2796,8 +2797,8 @@ common.resume:                                    ; preds = %61, %59, %86
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE8pop_backEv.exit.i, label %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i.i: ; preds = %88
-  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %94) #22, !noalias !63
-  tail call void @_ZdlPv(ptr noundef nonnull %94) #21, !noalias !63
+  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %94) #24, !noalias !63
+  tail call void @_ZdlPv(ptr noundef nonnull %94) #23, !noalias !63
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE8pop_backEv.exit.i
 
 _ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE8pop_backEv.exit.i: ; preds = %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i.i, %88
@@ -2815,8 +2816,8 @@ _ZN3gmx8internal23AnalysisDataStorageImpl15getFrameBuilderEv.exit: ; preds = %83
   br i1 %.not.i.i.i.i.i31, label %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EEaSEOS4_.exit.i, label %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i.i32
 
 _ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i.i32: ; preds = %_ZN3gmx8internal23AnalysisDataStorageImpl15getFrameBuilderEv.exit
-  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %96) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %96) #21
+  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %96) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %96) #23
   %.pre.i = load ptr, ptr %95, align 8
   br label %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EEaSEOS4_.exit.i
 
@@ -2867,7 +2868,7 @@ define linkonce_odr void @_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_
   %5 = alloca %"struct.std::type_index", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
+  %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2886,7 +2887,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #22
+  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #24
   br label %_ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit
 
 14:                                               ; preds = %3
@@ -2900,7 +2901,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i: ; pred
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #22
+  call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #24
   br label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i
 
 _ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i: ; preds = %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i, %14
@@ -2926,7 +2927,7 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.99", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   %4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %14
 
@@ -2939,7 +2940,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %.noexc3
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.36) #19
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.36) #21
           to label %7 unwind label %8
 
 7:                                                ; preds = %6
@@ -2948,17 +2949,17 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #24
   br label %.body
 
 10:                                               ; preds = %.noexc3
-  %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
+  %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   %12 = getelementptr inbounds i8, ptr %1, i64 %11
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull %12)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %8
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %10
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   ret void
@@ -2970,7 +2971,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .body:                                            ; preds = %8, %14
   %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %9, %8 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -2996,7 +2997,7 @@ define linkonce_odr void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 deref
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
 
 14:                                               ; preds = %4
@@ -3022,7 +3023,7 @@ define linkonce_odr void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 deref
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
   %26 = getelementptr inbounds i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %27, 0
@@ -3047,19 +3048,20 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
   br label %_ZN3gmx16GromacsExceptionD2Ev.exit
 
 _ZN3gmx16GromacsExceptionD2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
   ret void
 }
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
   ret void
 }
 
@@ -3079,7 +3081,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull 
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i.i
-  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i) #22
+  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i) #24
   br label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
@@ -3097,11 +3099,11 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
   br i1 %.not.i.i.i, label %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit, label %10
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #23
   br label %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit
 
 _ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, %10
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
   ret void
 }
 
@@ -3113,16 +3115,16 @@ declare void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #13
+declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #13
+declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #15
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
@@ -3157,7 +3159,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #23
+  tail call void @__clang_call_terminate(ptr %17) #25
   unreachable
 
 18:                                               ; preds = %13, %10
@@ -3166,7 +3168,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
           to label %20 unwind label %22
 
 20:                                               ; preds = %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #24
   store ptr null, ptr %5, align 8
   %21 = load i64, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %21)
@@ -3178,12 +3180,12 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 22:                                               ; preds = %20, %18
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
   resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
@@ -3192,7 +3194,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #15
 
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
@@ -3215,28 +3217,28 @@ define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #23
+  tail call void @__clang_call_terminate(ptr %7) #25
   unreachable
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #13
+declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #15
 
 declare void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #13
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #13
+declare void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #13
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #13
+declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(45) ptr @_ZN3gmx19AnalysisDataStorage10startFrameEiff(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #1 align 2 {
@@ -3278,7 +3280,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit: ; pre
   br i1 %24, label %25, label %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
 
 _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread: ; preds = %2, %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx19AnalysisDataStorage12currentFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 850) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx19AnalysisDataStorage12currentFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 850) #21
   unreachable
 
 25:                                               ; preds = %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit
@@ -3291,7 +3293,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %25
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.40, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx19AnalysisDataStorage12currentFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 854) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.40, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx19AnalysisDataStorage12currentFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 854) #21
   unreachable
 
 33:                                               ; preds = %25
@@ -3299,7 +3301,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
   br i1 %.not, label %35, label %34
 
 34:                                               ; preds = %33
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.41, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx19AnalysisDataStorage12currentFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 856) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.41, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx19AnalysisDataStorage12currentFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 856) #21
   unreachable
 
 35:                                               ; preds = %33
@@ -3309,7 +3311,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %35
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx19AnalysisDataStorage12currentFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 857) #19
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx19AnalysisDataStorage12currentFrameEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 857) #21
   unreachable
 
 40:                                               ; preds = %35
@@ -3358,8 +3360,8 @@ define void @_ZN3gmx19AnalysisDataStorage17finishDataStorageEv(ptr nocapture nou
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %7) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #21
+  tail call void @_ZN3gmx24AnalysisDataStorageFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %7) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #23
   br label %_ZSt8_DestroyISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
@@ -3384,22 +3386,22 @@ _ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS
 declare void @_ZNK3gmx25AnalysisDataModuleManager16notifyDataFinishEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
+declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -3408,23 +3410,25 @@ attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { noreturn }
-attributes #20 = { builtin allocsize(0) }
-attributes #21 = { builtin nounwind }
-attributes #22 = { nounwind }
-attributes #23 = { noreturn nounwind }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #14 = { cold noreturn }
+attributes #15 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { noreturn }
+attributes #22 = { builtin allocsize(0) }
+attributes #23 = { builtin nounwind }
+attributes #24 = { nounwind }
+attributes #25 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

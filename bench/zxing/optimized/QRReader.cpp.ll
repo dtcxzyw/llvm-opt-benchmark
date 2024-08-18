@@ -118,38 +118,38 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
   %16 = load ptr, ptr %1, align 8, !tbaa !9
   %17 = getelementptr inbounds i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
-  call void %18(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.8") align 8 %4, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef 1) #15
-  invoke void @_ZN5ZXing14FirstOrDefaultITtTpTyESt6vectorJNS_6ResultESaIS2_EEEEDaOT_IJDpT0_EE(ptr dead_on_unwind writable sret(%"class.ZXing::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %4) #15
+  call void %18(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.8") align 8 %4, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef 1) #16
+  invoke void @_ZN5ZXing14FirstOrDefaultITtTpTyESt6vectorJNS_6ResultESaIS2_EEEEDaOT_IJDpT0_EE(ptr dead_on_unwind writable sret(%"class.ZXing::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %4) #16
           to label %19 unwind label %20
 
 19:                                               ; preds = %15
-  call void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #14
+  call void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
   br label %219
 
 20:                                               ; preds = %15
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #14
+  call void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
   br label %220
 
 22:                                               ; preds = %3
-  %23 = tail call noundef ptr @_ZNK5ZXing12BinaryBitmap12getBitMatrixEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #15
+  %23 = tail call noundef ptr @_ZNK5ZXing12BinaryBitmap12getBitMatrixEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #16
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 216, i1 false)
-  tail call void @_ZN5ZXing6ResultC2Ev(ptr noundef nonnull align 8 dereferenceable(211) %0) #15
+  tail call void @_ZN5ZXing6ResultC2Ev(ptr noundef nonnull align 8 dereferenceable(211) %0) #16
   br label %219
 
 26:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   %27 = load ptr, ptr %10, align 8, !tbaa !3
   %28 = getelementptr inbounds i8, ptr %27, i64 8
@@ -161,14 +161,14 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
   br i1 %33, label %34, label %59
 
 34:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #14
-  invoke void @_ZN5ZXing6QRCode12DetectPureQRERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DetectorResult") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %23) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #15
+  invoke void @_ZN5ZXing6QRCode12DetectPureQRERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DetectorResult") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %23) #16
           to label %37 unwind label %35
 
 35:                                               ; preds = %34
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #15
   br label %217
 
 37:                                               ; preds = %34
@@ -190,7 +190,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
   %49 = getelementptr inbounds i8, ptr %6, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %49, i64 32, i1 false)
   %50 = load ptr, ptr %10, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #15
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load i32, ptr %51, align 4, !tbaa !11
   %53 = and i32 %52, 65536
@@ -215,8 +215,8 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
   %66 = phi ptr [ %64, %62 ], [ %41, %37 ]
   %67 = phi ptr [ %63, %62 ], [ %39, %37 ]
   %68 = phi ptr [ null, %62 ], [ %45, %37 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #14
-  invoke void @_ZN5ZXing6QRCode13DetectPureMQRERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DetectorResult") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %23) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #15
+  invoke void @_ZN5ZXing6QRCode13DetectPureMQRERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DetectorResult") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %23) #16
           to label %69 unwind label %94
 
 69:                                               ; preds = %65
@@ -243,7 +243,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
   br label %88
 
 82:                                               ; preds = %69
-  call void @_ZdlPv(ptr noundef nonnull %68) #17
+  call void @_ZdlPv(ptr noundef nonnull %68) #18
   %83 = load ptr, ptr %71, align 8, !tbaa !14
   %84 = getelementptr inbounds i8, ptr %5, i64 32
   %85 = getelementptr inbounds i8, ptr %7, i64 32
@@ -252,11 +252,11 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
   br i1 %86, label %88, label %87
 
 87:                                               ; preds = %82
-  call void @_ZdlPv(ptr noundef nonnull %83) #17
+  call void @_ZdlPv(ptr noundef nonnull %83) #18
   br label %88
 
 88:                                               ; preds = %87, %82, %79
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #15
   %89 = load ptr, ptr %10, align 8, !tbaa !3
   %90 = getelementptr inbounds i8, ptr %89, i64 8
   %91 = load i32, ptr %90, align 4, !tbaa !11
@@ -270,7 +270,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
 94:                                               ; preds = %65
   %95 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #15
   br label %212
 
 96:                                               ; preds = %88, %37
@@ -301,8 +301,8 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
   %115 = phi ptr [ %113, %111 ], [ %105, %96 ]
   %116 = phi ptr [ %112, %111 ], [ %104, %96 ]
   %117 = phi ptr [ null, %111 ], [ %97, %96 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #14
-  invoke void @_ZN5ZXing6QRCode14DetectPureRMQRERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DetectorResult") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %23) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #15
+  invoke void @_ZN5ZXing6QRCode14DetectPureRMQRERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DetectorResult") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %23) #16
           to label %118 unwind label %140
 
 118:                                              ; preds = %114
@@ -329,7 +329,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
   br label %137
 
 131:                                              ; preds = %118
-  call void @_ZdlPv(ptr noundef nonnull %117) #17
+  call void @_ZdlPv(ptr noundef nonnull %117) #18
   %132 = load ptr, ptr %120, align 8, !tbaa !14
   %133 = getelementptr inbounds i8, ptr %5, i64 32
   %134 = getelementptr inbounds i8, ptr %8, i64 32
@@ -338,11 +338,11 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
   br i1 %135, label %137, label %136
 
 136:                                              ; preds = %131
-  call void @_ZdlPv(ptr noundef nonnull %132) #17
+  call void @_ZdlPv(ptr noundef nonnull %132) #18
   br label %137
 
 137:                                              ; preds = %136, %131, %128
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #15
   %138 = load ptr, ptr %116, align 8, !tbaa !18
   %139 = load ptr, ptr %115, align 8, !tbaa !18
   br label %142
@@ -350,7 +350,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
 140:                                              ; preds = %114
   %141 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #15
   br label %212
 
 142:                                              ; preds = %137, %96
@@ -363,12 +363,12 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
 147:                                              ; preds = %142, %108
   %148 = phi ptr [ %143, %142 ], [ null, %108 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 216, i1 false)
-  invoke void @_ZN5ZXing6ResultC2Ev(ptr noundef nonnull align 8 dereferenceable(211) %0) #15
+  invoke void @_ZN5ZXing6ResultC2Ev(ptr noundef nonnull align 8 dereferenceable(211) %0) #16
           to label %207 unwind label %92
 
 149:                                              ; preds = %142
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %9) #14
-  invoke void @_ZN5ZXing6QRCode6DecodeERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DecoderResult") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %5) #15
+  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %9) #15
+  invoke void @_ZN5ZXing6QRCode6DecodeERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DecoderResult") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %5) #16
           to label %150 unwind label %200
 
 150:                                              ; preds = %149
@@ -379,12 +379,12 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
   %155 = icmp slt i32 %151, 21
   %156 = select i1 %155, i32 65536, i32 8192
   %157 = select i1 %154, i32 %156, i32 131072
-  invoke void @_ZN5ZXing6ResultC1EONS_13DecoderResultEONS_14DetectorResultENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) %0, ptr noundef nonnull align 8 dereferenceable(208) %9, ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %157) #15
+  invoke void @_ZN5ZXing6ResultC1EONS_13DecoderResultEONS_14DetectorResultENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) %0, ptr noundef nonnull align 8 dereferenceable(208) %9, ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %157) #16
           to label %158 unwind label %202
 
 158:                                              ; preds = %150
   %159 = getelementptr inbounds i8, ptr %9, i64 200
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %159) #16
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %159) #17
   %160 = getelementptr inbounds i8, ptr %9, i64 144
   %161 = load ptr, ptr %160, align 8, !tbaa !25
   %162 = getelementptr inbounds i8, ptr %9, i64 160
@@ -399,7 +399,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
   br label %169
 
 168:                                              ; preds = %158
-  call void @_ZdlPv(ptr noundef %161) #17
+  call void @_ZdlPv(ptr noundef %161) #18
   br label %169
 
 169:                                              ; preds = %168, %164
@@ -417,7 +417,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
   br label %179
 
 178:                                              ; preds = %169
-  call void @_ZdlPv(ptr noundef %171) #17
+  call void @_ZdlPv(ptr noundef %171) #18
   br label %179
 
 179:                                              ; preds = %178, %174
@@ -435,7 +435,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
   br label %189
 
 188:                                              ; preds = %179
-  call void @_ZdlPv(ptr noundef %181) #17
+  call void @_ZdlPv(ptr noundef %181) #18
   br label %189
 
 189:                                              ; preds = %188, %184
@@ -445,7 +445,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
   br i1 %192, label %194, label %193
 
 193:                                              ; preds = %189
-  call void @_ZdlPv(ptr noundef nonnull %191) #17
+  call void @_ZdlPv(ptr noundef nonnull %191) #18
   br label %194
 
 194:                                              ; preds = %193, %189
@@ -454,11 +454,11 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
   br i1 %196, label %198, label %197
 
 197:                                              ; preds = %194
-  call void @_ZdlPv(ptr noundef nonnull %195) #17
+  call void @_ZdlPv(ptr noundef nonnull %195) #18
   br label %198
 
 198:                                              ; preds = %197, %194
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %9) #15
   %199 = load ptr, ptr %145, align 8, !tbaa !14
   br label %207
 
@@ -470,12 +470,12 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
 202:                                              ; preds = %150
   %203 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %9) #16
+  call void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %9) #17
   br label %204
 
 204:                                              ; preds = %202, %200
   %205 = phi { ptr, i32 } [ %203, %202 ], [ %201, %200 ]
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %9) #15
   %206 = load ptr, ptr %145, align 8, !tbaa !14
   br label %212
 
@@ -485,11 +485,11 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
   br i1 %209, label %211, label %210
 
 210:                                              ; preds = %207
-  call void @_ZdlPv(ptr noundef nonnull %208) #17
+  call void @_ZdlPv(ptr noundef nonnull %208) #18
   br label %211
 
 211:                                              ; preds = %210, %207
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #15
   br label %219
 
 212:                                              ; preds = %204, %140, %94, %92
@@ -499,12 +499,12 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
   br i1 %215, label %217, label %216
 
 216:                                              ; preds = %212
-  call void @_ZdlPv(ptr noundef nonnull %213) #17
+  call void @_ZdlPv(ptr noundef nonnull %213) #18
   br label %217
 
 217:                                              ; preds = %216, %212, %35
   %218 = phi { ptr, i32 } [ %36, %35 ], [ %214, %212 ], [ %214, %216 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #15
   br label %220
 
 219:                                              ; preds = %211, %25, %19
@@ -525,7 +525,7 @@ define linkonce_odr void @_ZN5ZXing14FirstOrDefaultITtTpTyESt6vectorJNS_6ResultE
 
 7:                                                ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 216, i1 false)
-  tail call void @_ZN5ZXing6ResultC2Ev(ptr noundef nonnull align 8 dereferenceable(211) %0) #15
+  tail call void @_ZN5ZXing6ResultC2Ev(ptr noundef nonnull align 8 dereferenceable(211) %0) #16
   br label %68
 
 8:                                                ; preds = %2
@@ -645,7 +645,7 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev(ptr noundef n
   %2 = load ptr, ptr %0, align 8, !tbaa !35
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !37
-  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5ZXing6ResultEEEvT_S5_(ptr noundef %2, ptr noundef %4) #15
+  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5ZXing6ResultEEEvT_S5_(ptr noundef %2, ptr noundef %4) #16
           to label %5 unwind label %10
 
 5:                                                ; preds = %1
@@ -654,7 +654,7 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev(ptr noundef n
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #18
   br label %9
 
 9:                                                ; preds = %8, %5
@@ -664,7 +664,7 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev(ptr noundef n
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #18
+  tail call void @__clang_call_terminate(ptr %12) #19
   unreachable
 }
 
@@ -679,7 +679,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZN5ZXing6ResultC2Ev(ptr noundef nonnull align 8 dereferenceable(211) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN5ZXing7ContentC1Ev(ptr noundef nonnull align 8 dereferenceable(54) %0) #15
+  tail call void @_ZN5ZXing7ContentC1Ev(ptr noundef nonnull align 8 dereferenceable(54) %0) #16
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %3, ptr %2, align 8, !tbaa !33
@@ -740,7 +740,7 @@ declare void @_ZN5ZXing6ResultC1EONS_13DecoderResultEONS_14DetectorResultENS_13B
 ; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
 define linkonce_odr void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
-  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #16
+  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #17
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8, !tbaa !25
   %5 = getelementptr inbounds i8, ptr %0, i64 160
@@ -755,7 +755,7 @@ define linkonce_odr void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align
   br label %12
 
 11:                                               ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %4) #17
+  tail call void @_ZdlPv(ptr noundef %4) #18
   br label %12
 
 12:                                               ; preds = %11, %7
@@ -773,7 +773,7 @@ define linkonce_odr void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align
   br label %22
 
 21:                                               ; preds = %12
-  tail call void @_ZdlPv(ptr noundef %14) #17
+  tail call void @_ZdlPv(ptr noundef %14) #18
   br label %22
 
 22:                                               ; preds = %21, %17
@@ -791,7 +791,7 @@ define linkonce_odr void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align
   br label %32
 
 31:                                               ; preds = %22
-  tail call void @_ZdlPv(ptr noundef %24) #17
+  tail call void @_ZdlPv(ptr noundef %24) #18
   br label %32
 
 32:                                               ; preds = %31, %27
@@ -801,7 +801,7 @@ define linkonce_odr void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %32
-  tail call void @_ZdlPv(ptr noundef nonnull %34) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %34) #18
   br label %37
 
 37:                                               ; preds = %36, %32
@@ -810,7 +810,7 @@ define linkonce_odr void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %37
-  tail call void @_ZdlPv(ptr noundef nonnull %38) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %38) #18
   br label %41
 
 41:                                               ; preds = %40, %37
@@ -836,7 +836,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   %14 = alloca %"class.ZXing::DetectorResult", align 8
   %15 = alloca %"class.ZXing::DecoderResult", align 8
   %16 = alloca i32, align 4
-  %17 = tail call noundef ptr @_ZNK5ZXing12BinaryBitmap12getBitMatrixEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #15
+  %17 = tail call noundef ptr @_ZNK5ZXing12BinaryBitmap12getBitMatrixEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #16
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20
 
@@ -845,13 +845,13 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %543
 
 20:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
   %21 = getelementptr inbounds i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !3
   %23 = load i32, ptr %22, align 4
   %24 = trunc i32 %23 to i1
-  call void @_ZN5ZXing6QRCode18FindFinderPatternsERKNS_9BitMatrixEb(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.15") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %17, i1 noundef zeroext %24) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #14
+  call void @_ZN5ZXing6QRCode18FindFinderPatternsERKNS_9BitMatrixEb(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.15") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %17, i1 noundef zeroext %24) #16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %25 = load ptr, ptr %21, align 8, !tbaa !3
@@ -864,8 +864,8 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %31, label %32, label %233
 
 32:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
-  invoke void @_ZN5ZXing6QRCode25GenerateFinderPatternSetsERSt6vectorINS_17ConcentricPatternESaIS2_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.20") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %5) #15
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #15
+  invoke void @_ZN5ZXing6QRCode25GenerateFinderPatternSetsERSt6vectorINS_17ConcentricPatternESaIS2_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.20") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %5) #16
           to label %33 unwind label %58
 
 33:                                               ; preds = %32
@@ -906,7 +906,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   %61 = phi ptr [ %34, %38 ], [ %.be55, %.backedge54 ]
   %62 = load ptr, ptr %6, align 8, !tbaa !18
   %63 = load ptr, ptr %39, align 8, !tbaa !18
-  %64 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIS4_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %62, ptr %63, ptr nonnull %61) #15
+  %64 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIS4_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %62, ptr %63, ptr nonnull %61) #16
           to label %65 unwind label %82
 
 65:                                               ; preds = %60
@@ -917,7 +917,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
 68:                                               ; preds = %65
   %69 = getelementptr inbounds i8, ptr %61, i64 24
   %70 = load ptr, ptr %6, align 8, !tbaa !18
-  %71 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIS4_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %70, ptr %64, ptr nonnull %69) #15
+  %71 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIS4_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %70, ptr %64, ptr nonnull %69) #16
           to label %72 unwind label %82
 
 72:                                               ; preds = %68
@@ -928,7 +928,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
 75:                                               ; preds = %72
   %76 = getelementptr inbounds i8, ptr %61, i64 48
   %77 = load ptr, ptr %6, align 8, !tbaa !18
-  %78 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIS4_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %77, ptr %71, ptr nonnull %76) #15
+  %78 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIS4_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %77, ptr %71, ptr nonnull %76) #16
           to label %79 unwind label %82
 
 79:                                               ; preds = %75
@@ -942,8 +942,8 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %216
 
 84:                                               ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #14
-  invoke void @_ZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DetectorResult") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(72) %61) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #15
+  invoke void @_ZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DetectorResult") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(72) %61) #16
           to label %85 unwind label %125
 
 85:                                               ; preds = %84
@@ -953,8 +953,8 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %88, label %199, label %89
 
 89:                                               ; preds = %85
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %9) #14
-  invoke void @_ZN5ZXing6QRCode6DecodeERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DecoderResult") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %8) #15
+  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %9) #15
+  invoke void @_ZN5ZXing6QRCode6DecodeERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DecoderResult") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %8) #16
           to label %90 unwind label %127
 
 90:                                               ; preds = %89
@@ -980,7 +980,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %107
 
 104:                                              ; preds = %97
-  invoke void @_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %98, ptr noundef nonnull align 8 dereferenceable(20) %61) #15
+  invoke void @_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %98, ptr noundef nonnull align 8 dereferenceable(20) %61) #16
           to label %105 unwind label %129
 
 105:                                              ; preds = %104
@@ -1001,7 +1001,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %117
 
 114:                                              ; preds = %107
-  invoke void @_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %108, ptr noundef nonnull align 8 dereferenceable(20) %69) #15
+  invoke void @_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %108, ptr noundef nonnull align 8 dereferenceable(20) %69) #16
           to label %115 unwind label %129
 
 115:                                              ; preds = %114
@@ -1022,7 +1022,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %131
 
 124:                                              ; preds = %117
-  invoke void @_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %118, ptr noundef nonnull align 8 dereferenceable(20) %76) #15
+  invoke void @_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %118, ptr noundef nonnull align 8 dereferenceable(20) %76) #16
           to label %131 unwind label %129
 
 125:                                              ; preds = %84
@@ -1062,13 +1062,13 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %145, label %146, label %160
 
 146:                                              ; preds = %143, %140
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #15
   store i32 8192, ptr %10, align 4, !tbaa !59
-  %147 = invoke noundef nonnull align 8 dereferenceable(211) ptr @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(208) %9, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(4) %10) #15
+  %147 = invoke noundef nonnull align 8 dereferenceable(211) ptr @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(208) %9, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(4) %10) #16
           to label %148 unwind label %158
 
 148:                                              ; preds = %146
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
   br i1 %45, label %160, label %149
 
 149:                                              ; preds = %148
@@ -1085,7 +1085,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
 158:                                              ; preds = %146
   %159 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
   br label %193
 
 160:                                              ; preds = %149, %148, %143, %140
@@ -1094,7 +1094,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
 161:                                              ; preds = %160, %149
   %162 = phi i1 [ true, %160 ], [ false, %149 ]
   %163 = phi i32 [ 0, %160 ], [ 2, %149 ]
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %47) #16
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %47) #17
   %164 = load ptr, ptr %48, align 8, !tbaa !25
   %165 = icmp eq ptr %164, %49
   br i1 %165, label %166, label %169
@@ -1106,7 +1106,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %170
 
 169:                                              ; preds = %161
-  call void @_ZdlPv(ptr noundef %164) #17
+  call void @_ZdlPv(ptr noundef %164) #18
   br label %170
 
 170:                                              ; preds = %169, %166
@@ -1121,7 +1121,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %177
 
 176:                                              ; preds = %170
-  call void @_ZdlPv(ptr noundef %171) #17
+  call void @_ZdlPv(ptr noundef %171) #18
   br label %177
 
 177:                                              ; preds = %176, %173
@@ -1136,7 +1136,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %184
 
 183:                                              ; preds = %177
-  call void @_ZdlPv(ptr noundef %178) #17
+  call void @_ZdlPv(ptr noundef %178) #18
   br label %184
 
 184:                                              ; preds = %183, %180
@@ -1145,7 +1145,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %186, label %188, label %187
 
 187:                                              ; preds = %184
-  call void @_ZdlPv(ptr noundef nonnull %185) #17
+  call void @_ZdlPv(ptr noundef nonnull %185) #18
   br label %188
 
 188:                                              ; preds = %187, %184
@@ -1154,21 +1154,21 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %190, label %192, label %191
 
 191:                                              ; preds = %188
-  call void @_ZdlPv(ptr noundef nonnull %189) #17
+  call void @_ZdlPv(ptr noundef nonnull %189) #18
   br label %192
 
 192:                                              ; preds = %191, %188
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %9) #15
   br i1 %162, label %199, label %200
 
 193:                                              ; preds = %158, %129
   %194 = phi { ptr, i32 } [ %159, %158 ], [ %130, %129 ]
-  call void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %9) #16
+  call void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %9) #17
   br label %195
 
 195:                                              ; preds = %193, %127
   %196 = phi { ptr, i32 } [ %194, %193 ], [ %128, %127 ]
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %9) #15
   %197 = load ptr, ptr %40, align 8, !tbaa !14
   %198 = icmp eq ptr %197, null
   br i1 %198, label %214, label %213
@@ -1183,11 +1183,11 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %203, label %205, label %204
 
 204:                                              ; preds = %200
-  call void @_ZdlPv(ptr noundef nonnull %202) #17
+  call void @_ZdlPv(ptr noundef nonnull %202) #18
   br label %205
 
 205:                                              ; preds = %204, %200
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #15
   %206 = icmp ne i32 %201, 0
   %207 = getelementptr inbounds i8, ptr %61, i64 72
   %208 = icmp eq ptr %207, %36
@@ -1204,12 +1204,12 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %60
 
 213:                                              ; preds = %195
-  call void @_ZdlPv(ptr noundef nonnull %197) #17
+  call void @_ZdlPv(ptr noundef nonnull %197) #18
   br label %214
 
 214:                                              ; preds = %213, %195, %125
   %215 = phi { ptr, i32 } [ %126, %125 ], [ %196, %195 ], [ %196, %213 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #15
   br label %216
 
 216:                                              ; preds = %214, %82
@@ -1219,7 +1219,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %219, label %231, label %220
 
 220:                                              ; preds = %216
-  call void @_ZdlPv(ptr noundef nonnull %218) #17
+  call void @_ZdlPv(ptr noundef nonnull %218) #18
   br label %231
 
 221:                                              ; preds = %210, %205
@@ -1232,11 +1232,11 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %225, label %227, label %226
 
 226:                                              ; preds = %223
-  call void @_ZdlPv(ptr noundef nonnull %224) #17
+  call void @_ZdlPv(ptr noundef nonnull %224) #18
   br label %227
 
 227:                                              ; preds = %226, %223
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
   %228 = load ptr, ptr %21, align 8, !tbaa !3
   %229 = getelementptr inbounds i8, ptr %228, i64 8
   %230 = load i32, ptr %229, align 4, !tbaa !11
@@ -1244,7 +1244,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
 
 231:                                              ; preds = %220, %216, %58
   %232 = phi { ptr, i32 } [ %59, %58 ], [ %217, %216 ], [ %217, %220 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
   br label %533
 
 233:                                              ; preds = %227, %20
@@ -1302,7 +1302,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   %275 = phi ptr [ %252, %256 ], [ %.be53, %.backedge52 ]
   %276 = load ptr, ptr %6, align 8, !tbaa !18
   %277 = load ptr, ptr %257, align 8, !tbaa !18
-  %278 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIS4_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %276, ptr %277, ptr nonnull %275) #15
+  %278 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIS4_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %276, ptr %277, ptr nonnull %275) #16
           to label %279 unwind label %282
 
 279:                                              ; preds = %274
@@ -1316,8 +1316,8 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %533
 
 284:                                              ; preds = %279
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #14
-  invoke void @_ZN5ZXing6QRCode9SampleMQRERKNS_9BitMatrixERKNS_17ConcentricPatternE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DetectorResult") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(20) %275) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #15
+  invoke void @_ZN5ZXing6QRCode9SampleMQRERKNS_9BitMatrixERKNS_17ConcentricPatternE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DetectorResult") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(20) %275) #16
           to label %285 unwind label %317
 
 285:                                              ; preds = %284
@@ -1327,8 +1327,8 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %288, label %360, label %289
 
 289:                                              ; preds = %285
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %12) #14
-  invoke void @_ZN5ZXing6QRCode6DecodeERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DecoderResult") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %11) #15
+  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %12) #15
+  invoke void @_ZN5ZXing6QRCode6DecodeERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DecoderResult") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %11) #16
           to label %290 unwind label %319
 
 290:                                              ; preds = %289
@@ -1353,13 +1353,13 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %304, label %305, label %323
 
 305:                                              ; preds = %302, %299
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #15
   store i32 65536, ptr %13, align 4, !tbaa !59
-  %306 = invoke noundef nonnull align 8 dereferenceable(211) ptr @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(208) %12, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 4 dereferenceable(4) %13) #15
+  %306 = invoke noundef nonnull align 8 dereferenceable(211) ptr @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(208) %12, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 4 dereferenceable(4) %13) #16
           to label %307 unwind label %321
 
 307:                                              ; preds = %305
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #15
   br i1 %240, label %323, label %308
 
 308:                                              ; preds = %307
@@ -1386,8 +1386,8 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
 321:                                              ; preds = %305
   %322 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
-  call void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %12) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #15
+  call void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %12) #17
   br label %356
 
 323:                                              ; preds = %308, %307, %302, %299
@@ -1396,7 +1396,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
 324:                                              ; preds = %323, %308
   %325 = phi i1 [ true, %323 ], [ false, %308 ]
   %326 = phi i32 [ 0, %323 ], [ 4, %308 ]
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %263) #16
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %263) #17
   %327 = load ptr, ptr %264, align 8, !tbaa !25
   %328 = icmp eq ptr %327, %265
   br i1 %328, label %329, label %332
@@ -1408,7 +1408,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %333
 
 332:                                              ; preds = %324
-  call void @_ZdlPv(ptr noundef %327) #17
+  call void @_ZdlPv(ptr noundef %327) #18
   br label %333
 
 333:                                              ; preds = %332, %329
@@ -1423,7 +1423,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %340
 
 339:                                              ; preds = %333
-  call void @_ZdlPv(ptr noundef %334) #17
+  call void @_ZdlPv(ptr noundef %334) #18
   br label %340
 
 340:                                              ; preds = %339, %336
@@ -1438,7 +1438,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %347
 
 346:                                              ; preds = %340
-  call void @_ZdlPv(ptr noundef %341) #17
+  call void @_ZdlPv(ptr noundef %341) #18
   br label %347
 
 347:                                              ; preds = %346, %343
@@ -1447,7 +1447,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %349, label %351, label %350
 
 350:                                              ; preds = %347
-  call void @_ZdlPv(ptr noundef nonnull %348) #17
+  call void @_ZdlPv(ptr noundef nonnull %348) #18
   br label %351
 
 351:                                              ; preds = %350, %347
@@ -1456,16 +1456,16 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %353, label %355, label %354
 
 354:                                              ; preds = %351
-  call void @_ZdlPv(ptr noundef nonnull %352) #17
+  call void @_ZdlPv(ptr noundef nonnull %352) #18
   br label %355
 
 355:                                              ; preds = %354, %351
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %12) #15
   br i1 %325, label %360, label %361
 
 356:                                              ; preds = %321, %319
   %357 = phi { ptr, i32 } [ %322, %321 ], [ %320, %319 ]
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %12) #15
   %358 = load ptr, ptr %258, align 8, !tbaa !14
   %359 = icmp eq ptr %358, null
   br i1 %359, label %375, label %374
@@ -1480,11 +1480,11 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %364, label %366, label %365
 
 365:                                              ; preds = %361
-  call void @_ZdlPv(ptr noundef nonnull %363) #17
+  call void @_ZdlPv(ptr noundef nonnull %363) #18
   br label %366
 
 366:                                              ; preds = %365, %361
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #15
   %367 = icmp ne i32 %362, 0
   %368 = getelementptr inbounds i8, ptr %275, i64 24
   %369 = icmp eq ptr %368, %254
@@ -1501,12 +1501,12 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %274
 
 374:                                              ; preds = %356
-  call void @_ZdlPv(ptr noundef nonnull %358) #17
+  call void @_ZdlPv(ptr noundef nonnull %358) #18
   br label %375
 
 375:                                              ; preds = %374, %356, %317
   %376 = phi { ptr, i32 } [ %318, %317 ], [ %357, %356 ], [ %357, %374 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #15
   br label %533
 
 377:                                              ; preds = %371, %366
@@ -1570,7 +1570,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   %423 = phi ptr [ %400, %404 ], [ %.be, %.backedge ]
   %424 = load ptr, ptr %6, align 8, !tbaa !18
   %425 = load ptr, ptr %405, align 8, !tbaa !18
-  %426 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIS4_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %424, ptr %425, ptr nonnull %423) #15
+  %426 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN5ZXing17ConcentricPatternESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIS4_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %424, ptr %425, ptr nonnull %423) #16
           to label %427 unwind label %430
 
 427:                                              ; preds = %422
@@ -1584,8 +1584,8 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %533
 
 432:                                              ; preds = %427
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #14
-  invoke void @_ZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DetectorResult") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(20) %423) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #15
+  invoke void @_ZN5ZXing6QRCode10SampleRMQRERKNS_9BitMatrixERKNS_17ConcentricPatternE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DetectorResult") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(20) %423) #16
           to label %433 unwind label %465
 
 433:                                              ; preds = %432
@@ -1595,8 +1595,8 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %436, label %508, label %437
 
 437:                                              ; preds = %433
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %15) #14
-  invoke void @_ZN5ZXing6QRCode6DecodeERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DecoderResult") align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %14) #15
+  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %15) #15
+  invoke void @_ZN5ZXing6QRCode6DecodeERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DecoderResult") align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %14) #16
           to label %438 unwind label %467
 
 438:                                              ; preds = %437
@@ -1621,13 +1621,13 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %452, label %453, label %471
 
 453:                                              ; preds = %450, %447
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #15
   store i32 131072, ptr %16, align 4, !tbaa !59
-  %454 = invoke noundef nonnull align 8 dereferenceable(211) ptr @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(208) %15, ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(4) %16) #15
+  %454 = invoke noundef nonnull align 8 dereferenceable(211) ptr @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(208) %15, ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(4) %16) #16
           to label %455 unwind label %469
 
 455:                                              ; preds = %453
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #15
   br i1 %388, label %471, label %456
 
 456:                                              ; preds = %455
@@ -1654,8 +1654,8 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
 469:                                              ; preds = %453
   %470 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #14
-  call void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %15) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #15
+  call void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %15) #17
   br label %504
 
 471:                                              ; preds = %456, %455, %450, %447
@@ -1664,7 +1664,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
 472:                                              ; preds = %471, %456
   %473 = phi i1 [ true, %471 ], [ false, %456 ]
   %474 = phi i32 [ 0, %471 ], [ 6, %456 ]
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %411) #16
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %411) #17
   %475 = load ptr, ptr %412, align 8, !tbaa !25
   %476 = icmp eq ptr %475, %413
   br i1 %476, label %477, label %480
@@ -1676,7 +1676,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %481
 
 480:                                              ; preds = %472
-  call void @_ZdlPv(ptr noundef %475) #17
+  call void @_ZdlPv(ptr noundef %475) #18
   br label %481
 
 481:                                              ; preds = %480, %477
@@ -1691,7 +1691,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %488
 
 487:                                              ; preds = %481
-  call void @_ZdlPv(ptr noundef %482) #17
+  call void @_ZdlPv(ptr noundef %482) #18
   br label %488
 
 488:                                              ; preds = %487, %484
@@ -1706,7 +1706,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %495
 
 494:                                              ; preds = %488
-  call void @_ZdlPv(ptr noundef %489) #17
+  call void @_ZdlPv(ptr noundef %489) #18
   br label %495
 
 495:                                              ; preds = %494, %491
@@ -1715,7 +1715,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %497, label %499, label %498
 
 498:                                              ; preds = %495
-  call void @_ZdlPv(ptr noundef nonnull %496) #17
+  call void @_ZdlPv(ptr noundef nonnull %496) #18
   br label %499
 
 499:                                              ; preds = %498, %495
@@ -1724,16 +1724,16 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %501, label %503, label %502
 
 502:                                              ; preds = %499
-  call void @_ZdlPv(ptr noundef nonnull %500) #17
+  call void @_ZdlPv(ptr noundef nonnull %500) #18
   br label %503
 
 503:                                              ; preds = %502, %499
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %15) #14
+  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %15) #15
   br i1 %473, label %508, label %509
 
 504:                                              ; preds = %469, %467
   %505 = phi { ptr, i32 } [ %470, %469 ], [ %468, %467 ]
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %15) #14
+  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %15) #15
   %506 = load ptr, ptr %406, align 8, !tbaa !14
   %507 = icmp eq ptr %506, null
   br i1 %507, label %523, label %522
@@ -1748,11 +1748,11 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %512, label %514, label %513
 
 513:                                              ; preds = %509
-  call void @_ZdlPv(ptr noundef nonnull %511) #17
+  call void @_ZdlPv(ptr noundef nonnull %511) #18
   br label %514
 
 514:                                              ; preds = %513, %509
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #15
   %515 = icmp ne i32 %510, 0
   %516 = getelementptr inbounds i8, ptr %423, i64 24
   %517 = icmp eq ptr %516, %402
@@ -1769,12 +1769,12 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br label %422
 
 522:                                              ; preds = %504
-  call void @_ZdlPv(ptr noundef nonnull %506) #17
+  call void @_ZdlPv(ptr noundef nonnull %506) #18
   br label %523
 
 523:                                              ; preds = %522, %504, %465
   %524 = phi { ptr, i32 } [ %466, %465 ], [ %505, %504 ], [ %505, %522 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #15
   br label %533
 
 .loopexit:                                        ; preds = %519, %514, %399, %389, %381
@@ -1783,46 +1783,46 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   br i1 %526, label %528, label %527
 
 527:                                              ; preds = %.loopexit
-  call void @_ZdlPv(ptr noundef nonnull %525) #17
+  call void @_ZdlPv(ptr noundef nonnull %525) #18
   br label %528
 
 528:                                              ; preds = %527, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
   %529 = load ptr, ptr %5, align 8, !tbaa !63
   %530 = icmp eq ptr %529, null
   br i1 %530, label %532, label %531
 
 531:                                              ; preds = %528
-  call void @_ZdlPv(ptr noundef nonnull %529) #17
+  call void @_ZdlPv(ptr noundef nonnull %529) #18
   br label %532
 
 532:                                              ; preds = %531, %528
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
   br label %543
 
 533:                                              ; preds = %523, %430, %375, %282, %231
   %534 = phi { ptr, i32 } [ %232, %231 ], [ %376, %375 ], [ %283, %282 ], [ %524, %523 ], [ %431, %430 ]
-  call void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
+  call void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
   %535 = load ptr, ptr %6, align 8, !tbaa !63
   %536 = icmp eq ptr %535, null
   br i1 %536, label %538, label %537
 
 537:                                              ; preds = %533
-  call void @_ZdlPv(ptr noundef nonnull %535) #17
+  call void @_ZdlPv(ptr noundef nonnull %535) #18
   br label %538
 
 538:                                              ; preds = %537, %533
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
   %539 = load ptr, ptr %5, align 8, !tbaa !63
   %540 = icmp eq ptr %539, null
   br i1 %540, label %542, label %541
 
 541:                                              ; preds = %538
-  call void @_ZdlPv(ptr noundef nonnull %539) #17
+  call void @_ZdlPv(ptr noundef nonnull %539) #18
   br label %542
 
 542:                                              ; preds = %541, %538
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
   resume { ptr, i32 } %534
 
 543:                                              ; preds = %532, %19
@@ -1849,14 +1849,14 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(211) ptr @_ZNSt6vect
 
 10:                                               ; preds = %4
   %11 = load i32, ptr %3, align 4, !tbaa !59
-  tail call void @_ZN5ZXing6ResultC1EONS_13DecoderResultEONS_14DetectorResultENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) %6, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %11) #15
+  tail call void @_ZN5ZXing6ResultC1EONS_13DecoderResultEONS_14DetectorResultENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) %6, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %11) #16
   %12 = load ptr, ptr %5, align 8, !tbaa !37
   %13 = getelementptr inbounds i8, ptr %12, i64 216
   store ptr %13, ptr %5, align 8, !tbaa !37
   br label %16
 
 14:                                               ; preds = %4
-  tail call void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE17_M_realloc_insertIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %6, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) #15
+  tail call void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE17_M_realloc_insertIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %6, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) #16
   %15 = load ptr, ptr %5, align 8, !tbaa !18
   br label %16
 
@@ -1879,7 +1879,7 @@ define linkonce_odr void @_ZN5ZXing6ReaderD2Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
 define linkonce_odr void @_ZN5ZXing6QRCode6ReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -1888,20 +1888,21 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: noreturn nounwind optsize uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #18
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #19
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: optsize
 declare void @_ZN5ZXing7ContentC1Ev(ptr noundef nonnull align 8 dereferenceable(54)) unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind optsize
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind optsize uwtable
 define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1923,11 +1924,11 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2
   %11 = load ptr, ptr %2, align 8, !tbaa !9
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %2) #17
   %14 = load ptr, ptr %2, align 8, !tbaa !9
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %2) #17
   br label %28
 
 17:                                               ; preds = %4
@@ -1950,7 +1951,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2
   br i1 %26, label %27, label %28, !prof !70
 
 27:                                               ; preds = %24
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #17
   br label %28
 
 28:                                               ; preds = %27, %24, %9, %1
@@ -1962,7 +1963,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = load ptr, ptr %0, align 8, !tbaa !9
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !34
   %7 = icmp eq i8 %6, 0
@@ -1987,7 +1988,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %17 = load ptr, ptr %0, align 8, !tbaa !9
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   br label %20
 
 20:                                               ; preds = %16, %13
@@ -2015,7 +2016,7 @@ define linkonce_odr void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5ZXing6ResultEEE
   br label %14
 
 13:                                               ; preds = %.preheader
-  tail call void @_ZdlPv(ptr noundef %6) #17
+  tail call void @_ZdlPv(ptr noundef %6) #18
   br label %14
 
 14:                                               ; preds = %13, %9
@@ -2033,7 +2034,7 @@ define linkonce_odr void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5ZXing6ResultEEE
   br label %24
 
 23:                                               ; preds = %14
-  tail call void @_ZdlPv(ptr noundef %16) #17
+  tail call void @_ZdlPv(ptr noundef %16) #18
   br label %24
 
 24:                                               ; preds = %23, %19
@@ -2043,7 +2044,7 @@ define linkonce_odr void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5ZXing6ResultEEE
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %24
-  tail call void @_ZdlPv(ptr noundef nonnull %26) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %26) #18
   br label %29
 
 29:                                               ; preds = %28, %24
@@ -2052,7 +2053,7 @@ define linkonce_odr void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5ZXing6ResultEEE
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %29
-  tail call void @_ZdlPv(ptr noundef nonnull %30) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %30) #18
   br label %33
 
 33:                                               ; preds = %32, %29
@@ -2220,7 +2221,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN5ZXing
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(20) %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = tail call noundef i64 @_ZNKSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, ptr noundef nonnull @.str) #15
+  %4 = tail call noundef i64 @_ZNKSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, ptr noundef nonnull @.str) #16
   %5 = load ptr, ptr %0, align 8, !tbaa !18
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !58
@@ -2232,7 +2233,7 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_r
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %3
-  %14 = tail call noundef ptr @_ZNSt15__new_allocatorIN5ZXing17ConcentricPatternEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %4, ptr noundef null) #15
+  %14 = tail call noundef ptr @_ZNSt15__new_allocatorIN5ZXing17ConcentricPatternEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %4, ptr noundef null) #16
   br label %15
 
 15:                                               ; preds = %13, %3
@@ -2272,7 +2273,7 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE17_M_r
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %.loopexit
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #18
   br label %35
 
 35:                                               ; preds = %34, %.loopexit
@@ -2298,7 +2299,7 @@ define linkonce_odr noundef i64 @_ZNKSt6vectorIN5ZXing17ConcentricPatternESaIS1_
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef %2) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef %2) #20
   unreachable
 
 14:                                               ; preds = %3
@@ -2311,7 +2312,7 @@ define linkonce_odr noundef i64 @_ZNKSt6vectorIN5ZXing17ConcentricPatternESaIS1_
 }
 
 ; Function Attrs: noreturn optsize
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIN5ZXing17ConcentricPatternEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
@@ -2323,31 +2324,31 @@ define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIN5ZXing17ConcentricPatte
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #20
   unreachable
 
 8:                                                ; preds = %5
-  tail call void @_ZSt17__throw_bad_allocv() #19
+  tail call void @_ZSt17__throw_bad_allocv() #20
   unreachable
 
 9:                                                ; preds = %3
   %10 = mul nuw nsw i64 %1, 24
-  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #20
+  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #21
   ret ptr %11
 }
 
 ; Function Attrs: noreturn optsize
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #10
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #11
 
 ; Function Attrs: noreturn optsize
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #10
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #11
 
 ; Function Attrs: nobuiltin optsize allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE17_M_realloc_insertIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %6 = tail call noundef i64 @_ZNKSt6vectorIN5ZXing6ResultESaIS1_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, ptr noundef nonnull @.str) #15
+  %6 = tail call noundef i64 @_ZNKSt6vectorIN5ZXing6ResultESaIS1_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, ptr noundef nonnull @.str) #16
   %7 = load ptr, ptr %0, align 8, !tbaa !18
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !37
@@ -2359,25 +2360,25 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE17_M_realloc_inser
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %5
-  %16 = tail call noundef ptr @_ZNSt15__new_allocatorIN5ZXing6ResultEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %6, ptr noundef null) #15
+  %16 = tail call noundef ptr @_ZNSt15__new_allocatorIN5ZXing6ResultEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %6, ptr noundef null) #16
   br label %17
 
 17:                                               ; preds = %15, %5
   %18 = phi ptr [ %16, %15 ], [ null, %5 ]
   %19 = getelementptr inbounds %"class.ZXing::Result", ptr %18, i64 %13
   %20 = load i32, ptr %4, align 4, !tbaa !59
-  invoke void @_ZN5ZXing6ResultC1EONS_13DecoderResultEONS_14DetectorResultENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) %19, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %20) #15
+  invoke void @_ZN5ZXing6ResultC1EONS_13DecoderResultEONS_14DetectorResultENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) %19, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %20) #16
           to label %21 unwind label %30
 
 21:                                               ; preds = %17
-  %22 = tail call noundef ptr @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %7, ptr noundef %1, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %0) #16
+  %22 = tail call noundef ptr @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %7, ptr noundef %1, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %0) #17
   %23 = getelementptr inbounds i8, ptr %22, i64 216
-  %24 = tail call noundef ptr @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %1, ptr noundef %9, ptr noundef nonnull %23, ptr noundef nonnull align 1 dereferenceable(1) %0) #16
+  %24 = tail call noundef ptr @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %1, ptr noundef %9, ptr noundef nonnull %23, ptr noundef nonnull align 1 dereferenceable(1) %0) #17
   %25 = icmp eq ptr %7, null
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %21
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #18
   br label %27
 
 27:                                               ; preds = %26, %21
@@ -2392,12 +2393,12 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE17_M_realloc_inser
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  %33 = tail call ptr @__cxa_begin_catch(ptr %32) #14
+  %33 = tail call ptr @__cxa_begin_catch(ptr %32) #15
   %34 = icmp eq ptr %18, null
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %30
-  tail call void @_ZNSt15__new_allocatorIN5ZXing6ResultEE7destroyIS1_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %19) #16
+  tail call void @_ZNSt15__new_allocatorIN5ZXing6ResultEE7destroyIS1_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %19) #17
   br label %39
 
 36:                                               ; preds = %39
@@ -2407,11 +2408,11 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE17_M_realloc_inser
           to label %40 unwind label %41
 
 38:                                               ; preds = %30
-  tail call void @_ZdlPv(ptr noundef nonnull %18) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #18
   br label %39
 
 39:                                               ; preds = %38, %35
-  invoke void @__cxa_rethrow() #21
+  invoke void @__cxa_rethrow() #22
           to label %44 unwind label %36
 
 40:                                               ; preds = %36
@@ -2421,7 +2422,7 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE17_M_realloc_inser
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #18
+  tail call void @__clang_call_terminate(ptr %43) #19
   unreachable
 
 44:                                               ; preds = %39
@@ -2442,7 +2443,7 @@ define linkonce_odr noundef i64 @_ZNKSt6vectorIN5ZXing6ResultESaIS1_EE12_M_check
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef %2) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef %2) #20
   unreachable
 
 14:                                               ; preds = %3
@@ -2462,8 +2463,8 @@ define linkonce_odr noundef ptr @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_reloca
 .preheader:                                       ; preds = %4, %.preheader
   %6 = phi ptr [ %9, %.preheader ], [ %2, %4 ]
   %7 = phi ptr [ %8, %.preheader ], [ %0, %4 ]
-  tail call void @_ZNSt15__new_allocatorIN5ZXing6ResultEE9constructIS1_JS1_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(211) %7) #16
-  tail call void @_ZNSt15__new_allocatorIN5ZXing6ResultEE7destroyIS1_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %7) #16
+  tail call void @_ZNSt15__new_allocatorIN5ZXing6ResultEE9constructIS1_JS1_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(211) %7) #17
+  tail call void @_ZNSt15__new_allocatorIN5ZXing6ResultEE7destroyIS1_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %7) #17
   %8 = getelementptr inbounds i8, ptr %7, i64 216
   %9 = getelementptr inbounds i8, ptr %6, i64 216
   %10 = icmp eq ptr %8, %1
@@ -2488,16 +2489,16 @@ define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIN5ZXing6ResultEE8allocat
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #20
   unreachable
 
 8:                                                ; preds = %5
-  tail call void @_ZSt17__throw_bad_allocv() #19
+  tail call void @_ZSt17__throw_bad_allocv() #20
   unreachable
 
 9:                                                ; preds = %3
   %10 = mul nuw nsw i64 %1, 216
-  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #20
+  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #21
   ret ptr %11
 }
 
@@ -2618,7 +2619,7 @@ define linkonce_odr void @_ZNSt15__new_allocatorIN5ZXing6ResultEE7destroyIS1_EEv
   br label %12
 
 11:                                               ; preds = %2
-  tail call void @_ZdlPv(ptr noundef %4) #17
+  tail call void @_ZdlPv(ptr noundef %4) #18
   br label %12
 
 12:                                               ; preds = %11, %7
@@ -2636,7 +2637,7 @@ define linkonce_odr void @_ZNSt15__new_allocatorIN5ZXing6ResultEE7destroyIS1_EEv
   br label %22
 
 21:                                               ; preds = %12
-  tail call void @_ZdlPv(ptr noundef %14) #17
+  tail call void @_ZdlPv(ptr noundef %14) #18
   br label %22
 
 22:                                               ; preds = %21, %17
@@ -2646,7 +2647,7 @@ define linkonce_odr void @_ZNSt15__new_allocatorIN5ZXing6ResultEE7destroyIS1_EEv
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %22
-  tail call void @_ZdlPv(ptr noundef nonnull %24) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %24) #18
   br label %27
 
 27:                                               ; preds = %26, %22
@@ -2655,7 +2656,7 @@ define linkonce_odr void @_ZNSt15__new_allocatorIN5ZXing6ResultEE7destroyIS1_EEv
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %27
-  tail call void @_ZdlPv(ptr noundef nonnull %28) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %28) #18
   br label %31
 
 31:                                               ; preds = %30, %27
@@ -2663,13 +2664,13 @@ define linkonce_odr void @_ZNSt15__new_allocatorIN5ZXing6ResultEE7destroyIS1_EEv
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
+declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { mustprogress optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -2680,19 +2681,20 @@ attributes #5 = { inlinehint mustprogress nounwind optsize uwtable "min-legal-ve
 attributes #6 = { mustprogress nofree norecurse nosync nounwind optsize willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { noreturn nounwind optsize uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin optsize allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { optsize }
-attributes #16 = { nounwind optsize }
-attributes #17 = { builtin nounwind optsize }
-attributes #18 = { noreturn nounwind }
-attributes #19 = { noreturn optsize }
-attributes #20 = { builtin optsize allocsize(0) }
-attributes #21 = { noreturn }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { nobuiltin nounwind optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin optsize allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { optsize }
+attributes #17 = { nounwind optsize }
+attributes #18 = { builtin nounwind optsize }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { noreturn optsize }
+attributes #21 = { builtin optsize allocsize(0) }
+attributes #22 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 

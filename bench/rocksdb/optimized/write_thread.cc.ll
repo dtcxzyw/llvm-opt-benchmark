@@ -72,7 +72,7 @@ invoke.cont:
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   br label %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -158,13 +158,13 @@ lpad:                                             ; preds = %entry
 lpad8:                                            ; preds = %invoke.cont
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %stall_mu_) #17
+  tail call void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %stall_mu_) #18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad8, %lpad
   %.pn = phi { ptr, i32 } [ %8, %lpad8 ], [ %7, %lpad ]
   %write_stall_dummy_ = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @_ZN7rocksdb11WriteThread6WriterD2Ev(ptr noundef nonnull align 16 dereferenceable(256) %write_stall_dummy_) #17
+  tail call void @_ZN7rocksdb11WriteThread6WriterD2Ev(ptr noundef nonnull align 16 dereferenceable(256) %write_stall_dummy_) #18
   resume { ptr, i32 } %.pn
 }
 
@@ -187,7 +187,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %state_cv_bytes.i = getelementptr inbounds i8, ptr %this, i64 192
-  tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i) #17
+  tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i) #18
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -197,7 +197,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %if.end
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #17
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %if.end, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -208,7 +208,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %if.end, %_ZNKSt14de
   br i1 %cmp.not.i.i2, label %_ZN7rocksdb6StatusD2Ev.exit4, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i3
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i3: ; preds = %_ZN7rocksdb6StatusD2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #17
   br label %_ZN7rocksdb6StatusD2Ev.exit4
 
 _ZN7rocksdb6StatusD2Ev.exit4:                     ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i3
@@ -230,7 +230,7 @@ if.then.i:                                        ; preds = %entry
   %state_mutex_bytes.i = getelementptr inbounds i8, ptr %w, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %state_mutex_bytes.i, i8 0, i64 40, i1 false)
   %state_cv_bytes.i = getelementptr inbounds i8, ptr %w, i64 192
-  tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i) #17
+  tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i) #18
   br label %_ZN7rocksdb11WriteThread6Writer11CreateMutexEv.exit
 
 _ZN7rocksdb11WriteThread6Writer11CreateMutexEv.exit: ; preds = %entry, %if.then.i
@@ -250,12 +250,12 @@ if.then:                                          ; preds = %_ZNSt13__atomic_bas
   %state_mutex_bytes.i43 = getelementptr inbounds i8, ptr %w, i64 144
   store ptr %state_mutex_bytes.i43, ptr %guard, align 8
   %_M_owns.i = getelementptr inbounds i8, ptr %guard, i64 8
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i43) #17
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i43) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #18
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #19
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %if.then
@@ -291,7 +291,7 @@ if.else.i.i:                                      ; preds = %invoke.cont8.thread
   br i1 %tobool2.not.i.i, label %if.end, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  %call1.i.i.i.i47 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #17
+  %call1.i.i.i.i47 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #18
   br label %if.end
 
 lpad:                                             ; preds = %while.body.i
@@ -307,7 +307,7 @@ if.else.i.i50:                                    ; preds = %lpad
   br i1 %tobool2.not.i.i51, label %_ZNSt11unique_lockISt5mutexED2Ev.exit54, label %if.then3.i.i52
 
 if.then3.i.i52:                                   ; preds = %if.else.i.i50
-  %call1.i.i.i.i53 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #17
+  %call1.i.i.i.i53 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #18
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit54
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit54:          ; preds = %lpad, %if.else.i.i50, %if.then3.i.i52
@@ -333,7 +333,7 @@ for.body:                                         ; preds = %entry, %if.end
   br i1 %cmp4.not, label %if.end, label %return
 
 if.end:                                           ; preds = %for.body
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !6
   %inc = add nuw nsw i32 %tries.046, 1
   %exitcond.not = icmp eq i32 %inc, 200
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
@@ -436,7 +436,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont9
   br i1 %cmp12, label %if.then13, label %if.end52
 
 if.then13:                                        ; preds = %lor.lhs.false, %invoke.cont9
-  %call14 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
+  %call14 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #18
   %11 = load i64, ptr %max_yield_usec_, align 8
   %cmp.i.i.not48 = icmp slt i64 %11, 0
   br i1 %cmp.i.i.not48, label %if.end52, label %while.body.lr.ph
@@ -448,7 +448,7 @@ while.body.lr.ph:                                 ; preds = %if.then13
 while.body:                                       ; preds = %while.body.lr.ph, %if.end50
   %slow_yield_count.050 = phi i64 [ 0, %while.body.lr.ph ], [ %slow_yield_count.1, %if.end50 ]
   %storemerge49 = phi i64 [ %call14, %while.body.lr.ph ], [ %call32, %if.end50 ]
-  %call.i.i = tail call noundef i32 @sched_yield() #17
+  %call.i.i = tail call noundef i32 @sched_yield() #18
   %12 = load atomic i8, ptr %state2 acquire, align 1
   %and2824 = and i8 %12, %goal_mask
   %cmp29.not = icmp eq i8 %and2824, 0
@@ -457,11 +457,11 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 lpad:                                             ; preds = %if.then.i, %if.then57, %if.then6
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7rocksdb13PerfStepTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %perf_step_timer_write_thread_wait_nanos) #17
+  call void @_ZN7rocksdb13PerfStepTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %perf_step_timer_write_thread_wait_nanos) #18
   resume { ptr, i32 } %13
 
 invoke.cont35:                                    ; preds = %while.body
-  %call32 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
+  %call32 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #18
   %cmp.i.i34 = icmp eq i64 %call32, %storemerge49
   br i1 %cmp.i.i34, label %if.then45, label %lor.end
 
@@ -559,7 +559,7 @@ terminate.lpad.i:                                 ; preds = %_ZN7rocksdb10Record
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #19
+  tail call void @__clang_call_terminate(ptr %28) #20
   unreachable
 
 return:                                           ; preds = %for.body, %if.end7.i.i, %if.end65
@@ -634,7 +634,7 @@ terminate.lpad:                                   ; preds = %_ZN7rocksdb10Record
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #19
+  tail call void @__clang_call_terminate(ptr %12) #20
   unreachable
 }
 
@@ -653,19 +653,19 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit: ; 
 
 if.then:                                          ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit, %entry
   %state_mutex_bytes.i = getelementptr inbounds i8, ptr %w, i64 144
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i) #17
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #18
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #19
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %if.then
   store atomic i8 %new_state, ptr %state2 monotonic, align 1
   %state_cv_bytes.i = getelementptr inbounds i8, ptr %w, i64 192
-  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i) #17
-  %call1.i.i.i40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i) #17
+  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i) #18
+  %call1.i.i.i40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i) #18
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit
@@ -754,7 +754,7 @@ if.then.i:                                        ; preds = %if.then2
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i: ; preds = %if.then.i
-  call void @_ZdaPv(ptr noundef nonnull %10) #16
+  call void @_ZdaPv(ptr noundef nonnull %10) #17
   br label %_ZN7rocksdb6StatusaSEOS0_.exit
 
 _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %if.then2, %if.then.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i
@@ -764,7 +764,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %if.then2, %if.then.
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit
-  call void @_ZdaPv(ptr noundef nonnull %11) #16
+  call void @_ZdaPv(ptr noundef nonnull %11) #17
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -781,19 +781,19 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i10:                                      ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZN7rocksdb6StatusD2Ev.exit
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %w, i64 144
-  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i10
-  call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #18
+  call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #19
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i10
   store atomic i8 16, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %w, i64 192
-  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #17
-  %call1.i.i.i40.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
+  %call1.i.i.i40.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -822,7 +822,7 @@ terminate.lpad.i:                                 ; preds = %lpad
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #19
+  tail call void @__clang_call_terminate(ptr %19) #20
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %lpad
@@ -837,7 +837,7 @@ terminate.lpad.i13:                               ; preds = %cleanup
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #19
+  tail call void @__clang_call_terminate(ptr %21) #20
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit14:                 ; preds = %cleanup
@@ -988,19 +988,19 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i:                                        ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %if.end
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %0, i64 144
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #18
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #19
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i
   store atomic i8 16, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %0, i64 192
-  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #17
-  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
+  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   br label %_ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit
 
 _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit: ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
@@ -1053,19 +1053,19 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i:                                        ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %if.end
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %w, i64 144
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #18
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #19
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i
   store atomic i8 16, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %w, i64 192
-  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #17
-  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
+  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   br label %_ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit
 
 _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit: ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
@@ -1164,7 +1164,7 @@ if.then.i:                                        ; preds = %if.then
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i: ; preds = %if.then.i
-  call void @_ZdaPv(ptr noundef nonnull %10) #16
+  call void @_ZdaPv(ptr noundef nonnull %10) #17
   %.pre = load ptr, ptr %state_.i, align 8
   br label %_ZN7rocksdb6StatusaSEOS0_.exit
 
@@ -1174,7 +1174,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %if.then, %_ZNKSt14d
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit
-  call void @_ZdaPv(ptr noundef nonnull %11) #16
+  call void @_ZdaPv(ptr noundef nonnull %11) #17
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %if.then.i, %_ZN7rocksdb6StatusaSEOS0_.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -1191,19 +1191,19 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i15:                                      ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZN7rocksdb6StatusD2Ev.exit
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %w.019, i64 144
-  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i15
-  call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #18
+  call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #19
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i15
   store atomic i8 16, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %w.019, i64 192
-  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #17
-  %call1.i.i.i40.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
+  %call1.i.i.i40.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   br label %_ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit
 
 _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit: ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
@@ -1271,7 +1271,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #19
+  tail call void @__clang_call_terminate(ptr %7) #20
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %invoke.cont
@@ -1287,7 +1287,7 @@ terminate.lpad.i1:                                ; preds = %lpad
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #19
+  tail call void @__clang_call_terminate(ptr %10) #20
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit2:                  ; preds = %lpad
@@ -1336,7 +1336,7 @@ terminate.lpad.i:                                 ; preds = %lpad
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #19
+  tail call void @__clang_call_terminate(ptr %3) #20
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %lpad
@@ -1350,7 +1350,7 @@ terminate.lpad.i1:                                ; preds = %while.end
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #19
+  tail call void @__clang_call_terminate(ptr %5) #20
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit2:                  ; preds = %while.end
@@ -1377,19 +1377,19 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i:                                        ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %if.then
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %w, i64 144
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #18
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #19
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i
   store atomic i8 2, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %w, i64 192
-  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #17
-  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
+  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   br label %if.end5
 
 if.then3:                                         ; preds = %entry
@@ -1405,7 +1405,7 @@ define noundef i64 @_ZN7rocksdb11WriteThread23EnterAsBatchGroupLeaderEPNS0_6Writ
 entry:
   %0 = load ptr, ptr %leader, align 16
   %rep_.i = getelementptr inbounds i8, ptr %0, i64 64
-  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %rep_.i) #17
+  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %rep_.i) #18
   %max_write_batch_group_size_bytes = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %max_write_batch_group_size_bytes, align 16
   %div35 = lshr i64 %1, 3
@@ -1526,7 +1526,7 @@ land.lhs.true40.if.end44_crit_edge:               ; preds = %land.lhs.true40
 if.end44:                                         ; preds = %land.lhs.true40.if.end44_crit_edge, %if.end38
   %25 = phi ptr [ %.pre, %land.lhs.true40.if.end44_crit_edge ], [ %22, %if.end38 ]
   %rep_.i36 = getelementptr inbounds i8, ptr %25, i64 64
-  %call.i37 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %rep_.i36) #17
+  %call.i37 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %rep_.i36) #18
   %add47 = add i64 %call.i37, %size.040
   %cmp48 = icmp ugt i64 %add47, %spec.select
   br i1 %cmp48, label %while.end, label %if.end50
@@ -1551,7 +1551,7 @@ define void @_ZN7rocksdb11WriteThread21EnterAsMemTableWriterEPNS0_6WriterEPNS0_1
 entry:
   %0 = load ptr, ptr %leader, align 16
   %rep_.i = getelementptr inbounds i8, ptr %0, i64 64
-  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %rep_.i) #17
+  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %rep_.i) #18
   %max_write_batch_group_size_bytes = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %max_write_batch_group_size_bytes, align 16
   %div26 = lshr i64 %1, 3
@@ -1622,7 +1622,7 @@ if.end18:                                         ; preds = %if.end14
 if.then21:                                        ; preds = %if.end18
   %12 = load ptr, ptr %9, align 16
   %rep_.i27 = getelementptr inbounds i8, ptr %12, i64 64
-  %call.i28 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %rep_.i27) #17
+  %call.i28 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %rep_.i27) #18
   %add24 = add i64 %call.i28, %size.031
   %cmp25 = icmp ugt i64 %add24, %spec.select
   br i1 %cmp25, label %if.end32, label %if.end29
@@ -1710,19 +1710,19 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i:                                        ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %12, i64 144
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #18
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #19
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i
   store atomic i8 4, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %12, i64 192
-  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #17
-  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
+  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   br label %if.end
 
 if.end:                                           ; preds = %entry, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i
@@ -1785,13 +1785,13 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.t
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7rocksdb6StatusaSERKS0_.exit, label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i
 
 _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i: ; preds = %cond.end.i
-  call void @_ZdaPv(ptr noundef nonnull %24) #16
+  call void @_ZdaPv(ptr noundef nonnull %24) #17
   %.pr.i = load ptr, ptr %ref.tmp.i, align 8
   %cmp.not.i.i = icmp eq ptr %.pr.i, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusaSERKS0_.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %.pr.i) #16
+  call void @_ZdaPv(ptr noundef nonnull %.pr.i) #17
   br label %_ZN7rocksdb6StatusaSERKS0_.exit
 
 _ZN7rocksdb6StatusaSERKS0_.exit:                  ; preds = %if.then5, %cond.end.i, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -1817,19 +1817,19 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i20
 
 if.then.i21:                                      ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i20, %if.then11
   %state_mutex_bytes.i.i22 = getelementptr inbounds i8, ptr %w.0, i64 144
-  %call1.i.i.i.i23 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i22) #17
+  %call1.i.i.i.i23 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i22) #18
   %tobool.not.i.i.i24 = icmp eq i32 %call1.i.i.i.i23, 0
   br i1 %tobool.not.i.i.i24, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i26, label %if.then.i.i.i25
 
 if.then.i.i.i25:                                  ; preds = %if.then.i21
-  call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i23) #18
+  call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i23) #19
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i26:      ; preds = %if.then.i21
   store atomic i8 16, ptr %state2.i18 monotonic, align 1
   %state_cv_bytes.i.i27 = getelementptr inbounds i8, ptr %w.0, i64 192
-  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i27) #17
-  %call1.i.i.i40.i28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i22) #17
+  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i27) #18
+  %call1.i.i.i40.i28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i22) #18
   br label %if.end12
 
 if.end12:                                         ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i26, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i20, %if.end9
@@ -1849,19 +1849,19 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i33
 
 if.then.i34:                                      ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i33, %while.end
   %state_mutex_bytes.i.i35 = getelementptr inbounds i8, ptr %1, i64 144
-  %call1.i.i.i.i36 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i35) #17
+  %call1.i.i.i.i36 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i35) #18
   %tobool.not.i.i.i37 = icmp eq i32 %call1.i.i.i.i36, 0
   br i1 %tobool.not.i.i.i37, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i39, label %if.then.i.i.i38
 
 if.then.i.i.i38:                                  ; preds = %if.then.i34
-  call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i36) #18
+  call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i36) #19
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i39:      ; preds = %if.then.i34
   store atomic i8 16, ptr %state2.i31 monotonic, align 1
   %state_cv_bytes.i.i40 = getelementptr inbounds i8, ptr %1, i64 192
-  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i40) #17
-  %call1.i.i.i40.i41 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i35) #17
+  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i40) #18
+  %call1.i.i.i40.i41 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i35) #18
   br label %_ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit43
 
 _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit43: ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i33, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i39
@@ -1895,19 +1895,19 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i:                                        ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %for.body
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.013, i64 144
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #18
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #19
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i
   store atomic i8 8, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.013, i64 192
-  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #17
-  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
+  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   br label %_ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit
 
 _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit: ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
@@ -1939,12 +1939,12 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %0, align 8
   %state_mutex_bytes.i = getelementptr inbounds i8, ptr %2, i64 144
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i) #17
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #18
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #19
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %if.then
@@ -2001,24 +2001,24 @@ cond.end.i:                                       ; preds = %.noexc, %if.then.i
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont, label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i
 
 _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i: ; preds = %cond.end.i
-  call void @_ZdaPv(ptr noundef nonnull %11) #16
+  call void @_ZdaPv(ptr noundef nonnull %11) #17
   %.pr.i = load ptr, ptr %ref.tmp.i, align 8
   %cmp.not.i.i = icmp eq ptr %.pr.i, null
   br i1 %cmp.not.i.i, label %invoke.cont, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %.pr.i) #16
+  call void @_ZdaPv(ptr noundef nonnull %.pr.i) #17
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i, %cond.end.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %call1.i.i.i9 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i) #17
+  %call1.i.i.i9 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i) #18
   br label %if.end
 
 lpad:                                             ; preds = %cond.false.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i10 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i) #17
+  %call1.i.i.i10 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i) #18
   resume { ptr, i32 } %12
 
 if.end:                                           ; preds = %invoke.cont, %entry
@@ -2082,13 +2082,13 @@ cond.end.i30:                                     ; preds = %cond.false.i28, %if
   br i1 %tobool.not.i.i.i.i.i32, label %_ZN7rocksdb6StatusaSERKS0_.exit37, label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i33
 
 _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i33: ; preds = %cond.end.i30
-  call void @_ZdaPv(ptr noundef nonnull %22) #16
+  call void @_ZdaPv(ptr noundef nonnull %22) #17
   %.pr.i34 = load ptr, ptr %ref.tmp.i11, align 8
   %cmp.not.i.i35 = icmp eq ptr %.pr.i34, null
   br i1 %cmp.not.i.i35, label %_ZN7rocksdb6StatusaSERKS0_.exit37, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i36
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i36: ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i33
-  call void @_ZdaPv(ptr noundef nonnull %.pr.i34) #16
+  call void @_ZdaPv(ptr noundef nonnull %.pr.i34) #17
   br label %_ZN7rocksdb6StatusaSERKS0_.exit37
 
 _ZN7rocksdb6StatusaSERKS0_.exit37:                ; preds = %if.end10, %cond.end.i30, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i33, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i36
@@ -2119,19 +2119,19 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i:                                        ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %entry
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %1, i64 144
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #18
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #19
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i
   store atomic i8 16, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %1, i64 192
-  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #17
-  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
+  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   br label %_ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit
 
 _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit: ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
@@ -2207,13 +2207,13 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.t
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7rocksdb6StatusaSERKS0_.exit, label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i
 
 _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i: ; preds = %cond.end.i
-  call void @_ZdaPv(ptr noundef nonnull %11) #16
+  call void @_ZdaPv(ptr noundef nonnull %11) #17
   %.pr.i = load ptr, ptr %ref.tmp.i, align 8
   %cmp.not.i.i = icmp eq ptr %.pr.i, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusaSERKS0_.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %.pr.i) #16
+  call void @_ZdaPv(ptr noundef nonnull %.pr.i) #17
   br label %_ZN7rocksdb6StatusaSERKS0_.exit
 
 _ZN7rocksdb6StatusaSERKS0_.exit:                  ; preds = %if.then8, %cond.end.i, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -2362,13 +2362,13 @@ cond.end.i55:                                     ; preds = %.noexc, %if.then.i3
   br i1 %tobool.not.i.i.i.i.i57, label %invoke.cont, label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i58
 
 _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i58: ; preds = %cond.end.i55
-  call void @_ZdaPv(ptr noundef nonnull %34) #16
+  call void @_ZdaPv(ptr noundef nonnull %34) #17
   %.pr.i59 = load ptr, ptr %ref.tmp.i36, align 8
   %cmp.not.i.i60 = icmp eq ptr %.pr.i59, null
   br i1 %cmp.not.i.i60, label %invoke.cont, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i61
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i61: ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i58
-  call void @_ZdaPv(ptr noundef nonnull %.pr.i59) #16
+  call void @_ZdaPv(ptr noundef nonnull %.pr.i59) #17
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i61, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i58, %cond.end.i55, %for.body
@@ -2433,13 +2433,13 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i.i, %if.end.i69
   %state_mutex_bytes.i.i.i = getelementptr inbounds i8, ptr %w.0234, i64 144
-  %call1.i.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i.i) #17
+  %call1.i.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i.i) #18
   %tobool.not.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i, label %if.then.i.i.i.i.invoke
 
 if.then.i.i.i.i.invoke:                           ; preds = %if.then.i.i, %if.then.i135, %if.then.i114, %if.then.i.i98
   %50 = phi i32 [ %call1.i.i.i.i.i100, %if.then.i.i98 ], [ %call1.i.i.i.i, %if.then.i114 ], [ %call1.i.i.i.i137, %if.then.i135 ], [ %call1.i.i.i.i.i, %if.then.i.i ]
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %50) #18
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %50) #19
           to label %if.then.i.i.i.i.cont unwind label %lpad.loopexit.split-lp
 
 if.then.i.i.i.i.cont:                             ; preds = %if.then.i.i.i.i.invoke
@@ -2448,8 +2448,8 @@ if.then.i.i.i.i.cont:                             ; preds = %if.then.i.i.i.i.inv
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i:      ; preds = %if.then.i.i
   store atomic i8 16, ptr %state2.i.i monotonic, align 1
   %state_cv_bytes.i.i.i = getelementptr inbounds i8, ptr %w.0234, i64 192
-  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i.i) #17
-  %call1.i.i.i40.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i.i) #17
+  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i.i) #18
+  %call1.i.i.i40.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i.i) #18
   br label %if.end28
 
 lpad.loopexit:                                    ; preds = %cond.false.i53
@@ -2464,7 +2464,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.i.inv
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit229, %lpad.loopexit ], [ %lpad.loopexit.split-lp230, %lpad.loopexit.split-lp ]
-  call void @_ZN7rocksdb11WriteThread6WriterD2Ev(ptr noundef nonnull align 16 dereferenceable(256) %dummy) #17
+  call void @_ZN7rocksdb11WriteThread6WriterD2Ev(ptr noundef nonnull align 16 dereferenceable(256) %dummy) #18
   resume { ptr, i32 } %lpad.phi
 
 if.end28:                                         ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i.i, %invoke.cont24
@@ -2531,15 +2531,15 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i.i
 
 if.then.i.i98:                                    ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i.i97, %if.end.i93
   %state_mutex_bytes.i.i.i99 = getelementptr inbounds i8, ptr %56, i64 144
-  %call1.i.i.i.i.i100 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i.i99) #17
+  %call1.i.i.i.i.i100 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i.i99) #18
   %tobool.not.i.i.i.i101 = icmp eq i32 %call1.i.i.i.i.i100, 0
   br i1 %tobool.not.i.i.i.i101, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i103, label %if.then.i.i.i.i.invoke
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i103:   ; preds = %if.then.i.i98
   store atomic i8 16, ptr %state2.i.i95 monotonic, align 1
   %state_cv_bytes.i.i.i104 = getelementptr inbounds i8, ptr %56, i64 192
-  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i.i104) #17
-  %call1.i.i.i40.i.i105 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i.i99) #17
+  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i.i104) #18
+  %call1.i.i.i40.i.i105 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i.i99) #18
   br label %if.end33
 
 if.end33:                                         ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i103, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i.i97, %invoke.cont29
@@ -2608,15 +2608,15 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i114:                                     ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %if.then37
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %76, i64 144
-  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i.i.invoke
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i114
   store atomic i8 4, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %76, i64 192
-  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #17
-  %call1.i.i.i40.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
+  %call1.i.i.i40.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   br label %if.end41
 
 if.end41:                                         ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZN7rocksdb11WriteThread9LinkGroupERNS0_10WriteGroupEPSt6atomicIPNS0_6WriterEE.exit, %if.end33
@@ -2674,15 +2674,15 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i13
 
 if.then.i135:                                     ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i134, %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit131
   %state_mutex_bytes.i.i136 = getelementptr inbounds i8, ptr %89, i64 144
-  %call1.i.i.i.i137 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i136) #17
+  %call1.i.i.i.i137 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i136) #18
   %tobool.not.i.i.i138 = icmp eq i32 %call1.i.i.i.i137, 0
   br i1 %tobool.not.i.i.i138, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i140, label %if.then.i.i.i.i.invoke
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i140:     ; preds = %if.then.i135
   store atomic i8 2, ptr %state2.i132 monotonic, align 1
   %state_cv_bytes.i.i141 = getelementptr inbounds i8, ptr %89, i64 192
-  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i141) #17
-  %call1.i.i.i40.i142 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i136) #17
+  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i141) #18
+  %call1.i.i.i40.i142 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i136) #18
   br label %if.end52
 
 if.end52:                                         ; preds = %lor.lhs.false45, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i140, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i134
@@ -2697,7 +2697,7 @@ invoke.cont53:                                    ; preds = %if.end52
 
 if.then.i150:                                     ; preds = %invoke.cont53
   %state_cv_bytes.i.i151 = getelementptr inbounds i8, ptr %dummy, i64 192
-  call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i151) #17
+  call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i151) #18
   br label %if.end.i147
 
 if.end.i147:                                      ; preds = %if.then.i150, %invoke.cont53
@@ -2706,7 +2706,7 @@ if.end.i147:                                      ; preds = %if.then.i150, %invo
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb6StatusD2Ev.exit.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %if.end.i147
-  call void @_ZdaPv(ptr noundef nonnull %94) #16
+  call void @_ZdaPv(ptr noundef nonnull %94) #17
   br label %_ZN7rocksdb6StatusD2Ev.exit.i
 
 _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i, %if.end.i147
@@ -2716,7 +2716,7 @@ _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZNKSt14default_del
   br i1 %cmp.not.i.i2.i, label %if.end72, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i3.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i3.i: ; preds = %_ZN7rocksdb6StatusD2Ev.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %95) #16
+  call void @_ZdaPv(ptr noundef nonnull %95) #17
   br label %if.end72
 
 if.else:                                          ; preds = %if.end11
@@ -2776,19 +2776,19 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i16
 
 if.then.i170:                                     ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i169, %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit166
   %state_mutex_bytes.i.i171 = getelementptr inbounds i8, ptr %106, i64 144
-  %call1.i.i.i.i172 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i171) #17
+  %call1.i.i.i.i172 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i171) #18
   %tobool.not.i.i.i173 = icmp eq i32 %call1.i.i.i.i172, 0
   br i1 %tobool.not.i.i.i173, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i175, label %if.then.i.i.i174
 
 if.then.i.i.i174:                                 ; preds = %if.then.i170
-  call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i172) #18
+  call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i172) #19
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i175:     ; preds = %if.then.i170
   store atomic i8 2, ptr %state2.i167 monotonic, align 1
   %state_cv_bytes.i.i176 = getelementptr inbounds i8, ptr %106, i64 192
-  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i176) #17
-  %call1.i.i.i40.i177 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i171) #17
+  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i176) #18
+  %call1.i.i.i40.i177 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i171) #18
   br label %if.end66
 
 if.end66:                                         ; preds = %lor.lhs.false59, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i175, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i169
@@ -2850,13 +2850,13 @@ cond.end.i199:                                    ; preds = %cond.false.i197, %i
   br i1 %tobool.not.i.i.i.i.i201, label %_ZN7rocksdb6StatusaSERKS0_.exit207, label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i202
 
 _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i202: ; preds = %cond.end.i199
-  call void @_ZdaPv(ptr noundef nonnull %118) #16
+  call void @_ZdaPv(ptr noundef nonnull %118) #17
   %.pr.i203 = load ptr, ptr %ref.tmp.i180, align 8
   %cmp.not.i.i204 = icmp eq ptr %.pr.i203, null
   br i1 %cmp.not.i.i204, label %_ZN7rocksdb6StatusaSERKS0_.exit207, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i205
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i205: ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i202
-  call void @_ZdaPv(ptr noundef nonnull %.pr.i203) #16
+  call void @_ZdaPv(ptr noundef nonnull %.pr.i203) #17
   br label %_ZN7rocksdb6StatusaSERKS0_.exit207
 
 _ZN7rocksdb6StatusaSERKS0_.exit207:               ; preds = %while.body, %cond.end.i199, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i202, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i205
@@ -2875,19 +2875,19 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i21
 
 if.then.i211:                                     ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i210, %_ZN7rocksdb6StatusaSERKS0_.exit207
   %state_mutex_bytes.i.i212 = getelementptr inbounds i8, ptr %last_writer.0232, i64 144
-  %call1.i.i.i.i213 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i212) #17
+  %call1.i.i.i.i213 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i212) #18
   %tobool.not.i.i.i214 = icmp eq i32 %call1.i.i.i.i213, 0
   br i1 %tobool.not.i.i.i214, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i216, label %if.then.i.i.i215
 
 if.then.i.i.i215:                                 ; preds = %if.then.i211
-  call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i213) #18
+  call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i213) #19
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i216:     ; preds = %if.then.i211
   store atomic i8 16, ptr %state2.i208 monotonic, align 1
   %state_cv_bytes.i.i217 = getelementptr inbounds i8, ptr %last_writer.0232, i64 192
-  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i217) #17
-  %call1.i.i.i40.i218 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i212) #17
+  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i217) #18
+  %call1.i.i.i40.i218 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i212) #18
   br label %_ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit220
 
 _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit220: ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i210, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i216
@@ -2969,7 +2969,7 @@ if.then4:                                         ; preds = %invoke.cont
 lpad:                                             ; preds = %if.then4, %if.end
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7rocksdb11WriteThread6WriterD2Ev(ptr noundef nonnull align 16 dereferenceable(256) %w) #17
+  call void @_ZN7rocksdb11WriteThread6WriterD2Ev(ptr noundef nonnull align 16 dereferenceable(256) %w) #18
   resume { ptr, i32 } %1
 
 if.end7:                                          ; preds = %if.then4, %invoke.cont
@@ -2981,7 +2981,7 @@ if.end7:                                          ; preds = %if.then4, %invoke.c
 
 if.then.i:                                        ; preds = %if.end7
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %w, i64 192
-  call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #17
+  call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end7
@@ -2990,7 +2990,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.end7
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb6StatusD2Ev.exit.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %if.end.i
-  call void @_ZdaPv(ptr noundef nonnull %3) #16
+  call void @_ZdaPv(ptr noundef nonnull %3) #17
   br label %_ZN7rocksdb6StatusD2Ev.exit.i
 
 _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i, %if.end.i
@@ -3000,7 +3000,7 @@ _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZNKSt14default_del
   br i1 %cmp.not.i.i2.i, label %return, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i3.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i3.i: ; preds = %_ZN7rocksdb6StatusD2Ev.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %4) #16
+  call void @_ZdaPv(ptr noundef nonnull %4) #17
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i3.i, %_ZN7rocksdb6StatusD2Ev.exit.i, %entry
@@ -3058,19 +3058,19 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i:                                        ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %9, i64 144
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #18
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #19
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i
   store atomic i8 2, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %9, i64 192
-  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #17
-  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #17
+  tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
+  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
   br label %if.end
 
 if.end:                                           ; preds = %entry, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i
@@ -3082,9 +3082,9 @@ define linkonce_odr void @_ZN7rocksdb11WriteThreadD2Ev(ptr noundef nonnull align
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb11WriteThreadE, i64 16), ptr %this, align 16
   %stall_cv_ = getelementptr inbounds i8, ptr %this, i64 360
-  tail call void @_ZN7rocksdb4port7CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %stall_cv_) #17
+  tail call void @_ZN7rocksdb4port7CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %stall_cv_) #18
   %stall_mu_ = getelementptr inbounds i8, ptr %this, i64 320
-  tail call void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %stall_mu_) #17
+  tail call void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %stall_mu_) #18
   %made_waitable.i = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load i8, ptr %made_waitable.i, align 16
   %tobool.i = trunc i8 %0 to i1
@@ -3092,7 +3092,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %this, i64 256
-  tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #17
+  tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -3102,7 +3102,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb6StatusD2Ev.exit.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %if.end.i
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #17
   br label %_ZN7rocksdb6StatusD2Ev.exit.i
 
 _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i, %if.end.i
@@ -3113,7 +3113,7 @@ _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZNKSt14default_del
   br i1 %cmp.not.i.i2.i, label %_ZN7rocksdb11WriteThread6WriterD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i3.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i3.i: ; preds = %_ZN7rocksdb6StatusD2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #17
   br label %_ZN7rocksdb11WriteThread6WriterD2Ev.exit
 
 _ZN7rocksdb11WriteThread6WriterD2Ev.exit:         ; preds = %_ZN7rocksdb6StatusD2Ev.exit.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i3.i
@@ -3126,9 +3126,9 @@ define linkonce_odr void @_ZN7rocksdb11WriteThreadD0Ev(ptr noundef nonnull align
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb11WriteThreadE, i64 16), ptr %this, align 16
   %stall_cv_.i = getelementptr inbounds i8, ptr %this, i64 360
-  tail call void @_ZN7rocksdb4port7CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %stall_cv_.i) #17
+  tail call void @_ZN7rocksdb4port7CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %stall_cv_.i) #18
   %stall_mu_.i = getelementptr inbounds i8, ptr %this, i64 320
-  tail call void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %stall_mu_.i) #17
+  tail call void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %stall_mu_.i) #18
   %made_waitable.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load i8, ptr %made_waitable.i.i, align 16
   %tobool.i.i = trunc i8 %0 to i1
@@ -3136,7 +3136,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %state_cv_bytes.i.i.i = getelementptr inbounds i8, ptr %this, i64 256
-  tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i.i) #17
+  tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i.i) #18
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %entry
@@ -3146,7 +3146,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %entry
   br i1 %cmp.not.i.i.i.i, label %_ZN7rocksdb6StatusD2Ev.exit.i.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i: ; preds = %if.end.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #17
   br label %_ZN7rocksdb6StatusD2Ev.exit.i.i
 
 _ZN7rocksdb6StatusD2Ev.exit.i.i:                  ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i, %if.end.i.i
@@ -3157,11 +3157,11 @@ _ZN7rocksdb6StatusD2Ev.exit.i.i:                  ; preds = %_ZNKSt14default_del
   br i1 %cmp.not.i.i2.i.i, label %_ZN7rocksdb11WriteThreadD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i3.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i3.i.i: ; preds = %_ZN7rocksdb6StatusD2Ev.exit.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #17
   br label %_ZN7rocksdb11WriteThreadD2Ev.exit
 
 _ZN7rocksdb11WriteThreadD2Ev.exit:                ; preds = %_ZN7rocksdb6StatusD2Ev.exit.i.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i3.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
 }
 
@@ -3170,14 +3170,15 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
-  tail call void @_ZSt9terminatev() #19
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #4
@@ -3193,7 +3194,7 @@ declare i32 @sched_yield() local_unnamed_addr #4
 declare void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16), i8 noundef zeroext, i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i8 noundef zeroext) unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #12
 
 declare void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
@@ -3205,10 +3206,10 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare void @_ZN7rocksdb6Status9CopyStateEPKc(ptr sret(%"class.std::unique_ptr") align 8, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #12
+declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
@@ -3222,10 +3223,10 @@ declare void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noun
 declare void @_ZN7rocksdb4port7CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @_GLOBAL__sub_I_write_thread.cc() #13 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_write_thread.cc() #14 section ".text.startup" {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN7rocksdbL18empty_operand_listE, i8 0, i64 24, i1 false)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev, ptr nonnull @_ZN7rocksdbL18empty_operand_listE, ptr nonnull @__dso_handle) #17
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev, ptr nonnull @_ZN7rocksdbL18empty_operand_listE, ptr nonnull @__dso_handle) #18
   store ptr @.str.2, ptr @_ZN7rocksdbL7jbg_ctxE, align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdbL7jbg_ctxE, i64 8), align 8
   store ptr @.str.4, ptr @_ZN7rocksdbL9cpmtw_ctxE, align 8
@@ -3242,15 +3243,15 @@ entry:
 declare extern_weak void @_ZTHN7rocksdb12perf_contextE() #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #14
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #15
 
 declare extern_weak void @_ZTHN7rocksdb10perf_levelE() #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { nofree nounwind }
@@ -3263,15 +3264,16 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(readwrite
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #11 = { nobuiltin nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #12 = { noreturn "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #13 = { nofree nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { builtin nounwind }
-attributes #17 = { nounwind }
-attributes #18 = { noreturn }
-attributes #19 = { noreturn nounwind }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { nobuiltin nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #13 = { noreturn "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #14 = { nofree nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { builtin nounwind }
+attributes #18 = { nounwind }
+attributes #19 = { noreturn }
+attributes #20 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -61,8 +61,8 @@ $_ZTIN5folly7TimerFD5IoVecE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly23STTimerFDTimeoutManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN5folly23STTimerFDTimeoutManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZN5folly23STTimerFDTimeoutManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -121,7 +121,7 @@ entry:
   br i1 %lnot, label %cond.false, label %cleanup.done16, !prof !42
 
 cond.false:                                       ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp4) #13
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp4) #14
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp4, ptr noundef nonnull @.str, i32 noundef 56)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp4)
           to label %invoke.cont unwind label %lpad
@@ -135,13 +135,13 @@ invoke.cont6:                                     ; preds = %invoke.cont
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont6
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp4) #15
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp4) #16
   unreachable
 
 lpad:                                             ; preds = %invoke.cont6, %invoke.cont, %cond.false
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp4) #15
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp4) #16
   unreachable
 
 cleanup.done16:                                   ; preds = %entry
@@ -204,7 +204,7 @@ entry:
   %0 = load ptr, ptr %eventBase_, align 8, !tbaa !43
   %loopThread_.i = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load atomic i64, ptr %loopThread_.i monotonic, align 8
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   %cmp.i.i = icmp eq i64 %1, %call.i.i
   br i1 %cmp.i.i, label %_ZNK5folly9EventBase19isInEventBaseThreadEv.exit, label %lor.rhs.i
 
@@ -238,7 +238,7 @@ invoke.cont:                                      ; preds = %entry
   %vtable = load ptr, ptr %0, align 8, !tbaa !135
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(192) %0) #13
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(192) %0) #14
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont, %entry
@@ -249,7 +249,7 @@ if.end:                                           ; preds = %invoke.cont, %entry
 define void @_ZThn16_N5folly23STTimerFDTimeoutManagerD1Ev(ptr noundef %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZN5folly23STTimerFDTimeoutManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #13
+  tail call void @_ZN5folly23STTimerFDTimeoutManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #14
   ret void
 }
 
@@ -257,8 +257,8 @@ entry:
 define void @_ZThn16_N5folly23STTimerFDTimeoutManagerD0Ev(ptr noundef %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZN5folly23STTimerFDTimeoutManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
+  tail call void @_ZN5folly23STTimerFDTimeoutManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
 
@@ -282,7 +282,7 @@ invoke.cont.i:                                    ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !135
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %3 = load ptr, ptr %vfn.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(192) %0) #13
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(192) %0) #14
   br label %_ZN5folly23STTimerFDTimeoutManager9onTimeoutEv.exit
 
 _ZN5folly23STTimerFDTimeoutManager9onTimeoutEv.exit: ; preds = %invoke.cont.i, %entry
@@ -299,7 +299,7 @@ entry:
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %call2 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17
+  %call2 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %cond.false
@@ -326,7 +326,7 @@ terminate.lpad:                                   ; preds = %cond.false
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #15
+  tail call void @__clang_call_terminate(ptr %2) #16
   unreachable
 }
 
@@ -334,7 +334,7 @@ terminate.lpad:                                   ; preds = %cond.false
 define void @_ZThn192_N5folly23STTimerFDTimeoutManagerD1Ev(ptr noundef %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -192
-  tail call void @_ZN5folly23STTimerFDTimeoutManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #13
+  tail call void @_ZN5folly23STTimerFDTimeoutManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #14
   ret void
 }
 
@@ -342,8 +342,8 @@ entry:
 define void @_ZThn192_N5folly23STTimerFDTimeoutManagerD0Ev(ptr noundef %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -192
-  tail call void @_ZN5folly23STTimerFDTimeoutManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
+  tail call void @_ZN5folly23STTimerFDTimeoutManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
 
@@ -358,7 +358,7 @@ entry:
   br i1 %tobool.not.i, label %cond.false.i, label %_ZN5folly7TimerFD12allocateDataEv.exit
 
 cond.false.i:                                     ; preds = %entry
-  %call2.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17
+  %call2.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %cond.false.i
@@ -381,7 +381,7 @@ terminate.lpad.i:                                 ; preds = %cond.false.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #15
+  tail call void @__clang_call_terminate(ptr %3) #16
   unreachable
 
 _ZN5folly7TimerFD12allocateDataEv.exit:           ; preds = %invoke.cont.i, %entry
@@ -393,7 +393,7 @@ _ZN5folly7TimerFD12allocateDataEv.exit:           ; preds = %invoke.cont.i, %ent
 define void @_ZThn200_N5folly23STTimerFDTimeoutManagerD1Ev(ptr noundef %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -200
-  tail call void @_ZN5folly23STTimerFDTimeoutManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #13
+  tail call void @_ZN5folly23STTimerFDTimeoutManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #14
   ret void
 }
 
@@ -401,8 +401,8 @@ entry:
 define void @_ZThn200_N5folly23STTimerFDTimeoutManagerD0Ev(ptr noundef %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -200
-  tail call void @_ZN5folly23STTimerFDTimeoutManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
+  tail call void @_ZN5folly23STTimerFDTimeoutManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
 
@@ -420,7 +420,7 @@ if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %this, align 8, !tbaa !135
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this) #13
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %if.end, %entry
@@ -475,7 +475,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5folly14TimeoutManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #13
+  tail call void @_ZN5folly14TimeoutManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
   resume { ptr, i32 } %1
 }
 
@@ -506,15 +506,15 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont6 unwind label %terminate.lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  tail call void @_ZN5folly7TimerFDD2Ev(ptr noundef nonnull align 8 dereferenceable(212) %add.ptr) #13
-  tail call void @_ZN5folly14TimeoutManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #13
+  tail call void @_ZN5folly7TimerFDD2Ev(ptr noundef nonnull align 8 dereferenceable(212) %add.ptr) #14
+  tail call void @_ZN5folly14TimeoutManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #15
+  tail call void @__clang_call_terminate(ptr %1) #16
   unreachable
 }
 
@@ -522,14 +522,15 @@ declare void @_ZN5folly7TimerFD6cancelEv(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #15
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 declare void @_ZN5folly7TimerFD5closeEv(ptr noundef nonnull align 8 dereferenceable(212)) local_unnamed_addr #5
 
@@ -537,10 +538,10 @@ declare void @_ZN5folly7TimerFD5closeEv(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN5folly7TimerFDD2Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #4
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly23STTimerFDTimeoutManager9setActiveEPNS_12AsyncTimeoutEb(ptr noundef %obj, i1 noundef zeroext %active) local_unnamed_addr #8 align 2 {
+define void @_ZN5folly23STTimerFDTimeoutManager9setActiveEPNS_12AsyncTimeoutEb(ptr noundef %obj, i1 noundef zeroext %active) local_unnamed_addr #9 align 2 {
 entry:
   %tobool.not = icmp eq ptr %obj, null
   br i1 %tobool.not, label %if.end14, label %if.then
@@ -559,24 +560,24 @@ if.end14:                                         ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef) unnamed_addr #5
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #5
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #10
+declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #11
 
 declare void @_ZN5folly7TimerFD8scheduleENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE(ptr noundef nonnull align 8 dereferenceable(212), i64) local_unnamed_addr #5
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @pthread_self() local_unnamed_addr #11
+declare i64 @pthread_self() local_unnamed_addr #12
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly7TimerFD5IoVec4freeEPNS_17EventReadCallback5IoVecE(ptr noundef %ioVec) #0 comdat align 2 {
@@ -588,7 +589,7 @@ delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %ioVec, align 8, !tbaa !135
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(48) %ioVec) #13
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(48) %ioVec) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -613,7 +614,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly7TimerFD5IoVecD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -626,17 +627,18 @@ attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind }
-attributes #14 = { builtin nounwind }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { nounwind willreturn memory(none) }
-attributes #17 = { builtin allocsize(0) }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind }
+attributes #15 = { builtin nounwind }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { nounwind willreturn memory(none) }
+attributes #18 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

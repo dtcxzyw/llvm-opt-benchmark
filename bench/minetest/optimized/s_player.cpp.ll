@@ -81,12 +81,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -101,7 +101,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -120,7 +120,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i48 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -159,15 +159,15 @@ terminate.lpad.i:                                 ; preds = %invoke.cont36
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #17
+  tail call void @__clang_call_terminate(ptr %3) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %4 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i51 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i51 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret void
 
 lpad14:                                           ; preds = %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
@@ -183,12 +183,12 @@ lpad22:                                           ; preds = %invoke.cont15
 lpad24:                                           ; preds = %invoke.cont31, %invoke.cont26, %invoke.cont25, %invoke.cont23
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %7, %lpad24 ], [ %6, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit59
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit59: ; preds = %ehcleanup, %lpad14
@@ -196,7 +196,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit59: ; preds = %ehcleanup, %lpad1
   %8 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i52 = add nsw i32 %8, -1
   store i32 %dec.i52, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i58 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i58 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -229,7 +229,7 @@ terminate.lpad:                                   ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #17
+  tail call void @__clang_call_terminate(ptr %3) #18
   unreachable
 }
 
@@ -245,12 +245,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -265,7 +265,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -284,7 +284,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i54 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -331,15 +331,15 @@ terminate.lpad.i:                                 ; preds = %invoke.cont41
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #17
+  tail call void @__clang_call_terminate(ptr %3) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %4 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i57 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i57 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret void
 
 lpad14:                                           ; preds = %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
@@ -355,12 +355,12 @@ lpad22:                                           ; preds = %invoke.cont15
 lpad24:                                           ; preds = %invoke.cont36, %invoke.cont31, %invoke.cont26, %invoke.cont25, %invoke.cont23
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %7, %lpad24 ], [ %6, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit65
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit65: ; preds = %ehcleanup, %lpad14
@@ -368,7 +368,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit65: ; preds = %ehcleanup, %lpad1
   %8 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i58 = add nsw i32 %8, -1
   store i32 %dec.i58, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i64 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i64 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -383,12 +383,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -403,7 +403,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -422,7 +422,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i66 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -491,15 +491,15 @@ terminate.lpad.i:                                 ; preds = %invoke.cont47
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #17
+  tail call void @__clang_call_terminate(ptr %3) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont47
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %4 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i69 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i69 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret i1 %call48
 
 lpad14:                                           ; preds = %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
@@ -515,12 +515,12 @@ lpad22:                                           ; preds = %invoke.cont15
 lpad24:                                           ; preds = %invoke.cont46, %invoke.cont41, %invoke.cont39, %invoke.cont38, %invoke.cont37, %invoke.cont36, %invoke.cont31, %invoke.cont26, %invoke.cont25, %invoke.cont23
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %7, %lpad24 ], [ %6, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit77
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit77: ; preds = %ehcleanup, %lpad14
@@ -528,7 +528,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit77: ; preds = %ehcleanup, %lpad1
   %8 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i70 = add nsw i32 %8, -1
   store i32 %dec.i70, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i76 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i76 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -552,12 +552,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -572,7 +572,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -591,7 +591,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i54 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -638,15 +638,15 @@ terminate.lpad.i:                                 ; preds = %invoke.cont41
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #17
+  tail call void @__clang_call_terminate(ptr %3) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %4 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i57 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i57 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret void
 
 lpad14:                                           ; preds = %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
@@ -662,12 +662,12 @@ lpad22:                                           ; preds = %invoke.cont15
 lpad24:                                           ; preds = %invoke.cont36, %invoke.cont31, %invoke.cont26, %invoke.cont25, %invoke.cont23
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %7, %lpad24 ], [ %6, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit65
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit65: ; preds = %ehcleanup, %lpad14
@@ -675,7 +675,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit65: ; preds = %ehcleanup, %lpad1
   %8 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i58 = add nsw i32 %8, -1
   store i32 %dec.i58, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i64 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i64 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -688,12 +688,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -708,7 +708,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -727,7 +727,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i78 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -827,26 +827,26 @@ terminate.lpad.i:                                 ; preds = %invoke.cont53
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #17
+  tail call void @__clang_call_terminate(ptr %7) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont53
   %conv52 = trunc i64 %call51 to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %8 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %8, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i81 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i81 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret i32 %conv52
 
 ehcleanup:                                        ; preds = %lpad42, %lpad24
   %.pn = phi { ptr, i32 } [ %4, %lpad24 ], [ %5, %lpad42 ]
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup55
 
 ehcleanup55:                                      ; preds = %ehcleanup, %lpad22
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit89
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit89: ; preds = %ehcleanup55, %lpad14
@@ -854,7 +854,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit89: ; preds = %ehcleanup55, %lpa
   %9 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i82 = add nsw i32 %9, -1
   store i32 %dec.i82, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i88 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i88 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -881,12 +881,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -901,7 +901,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -920,7 +920,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i51 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -963,15 +963,15 @@ terminate.lpad.i:                                 ; preds = %invoke.cont37
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #17
+  tail call void @__clang_call_terminate(ptr %3) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %4 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i54 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i54 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret i1 %call38
 
 lpad14:                                           ; preds = %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
@@ -987,12 +987,12 @@ lpad22:                                           ; preds = %invoke.cont15
 lpad24:                                           ; preds = %invoke.cont36, %invoke.cont31, %invoke.cont26, %invoke.cont25, %invoke.cont23
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %7, %lpad24 ], [ %6, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit62
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit62: ; preds = %ehcleanup, %lpad14
@@ -1000,7 +1000,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit62: ; preds = %ehcleanup, %lpad1
   %8 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i55 = add nsw i32 %8, -1
   store i32 %dec.i55, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i61 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i61 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1014,12 +1014,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -1034,7 +1034,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -1053,7 +1053,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %m_original_top.i = getelementptr inbounds i8, ptr %stack_unroller, i64 8
   %call.i63 = invoke i32 @lua_gettop(ptr noundef %1)
@@ -1095,7 +1095,7 @@ invoke.cont36:                                    ; preds = %invoke.cont35
   br i1 %tobool.not, label %if.then, label %cleanup
 
 if.then:                                          ; preds = %invoke.cont36
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #15
   invoke void @_ZN9LuaHelper9readParamINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_P9lua_Statei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %1, i32 noundef -1)
           to label %invoke.cont39 unwind label %lpad38
 
@@ -1201,11 +1201,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEOS4_.exit
-  call void @_ZdlPv(ptr noundef %22) #18
+  call void @_ZdlPv(ptr noundef %22) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #14
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #15
   %.pre = load ptr, ptr %stack_unroller, align 8, !tbaa !22
   %.pre82 = load i32, ptr %m_original_top.i, align 8, !tbaa !24
   br label %cleanup
@@ -1228,7 +1228,7 @@ lpad24:                                           ; preds = %invoke.cont35, %inv
 lpad38:                                           ; preds = %if.then
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #14
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #15
   br label %ehcleanup
 
 cleanup:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %invoke.cont36
@@ -1241,25 +1241,25 @@ terminate.lpad.i:                                 ; preds = %cleanup
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #17
+  call void @__clang_call_terminate(ptr %32) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %33 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %33, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i69 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i69 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret i1 %tobool.not
 
 ehcleanup:                                        ; preds = %lpad38, %lpad24
   %.pn = phi { ptr, i32 } [ %28, %lpad38 ], [ %27, %lpad24 ]
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %ehcleanup, %lpad22
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %26, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit77
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit77: ; preds = %ehcleanup42, %lpad14
@@ -1267,7 +1267,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit77: ; preds = %ehcleanup42, %lpa
   %34 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i70 = add nsw i32 %34, -1
   store i32 %dec.i70, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i76 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i76 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -1286,12 +1286,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -1306,7 +1306,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -1325,7 +1325,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i51 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -1370,16 +1370,16 @@ terminate.lpad.i:                                 ; preds = %invoke.cont36
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont36
   %tobool = icmp ne i32 %call37, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %6 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %6, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i54 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i54 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret i1 %tobool
 
 lpad14:                                           ; preds = %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
@@ -1395,12 +1395,12 @@ lpad22:                                           ; preds = %invoke.cont15
 lpad24:                                           ; preds = %invoke.cont35, %invoke.cont30, %invoke.cont28, %invoke.cont26, %invoke.cont25, %invoke.cont23
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %9, %lpad24 ], [ %8, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit62
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit62: ; preds = %ehcleanup, %lpad14
@@ -1408,7 +1408,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit62: ; preds = %ehcleanup, %lpad1
   %10 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i55 = add nsw i32 %10, -1
   store i32 %dec.i55, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i61 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i61 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1423,12 +1423,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -1443,7 +1443,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -1462,7 +1462,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i53 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -1506,7 +1506,7 @@ lpad22:                                           ; preds = %invoke.cont15
 lpad24:                                           ; preds = %if.end, %if.else, %if.then, %invoke.cont26, %invoke.cont25, %invoke.cont23
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont31
@@ -1529,20 +1529,20 @@ terminate.lpad.i:                                 ; preds = %invoke.cont38
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #17
+  tail call void @__clang_call_terminate(ptr %6) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %7 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %7, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i56 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i56 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret void
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %4, %lpad24 ], [ %3, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit64
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit64: ; preds = %ehcleanup, %lpad14
@@ -1550,7 +1550,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit64: ; preds = %ehcleanup, %lpad1
   %8 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i57 = add nsw i32 %8, -1
   store i32 %dec.i57, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i63 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i63 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1567,12 +1567,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -1587,7 +1587,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -1606,7 +1606,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i50 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -1650,15 +1650,15 @@ terminate.lpad.i:                                 ; preds = %invoke.cont37
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #17
+  tail call void @__clang_call_terminate(ptr %3) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %4 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i53 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i53 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret void
 
 lpad14:                                           ; preds = %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
@@ -1674,12 +1674,12 @@ lpad22:                                           ; preds = %invoke.cont15
 lpad24:                                           ; preds = %invoke.cont32, %invoke.cont31, %invoke.cont26, %invoke.cont25, %invoke.cont23
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %7, %lpad24 ], [ %6, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit61
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit61: ; preds = %ehcleanup, %lpad14
@@ -1687,7 +1687,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit61: ; preds = %ehcleanup, %lpad1
   %8 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i54 = add nsw i32 %8, -1
   store i32 %dec.i54, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i60 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i60 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1702,12 +1702,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -1722,7 +1722,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -1741,7 +1741,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i57 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -1795,15 +1795,15 @@ terminate.lpad.i:                                 ; preds = %invoke.cont41
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %6 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %6, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i60 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i60 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret void
 
 lpad14:                                           ; preds = %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
@@ -1819,12 +1819,12 @@ lpad22:                                           ; preds = %invoke.cont15
 lpad24:                                           ; preds = %invoke.cont36, %invoke.cont35, %invoke.cont32, %invoke.cont31, %invoke.cont26, %invoke.cont25, %invoke.cont23
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %9, %lpad24 ], [ %8, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit68
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit68: ; preds = %ehcleanup, %lpad14
@@ -1832,7 +1832,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit68: ; preds = %ehcleanup, %lpad1
   %10 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i61 = add nsw i32 %10, -1
   store i32 %dec.i61, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i67 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i67 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1851,12 +1851,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -1871,7 +1871,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -1890,7 +1890,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i81 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -1991,25 +1991,25 @@ terminate.lpad.i:                                 ; preds = %invoke.cont58
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #17
+  tail call void @__clang_call_terminate(ptr %12) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont58
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %13 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %13, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i86 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i86 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret void
 
 ehcleanup59:                                      ; preds = %lpad47, %lpad35, %lpad24
   %.pn.pn = phi { ptr, i32 } [ %8, %lpad24 ], [ %10, %lpad47 ], [ %9, %lpad35 ]
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup60
 
 ehcleanup60:                                      ; preds = %ehcleanup59, %lpad22
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup59 ], [ %7, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit94
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit94: ; preds = %ehcleanup60, %lpad14
@@ -2017,7 +2017,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit94: ; preds = %ehcleanup60, %lpa
   %14 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i87 = add nsw i32 %14, -1
   store i32 %dec.i87, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i93 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i93 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -2032,12 +2032,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -2052,7 +2052,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -2071,7 +2071,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i50 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -2117,15 +2117,15 @@ terminate.lpad.i:                                 ; preds = %invoke.cont36
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %6 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %6, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i53 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i53 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret void
 
 lpad14:                                           ; preds = %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
@@ -2141,12 +2141,12 @@ lpad22:                                           ; preds = %invoke.cont15
 lpad24:                                           ; preds = %invoke.cont31, %invoke.cont30, %invoke.cont28, %invoke.cont26, %invoke.cont25, %invoke.cont23
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %9, %lpad24 ], [ %8, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit61
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit61: ; preds = %ehcleanup, %lpad14
@@ -2154,7 +2154,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit61: ; preds = %ehcleanup, %lpad1
   %10 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i54 = add nsw i32 %10, -1
   store i32 %dec.i54, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i60 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i60 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2235,12 +2235,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -2255,7 +2255,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -2274,7 +2274,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i51 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -2326,16 +2326,16 @@ terminate.lpad.i:                                 ; preds = %cond.end
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #17
+  tail call void @__clang_call_terminate(ptr %3) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %cond.end
   %conv37 = fptosi double %cond to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %4 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i54 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i54 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret i32 %conv37
 
 lpad14:                                           ; preds = %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
@@ -2351,12 +2351,12 @@ lpad22:                                           ; preds = %invoke.cont15
 lpad24:                                           ; preds = %cond.true, %invoke.cont32, %invoke.cont27, %invoke.cont26, %invoke.cont25, %invoke.cont23
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %7, %lpad24 ], [ %6, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit62
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit62: ; preds = %ehcleanup, %lpad14
@@ -2364,7 +2364,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit62: ; preds = %ehcleanup, %lpad1
   %8 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i55 = add nsw i32 %8, -1
   store i32 %dec.i55, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i61 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i61 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2381,12 +2381,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -2401,7 +2401,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -2420,7 +2420,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i55 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -2479,16 +2479,16 @@ terminate.lpad.i:                                 ; preds = %cond.end
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %cond.end
   %conv39 = fptosi double %cond to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %6 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %6, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i58 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i58 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret i32 %conv39
 
 lpad14:                                           ; preds = %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
@@ -2504,12 +2504,12 @@ lpad22:                                           ; preds = %invoke.cont15
 lpad24:                                           ; preds = %cond.true, %invoke.cont32, %invoke.cont27, %invoke.cont26, %invoke.cont25, %invoke.cont23
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %9, %lpad24 ], [ %8, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit66
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit66: ; preds = %ehcleanup, %lpad14
@@ -2517,7 +2517,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit66: ; preds = %ehcleanup, %lpad1
   %10 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i59 = add nsw i32 %10, -1
   store i32 %dec.i59, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i65 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i65 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2530,12 +2530,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -2550,7 +2550,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -2569,7 +2569,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i55 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -2627,16 +2627,16 @@ terminate.lpad.i:                                 ; preds = %cond.end
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %cond.end
   %conv39 = fptosi double %cond to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %6 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %6, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i58 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i58 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret i32 %conv39
 
 lpad14:                                           ; preds = %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
@@ -2652,12 +2652,12 @@ lpad22:                                           ; preds = %invoke.cont15
 lpad24:                                           ; preds = %cond.true, %invoke.cont32, %invoke.cont27, %invoke.cont26, %invoke.cont25, %invoke.cont23
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %9, %lpad24 ], [ %8, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit66
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit66: ; preds = %ehcleanup, %lpad14
@@ -2665,7 +2665,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit66: ; preds = %ehcleanup, %lpad1
   %10 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i59 = add nsw i32 %10, -1
   store i32 %dec.i59, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i65 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i65 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2678,12 +2678,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -2698,7 +2698,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -2717,7 +2717,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i43 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -2752,15 +2752,15 @@ terminate.lpad.i:                                 ; preds = %invoke.cont32
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #17
+  tail call void @__clang_call_terminate(ptr %3) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %4 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i46 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i46 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret void
 
 lpad14:                                           ; preds = %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
@@ -2776,12 +2776,12 @@ lpad22:                                           ; preds = %invoke.cont15
 lpad24:                                           ; preds = %invoke.cont27, %invoke.cont26, %invoke.cont25, %invoke.cont23
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %7, %lpad24 ], [ %6, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit54
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit54: ; preds = %ehcleanup, %lpad14
@@ -2789,7 +2789,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit54: ; preds = %ehcleanup, %lpad1
   %8 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i47 = add nsw i32 %8, -1
   store i32 %dec.i47, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i53 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i53 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2802,12 +2802,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -2822,7 +2822,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -2841,7 +2841,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i45 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -2881,15 +2881,15 @@ terminate.lpad.i:                                 ; preds = %invoke.cont32
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  tail call void @__clang_call_terminate(ptr %4) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %5 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %5, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i48 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i48 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret void
 
 lpad14:                                           ; preds = %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
@@ -2905,12 +2905,12 @@ lpad22:                                           ; preds = %invoke.cont15
 lpad24:                                           ; preds = %invoke.cont27, %invoke.cont26, %invoke.cont25, %invoke.cont23
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %8, %lpad24 ], [ %7, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit56
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit56: ; preds = %ehcleanup, %lpad14
@@ -2918,7 +2918,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit56: ; preds = %ehcleanup, %lpad1
   %9 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i49 = add nsw i32 %9, -1
   store i32 %dec.i49, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i55 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i55 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2931,12 +2931,12 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #15
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #16
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
@@ -2951,7 +2951,7 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 
 if.else.i:                                        ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
   %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr5, i64 88
-  %call.i.i = tail call i64 @pthread_self() #16
+  %call.i.i = tail call i64 @pthread_self() #17
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !10
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
 
@@ -2970,7 +2970,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i45 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -3009,15 +3009,15 @@ terminate.lpad.i:                                 ; preds = %invoke.cont32
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  tail call void @__clang_call_terminate(ptr %4) #18
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   %5 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %5, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i48 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i48 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   ret void
 
 lpad14:                                           ; preds = %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
@@ -3033,12 +3033,12 @@ lpad22:                                           ; preds = %invoke.cont15
 lpad24:                                           ; preds = %invoke.cont27, %invoke.cont26, %invoke.cont25, %invoke.cont23
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #14
+  call void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %stack_unroller) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %8, %lpad24 ], [ %7, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit56
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit56: ; preds = %ehcleanup, %lpad14
@@ -3046,7 +3046,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit56: ; preds = %ehcleanup, %lpad1
   %9 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i49 = add nsw i32 %9, -1
   store i32 %dec.i49, ptr %m_lock_recursion_count, align 4, !tbaa !7
-  %call1.i.i.i.i.i55 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #14
+  %call1.i.i.i.i.i55 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -3055,20 +3055,21 @@ declare i64 @pthread_self() local_unnamed_addr #8
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #17
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #18
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #11
+declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
@@ -3077,15 +3078,15 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_s_player.cpp() #12 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_s_player.cpp() #13 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+declare void @llvm.assume(i1 noundef) #14
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3097,15 +3098,16 @@ attributes #6 = { mustprogress uwtable "min-legal-vector-width"="64" "no-signed-
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn nounwind uwtable "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn }
-attributes #16 = { nounwind willreturn memory(none) }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { builtin nounwind }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { nobuiltin nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn }
+attributes #17 = { nounwind willreturn memory(none) }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

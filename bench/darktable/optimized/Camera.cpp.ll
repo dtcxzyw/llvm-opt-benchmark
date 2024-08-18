@@ -317,7 +317,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   %46 = getelementptr inbounds i8, ptr %0, i64 424
   %47 = getelementptr inbounds i8, ptr %0, i64 432
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %46, i8 0, i64 33, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #27
   %48 = invoke ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str)
           to label %49 unwind label %59
 
@@ -328,7 +328,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
 
 51:                                               ; preds = %49
   %52 = load i64, ptr %25, align 8, !tbaa !11
-  %53 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #25
+  %53 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #27
   %54 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef 0, i64 noundef %52, ptr noundef %50, i64 noundef %53)
           to label %55 unwind label %59
 
@@ -337,7 +337,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
           to label %56 unwind label %59
 
 56:                                               ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27
   %57 = load i64, ptr %16, align 8, !tbaa !11
   %58 = icmp eq i64 %57, 0
   br i1 %58, label %78, label %63
@@ -345,7 +345,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
 59:                                               ; preds = %55, %51, %49, %2
   %60 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27
   br label %255
 
 61:                                               ; preds = %78
@@ -354,7 +354,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   br label %255
 
 63:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %64 = invoke ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3)
           to label %65 unwind label %81
 
@@ -365,7 +365,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
 
 67:                                               ; preds = %65
   %68 = load i64, ptr %31, align 8, !tbaa !11
-  %69 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #25
+  %69 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #27
   %70 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef 0, i64 noundef %68, ptr noundef %66, i64 noundef %69)
           to label %71 unwind label %81
 
@@ -378,8 +378,8 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
           to label %73 unwind label %81
 
 73:                                               ; preds = %72
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #27
   %74 = invoke ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3)
           to label %75 unwind label %83
 
@@ -389,12 +389,12 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
           to label %77 unwind label %83
 
 77:                                               ; preds = %75
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #27
   br i1 %76, label %78, label %85
 
 78:                                               ; preds = %77, %56
   %79 = phi ptr [ @.str.4, %77 ], [ @.str.2, %56 ]
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull %79, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE) #26
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull %79, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE) #20
           to label %80 unwind label %61
 
 80:                                               ; preds = %78
@@ -403,18 +403,18 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
 81:                                               ; preds = %72, %71, %67, %65, %63
   %82 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
   br label %255
 
 83:                                               ; preds = %75, %73
   %84 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #27
   br label %255
 
 85:                                               ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #27
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #27
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.5)
           to label %86 unwind label %222
 
@@ -429,7 +429,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %86
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.73) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.73) #28
           to label %94 unwind label %224
 
 94:                                               ; preds = %93
@@ -594,7 +594,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   br label %168
 
 167:                                              ; preds = %160
-  call void @_ZdlPv(ptr noundef %162) #28
+  call void @_ZdlPv(ptr noundef %162) #29
   br label %168
 
 168:                                              ; preds = %167, %164
@@ -609,13 +609,13 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   br label %175
 
 174:                                              ; preds = %168
-  call void @_ZdlPv(ptr noundef %169) #28
+  call void @_ZdlPv(ptr noundef %169) #29
   br label %175
 
 175:                                              ; preds = %174, %171
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #27
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #27
   %176 = invoke ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.74)
           to label %177 unwind label %235
 
@@ -625,8 +625,8 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
           to label %179 unwind label %235
 
 179:                                              ; preds = %177
-  %180 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %178) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
+  %180 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %178) #27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
   switch i64 %180, label %196 [
     i64 3, label %181
     i64 2, label %184
@@ -661,7 +661,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   br i1 %195, label %198, label %196
 
 196:                                              ; preds = %193, %190, %187, %184, %181, %179
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.80, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN8rawspeed6CameraC1ERKN4pugi8xml_nodeEENK3$_0clEv") #26
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.80, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN8rawspeed6CameraC1ERKN4pugi8xml_nodeEENK3$_0clEv") #20
           to label %197 unwind label %235
 
 197:                                              ; preds = %196
@@ -671,7 +671,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   %199 = phi i32 [ 1, %181 ], [ 5, %184 ], [ 0, %187 ], [ 2, %190 ], [ 4, %193 ]
   %200 = getelementptr inbounds i8, ptr %0, i64 304
   store i32 %199, ptr %200, align 8, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #27
   %201 = invoke ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.6)
           to label %202 unwind label %237
 
@@ -682,13 +682,13 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
 
 204:                                              ; preds = %202
   %205 = load i64, ptr %22, align 8, !tbaa !11
-  %206 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %203) #25
+  %206 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %203) #27
   %207 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %20, i64 noundef 0, i64 noundef %205, ptr noundef %203, i64 noundef %206)
           to label %208 unwind label %237
 
 208:                                              ; preds = %204
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #27
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #27
   %209 = invoke ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.7)
           to label %210 unwind label %239
 
@@ -700,16 +700,16 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
 212:                                              ; preds = %210
   %213 = getelementptr inbounds i8, ptr %0, i64 376
   store i32 %211, ptr %213, align 8, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #27
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #27
   invoke void @_ZNK4pugi8xml_node8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.pugi::xml_object_range") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %214 unwind label %241
 
 214:                                              ; preds = %212
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #27
   %215 = load <2 x ptr>, ptr %11, align 16, !tbaa !61
   store <2 x ptr> %215, ptr %12, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #25
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #27
   %216 = getelementptr inbounds i8, ptr %11, i64 16
   %217 = load <2 x ptr>, ptr %216, align 16, !tbaa !61
   store <2 x ptr> %217, ptr %13, align 16
@@ -723,9 +723,9 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   br i1 %219, label %245, label %221
 
 221:                                              ; preds = %220
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #27
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #27
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #27
   ret void
 
 222:                                              ; preds = %85
@@ -748,13 +748,13 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   br label %233
 
 232:                                              ; preds = %224
-  call void @_ZdlPv(ptr noundef %226) #28
+  call void @_ZdlPv(ptr noundef %226) #29
   br label %233
 
 233:                                              ; preds = %232, %229, %222
   %234 = phi { ptr, i32 } [ %223, %222 ], [ %225, %229 ], [ %225, %232 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #27
   br label %255
 
 235:                                              ; preds = %196, %177, %175
@@ -765,13 +765,13 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
 237:                                              ; preds = %204, %202, %198
   %238 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #27
   br label %255
 
 239:                                              ; preds = %210, %208
   %240 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #27
   br label %255
 
 241:                                              ; preds = %212
@@ -785,7 +785,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   br label %253
 
 245:                                              ; preds = %220
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #27
   %246 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4pugi17xml_node_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %247 unwind label %251
 
@@ -796,21 +796,21 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
           to label %249 unwind label %251
 
 249:                                              ; preds = %247
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #27
   %250 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4pugi17xml_node_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %218 unwind label %243
 
 251:                                              ; preds = %247, %245
   %252 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #27
   br label %253
 
 253:                                              ; preds = %251, %243
   %254 = phi { ptr, i32 } [ %244, %243 ], [ %252, %251 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #27
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #27
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #27
   br label %255
 
 255:                                              ; preds = %253, %241, %239, %237, %235, %233, %83, %81, %61, %59
@@ -820,18 +820,18 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   br i1 %258, label %260, label %259
 
 259:                                              ; preds = %255
-  call void @_ZdlPv(ptr noundef nonnull %257) #28
+  call void @_ZdlPv(ptr noundef nonnull %257) #29
   br label %260
 
 260:                                              ; preds = %259, %255
-  call void @_ZN8rawspeed5HintsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %41) #25
-  call void @_ZNSt6vectorIN8rawspeed16CameraSensorInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #25
+  call void @_ZN8rawspeed5HintsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %41) #27
+  call void @_ZNSt6vectorIN8rawspeed16CameraSensorInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #27
   %261 = load ptr, ptr %39, align 8, !tbaa !63
   %262 = icmp eq ptr %261, null
   br i1 %262, label %264, label %263
 
 263:                                              ; preds = %260
-  call void @_ZdlPv(ptr noundef nonnull %261) #28
+  call void @_ZdlPv(ptr noundef nonnull %261) #29
   br label %264
 
 264:                                              ; preds = %263, %260
@@ -840,12 +840,12 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   br i1 %266, label %268, label %267
 
 267:                                              ; preds = %264
-  call void @_ZdlPv(ptr noundef nonnull %265) #28
+  call void @_ZdlPv(ptr noundef nonnull %265) #29
   br label %268
 
 268:                                              ; preds = %267, %264
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #25
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #25
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #27
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #27
   %269 = load ptr, ptr %32, align 8, !tbaa !25
   %270 = icmp eq ptr %269, %33
   br i1 %270, label %271, label %274
@@ -857,7 +857,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   br label %275
 
 274:                                              ; preds = %268
-  call void @_ZdlPv(ptr noundef %269) #28
+  call void @_ZdlPv(ptr noundef %269) #29
   br label %275
 
 275:                                              ; preds = %274, %271
@@ -872,7 +872,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   br label %282
 
 281:                                              ; preds = %275
-  call void @_ZdlPv(ptr noundef %276) #28
+  call void @_ZdlPv(ptr noundef %276) #29
   br label %282
 
 282:                                              ; preds = %281, %278
@@ -887,7 +887,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   br label %289
 
 288:                                              ; preds = %282
-  call void @_ZdlPv(ptr noundef %283) #28
+  call void @_ZdlPv(ptr noundef %283) #29
   br label %289
 
 289:                                              ; preds = %288, %285
@@ -902,7 +902,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   br label %296
 
 295:                                              ; preds = %289
-  call void @_ZdlPv(ptr noundef %290) #28
+  call void @_ZdlPv(ptr noundef %290) #29
   br label %296
 
 296:                                              ; preds = %295, %292
@@ -917,7 +917,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   br label %303
 
 302:                                              ; preds = %296
-  call void @_ZdlPv(ptr noundef %297) #28
+  call void @_ZdlPv(ptr noundef %297) #29
   br label %303
 
 303:                                              ; preds = %302, %299
@@ -932,7 +932,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   br label %310
 
 309:                                              ; preds = %303
-  call void @_ZdlPv(ptr noundef %304) #28
+  call void @_ZdlPv(ptr noundef %304) #29
   br label %310
 
 310:                                              ; preds = %309, %306
@@ -947,7 +947,7 @@ define hidden void @_ZN8rawspeed6CameraC2ERKN4pugi8xml_nodeE(ptr noundef nonnull
   br label %317
 
 316:                                              ; preds = %310
-  call void @_ZdlPv(ptr noundef %311) #28
+  call void @_ZdlPv(ptr noundef %311) #29
   br label %317
 
 317:                                              ; preds = %316, %313
@@ -969,25 +969,25 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: cold mustprogress noreturn optsize uwtable
 define linkonce_odr hidden void @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef %0, ...) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #27
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKczE3buf)
-  %4 = call i32 @vsnprintf(ptr noundef nonnull %3, i64 noundef 8192, ptr noundef %0, ptr noundef nonnull %2) #25
+  %4 = call i32 @vsnprintf(ptr noundef nonnull %3, i64 noundef 8192, ptr noundef %0, ptr noundef nonnull %2) #27
   call void @llvm.va_end.p0(ptr nonnull %2)
   call void (i32, ptr, ...) @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef 65536, ptr noundef nonnull @.str.94, ptr noundef nonnull %3)
-  %5 = call ptr @__cxa_allocate_exception(i64 16) #25
+  %5 = call ptr @__cxa_allocate_exception(i64 16) #27
   invoke void @_ZN8rawspeed23CameraMetadataExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %3)
           to label %6 unwind label %7
 
 6:                                                ; preds = %1
-  call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN8rawspeed23CameraMetadataExceptionE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
+  call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN8rawspeed23CameraMetadataExceptionE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #28
   unreachable
 
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %5) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #25
+  call void @__cxa_free_exception(ptr %5) #27
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #27
   resume { ptr, i32 } %8
 }
 
@@ -1008,7 +1008,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %9
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
   unreachable
 
 12:                                               ; preds = %9
@@ -1017,11 +1017,11 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
   br i1 %14, label %15, label %16, !prof !26
 
 15:                                               ; preds = %12
-  tail call void @_ZSt17__throw_bad_allocv() #27
+  tail call void @_ZSt17__throw_bad_allocv() #28
   unreachable
 
 16:                                               ; preds = %12
-  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #29
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #30
   store ptr %17, ptr %0, align 8, !tbaa !25
   store i64 %7, ptr %4, align 8, !tbaa !14
   br label %18
@@ -1047,14 +1047,14 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
   store i64 %7, ptr %24, align 8, !tbaa !11
   %25 = getelementptr inbounds i8, ptr %19, i64 %7
   store i8 0, ptr %25, align 1, !tbaa !14
-  %26 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
+  %26 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
   %27 = load i64, ptr %24, align 8, !tbaa !11
   %28 = sub i64 9223372036854775807, %27
   %29 = icmp ult i64 %28, %26
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %23
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.73) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.73) #28
           to label %31 unwind label %51
 
 31:                                               ; preds = %30
@@ -1113,7 +1113,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
   br label %59
 
 58:                                               ; preds = %51
-  tail call void @_ZdlPv(ptr noundef %53) #28
+  tail call void @_ZdlPv(ptr noundef %53) #29
   br label %59
 
 59:                                               ; preds = %58, %55
@@ -1149,7 +1149,7 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !11
@@ -1172,7 +1172,7 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   br i1 %25, label %50, label %26
 
 26:                                               ; preds = %20, %15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #27
   invoke fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %27 unwind label %61
 
@@ -1209,11 +1209,11 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   br label %49
 
 48:                                               ; preds = %42
-  call void @_ZdlPv(ptr noundef %31) #28
+  call void @_ZdlPv(ptr noundef %31) #29
   br label %49
 
 49:                                               ; preds = %48, %46
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #27
   br label %50
 
 50:                                               ; preds = %49, %20
@@ -1230,11 +1230,11 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   br label %59
 
 58:                                               ; preds = %50
-  call void @_ZdlPv(ptr noundef %52) #28
+  call void @_ZdlPv(ptr noundef %52) #29
   br label %59
 
 59:                                               ; preds = %58, %55
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #27
   br i1 %51, label %60, label %71
 
 60:                                               ; preds = %59
@@ -1244,7 +1244,7 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
 61:                                               ; preds = %26
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #27
   %63 = load ptr, ptr %3, align 8, !tbaa !25
   %64 = getelementptr inbounds i8, ptr %3, i64 16
   %65 = icmp eq ptr %63, %64
@@ -1257,15 +1257,15 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   br label %70
 
 69:                                               ; preds = %61
-  call void @_ZdlPv(ptr noundef %63) #28
+  call void @_ZdlPv(ptr noundef %63) #29
   br label %70
 
 70:                                               ; preds = %69, %66
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #27
   resume { ptr, i32 } %62
 
 71:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %72 = getelementptr inbounds i8, ptr %5, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !11
@@ -1299,11 +1299,11 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   br label %93
 
 92:                                               ; preds = %86
-  call void @_ZdlPv(ptr noundef %75) #28
+  call void @_ZdlPv(ptr noundef %75) #29
   br label %93
 
 93:                                               ; preds = %92, %90
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #27
   br i1 %87, label %94, label %95
 
 94:                                               ; preds = %93
@@ -1311,7 +1311,7 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   br label %215
 
 95:                                               ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %96 = getelementptr inbounds i8, ptr %6, i64 8
   %97 = load i64, ptr %96, align 8, !tbaa !11
@@ -1345,11 +1345,11 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   br label %117
 
 116:                                              ; preds = %110
-  call void @_ZdlPv(ptr noundef %99) #28
+  call void @_ZdlPv(ptr noundef %99) #29
   br label %117
 
 117:                                              ; preds = %116, %114
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #27
   br i1 %111, label %118, label %119
 
 118:                                              ; preds = %117
@@ -1357,7 +1357,7 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   br label %215
 
 119:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %120 = getelementptr inbounds i8, ptr %7, i64 8
   %121 = load i64, ptr %120, align 8, !tbaa !11
@@ -1391,11 +1391,11 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   br label %141
 
 140:                                              ; preds = %134
-  call void @_ZdlPv(ptr noundef %123) #28
+  call void @_ZdlPv(ptr noundef %123) #29
   br label %141
 
 141:                                              ; preds = %140, %138
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #27
   br i1 %135, label %142, label %143
 
 142:                                              ; preds = %141
@@ -1403,7 +1403,7 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   br label %215
 
 143:                                              ; preds = %141
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %144 = getelementptr inbounds i8, ptr %8, i64 8
   %145 = load i64, ptr %144, align 8, !tbaa !11
@@ -1437,11 +1437,11 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   br label %165
 
 164:                                              ; preds = %158
-  call void @_ZdlPv(ptr noundef %147) #28
+  call void @_ZdlPv(ptr noundef %147) #29
   br label %165
 
 165:                                              ; preds = %164, %162
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #27
   br i1 %159, label %166, label %167
 
 166:                                              ; preds = %165
@@ -1449,7 +1449,7 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   br label %215
 
 167:                                              ; preds = %165
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %168 = getelementptr inbounds i8, ptr %9, i64 8
   %169 = load i64, ptr %168, align 8, !tbaa !11
@@ -1483,11 +1483,11 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   br label %189
 
 188:                                              ; preds = %182
-  call void @_ZdlPv(ptr noundef %171) #28
+  call void @_ZdlPv(ptr noundef %171) #29
   br label %189
 
 189:                                              ; preds = %188, %186
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #27
   br i1 %183, label %190, label %191
 
 190:                                              ; preds = %189
@@ -1495,7 +1495,7 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   br label %215
 
 191:                                              ; preds = %189
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %192 = call noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.52)
   %193 = load ptr, ptr %10, align 8, !tbaa !25
@@ -1511,11 +1511,11 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   br label %201
 
 200:                                              ; preds = %191
-  call void @_ZdlPv(ptr noundef %193) #28
+  call void @_ZdlPv(ptr noundef %193) #29
   br label %201
 
 201:                                              ; preds = %200, %196
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #27
   br i1 %192, label %202, label %203
 
 202:                                              ; preds = %201
@@ -1523,7 +1523,7 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   br label %215
 
 203:                                              ; preds = %201
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %204 = call noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.69)
   %205 = load ptr, ptr %11, align 8, !tbaa !25
@@ -1539,11 +1539,11 @@ define hidden void @_ZN8rawspeed6Camera16parseCameraChildERKN4pugi8xml_nodeE(ptr
   br label %213
 
 212:                                              ; preds = %203
-  call void @_ZdlPv(ptr noundef %205) #28
+  call void @_ZdlPv(ptr noundef %205) #29
   br label %213
 
 213:                                              ; preds = %212, %208
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #27
   br i1 %204, label %214, label %215
 
 214:                                              ; preds = %213
@@ -1567,7 +1567,7 @@ define linkonce_odr hidden void @_ZN8rawspeed5HintsD2Ev(ptr noundef nonnull alig
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #30
+  tail call void @__clang_call_terminate(ptr %6) #31
   unreachable
 
 7:                                                ; preds = %1
@@ -1590,7 +1590,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed16CameraSensorInfoESaIS1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %.preheader
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #29
   br label %11
 
 11:                                               ; preds = %10, %.preheader
@@ -1608,7 +1608,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed16CameraSensorInfoESaIS1
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %16
-  tail call void @_ZdlPv(ptr noundef nonnull %17) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %17) #29
   br label %20
 
 20:                                               ; preds = %19, %16
@@ -1638,7 +1638,7 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
   br label %15
 
 14:                                               ; preds = %.preheader
-  tail call void @_ZdlPv(ptr noundef %7) #28
+  tail call void @_ZdlPv(ptr noundef %7) #29
   br label %15
 
 15:                                               ; preds = %14, %10
@@ -1656,7 +1656,7 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
   br i1 %22, label %24, label %23
 
 23:                                               ; preds = %20
-  tail call void @_ZdlPv(ptr noundef nonnull %21) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %21) #29
   br label %24
 
 24:                                               ; preds = %23, %20
@@ -1740,7 +1740,7 @@ define hidden void @_ZN8rawspeed6CameraC2EPKS0_j(ptr noundef nonnull align 8 der
   br i1 %46, label %112, label %47
 
 47:                                               ; preds = %3
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6CameraC2EPKS0_j) #26
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6CameraC2EPKS0_j) #20
           to label %48 unwind label %49
 
 48:                                               ; preds = %47
@@ -1754,18 +1754,18 @@ define hidden void @_ZN8rawspeed6CameraC2EPKS0_j(ptr noundef nonnull align 8 der
   br i1 %52, label %54, label %53
 
 53:                                               ; preds = %49
-  tail call void @_ZdlPv(ptr noundef nonnull %51) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %51) #29
   br label %54
 
 54:                                               ; preds = %53, %49
-  tail call void @_ZN8rawspeed5HintsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %30) #25
-  tail call void @_ZNSt6vectorIN8rawspeed16CameraSensorInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #25
+  tail call void @_ZN8rawspeed5HintsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %30) #27
+  tail call void @_ZNSt6vectorIN8rawspeed16CameraSensorInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #27
   %55 = load ptr, ptr %28, align 8, !tbaa !63
   %56 = icmp eq ptr %55, null
   br i1 %56, label %58, label %57
 
 57:                                               ; preds = %54
-  tail call void @_ZdlPv(ptr noundef nonnull %55) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %55) #29
   br label %58
 
 58:                                               ; preds = %57, %54
@@ -1774,12 +1774,12 @@ define hidden void @_ZN8rawspeed6CameraC2EPKS0_j(ptr noundef nonnull align 8 der
   br i1 %60, label %62, label %61
 
 61:                                               ; preds = %58
-  tail call void @_ZdlPv(ptr noundef nonnull %59) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %59) #29
   br label %62
 
 62:                                               ; preds = %61, %58
-  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #25
-  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #25
+  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #27
+  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #27
   %63 = load ptr, ptr %21, align 8, !tbaa !25
   %64 = icmp eq ptr %63, %22
   br i1 %64, label %65, label %68
@@ -1791,7 +1791,7 @@ define hidden void @_ZN8rawspeed6CameraC2EPKS0_j(ptr noundef nonnull align 8 der
   br label %69
 
 68:                                               ; preds = %62
-  tail call void @_ZdlPv(ptr noundef %63) #28
+  tail call void @_ZdlPv(ptr noundef %63) #29
   br label %69
 
 69:                                               ; preds = %68, %65
@@ -1806,7 +1806,7 @@ define hidden void @_ZN8rawspeed6CameraC2EPKS0_j(ptr noundef nonnull align 8 der
   br label %76
 
 75:                                               ; preds = %69
-  tail call void @_ZdlPv(ptr noundef %70) #28
+  tail call void @_ZdlPv(ptr noundef %70) #29
   br label %76
 
 76:                                               ; preds = %75, %72
@@ -1821,7 +1821,7 @@ define hidden void @_ZN8rawspeed6CameraC2EPKS0_j(ptr noundef nonnull align 8 der
   br label %83
 
 82:                                               ; preds = %76
-  tail call void @_ZdlPv(ptr noundef %77) #28
+  tail call void @_ZdlPv(ptr noundef %77) #29
   br label %83
 
 83:                                               ; preds = %82, %79
@@ -1836,7 +1836,7 @@ define hidden void @_ZN8rawspeed6CameraC2EPKS0_j(ptr noundef nonnull align 8 der
   br label %90
 
 89:                                               ; preds = %83
-  tail call void @_ZdlPv(ptr noundef %84) #28
+  tail call void @_ZdlPv(ptr noundef %84) #29
   br label %90
 
 90:                                               ; preds = %89, %86
@@ -1851,7 +1851,7 @@ define hidden void @_ZN8rawspeed6CameraC2EPKS0_j(ptr noundef nonnull align 8 der
   br label %97
 
 96:                                               ; preds = %90
-  tail call void @_ZdlPv(ptr noundef %91) #28
+  tail call void @_ZdlPv(ptr noundef %91) #29
   br label %97
 
 97:                                               ; preds = %96, %93
@@ -1866,7 +1866,7 @@ define hidden void @_ZN8rawspeed6CameraC2EPKS0_j(ptr noundef nonnull align 8 der
   br label %104
 
 103:                                              ; preds = %97
-  tail call void @_ZdlPv(ptr noundef %98) #28
+  tail call void @_ZdlPv(ptr noundef %98) #29
   br label %104
 
 104:                                              ; preds = %103, %100
@@ -1881,7 +1881,7 @@ define hidden void @_ZN8rawspeed6CameraC2EPKS0_j(ptr noundef nonnull align 8 der
   br label %111
 
 110:                                              ; preds = %104
-  tail call void @_ZdlPv(ptr noundef %105) #28
+  tail call void @_ZdlPv(ptr noundef %105) #29
   br label %111
 
 111:                                              ; preds = %110, %107
@@ -1926,7 +1926,7 @@ define hidden void @_ZN8rawspeed6CameraC2EPKS0_j(ptr noundef nonnull align 8 der
   br label %135
 
 134:                                              ; preds = %.preheader17
-  tail call void @_ZdlPv(ptr noundef %127) #28
+  tail call void @_ZdlPv(ptr noundef %127) #29
   br label %135
 
 135:                                              ; preds = %134, %130
@@ -1960,7 +1960,7 @@ define hidden void @_ZN8rawspeed6CameraC2EPKS0_j(ptr noundef nonnull align 8 der
   br label %153
 
 152:                                              ; preds = %.preheader
-  tail call void @_ZdlPv(ptr noundef %145) #28
+  tail call void @_ZdlPv(ptr noundef %145) #29
   br label %153
 
 153:                                              ; preds = %152, %148
@@ -2041,7 +2041,7 @@ define hidden void @_ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE(ptr no
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.pugi::xml_attribute", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !11
@@ -2075,23 +2075,23 @@ define hidden void @_ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE(ptr no
   br label %27
 
 26:                                               ; preds = %20
-  call void @_ZdlPv(ptr noundef %9) #28
+  call void @_ZdlPv(ptr noundef %9) #29
   br label %27
 
 27:                                               ; preds = %26, %24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #27
   br i1 %21, label %29, label %28
 
 28:                                               ; preds = %27
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.10, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.10, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE) #20
   unreachable
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #27
   %30 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.11)
   store ptr %30, ptr %4, align 8
   %31 = call noundef i32 @_ZNK4pugi13xml_attribute6as_intEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %40, label %33
 
@@ -2108,11 +2108,11 @@ define hidden void @_ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE(ptr no
   %41 = load ptr, ptr %0, align 8, !tbaa !25
   %42 = getelementptr inbounds i8, ptr %0, i64 32
   %43 = load ptr, ptr %42, align 8, !tbaa !25
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE, ptr noundef %41, ptr noundef %43) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE, ptr noundef %41, ptr noundef %43) #20
   unreachable
 
 44:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #27
   %45 = call noundef ptr @_ZNK4pugi8xml_node11child_valueEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %46 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %46, ptr %5, align 8, !tbaa !6
@@ -2120,11 +2120,11 @@ define hidden void @_ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE(ptr no
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %44
-  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #27
+  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #28
   unreachable
 
 49:                                               ; preds = %44
-  %50 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #25
+  %50 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #27
   %51 = icmp ugt i64 %50, 15
   br i1 %51, label %52, label %61
 
@@ -2133,7 +2133,7 @@ define hidden void @_ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE(ptr no
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %52
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
   unreachable
 
 55:                                               ; preds = %52
@@ -2142,11 +2142,11 @@ define hidden void @_ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE(ptr no
   br i1 %57, label %58, label %59, !prof !26
 
 58:                                               ; preds = %55
-  call void @_ZSt17__throw_bad_allocv() #27
+  call void @_ZSt17__throw_bad_allocv() #28
   unreachable
 
 59:                                               ; preds = %55
-  %60 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %56) #29
+  %60 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %56) #30
   store ptr %60, ptr %5, align 8, !tbaa !25
   store i64 %50, ptr %46, align 8, !tbaa !14
   br label %61
@@ -2192,7 +2192,7 @@ define hidden void @_ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE(ptr no
   %80 = load ptr, ptr %0, align 8, !tbaa !25
   %81 = getelementptr inbounds i8, ptr %0, i64 32
   %82 = load ptr, ptr %81, align 8, !tbaa !25
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE, i32 noundef %31, ptr noundef %80, ptr noundef %82, i32 noundef %72, i64 noundef %69) #26
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE, i32 noundef %31, ptr noundef %80, ptr noundef %82, i32 noundef %72, i64 noundef %69) #20
           to label %83 unwind label %84
 
 83:                                               ; preds = %79
@@ -2218,11 +2218,11 @@ define hidden void @_ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE(ptr no
   br label %94
 
 93:                                               ; preds = %88
-  call void @_ZdlPv(ptr noundef %90) #28
+  call void @_ZdlPv(ptr noundef %90) #29
   br label %94
 
 94:                                               ; preds = %93, %92
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #27
   ret void
 
 95:                                               ; preds = %122, %76
@@ -2231,7 +2231,7 @@ define hidden void @_ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE(ptr no
   %98 = getelementptr inbounds i8, ptr %97, i64 %96
   %99 = load i8, ptr %98, align 1, !tbaa !14
   %100 = sext i8 %99 to i32
-  %101 = call i32 @tolower(i32 noundef %100) #31
+  %101 = call i32 @tolower(i32 noundef %100) #32
   %102 = trunc i32 %101 to i8
   switch i8 %102, label %109 [
     i8 103, label %118
@@ -2265,7 +2265,7 @@ define hidden void @_ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE(ptr no
   %110 = load ptr, ptr %0, align 8, !tbaa !25
   %111 = getelementptr inbounds i8, ptr %0, i64 32
   %112 = load ptr, ptr %111, align 8, !tbaa !25
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE, ptr noundef %110, ptr noundef %112, i32 noundef %100) #26
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE, ptr noundef %110, ptr noundef %112, i32 noundef %100) #20
           to label %113 unwind label %116
 
 113:                                              ; preds = %109
@@ -2307,11 +2307,11 @@ define hidden void @_ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE(ptr no
   br label %134
 
 133:                                              ; preds = %126
-  call void @_ZdlPv(ptr noundef %128) #28
+  call void @_ZdlPv(ptr noundef %128) #29
   br label %134
 
 134:                                              ; preds = %133, %130
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #27
   resume { ptr, i32 } %127
 }
 
@@ -2319,7 +2319,7 @@ define hidden void @_ZN8rawspeed6Camera13parseColorRowERKN4pugi8xml_nodeE(ptr no
 define linkonce_odr noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #6 comdat {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !11
-  %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
+  %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
   %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 %4)
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %12, label %8
@@ -2352,11 +2352,11 @@ define internal fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #27
+  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #28
   unreachable
 
 7:                                                ; preds = %2
-  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #25
+  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #27
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %10, label %19
 
@@ -2365,7 +2365,7 @@ define internal fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
   unreachable
 
 13:                                               ; preds = %10
@@ -2374,11 +2374,11 @@ define internal fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml
   br i1 %15, label %16, label %17, !prof !26
 
 16:                                               ; preds = %13
-  tail call void @_ZSt17__throw_bad_allocv() #27
+  tail call void @_ZSt17__throw_bad_allocv() #28
   unreachable
 
 17:                                               ; preds = %13
-  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #29
+  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #30
   store ptr %18, ptr %0, align 8, !tbaa !25
   store i64 %8, ptr %4, align 8, !tbaa !14
   br label %19
@@ -2419,7 +2419,7 @@ define hidden void @_ZN8rawspeed6Camera10parseColorERKN4pugi8xml_nodeE(ptr nound
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.pugi::xml_attribute", align 8
   %5 = alloca %"class.pugi::xml_attribute", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !11
@@ -2453,23 +2453,23 @@ define hidden void @_ZN8rawspeed6Camera10parseColorERKN4pugi8xml_nodeE(ptr nound
   br label %27
 
 26:                                               ; preds = %20
-  call void @_ZdlPv(ptr noundef %9) #28
+  call void @_ZdlPv(ptr noundef %9) #29
   br label %27
 
 27:                                               ; preds = %26, %24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #27
   br i1 %21, label %29, label %28
 
 28:                                               ; preds = %27
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera10parseColorERKN4pugi8xml_nodeE) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera10parseColorERKN4pugi8xml_nodeE) #20
   unreachable
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #27
   %30 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.17)
   store ptr %30, ptr %4, align 8
   %31 = call noundef i32 @_ZNK4pugi13xml_attribute6as_intEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %38, label %33
 
@@ -2484,15 +2484,15 @@ define hidden void @_ZN8rawspeed6Camera10parseColorERKN4pugi8xml_nodeE(ptr nound
   %39 = load ptr, ptr %0, align 8, !tbaa !25
   %40 = getelementptr inbounds i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !25
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.18, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera10parseColorERKN4pugi8xml_nodeE, ptr noundef %39, ptr noundef %41) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.18, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera10parseColorERKN4pugi8xml_nodeE, ptr noundef %39, ptr noundef %41) #20
   unreachable
 
 42:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %43 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.11)
   store ptr %43, ptr %5, align 8
   %44 = call noundef i32 @_ZNK4pugi13xml_attribute6as_intEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %51, label %46
 
@@ -2507,12 +2507,12 @@ define hidden void @_ZN8rawspeed6Camera10parseColorERKN4pugi8xml_nodeE(ptr nound
   %52 = load ptr, ptr %0, align 8, !tbaa !25
   %53 = getelementptr inbounds i8, ptr %0, i64 32
   %54 = load ptr, ptr %53, align 8, !tbaa !25
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.19, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera10parseColorERKN4pugi8xml_nodeE, ptr noundef %52, ptr noundef %54) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.19, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera10parseColorERKN4pugi8xml_nodeE, ptr noundef %52, ptr noundef %54) #20
   unreachable
 
 55:                                               ; preds = %46
   %56 = call noundef ptr @_ZNK4pugi8xml_node11child_valueEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %57 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #25
+  %57 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #27
   switch i64 %57, label %79 [
     i64 5, label %58
     i64 3, label %61
@@ -2561,7 +2561,7 @@ define hidden void @_ZN8rawspeed6Camera10parseColorERKN4pugi8xml_nodeE(ptr nound
   %80 = load ptr, ptr %0, align 8, !tbaa !25
   %81 = getelementptr inbounds i8, ptr %0, i64 32
   %82 = load ptr, ptr %81, align 8, !tbaa !25
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.20, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera10parseColorERKN4pugi8xml_nodeE, ptr noundef %80, ptr noundef %82, ptr noundef nonnull %56) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.20, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera10parseColorERKN4pugi8xml_nodeE, ptr noundef %80, ptr noundef %82, ptr noundef nonnull %56) #20
   unreachable
 
 83:                                               ; preds = %76, %73, %70, %67, %64, %61, %58
@@ -2588,7 +2588,7 @@ define hidden void @_ZN8rawspeed6Camera8parseCFAERKN4pugi8xml_nodeE(ptr noundef 
   %11 = alloca %"class.pugi::xml_node", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !11
@@ -2611,7 +2611,7 @@ define hidden void @_ZN8rawspeed6Camera8parseCFAERKN4pugi8xml_nodeE(ptr noundef 
   br i1 %27, label %52, label %28
 
 28:                                               ; preds = %22, %17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #27
   invoke fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %29 unwind label %63
 
@@ -2648,11 +2648,11 @@ define hidden void @_ZN8rawspeed6Camera8parseCFAERKN4pugi8xml_nodeE(ptr noundef 
   br label %51
 
 50:                                               ; preds = %44
-  call void @_ZdlPv(ptr noundef %33) #28
+  call void @_ZdlPv(ptr noundef %33) #29
   br label %51
 
 51:                                               ; preds = %50, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #27
   br label %52
 
 52:                                               ; preds = %51, %22
@@ -2669,21 +2669,21 @@ define hidden void @_ZN8rawspeed6Camera8parseCFAERKN4pugi8xml_nodeE(ptr noundef 
   br label %61
 
 60:                                               ; preds = %52
-  call void @_ZdlPv(ptr noundef %54) #28
+  call void @_ZdlPv(ptr noundef %54) #29
   br label %61
 
 61:                                               ; preds = %60, %57
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #27
   br i1 %53, label %62, label %73
 
 62:                                               ; preds = %61
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.23, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera8parseCFAERKN4pugi8xml_nodeE) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.23, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera8parseCFAERKN4pugi8xml_nodeE) #20
   unreachable
 
 63:                                               ; preds = %28
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #27
   %65 = load ptr, ptr %3, align 8, !tbaa !25
   %66 = getelementptr inbounds i8, ptr %3, i64 16
   %67 = icmp eq ptr %65, %66
@@ -2696,21 +2696,21 @@ define hidden void @_ZN8rawspeed6Camera8parseCFAERKN4pugi8xml_nodeE(ptr noundef 
   br label %72
 
 71:                                               ; preds = %63
-  call void @_ZdlPv(ptr noundef %65) #28
+  call void @_ZdlPv(ptr noundef %65) #29
   br label %72
 
 72:                                               ; preds = %71, %68
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #27
   resume { ptr, i32 } %64
 
 73:                                               ; preds = %61
   %74 = getelementptr inbounds i8, ptr %0, i64 272
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #27
   %75 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.24)
   store ptr %75, ptr %6, align 8
   %76 = call noundef i32 @_ZNK4pugi13xml_attribute6as_intEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
   %77 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.25)
   store ptr %77, ptr %7, align 8
   %78 = call noundef i32 @_ZNK4pugi13xml_attribute6as_intEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 0)
@@ -2718,15 +2718,15 @@ define hidden void @_ZN8rawspeed6Camera8parseCFAERKN4pugi8xml_nodeE(ptr noundef 
   %79 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %78, ptr %79, align 4, !tbaa !83
   call void @_ZN8rawspeed16ColorFilterArray7setSizeERKNS_8iPoint2DE(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #27
   call void @_ZNK4pugi8xml_node8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.pugi::xml_object_range") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #27
   %80 = load <2 x ptr>, ptr %8, align 16, !tbaa !61
   store <2 x ptr> %80, ptr %9, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #27
   %81 = getelementptr inbounds i8, ptr %8, i64 16
   %82 = load <2 x ptr>, ptr %81, align 16, !tbaa !61
   store <2 x ptr> %82, ptr %10, align 16
@@ -2741,17 +2741,17 @@ define hidden void @_ZN8rawspeed6Camera8parseCFAERKN4pugi8xml_nodeE(ptr noundef 
   br label %89
 
 .loopexit:                                        ; preds = %135, %73
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #27
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #27
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #27
   ret void
 
 89:                                               ; preds = %135, %84
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #27
   %90 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4pugi17xml_node_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
   %91 = load i64, ptr %90, align 8, !tbaa !61
   store i64 %91, ptr %11, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %11)
   %92 = load i64, ptr %85, align 8, !tbaa !11
   %93 = icmp eq i64 %92, 0
@@ -2783,11 +2783,11 @@ define hidden void @_ZN8rawspeed6Camera8parseCFAERKN4pugi8xml_nodeE(ptr noundef 
   br label %111
 
 110:                                              ; preds = %105
-  call void @_ZdlPv(ptr noundef %94) #28
+  call void @_ZdlPv(ptr noundef %94) #29
   br label %111
 
 111:                                              ; preds = %110, %108
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #27
   br i1 %106, label %112, label %113
 
 112:                                              ; preds = %111
@@ -2795,7 +2795,7 @@ define hidden void @_ZN8rawspeed6Camera8parseCFAERKN4pugi8xml_nodeE(ptr noundef 
   br label %135
 
 113:                                              ; preds = %111
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %11)
   %114 = load i64, ptr %87, align 8, !tbaa !11
   %115 = icmp eq i64 %114, 0
@@ -2827,11 +2827,11 @@ define hidden void @_ZN8rawspeed6Camera8parseCFAERKN4pugi8xml_nodeE(ptr noundef 
   br label %133
 
 132:                                              ; preds = %127
-  call void @_ZdlPv(ptr noundef %116) #28
+  call void @_ZdlPv(ptr noundef %116) #29
   br label %133
 
 133:                                              ; preds = %132, %130
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #27
   br i1 %128, label %134, label %135
 
 134:                                              ; preds = %133
@@ -2839,7 +2839,7 @@ define hidden void @_ZN8rawspeed6Camera8parseCFAERKN4pugi8xml_nodeE(ptr noundef 
   br label %135
 
 135:                                              ; preds = %134, %133, %112
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #27
   %136 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4pugi17xml_node_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
   %137 = call noundef zeroext i1 @_ZNK4pugi17xml_node_iteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
   br i1 %137, label %89, label %.loopexit
@@ -2854,7 +2854,7 @@ define hidden void @_ZN8rawspeed6Camera9parseCropERKN4pugi8xml_nodeE(ptr nocaptu
   %5 = alloca %"class.pugi::xml_attribute", align 8
   %6 = alloca %"class.pugi::xml_attribute", align 8
   %7 = alloca %"class.pugi::xml_attribute", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !11
@@ -2888,28 +2888,28 @@ define hidden void @_ZN8rawspeed6Camera9parseCropERKN4pugi8xml_nodeE(ptr nocaptu
   br label %29
 
 28:                                               ; preds = %22
-  call void @_ZdlPv(ptr noundef %11) #28
+  call void @_ZdlPv(ptr noundef %11) #29
   br label %29
 
 29:                                               ; preds = %28, %26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #27
   br i1 %23, label %31, label %30
 
 30:                                               ; preds = %29
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.27, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera9parseCropERKN4pugi8xml_nodeE) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.27, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera9parseCropERKN4pugi8xml_nodeE) #20
   unreachable
 
 31:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #27
   %32 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.24)
   store ptr %32, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %33 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.25)
   store ptr %33, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #27
   %34 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.17)
   store ptr %34, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
   %35 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.11)
   store ptr %35, ptr %7, align 8
   %36 = call noundef i32 @_ZNK4pugi13xml_attribute6as_intEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0)
@@ -2953,7 +2953,7 @@ define hidden void @_ZN8rawspeed6Camera9parseCropERKN4pugi8xml_nodeE(ptr nocaptu
   %59 = load ptr, ptr %0, align 8, !tbaa !25
   %60 = getelementptr inbounds i8, ptr %0, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !25
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.28, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera9parseCropERKN4pugi8xml_nodeE, ptr noundef %59, ptr noundef %61) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.28, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera9parseCropERKN4pugi8xml_nodeE, ptr noundef %59, ptr noundef %61) #20
   unreachable
 
 62:                                               ; preds = %53
@@ -2965,14 +2965,14 @@ define hidden void @_ZN8rawspeed6Camera9parseCropERKN4pugi8xml_nodeE(ptr nocaptu
   %66 = load ptr, ptr %0, align 8, !tbaa !25
   %67 = getelementptr inbounds i8, ptr %0, i64 32
   %68 = load ptr, ptr %67, align 8, !tbaa !25
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.29, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera9parseCropERKN4pugi8xml_nodeE, ptr noundef %66, ptr noundef %68) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.29, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera9parseCropERKN4pugi8xml_nodeE, ptr noundef %66, ptr noundef %68) #20
   unreachable
 
 69:                                               ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27
   ret void
 }
 
@@ -2991,7 +2991,7 @@ define hidden void @_ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE(ptr 
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.pugi::xml_attribute", align 8
   %13 = alloca %"class.pugi::xml_attribute", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !11
@@ -3025,24 +3025,24 @@ define hidden void @_ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE(ptr 
   br label %35
 
 34:                                               ; preds = %28
-  call void @_ZdlPv(ptr noundef %17) #28
+  call void @_ZdlPv(ptr noundef %17) #29
   br label %35
 
 35:                                               ; preds = %34, %32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #27
   br i1 %29, label %37, label %36
 
 36:                                               ; preds = %35
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.31, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.31, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE) #20
   unreachable
 
 37:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #27
   call void @_ZNK4pugi8xml_node8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.pugi::xml_object_range") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #27
   %38 = load <2 x ptr>, ptr %4, align 16, !tbaa !61
   store <2 x ptr> %38, ptr %5, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #27
   %39 = getelementptr inbounds i8, ptr %4, i64 16
   %40 = load <2 x ptr>, ptr %39, align 16, !tbaa !61
   store <2 x ptr> %40, ptr %6, align 16
@@ -3060,17 +3060,17 @@ define hidden void @_ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE(ptr 
   br label %50
 
 .loopexit23:                                      ; preds = %212, %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #27
   ret void
 
 50:                                               ; preds = %212, %42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
   %51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4pugi17xml_node_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
   %52 = load i64, ptr %51, align 8, !tbaa !61
   store i64 %52, ptr %7, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %7)
   %53 = load i64, ptr %43, align 8, !tbaa !11
   %54 = icmp eq i64 %53, 0
@@ -3102,19 +3102,19 @@ define hidden void @_ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE(ptr 
   br label %72
 
 71:                                               ; preds = %66
-  call void @_ZdlPv(ptr noundef %55) #28
+  call void @_ZdlPv(ptr noundef %55) #29
   br label %72
 
 72:                                               ; preds = %71, %69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #27
   br i1 %67, label %73, label %132
 
 73:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #27
   %74 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.17)
   store ptr %74, ptr %9, align 8
   %75 = call noundef i32 @_ZNK4pugi13xml_attribute6as_intEi(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #27
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %81
 
@@ -3122,15 +3122,15 @@ define hidden void @_ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE(ptr 
   %78 = load ptr, ptr %0, align 8, !tbaa !25
   %79 = getelementptr inbounds i8, ptr %0, i64 32
   %80 = load ptr, ptr %79, align 8, !tbaa !25
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.33, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE, ptr noundef %78, ptr noundef %80) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.33, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE, ptr noundef %78, ptr noundef %80) #20
   unreachable
 
 81:                                               ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #27
   %82 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.24)
   store ptr %82, ptr %10, align 8
   %83 = call noundef i32 @_ZNK4pugi13xml_attribute6as_intEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #27
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %85, label %89
 
@@ -3138,7 +3138,7 @@ define hidden void @_ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE(ptr 
   %86 = load ptr, ptr %0, align 8, !tbaa !25
   %87 = getelementptr inbounds i8, ptr %0, i64 32
   %88 = load ptr, ptr %87, align 8, !tbaa !25
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.34, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE, ptr noundef %86, ptr noundef %88) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.34, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE, ptr noundef %86, ptr noundef %88) #20
   unreachable
 
 89:                                               ; preds = %81
@@ -3166,7 +3166,7 @@ define hidden void @_ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE(ptr 
   br i1 %102, label %103, label %104
 
 103:                                              ; preds = %97
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.89) #27
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.89) #28
   unreachable
 
 104:                                              ; preds = %97
@@ -3181,7 +3181,7 @@ define hidden void @_ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE(ptr 
 
 112:                                              ; preds = %104
   %113 = mul nuw nsw i64 %110, 12
-  %114 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %113) #29
+  %114 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %113) #30
   br label %115
 
 115:                                              ; preds = %112, %104
@@ -3211,7 +3211,7 @@ define hidden void @_ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE(ptr 
   br i1 %128, label %130, label %129
 
 129:                                              ; preds = %.loopexit
-  call void @_ZdlPv(ptr noundef nonnull %98) #28
+  call void @_ZdlPv(ptr noundef nonnull %98) #29
   br label %130
 
 130:                                              ; preds = %129, %.loopexit
@@ -3222,7 +3222,7 @@ define hidden void @_ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE(ptr 
   br label %212
 
 132:                                              ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %7)
   %133 = load i64, ptr %45, align 8, !tbaa !11
   %134 = icmp eq i64 %133, 0
@@ -3254,19 +3254,19 @@ define hidden void @_ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE(ptr 
   br label %152
 
 151:                                              ; preds = %146
-  call void @_ZdlPv(ptr noundef %135) #28
+  call void @_ZdlPv(ptr noundef %135) #29
   br label %152
 
 152:                                              ; preds = %151, %149
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #27
   br i1 %147, label %153, label %212
 
 153:                                              ; preds = %152
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #27
   %154 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.11)
   store ptr %154, ptr %12, align 8
   %155 = call noundef i32 @_ZNK4pugi13xml_attribute6as_intEi(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #27
   %156 = icmp slt i32 %155, 0
   br i1 %156, label %157, label %161
 
@@ -3274,15 +3274,15 @@ define hidden void @_ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE(ptr 
   %158 = load ptr, ptr %0, align 8, !tbaa !25
   %159 = getelementptr inbounds i8, ptr %0, i64 32
   %160 = load ptr, ptr %159, align 8, !tbaa !25
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.36, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE, ptr noundef %158, ptr noundef %160) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.36, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE, ptr noundef %158, ptr noundef %160) #20
   unreachable
 
 161:                                              ; preds = %153
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #27
   %162 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.25)
   store ptr %162, ptr %13, align 8
   %163 = call noundef i32 @_ZNK4pugi13xml_attribute6as_intEi(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #27
   %164 = icmp slt i32 %163, 0
   br i1 %164, label %165, label %169
 
@@ -3290,7 +3290,7 @@ define hidden void @_ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE(ptr 
   %166 = load ptr, ptr %0, align 8, !tbaa !25
   %167 = getelementptr inbounds i8, ptr %0, i64 32
   %168 = load ptr, ptr %167, align 8, !tbaa !25
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.37, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE, ptr noundef %166, ptr noundef %168) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.37, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE, ptr noundef %166, ptr noundef %168) #20
   unreachable
 
 169:                                              ; preds = %161
@@ -3318,7 +3318,7 @@ define hidden void @_ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE(ptr 
   br i1 %182, label %183, label %184
 
 183:                                              ; preds = %177
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.89) #27
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.89) #28
   unreachable
 
 184:                                              ; preds = %177
@@ -3333,7 +3333,7 @@ define hidden void @_ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE(ptr 
 
 192:                                              ; preds = %184
   %193 = mul nuw nsw i64 %190, 12
-  %194 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %193) #29
+  %194 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %193) #30
   br label %195
 
 195:                                              ; preds = %192, %184
@@ -3363,7 +3363,7 @@ define hidden void @_ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE(ptr 
   br i1 %208, label %210, label %209
 
 209:                                              ; preds = %.loopexit22
-  call void @_ZdlPv(ptr noundef nonnull %178) #28
+  call void @_ZdlPv(ptr noundef nonnull %178) #29
   br label %210
 
 210:                                              ; preds = %209, %.loopexit22
@@ -3374,7 +3374,7 @@ define hidden void @_ZN8rawspeed6Camera15parseBlackAreasERKN4pugi8xml_nodeE(ptr 
   br label %212
 
 212:                                              ; preds = %210, %173, %152, %130, %93
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
   %213 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4pugi17xml_node_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
   %214 = call noundef zeroext i1 @_ZNK4pugi17xml_node_iteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br i1 %214, label %50, label %.loopexit23
@@ -3390,7 +3390,7 @@ define hidden void @_ZN8rawspeed6Camera12parseAliasesERKN4pugi8xml_nodeE(ptr nou
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %"class.pugi::xml_attribute", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %11 = getelementptr inbounds i8, ptr %3, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !11
@@ -3424,23 +3424,23 @@ define hidden void @_ZN8rawspeed6Camera12parseAliasesERKN4pugi8xml_nodeE(ptr nou
   br label %32
 
 31:                                               ; preds = %25
-  call void @_ZdlPv(ptr noundef %14) #28
+  call void @_ZdlPv(ptr noundef %14) #29
   br label %32
 
 32:                                               ; preds = %31, %29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #27
   br i1 %26, label %34, label %33
 
 33:                                               ; preds = %32
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.39, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera12parseAliasesERKN4pugi8xml_nodeE) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.39, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera12parseAliasesERKN4pugi8xml_nodeE) #20
   unreachable
 
 34:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #27
   call void @_ZNK4pugi8xml_node8childrenEPKc(ptr dead_on_unwind nonnull writable sret(%"class.pugi::xml_object_range.26") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.40)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !106
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #27
   %35 = getelementptr inbounds i8, ptr %4, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false), !tbaa.struct !106
   %36 = call noundef zeroext i1 @_ZNK4pugi23xml_named_node_iteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
@@ -3456,17 +3456,17 @@ define hidden void @_ZN8rawspeed6Camera12parseAliasesERKN4pugi8xml_nodeE(ptr nou
   br label %44
 
 .loopexit:                                        ; preds = %110, %34
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #27
   ret void
 
 44:                                               ; preds = %110, %37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
   %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4pugi23xml_named_node_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
   %46 = load i64, ptr %45, align 8, !tbaa !61
   store i64 %46, ptr %7, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #27
   %47 = call noundef ptr @_ZNK4pugi8xml_node11child_valueEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   store ptr %47, ptr %8, align 8, !tbaa !61
   %48 = load ptr, ptr %38, align 8, !tbaa !61
@@ -3481,11 +3481,11 @@ define hidden void @_ZN8rawspeed6Camera12parseAliasesERKN4pugi8xml_nodeE(ptr nou
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %51
-  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #27
+  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #28
   unreachable
 
 55:                                               ; preds = %51
-  %56 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #25
+  %56 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #27
   %57 = icmp ugt i64 %56, 15
   br i1 %57, label %58, label %67
 
@@ -3494,7 +3494,7 @@ define hidden void @_ZN8rawspeed6Camera12parseAliasesERKN4pugi8xml_nodeE(ptr nou
   br i1 %59, label %60, label %61
 
 60:                                               ; preds = %58
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
   unreachable
 
 61:                                               ; preds = %58
@@ -3503,11 +3503,11 @@ define hidden void @_ZN8rawspeed6Camera12parseAliasesERKN4pugi8xml_nodeE(ptr nou
   br i1 %63, label %64, label %65, !prof !26
 
 64:                                               ; preds = %61
-  call void @_ZSt17__throw_bad_allocv() #27
+  call void @_ZSt17__throw_bad_allocv() #28
   unreachable
 
 65:                                               ; preds = %61
-  %66 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %62) #29
+  %66 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %62) #30
   store ptr %66, ptr %48, align 8, !tbaa !25
   store i64 %56, ptr %52, align 8, !tbaa !14
   br label %67
@@ -3543,9 +3543,9 @@ _ZSt12construct_atINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJPKcEEDTg
   br label %77
 
 77:                                               ; preds = %76, %_ZSt12construct_atINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJPKcEEDTgsnwcvPvLi0E_T_pispclsr3stdE7declvalIT0_EEEEPS9_DpOSA_.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #27
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #27
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #27
   %78 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.41)
   store ptr %78, ptr %10, align 8
   %79 = call noundef ptr @_ZNK4pugi8xml_node11child_valueEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -3563,11 +3563,11 @@ _ZSt12construct_atINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJPKcEEDTg
   br i1 %86, label %87, label %88
 
 87:                                               ; preds = %84
-  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #27
+  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #28
   unreachable
 
 88:                                               ; preds = %84
-  %89 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #25
+  %89 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #27
   %90 = icmp ugt i64 %89, 15
   br i1 %90, label %91, label %100
 
@@ -3576,7 +3576,7 @@ _ZSt12construct_atINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJPKcEEDTg
   br i1 %92, label %93, label %94
 
 93:                                               ; preds = %91
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
   unreachable
 
 94:                                               ; preds = %91
@@ -3585,11 +3585,11 @@ _ZSt12construct_atINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJPKcEEDTg
   br i1 %96, label %97, label %98, !prof !26
 
 97:                                               ; preds = %94
-  call void @_ZSt17__throw_bad_allocv() #27
+  call void @_ZSt17__throw_bad_allocv() #28
   unreachable
 
 98:                                               ; preds = %94
-  %99 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %95) #29
+  %99 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %95) #30
   store ptr %99, ptr %81, align 8, !tbaa !25
   store i64 %89, ptr %85, align 8, !tbaa !14
   br label %100
@@ -3625,9 +3625,9 @@ _ZSt12construct_atINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJPKcEEDTg
   br label %110
 
 110:                                              ; preds = %109, %_ZSt12construct_atINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJPKcEEDTgsnwcvPvLi0E_T_pispclsr3stdE7declvalIT0_EEEEPS9_DpOSA_.exit5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
   %111 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4pugi23xml_named_node_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
   %112 = call noundef zeroext i1 @_ZNK4pugi23xml_named_node_iteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   br i1 %112, label %44, label %.loopexit
@@ -3652,7 +3652,7 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
   %9 = alloca %"class.pugi::xml_attribute", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.pugi::xml_attribute", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !11
@@ -3686,23 +3686,23 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
   br label %33
 
 32:                                               ; preds = %26
-  call void @_ZdlPv(ptr noundef %15) #28
+  call void @_ZdlPv(ptr noundef %15) #29
   br label %33
 
 33:                                               ; preds = %32, %30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #27
   br i1 %27, label %35, label %34
 
 34:                                               ; preds = %33
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.43, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.43, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE) #20
   unreachable
 
 35:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #27
   call void @_ZNK4pugi8xml_node8childrenEPKc(ptr dead_on_unwind nonnull writable sret(%"class.pugi::xml_object_range.26") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.44)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !106
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #27
   %36 = getelementptr inbounds i8, ptr %4, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false), !tbaa.struct !106
   %37 = call noundef zeroext i1 @_ZNK4pugi23xml_named_node_iteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
@@ -3717,18 +3717,18 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
   br label %44
 
 .loopexit:                                        ; preds = %124, %35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #27
   ret void
 
 44:                                               ; preds = %124, %38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
   %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4pugi23xml_named_node_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
   %46 = load i64, ptr %45, align 8, !tbaa !61
   store i64 %46, ptr %7, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #27
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #27
   %47 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.45)
   store ptr %47, ptr %9, align 8
   %48 = call noundef ptr @_ZNK4pugi13xml_attribute9as_stringEPKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.1)
@@ -3737,11 +3737,11 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %44
-  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #27
+  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #28
   unreachable
 
 51:                                               ; preds = %44
-  %52 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #25
+  %52 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #27
   %53 = icmp ugt i64 %52, 15
   br i1 %53, label %54, label %63
 
@@ -3750,7 +3750,7 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %54
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
   unreachable
 
 57:                                               ; preds = %54
@@ -3759,11 +3759,11 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
   br i1 %59, label %60, label %61, !prof !26
 
 60:                                               ; preds = %57
-  call void @_ZSt17__throw_bad_allocv() #27
+  call void @_ZSt17__throw_bad_allocv() #28
   unreachable
 
 61:                                               ; preds = %57
-  %62 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %58) #29
+  %62 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %58) #30
   store ptr %62, ptr %8, align 8, !tbaa !25
   store i64 %52, ptr %39, align 8, !tbaa !14
   br label %63
@@ -3788,7 +3788,7 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
   store i64 %52, ptr %40, align 8, !tbaa !11
   %69 = getelementptr inbounds i8, ptr %64, i64 %52
   store i8 0, ptr %69, align 1, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #27
   %70 = load i64, ptr %40, align 8, !tbaa !11
   %71 = icmp eq i64 %70, 0
   br i1 %71, label %72, label %79
@@ -3797,7 +3797,7 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
   %73 = load ptr, ptr %0, align 8, !tbaa !25
   %74 = getelementptr inbounds i8, ptr %0, i64 32
   %75 = load ptr, ptr %74, align 8, !tbaa !25
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.46, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE, ptr noundef %73, ptr noundef %75) #26
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.46, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE, ptr noundef %73, ptr noundef %75) #20
           to label %76 unwind label %77
 
 76:                                               ; preds = %72
@@ -3809,8 +3809,8 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
   br label %145
 
 79:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #27
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #27
   %80 = invoke ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.47)
           to label %81 unwind label %127
 
@@ -3825,14 +3825,14 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %83
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #27
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #28
           to label %86 unwind label %131
 
 86:                                               ; preds = %85
   unreachable
 
 87:                                               ; preds = %83
-  %88 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #25
+  %88 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #27
   %89 = icmp ugt i64 %88, 15
   br i1 %89, label %90, label %102
 
@@ -3841,7 +3841,7 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %90
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
           to label %93 unwind label %131
 
 93:                                               ; preds = %92
@@ -3853,14 +3853,14 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
   br i1 %96, label %97, label %99, !prof !26
 
 97:                                               ; preds = %94
-  invoke void @_ZSt17__throw_bad_allocv() #27
+  invoke void @_ZSt17__throw_bad_allocv() #28
           to label %98 unwind label %131
 
 98:                                               ; preds = %97
   unreachable
 
 99:                                               ; preds = %94
-  %100 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %95) #29
+  %100 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %95) #30
           to label %101 unwind label %129
 
 101:                                              ; preds = %99
@@ -3888,7 +3888,7 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
   store i64 %88, ptr %42, align 8, !tbaa !11
   %108 = getelementptr inbounds i8, ptr %103, i64 %88
   store i8 0, ptr %108, align 1, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #27
   %109 = invoke { ptr, i8 } @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIvESaISt4pairIKS5_S5_EEE11try_emplaceIJRS9_EEES8_ISt17_Rb_tree_iteratorISA_EbESE_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %110 unwind label %135
 
@@ -3904,11 +3904,11 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
   br label %117
 
 116:                                              ; preds = %110
-  call void @_ZdlPv(ptr noundef %111) #28
+  call void @_ZdlPv(ptr noundef %111) #29
   br label %117
 
 117:                                              ; preds = %116, %113
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #27
   %118 = load ptr, ptr %8, align 8, !tbaa !25
   %119 = icmp eq ptr %118, %39
   br i1 %119, label %120, label %123
@@ -3920,12 +3920,12 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
   br label %124
 
 123:                                              ; preds = %117
-  call void @_ZdlPv(ptr noundef %118) #28
+  call void @_ZdlPv(ptr noundef %118) #29
   br label %124
 
 124:                                              ; preds = %123, %120
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
   %125 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4pugi23xml_named_node_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
   %126 = call noundef zeroext i1 @_ZNK4pugi23xml_named_node_iteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   br i1 %126, label %44, label %.loopexit
@@ -3947,7 +3947,7 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
 
 133:                                              ; preds = %131, %129, %127
   %134 = phi { ptr, i32 } [ %128, %127 ], [ %130, %129 ], [ %132, %131 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #27
   br label %143
 
 135:                                              ; preds = %107
@@ -3964,12 +3964,12 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
   br label %143
 
 142:                                              ; preds = %135
-  call void @_ZdlPv(ptr noundef %137) #28
+  call void @_ZdlPv(ptr noundef %137) #29
   br label %143
 
 143:                                              ; preds = %142, %139, %133
   %144 = phi { ptr, i32 } [ %134, %133 ], [ %136, %139 ], [ %136, %142 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #27
   br label %145
 
 145:                                              ; preds = %143, %77
@@ -3985,15 +3985,15 @@ define hidden void @_ZN8rawspeed6Camera10parseHintsERKN4pugi8xml_nodeE(ptr nound
   br label %153
 
 152:                                              ; preds = %145
-  call void @_ZdlPv(ptr noundef %147) #28
+  call void @_ZdlPv(ptr noundef %147) #29
   br label %153
 
 153:                                              ; preds = %152, %149
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #27
   resume { ptr, i32 } %146
 }
 
@@ -4002,7 +4002,7 @@ define hidden void @_ZN8rawspeed6Camera7parseIDERKN4pugi8xml_nodeE(ptr noundef n
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.pugi::xml_attribute", align 8
   %5 = alloca %"class.pugi::xml_attribute", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !11
@@ -4036,28 +4036,28 @@ define hidden void @_ZN8rawspeed6Camera7parseIDERKN4pugi8xml_nodeE(ptr noundef n
   br label %27
 
 26:                                               ; preds = %20
-  call void @_ZdlPv(ptr noundef %9) #28
+  call void @_ZdlPv(ptr noundef %9) #29
   br label %27
 
 27:                                               ; preds = %26, %24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #27
   br i1 %21, label %29, label %28
 
 28:                                               ; preds = %27
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.49, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera7parseIDERKN4pugi8xml_nodeE) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.49, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera7parseIDERKN4pugi8xml_nodeE) #20
   unreachable
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #27
   %30 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str)
   store ptr %30, ptr %4, align 8
   %31 = call noundef ptr @_ZNK4pugi13xml_attribute9as_stringEPKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1)
   %32 = getelementptr inbounds i8, ptr %0, i64 96
   %33 = getelementptr inbounds i8, ptr %0, i64 104
   %34 = load i64, ptr %33, align 8, !tbaa !11
-  %35 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #25
+  %35 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #27
   %36 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %32, i64 noundef 0, i64 noundef %34, ptr noundef %31, i64 noundef %35)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27
   %37 = load i64, ptr %33, align 8, !tbaa !11
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %39, label %43
@@ -4066,22 +4066,22 @@ define hidden void @_ZN8rawspeed6Camera7parseIDERKN4pugi8xml_nodeE(ptr noundef n
   %40 = load ptr, ptr %0, align 8, !tbaa !25
   %41 = getelementptr inbounds i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !25
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.50, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera7parseIDERKN4pugi8xml_nodeE, ptr noundef %40, ptr noundef %42) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.50, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera7parseIDERKN4pugi8xml_nodeE, ptr noundef %40, ptr noundef %42) #20
   unreachable
 
 43:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   %44 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3)
   store ptr %44, ptr %5, align 8
   %45 = call noundef ptr @_ZNK4pugi13xml_attribute9as_stringEPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.1)
   %46 = getelementptr inbounds i8, ptr %0, i64 128
   %47 = getelementptr inbounds i8, ptr %0, i64 136
   %48 = load i64, ptr %47, align 8, !tbaa !11
-  %49 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #25
+  %49 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #27
   %50 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %46, i64 noundef 0, i64 noundef %48, ptr noundef %45, i64 noundef %49)
   %51 = getelementptr inbounds i8, ptr %0, i64 160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %50)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
   %52 = load i64, ptr %47, align 8, !tbaa !11
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %54, label %58
@@ -4090,7 +4090,7 @@ define hidden void @_ZN8rawspeed6Camera7parseIDERKN4pugi8xml_nodeE(ptr noundef n
   %55 = load ptr, ptr %0, align 8, !tbaa !25
   %56 = getelementptr inbounds i8, ptr %0, i64 32
   %57 = load ptr, ptr %56, align 8, !tbaa !25
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.51, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera7parseIDERKN4pugi8xml_nodeE, ptr noundef %55, ptr noundef %57) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.51, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera7parseIDERKN4pugi8xml_nodeE, ptr noundef %55, ptr noundef %57) #20
   unreachable
 
 58:                                               ; preds = %43
@@ -4098,7 +4098,7 @@ define hidden void @_ZN8rawspeed6Camera7parseIDERKN4pugi8xml_nodeE(ptr noundef n
   %60 = getelementptr inbounds i8, ptr %0, i64 192
   %61 = getelementptr inbounds i8, ptr %0, i64 200
   %62 = load i64, ptr %61, align 8, !tbaa !11
-  %63 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #25
+  %63 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #27
   %64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %60, i64 noundef 0, i64 noundef %62, ptr noundef %59, i64 noundef %63)
   ret void
 }
@@ -4119,7 +4119,7 @@ define hidden void @_ZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeE(ptr noun
   %14 = alloca %"class.std::vector.28", align 8
   %15 = alloca %"class.std::vector.28", align 8
   %16 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %17 = getelementptr inbounds i8, ptr %5, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !11
@@ -4153,49 +4153,49 @@ define hidden void @_ZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeE(ptr noun
   br label %38
 
 37:                                               ; preds = %31
-  call void @_ZdlPv(ptr noundef %20) #28
+  call void @_ZdlPv(ptr noundef %20) #29
   br label %38
 
 38:                                               ; preds = %37, %35
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #27
   br i1 %32, label %40, label %39
 
 39:                                               ; preds = %38
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.53, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeE) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.53, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeE) #20
   unreachable
 
 40:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #27
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
   %41 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.54)
   store ptr %41, ptr %7, align 8
   %42 = call noundef i32 @_ZNK4pugi13xml_attribute6as_intEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
   store i32 %42, ptr %6, align 4, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #27
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #27
   %43 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.55)
   store ptr %43, ptr %9, align 8
   %44 = call noundef i32 @_ZNK4pugi13xml_attribute6as_intEi(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #27
   store i32 %44, ptr %8, align 4, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #27
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #27
   %45 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.56)
   store ptr %45, ptr %11, align 8
   %46 = call noundef i32 @_ZNK4pugi13xml_attribute6as_intEi(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #27
   store i32 %46, ptr %10, align 4, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #25
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #27
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #27
   %47 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.57)
   store ptr %47, ptr %13, align 8
   %48 = call noundef i32 @_ZNK4pugi13xml_attribute6as_intEi(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef 65536)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #27
   store i32 %48, ptr %12, align 4, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #27
   call fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeEENK3$_0clEPKc"(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr %1, ptr noundef nonnull @.str.58)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #27
   invoke fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeEENK3$_0clEPKc"(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr %1, ptr noundef nonnull @.str.59)
           to label %49 unwind label %61
 
@@ -4222,7 +4222,7 @@ define hidden void @_ZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeE(ptr noun
 
 63:                                               ; preds = %104, %55
   %64 = phi ptr [ %50, %55 ], [ %105, %104 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #27
   %65 = load i32, ptr %64, align 4, !tbaa !77
   store i32 %65, ptr %16, align 4, !tbaa !77
   %66 = load ptr, ptr %54, align 8, !tbaa !61
@@ -4253,14 +4253,14 @@ define hidden void @_ZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeE(ptr noun
   br i1 %81, label %82, label %84, !prof !26
 
 82:                                               ; preds = %80
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #27
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #28
           to label %83 unwind label %109
 
 83:                                               ; preds = %82
   unreachable
 
 84:                                               ; preds = %80
-  %85 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %76) #29
+  %85 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %76) #30
           to label %86 unwind label %107
 
 86:                                               ; preds = %84
@@ -4284,7 +4284,7 @@ define hidden void @_ZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeE(ptr noun
   br i1 %93, label %100, label %94
 
 94:                                               ; preds = %91
-  call void @_ZdlPv(ptr noundef nonnull %92) #28
+  call void @_ZdlPv(ptr noundef nonnull %92) #29
   br label %100
 
 95:                                               ; preds = %88
@@ -4295,7 +4295,7 @@ define hidden void @_ZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeE(ptr noun
   br i1 %98, label %111, label %99
 
 99:                                               ; preds = %95
-  call void @_ZdlPv(ptr noundef nonnull %97) #28
+  call void @_ZdlPv(ptr noundef nonnull %97) #29
   br label %111
 
 100:                                              ; preds = %94, %91
@@ -4310,7 +4310,7 @@ define hidden void @_ZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeE(ptr noun
           to label %104 unwind label %107
 
 104:                                              ; preds = %103, %100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #27
   %105 = getelementptr inbounds i8, ptr %64, i64 4
   %106 = icmp eq ptr %105, %52
   br i1 %106, label %.loopexit, label %63
@@ -4327,7 +4327,7 @@ define hidden void @_ZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeE(ptr noun
 
 111:                                              ; preds = %109, %107, %99, %95
   %112 = phi { ptr, i32 } [ %96, %99 ], [ %96, %95 ], [ %108, %107 ], [ %110, %109 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #27
   br label %169
 
 113:                                              ; preds = %49
@@ -4364,14 +4364,14 @@ define hidden void @_ZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeE(ptr noun
   br i1 %133, label %134, label %136, !prof !26
 
 134:                                              ; preds = %132
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #27
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #28
           to label %135 unwind label %160
 
 135:                                              ; preds = %134
   unreachable
 
 136:                                              ; preds = %132
-  %137 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %126) #29
+  %137 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %126) #30
           to label %138 unwind label %160
 
 138:                                              ; preds = %136
@@ -4398,7 +4398,7 @@ define hidden void @_ZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeE(ptr noun
   br i1 %148, label %155, label %149
 
 149:                                              ; preds = %146
-  call void @_ZdlPv(ptr noundef nonnull %147) #28
+  call void @_ZdlPv(ptr noundef nonnull %147) #29
   br label %155
 
 150:                                              ; preds = %142
@@ -4409,7 +4409,7 @@ define hidden void @_ZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeE(ptr noun
   br i1 %153, label %169, label %154
 
 154:                                              ; preds = %150
-  call void @_ZdlPv(ptr noundef nonnull %152) #28
+  call void @_ZdlPv(ptr noundef nonnull %152) #29
   br label %169
 
 155:                                              ; preds = %149, %146
@@ -4434,25 +4434,25 @@ define hidden void @_ZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeE(ptr noun
   br i1 %162, label %164, label %163
 
 163:                                              ; preds = %.loopexit
-  call void @_ZdlPv(ptr noundef nonnull %50) #28
+  call void @_ZdlPv(ptr noundef nonnull %50) #29
   br label %164
 
 164:                                              ; preds = %163, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #27
   %165 = load ptr, ptr %14, align 8, !tbaa !67
   %166 = icmp eq ptr %165, null
   br i1 %166, label %168, label %167
 
 167:                                              ; preds = %164
-  call void @_ZdlPv(ptr noundef nonnull %165) #28
+  call void @_ZdlPv(ptr noundef nonnull %165) #29
   br label %168
 
 168:                                              ; preds = %167, %164
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #27
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #27
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #27
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #27
   ret void
 
 169:                                              ; preds = %160, %154, %150, %111
@@ -4461,26 +4461,26 @@ define hidden void @_ZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeE(ptr noun
   br i1 %171, label %173, label %172
 
 172:                                              ; preds = %169
-  call void @_ZdlPv(ptr noundef nonnull %50) #28
+  call void @_ZdlPv(ptr noundef nonnull %50) #29
   br label %173
 
 173:                                              ; preds = %172, %169, %61
   %174 = phi { ptr, i32 } [ %62, %61 ], [ %170, %169 ], [ %170, %172 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #27
   %175 = load ptr, ptr %14, align 8, !tbaa !67
   %176 = icmp eq ptr %175, null
   br i1 %176, label %178, label %177
 
 177:                                              ; preds = %173
-  call void @_ZdlPv(ptr noundef nonnull %175) #28
+  call void @_ZdlPv(ptr noundef nonnull %175) #29
   br label %178
 
 178:                                              ; preds = %177, %173
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #27
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #27
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #27
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #27
   resume { ptr, i32 } %174
 }
 
@@ -4492,9 +4492,9 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.pugi::xml_attribute", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #27
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #27
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #27
   %9 = invoke ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2)
           to label %10 unwind label %114
 
@@ -4510,14 +4510,14 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %12
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #27
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #28
           to label %16 unwind label %116
 
 16:                                               ; preds = %15
   unreachable
 
 17:                                               ; preds = %12
-  %18 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #25
+  %18 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #27
   %19 = icmp ugt i64 %18, 15
   br i1 %19, label %20, label %32
 
@@ -4526,7 +4526,7 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
           to label %23 unwind label %116
 
 23:                                               ; preds = %22
@@ -4538,14 +4538,14 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   br i1 %26, label %27, label %29, !prof !26
 
 27:                                               ; preds = %24
-  invoke void @_ZSt17__throw_bad_allocv() #27
+  invoke void @_ZSt17__throw_bad_allocv() #28
           to label %28 unwind label %116
 
 28:                                               ; preds = %27
   unreachable
 
 29:                                               ; preds = %24
-  %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #29
+  %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #30
           to label %31 unwind label %116
 
 31:                                               ; preds = %29
@@ -4588,7 +4588,7 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
 45:                                               ; preds = %66, %43
   %46 = phi ptr [ %42, %43 ], [ %70, %66 ]
   %47 = phi i64 [ %40, %43 ], [ %71, %66 ]
-  %48 = call ptr @memchr(ptr noundef %46, i32 noundef 32, i64 noundef %47) #25
+  %48 = call ptr @memchr(ptr noundef %46, i32 noundef 32, i64 noundef %47) #27
   %49 = icmp eq ptr %48, null
   %50 = ptrtoint ptr %48 to i64
   %51 = ptrtoint ptr %46 to i64
@@ -4596,7 +4596,7 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   %53 = icmp eq i64 %52, -1
   %54 = or i1 %49, %53
   %55 = select i1 %54, i64 %47, i64 %52
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25, !noalias !111
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #27, !noalias !111
   %56 = call i64 @llvm.umin.i64(i64 %47, i64 %55)
   store i64 %56, ptr %5, align 8, !noalias !111
   store ptr %46, ptr %44, align 8, !noalias !111
@@ -4614,8 +4614,8 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
 62:                                               ; preds = %58
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25, !noalias !111
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #25
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #27, !noalias !111
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #27
   %64 = load ptr, ptr %7, align 8, !tbaa !25
   %65 = icmp eq ptr %64, %13
   br i1 %65, label %118, label %121
@@ -4626,7 +4626,7 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   %69 = call i64 @llvm.umin.i64(i64 %68, i64 %47)
   %70 = getelementptr inbounds i8, ptr %46, i64 %69
   %71 = sub i64 %47, %69
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25, !noalias !111
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #27, !noalias !111
   %72 = icmp eq i64 %71, 0
   br i1 %72, label %73, label %45, !llvm.loop !116
 
@@ -4646,12 +4646,12 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   br label %82
 
 81:                                               ; preds = %75
-  call void @_ZdlPv(ptr noundef %76) #28
+  call void @_ZdlPv(ptr noundef %76) #29
   br label %82
 
 82:                                               ; preds = %81, %78
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #27
   %83 = load ptr, ptr %6, align 8, !tbaa !61
   %84 = getelementptr inbounds i8, ptr %6, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !61
@@ -4659,7 +4659,7 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   br i1 %86, label %109, label %87
 
 87:                                               ; preds = %82
-  %88 = tail call ptr @__errno_location() #32
+  %88 = tail call ptr @__errno_location() #33
   %89 = getelementptr inbounds i8, ptr %0, i64 8
   %90 = getelementptr inbounds i8, ptr %0, i64 16
   br label %124
@@ -4685,7 +4685,7 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   br label %104
 
 103:                                              ; preds = %.preheader
-  call void @_ZdlPv(ptr noundef %96) #28
+  call void @_ZdlPv(ptr noundef %96) #29
   br label %104
 
 104:                                              ; preds = %103, %99
@@ -4703,11 +4703,11 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   br i1 %111, label %113, label %112
 
 112:                                              ; preds = %109
-  call void @_ZdlPv(ptr noundef nonnull %110) #28
+  call void @_ZdlPv(ptr noundef nonnull %110) #29
   br label %113
 
 113:                                              ; preds = %112, %109
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #27
   ret void
 
 114:                                              ; preds = %10, %3
@@ -4727,13 +4727,13 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   br label %122
 
 121:                                              ; preds = %62
-  call void @_ZdlPv(ptr noundef %64) #28
+  call void @_ZdlPv(ptr noundef %64) #29
   br label %122
 
 122:                                              ; preds = %121, %118, %116, %114
   %123 = phi { ptr, i32 } [ %115, %114 ], [ %117, %116 ], [ %63, %118 ], [ %63, %121 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #27
   br label %202
 
 124:                                              ; preds = %188, %87
@@ -4742,7 +4742,7 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   %127 = phi ptr [ null, %87 ], [ %191, %188 ]
   %128 = phi ptr [ %83, %87 ], [ %192, %188 ]
   %129 = load ptr, ptr %128, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #27
   %130 = load i32, ptr %88, align 4, !tbaa !77
   store i32 0, ptr %88, align 4, !tbaa !77
   %131 = call noundef i64 @strtol(ptr noundef %129, ptr noundef nonnull %4, i32 noundef 10)
@@ -4751,7 +4751,7 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   br i1 %133, label %134, label %142
 
 134:                                              ; preds = %124
-  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.90) #27
+  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.90) #28
           to label %135 unwind label %136
 
 135:                                              ; preds = %134
@@ -4769,7 +4769,7 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   br label %141
 
 141:                                              ; preds = %140, %136
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27
   br label %198
 
 142:                                              ; preds = %124
@@ -4781,7 +4781,7 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %142
-  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.90) #27
+  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.90) #28
           to label %149 unwind label %136
 
 149:                                              ; preds = %148
@@ -4797,7 +4797,7 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
 
 153:                                              ; preds = %152, %150
   %154 = trunc i64 %131 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27
   %155 = icmp eq ptr %127, %126
   br i1 %155, label %158, label %156
 
@@ -4815,7 +4815,7 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %158
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.89) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.89) #28
           to label %164 unwind label %196
 
 164:                                              ; preds = %163
@@ -4833,7 +4833,7 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
 
 173:                                              ; preds = %165
   %174 = shl nuw nsw i64 %171, 2
-  %175 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %174) #29
+  %175 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %174) #30
           to label %176 unwind label %194
 
 176:                                              ; preds = %173, %165
@@ -4854,7 +4854,7 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
   br i1 %184, label %186, label %185
 
 185:                                              ; preds = %181
-  call void @_ZdlPv(ptr noundef nonnull %125) #28
+  call void @_ZdlPv(ptr noundef nonnull %125) #29
   br label %186
 
 186:                                              ; preds = %185, %181
@@ -4884,13 +4884,13 @@ define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nod
 
 198:                                              ; preds = %196, %194, %141
   %199 = phi { ptr, i32 } [ %137, %141 ], [ %195, %194 ], [ %197, %196 ]
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #25
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #27
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #27
   %200 = icmp eq ptr %125, null
   br i1 %200, label %202, label %201
 
 201:                                              ; preds = %198
-  call void @_ZdlPv(ptr noundef nonnull %125) #28
+  call void @_ZdlPv(ptr noundef nonnull %125) #29
   br label %202
 
 202:                                              ; preds = %201, %198, %122
@@ -4914,7 +4914,7 @@ define hidden void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr
   %14 = alloca %"class.std::vector", align 8
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.pugi::xml_text", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %17 = getelementptr inbounds i8, ptr %5, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !11
@@ -4948,35 +4948,35 @@ define hidden void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr
   br label %38
 
 37:                                               ; preds = %31
-  call void @_ZdlPv(ptr noundef %20) #28
+  call void @_ZdlPv(ptr noundef %20) #29
   br label %38
 
 38:                                               ; preds = %37, %35
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #27
   br i1 %32, label %40, label %39
 
 39:                                               ; preds = %38
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.61, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.61, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE) #20
   unreachable
 
 40:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #27
   %41 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.62)
   store ptr %41, ptr %6, align 8
   %42 = call noundef i32 @_ZNK4pugi13xml_attribute7as_uintEj(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #27
   %43 = icmp eq i32 %42, -1
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %40
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.63, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.63, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE) #20
   unreachable
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds i8, ptr %0, i64 432
   %47 = mul i32 %42, 3
   %48 = zext i32 %47 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
   store i32 0, ptr %7, align 4, !tbaa !118
   %49 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 0, ptr %49, align 4, !tbaa !120
@@ -5009,12 +5009,12 @@ define hidden void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr
   br label %66
 
 66:                                               ; preds = %65, %62, %60, %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #27
   call void @_ZNK4pugi8xml_node8childrenEPKc(ptr dead_on_unwind nonnull writable sret(%"class.pugi::xml_object_range.26") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.64)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !106
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #27
   %67 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %67, i64 24, i1 false), !tbaa.struct !106
   %68 = call noundef zeroext i1 @_ZNK4pugi23xml_named_node_iteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10)
@@ -5031,17 +5031,17 @@ define hidden void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr
   br label %77
 
 .loopexit:                                        ; preds = %314, %66
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #27
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #27
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #27
   ret void
 
 77:                                               ; preds = %314, %69
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #27
   %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4pugi23xml_named_node_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
   %79 = load i64, ptr %78, align 8, !tbaa !61
   store i64 %79, ptr %11, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %11)
   %80 = load i64, ptr %70, align 8, !tbaa !11
   %81 = icmp eq i64 %80, 0
@@ -5073,34 +5073,34 @@ define hidden void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr
   br label %99
 
 98:                                               ; preds = %93
-  call void @_ZdlPv(ptr noundef %82) #28
+  call void @_ZdlPv(ptr noundef %82) #29
   br label %99
 
 99:                                               ; preds = %98, %96
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #27
   br i1 %94, label %101, label %100
 
 100:                                              ; preds = %99
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.65, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.65, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE) #20
   unreachable
 
 101:                                              ; preds = %99
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #27
   %102 = call ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.66)
   store ptr %102, ptr %13, align 8
   %103 = call noundef i32 @_ZNK4pugi13xml_attribute7as_uintEj(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #27
   %104 = icmp ult i32 %103, %42
   br i1 %104, label %106, label %105
 
 105:                                              ; preds = %101
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.67, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.67, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE) #20
   unreachable
 
 106:                                              ; preds = %101
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #27
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #27
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #27
   %107 = call ptr @_ZNK4pugi8xml_node4textEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
   store ptr %107, ptr %16, align 8
   %108 = call noundef ptr @_ZNK4pugi8xml_text9as_stringEPKc(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str.1)
@@ -5109,14 +5109,14 @@ define hidden void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %106
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #27
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #28
           to label %111 unwind label %241
 
 111:                                              ; preds = %110
   unreachable
 
 112:                                              ; preds = %106
-  %113 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %108) #25
+  %113 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %108) #27
   %114 = icmp ugt i64 %113, 15
   br i1 %114, label %115, label %127
 
@@ -5125,7 +5125,7 @@ define hidden void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %115
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
           to label %118 unwind label %241
 
 118:                                              ; preds = %117
@@ -5137,14 +5137,14 @@ define hidden void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr
   br i1 %121, label %122, label %124, !prof !26
 
 122:                                              ; preds = %119
-  invoke void @_ZSt17__throw_bad_allocv() #27
+  invoke void @_ZSt17__throw_bad_allocv() #28
           to label %123 unwind label %241
 
 123:                                              ; preds = %122
   unreachable
 
 124:                                              ; preds = %119
-  %125 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %120) #29
+  %125 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %120) #30
           to label %126 unwind label %239
 
 126:                                              ; preds = %124
@@ -5182,7 +5182,7 @@ define hidden void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr
 .preheader32:                                     ; preds = %132, %214
   %137 = phi ptr [ %218, %214 ], [ %136, %132 ]
   %138 = phi i64 [ %219, %214 ], [ %134, %132 ]
-  %139 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %137, i32 noundef 32, i64 noundef %138) #25
+  %139 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %137, i32 noundef 32, i64 noundef %138) #27
   %140 = icmp eq ptr %139, null
   %141 = ptrtoint ptr %139 to i64
   %142 = ptrtoint ptr %137 to i64
@@ -5190,7 +5190,7 @@ define hidden void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr
   %144 = icmp eq i64 %143, -1
   %145 = or i1 %140, %144
   %146 = select i1 %145, i64 %138, i64 %143
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25, !noalias !122
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #27, !noalias !122
   %147 = call i64 @llvm.umin.i64(i64 %138, i64 %146)
   store i64 %147, ptr %4, align 8, !noalias !122
   store ptr %137, ptr %74, align 8, !noalias !122
@@ -5210,7 +5210,7 @@ define hidden void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr
   br i1 %155, label %156, label %158
 
 156:                                              ; preds = %153
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #27
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #28
           to label %157 unwind label %187
 
 157:                                              ; preds = %156
@@ -5225,7 +5225,7 @@ define hidden void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %160
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
           to label %163 unwind label %187
 
 163:                                              ; preds = %162
@@ -5237,14 +5237,14 @@ define hidden void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr
   br i1 %166, label %167, label %169, !prof !26
 
 167:                                              ; preds = %164
-  invoke void @_ZSt17__throw_bad_allocv() #27
+  invoke void @_ZSt17__throw_bad_allocv() #28
           to label %168 unwind label %187
 
 168:                                              ; preds = %167
   unreachable
 
 169:                                              ; preds = %164
-  %170 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %165) #29
+  %170 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %165) #30
           to label %171 unwind label %185
 
 171:                                              ; preds = %169
@@ -5298,7 +5298,7 @@ define hidden void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr
 
 189:                                              ; preds = %187, %185
   %190 = phi { ptr, i32 } [ %186, %185 ], [ %188, %187 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25, !noalias !122
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27, !noalias !122
   %191 = load ptr, ptr %14, align 8, !tbaa !71
   %192 = load ptr, ptr %75, align 8, !tbaa !72
   %193 = icmp eq ptr %191, %192
@@ -5319,7 +5319,7 @@ define hidden void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr
   br label %203
 
 202:                                              ; preds = %.preheader.i
-  call void @_ZdlPv(ptr noundef %195) #28
+  call void @_ZdlPv(ptr noundef %195) #29
   br label %203
 
 203:                                              ; preds = %202, %198
@@ -5337,7 +5337,7 @@ define hidden void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr
   br i1 %210, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %211
 
 211:                                              ; preds = %208
-  call void @_ZdlPv(ptr noundef nonnull %209) #28
+  call void @_ZdlPv(ptr noundef nonnull %209) #29
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %208, %211
@@ -5351,7 +5351,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %217 = call i64 @llvm.umin.i64(i64 %216, i64 %138)
   %218 = getelementptr inbounds i8, ptr %137, i64 %217
   %219 = sub i64 %138, %217
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25, !noalias !122
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27, !noalias !122
   %220 = icmp eq i64 %219, 0
   br i1 %220, label %221, label %.preheader32, !llvm.loop !125
 
@@ -5371,12 +5371,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %230
 
 229:                                              ; preds = %223
-  call void @_ZdlPv(ptr noundef %224) #28
+  call void @_ZdlPv(ptr noundef %224) #29
   br label %230
 
 230:                                              ; preds = %229, %226
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #27
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #27
   %231 = load ptr, ptr %75, align 8, !tbaa !61
   %232 = load ptr, ptr %14, align 8, !tbaa !61
   %233 = ptrtoint ptr %231 to i64
@@ -5386,7 +5386,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %236, label %251, label %237
 
 237:                                              ; preds = %230
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.68, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE) #26
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.68, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE) #20
           to label %238 unwind label %249
 
 238:                                              ; preds = %237
@@ -5409,13 +5409,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %247
 
 246:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef %212) #28
+  call void @_ZdlPv(ptr noundef %212) #29
   br label %247
 
 247:                                              ; preds = %246, %243, %241, %239
   %248 = phi { ptr, i32 } [ %190, %243 ], [ %190, %246 ], [ %240, %239 ], [ %242, %241 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #27
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #27
   br label %319
 
 249:                                              ; preds = %237
@@ -5432,14 +5432,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %255 = mul i32 %103, 3
   %256 = zext i32 %255 to i64
   %257 = getelementptr inbounds %"struct.rawspeed::NotARational", ptr %254, i64 %256
-  %258 = tail call ptr @__errno_location() #32
+  %258 = tail call ptr @__errno_location() #33
   br label %259
 
 259:                                              ; preds = %286, %253
   %260 = phi ptr [ %257, %253 ], [ %290, %286 ]
   %261 = phi ptr [ %232, %253 ], [ %289, %286 ]
   %262 = load ptr, ptr %261, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #27
   %263 = load i32, ptr %258, align 4, !tbaa !77
   store i32 0, ptr %258, align 4, !tbaa !77
   %264 = call noundef i64 @strtol(ptr noundef %262, ptr noundef nonnull %3, i32 noundef 10)
@@ -5448,7 +5448,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %266, label %267, label %275
 
 267:                                              ; preds = %259
-  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.90) #27
+  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.90) #28
           to label %268 unwind label %269
 
 268:                                              ; preds = %267
@@ -5466,7 +5466,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %274
 
 274:                                              ; preds = %273, %269
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
   br label %317
 
 275:                                              ; preds = %259
@@ -5478,7 +5478,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %280, label %281, label %283
 
 281:                                              ; preds = %275
-  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.90) #27
+  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.90) #28
           to label %282 unwind label %269
 
 282:                                              ; preds = %281
@@ -5493,7 +5493,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %286
 
 286:                                              ; preds = %285, %283
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
   %287 = and i64 %264, 4294967295
   %288 = or disjoint i64 %287, 42949672960000
   store i64 %288, ptr %260, align 4, !tbaa.struct !76
@@ -5523,7 +5523,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %305
 
 304:                                              ; preds = %.preheader
-  call void @_ZdlPv(ptr noundef %297) #28
+  call void @_ZdlPv(ptr noundef %297) #29
   br label %305
 
 305:                                              ; preds = %304, %300
@@ -5541,28 +5541,28 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %312, label %314, label %313
 
 313:                                              ; preds = %310
-  call void @_ZdlPv(ptr noundef nonnull %311) #28
+  call void @_ZdlPv(ptr noundef nonnull %311) #29
   br label %314
 
 314:                                              ; preds = %313, %310
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #27
   %315 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4pugi23xml_named_node_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
   %316 = call noundef zeroext i1 @_ZNK4pugi23xml_named_node_iteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10)
   br i1 %316, label %77, label %.loopexit
 
 317:                                              ; preds = %274, %249
   %318 = phi { ptr, i32 } [ %250, %249 ], [ %270, %274 ]
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #25
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #27
   br label %319
 
 319:                                              ; preds = %317, %247
   %320 = phi { ptr, i32 } [ %318, %317 ], [ %248, %247 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #27
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #27
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #27
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #27
   resume { ptr, i32 } %320
 }
 
@@ -5579,7 +5579,7 @@ define hidden void @_ZN8rawspeed6Camera18parseColorMatricesERKN4pugi8xml_nodeE(p
   %5 = alloca %"class.pugi::xml_named_node_iterator", align 8
   %6 = alloca %"class.pugi::xml_named_node_iterator", align 8
   %7 = alloca %"class.pugi::xml_node", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #27
   call fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !11
@@ -5613,41 +5613,41 @@ define hidden void @_ZN8rawspeed6Camera18parseColorMatricesERKN4pugi8xml_nodeE(p
   br label %29
 
 28:                                               ; preds = %22
-  call void @_ZdlPv(ptr noundef %11) #28
+  call void @_ZdlPv(ptr noundef %11) #29
   br label %29
 
 29:                                               ; preds = %28, %26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #27
   br i1 %23, label %31, label %30
 
 30:                                               ; preds = %29
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.70, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera18parseColorMatricesERKN4pugi8xml_nodeE) #26
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz(ptr noundef nonnull @.str.70, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed6Camera18parseColorMatricesERKN4pugi8xml_nodeE) #20
   unreachable
 
 31:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #27
   call void @_ZNK4pugi8xml_node8childrenEPKc(ptr dead_on_unwind nonnull writable sret(%"class.pugi::xml_object_range.26") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.60)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !106
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #27
   %32 = getelementptr inbounds i8, ptr %4, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false), !tbaa.struct !106
   %33 = call noundef zeroext i1 @_ZNK4pugi23xml_named_node_iteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   br i1 %33, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %31
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #27
   ret void
 
 .preheader:                                       ; preds = %31, %.preheader
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
   %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4pugi23xml_named_node_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
   %35 = load i64, ptr %34, align 8, !tbaa !61
   store i64 %35, ptr %7, align 8, !tbaa !61
   call void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
   %36 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4pugi23xml_named_node_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
   %37 = call noundef zeroext i1 @_ZNK4pugi23xml_named_node_iteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   br i1 %37, label %.preheader, label %.loopexit
@@ -5683,7 +5683,7 @@ define hidden noundef ptr @_ZNK8rawspeed6Camera13getSensorInfoEi(ptr nocapture n
   %21 = phi ptr [ %70, %68 ], [ null, %8 ]
   %22 = phi ptr [ %69, %68 ], [ null, %8 ]
   %23 = phi ptr [ %72, %68 ], [ %4, %8 ]
-  %24 = tail call noundef zeroext i1 @_ZNK8rawspeed16CameraSensorInfo11isIsoWithinEi(ptr noundef nonnull align 8 dereferenceable(40) %23, i32 noundef %1) #31
+  %24 = tail call noundef zeroext i1 @_ZNK8rawspeed16CameraSensorInfo11isIsoWithinEi(ptr noundef nonnull align 8 dereferenceable(40) %23, i32 noundef %1) #32
   br i1 %24, label %25, label %68
 
 25:                                               ; preds = %.preheader11
@@ -5703,7 +5703,7 @@ define hidden noundef ptr @_ZNK8rawspeed6Camera13getSensorInfoEi(ptr nocapture n
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %29
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.89) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.89) #28
           to label %35 unwind label %61
 
 35:                                               ; preds = %34
@@ -5721,7 +5721,7 @@ define hidden noundef ptr @_ZNK8rawspeed6Camera13getSensorInfoEi(ptr nocapture n
 
 44:                                               ; preds = %36
   %45 = shl nuw nsw i64 %42, 3
-  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #29
+  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #30
           to label %47 unwind label %59
 
 47:                                               ; preds = %44, %36
@@ -5742,7 +5742,7 @@ define hidden noundef ptr @_ZNK8rawspeed6Camera13getSensorInfoEi(ptr nocapture n
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %52
-  tail call void @_ZdlPv(ptr noundef nonnull %20) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %20) #29
   br label %57
 
 57:                                               ; preds = %56, %52
@@ -5765,7 +5765,7 @@ define hidden noundef ptr @_ZNK8rawspeed6Camera13getSensorInfoEi(ptr nocapture n
   br i1 %65, label %67, label %66
 
 66:                                               ; preds = %63
-  tail call void @_ZdlPv(ptr noundef nonnull %20) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %20) #29
   br label %67
 
 67:                                               ; preds = %66, %63
@@ -5787,7 +5787,7 @@ define hidden noundef ptr @_ZNK8rawspeed6Camera13getSensorInfoEi(ptr nocapture n
 .preheader:                                       ; preds = %13, %74
   %77 = phi ptr [ %75, %74 ], [ %71, %13 ]
   %78 = load ptr, ptr %77, align 8, !tbaa !61
-  %79 = tail call noundef zeroext i1 @_ZNK8rawspeed16CameraSensorInfo9isDefaultEv(ptr noundef nonnull align 8 dereferenceable(40) %78) #31
+  %79 = tail call noundef zeroext i1 @_ZNK8rawspeed16CameraSensorInfo9isDefaultEv(ptr noundef nonnull align 8 dereferenceable(40) %78) #32
   br i1 %79, label %74, label %80
 
 80:                                               ; preds = %.preheader
@@ -5800,7 +5800,7 @@ define hidden noundef ptr @_ZNK8rawspeed6Camera13getSensorInfoEi(ptr nocapture n
 
 83:                                               ; preds = %.loopexit, %80
   %84 = phi ptr [ %78, %80 ], [ %82, %.loopexit ]
-  tail call void @_ZdlPv(ptr noundef nonnull %71) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %71) #29
   br label %85
 
 85:                                               ; preds = %83, %80, %8, %2
@@ -5816,14 +5816,15 @@ declare noundef zeroext i1 @_ZNK8rawspeed16CameraSensorInfo9isDefaultEv(ptr noun
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #25
-  tail call void @_ZSt9terminatev() #30
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
+  tail call void @_ZSt9terminatev() #31
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5835,7 +5836,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNS
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %5
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.71) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.71) #28
   unreachable
 
 12:                                               ; preds = %5
@@ -6064,7 +6065,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
   unreachable
 
 22:                                               ; preds = %17
@@ -6087,11 +6088,11 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %32, label %33, label %34, !prof !26
 
 33:                                               ; preds = %29
-  tail call void @_ZSt17__throw_bad_allocv() #27
+  tail call void @_ZSt17__throw_bad_allocv() #28
   unreachable
 
 34:                                               ; preds = %29
-  %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #29
+  %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #30
   switch i64 %1, label %38 [
     i64 0, label %39
     i64 1, label %36
@@ -6158,7 +6159,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br label %63
 
 62:                                               ; preds = %59
-  tail call void @_ZdlPv(ptr noundef %12) #28
+  tail call void @_ZdlPv(ptr noundef %12) #29
   br label %63
 
 63:                                               ; preds = %62, %60
@@ -6168,25 +6169,25 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #10
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #11
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #10
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #11
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6219,7 +6220,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %18
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
   unreachable
 
 21:                                               ; preds = %18
@@ -6232,11 +6233,11 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %27, label %28, label %29, !prof !26
 
 28:                                               ; preds = %21
-  tail call void @_ZSt17__throw_bad_allocv() #27
+  tail call void @_ZSt17__throw_bad_allocv() #28
   unreachable
 
 29:                                               ; preds = %21
-  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #29
+  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #30
   br i1 %9, label %31, label %35
 
 31:                                               ; preds = %29
@@ -6247,7 +6248,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br label %36
 
 35:                                               ; preds = %29
-  tail call void @_ZdlPv(ptr noundef %7) #28
+  tail call void @_ZdlPv(ptr noundef %7) #29
   br label %36
 
 36:                                               ; preds = %35, %31
@@ -6296,7 +6297,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6325,7 +6326,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   br label %19
 
 18:                                               ; preds = %.preheader
-  tail call void @_ZdlPv(ptr noundef %11) #28
+  tail call void @_ZdlPv(ptr noundef %11) #29
   br label %19
 
 19:                                               ; preds = %18, %14
@@ -6342,11 +6343,11 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   br label %28
 
 27:                                               ; preds = %19
-  tail call void @_ZdlPv(ptr noundef %20) #28
+  tail call void @_ZdlPv(ptr noundef %20) #29
   br label %28
 
 28:                                               ; preds = %27, %23
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #29
   %29 = icmp eq ptr %8, null
   br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !130
 
@@ -6399,7 +6400,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br label %34
 
 33:                                               ; preds = %.preheader
-  tail call void @_ZdlPv(ptr noundef %26) #28
+  tail call void @_ZdlPv(ptr noundef %26) #29
   br label %34
 
 34:                                               ; preds = %33, %29
@@ -6417,7 +6418,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br i1 %41, label %43, label %42
 
 42:                                               ; preds = %39
-  tail call void @_ZdlPv(ptr noundef nonnull %40) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %40) #29
   br label %43
 
 43:                                               ; preds = %42, %39
@@ -6481,7 +6482,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br label %81
 
 80:                                               ; preds = %71
-  tail call void @_ZdlPv(ptr noundef %73) #28
+  tail call void @_ZdlPv(ptr noundef %73) #29
   br label %81
 
 81:                                               ; preds = %80, %76
@@ -6562,11 +6563,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br i1 %20, label %21, label %22, !prof !26
 
 21:                                               ; preds = %18
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #28
   unreachable
 
 22:                                               ; preds = %18
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #29
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #30
   %24 = icmp eq ptr %7, %6
   br i1 %24, label %32, label %25
 
@@ -6585,7 +6586,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %32
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #29
   br label %35
 
 35:                                               ; preds = %34, %32
@@ -6693,7 +6694,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %.preheader
-  tail call void @_ZdlPv(ptr noundef nonnull %27) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %27) #29
   br label %30
 
 30:                                               ; preds = %29, %.preheader
@@ -6711,7 +6712,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br i1 %37, label %39, label %38
 
 38:                                               ; preds = %35
-  tail call void @_ZdlPv(ptr noundef nonnull %36) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %36) #29
   br label %39
 
 39:                                               ; preds = %38, %35
@@ -6775,7 +6776,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br i1 %77, label %79, label %78
 
 78:                                               ; preds = %73
-  tail call void @_ZdlPv(ptr noundef nonnull %76) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %76) #29
   br label %79
 
 79:                                               ; preds = %78, %73
@@ -6861,11 +6862,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br i1 %19, label %20, label %21, !prof !26
 
 20:                                               ; preds = %18
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #28
   unreachable
 
 21:                                               ; preds = %18
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #29
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #30
   %23 = icmp eq ptr %6, %7
   br i1 %23, label %25, label %24
 
@@ -6878,7 +6879,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %25
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #29
   br label %28
 
 28:                                               ; preds = %27, %25
@@ -6960,16 +6961,16 @@ define linkonce_odr hidden noundef ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIc
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #28
   unreachable
 
 11:                                               ; preds = %8
-  tail call void @_ZSt17__throw_bad_allocv() #27
+  tail call void @_ZSt17__throw_bad_allocv() #28
   unreachable
 
 12:                                               ; preds = %6
   %13 = shl nuw nsw i64 %1, 5
-  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #29
+  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #30
   br label %15
 
 15:                                               ; preds = %12, %4
@@ -6984,16 +6985,16 @@ define linkonce_odr hidden noundef ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIc
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #25
+  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #27
   %23 = icmp eq ptr %16, null
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %19
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %16) #29
   br label %25
 
 25:                                               ; preds = %24, %19
-  invoke void @__cxa_rethrow() #27
+  invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26
 
 26:                                               ; preds = %25
@@ -7009,7 +7010,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIc
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #30
+  tail call void @__clang_call_terminate(ptr %31) #31
   unreachable
 
 32:                                               ; preds = %25
@@ -7041,7 +7042,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
           to label %15 unwind label %37
 
 15:                                               ; preds = %14
@@ -7053,14 +7054,14 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   br i1 %18, label %19, label %21, !prof !26
 
 19:                                               ; preds = %16
-  invoke void @_ZSt17__throw_bad_allocv() #27
+  invoke void @_ZSt17__throw_bad_allocv() #28
           to label %20 unwind label %37
 
 20:                                               ; preds = %19
   unreachable
 
 21:                                               ; preds = %16
-  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #29
+  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #30
           to label %23 unwind label %35
 
 23:                                               ; preds = %21
@@ -7107,7 +7108,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
 39:                                               ; preds = %37, %35
   %40 = phi { ptr, i32 } [ %36, %35 ], [ %38, %37 ]
   %41 = extractvalue { ptr, i32 } %40, 0
-  %42 = tail call ptr @__cxa_begin_catch(ptr %41) #25
+  %42 = tail call ptr @__cxa_begin_catch(ptr %41) #27
   %43 = icmp eq ptr %5, %2
   br i1 %43, label %.loopexit, label %.preheader
 
@@ -7126,7 +7127,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   br label %53
 
 52:                                               ; preds = %.preheader
-  tail call void @_ZdlPv(ptr noundef %45) #28
+  tail call void @_ZdlPv(ptr noundef %45) #29
   br label %53
 
 53:                                               ; preds = %52, %48
@@ -7135,7 +7136,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   br i1 %55, label %.loopexit, label %.preheader, !llvm.loop !142
 
 .loopexit:                                        ; preds = %53, %39
-  invoke void @__cxa_rethrow() #27
+  invoke void @__cxa_rethrow() #28
           to label %63 unwind label %57
 
 .loopexit8:                                       ; preds = %29, %3
@@ -7155,7 +7156,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  tail call void @__clang_call_terminate(ptr %62) #30
+  tail call void @__clang_call_terminate(ptr %62) #31
   unreachable
 
 63:                                               ; preds = %.loopexit
@@ -7183,7 +7184,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPNSt7__cxx1112basic_stri
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
           to label %15 unwind label %37
 
 15:                                               ; preds = %14
@@ -7195,14 +7196,14 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPNSt7__cxx1112basic_stri
   br i1 %18, label %19, label %21, !prof !26
 
 19:                                               ; preds = %16
-  invoke void @_ZSt17__throw_bad_allocv() #27
+  invoke void @_ZSt17__throw_bad_allocv() #28
           to label %20 unwind label %37
 
 20:                                               ; preds = %19
   unreachable
 
 21:                                               ; preds = %16
-  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #29
+  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #30
           to label %23 unwind label %35
 
 23:                                               ; preds = %21
@@ -7249,7 +7250,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPNSt7__cxx1112basic_stri
 39:                                               ; preds = %37, %35
   %40 = phi { ptr, i32 } [ %36, %35 ], [ %38, %37 ]
   %41 = extractvalue { ptr, i32 } %40, 0
-  %42 = tail call ptr @__cxa_begin_catch(ptr %41) #25
+  %42 = tail call ptr @__cxa_begin_catch(ptr %41) #27
   %43 = icmp eq ptr %5, %2
   br i1 %43, label %.loopexit, label %.preheader
 
@@ -7268,7 +7269,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPNSt7__cxx1112basic_stri
   br label %53
 
 52:                                               ; preds = %.preheader
-  tail call void @_ZdlPv(ptr noundef %45) #28
+  tail call void @_ZdlPv(ptr noundef %45) #29
   br label %53
 
 53:                                               ; preds = %52, %48
@@ -7277,7 +7278,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPNSt7__cxx1112basic_stri
   br i1 %55, label %.loopexit, label %.preheader, !llvm.loop !144
 
 .loopexit:                                        ; preds = %53, %39
-  invoke void @__cxa_rethrow() #27
+  invoke void @__cxa_rethrow() #28
           to label %63 unwind label %57
 
 .loopexit8:                                       ; preds = %29, %3
@@ -7297,7 +7298,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPNSt7__cxx1112basic_stri
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  tail call void @__clang_call_terminate(ptr %62) #30
+  tail call void @__clang_call_terminate(ptr %62) #31
   unreachable
 
 63:                                               ; preds = %.loopexit
@@ -7330,11 +7331,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br i1 %19, label %20, label %21, !prof !26
 
 20:                                               ; preds = %18
-  tail call void @_ZSt17__throw_bad_allocv() #27
+  tail call void @_ZSt17__throw_bad_allocv() #28
   unreachable
 
 21:                                               ; preds = %18
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #29
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #30
   %23 = icmp eq ptr %6, %7
   br i1 %23, label %25, label %24
 
@@ -7347,7 +7348,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %25
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #29
   br label %28
 
 28:                                               ; preds = %27, %25
@@ -7429,16 +7430,16 @@ define linkonce_odr hidden noundef ptr @_ZNSt6vectorIN8rawspeed16CameraSensorInf
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #28
   unreachable
 
 11:                                               ; preds = %8
-  tail call void @_ZSt17__throw_bad_allocv() #27
+  tail call void @_ZSt17__throw_bad_allocv() #28
   unreachable
 
 12:                                               ; preds = %6
   %13 = mul nuw nsw i64 %1, 40
-  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #29
+  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #30
   br label %15
 
 15:                                               ; preds = %12, %4
@@ -7453,16 +7454,16 @@ define linkonce_odr hidden noundef ptr @_ZNSt6vectorIN8rawspeed16CameraSensorInf
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #25
+  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #27
   %23 = icmp eq ptr %16, null
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %19
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %16) #29
   br label %25
 
 25:                                               ; preds = %24, %19
-  invoke void @__cxa_rethrow() #27
+  invoke void @__cxa_rethrow() #28
           to label %32 unwind label %26
 
 26:                                               ; preds = %25
@@ -7478,7 +7479,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt6vectorIN8rawspeed16CameraSensorInf
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #30
+  tail call void @__clang_call_terminate(ptr %31) #31
   unreachable
 
 32:                                               ; preds = %25
@@ -7512,14 +7513,14 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__no
   br i1 %18, label %19, label %21, !prof !26
 
 19:                                               ; preds = %17
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #27
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #28
           to label %20 unwind label %42
 
 20:                                               ; preds = %19
   unreachable
 
 21:                                               ; preds = %17
-  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #29
+  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #30
           to label %23 unwind label %40
 
 23:                                               ; preds = %21, %.preheader6
@@ -7563,7 +7564,7 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__no
 44:                                               ; preds = %42, %40
   %45 = phi { ptr, i32 } [ %41, %40 ], [ %43, %42 ]
   %46 = extractvalue { ptr, i32 } %45, 0
-  %47 = tail call ptr @__cxa_begin_catch(ptr %46) #25
+  %47 = tail call ptr @__cxa_begin_catch(ptr %46) #27
   %48 = icmp eq ptr %5, %2
   br i1 %48, label %.loopexit, label %.preheader
 
@@ -7575,7 +7576,7 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__no
   br i1 %52, label %54, label %53
 
 53:                                               ; preds = %.preheader
-  tail call void @_ZdlPv(ptr noundef nonnull %51) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %51) #29
   br label %54
 
 54:                                               ; preds = %53, %.preheader
@@ -7584,7 +7585,7 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__no
   br i1 %56, label %.loopexit, label %.preheader, !llvm.loop !148
 
 .loopexit:                                        ; preds = %54, %44
-  invoke void @__cxa_rethrow() #27
+  invoke void @__cxa_rethrow() #28
           to label %64 unwind label %58
 
 .loopexit7:                                       ; preds = %35, %3
@@ -7604,7 +7605,7 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__no
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  tail call void @__clang_call_terminate(ptr %63) #30
+  tail call void @__clang_call_terminate(ptr %63) #31
   unreachable
 
 64:                                               ; preds = %.loopexit
@@ -7637,11 +7638,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br i1 %19, label %20, label %21, !prof !26
 
 20:                                               ; preds = %18
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #28
   unreachable
 
 21:                                               ; preds = %18
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #29
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #30
   %23 = icmp eq ptr %6, %7
   br i1 %23, label %25, label %24
 
@@ -7654,7 +7655,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %25
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #29
   br label %28
 
 28:                                               ; preds = %27, %25
@@ -7749,14 +7750,14 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIPN8rawspeed16Came
   br i1 %18, label %19, label %21, !prof !26
 
 19:                                               ; preds = %17
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #27
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #28
           to label %20 unwind label %42
 
 20:                                               ; preds = %19
   unreachable
 
 21:                                               ; preds = %17
-  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #29
+  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #30
           to label %23 unwind label %40
 
 23:                                               ; preds = %21, %.preheader6
@@ -7800,7 +7801,7 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIPN8rawspeed16Came
 44:                                               ; preds = %42, %40
   %45 = phi { ptr, i32 } [ %41, %40 ], [ %43, %42 ]
   %46 = extractvalue { ptr, i32 } %45, 0
-  %47 = tail call ptr @__cxa_begin_catch(ptr %46) #25
+  %47 = tail call ptr @__cxa_begin_catch(ptr %46) #27
   %48 = icmp eq ptr %5, %2
   br i1 %48, label %.loopexit, label %.preheader
 
@@ -7812,7 +7813,7 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIPN8rawspeed16Came
   br i1 %52, label %54, label %53
 
 53:                                               ; preds = %.preheader
-  tail call void @_ZdlPv(ptr noundef nonnull %51) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %51) #29
   br label %54
 
 54:                                               ; preds = %53, %.preheader
@@ -7821,7 +7822,7 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIPN8rawspeed16Came
   br i1 %56, label %.loopexit, label %.preheader, !llvm.loop !150
 
 .loopexit:                                        ; preds = %54, %44
-  invoke void @__cxa_rethrow() #27
+  invoke void @__cxa_rethrow() #28
           to label %64 unwind label %58
 
 .loopexit7:                                       ; preds = %35, %3
@@ -7841,7 +7842,7 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIPN8rawspeed16Came
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  tail call void @__clang_call_terminate(ptr %63) #30
+  tail call void @__clang_call_terminate(ptr %63) #31
   unreachable
 
 64:                                               ; preds = %.loopexit
@@ -7855,7 +7856,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_t
   br i1 %4, label %53, label %5
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #27
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !61
   store ptr %7, ptr %3, align 8, !tbaa !151
@@ -7929,8 +7930,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_t
 44:                                               ; preds = %27
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE20_Reuse_or_alloc_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #25
+  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE20_Reuse_or_alloc_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #27
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #27
   resume { ptr, i32 } %45
 
 46:                                               ; preds = %39, %20
@@ -7943,11 +7944,11 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_t
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #30
+  call void @__clang_call_terminate(ptr %51) #31
   unreachable
 
 52:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #27
   br label %53
 
 53:                                               ; preds = %52, %2
@@ -7969,7 +7970,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #30
+  tail call void @__clang_call_terminate(ptr %8) #31
   unreachable
 }
 
@@ -8046,12 +8047,12 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 41:                                               ; preds = %39, %17
   %42 = phi { ptr, i32 } [ %40, %39 ], [ %18, %17 ]
   %43 = extractvalue { ptr, i32 } %42, 0
-  %44 = tail call ptr @__cxa_begin_catch(ptr %43) #25
+  %44 = tail call ptr @__cxa_begin_catch(ptr %43) #27
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6)
           to label %45 unwind label %50
 
 45:                                               ; preds = %41
-  invoke void @__cxa_rethrow() #27
+  invoke void @__cxa_rethrow() #28
           to label %56 unwind label %50
 
 46:                                               ; preds = %37, %27
@@ -8076,7 +8077,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #30
+  tail call void @__clang_call_terminate(ptr %55) #31
   unreachable
 
 56:                                               ; preds = %45
@@ -8150,7 +8151,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_string
   br label %41
 
 40:                                               ; preds = %30
-  tail call void @_ZdlPv(ptr noundef %33) #28
+  tail call void @_ZdlPv(ptr noundef %33) #29
   br label %41
 
 41:                                               ; preds = %40, %36
@@ -8167,7 +8168,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_string
   br label %50
 
 49:                                               ; preds = %41
-  tail call void @_ZdlPv(ptr noundef %42) #28
+  tail call void @_ZdlPv(ptr noundef %42) #29
   br label %50
 
 50:                                               ; preds = %49, %45
@@ -8178,9 +8179,9 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_string
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  %54 = tail call ptr @__cxa_begin_catch(ptr %53) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #28
-  invoke void @__cxa_rethrow() #27
+  %54 = tail call ptr @__cxa_begin_catch(ptr %53) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #29
+  invoke void @__cxa_rethrow() #28
           to label %62 unwind label %55
 
 55:                                               ; preds = %51
@@ -8197,14 +8198,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_string
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  tail call void @__clang_call_terminate(ptr %61) #30
+  tail call void @__clang_call_terminate(ptr %61) #31
   unreachable
 
 62:                                               ; preds = %51
   unreachable
 
 63:                                               ; preds = %2
-  %64 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #29
+  %64 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #30
   %65 = getelementptr inbounds i8, ptr %64, i64 32
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %65, ptr noundef nonnull align 8 dereferenceable(64) %1)
           to label %76 unwind label %66
@@ -8213,9 +8214,9 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_string
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  %69 = tail call ptr @__cxa_begin_catch(ptr %68) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %64) #28
-  invoke void @__cxa_rethrow() #27
+  %69 = tail call ptr @__cxa_begin_catch(ptr %68) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %64) #29
+  invoke void @__cxa_rethrow() #28
           to label %75 unwind label %70
 
 70:                                               ; preds = %66
@@ -8228,7 +8229,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_string
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  tail call void @__clang_call_terminate(ptr %74) #30
+  tail call void @__clang_call_terminate(ptr %74) #31
   unreachable
 
 75:                                               ; preds = %66
@@ -8254,7 +8255,7 @@ define linkonce_odr hidden void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
   unreachable
 
 11:                                               ; preds = %8
@@ -8263,11 +8264,11 @@ define linkonce_odr hidden void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char
   br i1 %13, label %14, label %15, !prof !26
 
 14:                                               ; preds = %11
-  tail call void @_ZSt17__throw_bad_allocv() #27
+  tail call void @_ZSt17__throw_bad_allocv() #28
   unreachable
 
 15:                                               ; preds = %11
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #29
+  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #30
   store ptr %16, ptr %0, align 8, !tbaa !25
   store i64 %6, ptr %3, align 8, !tbaa !14
   br label %17
@@ -8308,7 +8309,7 @@ define linkonce_odr hidden void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
           to label %35 unwind label %52
 
 35:                                               ; preds = %34
@@ -8320,14 +8321,14 @@ define linkonce_odr hidden void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char
   br i1 %38, label %39, label %41, !prof !26
 
 39:                                               ; preds = %36
-  invoke void @_ZSt17__throw_bad_allocv() #27
+  invoke void @_ZSt17__throw_bad_allocv() #28
           to label %40 unwind label %52
 
 40:                                               ; preds = %39
   unreachable
 
 41:                                               ; preds = %36
-  %42 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %37) #29
+  %42 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %37) #30
           to label %43 unwind label %52
 
 43:                                               ; preds = %41
@@ -8372,7 +8373,7 @@ define linkonce_odr hidden void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char
   br label %60
 
 59:                                               ; preds = %52
-  tail call void @_ZdlPv(ptr noundef %54) #28
+  tail call void @_ZdlPv(ptr noundef %54) #29
   br label %60
 
 60:                                               ; preds = %59, %56
@@ -8382,7 +8383,7 @@ define linkonce_odr hidden void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char
 declare noundef ptr @_ZNK4pugi8xml_node4nameEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #10
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJPKcEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8396,7 +8397,7 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.89) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.89) #28
   unreachable
 
 12:                                               ; preds = %3
@@ -8414,7 +8415,7 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
 
 23:                                               ; preds = %12
   %24 = shl nuw nsw i64 %18, 5
-  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #29
+  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #30
   br label %26
 
 26:                                               ; preds = %23, %12
@@ -8427,14 +8428,14 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %26
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #27
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #28
           to label %.noexc unwind label %109
 
 .noexc:                                           ; preds = %32
   unreachable
 
 33:                                               ; preds = %26
-  %34 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #25
+  %34 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #27
   %35 = icmp ugt i64 %34, 15
   br i1 %35, label %36, label %45
 
@@ -8443,7 +8444,7 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %36
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
           to label %.noexc14 unwind label %109
 
 .noexc14:                                         ; preds = %38
@@ -8455,14 +8456,14 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
   br i1 %41, label %42, label %43, !prof !26
 
 42:                                               ; preds = %39
-  invoke void @_ZSt17__throw_bad_allocv() #27
+  invoke void @_ZSt17__throw_bad_allocv() #28
           to label %.noexc15 unwind label %109
 
 .noexc15:                                         ; preds = %42
   unreachable
 
 43:                                               ; preds = %39
-  %44 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #29
+  %44 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #30
           to label %.noexc16 unwind label %109
 
 .noexc16:                                         ; preds = %43
@@ -8590,7 +8591,7 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
   br i1 %102, label %104, label %103
 
 103:                                              ; preds = %.loopexit
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #29
   br label %104
 
 104:                                              ; preds = %103, %.loopexit
@@ -8611,9 +8612,9 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
   %110 = landingpad { ptr, i32 }
           catch ptr null
   %111 = extractvalue { ptr, i32 } %110, 0
-  %112 = tail call ptr @__cxa_begin_catch(ptr %111) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %27) #28
-  invoke void @__cxa_rethrow() #27
+  %112 = tail call ptr @__cxa_begin_catch(ptr %111) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %27) #29
+  invoke void @__cxa_rethrow() #28
           to label %117 unwind label %107
 
 113:                                              ; preds = %107
@@ -8623,7 +8624,7 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
   %115 = landingpad { ptr, i32 }
           catch ptr null
   %116 = extractvalue { ptr, i32 } %115, 0
-  tail call void @__clang_call_terminate(ptr %116) #30
+  tail call void @__clang_call_terminate(ptr %116) #31
   unreachable
 
 117:                                              ; preds = %109
@@ -8658,7 +8659,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3mapINSt7__cxx1112basic_stringIcSt1
 21:                                               ; preds = %14
   %22 = getelementptr inbounds i8, ptr %15, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !25
-  %24 = tail call i32 @memcmp(ptr noundef %23, ptr noundef %13, i64 noundef %19) #25
+  %24 = tail call i32 @memcmp(ptr noundef %23, ptr noundef %13, i64 noundef %19) #27
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %31
 
@@ -8693,7 +8694,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3mapINSt7__cxx1112basic_stringIcSt1
 46:                                               ; preds = %41
   %47 = getelementptr inbounds i8, ptr %34, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !25
-  %49 = tail call i32 @memcmp(ptr noundef %13, ptr noundef %48, i64 noundef %44) #25
+  %49 = tail call i32 @memcmp(ptr noundef %13, ptr noundef %48, i64 noundef %44) #27
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %56
 
@@ -8711,13 +8712,13 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3mapINSt7__cxx1112basic_stringIcSt1
 
 59:                                               ; preds = %56, %39, %3
   %60 = phi ptr [ %34, %56 ], [ %8, %39 ], [ %8, %3 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #27
   store ptr %1, ptr %4, align 8, !tbaa !61, !alias.scope !175
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   store ptr %2, ptr %5, align 8, !tbaa !61, !alias.scope !178
   %61 = call ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESL_EEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %60, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27
   br label %62
 
 62:                                               ; preds = %59, %56
@@ -8733,9 +8734,9 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   %6 = alloca %"class.std::tuple", align 8
   %7 = alloca %"class.std::tuple", align 8
   %8 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<void>>::_Auto_node", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #27
   store ptr %0, ptr %8, align 8, !tbaa !61
-  %9 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #29
+  %9 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #30
   %10 = getelementptr inbounds i8, ptr %9, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -8750,9 +8751,9 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  %16 = call ptr @__cxa_begin_catch(ptr %15) #25
-  call void @_ZdlPv(ptr noundef nonnull %9) #28
-  invoke void @__cxa_rethrow() #27
+  %16 = call ptr @__cxa_begin_catch(ptr %15) #27
+  call void @_ZdlPv(ptr noundef nonnull %9) #29
+  invoke void @__cxa_rethrow() #28
           to label %24 unwind label %17
 
 17:                                               ; preds = %13
@@ -8769,7 +8770,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #30
+  call void @__clang_call_terminate(ptr %23) #31
   unreachable
 
 24:                                               ; preds = %13
@@ -8809,7 +8810,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   %45 = getelementptr inbounds i8, ptr %30, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !25
   %47 = load ptr, ptr %10, align 8, !tbaa !25
-  %48 = call i32 @memcmp(ptr noundef %47, ptr noundef %46, i64 noundef %42) #25
+  %48 = call i32 @memcmp(ptr noundef %47, ptr noundef %46, i64 noundef %42) #27
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %55
 
@@ -8827,7 +8828,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 
 58:                                               ; preds = %55, %32
   %59 = phi i1 [ true, %32 ], [ %57, %55 ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %59, ptr noundef nonnull %9, ptr noundef nonnull %30, ptr noundef nonnull align 8 dereferenceable(32) %34) #25
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %59, ptr noundef nonnull %9, ptr noundef nonnull %30, ptr noundef nonnull align 8 dereferenceable(32) %34) #27
   %60 = getelementptr inbounds i8, ptr %0, i64 40
   %61 = load i64, ptr %60, align 8, !tbaa !155
   %62 = add i64 %61, 1
@@ -8837,8 +8838,8 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 63:                                               ; preds = %25
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #27
   br label %19
 
 65:                                               ; preds = %28
@@ -8856,7 +8857,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   br label %75
 
 74:                                               ; preds = %65
-  call void @_ZdlPv(ptr noundef %67) #28
+  call void @_ZdlPv(ptr noundef %67) #29
   br label %75
 
 75:                                               ; preds = %74, %70
@@ -8873,16 +8874,16 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   br label %84
 
 83:                                               ; preds = %75
-  call void @_ZdlPv(ptr noundef %76) #28
+  call void @_ZdlPv(ptr noundef %76) #29
   br label %84
 
 84:                                               ; preds = %83, %79
-  call void @_ZdlPv(ptr noundef nonnull %9) #28
+  call void @_ZdlPv(ptr noundef nonnull %9) #29
   br label %85
 
 85:                                               ; preds = %84, %58
   %86 = phi ptr [ %9, %58 ], [ %29, %84 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #27
   ret ptr %86
 }
 
@@ -8913,7 +8914,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   %20 = getelementptr inbounds i8, ptr %12, i64 32
   %21 = load ptr, ptr %2, align 8, !tbaa !25
   %22 = load ptr, ptr %20, align 8, !tbaa !25
-  %23 = tail call i32 @memcmp(ptr noundef %22, ptr noundef %21, i64 noundef %17) #25
+  %23 = tail call i32 @memcmp(ptr noundef %22, ptr noundef %21, i64 noundef %17) #27
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %30
 
@@ -8948,7 +8949,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   %45 = getelementptr inbounds i8, ptr %1, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !25
   %47 = load ptr, ptr %2, align 8, !tbaa !25
-  %48 = tail call i32 @memcmp(ptr noundef %47, ptr noundef %46, i64 noundef %42) #25
+  %48 = tail call i32 @memcmp(ptr noundef %47, ptr noundef %46, i64 noundef %42) #27
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %56, label %62
 
@@ -8979,7 +8980,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %67, label %143, label %68
 
 68:                                               ; preds = %64
-  %69 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #31
+  %69 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #32
   %70 = getelementptr inbounds i8, ptr %69, i64 40
   %71 = load i64, ptr %70, align 8, !tbaa !11
   %72 = tail call i64 @llvm.umin.i64(i64 %39, i64 %71)
@@ -8990,7 +8991,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   %75 = getelementptr inbounds i8, ptr %69, i64 32
   %76 = load ptr, ptr %2, align 8, !tbaa !25
   %77 = load ptr, ptr %75, align 8, !tbaa !25
-  %78 = tail call i32 @memcmp(ptr noundef %77, ptr noundef %76, i64 noundef %72) #25
+  %78 = tail call i32 @memcmp(ptr noundef %77, ptr noundef %76, i64 noundef %72) #27
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %85
 
@@ -9021,7 +9022,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br label %143
 
 98:                                               ; preds = %62, %56
-  %99 = tail call i32 @memcmp(ptr noundef %46, ptr noundef %47, i64 noundef %42) #25
+  %99 = tail call i32 @memcmp(ptr noundef %46, ptr noundef %47, i64 noundef %42) #27
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %106
 
@@ -9044,7 +9045,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %112, label %143, label %113
 
 113:                                              ; preds = %109
-  %114 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #31
+  %114 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #32
   %115 = getelementptr inbounds i8, ptr %114, i64 40
   %116 = load i64, ptr %115, align 8, !tbaa !11
   %117 = tail call i64 @llvm.umin.i64(i64 %116, i64 %39)
@@ -9055,7 +9056,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   %120 = getelementptr inbounds i8, ptr %114, i64 32
   %121 = load ptr, ptr %120, align 8, !tbaa !25
   %122 = load ptr, ptr %2, align 8, !tbaa !25
-  %123 = tail call i32 @memcmp(ptr noundef %122, ptr noundef %121, i64 noundef %117) #25
+  %123 = tail call i32 @memcmp(ptr noundef %122, ptr noundef %121, i64 noundef %117) #27
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %130
 
@@ -9116,7 +9117,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   br label %16
 
 15:                                               ; preds = %5
-  tail call void @_ZdlPv(ptr noundef %8) #28
+  tail call void @_ZdlPv(ptr noundef %8) #29
   br label %16
 
 16:                                               ; preds = %15, %11
@@ -9133,11 +9134,11 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   br label %25
 
 24:                                               ; preds = %16
-  tail call void @_ZdlPv(ptr noundef %17) #28
+  tail call void @_ZdlPv(ptr noundef %17) #29
   br label %25
 
 25:                                               ; preds = %24, %20
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #29
   br label %26
 
 26:                                               ; preds = %25, %1
@@ -9160,7 +9161,7 @@ define linkonce_odr hidden void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
   unreachable
 
 13:                                               ; preds = %10
@@ -9169,11 +9170,11 @@ define linkonce_odr hidden void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char
   br i1 %15, label %16, label %17, !prof !26
 
 16:                                               ; preds = %13
-  tail call void @_ZSt17__throw_bad_allocv() #27
+  tail call void @_ZSt17__throw_bad_allocv() #28
   unreachable
 
 17:                                               ; preds = %13
-  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #29
+  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #30
   store ptr %18, ptr %0, align 8, !tbaa !25
   store i64 %8, ptr %5, align 8, !tbaa !14
   br label %19
@@ -9214,7 +9215,7 @@ define linkonce_odr hidden void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %34
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
           to label %37 unwind label %54
 
 37:                                               ; preds = %36
@@ -9226,14 +9227,14 @@ define linkonce_odr hidden void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char
   br i1 %40, label %41, label %43, !prof !26
 
 41:                                               ; preds = %38
-  invoke void @_ZSt17__throw_bad_allocv() #27
+  invoke void @_ZSt17__throw_bad_allocv() #28
           to label %42 unwind label %54
 
 42:                                               ; preds = %41
   unreachable
 
 43:                                               ; preds = %38
-  %44 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #29
+  %44 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #30
           to label %45 unwind label %54
 
 45:                                               ; preds = %43
@@ -9278,7 +9279,7 @@ define linkonce_odr hidden void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char
   br label %62
 
 61:                                               ; preds = %54
-  tail call void @_ZdlPv(ptr noundef %56) #28
+  tail call void @_ZdlPv(ptr noundef %56) #29
   br label %62
 
 62:                                               ; preds = %61, %58
@@ -9310,7 +9311,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %12, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !25
-  %20 = tail call i32 @memcmp(ptr noundef %10, ptr noundef %19, i64 noundef %15) #25
+  %20 = tail call i32 @memcmp(ptr noundef %10, ptr noundef %19, i64 noundef %15) #27
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %27
 
@@ -9341,7 +9342,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br i1 %39, label %64, label %40
 
 40:                                               ; preds = %35
-  %41 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %36) #31
+  %41 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %36) #32
   %.phi.trans.insert = getelementptr inbounds i8, ptr %41, i64 40
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !11
   %.phi.trans.insert9 = getelementptr inbounds i8, ptr %1, i64 8
@@ -9362,7 +9363,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   %49 = getelementptr inbounds i8, ptr %46, i64 32
   %50 = load ptr, ptr %1, align 8, !tbaa !25
   %51 = load ptr, ptr %49, align 8, !tbaa !25
-  %52 = tail call i32 @memcmp(ptr noundef %51, ptr noundef %50, i64 noundef %.pre-phi) #25
+  %52 = tail call i32 @memcmp(ptr noundef %51, ptr noundef %50, i64 noundef %.pre-phi) #27
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %59
 
@@ -9395,19 +9396,19 @@ declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef
 declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #14
+declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #15
+declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_invalid_argumentPKc(ptr noundef) local_unnamed_addr #10
+declare void @_ZSt24__throw_invalid_argumentPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #16
+declare ptr @__errno_location() local_unnamed_addr #17
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #10
+declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed16CameraSensorInfoESaIS1_EE17_M_realloc_insertIJRiS5_S5_S5_RS_IiSaIiEEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9421,7 +9422,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed16CameraSensorInfoESaIS1
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %7
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.89) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.89) #28
   unreachable
 
 16:                                               ; preds = %7
@@ -9439,7 +9440,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed16CameraSensorInfoESaIS1
 
 27:                                               ; preds = %16
   %28 = mul nuw nsw i64 %22, 40
-  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #29
+  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #30
   br label %30
 
 30:                                               ; preds = %27, %16
@@ -9504,7 +9505,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed16CameraSensorInfoESaIS1
   br i1 %62, label %64, label %63
 
 63:                                               ; preds = %.loopexit
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #29
   br label %64
 
 64:                                               ; preds = %63, %.loopexit
@@ -9519,7 +9520,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed16CameraSensorInfoESaIS1
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  %70 = tail call ptr @__cxa_begin_catch(ptr %69) #25
+  %70 = tail call ptr @__cxa_begin_catch(ptr %69) #27
   %71 = icmp eq ptr %31, null
   br i1 %71, label %72, label %78
 
@@ -9537,11 +9538,11 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed16CameraSensorInfoESaIS1
 
 78:                                               ; preds = %72, %67
   %79 = phi ptr [ %74, %72 ], [ %31, %67 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %79) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %79) #29
   br label %80
 
 80:                                               ; preds = %78, %72
-  invoke void @__cxa_rethrow() #27
+  invoke void @__cxa_rethrow() #28
           to label %85 unwind label %76
 
 81:                                               ; preds = %76
@@ -9551,7 +9552,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed16CameraSensorInfoESaIS1
   %83 = landingpad { ptr, i32 }
           catch ptr null
   %84 = extractvalue { ptr, i32 } %83, 0
-  tail call void @__clang_call_terminate(ptr %84) #30
+  tail call void @__clang_call_terminate(ptr %84) #31
   unreachable
 
 85:                                               ; preds = %80
@@ -9588,11 +9589,11 @@ define linkonce_odr hidden noundef ptr @_ZSt12construct_atIN8rawspeed16CameraSen
   br i1 %24, label %25, label %26, !prof !26
 
 25:                                               ; preds = %23
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #28
   unreachable
 
 26:                                               ; preds = %23
-  %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #29
+  %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #30
   store ptr %27, ptr %7, align 8, !tbaa !67
   %28 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %27, ptr %28, align 8, !tbaa !110
@@ -9616,7 +9617,7 @@ define linkonce_odr hidden noundef ptr @_ZSt12construct_atIN8rawspeed16CameraSen
   br i1 %37, label %39, label %38
 
 38:                                               ; preds = %35
-  call void @_ZdlPv(ptr noundef nonnull %36) #28
+  call void @_ZdlPv(ptr noundef nonnull %36) #29
   br label %39
 
 39:                                               ; preds = %38, %35
@@ -9630,7 +9631,7 @@ define linkonce_odr hidden noundef ptr @_ZSt12construct_atIN8rawspeed16CameraSen
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %40
-  call void @_ZdlPv(ptr noundef nonnull %42) #28
+  call void @_ZdlPv(ptr noundef nonnull %42) #29
   br label %45
 
 45:                                               ; preds = %44, %40
@@ -9853,7 +9854,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_
   br i1 %132, label %133, label %134
 
 133:                                              ; preds = %126
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.91) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.91) #28
   unreachable
 
 134:                                              ; preds = %126
@@ -9869,7 +9870,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_
 
 143:                                              ; preds = %134
   %144 = shl nuw nsw i64 %139, 3
-  %145 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %144) #29
+  %145 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %144) #30
   br label %146
 
 146:                                              ; preds = %143, %134
@@ -9956,7 +9957,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_
   br i1 %194, label %196, label %195
 
 195:                                              ; preds = %192
-  tail call void @_ZdlPv(ptr noundef nonnull %127) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %127) #29
   br label %196
 
 196:                                              ; preds = %195, %192
@@ -9991,7 +9992,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNS
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %8
-  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #27
+  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #28
   unreachable
 
 17:                                               ; preds = %8
@@ -10003,7 +10004,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNS
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %19
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
   unreachable
 
 22:                                               ; preds = %19
@@ -10012,11 +10013,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNS
   br i1 %24, label %25, label %26, !prof !26
 
 25:                                               ; preds = %22
-  tail call void @_ZSt17__throw_bad_allocv() #27
+  tail call void @_ZSt17__throw_bad_allocv() #28
   unreachable
 
 26:                                               ; preds = %22
-  %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #29
+  %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #30
   store ptr %27, ptr %4, align 8, !tbaa !25
   store i64 %9, ptr %12, align 8, !tbaa !14
   br label %28
@@ -10059,7 +10060,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNS
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #13
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRSt17basic_string_viewIcS3_EEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -10073,7 +10074,7 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.89) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.89) #28
   unreachable
 
 12:                                               ; preds = %3
@@ -10091,7 +10092,7 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
 
 23:                                               ; preds = %12
   %24 = shl nuw nsw i64 %18, 5
-  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #29
+  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #30
   br label %26
 
 26:                                               ; preds = %23, %12
@@ -10108,7 +10109,7 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %26
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #27
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.81) #28
           to label %37 unwind label %116
 
 37:                                               ; preds = %36
@@ -10123,7 +10124,7 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %40
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #28
           to label %43 unwind label %116
 
 43:                                               ; preds = %42
@@ -10135,14 +10136,14 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
   br i1 %46, label %47, label %49, !prof !26
 
 47:                                               ; preds = %44
-  invoke void @_ZSt17__throw_bad_allocv() #27
+  invoke void @_ZSt17__throw_bad_allocv() #28
           to label %48 unwind label %116
 
 48:                                               ; preds = %47
   unreachable
 
 49:                                               ; preds = %44
-  %50 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #29
+  %50 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #30
           to label %51 unwind label %116
 
 51:                                               ; preds = %49
@@ -10270,7 +10271,7 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
   br i1 %109, label %111, label %110
 
 110:                                              ; preds = %.loopexit
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #29
   br label %111
 
 111:                                              ; preds = %110, %.loopexit
@@ -10291,9 +10292,9 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
   %117 = landingpad { ptr, i32 }
           catch ptr null
   %118 = extractvalue { ptr, i32 } %117, 0
-  %119 = tail call ptr @__cxa_begin_catch(ptr %118) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %27) #28
-  invoke void @__cxa_rethrow() #27
+  %119 = tail call ptr @__cxa_begin_catch(ptr %118) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %27) #29
+  invoke void @__cxa_rethrow() #28
           to label %124 unwind label %114
 
 120:                                              ; preds = %114
@@ -10303,7 +10304,7 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
   %122 = landingpad { ptr, i32 }
           catch ptr null
   %123 = extractvalue { ptr, i32 } %122, 0
-  tail call void @__clang_call_terminate(ptr %123) #30
+  tail call void @__clang_call_terminate(ptr %123) #31
   unreachable
 
 124:                                              ; preds = %116
@@ -10311,10 +10312,10 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #17
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #18
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #19
 
 declare void @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -10322,7 +10323,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed23CameraMetadataExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #33
+  tail call void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #34
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed23CameraMetadataExceptionE, i64 16), ptr %0, align 8, !tbaa !228
   ret void
 }
@@ -10330,12 +10331,13 @@ define linkonce_odr hidden void @_ZN8rawspeed23CameraMetadataExceptionCI2NS_17Ra
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #14
+declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #15
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #20
 
 ; Function Attrs: cold mustprogress optsize uwtable
-define linkonce_odr hidden void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 16), ptr %0, align 8, !tbaa !228
   invoke void (i32, ptr, ...) @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef 65536, ptr noundef nonnull @.str.94, ptr noundef %1)
@@ -10347,41 +10349,41 @@ _ZN8rawspeed17RawspeedException3logEPKc.exit:     ; preds = %2
 3:                                                ; preds = %2
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #27
   resume { ptr, i32 } %4
 }
 
 declare void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #20
+declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #18
+declare i64 @llvm.smax.i64(i64, i64) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #18
+declare i64 @llvm.smin.i64(i64, i64) #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
+declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #23
+declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #24
+declare void @llvm.va_start.p0(ptr) #26
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #24
+declare void @llvm.va_end.p0(ptr) #26
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -10393,30 +10395,31 @@ attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-wid
 attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #9 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #11 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #14 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #15 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #17 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { cold mustprogress optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #22 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
-attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #25 = { nounwind }
-attributes #26 = { cold noreturn }
-attributes #27 = { noreturn }
-attributes #28 = { builtin nounwind }
-attributes #29 = { builtin allocsize(0) }
-attributes #30 = { noreturn nounwind }
-attributes #31 = { nounwind willreturn memory(read) }
-attributes #32 = { nounwind willreturn memory(none) }
-attributes #33 = { cold }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #12 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #13 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #15 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #16 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #18 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { cold noreturn }
+attributes #21 = { cold mustprogress optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #23 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #24 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
+attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #27 = { nounwind }
+attributes #28 = { noreturn }
+attributes #29 = { builtin nounwind }
+attributes #30 = { builtin allocsize(0) }
+attributes #31 = { noreturn nounwind }
+attributes #32 = { nounwind willreturn memory(read) }
+attributes #33 = { nounwind willreturn memory(none) }
+attributes #34 = { cold }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

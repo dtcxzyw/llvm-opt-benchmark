@@ -93,7 +93,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4devlsERSoRKNS_9ImageDescE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(8) %img) local_unnamed_addr #3 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %img, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ImageDescE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev15PackedImageDescE, i64 0) #18
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %img, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ImageDescE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev15PackedImageDescE, i64 0) #19
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %dynamic_cast.notnull40, label %if.then
 
@@ -153,7 +153,7 @@ if.then:                                          ; preds = %entry
   br label %if.end146
 
 dynamic_cast.notnull40:                           ; preds = %entry
-  %13 = tail call ptr @__dynamic_cast(ptr nonnull %img, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ImageDescE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev15PlanarImageDescE, i64 0) #18
+  %13 = tail call ptr @__dynamic_cast(ptr nonnull %img, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ImageDescE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev15PlanarImageDescE, i64 0) #19
   %tobool43.not = icmp eq ptr %13, null
   br i1 %tobool43.not, label %if.else95, label %if.then44
 
@@ -348,7 +348,7 @@ entry:
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN19OpenColorIO_v2_4dev9ImageDescD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
 entry:
-  tail call void @llvm.trap() #19
+  tail call void @llvm.trap() #20
   unreachable
 }
 
@@ -411,7 +411,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then7.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %6, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then7.i.i.i
@@ -437,7 +437,7 @@ if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i = load ptr, ptr %6, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %13, 0
@@ -462,7 +462,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i = load ptr, ptr %6, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
   br label %if.end9.i.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %if.end.i.i.i
@@ -539,18 +539,18 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEaSERKS3_.exit: ; preds = %entry
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEaSERKS3_.exit
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.18)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad:                                             ; preds = %if.then
   %28 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #18
+  tail call void @__cxa_free_exception(ptr %exception) #19
   resume { ptr, i32 } %28
 
 if.end:                                           ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEEaSERKS3_.exit
@@ -568,10 +568,11 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc17isPackedFloatRGBAEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(82) %this) local_unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc17isPackedFloatRGBAEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(82) %this) local_unnamed_addr #11 align 2 {
 entry:
   %m_isFloat = getelementptr inbounds i8, ptr %this, i64 81
   %0 = load i8, ptr %m_isFloat, align 1
@@ -584,7 +585,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(82) %this) local_unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc12isRGBAPackedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(82) %this) local_unnamed_addr #11 align 2 {
 entry:
   %m_isRGBAPacked = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i8, ptr %m_isRGBAPacked, align 8
@@ -593,7 +594,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc7isFloatEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(82) %this) local_unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev16GenericImageDesc7isFloatEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(82) %this) local_unnamed_addr #11 align 2 {
 entry:
   %m_isFloat = getelementptr inbounds i8, ptr %this, i64 81
   %0 = load i8, ptr %m_isFloat, align 1
@@ -605,7 +606,7 @@ entry:
 define void @_ZN19OpenColorIO_v2_4dev15PackedImageDescC2EPvlll(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %data, i64 noundef %width, i64 noundef %height, i64 noundef %numChannels) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i64 16), ptr %this, align 8
-  %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
+  %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(98) %0, i8 0, i64 90, i1 false)
@@ -628,18 +629,18 @@ if.then15:                                        ; preds = %entry
   br label %if.end22
 
 if.else19:                                        ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.19)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %if.else19
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad20:                                           ; preds = %if.else19
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #18
+  tail call void @__cxa_free_exception(ptr %exception) #19
   resume { ptr, i32 } %1
 
 if.end22:                                         ; preds = %entry, %if.then15
@@ -678,7 +679,7 @@ if.end22:                                         ; preds = %entry, %if.then15
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev15PackedImageDesc4Impl10initValuesEv(ptr noundef nonnull align 8 dereferenceable(98) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -757,18 +758,18 @@ if.then47:                                        ; preds = %entry
   br label %if.end67
 
 if.else64:                                        ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.20)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else64
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad:                                             ; preds = %if.else64
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #18
+  tail call void @__cxa_free_exception(ptr %exception) #19
   resume { ptr, i32 } %9
 
 if.end67:                                         ; preds = %if.then21, %if.then, %if.then47, %if.then35, %if.then9
@@ -846,12 +847,12 @@ sw.bb25:                                          ; preds = %if.end
   br i1 %cmp27.not, label %sw.epilog, label %return
 
 sw.bb30:                                          ; preds = %if.end, %if.end, %if.end
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %err, ptr noundef nonnull @.str.23, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %sw.bb30
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   %8 = load i32, ptr %m_bitDepth, align 4
   %call = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev16BitDepthToStringENS_8BitDepthE(i32 noundef %8)
           to label %invoke.cont33 unwind label %lpad32
@@ -865,19 +866,19 @@ invoke.cont34:                                    ; preds = %invoke.cont33
           to label %invoke.cont36 unwind label %lpad32
 
 invoke.cont36:                                    ; preds = %invoke.cont34
-  %exception = call ptr @__cxa_allocate_exception(i64 16) #18
-  %call38 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %err) #18
+  %exception = call ptr @__cxa_allocate_exception(i64 16) #19
+  %call38 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %err) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %call38)
           to label %invoke.cont40 unwind label %lpad39
 
 invoke.cont40:                                    ; preds = %invoke.cont36
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
           to label %unreachable unwind label %lpad32
 
 lpad:                                             ; preds = %sw.bb30
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   br label %eh.resume
 
 lpad32:                                           ; preds = %invoke.cont40, %invoke.cont34, %invoke.cont33, %invoke.cont
@@ -888,12 +889,12 @@ lpad32:                                           ; preds = %invoke.cont40, %inv
 lpad39:                                           ; preds = %invoke.cont36
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #18
+  call void @__cxa_free_exception(ptr %exception) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad39, %lpad32
   %.pn = phi { ptr, i32 } [ %10, %lpad32 ], [ %11, %lpad39 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %err) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %err) #19
   br label %eh.resume
 
 sw.epilog:                                        ; preds = %if.end.sw.epilog_crit_edge, %sw.bb25, %sw.bb20, %sw.bb15, %sw.bb10, %sw.bb5, %sw.bb
@@ -925,7 +926,7 @@ if.end61:                                         ; preds = %if.end44
   %16 = load i64, ptr %m_xStrideBytes, align 8
   %conv = trunc i64 %16 to i32
   %conv63 = trunc i64 %12 to i32
-  %call64 = tail call i64 @div(i32 noundef %conv, i32 noundef %conv63) #22
+  %call64 = tail call i64 @div(i32 noundef %conv, i32 noundef %conv63) #23
   %cmp68.not = icmp eq i64 %call64, 4
   br label %return
 
@@ -949,12 +950,12 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.25)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -973,12 +974,12 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then4, label %if.end8
 
 if.then4:                                         ; preds = %if.end
-  %exception5 = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception5 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception5, ptr noundef nonnull @.str.26)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %if.then4
-  tail call void @__cxa_throw(ptr nonnull %exception5, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception5, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad6:                                            ; preds = %if.then4
@@ -1003,12 +1004,12 @@ lor.lhs.false11:                                  ; preds = %if.end8
   br i1 %cmp13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %lor.lhs.false11, %if.end8
-  %exception15 = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception15 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception15, ptr noundef nonnull @.str.27)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %if.then14
-  tail call void @__cxa_throw(ptr nonnull %exception15, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception15, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad16:                                           ; preds = %if.then14
@@ -1024,12 +1025,12 @@ if.end18:                                         ; preds = %lor.lhs.false11
   br i1 %or.cond4, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.end18
-  %exception24 = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception24 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception24, ptr noundef nonnull @.str.28)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.then23
-  tail call void @__cxa_throw(ptr nonnull %exception24, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception24, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad25:                                           ; preds = %if.then23
@@ -1047,12 +1048,12 @@ if.end27:                                         ; preds = %if.end18
   br i1 %cmp32, label %if.then33, label %if.end37
 
 if.then33:                                        ; preds = %if.end27
-  %exception34 = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception34 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception34, ptr noundef nonnull @.str.29)
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %if.then33
-  tail call void @__cxa_throw(ptr nonnull %exception34, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception34, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad35:                                           ; preds = %if.then33
@@ -1065,12 +1066,12 @@ if.end37:                                         ; preds = %if.end27
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.end37
-  %exception41 = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception41 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception41, ptr noundef nonnull @.str.30)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %if.then40
-  tail call void @__cxa_throw(ptr nonnull %exception41, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception41, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad42:                                           ; preds = %if.then40
@@ -1085,12 +1086,12 @@ if.end44:                                         ; preds = %if.end37
   br i1 %cmp45, label %if.then46, label %if.end50
 
 if.then46:                                        ; preds = %if.end44
-  %exception47 = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception47 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception47, ptr noundef nonnull @.str.31)
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %if.then46
-  tail call void @__cxa_throw(ptr nonnull %exception47, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception47, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad48:                                           ; preds = %if.then46
@@ -1106,12 +1107,12 @@ if.end50:                                         ; preds = %if.end44
   br i1 %cmp57, label %if.then58, label %if.end62
 
 if.then58:                                        ; preds = %if.end50
-  %exception59 = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception59 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception59, ptr noundef nonnull @.str.32)
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %if.then58
-  tail call void @__cxa_throw(ptr nonnull %exception59, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception59, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad60:                                           ; preds = %if.then58
@@ -1125,12 +1126,12 @@ if.end62:                                         ; preds = %if.end50
   br i1 %cmp64, label %if.then65, label %if.end69
 
 if.then65:                                        ; preds = %if.end62
-  %exception66 = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception66 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception66, ptr noundef nonnull @.str.33)
           to label %invoke.cont68 unwind label %lpad67
 
 invoke.cont68:                                    ; preds = %if.then65
-  tail call void @__cxa_throw(ptr nonnull %exception66, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception66, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad67:                                           ; preds = %if.then65
@@ -1144,7 +1145,7 @@ if.end69:                                         ; preds = %if.end62
 eh.resume:                                        ; preds = %lpad67, %lpad60, %lpad48, %lpad42, %lpad35, %lpad25, %lpad16, %lpad6, %lpad
   %exception66.sink = phi ptr [ %exception66, %lpad67 ], [ %exception59, %lpad60 ], [ %exception47, %lpad48 ], [ %exception41, %lpad42 ], [ %exception34, %lpad35 ], [ %exception24, %lpad25 ], [ %exception15, %lpad16 ], [ %exception5, %lpad6 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %24, %lpad67 ], [ %22, %lpad60 ], [ %19, %lpad48 ], [ %17, %lpad42 ], [ %16, %lpad35 ], [ %12, %lpad25 ], [ %9, %lpad16 ], [ %4, %lpad6 ], [ %1, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception66.sink) #18
+  tail call void @__cxa_free_exception(ptr %exception66.sink) #19
   resume { ptr, i32 } %.pn
 }
 
@@ -1152,7 +1153,7 @@ eh.resume:                                        ; preds = %lpad67, %lpad60, %l
 define void @_ZN19OpenColorIO_v2_4dev15PackedImageDescC2EPvllNS_15ChannelOrderingE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %data, i64 noundef %width, i64 noundef %height, i32 noundef %chanOrder) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i64 16), ptr %this, align 8
-  %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
+  %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(98) %0, i8 0, i64 90, i1 false)
@@ -1175,18 +1176,18 @@ if.else:                                          ; preds = %entry
   br i1 %or.cond2, label %if.end27, label %if.else24
 
 if.else24:                                        ; preds = %if.else
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.20)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.else24
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad25:                                           ; preds = %if.else24
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #18
+  tail call void @__cxa_free_exception(ptr %exception) #19
   resume { ptr, i32 } %2
 
 if.end27:                                         ; preds = %if.else, %entry
@@ -1228,7 +1229,7 @@ if.end27:                                         ; preds = %if.else, %entry
 define void @_ZN19OpenColorIO_v2_4dev15PackedImageDescC2EPvllNS_15ChannelOrderingENS_8BitDepthElll(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %data, i64 noundef %width, i64 noundef %height, i32 noundef %chanOrder, i32 noundef %bitDepth, i64 noundef %chanStrideBytes, i64 noundef %xStrideBytes, i64 noundef %yStrideBytes) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i64 16), ptr %this, align 8
-  %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
+  %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(98) %0, i8 0, i64 90, i1 false)
@@ -1251,18 +1252,18 @@ if.else:                                          ; preds = %entry
   br i1 %or.cond2, label %if.end27, label %if.else24
 
 if.else24:                                        ; preds = %if.else
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.20)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.else24
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad25:                                           ; preds = %if.else24
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #18
+  tail call void @__cxa_free_exception(ptr %exception) #19
   resume { ptr, i32 } %2
 
 if.end27:                                         ; preds = %if.else, %entry
@@ -1336,7 +1337,7 @@ declare noundef i32 @_ZN19OpenColorIO_v2_4dev21GetChannelSizeInBytesENS_8BitDept
 define void @_ZN19OpenColorIO_v2_4dev15PackedImageDescC2EPvlllNS_8BitDepthElll(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %data, i64 noundef %width, i64 noundef %height, i64 noundef %numChannels, i32 noundef %bitDepth, i64 noundef %chanStrideBytes, i64 noundef %xStrideBytes, i64 noundef %yStrideBytes) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i64 16), ptr %this, align 8
-  %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
+  %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(98) %0, i8 0, i64 90, i1 false)
@@ -1359,18 +1360,18 @@ if.then15:                                        ; preds = %entry
   br label %if.end22
 
 if.else19:                                        ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.19)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %if.else19
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad20:                                           ; preds = %if.else19
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #18
+  tail call void @__cxa_free_exception(ptr %exception) #19
   resume { ptr, i32 } %1
 
 if.end22:                                         ; preds = %entry, %if.then15
@@ -1439,7 +1440,7 @@ cond.end48:                                       ; preds = %cond.end37, %cond.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19OpenColorIO_v2_4dev15PackedImageDescD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #12 align 2 {
+define void @_ZN19OpenColorIO_v2_4dev15PackedImageDescD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #13 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15PackedImageDescE, i64 16), ptr %this, align 8
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
@@ -1448,7 +1449,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -1457,13 +1458,13 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19OpenColorIO_v2_4dev15PackedImageDescD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #12 align 2 {
+define void @_ZN19OpenColorIO_v2_4dev15PackedImageDescD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #13 align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev15PackedImageDescD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZN19OpenColorIO_v2_4dev15PackedImageDescD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
   ret void
 }
 
@@ -1583,7 +1584,7 @@ entry:
 define void @_ZN19OpenColorIO_v2_4dev15PlanarImageDescC2EPvS1_S1_S1_ll(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %rData, ptr noundef %gData, ptr noundef %bData, ptr noundef %aData, i64 noundef %width, i64 noundef %height) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15PlanarImageDescE, i64 16), ptr %this, align 8
-  %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #21
+  %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #22
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call, i8 0, i64 80, i1 false)
   store ptr %call, ptr %m_impl, align 8
@@ -1595,12 +1596,12 @@ entry:
   br i1 %or.cond1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.21)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad5:                                            ; preds = %if.then
@@ -1615,12 +1616,12 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond2, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %if.end
-  %exception11 = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception11 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception11, ptr noundef nonnull @.str.22)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %if.then10
-  tail call void @__cxa_throw(ptr nonnull %exception11, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception11, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad12:                                           ; preds = %if.then10
@@ -1655,12 +1656,12 @@ if.end14:                                         ; preds = %if.end
 ehcleanup:                                        ; preds = %lpad12, %lpad5
   %exception11.sink = phi ptr [ %exception11, %lpad12 ], [ %exception, %lpad5 ]
   %.pn = phi { ptr, i32 } [ %1, %lpad12 ], [ %0, %lpad5 ]
-  tail call void @__cxa_free_exception(ptr %exception11.sink) #18
+  tail call void @__cxa_free_exception(ptr %exception11.sink) #19
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_4dev15PlanarImageDesc4Impl8validateEv(ptr noundef nonnull align 8 dereferenceable(73) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1671,12 +1672,12 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.34)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -1691,12 +1692,12 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end7
 
 if.then3:                                         ; preds = %if.end
-  %exception4 = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception4 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception4, ptr noundef nonnull @.str.35)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.then3
-  tail call void @__cxa_throw(ptr nonnull %exception4, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception4, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad5:                                            ; preds = %if.then3
@@ -1714,12 +1715,12 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp11, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end7
-  %exception13 = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception13 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception13, ptr noundef nonnull @.str.36)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %if.then12
-  tail call void @__cxa_throw(ptr nonnull %exception13, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception13, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad14:                                           ; preds = %if.then12
@@ -1734,12 +1735,12 @@ if.end16:                                         ; preds = %if.end7
   br i1 %cmp17, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.end16
-  %exception19 = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception19 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception19, ptr noundef nonnull @.str.37)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %if.then18
-  tail call void @__cxa_throw(ptr nonnull %exception19, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception19, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad20:                                           ; preds = %if.then18
@@ -1753,7 +1754,7 @@ if.end22:                                         ; preds = %if.end16
 eh.resume:                                        ; preds = %lpad20, %lpad14, %lpad5, %lpad
   %exception19.sink = phi ptr [ %exception19, %lpad20 ], [ %exception13, %lpad14 ], [ %exception4, %lpad5 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %9, %lpad20 ], [ %7, %lpad14 ], [ %3, %lpad5 ], [ %1, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception19.sink) #18
+  tail call void @__cxa_free_exception(ptr %exception19.sink) #19
   resume { ptr, i32 } %.pn
 }
 
@@ -1761,7 +1762,7 @@ eh.resume:                                        ; preds = %lpad20, %lpad14, %l
 define void @_ZN19OpenColorIO_v2_4dev15PlanarImageDescC2EPvS1_S1_S1_llNS_8BitDepthEll(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %rData, ptr noundef %gData, ptr noundef %bData, ptr noundef %aData, i64 noundef %width, i64 noundef %height, i32 noundef %bitDepth, i64 noundef %xStrideBytes, i64 noundef %yStrideBytes) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15PlanarImageDescE, i64 16), ptr %this, align 8
-  %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #21
+  %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #22
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %m_width.i = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call, i8 0, i64 80, i1 false)
@@ -1774,12 +1775,12 @@ entry:
   br i1 %or.cond1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.21)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad5:                                            ; preds = %if.then
@@ -1794,12 +1795,12 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond2, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %if.end
-  %exception11 = tail call ptr @__cxa_allocate_exception(i64 16) #18
+  %exception11 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception11, ptr noundef nonnull @.str.22)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %if.then10
-  tail call void @__cxa_throw(ptr nonnull %exception11, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception11, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad12:                                           ; preds = %if.then10
@@ -1859,12 +1860,12 @@ cond.end40:                                       ; preds = %if.end14, %cond.tru
 ehcleanup:                                        ; preds = %lpad12, %lpad5
   %exception11.sink = phi ptr [ %exception11, %lpad12 ], [ %exception, %lpad5 ]
   %.pn = phi { ptr, i32 } [ %1, %lpad12 ], [ %0, %lpad5 ]
-  tail call void @__cxa_free_exception(ptr %exception11.sink) #18
+  tail call void @__cxa_free_exception(ptr %exception11.sink) #19
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19OpenColorIO_v2_4dev15PlanarImageDescD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #12 align 2 {
+define void @_ZN19OpenColorIO_v2_4dev15PlanarImageDescD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #13 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15PlanarImageDescE, i64 16), ptr %this, align 8
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
@@ -1873,7 +1874,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -1882,10 +1883,10 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19OpenColorIO_v2_4dev15PlanarImageDescD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #12 align 2 {
+define void @_ZN19OpenColorIO_v2_4dev15PlanarImageDescD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #13 align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev15PlanarImageDescD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZN19OpenColorIO_v2_4dev15PlanarImageDescD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
   ret void
 }
 
@@ -2016,16 +2017,16 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @div(i32 noundef, i32 noundef) local_unnamed_addr #15
+declare i64 @div(i32 noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #16
+declare i64 @llvm.abs.i64(i64, i1 immarg) #17
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_ImageDesc.cpp() #17 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_ImageDesc.cpp() #18 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
   ret void
 }
 
@@ -2039,20 +2040,21 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { noreturn }
-attributes #21 = { builtin allocsize(0) }
-attributes #22 = { nounwind willreturn memory(none) }
-attributes #23 = { builtin nounwind }
+attributes #10 = { cold noreturn }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nounwind }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { noreturn }
+attributes #22 = { builtin allocsize(0) }
+attributes #23 = { nounwind willreturn memory(none) }
+attributes #24 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

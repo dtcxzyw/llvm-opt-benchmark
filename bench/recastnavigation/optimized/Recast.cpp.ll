@@ -57,7 +57,7 @@ $_ZZ15rcGetDirOffsetYiE6offset = comdat any
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define noundef float @_Z6rcSqrtf(float noundef %0) local_unnamed_addr #0 {
-  %2 = tail call float @sqrtf(float noundef %0) #18
+  %2 = tail call float @sqrtf(float noundef %0) #19
   ret float %2
 }
 
@@ -75,7 +75,7 @@ define void @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 d
 
 9:                                                ; preds = %3
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %10 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 512, ptr noundef %2, ptr noundef nonnull %5) #18
+  %10 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 512, ptr noundef %2, ptr noundef nonnull %5) #19
   %11 = icmp sgt i32 %10, 511
   br i1 %11, label %12, label %17
 
@@ -122,7 +122,7 @@ define void @_Z17rcFreeHeightFieldP13rcHeightfield(ptr noundef %0) local_unnamed
   br i1 %.not.i, label %_ZN12_GLOBAL__N_18rcDeleteI13rcHeightfieldEEvPT_.exit, label %2
 
 2:                                                ; preds = %1
-  tail call void @_ZN13rcHeightfieldD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #18
+  tail call void @_ZN13rcHeightfieldD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #19
   tail call void @_Z6rcFreePv(ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_18rcDeleteI13rcHeightfieldEEvPT_.exit
 
@@ -179,7 +179,7 @@ define void @_ZN13rcHeightfieldD2Ev(ptr nocapture noundef nonnull align 8 derefe
 9:                                                ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %10 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %10) #19
+  tail call void @__clang_call_terminate(ptr %10) #20
   unreachable
 }
 
@@ -189,14 +189,15 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
-  tail call void @_ZSt9terminatev() #19
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z25rcAllocCompactHeightfieldv() local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
@@ -211,7 +212,7 @@ define void @_Z24rcFreeCompactHeightfieldP20rcCompactHeightfield(ptr noundef %0)
   br i1 %.not.i, label %_ZN12_GLOBAL__N_18rcDeleteI20rcCompactHeightfieldEEvPT_.exit, label %2
 
 2:                                                ; preds = %1
-  tail call void @_ZN20rcCompactHeightfieldD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #18
+  tail call void @_ZN20rcCompactHeightfieldD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #19
   tail call void @_Z6rcFreePv(ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_18rcDeleteI20rcCompactHeightfieldEEvPT_.exit
 
@@ -259,7 +260,7 @@ define void @_ZN20rcCompactHeightfieldD2Ev(ptr nocapture noundef nonnull readonl
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #19
+  tail call void @__clang_call_terminate(ptr %16) #20
   unreachable
 }
 
@@ -276,7 +277,7 @@ define void @_Z25rcFreeHeightfieldLayerSetP21rcHeightfieldLayerSet(ptr noundef %
   br i1 %.not.i, label %_ZN12_GLOBAL__N_18rcDeleteI21rcHeightfieldLayerSetEEvPT_.exit, label %2
 
 2:                                                ; preds = %1
-  tail call void @_ZN21rcHeightfieldLayerSetD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #18
+  tail call void @_ZN21rcHeightfieldLayerSetD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #19
   tail call void @_Z6rcFreePv(ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_18rcDeleteI21rcHeightfieldLayerSetEEvPT_.exit
 
@@ -349,7 +350,7 @@ define void @_ZN21rcHeightfieldLayerSetD2Ev(ptr nocapture noundef nonnull readon
 22:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %23 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %23) #19
+  tail call void @__clang_call_terminate(ptr %23) #20
   unreachable
 }
 
@@ -366,7 +367,7 @@ define void @_Z16rcFreeContourSetP12rcContourSet(ptr noundef %0) local_unnamed_a
   br i1 %.not.i, label %_ZN12_GLOBAL__N_18rcDeleteI12rcContourSetEEvPT_.exit, label %2
 
 2:                                                ; preds = %1
-  tail call void @_ZN12rcContourSetD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #18
+  tail call void @_ZN12rcContourSetD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #19
   tail call void @_Z6rcFreePv(ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_18rcDeleteI12rcContourSetEEvPT_.exit
 
@@ -430,7 +431,7 @@ define void @_ZN12rcContourSetD2Ev(ptr nocapture noundef nonnull readonly align 
 18:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %19 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %19) #19
+  tail call void @__clang_call_terminate(ptr %19) #20
   unreachable
 }
 
@@ -447,7 +448,7 @@ define void @_Z14rcFreePolyMeshP10rcPolyMesh(ptr noundef %0) local_unnamed_addr 
   br i1 %.not.i, label %_ZN12_GLOBAL__N_18rcDeleteI10rcPolyMeshEEvPT_.exit, label %2
 
 2:                                                ; preds = %1
-  tail call void @_ZN10rcPolyMeshD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #18
+  tail call void @_ZN10rcPolyMeshD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #19
   tail call void @_Z6rcFreePv(ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_18rcDeleteI10rcPolyMeshEEvPT_.exit
 
@@ -498,7 +499,7 @@ define void @_ZN10rcPolyMeshD2Ev(ptr nocapture noundef nonnull readonly align 8 
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #19
+  tail call void @__clang_call_terminate(ptr %18) #20
   unreachable
 }
 
@@ -537,7 +538,7 @@ define void @_ZN16rcPolyMeshDetailC2Ev(ptr nocapture noundef nonnull writeonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z12rcCalcBoundsPKfiPfS1_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #10 {
+define void @_Z12rcCalcBoundsPKfiPfS1_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #11 {
   %5 = load float, ptr %0, align 4
   store float %5, ptr %2, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 4
@@ -608,7 +609,7 @@ define void @_Z12rcCalcBoundsPKfiPfS1_(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z14rcCalcGridSizePKfS0_fPiS1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, float noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #11 {
+define void @_Z14rcCalcGridSizePKfS0_fPiS1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, float noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #12 {
   %6 = load float, ptr %1, align 4
   %7 = load float, ptr %0, align 4
   %8 = fsub float %6, %7
@@ -686,10 +687,10 @@ define noundef zeroext i1 @_Z19rcCreateHeightfieldP9rcContextR13rcHeightfieldiiP
 declare noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define void @_Z23rcMarkWalkableTrianglesP9rcContextfPKfiPKiiPh(ptr nocapture noundef readnone %0, float noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #12 {
+define void @_Z23rcMarkWalkableTrianglesP9rcContextfPKfiPKiiPh(ptr nocapture noundef readnone %0, float noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #13 {
   %8 = fdiv float %1, 1.800000e+02
   %9 = fmul float %8, 0x400921FB60000000
-  %10 = tail call float @cosf(float noundef %9) #18
+  %10 = tail call float @cosf(float noundef %9) #19
   %11 = icmp sgt i32 %5, 0
   br i1 %11, label %.lr.ph.preheader, label %._crit_edge
 
@@ -774,10 +775,10 @@ define void @_Z23rcMarkWalkableTrianglesP9rcContextfPKfiPKiiPh(ptr nocapture nou
 declare float @cosf(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define void @_Z26rcClearUnwalkableTrianglesP9rcContextfPKfiPKiiPh(ptr nocapture noundef readnone %0, float noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #12 {
+define void @_Z26rcClearUnwalkableTrianglesP9rcContextfPKfiPKiiPh(ptr nocapture noundef readnone %0, float noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #13 {
   %8 = fdiv float %1, 1.800000e+02
   %9 = fmul float %8, 0x400921FB60000000
-  %10 = tail call float @cosf(float noundef %9) #18
+  %10 = tail call float @cosf(float noundef %9) #19
   %11 = icmp sgt i32 %5, 0
   br i1 %11, label %.lr.ph.preheader, label %._crit_edge
 
@@ -859,7 +860,7 @@ define void @_Z26rcClearUnwalkableTrianglesP9rcContextfPKfiPKiiPh(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_Z25rcGetHeightFieldSpanCountP9rcContextRK13rcHeightfield(ptr nocapture noundef readnone %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #13 {
+define noundef i32 @_Z25rcGetHeightFieldSpanCountP9rcContextRK13rcHeightfield(ptr nocapture noundef readnone %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #14 {
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -1049,7 +1050,7 @@ _Z25rcGetHeightFieldSpanCountP9rcContextRK13rcHeightfield.exit: ; preds = %._cri
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  tail call void @__clang_call_terminate(ptr %79) #19
+  tail call void @__clang_call_terminate(ptr %79) #20
   unreachable
 
 _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
@@ -1370,7 +1371,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %238 = landingpad { ptr, i32 }
           catch ptr null
   %239 = extractvalue { ptr, i32 } %238, 0
-  tail call void @__clang_call_terminate(ptr %239) #19
+  tail call void @__clang_call_terminate(ptr %239) #20
   unreachable
 
 _ZN13rcScopedTimerD2Ev.exit195:                   ; preds = %._crit_edge224.thread, %233
@@ -1380,7 +1381,7 @@ _ZN13rcScopedTimerD2Ev.exit195:                   ; preds = %._crit_edge224.thre
 declare noundef ptr @_Z21rcAssertFailGetCustomv() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #14
+declare float @llvm.fmuladd.f32(float, float, float) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9rcContextD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %0) unnamed_addr #7 comdat align 2 {
@@ -1389,7 +1390,7 @@ define linkonce_odr void @_ZN9rcContextD2Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9rcContextD0Ev(ptr noundef nonnull align 8 dereferenceable(10) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
 
@@ -1419,31 +1420,31 @@ define linkonce_odr noundef i32 @_ZNK9rcContext20doGetAccumulatedTimeE12rcTimerL
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #15
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #16
+declare void @llvm.va_start.p0(ptr) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #16
+declare void @llvm.va_end.p0(ptr) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #17
+declare i32 @llvm.smin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #17
+declare i16 @llvm.umax.i16(i16, i16) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #17
+declare i32 @llvm.abs.i32(i32, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
+declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #17
+declare float @llvm.sqrt.f32(float) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #17
+declare i32 @llvm.umin.i32(i32, i32) #18
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1455,17 +1456,18 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { builtin nounwind }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nounwind }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

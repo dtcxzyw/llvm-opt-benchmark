@@ -23,7 +23,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN5folly6netops4bindENS_13NetworkSocketEPK8sockaddrj(i32 %s.coerce, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #3 {
 entry:
-  %call.i = tail call noundef i32 @bind(i32 noundef %s.coerce, ptr noundef %name, i32 noundef %namelen) #10
+  %call.i = tail call noundef i32 @bind(i32 noundef %s.coerce, ptr noundef %name, i32 noundef %namelen) #11
   ret i32 %call.i
 }
 
@@ -40,7 +40,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #11
+  tail call void @__clang_call_terminate(ptr %1) #12
   unreachable
 
 _ZN5folly6netops6detail23SocketFileDescriptorMap5closeEi.exit: ; preds = %entry
@@ -53,14 +53,15 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #11
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
+  tail call void @_ZSt9terminatev() #12
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5folly6netops7connectENS_13NetworkSocketEPK8sockaddrj(i32 %s.coerce, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
@@ -74,7 +75,7 @@ declare i32 @connect(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN5folly6netops11getpeernameENS_13NetworkSocketEP8sockaddrPj(i32 %s.coerce, ptr noundef %name, ptr noundef %namelen) local_unnamed_addr #3 {
 entry:
-  %call.i = tail call noundef i32 @getpeername(i32 noundef %s.coerce, ptr noundef %name, ptr noundef %namelen) #10, !callees !7
+  %call.i = tail call noundef i32 @getpeername(i32 noundef %s.coerce, ptr noundef %name, ptr noundef %namelen) #11, !callees !7
   ret i32 %call.i
 }
 
@@ -84,7 +85,7 @@ declare i32 @getpeername(i32 noundef, ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN5folly6netops11getsocknameENS_13NetworkSocketEP8sockaddrPj(i32 %s.coerce, ptr noundef %name, ptr noundef %namelen) local_unnamed_addr #3 {
 entry:
-  %call.i = tail call noundef i32 @getsockname(i32 noundef %s.coerce, ptr noundef %name, ptr noundef %namelen) #10, !callees !7
+  %call.i = tail call noundef i32 @getsockname(i32 noundef %s.coerce, ptr noundef %name, ptr noundef %namelen) #11, !callees !7
   ret i32 %call.i
 }
 
@@ -94,7 +95,7 @@ declare i32 @getsockname(i32 noundef, ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN5folly6netops10getsockoptENS_13NetworkSocketEiiPvPj(i32 %s.coerce, i32 noundef %level, i32 noundef %optname, ptr noundef %optval, ptr noundef %optlen) local_unnamed_addr #3 {
 entry:
-  %call.i = tail call noundef i32 @getsockopt(i32 noundef %s.coerce, i32 noundef %level, i32 noundef %optname, ptr noundef %optval, ptr noundef %optlen) #10
+  %call.i = tail call noundef i32 @getsockopt(i32 noundef %s.coerce, i32 noundef %level, i32 noundef %optname, ptr noundef %optval, ptr noundef %optlen) #11
   ret i32 %call.i
 }
 
@@ -104,7 +105,7 @@ declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef range(i32 0, 2) i32 @_ZN5folly6netops9inet_atonEPKcP7in_addr(ptr noundef %cp, ptr nocapture noundef writeonly %inp) local_unnamed_addr #3 {
 entry:
-  %call = tail call i32 @inet_addr(ptr noundef %cp) #10
+  %call = tail call i32 @inet_addr(ptr noundef %cp) #11
   store i32 %call, ptr %inp, align 4, !tbaa !8
   %cmp = icmp ne i32 %call, -1
   %cond = zext i1 %cmp to i32
@@ -117,7 +118,7 @@ declare i32 @inet_addr(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN5folly6netops6listenENS_13NetworkSocketEi(i32 %s.coerce, i32 noundef %backlog) local_unnamed_addr #3 {
 entry:
-  %call.i = tail call noundef i32 @listen(i32 noundef %s.coerce, i32 noundef %backlog) #10, !callees !13
+  %call.i = tail call noundef i32 @listen(i32 noundef %s.coerce, i32 noundef %backlog) #11, !callees !13
   ret i32 %call.i
 }
 
@@ -208,7 +209,7 @@ declare i64 @sendto(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32 %s.coerce, i32 noundef %level, i32 noundef %optname, ptr noundef %optval, i32 noundef %optlen) local_unnamed_addr #3 {
 entry:
-  %call.i = tail call noundef i32 @setsockopt(i32 noundef %s.coerce, i32 noundef %level, i32 noundef %optname, ptr noundef %optval, i32 noundef %optlen) #10
+  %call.i = tail call noundef i32 @setsockopt(i32 noundef %s.coerce, i32 noundef %level, i32 noundef %optname, ptr noundef %optval, i32 noundef %optlen) #11
   ret i32 %call.i
 }
 
@@ -218,7 +219,7 @@ declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN5folly6netops8shutdownENS_13NetworkSocketEi(i32 %s.coerce, i32 noundef %how) local_unnamed_addr #3 {
 entry:
-  %call.i = tail call noundef i32 @shutdown(i32 noundef %s.coerce, i32 noundef %how) #10, !callees !13
+  %call.i = tail call noundef i32 @shutdown(i32 noundef %s.coerce, i32 noundef %how) #11, !callees !13
   ret i32 %call.i
 }
 
@@ -228,7 +229,7 @@ declare i32 @shutdown(i32 noundef, i32 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define i32 @_ZN5folly6netops6socketEiii(i32 noundef %af, i32 noundef %type, i32 noundef %protocol) local_unnamed_addr #3 {
 entry:
-  %call = tail call i32 @socket(i32 noundef %af, i32 noundef %type, i32 noundef %protocol) #10
+  %call = tail call i32 @socket(i32 noundef %af, i32 noundef %type, i32 noundef %protocol) #11
   ret i32 %call
 }
 
@@ -239,8 +240,8 @@ declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 define noundef i32 @_ZN5folly6netops10socketpairEiiiPNS_13NetworkSocketE(i32 noundef %domain, i32 noundef %type, i32 noundef %protocol, ptr nocapture noundef writeonly %sv) local_unnamed_addr #3 {
 entry:
   %pair = alloca [2 x i32], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pair) #10
-  %call = call i32 @socketpair(i32 noundef %domain, i32 noundef %type, i32 noundef %protocol, ptr noundef nonnull %pair) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pair) #11
+  %call = call i32 @socketpair(i32 noundef %domain, i32 noundef %type, i32 noundef %protocol, ptr noundef nonnull %pair) #11
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %cleanup, label %if.end
 
@@ -250,7 +251,7 @@ if.end:                                           ; preds = %entry
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %entry
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pair) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pair) #11
   ret i32 %call
 }
 
@@ -284,7 +285,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly6netops9Msgheader7setNameEP16sockaddr_storagem(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef %addrStorage, i64 noundef %len) local_unnamed_addr #6 align 2 {
+define void @_ZN5folly6netops9Msgheader7setNameEP16sockaddr_storagem(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef %addrStorage, i64 noundef %len) local_unnamed_addr #7 align 2 {
 entry:
   store ptr %addrStorage, ptr %this, align 8, !tbaa !15
   %conv = trunc i64 %len to i32
@@ -294,7 +295,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly6netops9Msgheader9setIovecsEPK5iovecm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef %vec, i64 noundef %iovec_len) local_unnamed_addr #6 align 2 {
+define void @_ZN5folly6netops9Msgheader9setIovecsEPK5iovecm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef %vec, i64 noundef %iovec_len) local_unnamed_addr #7 align 2 {
 entry:
   %msg_iov = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %vec, ptr %msg_iov, align 8, !tbaa !21
@@ -304,7 +305,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly6netops9Msgheader10setCmsgPtrEPc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef %ctrlBuf) local_unnamed_addr #6 align 2 {
+define void @_ZN5folly6netops9Msgheader10setCmsgPtrEPc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef %ctrlBuf) local_unnamed_addr #7 align 2 {
 entry:
   %msg_control = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %ctrlBuf, ptr %msg_control, align 8, !tbaa !23
@@ -312,7 +313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly6netops9Msgheader10setCmsgLenEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, i64 noundef %len) local_unnamed_addr #6 align 2 {
+define void @_ZN5folly6netops9Msgheader10setCmsgLenEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, i64 noundef %len) local_unnamed_addr #7 align 2 {
 entry:
   %msg_controllen = getelementptr inbounds i8, ptr %this, i64 40
   store i64 %len, ptr %msg_controllen, align 8, !tbaa !24
@@ -320,7 +321,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly6netops9Msgheader8setFlagsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, i32 noundef %flags) local_unnamed_addr #6 align 2 {
+define void @_ZN5folly6netops9Msgheader8setFlagsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, i32 noundef %flags) local_unnamed_addr #7 align 2 {
 entry:
   %msg_flags = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %flags, ptr %msg_flags, align 8, !tbaa !25
@@ -328,7 +329,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly6netops9Msgheader11incrCmsgLenEm(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %val) local_unnamed_addr #7 align 2 {
+define void @_ZN5folly6netops9Msgheader11incrCmsgLenEm(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %val) local_unnamed_addr #8 align 2 {
 entry:
   %sub = add i64 %val, 7
   %and = and i64 %sub, -8
@@ -341,7 +342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN5folly6netops9Msgheader24getFirstOrNextCmsgHeaderEP7cmsghdr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef readonly %cm) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZN5folly6netops9Msgheader24getFirstOrNextCmsgHeaderEP7cmsghdr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef readonly %cm) local_unnamed_addr #9 align 2 {
 entry:
   %tobool.not = icmp eq ptr %cm, null
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -388,7 +389,7 @@ cond.end:                                         ; preds = %cond.false, %lor.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN5folly6netops9Msgheader11cmsgNextHrdEP7cmsghdr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef readonly %cm) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZN5folly6netops9Msgheader11cmsgNextHrdEP7cmsghdr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef readonly %cm) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i64, ptr %cm, align 8, !tbaa !26
   %cmp.i = icmp ult i64 %0, 16
@@ -422,7 +423,7 @@ __cmsg_nxthdr.exit:                               ; preds = %lor.lhs.false.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN5folly6netops9Msgheader12cmsgFirstHrdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZN5folly6netops9Msgheader12cmsgFirstHrdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #9 align 2 {
 entry:
   %msg_controllen = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %msg_controllen, align 8, !tbaa !24
@@ -434,7 +435,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN5folly6netops9Msgheader6getMsgEv(ptr noundef nonnull readnone returned align 8 dereferenceable(56) %this) local_unnamed_addr #9 align 2 {
+define noundef nonnull ptr @_ZN5folly6netops9Msgheader6getMsgEv(ptr noundef nonnull readnone returned align 8 dereferenceable(56) %this) local_unnamed_addr #10 align 2 {
 entry:
   ret ptr %this
 }
@@ -445,12 +446,13 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

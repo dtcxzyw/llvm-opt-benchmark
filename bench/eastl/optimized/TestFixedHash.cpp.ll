@@ -2268,7 +2268,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -2355,7 +2355,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -2438,7 +2438,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -2629,7 +2629,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -2820,7 +2820,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -3011,7 +3011,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -3142,7 +3142,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_setI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -3201,7 +3201,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -3318,7 +3318,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -3360,7 +3360,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %8) #12
+  call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit: ; preds = %invoke.cont2, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -3369,7 +3369,7 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS
 lpad:                                             ; preds = %invoke.cont, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #12
   resume { ptr, i32 } %13
 }
 
@@ -3407,14 +3407,15 @@ entry:
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl14fixed_hash_setIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEE22get_overflow_allocatorEv(ptr noundef nonnull align 8 dereferenceable(159) %this) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3508,7 +3509,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -3591,7 +3592,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -3674,7 +3675,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -3865,7 +3866,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -4054,7 +4055,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -4243,7 +4244,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -4374,7 +4375,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -4433,7 +4434,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -4595,7 +4596,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i, %while.body.i
@@ -4645,7 +4646,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit: ; preds = %if.then, %if.then.i, %if.then.i.i.i2, %if.else.i.i.i, %delete.notnull.i.i.i.i
@@ -4751,7 +4752,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -4834,7 +4835,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -4917,7 +4918,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -5105,7 +5106,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -5293,7 +5294,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -5481,7 +5482,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -5609,7 +5610,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -5667,7 +5668,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -5856,7 +5857,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -5939,7 +5940,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -6022,7 +6023,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -6213,7 +6214,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -6402,7 +6403,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -6591,7 +6592,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -6722,7 +6723,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -6781,7 +6782,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -6941,7 +6942,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i, %while.body.i
@@ -6991,7 +6992,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit: ; preds = %if.then, %if.then.i, %if.then.i.i.i2, %if.else.i.i.i, %delete.notnull.i.i.i.i
@@ -7097,7 +7098,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -7180,7 +7181,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -7263,7 +7264,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -7454,7 +7455,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -7645,7 +7646,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -7836,7 +7837,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -7967,7 +7968,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_setI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -8026,7 +8027,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -8143,7 +8144,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -8185,7 +8186,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %8) #12
+  call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit: ; preds = %invoke.cont2, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -8194,7 +8195,7 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1
 lpad:                                             ; preds = %invoke.cont, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #12
   resume { ptr, i32 } %13
 }
 
@@ -8322,7 +8323,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -8405,7 +8406,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -8488,7 +8489,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -8679,7 +8680,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -8868,7 +8869,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -9057,7 +9058,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -9188,7 +9189,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -9247,7 +9248,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -9407,7 +9408,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i, %while.body.i
@@ -9457,7 +9458,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit: ; preds = %if.then, %if.then.i, %if.then.i.i.i2, %if.else.i.i.i, %delete.notnull.i.i.i.i
@@ -9563,7 +9564,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -9646,7 +9647,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -9729,7 +9730,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -9917,7 +9918,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -10105,7 +10106,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -10293,7 +10294,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -10421,7 +10422,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -10479,7 +10480,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -10668,7 +10669,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -10751,7 +10752,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -10834,7 +10835,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -11025,7 +11026,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -11214,7 +11215,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -11403,7 +11404,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -11534,7 +11535,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -11593,7 +11594,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -11753,7 +11754,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i, %while.body.i
@@ -11803,7 +11804,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit: ; preds = %if.then, %if.then.i, %if.then.i.i.i2, %if.else.i.i.i, %delete.notnull.i.i.i.i
@@ -11909,7 +11910,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -11992,7 +11993,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -12075,7 +12076,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -12265,7 +12266,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_setI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -12455,7 +12456,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_setI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -12645,7 +12646,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_setI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -12775,7 +12776,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_setI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -12834,7 +12835,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -12950,7 +12951,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -12992,7 +12993,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %8) #12
+  call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev.exit: ; preds = %invoke.cont2, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -13001,7 +13002,7 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS
 lpad:                                             ; preds = %invoke.cont, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #12
   resume { ptr, i32 } %13
 }
 
@@ -13129,7 +13130,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -13212,7 +13213,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -13295,7 +13296,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -13485,7 +13486,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -13674,7 +13675,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -13863,7 +13864,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -13993,7 +13994,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -14052,7 +14053,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -14211,7 +14212,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i, %while.body.i
@@ -14261,7 +14262,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb1EEEm.exit, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb1EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb1EEEm.exit: ; preds = %if.then, %if.then.i, %if.then.i.i.i2, %if.else.i.i.i, %delete.notnull.i.i.i.i
@@ -14367,7 +14368,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -14450,7 +14451,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -14533,7 +14534,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -14720,7 +14721,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -14907,7 +14908,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -15094,7 +15095,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -15221,7 +15222,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -15279,7 +15280,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -15467,7 +15468,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -15550,7 +15551,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -15633,7 +15634,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -15823,7 +15824,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -16012,7 +16013,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -16201,7 +16202,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -16331,7 +16332,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -16390,7 +16391,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -16549,7 +16550,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i, %while.body.i
@@ -16599,7 +16600,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb1EEEm.exit, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb1EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb1EEEm.exit: ; preds = %if.then, %if.then.i, %if.then.i.i.i2, %if.else.i.i.i, %delete.notnull.i.i.i.i
@@ -16705,7 +16706,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -16788,7 +16789,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -16871,7 +16872,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -17061,7 +17062,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_setI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -17251,7 +17252,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_setI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -17441,7 +17442,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_setI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -17571,7 +17572,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_setI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -17630,7 +17631,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -17746,7 +17747,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -17788,7 +17789,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %8) #12
+  call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev.exit: ; preds = %invoke.cont2, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -17797,7 +17798,7 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1
 lpad:                                             ; preds = %invoke.cont, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #12
   resume { ptr, i32 } %13
 }
 
@@ -17925,7 +17926,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -18008,7 +18009,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -18091,7 +18092,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -18281,7 +18282,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -18470,7 +18471,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -18659,7 +18660,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -18789,7 +18790,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -18848,7 +18849,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -19007,7 +19008,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i, %while.body.i
@@ -19057,7 +19058,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb1EEEm.exit, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb1EEEm.exit
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb1EEEm.exit: ; preds = %if.then, %if.then.i, %if.then.i.i.i2, %if.else.i.i.i, %delete.notnull.i.i.i.i
@@ -19163,7 +19164,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -19246,7 +19247,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -19329,7 +19330,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -19516,7 +19517,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -19703,7 +19704,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -19890,7 +19891,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -20017,7 +20018,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -20075,7 +20076,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -20263,7 +20264,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -20346,7 +20347,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -20429,7 +20430,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -20619,7 +20620,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -20808,7 +20809,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -20997,7 +20998,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -21127,7 +21128,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -21186,7 +21187,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -21345,7 +21346,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i, %while.body.i
@@ -21395,7 +21396,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb1EEEm.exit, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb1EEEm.exit
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb1EEEm.exit: ; preds = %if.then, %if.then.i, %if.then.i.i.i2, %if.else.i.i.i, %delete.notnull.i.i.i.i
@@ -21521,7 +21522,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %9
 }
 
@@ -21616,7 +21617,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %6
 }
 
@@ -21719,7 +21720,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %9
 }
 
@@ -21931,7 +21932,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -22143,7 +22144,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -22363,7 +22364,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -22514,7 +22515,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_setI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -22649,13 +22650,13 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp) #12
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp) #12
   resume { ptr, i32 } %0
 }
 
@@ -22814,7 +22815,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %9
 }
 
@@ -22909,7 +22910,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %6
 }
 
@@ -23012,7 +23013,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %9
 }
 
@@ -23224,7 +23225,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -23434,7 +23435,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -23652,7 +23653,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -23803,7 +23804,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -23941,11 +23942,11 @@ invoke.cont.i.i:                                  ; preds = %entry
 lpad.i.i:                                         ; preds = %invoke.cont.i.i, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #12
   resume { ptr, i32 } %0
 
 _ZN5eastl10fixed_swapINS_14fixed_hash_mapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0E15MallocAllocatorEEEEvRT_S9_.exit: ; preds = %invoke.cont.i.i
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #12
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %temp.i.i)
   ret void
 }
@@ -24232,7 +24233,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %9
 }
 
@@ -24327,7 +24328,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %6
 }
 
@@ -24430,7 +24431,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %9
 }
 
@@ -24639,7 +24640,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -24848,7 +24849,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -25065,7 +25066,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -25213,7 +25214,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -25348,11 +25349,11 @@ invoke.cont.i.i:                                  ; preds = %entry
 lpad.i.i:                                         ; preds = %invoke.cont.i.i, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #12
   resume { ptr, i32 } %0
 
 _ZN5eastl10fixed_swapINS_19fixed_hash_multisetIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0E15MallocAllocatorEEEEvRT_S9_.exit: ; preds = %invoke.cont.i.i
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #12
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %temp.i.i)
   ret void
 }
@@ -25512,7 +25513,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %9
 }
 
@@ -25607,7 +25608,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %6
 }
 
@@ -25710,7 +25711,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %9
 }
 
@@ -25922,7 +25923,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -26132,7 +26133,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -26350,7 +26351,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -26501,7 +26502,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -26639,11 +26640,11 @@ invoke.cont.i.i:                                  ; preds = %entry
 lpad.i.i:                                         ; preds = %invoke.cont.i.i, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #12
   resume { ptr, i32 } %0
 
 _ZN5eastl10fixed_swapINS_19fixed_hash_multimapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0E15MallocAllocatorEEEEvRT_S9_.exit: ; preds = %invoke.cont.i.i
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #12
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %temp.i.i)
   ret void
 }
@@ -26930,7 +26931,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %9
 }
 
@@ -27025,7 +27026,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %6
 }
 
@@ -27128,7 +27129,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %9
 }
 
@@ -27340,7 +27341,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -27552,7 +27553,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -27772,7 +27773,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -27923,7 +27924,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_setI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -28058,13 +28059,13 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp) #12
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp) #12
   resume { ptr, i32 } %0
 }
 
@@ -28223,7 +28224,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %9
 }
 
@@ -28318,7 +28319,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %6
 }
 
@@ -28421,7 +28422,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %9
 }
 
@@ -28633,7 +28634,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -28843,7 +28844,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -29061,7 +29062,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -29212,7 +29213,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -29350,11 +29351,11 @@ invoke.cont.i.i:                                  ; preds = %entry
 lpad.i.i:                                         ; preds = %invoke.cont.i.i, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #12
   resume { ptr, i32 } %0
 
 _ZN5eastl10fixed_swapINS_14fixed_hash_mapI1AS2_Lm1ELm2ELb1ENS_4hashIS2_EENS_8equal_toIS2_EELb0E15MallocAllocatorEEEEvRT_SA_.exit: ; preds = %invoke.cont.i.i
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #12
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %temp.i.i)
   ret void
 }
@@ -29641,7 +29642,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %9
 }
 
@@ -29736,7 +29737,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %6
 }
 
@@ -29839,7 +29840,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %9
 }
 
@@ -30048,7 +30049,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -30257,7 +30258,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -30474,7 +30475,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %_ZN5e
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -30622,7 +30623,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -30757,11 +30758,11 @@ invoke.cont.i.i:                                  ; preds = %entry
 lpad.i.i:                                         ; preds = %invoke.cont.i.i, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #12
   resume { ptr, i32 } %0
 
 _ZN5eastl10fixed_swapINS_19fixed_hash_multisetI1ALm1ELm2ELb1ENS_4hashIS2_EENS_8equal_toIS2_EELb0E15MallocAllocatorEEEEvRT_SA_.exit: ; preds = %invoke.cont.i.i
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #12
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %temp.i.i)
   ret void
 }
@@ -30921,7 +30922,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %9
 }
 
@@ -31016,7 +31017,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %6
 }
 
@@ -31119,7 +31120,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %9
 }
 
@@ -31331,7 +31332,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -31541,7 +31542,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -31759,7 +31760,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -31910,7 +31911,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -32048,11 +32049,11 @@ invoke.cont.i.i:                                  ; preds = %entry
 lpad.i.i:                                         ; preds = %invoke.cont.i.i, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #12
   resume { ptr, i32 } %0
 
 _ZN5eastl10fixed_swapINS_19fixed_hash_multimapI1AS2_Lm1ELm2ELb1ENS_4hashIS2_EENS_8equal_toIS2_EELb0E15MallocAllocatorEEEEvRT_SA_.exit: ; preds = %invoke.cont.i.i
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp.i.i) #12
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %temp.i.i)
   ret void
 }
@@ -32809,7 +32810,7 @@ lpad.loopexit.split-lp3072:                       ; preds = %invoke.cont7, %invo
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp3072, %lpad.loopexit3071
   %lpad.phi3075 = phi { ptr, i32 } [ %lpad.loopexit3073, %lpad.loopexit3071 ], [ %lpad.loopexit.split-lp3074, %lpad.loopexit.split-lp3072 ]
-  call void @_ZN5eastl14fixed_hash_mapIiiLm100ELm100ELb0ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(2511) %fixedHashMap) #11
+  call void @_ZN5eastl14fixed_hash_mapIiiLm100ELm100ELb0ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(2511) %fixedHashMap) #12
   br label %eh.resume
 
 for.end:                                          ; preds = %for.inc
@@ -33148,7 +33149,7 @@ if.then.i.i.i.i.i143:                             ; preds = %if.then.i.i.i.i136
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i136
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i133) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i133) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i143, %while.body.i.i132
@@ -33195,7 +33196,7 @@ lpad58.loopexit.split-lp:                         ; preds = %invoke.cont66, %inv
 
 lpad58:                                           ; preds = %lpad58.loopexit.split-lp, %lpad58.loopexit
   %lpad.phi3070 = phi { ptr, i32 } [ %lpad.loopexit3068, %lpad58.loopexit ], [ %lpad.loopexit.split-lp3069, %lpad58.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMap54) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMap54) #12
   br label %eh.resume
 
 for.end91:                                        ; preds = %for.inc89
@@ -33267,7 +33268,7 @@ if.else.i.i165:                                   ; preds = %if.then.i
   br i1 %isnull.i.i.i, label %invoke.cont104, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.else.i.i165
-  call void @_ZdaPv(ptr noundef nonnull %retval.0.i153) #12
+  call void @_ZdaPv(ptr noundef nonnull %retval.0.i153) #13
   br label %invoke.cont104
 
 invoke.cont104:                                   ; preds = %delete.notnull.i.i.i, %if.else.i.i165, %if.then.i.i166, %invoke.cont102
@@ -33420,7 +33421,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i17
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i1717
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i1714
@@ -33462,7 +33463,7 @@ if.else.i.i.i.i1726:                              ; preds = %if.then.i.i.i1722
   br i1 %isnull.i.i.i.i.i1727, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i1728
 
 delete.notnull.i.i.i.i.i1728:                     ; preds = %if.else.i.i.i.i1726
-  call void @_ZdaPv(ptr noundef nonnull %149) #12
+  call void @_ZdaPv(ptr noundef nonnull %149) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit: ; preds = %invoke.cont.thread.i, %invoke.cont.i, %if.then.i.i.i.i1729, %if.else.i.i.i.i1726, %delete.notnull.i.i.i.i.i1728
@@ -33504,7 +33505,7 @@ lpad143.loopexit.split-lp:                        ; preds = %for.end147, %invoke
 
 lpad143:                                          ; preds = %lpad143.loopexit.split-lp, %lpad143.loopexit
   %lpad.phi3067 = phi { ptr, i32 } [ %lpad.loopexit3065, %lpad143.loopexit ], [ %lpad.loopexit.split-lp3066, %lpad143.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIjNS_4pairIKjjEENS_25fixed_hashtable_allocatorILm514ELm16ELm512ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIjEENS_4hashIjEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %fixedHashMap132) #11
+  call void @_ZN5eastl9hashtableIjNS_4pairIKjjEENS_25fixed_hashtable_allocatorILm514ELm16ELm512ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIjEENS_4hashIjEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %fixedHashMap132) #12
   br label %eh.resume
 
 for.end147:                                       ; preds = %for.inc145
@@ -33534,7 +33535,7 @@ invoke.cont157:                                   ; preds = %invoke.cont154
           to label %invoke.cont161 unwind label %lpad143.loopexit.split-lp
 
 invoke.cont161:                                   ; preds = %invoke.cont157
-  call void @_ZN5eastl9hashtableIjNS_4pairIKjjEENS_25fixed_hashtable_allocatorILm514ELm16ELm512ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIjEENS_4hashIjEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %fixedHashMap132) #11
+  call void @_ZN5eastl9hashtableIjNS_4pairIKjjEENS_25fixed_hashtable_allocatorILm514ELm16ELm512ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIjEENS_4hashIjEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %fixedHashMap132) #12
   call void @_ZN5eastl14fixed_hash_mapI7Align64iLm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0ENS_9allocatorEEC2ERKS3_RKS5_(ptr noundef nonnull align 8 dereferenceable(511) %fhm, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp163, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp164)
   invoke void @_ZN5eastl19fixed_hash_multimapI7Align64iLm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0ENS_9allocatorEEC2ERKS3_RKS5_(ptr noundef nonnull align 8 dereferenceable(511) %fhmm, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp165, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp166)
           to label %invoke.cont168 unwind label %lpad167
@@ -33675,7 +33676,7 @@ lpad178.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp:
 
 lpad178:                                          ; preds = %lpad178.loopexit.split-lp.loopexit, %lpad178.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad178.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad178.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad178.loopexit
   %lpad.phi3055 = phi { ptr, i32 } [ %lpad.loopexit3053, %lpad178.loopexit ], [ %lpad.loopexit3056, %lpad178.loopexit.split-lp.loopexit ], [ %lpad.loopexit3059, %lpad178.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3062, %lpad178.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp3063, %lpad178.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fhms) #11
+  call void @_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fhms) #12
   br label %ehcleanup
 
 for.end213:                                       ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIK7Align64iEELb1ELb0EEppEv.exit, %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
@@ -33975,7 +33976,7 @@ if.then.i.i.i.i.i.i1769:                          ; preds = %if.then.i.i.i.i.i17
   br label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i1750:                 ; preds = %if.then.i.i.i.i.i1746
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i1743) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i1743) #13
   br label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i1750, %if.then.i.i.i.i.i.i1769, %while.body.i.i.i1742
@@ -34018,7 +34019,7 @@ if.else.i.i.i.i1765:                              ; preds = %if.then.i.i.i1761
   br i1 %isnull.i.i.i.i.i1766, label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit, label %delete.notnull.i.i.i.i.i1767
 
 delete.notnull.i.i.i.i.i1767:                     ; preds = %if.else.i.i.i.i1765
-  call void @_ZdaPv(ptr noundef nonnull %224) #12
+  call void @_ZdaPv(ptr noundef nonnull %224) #13
   br label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit: ; preds = %invoke.cont.thread.i1770, %invoke.cont.i1755, %if.then.i.i.i.i1768, %if.else.i.i.i.i1765, %delete.notnull.i.i.i.i.i1767
@@ -34069,7 +34070,7 @@ if.then.i.i.i.i.i.i1811:                          ; preds = %if.then.i.i.i.i.i17
   br label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i1792:                 ; preds = %if.then.i.i.i.i.i1788
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i1785) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i1785) #13
   br label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i1792, %if.then.i.i.i.i.i.i1811, %while.body.i.i.i1784
@@ -34112,7 +34113,7 @@ if.else.i.i.i.i1807:                              ; preds = %if.then.i.i.i1803
   br i1 %isnull.i.i.i.i.i1808, label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i1809
 
 delete.notnull.i.i.i.i.i1809:                     ; preds = %if.else.i.i.i.i1807
-  call void @_ZdaPv(ptr noundef nonnull %237) #12
+  call void @_ZdaPv(ptr noundef nonnull %237) #13
   br label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit: ; preds = %invoke.cont.thread.i1812, %invoke.cont.i1797, %if.then.i.i.i.i1810, %if.else.i.i.i.i1807, %delete.notnull.i.i.i.i.i1809
@@ -34163,7 +34164,7 @@ if.then.i.i.i.i.i.i1853:                          ; preds = %if.then.i.i.i.i.i18
   br label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i1834:                 ; preds = %if.then.i.i.i.i.i1830
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i1827) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i1827) #13
   br label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i1834, %if.then.i.i.i.i.i.i1853, %while.body.i.i.i1826
@@ -34206,7 +34207,7 @@ if.else.i.i.i.i1849:                              ; preds = %if.then.i.i.i1845
   br i1 %isnull.i.i.i.i.i1850, label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit, label %delete.notnull.i.i.i.i.i1851
 
 delete.notnull.i.i.i.i.i1851:                     ; preds = %if.else.i.i.i.i1849
-  call void @_ZdaPv(ptr noundef nonnull %250) #12
+  call void @_ZdaPv(ptr noundef nonnull %250) #13
   br label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit: ; preds = %invoke.cont.thread.i1854, %invoke.cont.i1839, %if.then.i.i.i.i1852, %if.else.i.i.i.i1849, %delete.notnull.i.i.i.i.i1851
@@ -34257,7 +34258,7 @@ if.then.i.i.i.i.i.i1895:                          ; preds = %if.then.i.i.i.i.i18
   br label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i1876:                 ; preds = %if.then.i.i.i.i.i1872
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i1869) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i1869) #13
   br label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i1876, %if.then.i.i.i.i.i.i1895, %while.body.i.i.i1868
@@ -34300,7 +34301,7 @@ if.else.i.i.i.i1891:                              ; preds = %if.then.i.i.i1887
   br i1 %isnull.i.i.i.i.i1892, label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i1893
 
 delete.notnull.i.i.i.i.i1893:                     ; preds = %if.else.i.i.i.i1891
-  call void @_ZdaPv(ptr noundef nonnull %263) #12
+  call void @_ZdaPv(ptr noundef nonnull %263) #13
   br label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit: ; preds = %invoke.cont.thread.i1896, %invoke.cont.i1881, %if.then.i.i.i.i1894, %if.else.i.i.i.i1891, %delete.notnull.i.i.i.i.i1893
@@ -34377,7 +34378,7 @@ if.then.i.i.i.i.i.i1937:                          ; preds = %if.then.i.i.i.i.i19
   br label %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i1918:                 ; preds = %if.then.i.i.i.i.i1914
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i1911) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i1911) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i1918, %if.then.i.i.i.i.i.i1937, %while.body.i.i.i1910
@@ -34419,7 +34420,7 @@ if.else.i.i.i.i1933:                              ; preds = %if.then.i.i.i1929
   br i1 %isnull.i.i.i.i.i1934, label %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i1935
 
 delete.notnull.i.i.i.i.i1935:                     ; preds = %if.else.i.i.i.i1933
-  call void @_ZdaPv(ptr noundef nonnull %278) #12
+  call void @_ZdaPv(ptr noundef nonnull %278) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit: ; preds = %invoke.cont.thread.i1938, %invoke.cont.i1923, %if.then.i.i.i.i1936, %if.else.i.i.i.i1933, %delete.notnull.i.i.i.i.i1935
@@ -34496,7 +34497,7 @@ if.then.i.i.i.i.i.i1979:                          ; preds = %if.then.i.i.i.i.i19
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i1960:                 ; preds = %if.then.i.i.i.i.i1956
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i1953) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i1953) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i1960, %if.then.i.i.i.i.i.i1979, %while.body.i.i.i1952
@@ -34538,7 +34539,7 @@ if.else.i.i.i.i1975:                              ; preds = %if.then.i.i.i1971
   br i1 %isnull.i.i.i.i.i1976, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i1977
 
 delete.notnull.i.i.i.i.i1977:                     ; preds = %if.else.i.i.i.i1975
-  call void @_ZdaPv(ptr noundef nonnull %293) #12
+  call void @_ZdaPv(ptr noundef nonnull %293) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit: ; preds = %invoke.cont.thread.i1980, %invoke.cont.i1965, %if.then.i.i.i.i1978, %if.else.i.i.i.i1975, %delete.notnull.i.i.i.i.i1977
@@ -34606,7 +34607,7 @@ if.then.i.i.i.i.i.i2022:                          ; preds = %if.then.i.i.i.i.i19
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i2003
 
 delete.notnull.i.i.i.i.i.i.i2002:                 ; preds = %if.then.i.i.i.i.i1998
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i1995) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i1995) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i2003
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i2003: ; preds = %delete.notnull.i.i.i.i.i.i.i2002, %if.then.i.i.i.i.i.i2022, %while.body.i.i.i1994
@@ -34648,7 +34649,7 @@ if.else.i.i.i.i2018:                              ; preds = %if.then.i.i.i2014
   br i1 %isnull.i.i.i.i.i2019, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit2025, label %delete.notnull.i.i.i.i.i2020
 
 delete.notnull.i.i.i.i.i2020:                     ; preds = %if.else.i.i.i.i2018
-  call void @_ZdaPv(ptr noundef nonnull %307) #12
+  call void @_ZdaPv(ptr noundef nonnull %307) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit2025
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit2025: ; preds = %invoke.cont.thread.i2023, %invoke.cont.i2008, %if.then.i.i.i.i2021, %if.else.i.i.i.i2018, %delete.notnull.i.i.i.i.i2020
@@ -34726,7 +34727,7 @@ if.then.i.i.i.i.i.i2065:                          ; preds = %if.then.i.i.i.i.i20
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i2046:                 ; preds = %if.then.i.i.i.i.i2042
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2039) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2039) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i2046, %if.then.i.i.i.i.i.i2065, %while.body.i.i.i2038
@@ -34768,7 +34769,7 @@ if.else.i.i.i.i2061:                              ; preds = %if.then.i.i.i2057
   br i1 %isnull.i.i.i.i.i2062, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit, label %delete.notnull.i.i.i.i.i2063
 
 delete.notnull.i.i.i.i.i2063:                     ; preds = %if.else.i.i.i.i2061
-  call void @_ZdaPv(ptr noundef nonnull %321) #12
+  call void @_ZdaPv(ptr noundef nonnull %321) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit: ; preds = %invoke.cont.thread.i2066, %invoke.cont.i2051, %if.then.i.i.i.i2064, %if.else.i.i.i.i2061, %delete.notnull.i.i.i.i.i2063
@@ -34836,7 +34837,7 @@ if.then.i.i.i.i.i.i2108:                          ; preds = %if.then.i.i.i.i.i20
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i2089
 
 delete.notnull.i.i.i.i.i.i.i2088:                 ; preds = %if.then.i.i.i.i.i2084
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2081) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2081) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i2089
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i2089: ; preds = %delete.notnull.i.i.i.i.i.i.i2088, %if.then.i.i.i.i.i.i2108, %while.body.i.i.i2080
@@ -34878,7 +34879,7 @@ if.else.i.i.i.i2104:                              ; preds = %if.then.i.i.i2100
   br i1 %isnull.i.i.i.i.i2105, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit2111, label %delete.notnull.i.i.i.i.i2106
 
 delete.notnull.i.i.i.i.i2106:                     ; preds = %if.else.i.i.i.i2104
-  call void @_ZdaPv(ptr noundef nonnull %335) #12
+  call void @_ZdaPv(ptr noundef nonnull %335) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit2111
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit2111: ; preds = %invoke.cont.thread.i2109, %invoke.cont.i2094, %if.then.i.i.i.i2107, %if.else.i.i.i.i2104, %delete.notnull.i.i.i.i.i2106
@@ -34944,7 +34945,7 @@ if.then.i.i.i.i.i450:                             ; preds = %if.then.i.i.i.i440
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i444:                    ; preds = %if.then.i.i.i.i440
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i437) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i437) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i444, %if.then.i.i.i.i.i450, %while.body.i.i436
@@ -34981,47 +34982,47 @@ for.inc447:                                       ; preds = %for.body444
 
 ehcleanup:                                        ; preds = %lpad178, %lpad175
   %.pn22 = phi { ptr, i32 } [ %lpad.phi3055, %lpad178 ], [ %175, %lpad175 ]
-  call void @_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fhs) #11
+  call void @_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fhs) #12
   br label %ehcleanup314
 
 ehcleanup314:                                     ; preds = %ehcleanup, %lpad171
   %.pn22.pn = phi { ptr, i32 } [ %.pn22, %ehcleanup ], [ %174, %lpad171 ]
-  call void @_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fhmm) #11
+  call void @_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fhmm) #12
   br label %ehcleanup315
 
 ehcleanup315:                                     ; preds = %ehcleanup314, %lpad167
   %.pn22.pn.pn = phi { ptr, i32 } [ %.pn22.pn, %ehcleanup314 ], [ %173, %lpad167 ]
-  call void @_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fhm) #11
+  call void @_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fhm) #12
   br label %eh.resume
 
 lpad320:                                          ; preds = %invoke.cont323, %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, %invoke.cont331
   %350 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMap316) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMap316) #12
   br label %eh.resume
 
 lpad341:                                          ; preds = %invoke.cont343, %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, %invoke.cont351
   %351 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMap337) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMap337) #12
   br label %eh.resume
 
 lpad371:                                          ; preds = %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit
   %352 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMap365) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMap365) #12
   br label %eh.resume
 
 lpad380:                                          ; preds = %invoke.cont383, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit2025, %invoke.cont393, %invoke.cont389
   %353 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMultiMap) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMultiMap) #12
   br label %eh.resume
 
 lpad419:                                          ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit
   %354 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMultiMap411) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMultiMap411) #12
   br label %eh.resume
 
 lpad427.loopexit:                                 ; preds = %for.body444
@@ -35036,7 +35037,7 @@ lpad427.loopexit.split-lp:                        ; preds = %invoke.cont431, %in
 
 lpad427:                                          ; preds = %lpad427.loopexit.split-lp, %lpad427.loopexit
   %lpad.phi3052 = phi { ptr, i32 } [ %lpad.loopexit3050, %lpad427.loopexit ], [ %lpad.loopexit.split-lp3051, %lpad427.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashSet) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashSet) #12
   br label %eh.resume
 
 for.end449:                                       ; preds = %for.inc447
@@ -35092,7 +35093,7 @@ if.then.i.i.i.i.i491:                             ; preds = %if.then.i.i.i.i471
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i476
 
 delete.notnull.i.i.i.i.i.i475:                    ; preds = %if.then.i.i.i.i471
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i468) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i468) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i476
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i476: ; preds = %delete.notnull.i.i.i.i.i.i475, %if.then.i.i.i.i.i491, %while.body.i.i467
@@ -35133,7 +35134,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i489
   br i1 %isnull.i.i.i.i.i, label %invoke.cont459, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %364) #12
+  call void @_ZdaPv(ptr noundef nonnull %364) #13
   br label %invoke.cont459
 
 invoke.cont459:                                   ; preds = %invoke.cont457, %delete.notnull.i.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i2.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE11DoFreeNodesEPPNS_9hash_nodeIiLb0EEEm.exit.i
@@ -35251,7 +35252,7 @@ if.then.i.i.i.i.i.i2151:                          ; preds = %if.then.i.i.i.i.i21
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i2132:                 ; preds = %if.then.i.i.i.i.i2128
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2125) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2125) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i2132, %if.then.i.i.i.i.i.i2151, %while.body.i.i.i2124
@@ -35293,7 +35294,7 @@ if.else.i.i.i.i2147:                              ; preds = %if.then.i.i.i2143
   br i1 %isnull.i.i.i.i.i2148, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i2149
 
 delete.notnull.i.i.i.i.i2149:                     ; preds = %if.else.i.i.i.i2147
-  call void @_ZdaPv(ptr noundef nonnull %383) #12
+  call void @_ZdaPv(ptr noundef nonnull %383) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit: ; preds = %invoke.cont.thread.i2152, %invoke.cont.i2137, %if.then.i.i.i.i2150, %if.else.i.i.i.i2147, %delete.notnull.i.i.i.i.i2149
@@ -35367,7 +35368,7 @@ if.then.i.i.i.i.i.i2193:                          ; preds = %if.then.i.i.i.i.i21
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i2174:                 ; preds = %if.then.i.i.i.i.i2170
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2167) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2167) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i2174, %if.then.i.i.i.i.i.i2193, %while.body.i.i.i2166
@@ -35409,7 +35410,7 @@ if.else.i.i.i.i2189:                              ; preds = %if.then.i.i.i2185
   br i1 %isnull.i.i.i.i.i2190, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i2191
 
 delete.notnull.i.i.i.i.i2191:                     ; preds = %if.else.i.i.i.i2189
-  call void @_ZdaPv(ptr noundef nonnull %397) #12
+  call void @_ZdaPv(ptr noundef nonnull %397) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit: ; preds = %invoke.cont.thread.i2194, %invoke.cont.i2179, %if.then.i.i.i.i2192, %if.else.i.i.i.i2189, %delete.notnull.i.i.i.i.i2191
@@ -35473,7 +35474,7 @@ if.then.i.i.i.i.i.i2236:                          ; preds = %if.then.i.i.i.i.i22
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i2217
 
 delete.notnull.i.i.i.i.i.i.i2216:                 ; preds = %if.then.i.i.i.i.i2212
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2209) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2209) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i2217
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i2217: ; preds = %delete.notnull.i.i.i.i.i.i.i2216, %if.then.i.i.i.i.i.i2236, %while.body.i.i.i2208
@@ -35515,7 +35516,7 @@ if.else.i.i.i.i2232:                              ; preds = %if.then.i.i.i2228
   br i1 %isnull.i.i.i.i.i2233, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit2239, label %delete.notnull.i.i.i.i.i2234
 
 delete.notnull.i.i.i.i.i2234:                     ; preds = %if.else.i.i.i.i2232
-  call void @_ZdaPv(ptr noundef nonnull %411) #12
+  call void @_ZdaPv(ptr noundef nonnull %411) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit2239
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit2239: ; preds = %invoke.cont.thread.i2237, %invoke.cont.i2222, %if.then.i.i.i.i2235, %if.else.i.i.i.i2232, %delete.notnull.i.i.i.i.i2234
@@ -35585,7 +35586,7 @@ if.then.i.i.i.i.i.i2279:                          ; preds = %if.then.i.i.i.i.i22
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i2260:                 ; preds = %if.then.i.i.i.i.i2256
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2253) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2253) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i2260, %if.then.i.i.i.i.i.i2279, %while.body.i.i.i2252
@@ -35627,7 +35628,7 @@ if.else.i.i.i.i2275:                              ; preds = %if.then.i.i.i2271
   br i1 %isnull.i.i.i.i.i2276, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit, label %delete.notnull.i.i.i.i.i2277
 
 delete.notnull.i.i.i.i.i2277:                     ; preds = %if.else.i.i.i.i2275
-  call void @_ZdaPv(ptr noundef nonnull %425) #12
+  call void @_ZdaPv(ptr noundef nonnull %425) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit: ; preds = %invoke.cont.thread.i2280, %invoke.cont.i2265, %if.then.i.i.i.i2278, %if.else.i.i.i.i2275, %delete.notnull.i.i.i.i.i2277
@@ -35691,7 +35692,7 @@ if.then.i.i.i.i.i.i2321:                          ; preds = %if.then.i.i.i.i.i22
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i2302:                 ; preds = %if.then.i.i.i.i.i2298
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2295) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2295) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i2302, %if.then.i.i.i.i.i.i2321, %while.body.i.i.i2294
@@ -35733,7 +35734,7 @@ if.else.i.i.i.i2317:                              ; preds = %if.then.i.i.i2313
   br i1 %isnull.i.i.i.i.i2318, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit, label %delete.notnull.i.i.i.i.i2319
 
 delete.notnull.i.i.i.i.i2319:                     ; preds = %if.else.i.i.i.i2317
-  call void @_ZdaPv(ptr noundef nonnull %439) #12
+  call void @_ZdaPv(ptr noundef nonnull %439) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit: ; preds = %invoke.cont.thread.i2322, %invoke.cont.i2307, %if.then.i.i.i.i2320, %if.else.i.i.i.i2317, %delete.notnull.i.i.i.i.i2319
@@ -35798,7 +35799,7 @@ if.then.i.i.i.i.i.i2363:                          ; preds = %if.then.i.i.i.i.i23
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i2344:                 ; preds = %if.then.i.i.i.i.i2340
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2337) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2337) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i2344, %if.then.i.i.i.i.i.i2363, %while.body.i.i.i2336
@@ -35840,7 +35841,7 @@ if.else.i.i.i.i2359:                              ; preds = %if.then.i.i.i2355
   br i1 %isnull.i.i.i.i.i2360, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i2361
 
 delete.notnull.i.i.i.i.i2361:                     ; preds = %if.else.i.i.i.i2359
-  call void @_ZdaPv(ptr noundef nonnull %453) #12
+  call void @_ZdaPv(ptr noundef nonnull %453) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit: ; preds = %invoke.cont.thread.i2364, %invoke.cont.i2349, %if.then.i.i.i.i2362, %if.else.i.i.i.i2359, %delete.notnull.i.i.i.i.i2361
@@ -35910,7 +35911,7 @@ if.then.i.i.i.i.i.i2405:                          ; preds = %if.then.i.i.i.i.i23
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i2386:                 ; preds = %if.then.i.i.i.i.i2382
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2379) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2379) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i2386, %if.then.i.i.i.i.i.i2405, %while.body.i.i.i2378
@@ -35952,7 +35953,7 @@ if.else.i.i.i.i2401:                              ; preds = %if.then.i.i.i2397
   br i1 %isnull.i.i.i.i.i2402, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i2403
 
 delete.notnull.i.i.i.i.i2403:                     ; preds = %if.else.i.i.i.i2401
-  call void @_ZdaPv(ptr noundef nonnull %467) #12
+  call void @_ZdaPv(ptr noundef nonnull %467) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit: ; preds = %invoke.cont.thread.i2406, %invoke.cont.i2391, %if.then.i.i.i.i2404, %if.else.i.i.i.i2401, %delete.notnull.i.i.i.i.i2403
@@ -35976,37 +35977,37 @@ for.inc580:                                       ; preds = %for.body576
 lpad477:                                          ; preds = %invoke.cont480, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, %invoke.cont488, %invoke.cont484
   %473 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashSet473) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashSet473) #12
   br label %eh.resume
 
 lpad506:                                          ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit
   %474 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashSet498) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashSet498) #12
   br label %eh.resume
 
 lpad513:                                          ; preds = %invoke.cont514, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit2239, %invoke.cont519
   %475 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMultiSet) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMultiSet) #12
   br label %eh.resume
 
 lpad539:                                          ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit
   %476 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMultiSet531) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMultiSet531) #12
   br label %eh.resume
 
 lpad548:                                          ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit, %invoke.cont549
   %477 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashSet543) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashSet543) #12
   br label %eh.resume
 
 lpad560:                                          ; preds = %invoke.cont561, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, %invoke.cont564
   %478 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashSet555) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashSet555) #12
   br label %eh.resume
 
 lpad578.loopexit:                                 ; preds = %for.body576
@@ -36021,7 +36022,7 @@ lpad578.loopexit.split-lp:                        ; preds = %for.end582
 
 lpad578:                                          ; preds = %lpad578.loopexit.split-lp, %lpad578.loopexit
   %lpad.phi3049 = phi { ptr, i32 } [ %lpad.loopexit3047, %lpad578.loopexit ], [ %lpad.loopexit.split-lp3048, %lpad578.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashSet570) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashSet570) #12
   br label %eh.resume
 
 for.end582:                                       ; preds = %for.inc580
@@ -36080,7 +36081,7 @@ if.then.i.i.i.i.i.i2447:                          ; preds = %if.then.i.i.i.i.i24
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i2428:                 ; preds = %if.then.i.i.i.i.i2424
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2421) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2421) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i2428, %if.then.i.i.i.i.i.i2447, %while.body.i.i.i2420
@@ -36122,7 +36123,7 @@ if.else.i.i.i.i2443:                              ; preds = %if.then.i.i.i2439
   br i1 %isnull.i.i.i.i.i2444, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i2445
 
 delete.notnull.i.i.i.i.i2445:                     ; preds = %if.else.i.i.i.i2443
-  call void @_ZdaPv(ptr noundef nonnull %488) #12
+  call void @_ZdaPv(ptr noundef nonnull %488) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit: ; preds = %invoke.cont.thread.i2448, %invoke.cont.i2433, %if.then.i.i.i.i2446, %if.else.i.i.i.i2443, %delete.notnull.i.i.i.i.i2445
@@ -36265,7 +36266,7 @@ if.then.i.i.i.i.i657:                             ; preds = %if.then.i.i.i.i630
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i634:                    ; preds = %if.then.i.i.i.i630
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i627) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i627) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i634, %if.then.i.i.i.i.i657, %while.body.i.i626
@@ -36306,7 +36307,7 @@ if.else.i.i.i.i653:                               ; preds = %if.then.i.i.i647
   br i1 %isnull.i.i.i.i.i654, label %invoke.cont600, label %delete.notnull.i.i.i.i.i655
 
 delete.notnull.i.i.i.i.i655:                      ; preds = %if.else.i.i.i.i653
-  call void @_ZdaPv(ptr noundef nonnull %512) #12
+  call void @_ZdaPv(ptr noundef nonnull %512) #13
   br label %invoke.cont600
 
 invoke.cont600:                                   ; preds = %invoke.cont598, %delete.notnull.i.i.i.i.i655, %if.else.i.i.i.i653, %if.then.i.i.i2.i656, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE11DoFreeNodesEPPNS_9hash_nodeIiLb0EEEm.exit.i
@@ -36411,7 +36412,7 @@ lpad591.loopexit.split-lp.loopexit.split-lp:      ; preds = %for.end651, %invoke
 
 lpad591:                                          ; preds = %lpad591.loopexit.split-lp.loopexit, %lpad591.loopexit.split-lp.loopexit.split-lp, %lpad591.loopexit
   %lpad.phi3043 = phi { ptr, i32 } [ %lpad.loopexit3041, %lpad591.loopexit ], [ %lpad.loopexit3044, %lpad591.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp3045, %lpad591.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashSet588) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashSet588) #12
   br label %eh.resume
 
 for.end621:                                       ; preds = %for.inc619
@@ -36469,7 +36470,7 @@ if.then.i.i.i.i.i759:                             ; preds = %if.then.i.i.i.i730
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i735
 
 delete.notnull.i.i.i.i.i.i734:                    ; preds = %if.then.i.i.i.i730
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i727) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i727) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i735
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i735: ; preds = %delete.notnull.i.i.i.i.i.i734, %if.then.i.i.i.i.i759, %while.body.i.i726
@@ -36510,7 +36511,7 @@ if.else.i.i.i.i755:                               ; preds = %if.then.i.i.i749
   br i1 %isnull.i.i.i.i.i756, label %invoke.cont630, label %delete.notnull.i.i.i.i.i757
 
 delete.notnull.i.i.i.i.i757:                      ; preds = %if.else.i.i.i.i755
-  call void @_ZdaPv(ptr noundef nonnull %534) #12
+  call void @_ZdaPv(ptr noundef nonnull %534) #13
   br label %invoke.cont630
 
 invoke.cont630:                                   ; preds = %invoke.cont628, %delete.notnull.i.i.i.i.i757, %if.else.i.i.i.i755, %if.then.i.i.i2.i758, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE11DoFreeNodesEPPNS_9hash_nodeIiLb0EEEm.exit.i740
@@ -36650,7 +36651,7 @@ if.then.i.i.i.i.i.i2490:                          ; preds = %if.then.i.i.i.i.i24
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i2471
 
 delete.notnull.i.i.i.i.i.i.i2470:                 ; preds = %if.then.i.i.i.i.i2466
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2463) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2463) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i2471
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i2471: ; preds = %delete.notnull.i.i.i.i.i.i.i2470, %if.then.i.i.i.i.i.i2490, %while.body.i.i.i2462
@@ -36692,11 +36693,11 @@ if.else.i.i.i.i2486:                              ; preds = %if.then.i.i.i2482
   br i1 %isnull.i.i.i.i.i2487, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit2493, label %delete.notnull.i.i.i.i.i2488
 
 delete.notnull.i.i.i.i.i2488:                     ; preds = %if.else.i.i.i.i2486
-  call void @_ZdaPv(ptr noundef nonnull %555) #12
+  call void @_ZdaPv(ptr noundef nonnull %555) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit2493
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit2493: ; preds = %invoke.cont.thread.i2491, %invoke.cont.i2476, %if.then.i.i.i.i2489, %if.else.i.i.i.i2486, %delete.notnull.i.i.i.i.i2488
-  %call657 = call noalias noundef nonnull dereferenceable(20000152) ptr @_Znwm(i64 noundef 20000152) #14
+  %call657 = call noalias noundef nonnull dereferenceable(20000152) ptr @_Znwm(i64 noundef 20000152) #15
   invoke void @_ZN5eastl14fixed_hash_mapIPKv11MemoryEntryLm500000ELm500001ELb1ENS_4hashIS2_EENS_8equal_toIS2_EELb0ENS_9allocatorEEC2ERKS5_RKS7_(ptr noundef nonnull align 8 dereferenceable(20000151) %call657, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp658, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp659)
           to label %invoke.cont661 unwind label %lpad660
 
@@ -36767,7 +36768,7 @@ if.then673:                                       ; preds = %for.inc.i.i, %for.b
 lpad660:                                          ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit2493
   %567 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call657) #12
+  call void @_ZdlPv(ptr noundef nonnull %call657) #13
   br label %eh.resume
 
 if.else:                                          ; preds = %_ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS4_.exit
@@ -36850,7 +36851,7 @@ if.then.i.i.i.i849:                               ; preds = %if.then.i.i.i844
   br label %_ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i
 
 delete.notnull.i.i.i.i.i848:                      ; preds = %if.then.i.i.i844
-  call void @_ZdaPv(ptr noundef nonnull %pDeleteList.127.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pDeleteList.127.i) #13
   br label %_ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i
 
 _ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i: ; preds = %delete.notnull.i.i.i.i.i848, %if.then.i.i.i.i849, %while.body17.i
@@ -36863,8 +36864,8 @@ for.inc678:                                       ; preds = %while.cond.i, %_ZN5
   br i1 %exitcond3265.not, label %delete.notnull, label %for.body667, !llvm.loop !649
 
 delete.notnull:                                   ; preds = %for.inc678
-  call void @_ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %call657) #11
-  call void @_ZdlPv(ptr noundef nonnull %call657) #12
+  call void @_ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %call657) #12
+  call void @_ZdlPv(ptr noundef nonnull %call657) #13
   call void @_ZN5eastl14fixed_hash_mapIK18InstanceRenderDatajLm10ELm11ELb0ENS_4hashIS2_EENS_8equal_toIS2_EELb0ENS_9allocatorEEC2ERKS4_RKS6_(ptr noundef nonnull align 8 dereferenceable(799) %map, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp681, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp682)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %renderData.sroa.3, i8 0, i64 36, i1 false)
   %renderData.sroa.3.0.ref.tmp686.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp686, i64 4
@@ -37061,7 +37062,7 @@ _ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_all
 lpad683:                                          ; preds = %_ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeEOS4_.exit.i.i.i
   %617 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl14fixed_hash_mapIK18InstanceRenderDatajLm10ELm11ELb0ENS_4hashIS2_EENS_8equal_toIS2_EELb0ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(799) %map) #11
+  call void @_ZN5eastl14fixed_hash_mapIK18InstanceRenderDatajLm10ELm11ELb0ENS_4hashIS2_EENS_8equal_toIS2_EELb0ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(799) %map) #12
   br label %eh.resume
 
 while.end:                                        ; preds = %_ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS4_.exit
@@ -37153,7 +37154,7 @@ lpad699.loopexit.split-lp:                        ; preds = %for.end705, %invoke
 
 lpad699:                                          ; preds = %lpad699.loopexit.split-lp, %lpad699.loopexit
   %lpad.phi3038 = phi { ptr, i32 } [ %lpad.loopexit3036, %lpad699.loopexit ], [ %lpad.loopexit.split-lp3037, %lpad699.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %c693) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %c693) #12
   br label %eh.resume
 
 for.end705:                                       ; preds = %for.inc703
@@ -37168,7 +37169,7 @@ invoke.cont708:                                   ; preds = %for.end705
           to label %invoke.cont710 unwind label %lpad699.loopexit.split-lp
 
 invoke.cont710:                                   ; preds = %invoke.cont708
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %c693) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %c693) #12
   %call712 = call noundef i32 @_Z12TestMapCpp11IN5eastl14fixed_hash_mapIi10TestObjectLm2ELm7ELb1ENS0_4hashIiEENS0_8equal_toIiEELb0ENS0_9allocatorEEEEiv()
   %629 = load i32, ptr %nErrorCount, align 4
   %add = add nsw i32 %629, %call712
@@ -37613,7 +37614,7 @@ if.then.i.i.i.i2571:                              ; preds = %if.then.i.i.i2564
   br label %.noexc1051
 
 delete.notnull.i.i.i.i.i2570:                     ; preds = %if.then.i.i.i2564
-  call void @_ZdaPv(ptr noundef nonnull %702) #12
+  call void @_ZdaPv(ptr noundef nonnull %702) #13
   br label %.noexc1051
 
 .noexc1051:                                       ; preds = %delete.notnull.i.i.i.i.i2570, %if.then.i.i.i.i2571, %if.then.i.i2561, %for.end.i2560, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i
@@ -38140,7 +38141,7 @@ if.then.i.i.i.i2615:                              ; preds = %if.then.i.i.i2608
   br label %.noexc1294
 
 delete.notnull.i.i.i.i.i2614:                     ; preds = %if.then.i.i.i2608
-  call void @_ZdaPv(ptr noundef nonnull %789) #12
+  call void @_ZdaPv(ptr noundef nonnull %789) #13
   br label %.noexc1294
 
 .noexc1294:                                       ; preds = %delete.notnull.i.i.i.i.i2614, %if.then.i.i.i.i2615, %if.then.i.i2604, %for.end.i2602, %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i
@@ -38338,7 +38339,7 @@ if.then.i.i.i.i.i.i2658:                          ; preds = %if.then.i.i.i.i.i26
   br label %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i2639:                 ; preds = %if.then.i.i.i.i.i2635
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2632) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2632) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i2639, %if.then.i.i.i.i.i.i2658, %while.body.i.i.i2631
@@ -38380,7 +38381,7 @@ if.else.i.i.i.i2654:                              ; preds = %if.then.i.i.i2650
   br i1 %isnull.i.i.i.i.i2655, label %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i2656
 
 delete.notnull.i.i.i.i.i2656:                     ; preds = %if.else.i.i.i.i2654
-  call void @_ZdaPv(ptr noundef nonnull %826) #12
+  call void @_ZdaPv(ptr noundef nonnull %826) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit: ; preds = %invoke.cont.thread.i2659, %invoke.cont.i2644, %if.then.i.i.i.i2657, %if.else.i.i.i.i2654, %delete.notnull.i.i.i.i.i2656
@@ -38430,7 +38431,7 @@ if.then.i.i.i.i.i.i2700:                          ; preds = %if.then.i.i.i.i.i26
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i2681:                 ; preds = %if.then.i.i.i.i.i2677
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2674) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i2674) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i2681, %if.then.i.i.i.i.i.i2700, %while.body.i.i.i2673
@@ -38472,7 +38473,7 @@ if.else.i.i.i.i2696:                              ; preds = %if.then.i.i.i2692
   br i1 %isnull.i.i.i.i.i2697, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i2698
 
 delete.notnull.i.i.i.i.i2698:                     ; preds = %if.else.i.i.i.i2696
-  call void @_ZdaPv(ptr noundef nonnull %839) #12
+  call void @_ZdaPv(ptr noundef nonnull %839) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit: ; preds = %invoke.cont.thread.i2701, %invoke.cont.i2686, %if.then.i.i.i.i2699, %if.else.i.i.i.i2696, %delete.notnull.i.i.i.i.i2698
@@ -38673,12 +38674,12 @@ lpad901.loopexit.split-lp:                        ; preds = %invoke.cont898, %in
 
 lpad901:                                          ; preds = %lpad901.loopexit.split-lp, %lpad901.loopexit
   %lpad.phi3032 = phi { ptr, i32 } [ %lpad.loopexit3030, %lpad901.loopexit ], [ %lpad.loopexit.split-lp3031, %lpad901.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %intHashMap) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %intHashMap) #12
   br label %ehcleanup1000
 
 ehcleanup1000:                                    ; preds = %lpad752.loopexit, %lpad752.loopexit.split-lp, %lpad901
   %.pn = phi { ptr, i32 } [ %lpad.phi3032, %lpad901 ], [ %lpad.loopexit3033, %lpad752.loopexit ], [ %lpad.loopexit.split-lp3034, %lpad752.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %intHashSet) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %intHashSet) #12
   br label %eh.resume
 
 lpad1006.loopexit:                                ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeEOS3_.exit.i.i.i.i
@@ -38693,7 +38694,7 @@ lpad1006.loopexit.split-lp:                       ; preds = %_ZN5eastl9hashtable
 
 lpad1006:                                         ; preds = %lpad1006.loopexit.split-lp, %lpad1006.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad1006.loopexit ], [ %lpad.loopexit.split-lp, %lpad1006.loopexit.split-lp ]
-  call void @_ZN5eastl14fixed_hash_mapIiiLm10ELm10ELb0ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(351) %fixedHashMap1001) #11
+  call void @_ZN5eastl14fixed_hash_mapIiiLm10ELm10ELb0ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(351) %fixedHashMap1001) #12
   br label %eh.resume
 
 for.end1019:                                      ; preds = %for.inc1017
@@ -39653,7 +39654,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %invoke.cont, %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #11
+  call void @_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #12
   resume { ptr, i32 } %22
 }
 
@@ -39810,7 +39811,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -39861,7 +39862,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i, %while.body.i
@@ -39911,7 +39912,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit: ; preds = %if.then, %if.then.i, %if.then.i.i.i2, %if.else.i.i.i, %delete.notnull.i.i.i.i
@@ -40156,7 +40157,7 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %call.i.i.noexc, %_Z
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit105, %lpad.loopexit ], [ %lpad.loopexit107, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp108, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN5eastl14fixed_hash_mapIiiLm100ELm100ELb0ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(2511) %fixedHashMap) #11
+  call void @_ZN5eastl14fixed_hash_mapIiiLm100ELm100ELb0ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(2511) %fixedHashMap) #12
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %for.inc, %for.cond2.preheader
@@ -40696,7 +40697,7 @@ if.then.i.i.i.i113:                               ; preds = %if.then.i.i.i106
   br label %.noexc
 
 delete.notnull.i.i.i.i.i112:                      ; preds = %if.then.i.i.i106
-  call void @_ZdaPv(ptr noundef nonnull %26) #12
+  call void @_ZdaPv(ptr noundef nonnull %26) #13
   br label %.noexc
 
 .noexc:                                           ; preds = %delete.notnull.i.i.i.i.i112, %if.then.i.i.i.i113, %for.end.i102, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i
@@ -40738,7 +40739,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br label %for.inc
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %result.0.i.i.i) #12, !noalias !829
+  call void @_ZdaPv(ptr noundef nonnull %result.0.i.i.i) #13, !noalias !829
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit.i, %if.else.i76, %if.then.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -40763,7 +40764,7 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %invoke.cont34, %inv
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit120, %lpad.loopexit ], [ %lpad.loopexit122, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp123, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMap) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMap) #12
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %for.inc, %for.cond2.preheader
@@ -41047,7 +41048,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i82
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i82
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i79
@@ -41088,7 +41089,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i86
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i90
 
 delete.notnull.i.i.i.i.i90:                       ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %81) #12
+  call void @_ZdaPv(ptr noundef nonnull %81) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit: ; preds = %for.end42, %invoke.cont.i, %if.then.i.i.i.i91, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i90
@@ -41304,7 +41305,7 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %call.i.i.noexc, %_Z
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit104, %lpad.loopexit ], [ %lpad.loopexit106, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp107, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN5eastl19fixed_hash_multimapIiiLm100ELm100ELb0ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(2511) %fixedHashMap) #11
+  call void @_ZN5eastl19fixed_hash_multimapIiiLm100ELm100ELb0ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(2511) %fixedHashMap) #12
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %for.inc, %for.cond2.preheader
@@ -41788,7 +41789,7 @@ if.then.i.i.i.i102:                               ; preds = %if.then.i.i.i97
   br label %.noexc
 
 delete.notnull.i.i.i.i.i101:                      ; preds = %if.then.i.i.i97
-  call void @_ZdaPv(ptr noundef nonnull %15) #12
+  call void @_ZdaPv(ptr noundef nonnull %15) #13
   br label %.noexc
 
 .noexc:                                           ; preds = %delete.notnull.i.i.i.i.i101, %if.then.i.i.i.i102, %for.end.i94, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i
@@ -41890,7 +41891,7 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %invoke.cont34, %inv
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit109, %lpad.loopexit ], [ %lpad.loopexit111, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp112, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMap) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMap) #12
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %for.inc, %for.cond2.preheader
@@ -42174,7 +42175,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i84
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i84
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i81
@@ -42215,7 +42216,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %76) #12
+  call void @_ZdaPv(ptr noundef nonnull %76) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit: ; preds = %for.end42, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -42313,7 +42314,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIjjNS_4hashIjEENS_8equal_toIjEENS_25fixed_hashtable_allocatorILm514ELm16ELm512ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIjNS_4pairIKjjEENS_25fixed_hashtable_allocatorILm514ELm16ELm512ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIjEENS_4hashIjEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIjNS_4pairIKjjEENS_25fixed_hashtable_allocatorILm514ELm16ELm512ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIjEENS_4hashIjEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %6
 }
 
@@ -42396,7 +42397,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapI7Align64iNS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -42479,7 +42480,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapI7Align64iNS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -42562,7 +42563,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setI7Align64NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -42645,7 +42646,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetI7Align64NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -42728,12 +42729,12 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIi1ANS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl14fixed_hash_mapI1AiLm100ELm100ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0ENS_9allocatorEEC2ERKS3_RKS5_(ptr noundef nonnull align 8 dereferenceable(2527) %this, ptr noundef nonnull align 1 dereferenceable(1) %hashFunction, ptr noundef nonnull align 1 dereferenceable(1) %predicate) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -42814,7 +42815,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapI1AiNS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -42946,7 +42947,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit4, %lpad.loopexit ], [ %lpad.loopexit.split-lp5, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -43029,7 +43030,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -43161,7 +43162,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit4, %lpad.loopexit ], [ %lpad.loopexit.split-lp5, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -43244,7 +43245,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -43327,7 +43328,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -43459,7 +43460,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_setI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit4, %lpad.loopexit ], [ %lpad.loopexit.split-lp5, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -43542,7 +43543,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -43671,7 +43672,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl13hash_mul
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit4, %lpad.loopexit ], [ %lpad.loopexit.split-lp5, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -43754,7 +43755,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -43837,12 +43838,12 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl14fixed_hash_mapIPKv11MemoryEntryLm500000ELm500001ELb1ENS_4hashIS2_EENS_8equal_toIS2_EELb0ENS_9allocatorEEC2ERKS5_RKS7_(ptr noundef nonnull align 8 dereferenceable(20000151) %this, ptr noundef nonnull align 1 dereferenceable(1) %hashFunction, ptr noundef nonnull align 1 dereferenceable(1) %predicate) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -43923,17 +43924,17 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIPKv11MemoryEntryNS_4hashIS2_EENS_8equal_toIS2_EENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS5_RKS7_RKSA_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 declare noundef i32 @_ZN2EA8UnitTest11GetRandSeedEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl14fixed_hash_mapIK18InstanceRenderDatajLm10ELm11ELb0ENS_4hashIS2_EENS_8equal_toIS2_EELb0ENS_9allocatorEEC2ERKS4_RKS6_(ptr noundef nonnull align 8 dereferenceable(799) %this, ptr noundef nonnull align 1 dereferenceable(1) %hashFunction, ptr noundef nonnull align 1 dereferenceable(1) %predicate) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -44089,7 +44090,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %invoke.cont, %_ZN5eastl8hash_mapIK18InstanceRenderDatajNS_4hashIS2_EENS_8equal_toIS2_EENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEELb0EEC2EmRKS4_RKS6_RKS9_.exit
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl8hash_mapIK18InstanceRenderDatajNS_4hashIS2_EENS_8equal_toIS2_EENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #11
+  call void @_ZN5eastl8hash_mapIK18InstanceRenderDatajNS_4hashIS2_EENS_8equal_toIS2_EENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #12
   resume { ptr, i32 } %21
 }
 
@@ -44266,7 +44267,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #12
   resume { ptr, i32 } %9
 }
 
@@ -48052,7 +48053,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i2689
   br label %.noexc
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i2689
-  call void @_ZdaPv(ptr noundef nonnull %618) #12
+  call void @_ZdaPv(ptr noundef nonnull %618) #13
   br label %.noexc
 
 .noexc:                                           ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i, %if.then.i.i2687, %for.end.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i
@@ -48583,7 +48584,7 @@ _ZN10TestObjectD2Ev.exit2308:                     ; preds = %if.then.i.i2283, %_
   store i64 %dec.i2306, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i2307 = add nsw i64 %651, 37
   store i64 %inc3.i2307, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #12
   ret i32 %647
 
 lpad7:                                            ; preds = %_ZN5eastl4pairIKi10TestObjectED2Ev.exit67, %_ZN5eastl4pairIKi10TestObjectED2Ev.exit
@@ -49449,7 +49450,7 @@ _ZN10TestObjectD2Ev.exit2679:                     ; preds = %_ZN5eastl4pairIKi10
   store i64 %dec.i2677, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i2678 = add nsw i64 %848, 2
   store i64 %inc3.i2678, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #12
   resume { ptr, i32 } %.pn4.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -53233,7 +53234,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i2689
   br label %.noexc
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i2689
-  call void @_ZdaPv(ptr noundef nonnull %618) #12
+  call void @_ZdaPv(ptr noundef nonnull %618) #13
   br label %.noexc
 
 .noexc:                                           ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i, %if.then.i.i2687, %for.end.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i
@@ -53764,7 +53765,7 @@ _ZN10TestObjectD2Ev.exit2308:                     ; preds = %if.then.i.i2283, %_
   store i64 %dec.i2306, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i2307 = add nsw i64 %651, 37
   store i64 %inc3.i2307, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #12
   ret i32 %647
 
 lpad7:                                            ; preds = %_ZN5eastl4pairIKi10TestObjectED2Ev.exit67, %_ZN5eastl4pairIKi10TestObjectED2Ev.exit
@@ -54630,7 +54631,7 @@ _ZN10TestObjectD2Ev.exit2679:                     ; preds = %_ZN5eastl4pairIKi10
   store i64 %dec.i2677, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i2678 = add nsw i64 %848, 2
   store i64 %inc3.i2678, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #12
   resume { ptr, i32 } %.pn4.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -54717,7 +54718,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -54759,7 +54760,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %12) #12
+  call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit: ; preds = %invoke.cont7, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -54768,7 +54769,7 @@ _ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm
 lpad:                                             ; preds = %invoke.cont, %entry, %invoke.cont4
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %ncMap) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %ncMap) #12
   resume { ptr, i32 } %17
 }
 
@@ -56359,7 +56360,7 @@ _ZN10TestObjectD2Ev.exit808:                      ; preds = %_ZN10TestObjectD2Ev
   store i64 %dec.i806, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i807 = add nsw i64 %234, 15
   store i64 %inc3.i807, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toSet) #11
+  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toSet) #12
   ret i32 %230
 
 lpad5:                                            ; preds = %invoke.cont7, %entry, %invoke.cont10, %invoke.cont6
@@ -56834,7 +56835,7 @@ _ZN10TestObjectD2Ev.exit955:                      ; preds = %_ZN10TestObjectD2Ev
   store i64 %dec.i953, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i954 = add nsw i64 %350, 2
   store i64 %inc3.i954, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toSet) #11
+  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toSet) #12
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -58425,7 +58426,7 @@ _ZN10TestObjectD2Ev.exit808:                      ; preds = %_ZN10TestObjectD2Ev
   store i64 %dec.i806, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i807 = add nsw i64 %234, 15
   store i64 %inc3.i807, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toSet) #11
+  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toSet) #12
   ret i32 %230
 
 lpad5:                                            ; preds = %invoke.cont7, %entry, %invoke.cont10, %invoke.cont6
@@ -58900,7 +58901,7 @@ _ZN10TestObjectD2Ev.exit955:                      ; preds = %_ZN10TestObjectD2Ev
   store i64 %dec.i953, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i954 = add nsw i64 %350, 2
   store i64 %inc3.i954, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toSet) #11
+  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toSet) #12
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -62497,7 +62498,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i2649
   br label %.noexc
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i2649
-  call void @_ZdaPv(ptr noundef nonnull %579) #12
+  call void @_ZdaPv(ptr noundef nonnull %579) #13
   br label %.noexc
 
 .noexc:                                           ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i, %if.then.i.i2647, %for.end.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i
@@ -63017,7 +63018,7 @@ _ZN10TestObjectD2Ev.exit2260:                     ; preds = %if.then.i.i2235, %_
   store i64 %dec.i2258, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i2259 = add nsw i64 %608, 37
   store i64 %inc3.i2259, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #12
   ret i32 %604
 
 lpad7:                                            ; preds = %_ZN5eastl4pairIKi10TestObjectED2Ev.exit68, %_ZN5eastl4pairIKi10TestObjectED2Ev.exit
@@ -63883,7 +63884,7 @@ _ZN10TestObjectD2Ev.exit2638:                     ; preds = %_ZN5eastl4pairIKi10
   store i64 %dec.i2636, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i2637 = add nsw i64 %805, 2
   store i64 %inc3.i2637, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #12
   resume { ptr, i32 } %.pn5.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -67480,7 +67481,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i2649
   br label %.noexc
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i2649
-  call void @_ZdaPv(ptr noundef nonnull %579) #12
+  call void @_ZdaPv(ptr noundef nonnull %579) #13
   br label %.noexc
 
 .noexc:                                           ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i, %if.then.i.i2647, %for.end.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i
@@ -68000,7 +68001,7 @@ _ZN10TestObjectD2Ev.exit2260:                     ; preds = %if.then.i.i2235, %_
   store i64 %dec.i2258, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i2259 = add nsw i64 %608, 37
   store i64 %inc3.i2259, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #12
   ret i32 %604
 
 lpad7:                                            ; preds = %_ZN5eastl4pairIKi10TestObjectED2Ev.exit68, %_ZN5eastl4pairIKi10TestObjectED2Ev.exit
@@ -68866,7 +68867,7 @@ _ZN10TestObjectD2Ev.exit2638:                     ; preds = %_ZN5eastl4pairIKi10
   store i64 %dec.i2636, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i2637 = add nsw i64 %805, 2
   store i64 %inc3.i2637, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #12
   resume { ptr, i32 } %.pn5.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -70576,7 +70577,7 @@ _ZN10TestObjectD2Ev.exit949:                      ; preds = %_ZN10TestObjectD2Ev
   store i64 %dec.i947, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i948 = add nsw i64 %310, 15
   store i64 %inc3.i948, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toSet) #11
+  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toSet) #12
   ret i32 %306
 
 lpad5:                                            ; preds = %_ZN10TestObjectD2Ev.exit, %entry
@@ -71172,7 +71173,7 @@ _ZN10TestObjectD2Ev.exit1173:                     ; preds = %_ZN10TestObjectD2Ev
   store i64 %dec.i1171, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i1172 = add nsw i64 %459, 2
   store i64 %inc3.i1172, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toSet) #11
+  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toSet) #12
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -72882,7 +72883,7 @@ _ZN10TestObjectD2Ev.exit949:                      ; preds = %_ZN10TestObjectD2Ev
   store i64 %dec.i947, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i948 = add nsw i64 %310, 15
   store i64 %inc3.i948, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toSet) #11
+  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toSet) #12
   ret i32 %306
 
 lpad5:                                            ; preds = %_ZN10TestObjectD2Ev.exit, %entry
@@ -73478,7 +73479,7 @@ _ZN10TestObjectD2Ev.exit1173:                     ; preds = %_ZN10TestObjectD2Ev
   store i64 %dec.i1171, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i1172 = add nsw i64 %459, 2
   store i64 %inc3.i1172, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toSet) #11
+  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toSet) #12
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -73930,7 +73931,7 @@ invoke.cont148:                                   ; preds = %_ZN10TestObjectD2Ev
           to label %invoke.cont152 unwind label %lpad
 
 invoke.cont152:                                   ; preds = %invoke.cont148
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #12
   call void @_ZN5eastl14fixed_hash_mapIi10TestObjectLm2ELm7ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEC2ERKS3_RKS5_(ptr noundef nonnull align 8 dereferenceable(287) %toMap154, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp155, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp156)
   store i32 3, ptr %ref.tmp158, align 4
   store i32 3, ptr %ref.tmp159, align 8
@@ -74362,7 +74363,7 @@ _ZN10TestObjectD2Ev.exit344:                      ; preds = %_ZN10TestObjectD2Ev
   store i64 %dec.i342, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i343 = add nsw i64 %156, 4
   store i64 %inc3.i343, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap154) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap154) #12
   %163 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %cmp.i345 = icmp eq i64 %163, 0
   br i1 %cmp.i345, label %land.lhs.true.i, label %_ZN10TestObject7IsClearEv.exit
@@ -74703,7 +74704,7 @@ _ZN10TestObjectD2Ev.exit471:                      ; preds = %_ZN10TestObjectD2Ev
 eh.resume:                                        ; preds = %lpad160, %_ZN10TestObjectD2Ev.exit415, %_ZN10TestObjectD2Ev.exit422, %_ZN10TestObjectD2Ev.exit429, %_ZN10TestObjectD2Ev.exit436, %_ZN10TestObjectD2Ev.exit471, %lpad, %_ZN10TestObjectD2Ev.exit352, %_ZN10TestObjectD2Ev.exit359, %_ZN10TestObjectD2Ev.exit366, %_ZN10TestObjectD2Ev.exit373, %_ZN10TestObjectD2Ev.exit380, %_ZN10TestObjectD2Ev.exit387, %_ZN10TestObjectD2Ev.exit394, %_ZN10TestObjectD2Ev.exit401, %_ZN10TestObjectD2Ev.exit408
   %toMap154.sink = phi ptr [ %toMap, %_ZN10TestObjectD2Ev.exit408 ], [ %toMap, %_ZN10TestObjectD2Ev.exit401 ], [ %toMap, %_ZN10TestObjectD2Ev.exit394 ], [ %toMap, %_ZN10TestObjectD2Ev.exit387 ], [ %toMap, %_ZN10TestObjectD2Ev.exit380 ], [ %toMap, %_ZN10TestObjectD2Ev.exit373 ], [ %toMap, %_ZN10TestObjectD2Ev.exit366 ], [ %toMap, %_ZN10TestObjectD2Ev.exit359 ], [ %toMap, %_ZN10TestObjectD2Ev.exit352 ], [ %toMap, %lpad ], [ %toMap154, %_ZN10TestObjectD2Ev.exit471 ], [ %toMap154, %_ZN10TestObjectD2Ev.exit436 ], [ %toMap154, %_ZN10TestObjectD2Ev.exit429 ], [ %toMap154, %_ZN10TestObjectD2Ev.exit422 ], [ %toMap154, %_ZN10TestObjectD2Ev.exit415 ], [ %toMap154, %lpad160 ]
   %.pn12.pn.pn = phi { ptr, i32 } [ %200, %_ZN10TestObjectD2Ev.exit408 ], [ %195, %_ZN10TestObjectD2Ev.exit401 ], [ %192, %_ZN10TestObjectD2Ev.exit394 ], [ %189, %_ZN10TestObjectD2Ev.exit387 ], [ %184, %_ZN10TestObjectD2Ev.exit380 ], [ %181, %_ZN10TestObjectD2Ev.exit373 ], [ %178, %_ZN10TestObjectD2Ev.exit366 ], [ %173, %_ZN10TestObjectD2Ev.exit359 ], [ %170, %_ZN10TestObjectD2Ev.exit352 ], [ %169, %lpad ], [ %.pn12, %_ZN10TestObjectD2Ev.exit471 ], [ %217, %_ZN10TestObjectD2Ev.exit436 ], [ %212, %_ZN10TestObjectD2Ev.exit429 ], [ %209, %_ZN10TestObjectD2Ev.exit422 ], [ %204, %_ZN10TestObjectD2Ev.exit415 ], [ %203, %lpad160 ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap154.sink) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap154.sink) #12
   resume { ptr, i32 } %.pn12.pn.pn
 }
 
@@ -75155,7 +75156,7 @@ invoke.cont148:                                   ; preds = %_ZN10TestObjectD2Ev
           to label %invoke.cont152 unwind label %lpad
 
 invoke.cont152:                                   ; preds = %invoke.cont148
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap) #12
   call void @_ZN5eastl14fixed_hash_mapIi10TestObjectLm32ELm7ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEC2ERKS3_RKS5_(ptr noundef nonnull align 8 dereferenceable(1487) %toMap154, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp155, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp156)
   store i32 3, ptr %ref.tmp158, align 4
   store i32 3, ptr %ref.tmp159, align 8
@@ -75587,7 +75588,7 @@ _ZN10TestObjectD2Ev.exit344:                      ; preds = %_ZN10TestObjectD2Ev
   store i64 %dec.i342, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i343 = add nsw i64 %156, 4
   store i64 %inc3.i343, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap154) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap154) #12
   %163 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %cmp.i345 = icmp eq i64 %163, 0
   br i1 %cmp.i345, label %land.lhs.true.i, label %_ZN10TestObject7IsClearEv.exit
@@ -75928,7 +75929,7 @@ _ZN10TestObjectD2Ev.exit471:                      ; preds = %_ZN10TestObjectD2Ev
 eh.resume:                                        ; preds = %lpad160, %_ZN10TestObjectD2Ev.exit415, %_ZN10TestObjectD2Ev.exit422, %_ZN10TestObjectD2Ev.exit429, %_ZN10TestObjectD2Ev.exit436, %_ZN10TestObjectD2Ev.exit471, %lpad, %_ZN10TestObjectD2Ev.exit352, %_ZN10TestObjectD2Ev.exit359, %_ZN10TestObjectD2Ev.exit366, %_ZN10TestObjectD2Ev.exit373, %_ZN10TestObjectD2Ev.exit380, %_ZN10TestObjectD2Ev.exit387, %_ZN10TestObjectD2Ev.exit394, %_ZN10TestObjectD2Ev.exit401, %_ZN10TestObjectD2Ev.exit408
   %toMap154.sink = phi ptr [ %toMap, %_ZN10TestObjectD2Ev.exit408 ], [ %toMap, %_ZN10TestObjectD2Ev.exit401 ], [ %toMap, %_ZN10TestObjectD2Ev.exit394 ], [ %toMap, %_ZN10TestObjectD2Ev.exit387 ], [ %toMap, %_ZN10TestObjectD2Ev.exit380 ], [ %toMap, %_ZN10TestObjectD2Ev.exit373 ], [ %toMap, %_ZN10TestObjectD2Ev.exit366 ], [ %toMap, %_ZN10TestObjectD2Ev.exit359 ], [ %toMap, %_ZN10TestObjectD2Ev.exit352 ], [ %toMap, %lpad ], [ %toMap154, %_ZN10TestObjectD2Ev.exit471 ], [ %toMap154, %_ZN10TestObjectD2Ev.exit436 ], [ %toMap154, %_ZN10TestObjectD2Ev.exit429 ], [ %toMap154, %_ZN10TestObjectD2Ev.exit422 ], [ %toMap154, %_ZN10TestObjectD2Ev.exit415 ], [ %toMap154, %lpad160 ]
   %.pn12.pn.pn = phi { ptr, i32 } [ %200, %_ZN10TestObjectD2Ev.exit408 ], [ %195, %_ZN10TestObjectD2Ev.exit401 ], [ %192, %_ZN10TestObjectD2Ev.exit394 ], [ %189, %_ZN10TestObjectD2Ev.exit387 ], [ %184, %_ZN10TestObjectD2Ev.exit380 ], [ %181, %_ZN10TestObjectD2Ev.exit373 ], [ %178, %_ZN10TestObjectD2Ev.exit366 ], [ %173, %_ZN10TestObjectD2Ev.exit359 ], [ %170, %_ZN10TestObjectD2Ev.exit352 ], [ %169, %lpad ], [ %.pn12, %_ZN10TestObjectD2Ev.exit471 ], [ %217, %_ZN10TestObjectD2Ev.exit436 ], [ %212, %_ZN10TestObjectD2Ev.exit429 ], [ %209, %_ZN10TestObjectD2Ev.exit422 ], [ %204, %_ZN10TestObjectD2Ev.exit415 ], [ %203, %lpad160 ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap154.sink) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %toMap154.sink) #12
   resume { ptr, i32 } %.pn12.pn.pn
 }
 
@@ -75987,7 +75988,7 @@ for.inc:                                          ; preds = %invoke.cont8
 lpad:                                             ; preds = %call.i.noexc, %for.body, %invoke.cont8, %invoke.cont
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %hashContainer) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %hashContainer) #12
   resume { ptr, i32 } %6
 
 for.end:                                          ; preds = %for.inc
@@ -76035,7 +76036,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -76076,7 +76077,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %16) #12
+  call void @_ZdaPv(ptr noundef nonnull %16) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit: ; preds = %for.end, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -76138,7 +76139,7 @@ for.inc:                                          ; preds = %invoke.cont5
 lpad:                                             ; preds = %call.i.noexc, %for.body, %invoke.cont5, %invoke.cont
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %hashContainer) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %hashContainer) #12
   resume { ptr, i32 } %6
 
 for.end:                                          ; preds = %for.inc
@@ -76186,7 +76187,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -76227,7 +76228,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %16) #12
+  call void @_ZdaPv(ptr noundef nonnull %16) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit: ; preds = %for.end, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -76289,7 +76290,7 @@ for.inc:                                          ; preds = %invoke.cont5
 lpad:                                             ; preds = %call.i.noexc, %for.body, %invoke.cont5, %invoke.cont
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %hashContainer) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %hashContainer) #12
   resume { ptr, i32 } %6
 
 for.end:                                          ; preds = %for.inc
@@ -76337,7 +76338,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -76378,7 +76379,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %16) #12
+  call void @_ZdaPv(ptr noundef nonnull %16) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit: ; preds = %for.end, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -76440,7 +76441,7 @@ for.inc:                                          ; preds = %invoke.cont5
 lpad:                                             ; preds = %call.i.noexc, %for.body, %invoke.cont5, %invoke.cont
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %hashContainer) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %hashContainer) #12
   resume { ptr, i32 } %6
 
 for.end:                                          ; preds = %for.inc
@@ -76488,7 +76489,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -76529,7 +76530,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %16) #12
+  call void @_ZdaPv(ptr noundef nonnull %16) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit: ; preds = %for.end, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -76663,7 +76664,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_setI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -76715,7 +76716,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -76895,7 +76896,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN5eastl8hash_mapI
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit5, %lpad.loopexit ], [ %lpad.loopexit.split-lp6, %lpad.loopexit.split-lp ]
-  call void @_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -76947,7 +76948,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -77154,7 +77155,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %invoke.cont, %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #11
+  call void @_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #12
   resume { ptr, i32 } %22
 }
 
@@ -77454,7 +77455,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -77497,7 +77498,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -77505,7 +77506,7 @@ invoke.cont2:                                     ; preds = %delete.notnull.i.i.
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -77559,7 +77560,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -77602,7 +77603,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -77661,7 +77662,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -77704,7 +77705,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -77763,7 +77764,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -77806,7 +77807,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -77865,7 +77866,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -77908,7 +77909,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -77967,7 +77968,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -78010,7 +78011,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -78069,7 +78070,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -78112,7 +78113,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -78171,7 +78172,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -78214,7 +78215,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -78273,7 +78274,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -78316,7 +78317,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -78375,7 +78376,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -78418,7 +78419,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -78477,7 +78478,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -78520,7 +78521,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -78579,7 +78580,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -78622,7 +78623,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -78681,7 +78682,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -78724,7 +78725,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -78783,7 +78784,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -78826,7 +78827,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -78885,7 +78886,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -78928,7 +78929,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -78987,7 +78988,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -79030,7 +79031,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -79151,7 +79152,7 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %if.else.i.i.i
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %15 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %15) #13
+  tail call void @__clang_call_terminate(ptr %15) #14
   unreachable
 }
 
@@ -79269,7 +79270,7 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %if.else.i.i.i
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %15 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %15) #13
+  tail call void @__clang_call_terminate(ptr %15) #14
   unreachable
 }
 
@@ -79387,7 +79388,7 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %if.else.i.i.i
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %15 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %15) #13
+  tail call void @__clang_call_terminate(ptr %15) #14
   unreachable
 }
 
@@ -79505,7 +79506,7 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %if.else.i.i.i
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %15 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %15) #13
+  tail call void @__clang_call_terminate(ptr %15) #14
   unreachable
 }
 
@@ -79623,7 +79624,7 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %if.else.i.i.i
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %15 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %15) #13
+  tail call void @__clang_call_terminate(ptr %15) #14
   unreachable
 }
 
@@ -79741,7 +79742,7 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %if.else.i.i.i
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %15 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %15) #13
+  tail call void @__clang_call_terminate(ptr %15) #14
   unreachable
 }
 
@@ -79859,7 +79860,7 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %if.else.i.i.i
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %15 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %15) #13
+  tail call void @__clang_call_terminate(ptr %15) #14
   unreachable
 }
 
@@ -79977,7 +79978,7 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %if.else.i.i.i
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %15 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %15) #13
+  tail call void @__clang_call_terminate(ptr %15) #14
   unreachable
 }
 
@@ -80105,7 +80106,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -80148,7 +80149,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -80269,7 +80270,7 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %if.else.i.i.i
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %15 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %15) #13
+  tail call void @__clang_call_terminate(ptr %15) #14
   unreachable
 }
 
@@ -80325,7 +80326,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -80368,7 +80369,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -80427,7 +80428,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -80470,7 +80471,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -80529,7 +80530,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -80572,7 +80573,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -80631,7 +80632,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -80674,7 +80675,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -80733,7 +80734,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -80776,7 +80777,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -80835,7 +80836,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -80878,7 +80879,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -80937,7 +80938,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -80980,7 +80981,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -81039,7 +81040,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -81082,7 +81083,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -81141,7 +81142,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -81184,7 +81185,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -81243,7 +81244,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -81286,7 +81287,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -81345,7 +81346,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -81388,7 +81389,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -81447,7 +81448,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -81490,7 +81491,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -81549,7 +81550,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -81592,7 +81593,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -81651,7 +81652,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS6_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -81694,7 +81695,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -81887,7 +81888,7 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %if.else.i.i.i
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %15 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %15) #13
+  tail call void @__clang_call_terminate(ptr %15) #14
   unreachable
 }
 
@@ -81943,7 +81944,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -81986,7 +81987,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -82045,7 +82046,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -82088,7 +82089,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -82277,7 +82278,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -82487,7 +82488,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -82699,7 +82700,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -82974,7 +82975,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %return
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #13
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %if.else, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit
@@ -83043,7 +83044,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -83212,7 +83213,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -83254,7 +83255,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %8) #12
+  call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit: ; preds = %invoke.cont4, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -83263,7 +83264,7 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1EL
 lpad:                                             ; preds = %invoke.cont, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #12
   resume { ptr, i32 } %13
 }
 
@@ -83367,7 +83368,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -83548,7 +83549,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -83712,7 +83713,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -83754,7 +83755,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %8) #12
+  call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit: ; preds = %invoke.cont4, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -83763,7 +83764,7 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS
 lpad:                                             ; preds = %invoke.cont, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #12
   resume { ptr, i32 } %13
 }
 
@@ -83867,7 +83868,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -84155,7 +84156,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -84324,7 +84325,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -84366,7 +84367,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %8) #12
+  call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit: ; preds = %invoke.cont4, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -84375,7 +84376,7 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1EL
 lpad:                                             ; preds = %invoke.cont, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #12
   resume { ptr, i32 } %13
 }
 
@@ -84479,7 +84480,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -84689,7 +84690,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -84901,7 +84902,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -85176,7 +85177,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %return
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #13
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %if.else, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -85245,7 +85246,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -85414,7 +85415,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -85456,7 +85457,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %8) #12
+  call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit: ; preds = %invoke.cont4, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -85465,7 +85466,7 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16E
 lpad:                                             ; preds = %invoke.cont, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #12
   resume { ptr, i32 } %13
 }
 
@@ -85569,7 +85570,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -85750,7 +85751,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -85914,7 +85915,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -85956,7 +85957,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %8) #12
+  call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit: ; preds = %invoke.cont4, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -85965,7 +85966,7 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1
 lpad:                                             ; preds = %invoke.cont, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #12
   resume { ptr, i32 } %13
 }
 
@@ -86069,7 +86070,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -86357,7 +86358,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -86526,7 +86527,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -86568,7 +86569,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %8) #12
+  call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit: ; preds = %invoke.cont4, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -86577,7 +86578,7 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16E
 lpad:                                             ; preds = %invoke.cont, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #12
   resume { ptr, i32 } %13
 }
 
@@ -86683,7 +86684,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb1EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb1EEEm.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb1EEEm.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -86911,7 +86912,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -87124,7 +87125,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb1EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb1EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb1EEEm.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -87426,7 +87427,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %return
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #13
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %if.else, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb1EEEbEERS2_jmPNS_9hash_nodeIS3_Lb1EEE.exit
@@ -87495,7 +87496,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -87663,7 +87664,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -87705,7 +87706,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %8) #12
+  call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev.exit: ; preds = %invoke.cont4, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -87714,7 +87715,7 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1EL
 lpad:                                             ; preds = %invoke.cont, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #12
   resume { ptr, i32 } %13
 }
 
@@ -87820,7 +87821,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIiLb1EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIiLb1EEEm.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIiLb1EEEm.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -88012,7 +88013,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -88175,7 +88176,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb1EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -88217,7 +88218,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %8) #12
+  call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev.exit: ; preds = %invoke.cont4, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -88226,7 +88227,7 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS
 lpad:                                             ; preds = %invoke.cont, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #12
   resume { ptr, i32 } %13
 }
 
@@ -88332,7 +88333,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb1EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb1EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb1EEEm.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -88640,7 +88641,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -88808,7 +88809,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb1EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -88850,7 +88851,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %8) #12
+  call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev.exit: ; preds = %invoke.cont4, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -88859,7 +88860,7 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1EL
 lpad:                                             ; preds = %invoke.cont, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #12
   resume { ptr, i32 } %13
 }
 
@@ -88965,7 +88966,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb1EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb1EEEm.exit
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb1EEEm.exit: ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -89193,7 +89194,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -89406,7 +89407,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb1EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb1EEEm.exit
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb1EEEm.exit: ; preds = %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -89708,7 +89709,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %return
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #13
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %if.else, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb1EEEbEERS3_jmPNS_9hash_nodeIS4_Lb1EEE.exit
@@ -89777,7 +89778,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -89945,7 +89946,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -89987,7 +89988,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %8) #12
+  call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev.exit: ; preds = %invoke.cont4, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -89996,7 +89997,7 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24E
 lpad:                                             ; preds = %invoke.cont, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #12
   resume { ptr, i32 } %13
 }
 
@@ -90102,7 +90103,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb1EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb1EEEm.exit
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb1EEEm.exit: ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -90294,7 +90295,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -90457,7 +90458,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb1EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -90499,7 +90500,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %8) #12
+  call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev.exit: ; preds = %invoke.cont4, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -90508,7 +90509,7 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1
 lpad:                                             ; preds = %invoke.cont, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #11
+  call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #12
   resume { ptr, i32 } %13
 }
 
@@ -90614,7 +90615,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb1EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb1EEEm.exit
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb1EEEm.exit: ; preds = %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -90922,7 +90923,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -91090,7 +91091,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i.i) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb1EEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i.i
@@ -91132,7 +91133,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br i1 %isnull.i.i.i.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %8) #12
+  call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev.exit: ; preds = %invoke.cont4, %invoke.cont.i, %if.then.i.i.i.i, %if.else.i.i.i.i, %delete.notnull.i.i.i.i.i
@@ -91141,7 +91142,7 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24E
 lpad:                                             ; preds = %invoke.cont, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #11
+  call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %temp) #12
   resume { ptr, i32 } %13
 }
 
@@ -95367,7 +95368,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -95679,7 +95680,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %invoke.cont, %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #11
+  call void @_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #12
   resume { ptr, i32 } %22
 }
 
@@ -95874,7 +95875,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i, %while.body.i
@@ -95924,7 +95925,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit: ; preds = %if.then, %if.then.i, %if.then.i.i.i2, %if.else.i.i.i, %delete.notnull.i.i.i.i
@@ -96051,7 +96052,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -96499,7 +96500,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 _ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -96716,7 +96717,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 _ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableI7Align64NS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm3ELm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -96972,7 +96973,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 _ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -97200,7 +97201,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 _ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -97421,7 +97422,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -97790,7 +97791,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -98065,7 +98066,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %return
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #13
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %if.else, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit
@@ -98556,7 +98557,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -98962,7 +98963,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -99087,7 +99088,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %return
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #13
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %if.else, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit
@@ -99324,7 +99325,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -99434,7 +99435,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -99942,7 +99943,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -100200,7 +100201,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -100420,7 +100421,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %13) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %13) #13
   br label %_ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS6_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIPKvNS_4pairIKS2_11MemoryEntryEENS_25fixed_hashtable_allocatorILm500002ELm32ELm500000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS6_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -100774,7 +100775,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIi10TestObjectNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -100849,7 +100850,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i.i.i
@@ -100892,7 +100893,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -101197,7 +101198,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -101362,7 +101363,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %return
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #13
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -101533,7 +101534,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %return
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #13
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -101708,7 +101709,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %return
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #13
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -101870,7 +101871,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %return
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #13
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -102162,7 +102163,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIi10TestObjectNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -102237,7 +102238,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i.i.i
@@ -102280,7 +102281,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -102585,7 +102586,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -102750,7 +102751,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %return
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #13
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -102921,7 +102922,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %return
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #13
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -103096,7 +103097,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %return
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #13
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -103258,7 +103259,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %return
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #13
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -103550,7 +103551,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIi11NonCopyableNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -103606,7 +103607,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -103649,7 +103650,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -103867,7 +103868,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKi11NonCopyableEENS_25fixed_hashtable_allocatorILm8ELm16ELm2ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -103956,7 +103957,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setI10TestObjectNS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -104031,7 +104032,7 @@ if.then.i.i3.i.i.i:                               ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i3.i.i.i, %_ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i.i.i
@@ -104074,7 +104075,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -104232,7 +104233,7 @@ if.then.i.i3.i:                                   ; preds = %if.then.i.i
   br label %return
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #13
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i.i.i, %if.then.i.i3.i, %_ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i, %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit
@@ -104349,7 +104350,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 _ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -104628,7 +104629,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setI10TestObjectNS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -104703,7 +104704,7 @@ if.then.i.i3.i.i.i:                               ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i3.i.i.i, %_ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i.i.i
@@ -104746,7 +104747,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -104904,7 +104905,7 @@ if.then.i.i3.i:                                   ; preds = %if.then.i.i
   br label %return
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %result.0.i.i) #13
   br label %return
 
 return:                                           ; preds = %delete.notnull.i.i.i.i, %if.then.i.i3.i, %_ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i, %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit
@@ -105021,7 +105022,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 _ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -105300,7 +105301,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapIi10TestObjectNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -105375,7 +105376,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i.i.i
@@ -105418,7 +105419,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -105696,7 +105697,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -106465,7 +106466,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapIi10TestObjectNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -106540,7 +106541,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS4_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i.i.i
@@ -106583,7 +106584,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -106861,7 +106862,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS4_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -107630,7 +107631,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetI10TestObjectNS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -107705,7 +107706,7 @@ if.then.i.i3.i.i.i:                               ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i3.i.i.i, %_ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i.i.i
@@ -107748,7 +107749,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -107978,7 +107979,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 _ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -108229,7 +108230,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetI10TestObjectNS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -108304,7 +108305,7 @@ if.then.i.i3.i.i.i:                               ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIS1_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i3.i.i.i, %_ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i.i.i
@@ -108347,7 +108348,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -108577,7 +108578,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit
 
 _ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS1_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -109916,12 +109917,12 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
 lpad:                                             ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #8
+declare float @llvm.ceil.f32(float) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -109975,7 +109976,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -110018,7 +110019,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -110125,7 +110126,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -110214,7 +110215,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -110270,7 +110271,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE10DoFreeNodeEPNS_9hash_nodeIiLb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -110313,7 +110314,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -110420,7 +110421,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -110509,7 +110510,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -110565,7 +110566,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -110608,7 +110609,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -110715,7 +110716,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -110804,7 +110805,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #11
+  call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #12
   resume { ptr, i32 } %3
 }
 
@@ -110860,7 +110861,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNode.08.i.i) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE10DoFreeNodeEPNS_9hash_nodeIS3_Lb0EEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i
@@ -110903,7 +110904,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %isnull.i.i.i.i, label %invoke.cont2, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.else.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
@@ -111010,7 +111011,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm18ELm16ELm16ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -111120,7 +111121,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIiLb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -111378,7 +111379,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoFreeBucketsEPPNS_9hash_nodeIS3_Lb0EEEm.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit, %for.end, %if.then.i, %if.then.i.i.i, %delete.notnull.i.i.i.i
@@ -111535,29 +111536,30 @@ return:                                           ; preds = %for.body.i, %return
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
+declare void @llvm.assume(i1 noundef) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { builtin nounwind }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { builtin allocsize(0) }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { nounwind }
+attributes #13 = { builtin nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

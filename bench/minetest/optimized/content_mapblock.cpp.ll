@@ -168,7 +168,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %1) #23
+  tail call void @_ZdlPv(ptr noundef %1) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -177,7 +177,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   br i1 %cmp.i.i.i.1, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.1, label %if.then.i.i.1
 
 if.then.i.i.1:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %3) #23
+  tail call void @_ZdlPv(ptr noundef %3) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.1: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -192,7 +192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1: ; preds = %_ZN
   br i1 %cmp.i.i.i.2, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.2, label %if.then.i.i.2
 
 if.then.i.i.2:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1
-  tail call void @_ZdlPv(ptr noundef %5) #23
+  tail call void @_ZdlPv(ptr noundef %5) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.2: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.1
@@ -207,7 +207,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2: ; preds = %_ZN
   br i1 %cmp.i.i.i.3, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.3, label %if.then.i.i.3
 
 if.then.i.i.3:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2
-  tail call void @_ZdlPv(ptr noundef %7) #23
+  tail call void @_ZdlPv(ptr noundef %7) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.3
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.3: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2
@@ -222,7 +222,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.3: ; preds = %_ZN
   br i1 %cmp.i.i.i.4, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.4, label %if.then.i.i.4
 
 if.then.i.i.4:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.3
-  tail call void @_ZdlPv(ptr noundef %9) #23
+  tail call void @_ZdlPv(ptr noundef %9) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.4: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.3
@@ -237,7 +237,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4: ; preds = %_ZN
   br i1 %cmp.i.i.i.5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.5, label %if.then.i.i.5
 
 if.then.i.i.5:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4
-  tail call void @_ZdlPv(ptr noundef %11) #23
+  tail call void @_ZdlPv(ptr noundef %11) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.5
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.5: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4
@@ -252,7 +252,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.5: ; preds = %_ZN
   br i1 %cmp.i.i.i.6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.6, label %if.then.i.i.6
 
 if.then.i.i.6:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.5
-  tail call void @_ZdlPv(ptr noundef %13) #23
+  tail call void @_ZdlPv(ptr noundef %13) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.6
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.6: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.5
@@ -267,7 +267,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.6: ; preds = %_ZN
   br i1 %cmp.i.i.i.7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.7, label %if.then.i.i.7
 
 if.then.i.i.7:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.6
-  tail call void @_ZdlPv(ptr noundef %15) #23
+  tail call void @_ZdlPv(ptr noundef %15) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.7
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.7: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.6
@@ -282,7 +282,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.7: ; preds = %_ZN
   br i1 %cmp.i.i.i.8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.8, label %if.then.i.i.8
 
 if.then.i.i.8:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.7
-  tail call void @_ZdlPv(ptr noundef %17) #23
+  tail call void @_ZdlPv(ptr noundef %17) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.8
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.8: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.7
@@ -297,7 +297,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.8: ; preds = %_ZN
   br i1 %cmp.i.i.i.9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.9, label %if.then.i.i.9
 
 if.then.i.i.9:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.8
-  tail call void @_ZdlPv(ptr noundef %19) #23
+  tail call void @_ZdlPv(ptr noundef %19) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.9
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.9: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.8
@@ -312,7 +312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.9: ; preds = %_ZN
   br i1 %cmp.i.i.i.10, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.10, label %if.then.i.i.10
 
 if.then.i.i.10:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.9
-  tail call void @_ZdlPv(ptr noundef %21) #23
+  tail call void @_ZdlPv(ptr noundef %21) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.10
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.10: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.9
@@ -327,7 +327,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.10: ; preds = %_Z
   br i1 %cmp.i.i.i.11, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.11, label %if.then.i.i.11
 
 if.then.i.i.11:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.10
-  tail call void @_ZdlPv(ptr noundef %23) #23
+  tail call void @_ZdlPv(ptr noundef %23) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.11
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.11: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.10
@@ -342,7 +342,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.11: ; preds = %_Z
   br i1 %cmp.i.i.i.12, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.12, label %if.then.i.i.12
 
 if.then.i.i.12:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.11
-  tail call void @_ZdlPv(ptr noundef %25) #23
+  tail call void @_ZdlPv(ptr noundef %25) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.12: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.11
@@ -388,10 +388,10 @@ entry:
   %retval.sroa.0.0.insert.insert.i = or disjoint i48 %retval.sroa.2.0.insert.insert.i, %retval.sroa.3.0.insert.shift.i
   store i48 %retval.sroa.0.0.insert.insert.i, ptr %blockpos_nodes, align 8
   %4 = load ptr, ptr @g_settings, align 8, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #24
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #25
   %5 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %5, ptr %ref.tmp, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #25
   store i64 17, ptr %__dnew.i.i, align 8, !tbaa !43
   %call2.i11.i14 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i, i64 noundef 0)
   store ptr %call2.i11.i14, ptr %ref.tmp, align 8, !tbaa !4
@@ -403,7 +403,7 @@ entry:
   %7 = load ptr, ptr %ref.tmp, align 8, !tbaa !4
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %7, i64 %6
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #25
   %call8 = invoke noundef zeroext i1 @_ZNK8Settings7getBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236) %4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont7 unwind label %lpad6
 
@@ -430,12 +430,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i15:                                    ; preds = %land.end
-  call void @_ZdlPv(ptr noundef %11) #23
+  call void @_ZdlPv(ptr noundef %11) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   %enable_mesh_cache = getelementptr inbounds i8, ptr %this, i64 38
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #24
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #25
   store i8 %frombool, ptr %enable_mesh_cache, align 2, !tbaa !48
   %cur_node = getelementptr inbounds i8, ptr %this, i64 40
   store i16 0, ptr %cur_node, align 8, !tbaa !38
@@ -581,11 +581,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %ehcleanup
 
 if.then.i.i38:                                    ; preds = %lpad6
-  call void @_ZdlPv(ptr noundef %14) #23
+  call void @_ZdlPv(ptr noundef %14) #24
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i39
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #24
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #25
   resume { ptr, i32 } %13
 }
 
@@ -827,7 +827,7 @@ define dso_local void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dI
 entry:
   %vertices = alloca [4 x %"struct.irr::video::S3DVertex"], align 16
   %normal2 = alloca %"class.irr::core::vector3d.0", align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %vertices) #25
   %Color.i = getelementptr inbounds i8, ptr %vertices, i64 24
   %TCoords.i = getelementptr inbounds i8, ptr %vertices, i64 28
   %arrayctor.cur.ptr.1 = getelementptr inbounds i8, ptr %vertices, i64 36
@@ -876,7 +876,7 @@ land.rhs.i.i:                                     ; preds = %land.rhs
 land.end:                                         ; preds = %land.rhs.i.i, %land.rhs, %entry.land.end_crit_edge
   %4 = phi i16 [ %.pre60, %entry.land.end_crit_edge ], [ %2, %land.rhs ], [ 0, %land.rhs.i.i ]
   %5 = phi i1 [ false, %entry.land.end_crit_edge ], [ true, %land.rhs ], [ %cmp11.i.i, %land.rhs.i.i ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %normal2) #24
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %normal2) #25
   %6 = insertelement <2 x i16> poison, i16 %.pre, i64 0
   %7 = insertelement <2 x i16> %6, i16 %4, i64 1
   %8 = sitofp <2 x i16> %7 to <2 x float>
@@ -1665,8 +1665,8 @@ if.end29.3:                                       ; preds = %if.then25.3, %if.en
   %428 = load ptr, ptr %collector, align 8, !tbaa !31
   %tile = getelementptr inbounds i8, ptr %this, i64 152
   call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %428, ptr noundef nonnull align 8 dereferenceable(120) %tile, ptr noundef nonnull %vertices, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %normal2) #24
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %normal2) #25
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %vertices) #25
   ret void
 }
 
@@ -1860,7 +1860,7 @@ for.cond.cleanup5:                                ; preds = %if.end
 
 for.body6:                                        ; preds = %if.end, %entry
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %if.end ]
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp) #25
   %0 = load i16, ptr %blockpos_nodes, align 8, !tbaa !38
   %1 = load i16, ptr %cur_node7, align 8, !tbaa !38
   %add.i = add i16 %1, %0
@@ -1884,7 +1884,7 @@ for.body6:                                        ; preds = %if.end, %entry
   %conv2.i = trunc i16 %call10 to i8
   %7 = lshr i16 %call10, 8
   %conv4.i = trunc nuw i16 %7 to i8
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp) #25
   %conv = uitofp i8 %conv2.i to float
   %arrayidx14 = getelementptr inbounds [8 x float], ptr %frame12, i64 0, i64 %indvars.iv
   store float %conv, ptr %arrayidx14, align 4, !tbaa !49
@@ -2322,7 +2322,7 @@ entry:
   %sub = fadd nsz float %1, -1.000000e+00
   %2 = tail call nsz noundef float @llvm.fabs.f32(float %sub)
   %cmp = fcmp nsz ogt float %2, 0x3F50624DE0000000
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %texture_coord_buf) #24
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %texture_coord_buf) #25
   %3 = load float, ptr %box, align 8, !tbaa !107
   %Y = getelementptr inbounds i8, ptr %box, i64 4
   %Z = getelementptr inbounds i8, ptr %box, i64 8
@@ -2494,7 +2494,7 @@ if.end34:                                         ; preds = %if.then31, %if.end2
   br i1 %tobool39.not, label %if.else, label %if.then40
 
 if.then40:                                        ; preds = %if.end34
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %lights) #24
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %lights) #25
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %d)
   store float %3, ptr %d, align 8, !tbaa !107
   %d.4.d.4.d.4.Y.i138.sroa_idx = getelementptr inbounds i8, ptr %d, i64 4
@@ -3106,7 +3106,7 @@ if.then40:                                        ; preds = %if.end34
   %ref.tmp.sroa.4.0.arrayidx.sroa_idx.7 = getelementptr inbounds i8, ptr %lights, i64 92
   store float %476, ptr %ref.tmp.sroa.4.0.arrayidx.sroa_idx.7, align 4, !tbaa !49
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %d)
-  call void @llvm.lifetime.start.p0(i64 864, ptr nonnull %vertices.i) #24
+  call void @llvm.lifetime.start.p0(i64 864, ptr nonnull %vertices.i) #25
   call fastcc void @_ZL19setupCuboidVerticesRKN3irr4core8aabbox3dIfEEPKfP8TileSpeci(ptr dead_on_unwind noalias nonnull writable align 4 %vertices.i, ptr noundef nonnull align 4 dereferenceable(24) %box, ptr noundef nonnull %txc.addr.2, ptr noundef nonnull %spec.select74, i32 noundef %spec.select)
   %conv.i = zext i8 %mask to i32
   %sub.i137 = add nsw i32 %spec.select, -1
@@ -3344,12 +3344,12 @@ for.inc.i:                                        ; preds = %"_ZZN21MapblockMesh
   br i1 %exitcond.not.i, label %"_ZN21MapblockMeshGenerator10drawCuboidIZNS_21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihE3$_0EEvRKS4_S8_iS6_hOT_.exit", label %for.body.i, !llvm.loop !115
 
 "_ZN21MapblockMeshGenerator10drawCuboidIZNS_21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihE3$_0EEvRKS4_S8_iS6_hOT_.exit": ; preds = %for.inc.i
-  call void @llvm.lifetime.end.p0(i64 864, ptr nonnull %vertices.i) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %lights) #24
+  call void @llvm.lifetime.end.p0(i64 864, ptr nonnull %vertices.i) #25
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %lights) #25
   br label %if.end61
 
 if.else:                                          ; preds = %if.end34
-  call void @llvm.lifetime.start.p0(i64 864, ptr nonnull %vertices.i140) #24
+  call void @llvm.lifetime.start.p0(i64 864, ptr nonnull %vertices.i140) #25
   call fastcc void @_ZL19setupCuboidVerticesRKN3irr4core8aabbox3dIfEEPKfP8TileSpeci(ptr dead_on_unwind noalias nonnull writable align 4 %vertices.i140, ptr noundef nonnull align 4 dereferenceable(24) %box, ptr noundef nonnull %txc.addr.2, ptr noundef nonnull %spec.select74, i32 noundef %spec.select)
   %conv.i141 = zext i8 %mask to i32
   %sub.i142 = add nsw i32 %spec.select, -1
@@ -3359,7 +3359,7 @@ if.else:                                          ; preds = %if.end34
   br i1 %tobool.not.i145, label %if.end.i147, label %for.inc.i146
 
 if.end.i147:                                      ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i) #24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i) #25
   %light.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %545 = load i16, ptr %light.i.i, align 8
   %light_source.i.i149 = getelementptr inbounds i8, ptr %0, i64 3041
@@ -3388,7 +3388,7 @@ if.then.i.i158:                                   ; preds = %if.end.i147
   store i32 %549, ptr %Color.2.i.i153, align 4, !tbaa !100
   %Color.3.i.i154 = getelementptr inbounds i8, ptr %vertices.i140, i64 132
   store i32 %549, ptr %Color.3.i.i154, align 4, !tbaa !100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i) #25
   %cond.i155 = call i32 @llvm.smin.i32(i32 %sub.i142, i32 0)
   %550 = load ptr, ptr %collector.i143, align 8, !tbaa !31
   %idxprom.i156 = sext i32 %cond.i155 to i64
@@ -3403,7 +3403,7 @@ for.inc.i146:                                     ; preds = %"_ZZN21MapblockMesh
 
 if.end.1.i:                                       ; preds = %for.inc.i146
   %arrayidx.i.i.1.i = getelementptr inbounds i8, ptr %vertices.i140, i64 144
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i) #24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i) #25
   %light.i.1.i = getelementptr inbounds i8, ptr %this, i64 72
   %551 = load i16, ptr %light.i.1.i, align 8
   %552 = load ptr, ptr %f, align 8, !tbaa !62
@@ -3433,7 +3433,7 @@ if.then.i.1.i:                                    ; preds = %if.end.1.i
   store i32 %556, ptr %Color.2.i.1.i, align 4, !tbaa !100
   %Color.3.i.1.i = getelementptr inbounds i8, ptr %vertices.i140, i64 276
   store i32 %556, ptr %Color.3.i.1.i, align 4, !tbaa !100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i) #25
   %cond.1.i = call i32 @llvm.smin.i32(i32 %sub.i142, i32 1)
   %557 = load ptr, ptr %collector.i143, align 8, !tbaa !31
   %idxprom.1.i = sext i32 %cond.1.i to i64
@@ -3448,7 +3448,7 @@ for.inc.1.i:                                      ; preds = %"_ZZN21MapblockMesh
 
 if.end.2.i:                                       ; preds = %for.inc.1.i
   %arrayidx.i.i.2.i = getelementptr inbounds i8, ptr %vertices.i140, i64 288
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i) #24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i) #25
   %light.i.2.i = getelementptr inbounds i8, ptr %this, i64 72
   %558 = load i16, ptr %light.i.2.i, align 8
   %559 = load ptr, ptr %f, align 8, !tbaa !62
@@ -3478,7 +3478,7 @@ if.then.i.2.i:                                    ; preds = %if.end.2.i
   store i32 %563, ptr %Color.2.i.2.i, align 4, !tbaa !100
   %Color.3.i.2.i = getelementptr inbounds i8, ptr %vertices.i140, i64 420
   store i32 %563, ptr %Color.3.i.2.i, align 4, !tbaa !100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i) #25
   %cond.2.i = call i32 @llvm.smin.i32(i32 %sub.i142, i32 2)
   %564 = load ptr, ptr %collector.i143, align 8, !tbaa !31
   %idxprom.2.i = sext i32 %cond.2.i to i64
@@ -3493,7 +3493,7 @@ for.inc.2.i:                                      ; preds = %"_ZZN21MapblockMesh
 
 if.end.3.i:                                       ; preds = %for.inc.2.i
   %arrayidx.i.i.3.i = getelementptr inbounds i8, ptr %vertices.i140, i64 432
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i) #24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i) #25
   %light.i.3.i = getelementptr inbounds i8, ptr %this, i64 72
   %565 = load i16, ptr %light.i.3.i, align 8
   %566 = load ptr, ptr %f, align 8, !tbaa !62
@@ -3523,7 +3523,7 @@ if.then.i.3.i:                                    ; preds = %if.end.3.i
   store i32 %570, ptr %Color.2.i.3.i, align 4, !tbaa !100
   %Color.3.i.3.i = getelementptr inbounds i8, ptr %vertices.i140, i64 564
   store i32 %570, ptr %Color.3.i.3.i, align 4, !tbaa !100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i) #25
   %cond.3.i = call i32 @llvm.smin.i32(i32 %sub.i142, i32 3)
   %571 = load ptr, ptr %collector.i143, align 8, !tbaa !31
   %idxprom.3.i = sext i32 %cond.3.i to i64
@@ -3538,7 +3538,7 @@ for.inc.3.i:                                      ; preds = %"_ZZN21MapblockMesh
 
 if.end.4.i:                                       ; preds = %for.inc.3.i
   %arrayidx.i.i.4.i = getelementptr inbounds i8, ptr %vertices.i140, i64 576
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i) #24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i) #25
   %light.i.4.i = getelementptr inbounds i8, ptr %this, i64 72
   %572 = load i16, ptr %light.i.4.i, align 8
   %573 = load ptr, ptr %f, align 8, !tbaa !62
@@ -3568,7 +3568,7 @@ if.then.i.4.i:                                    ; preds = %if.end.4.i
   store i32 %577, ptr %Color.2.i.4.i, align 4, !tbaa !100
   %Color.3.i.4.i = getelementptr inbounds i8, ptr %vertices.i140, i64 708
   store i32 %577, ptr %Color.3.i.4.i, align 4, !tbaa !100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i) #25
   %cond.4.i = call i32 @llvm.smin.i32(i32 %sub.i142, i32 4)
   %578 = load ptr, ptr %collector.i143, align 8, !tbaa !31
   %idxprom.4.i = sext i32 %cond.4.i to i64
@@ -3583,7 +3583,7 @@ for.inc.4.i:                                      ; preds = %"_ZZN21MapblockMesh
 
 if.end.5.i:                                       ; preds = %for.inc.4.i
   %arrayidx.i.i.5.i = getelementptr inbounds i8, ptr %vertices.i140, i64 720
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i) #24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i) #25
   %light.i.5.i = getelementptr inbounds i8, ptr %this, i64 72
   %579 = load i16, ptr %light.i.5.i, align 8
   %580 = load ptr, ptr %f, align 8, !tbaa !62
@@ -3613,7 +3613,7 @@ if.then.i.5.i:                                    ; preds = %if.end.5.i
   store i32 %584, ptr %Color.2.i.5.i, align 4, !tbaa !100
   %Color.3.i.5.i = getelementptr inbounds i8, ptr %vertices.i140, i64 852
   store i32 %584, ptr %Color.3.i.5.i, align 4, !tbaa !100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i) #25
   %cond.5.i = call i32 @llvm.smin.i32(i32 %sub.i142, i32 5)
   %585 = load ptr, ptr %collector.i143, align 8, !tbaa !31
   %idxprom.5.i = sext i32 %cond.5.i to i64
@@ -3622,11 +3622,11 @@ if.then.i.5.i:                                    ; preds = %if.end.5.i
   br label %"_ZN21MapblockMeshGenerator10drawCuboidIZNS_21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihE3$_1EEvRKS4_S8_iS6_hOT_.exit"
 
 "_ZN21MapblockMeshGenerator10drawCuboidIZNS_21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihE3$_1EEvRKS4_S8_iS6_hOT_.exit": ; preds = %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.5.i", %for.inc.4.i
-  call void @llvm.lifetime.end.p0(i64 864, ptr nonnull %vertices.i140) #24
+  call void @llvm.lifetime.end.p0(i64 864, ptr nonnull %vertices.i140) #25
   br label %if.end61
 
 if.end61:                                         ; preds = %"_ZN21MapblockMeshGenerator10drawCuboidIZNS_21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihE3$_1EEvRKS4_S8_iS6_hOT_.exit", %"_ZN21MapblockMeshGenerator10drawCuboidIZNS_21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihE3$_0EEvRKS4_S8_iS6_hOT_.exit"
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %texture_coord_buf) #24
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %texture_coord_buf) #25
   ret void
 }
 
@@ -3645,7 +3645,7 @@ entry:
   %lights117 = alloca [6 x [4 x %struct.LightPair]], align 16
   %corner = alloca %"class.irr::core::vector3d", align 2
   %ref.tmp134 = alloca %"class.irr::core::vector3d", align 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %tiles) #24
+  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %tiles) #25
   store i8 0, ptr %tiles, align 16, !tbaa !51
   %rotation.i = getelementptr inbounds i8, ptr %tiles, i64 1
   store i8 0, ptr %rotation.i, align 1, !tbaa !52
@@ -3873,7 +3873,7 @@ entry:
   store i32 0, ptr %color.i.1.i.5, align 8, !tbaa !60
   %scale.i.1.i.5 = getelementptr inbounds i8, ptr %tiles, i64 716
   store i8 1, ptr %scale.i.1.i.5, align 4, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lights) #24
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lights) #25
   %cur_node = getelementptr inbounds i8, ptr %this, i64 40
   %n = getelementptr inbounds i8, ptr %this, i64 60
   %0 = load i16, ptr %n, align 4, !tbaa !116
@@ -3921,7 +3921,7 @@ for.body:                                         ; preds = %cleanup83, %entry
   %10 = or disjoint i48 %retval.sroa.2.0.insert.shift.i207, %retval.sroa.0.0.insert.ext.i209
   %retval.sroa.0.0.insert.insert.i210 = or disjoint i48 %10, %retval.sroa.3.0.insert.shift.i205
   %11 = load ptr, ptr %this, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #25
   store i48 %retval.sroa.0.0.insert.insert.i210, ptr %voxel_area.i, align 8, !tbaa.struct !117
   store i48 %retval.sroa.0.0.insert.insert.i210, ptr %MaxEdge.i.i, align 2, !tbaa.struct !117
   store i48 4295032833, ptr %m_cache_extent.i.i, align 4, !tbaa.struct !117
@@ -3971,7 +3971,7 @@ if.end.i:                                         ; preds = %for.body
 
 _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit: ; preds = %if.end.i, %for.body
   %retval.sroa.0.0.insert.insert.i211 = phi i32 [ %21, %if.end.i ], [ 127, %for.body ]
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #25
   %neighbor.sroa.0.0.extract.trunc = trunc i32 %retval.sroa.0.0.insert.insert.i211 to i16
   %22 = load ptr, ptr %f, align 8, !tbaa !62
   %drawtype = getelementptr inbounds i8, ptr %22, i64 1538
@@ -4103,9 +4103,9 @@ if.end94:                                         ; preds = %for.cond.cleanup
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul.i, i64 0
   %origin = getelementptr inbounds i8, ptr %this, i64 48
   %ref.tmp97.sroa.4.0.origin.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %box) #24
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %box) #25
   %ref.tmp105.sroa.4.0.MaxEdge.i.sroa_idx = getelementptr inbounds i8, ptr %box, i64 16
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %texture_coord_buf) #24
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %texture_coord_buf) #25
   %49 = insertelement <4 x float> poison, float %mul.i, i64 0
   %50 = insertelement <2 x i48> poison, i48 %agg.tmp98.sroa.0.0.copyload, i64 0
   %51 = shufflevector <2 x i48> %50, <2 x i48> poison, <2 x i32> zeroinitializer
@@ -4183,19 +4183,19 @@ if.end94:                                         ; preds = %for.cond.cleanup
   br i1 %tobool115.not, label %if.else, label %if.then116
 
 if.then116:                                       ; preds = %if.end94
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %lights117) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %lights117) #25
   br label %for.cond123.preheader
 
 for.cond123.preheader:                            ; preds = %for.cond123.preheader, %if.then116
   %indvars.iv295 = phi i64 [ 0, %if.then116 ], [ %indvars.iv.next296, %for.cond123.preheader ]
   %arrayidx141 = getelementptr inbounds [6 x %"class.irr::core::vector3d"], ptr @_ZN12_GLOBAL__N_117nodebox_tile_dirsE, i64 0, i64 %indvars.iv295
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %corner) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %corner) #25
   %arrayidx130 = getelementptr inbounds [6 x [4 x i8]], ptr @_ZL13light_indices, i64 0, i64 %indvars.iv295, i64 0
   %94 = load i8, ptr %arrayidx130, align 4, !tbaa !44
   %idxprom131 = zext i8 %94 to i64
   %arrayidx132 = getelementptr inbounds [8 x %"class.irr::core::vector3d"], ptr @_ZL10light_dirs, i64 0, i64 %idxprom131
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx132, i64 6, i1 false), !tbaa.struct !117
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp134) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp134) #25
   %95 = load i16, ptr %blockpos_nodes, align 8, !tbaa !38
   %96 = load i16, ptr %cur_node, align 8, !tbaa !38
   %add.i241 = add i16 %96, %95
@@ -4217,15 +4217,15 @@ for.cond123.preheader:                            ; preds = %for.cond123.prehead
   %call143 = call noundef zeroext i16 @_Z19getSmoothLightSolidRKN3irr4core8vector3dIsEES4_S4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp134, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx141, ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef %101)
   %arrayidx147 = getelementptr inbounds [6 x [4 x %struct.LightPair]], ptr %lights117, i64 0, i64 %indvars.iv295, i64 0
   store i16 %call143, ptr %arrayidx147, align 8, !tbaa.struct !132
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp134) #24
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %corner) #24
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %corner) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp134) #25
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %corner) #25
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %corner) #25
   %arrayidx130.1 = getelementptr inbounds [6 x [4 x i8]], ptr @_ZL13light_indices, i64 0, i64 %indvars.iv295, i64 1
   %102 = load i8, ptr %arrayidx130.1, align 1, !tbaa !44
   %idxprom131.1 = zext i8 %102 to i64
   %arrayidx132.1 = getelementptr inbounds [8 x %"class.irr::core::vector3d"], ptr @_ZL10light_dirs, i64 0, i64 %idxprom131.1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx132.1, i64 6, i1 false), !tbaa.struct !117
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp134) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp134) #25
   %103 = load i16, ptr %blockpos_nodes, align 8, !tbaa !38
   %104 = load i16, ptr %cur_node, align 8, !tbaa !38
   %add.i241.1 = add i16 %104, %103
@@ -4247,15 +4247,15 @@ for.cond123.preheader:                            ; preds = %for.cond123.prehead
   %call143.1 = call noundef zeroext i16 @_Z19getSmoothLightSolidRKN3irr4core8vector3dIsEES4_S4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp134, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx141, ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef %109)
   %arrayidx147.1 = getelementptr inbounds [6 x [4 x %struct.LightPair]], ptr %lights117, i64 0, i64 %indvars.iv295, i64 1
   store i16 %call143.1, ptr %arrayidx147.1, align 2, !tbaa.struct !132
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp134) #24
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %corner) #24
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %corner) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp134) #25
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %corner) #25
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %corner) #25
   %arrayidx130.2 = getelementptr inbounds [6 x [4 x i8]], ptr @_ZL13light_indices, i64 0, i64 %indvars.iv295, i64 2
   %110 = load i8, ptr %arrayidx130.2, align 2, !tbaa !44
   %idxprom131.2 = zext i8 %110 to i64
   %arrayidx132.2 = getelementptr inbounds [8 x %"class.irr::core::vector3d"], ptr @_ZL10light_dirs, i64 0, i64 %idxprom131.2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx132.2, i64 6, i1 false), !tbaa.struct !117
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp134) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp134) #25
   %111 = load i16, ptr %blockpos_nodes, align 8, !tbaa !38
   %112 = load i16, ptr %cur_node, align 8, !tbaa !38
   %add.i241.2 = add i16 %112, %111
@@ -4277,15 +4277,15 @@ for.cond123.preheader:                            ; preds = %for.cond123.prehead
   %call143.2 = call noundef zeroext i16 @_Z19getSmoothLightSolidRKN3irr4core8vector3dIsEES4_S4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp134, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx141, ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef %117)
   %arrayidx147.2 = getelementptr inbounds [6 x [4 x %struct.LightPair]], ptr %lights117, i64 0, i64 %indvars.iv295, i64 2
   store i16 %call143.2, ptr %arrayidx147.2, align 4, !tbaa.struct !132
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp134) #24
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %corner) #24
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %corner) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp134) #25
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %corner) #25
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %corner) #25
   %arrayidx130.3 = getelementptr inbounds [6 x [4 x i8]], ptr @_ZL13light_indices, i64 0, i64 %indvars.iv295, i64 3
   %118 = load i8, ptr %arrayidx130.3, align 1, !tbaa !44
   %idxprom131.3 = zext i8 %118 to i64
   %arrayidx132.3 = getelementptr inbounds [8 x %"class.irr::core::vector3d"], ptr @_ZL10light_dirs, i64 0, i64 %idxprom131.3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx132.3, i64 6, i1 false), !tbaa.struct !117
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp134) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp134) #25
   %119 = load i16, ptr %blockpos_nodes, align 8, !tbaa !38
   %120 = load i16, ptr %cur_node, align 8, !tbaa !38
   %add.i241.3 = add i16 %120, %119
@@ -4307,14 +4307,14 @@ for.cond123.preheader:                            ; preds = %for.cond123.prehead
   %call143.3 = call noundef zeroext i16 @_Z19getSmoothLightSolidRKN3irr4core8vector3dIsEES4_S4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp134, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx141, ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef %125)
   %arrayidx147.3 = getelementptr inbounds [6 x [4 x %struct.LightPair]], ptr %lights117, i64 0, i64 %indvars.iv295, i64 3
   store i16 %call143.3, ptr %arrayidx147.3, align 2, !tbaa.struct !132
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp134) #24
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %corner) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp134) #25
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %corner) #25
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
   %exitcond298.not = icmp eq i64 %indvars.iv.next296, 6
   br i1 %exitcond298.not, label %for.cond.cleanup121, label %for.cond123.preheader, !llvm.loop !133
 
 for.cond.cleanup121:                              ; preds = %for.cond123.preheader
-  call void @llvm.lifetime.start.p0(i64 864, ptr nonnull %vertices.i) #24
+  call void @llvm.lifetime.start.p0(i64 864, ptr nonnull %vertices.i) #25
   call fastcc void @_ZL19setupCuboidVerticesRKN3irr4core8aabbox3dIfEEPKfP8TileSpeci(ptr dead_on_unwind noalias nonnull writable align 4 %vertices.i, ptr noundef nonnull align 4 dereferenceable(24) %box, ptr noundef nonnull %texture_coord_buf, ptr noundef nonnull %tiles, i32 noundef 6)
   %conv.i233 = zext i8 %48 to i32
   %collector.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -4446,12 +4446,12 @@ for.inc.i:                                        ; preds = %"_ZZN21MapblockMesh
   br i1 %exitcond.not.i, label %"_ZN21MapblockMeshGenerator10drawCuboidIZNS_13drawSolidNodeEvE3$_0EEvRKN3irr4core8aabbox3dIfEEP8TileSpeciPKfhOT_.exit", label %for.body.i, !llvm.loop !134
 
 "_ZN21MapblockMeshGenerator10drawCuboidIZNS_13drawSolidNodeEvE3$_0EEvRKN3irr4core8aabbox3dIfEEP8TileSpeciPKfhOT_.exit": ; preds = %for.inc.i
-  call void @llvm.lifetime.end.p0(i64 864, ptr nonnull %vertices.i) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %lights117) #24
+  call void @llvm.lifetime.end.p0(i64 864, ptr nonnull %vertices.i) #25
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %lights117) #25
   br label %if.end162
 
 if.else:                                          ; preds = %if.end94
-  call void @llvm.lifetime.start.p0(i64 864, ptr nonnull %vertices.i257) #24
+  call void @llvm.lifetime.start.p0(i64 864, ptr nonnull %vertices.i257) #25
   call fastcc void @_ZL19setupCuboidVerticesRKN3irr4core8aabbox3dIfEEPKfP8TileSpeci(ptr dead_on_unwind noalias nonnull writable align 4 %vertices.i257, ptr noundef nonnull align 4 dereferenceable(24) %box, ptr noundef nonnull %texture_coord_buf, ptr noundef nonnull %tiles, i32 noundef 6)
   %conv.i258 = zext i8 %48 to i32
   %collector.i259 = getelementptr inbounds i8, ptr %this, i64 8
@@ -4460,7 +4460,7 @@ if.else:                                          ; preds = %if.end94
   br i1 %tobool.not.i261, label %if.end.i263, label %for.inc.i262
 
 if.end.i263:                                      ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i256) #24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i256) #25
   %165 = load i16, ptr %lights, align 2, !tbaa !68
   %166 = load ptr, ptr %f, align 8, !tbaa !62
   %light_source.i.i267 = getelementptr inbounds i8, ptr %166, i64 3041
@@ -4489,7 +4489,7 @@ if.then.i.i273:                                   ; preds = %if.end.i263
   store i32 %170, ptr %Color.2.i.i271, align 4, !tbaa !100
   %Color.3.i.i272 = getelementptr inbounds i8, ptr %vertices.i257, i64 132
   store i32 %170, ptr %Color.3.i.i272, align 4, !tbaa !100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i256) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i256) #25
   %171 = load ptr, ptr %collector.i259, align 8, !tbaa !31
   call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %171, ptr noundef nonnull align 8 dereferenceable(120) %tiles, ptr noundef nonnull %vertices.i257, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %for.inc.i262
@@ -4501,7 +4501,7 @@ for.inc.i262:                                     ; preds = %"_ZZN21MapblockMesh
 
 if.end.1.i:                                       ; preds = %for.inc.i262
   %arrayidx.i.i.1.i = getelementptr inbounds i8, ptr %vertices.i257, i64 144
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i256) #24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i256) #25
   %arrayidx.i.1.i = getelementptr inbounds i8, ptr %lights, i64 2
   %172 = load i16, ptr %arrayidx.i.1.i, align 2, !tbaa !68
   %173 = load ptr, ptr %f, align 8, !tbaa !62
@@ -4531,7 +4531,7 @@ if.then.i.1.i:                                    ; preds = %if.end.1.i
   store i32 %177, ptr %Color.2.i.1.i, align 4, !tbaa !100
   %Color.3.i.1.i = getelementptr inbounds i8, ptr %vertices.i257, i64 276
   store i32 %177, ptr %Color.3.i.1.i, align 4, !tbaa !100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i256) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i256) #25
   %178 = load ptr, ptr %collector.i259, align 8, !tbaa !31
   call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %178, ptr noundef nonnull align 8 dereferenceable(120) %arrayctor.cur.ptr.1, ptr noundef nonnull %arrayidx.i.i.1.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %for.inc.1.i
@@ -4543,7 +4543,7 @@ for.inc.1.i:                                      ; preds = %"_ZZN21MapblockMesh
 
 if.end.2.i:                                       ; preds = %for.inc.1.i
   %arrayidx.i.i.2.i = getelementptr inbounds i8, ptr %vertices.i257, i64 288
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i256) #24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i256) #25
   %arrayidx.i.2.i = getelementptr inbounds i8, ptr %lights, i64 4
   %179 = load i16, ptr %arrayidx.i.2.i, align 2, !tbaa !68
   %180 = load ptr, ptr %f, align 8, !tbaa !62
@@ -4573,7 +4573,7 @@ if.then.i.2.i:                                    ; preds = %if.end.2.i
   store i32 %184, ptr %Color.2.i.2.i, align 4, !tbaa !100
   %Color.3.i.2.i = getelementptr inbounds i8, ptr %vertices.i257, i64 420
   store i32 %184, ptr %Color.3.i.2.i, align 4, !tbaa !100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i256) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i256) #25
   %185 = load ptr, ptr %collector.i259, align 8, !tbaa !31
   call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %185, ptr noundef nonnull align 8 dereferenceable(120) %arrayctor.cur.ptr.2, ptr noundef nonnull %arrayidx.i.i.2.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %for.inc.2.i
@@ -4585,7 +4585,7 @@ for.inc.2.i:                                      ; preds = %"_ZZN21MapblockMesh
 
 if.end.3.i:                                       ; preds = %for.inc.2.i
   %arrayidx.i.i.3.i = getelementptr inbounds i8, ptr %vertices.i257, i64 432
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i256) #24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i256) #25
   %arrayidx.i.3.i = getelementptr inbounds i8, ptr %lights, i64 6
   %186 = load i16, ptr %arrayidx.i.3.i, align 2, !tbaa !68
   %187 = load ptr, ptr %f, align 8, !tbaa !62
@@ -4615,7 +4615,7 @@ if.then.i.3.i:                                    ; preds = %if.end.3.i
   store i32 %191, ptr %Color.2.i.3.i, align 4, !tbaa !100
   %Color.3.i.3.i = getelementptr inbounds i8, ptr %vertices.i257, i64 564
   store i32 %191, ptr %Color.3.i.3.i, align 4, !tbaa !100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i256) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i256) #25
   %192 = load ptr, ptr %collector.i259, align 8, !tbaa !31
   call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %192, ptr noundef nonnull align 8 dereferenceable(120) %arrayctor.cur.ptr.3, ptr noundef nonnull %arrayidx.i.i.3.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %for.inc.3.i
@@ -4627,7 +4627,7 @@ for.inc.3.i:                                      ; preds = %"_ZZN21MapblockMesh
 
 if.end.4.i:                                       ; preds = %for.inc.3.i
   %arrayidx.i.i.4.i = getelementptr inbounds i8, ptr %vertices.i257, i64 576
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i256) #24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i256) #25
   %arrayidx.i.4.i = getelementptr inbounds i8, ptr %lights, i64 8
   %193 = load i16, ptr %arrayidx.i.4.i, align 2, !tbaa !68
   %194 = load ptr, ptr %f, align 8, !tbaa !62
@@ -4657,7 +4657,7 @@ if.then.i.4.i:                                    ; preds = %if.end.4.i
   store i32 %198, ptr %Color.2.i.4.i, align 4, !tbaa !100
   %Color.3.i.4.i = getelementptr inbounds i8, ptr %vertices.i257, i64 708
   store i32 %198, ptr %Color.3.i.4.i, align 4, !tbaa !100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i256) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i256) #25
   %199 = load ptr, ptr %collector.i259, align 8, !tbaa !31
   call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %199, ptr noundef nonnull align 8 dereferenceable(120) %arrayctor.cur.ptr.4, ptr noundef nonnull %arrayidx.i.i.4.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %for.inc.4.i
@@ -4669,7 +4669,7 @@ for.inc.4.i:                                      ; preds = %"_ZZN21MapblockMesh
 
 if.end.5.i:                                       ; preds = %for.inc.4.i
   %arrayidx.i.i.5.i = getelementptr inbounds i8, ptr %vertices.i257, i64 720
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i256) #24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %color.i.i256) #25
   %arrayidx.i.5.i = getelementptr inbounds i8, ptr %lights, i64 10
   %200 = load i16, ptr %arrayidx.i.5.i, align 2, !tbaa !68
   %201 = load ptr, ptr %f, align 8, !tbaa !62
@@ -4699,23 +4699,23 @@ if.then.i.5.i:                                    ; preds = %if.end.5.i
   store i32 %205, ptr %Color.2.i.5.i, align 4, !tbaa !100
   %Color.3.i.5.i = getelementptr inbounds i8, ptr %vertices.i257, i64 852
   store i32 %205, ptr %Color.3.i.5.i, align 4, !tbaa !100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i256) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color.i.i256) #25
   %206 = load ptr, ptr %collector.i259, align 8, !tbaa !31
   call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %206, ptr noundef nonnull align 8 dereferenceable(120) %arrayctor.cur.ptr.5, ptr noundef nonnull %arrayidx.i.i.5.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %"_ZN21MapblockMeshGenerator10drawCuboidIZNS_13drawSolidNodeEvE3$_1EEvRKN3irr4core8aabbox3dIfEEP8TileSpeciPKfhOT_.exit"
 
 "_ZN21MapblockMeshGenerator10drawCuboidIZNS_13drawSolidNodeEvE3$_1EEvRKN3irr4core8aabbox3dIfEEP8TileSpeciPKfhOT_.exit": ; preds = %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.5.i", %for.inc.4.i
-  call void @llvm.lifetime.end.p0(i64 864, ptr nonnull %vertices.i257) #24
+  call void @llvm.lifetime.end.p0(i64 864, ptr nonnull %vertices.i257) #25
   br label %if.end162
 
 if.end162:                                        ; preds = %"_ZN21MapblockMeshGenerator10drawCuboidIZNS_13drawSolidNodeEvE3$_1EEvRKN3irr4core8aabbox3dIfEEP8TileSpeciPKfhOT_.exit", %"_ZN21MapblockMeshGenerator10drawCuboidIZNS_13drawSolidNodeEvE3$_0EEvRKN3irr4core8aabbox3dIfEEP8TileSpeciPKfhOT_.exit"
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %texture_coord_buf) #24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %box) #24
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %texture_coord_buf) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %box) #25
   br label %cleanup163
 
 cleanup163:                                       ; preds = %if.end162, %for.cond.cleanup
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lights) #24
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %tiles) #24
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lights) #25
+  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %tiles) #25
   ret void
 }
 
@@ -4906,7 +4906,7 @@ _ZN21MapblockMeshGenerator14getSpecialTileEiP8TileSpecb.exit136: ; preds = %if.t
   %retval.sroa.0.0.insert.ext.i151 = zext i16 %add.i to i48
   %18 = or disjoint i48 %retval.sroa.2.0.insert.shift.i149, %retval.sroa.0.0.insert.ext.i151
   %retval.sroa.0.0.insert.insert.i152 = or disjoint i48 %retval.sroa.3.0.insert.shift.i147, %18
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #25
   store i48 %retval.sroa.0.0.insert.insert.i152, ptr %voxel_area.i, align 8, !tbaa.struct !117
   %MaxEdge.i.i = getelementptr inbounds i8, ptr %voxel_area.i, i64 6
   store i48 %retval.sroa.0.0.insert.insert.i152, ptr %MaxEdge.i.i, align 2, !tbaa.struct !117
@@ -4958,7 +4958,7 @@ if.end.i157:                                      ; preds = %_ZN21MapblockMeshGe
 
 _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit: ; preds = %if.end.i157, %_ZN21MapblockMeshGenerator14getSpecialTileEiP8TileSpecb.exit136
   %retval.sroa.0.0.insert.insert.i156 = phi i32 [ %28, %if.end.i157 ], [ 127, %_ZN21MapblockMeshGenerator14getSpecialTileEiP8TileSpecb.exit136 ]
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #25
   %ntop.sroa.0.0.extract.trunc = trunc i32 %retval.sroa.0.0.insert.insert.i156 to i16
   %29 = load ptr, ptr %this, align 8, !tbaa !12
   %30 = load i16, ptr %blockpos_nodes, align 8, !tbaa !38
@@ -4978,7 +4978,7 @@ _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit: ; preds = %if
   %retval.sroa.0.0.insert.ext.i186 = zext i16 %add.i158 to i48
   %36 = or disjoint i48 %retval.sroa.2.0.insert.shift.i184, %retval.sroa.0.0.insert.ext.i186
   %retval.sroa.0.0.insert.insert.i187 = or disjoint i48 %retval.sroa.3.0.insert.shift.i182, %36
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i188) #24
+  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i188) #25
   store i48 %retval.sroa.0.0.insert.insert.i187, ptr %voxel_area.i188, align 8, !tbaa.struct !117
   %MaxEdge.i.i189 = getelementptr inbounds i8, ptr %voxel_area.i188, i64 6
   store i48 %retval.sroa.0.0.insert.insert.i187, ptr %MaxEdge.i.i189, align 2, !tbaa.struct !117
@@ -5031,7 +5031,7 @@ if.end.i239:                                      ; preds = %_ZN16VoxelManipulat
 
 _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit242: ; preds = %if.end.i239, %_ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit
   %retval.sroa.0.0.insert.insert.i238 = phi i16 [ %47, %if.end.i239 ], [ 127, %_ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit ]
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i188) #24
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i188) #25
   %48 = load ptr, ptr %f.i, align 8, !tbaa !62
   %liquid_alternative_flowing_id = getelementptr inbounds i8, ptr %48, i64 3128
   %49 = load i16, ptr %liquid_alternative_flowing_id, align 8, !tbaa !130
@@ -5295,7 +5295,7 @@ for.body24:                                       ; preds = %cleanup, %for.cond2
   %retval.sroa.0.0.insert.ext.i174 = zext i16 %add.i162 to i48
   %18 = or disjoint i48 %retval.sroa.2.0.insert.shift.i172, %retval.sroa.0.0.insert.ext.i174
   %retval.sroa.0.0.insert.insert.i175 = or disjoint i48 %18, %retval.sroa.3.0.insert.shift.i170
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #25
   store i48 %retval.sroa.0.0.insert.insert.i175, ptr %voxel_area.i, align 8, !tbaa.struct !117
   store i48 %retval.sroa.0.0.insert.insert.i175, ptr %MaxEdge.i.i, align 2, !tbaa.struct !117
   store i48 4295032833, ptr %m_cache_extent.i.i, align 4, !tbaa.struct !117
@@ -5337,7 +5337,7 @@ for.body24:                                       ; preds = %cleanup, %for.cond2
   br i1 %tobool.not.i, label %_ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit, label %_ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit.thread
 
 _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit.thread: ; preds = %for.body24
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #25
   %content291 = getelementptr inbounds i8, ptr %arrayidx28, i64 4
   store i16 127, ptr %content291, align 4, !tbaa !144
   store float -5.000000e-01, ptr %arrayidx28, align 8, !tbaa !146
@@ -5352,7 +5352,7 @@ _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit: ; preds = %fo
   %27 = load ptr, ptr %m_data.i, align 8, !tbaa !124
   %arrayidx6.i = getelementptr inbounds %struct.MapNode, ptr %27, i64 %idxprom.i
   %28 = load i32, ptr %arrayidx6.i, align 4, !tbaa.struct !67
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #25
   %n2.sroa.0.0.extract.trunc = trunc i32 %28 to i16
   %n2.sroa.7252.0.extract.shift = lshr i32 %28, 24
   %n2.sroa.7252.0.extract.trunc = trunc nuw i32 %n2.sroa.7252.0.extract.shift to i8
@@ -5414,7 +5414,7 @@ if.end77:                                         ; preds = %if.end77.sink.split
   %retval.sroa.0.0.insert.ext.i189 = zext i16 %add.i177 to i48
   %38 = or disjoint i48 %retval.sroa.2.0.insert.shift.i187, %retval.sroa.0.0.insert.ext.i189
   %retval.sroa.0.0.insert.insert.i190 = or disjoint i48 %38, %retval.sroa.3.0.insert.shift.i185
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i191) #24
+  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i191) #25
   store i48 %retval.sroa.0.0.insert.insert.i190, ptr %voxel_area.i191, align 8, !tbaa.struct !117
   store i48 %retval.sroa.0.0.insert.insert.i190, ptr %MaxEdge.i.i192, align 2, !tbaa.struct !117
   store i48 4295032833, ptr %m_cache_extent.i.i193, align 4, !tbaa.struct !117
@@ -5464,7 +5464,7 @@ if.end.i241:                                      ; preds = %if.end77
 
 _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit244: ; preds = %if.end.i241, %if.end77
   %retval.sroa.0.0.insert.insert.i240 = phi i32 [ %48, %if.end.i241 ], [ 127, %if.end77 ]
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i191) #24
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i191) #25
   %n2.sroa.0.0.extract.trunc249 = trunc i32 %retval.sroa.0.0.insert.insert.i240 to i16
   %49 = load i16, ptr %c_source, align 2, !tbaa !139
   %cmp91 = icmp eq i16 %49, %n2.sroa.0.0.extract.trunc249
@@ -6283,7 +6283,7 @@ _ZNK14NodeDefManager3getEt.exit:                  ; preds = %cond.false.i, %land
   br i1 %cmp16, label %cleanup98, label %if.end18
 
 if.end18:                                         ; preds = %_ZNK14NodeDefManager3getEt.exit
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %vertices) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %vertices, i8 0, i64 24, i1 false)
   store i32 -1, ptr %Color.i, align 8, !tbaa !60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %TCoords.i, i8 0, i64 32, i1 false)
@@ -6299,7 +6299,7 @@ if.end18:                                         ; preds = %_ZNK14NodeDefManage
 for.cond.cleanup21:                               ; preds = %if.end83
   %11 = load ptr, ptr %collector, align 8, !tbaa !31
   call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %11, ptr noundef nonnull align 8 dereferenceable(120) %tile, ptr noundef nonnull %vertices, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %vertices) #25
   br label %cleanup98
 
 for.body22:                                       ; preds = %if.end83, %if.end18
@@ -6523,7 +6523,7 @@ cleanup98:                                        ; preds = %for.cond.cleanup21,
 define dso_local void @_ZN21MapblockMeshGenerator13drawLiquidTopEv(ptr noundef nonnull align 8 dereferenceable(660) %this) local_unnamed_addr #8 align 2 {
 entry:
   %vertices = alloca [4 x %"struct.irr::video::S3DVertex"], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %vertices) #25
   %color_top = getelementptr inbounds i8, ptr %this, i64 532
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %color_top, align 4, !tbaa !100
   %Z.i.i = getelementptr inbounds i8, ptr %vertices, i64 8
@@ -6698,7 +6698,7 @@ _ZN3irr4core8vector2dIfE9normalizeEv.exit:        ; preds = %if.end.i, %for.cond
   %82 = load ptr, ptr %collector, align 8, !tbaa !31
   %tile_top = getelementptr inbounds i8, ptr %this, i64 408
   call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %82, ptr noundef nonnull align 8 dereferenceable(120) %tile_top, ptr noundef nonnull %vertices, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %vertices) #25
   ret void
 
 if.end:                                           ; preds = %entry
@@ -7374,7 +7374,7 @@ declare double @llvm.floor.f64(double) #10
 define dso_local void @_ZN21MapblockMeshGenerator16drawLiquidBottomEv(ptr noundef nonnull align 8 dereferenceable(660) %this) local_unnamed_addr #8 align 2 {
 entry:
   %vertices = alloca [4 x %"struct.irr::video::S3DVertex"], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %vertices) #25
   %color_top = getelementptr inbounds i8, ptr %this, i64 532
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %color_top, align 4, !tbaa !100
   store <4 x float> <float -5.000000e+00, float -5.000000e+00, float -5.000000e+00, float 0.000000e+00>, ptr %vertices, align 16, !tbaa !49
@@ -7446,7 +7446,7 @@ for.cond.cleanup:                                 ; preds = %if.end.3, %entry.sp
   %10 = load ptr, ptr %collector, align 8, !tbaa !31
   %tile_top = getelementptr inbounds i8, ptr %this, i64 408
   call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %10, ptr noundef nonnull align 8 dereferenceable(120) %tile_top, ptr noundef nonnull %vertices, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %vertices) #25
   ret void
 
 if.end:                                           ; preds = %entry
@@ -8139,7 +8139,7 @@ for.cond.cleanup:                                 ; preds = %cleanup
 
 for.body:                                         ; preds = %cleanup, %_ZN21MapblockMeshGenerator7useTileEihhb.exit
   %indvars.iv = phi i64 [ 0, %_ZN21MapblockMeshGenerator7useTileEihhb.exit ], [ %indvars.iv.next, %cleanup ]
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %dir) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %dir) #25
   %arrayidx = getelementptr inbounds [6 x %"class.irr::core::vector3d"], ptr @g_6dirs, i64 0, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %dir, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx, i64 6, i1 false), !tbaa.struct !117
   %6 = load i16, ptr %blockpos_nodes, align 8, !tbaa !38
@@ -8232,7 +8232,7 @@ _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit: ; pre
   br i1 %cmp9, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %vertices, ptr noundef nonnull align 4 dereferenceable(48) @constinit, i64 48, i1 false), !tbaa.struct !163
   %30 = trunc i64 %indvars.iv to i32
   switch i32 %30, label %for.cond.cleanup13 [
@@ -8292,11 +8292,11 @@ for.body14.us.preheader:                          ; preds = %if.end
 
 for.cond.cleanup13:                               ; preds = %for.body14.us.preheader, %for.body14.us146.preheader, %for.body14.us154.preheader, %for.body14.us162.preheader, %for.body14.us170.preheader, %for.body14.us178.preheader, %if.end
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices, ptr noundef nonnull align 2 dereferenceable(6) %dir, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices) #25
   br label %cleanup
 
 cleanup:                                          ; preds = %for.cond.cleanup13, %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %dir) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %dir) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !164
@@ -8313,7 +8313,7 @@ entry:
   %vertices = alloca [4 x %"class.irr::core::vector3d.0"], align 16
   %dir = alloca %"class.irr::core::vector3d", align 2
   %agg.tmp201 = alloca %"class.irr::core::aabbox3d", align 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %tiles) #24
+  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %tiles) #25
   store i8 0, ptr %tiles, align 16, !tbaa !51
   %rotation.i = getelementptr inbounds i8, ptr %tiles, i64 1
   store i8 0, ptr %rotation.i, align 1, !tbaa !52
@@ -8604,7 +8604,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %glass_tiles) #24
+  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %glass_tiles) #25
   store i8 0, ptr %glass_tiles, align 16, !tbaa !51
   %rotation.i261 = getelementptr inbounds i8, ptr %glass_tiles, i64 1
   store i8 0, ptr %rotation.i261, align 1, !tbaa !52
@@ -8727,7 +8727,7 @@ if.end:                                           ; preds = %if.then, %entry
   %13 = load i8, ptr %param2.i, align 1
   %cond = select i1 %cmp24, i8 %13, i8 0
   %and37 = and i8 %cond, 63
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %nb) #24
+  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %nb) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %nb, i8 0, i64 18, i1 false)
   %brmerge.not = icmp ugt i8 %cond, -65
   br i1 %brmerge.not, label %.thread, label %if.then41
@@ -8787,7 +8787,7 @@ if.end59:                                         ; preds = %for.body54
   %26 = or disjoint i48 %retval.sroa.2.0.insert.shift.i289, %retval.sroa.0.0.insert.ext.i291
   %retval.sroa.0.0.insert.insert.i292 = or disjoint i48 %26, %retval.sroa.3.0.insert.shift.i287
   %27 = load ptr, ptr %this, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #25
   store i48 %retval.sroa.0.0.insert.insert.i292, ptr %voxel_area.i, align 8, !tbaa.struct !117
   store i48 %retval.sroa.0.0.insert.insert.i292, ptr %MaxEdge.i.i, align 2, !tbaa.struct !117
   store i48 4295032833, ptr %m_cache_extent.i.i, align 4, !tbaa.struct !117
@@ -8837,7 +8837,7 @@ if.end.i:                                         ; preds = %if.end59
 
 _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit: ; preds = %if.end.i, %if.end59
   %retval.sroa.0.0.insert.insert.i294 = phi i32 [ %37, %if.end.i ], [ 127, %if.end59 ]
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #25
   %n2.sroa.0.0.extract.trunc = trunc i32 %retval.sroa.0.0.insert.insert.i294 to i16
   %cmp72 = icmp eq i16 %15, %n2.sroa.0.0.extract.trunc
   br i1 %cmp72, label %if.then73, label %for.inc77
@@ -9077,7 +9077,7 @@ for.body142:                                      ; preds = %for.inc179, %cleanu
 if.end147:                                        ; preds = %for.body142
   %arrayidx149 = getelementptr inbounds [6 x %struct.TileSpec], ptr %glass_tiles, i64 0, i64 %indvars.iv446
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %tile914, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx149, i64 120, i1 false), !tbaa.struct !63
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %vertices, ptr noundef nonnull align 4 dereferenceable(48) @constinit.17, i64 48, i1 false), !tbaa.struct !163
   %58 = trunc i64 %indvars.iv446 to i32
   switch i32 %58, label %for.cond.cleanup157 [
@@ -9136,12 +9136,12 @@ for.body158.us.preheader:                         ; preds = %if.end147
   br label %for.cond.cleanup157
 
 for.cond.cleanup157:                              ; preds = %for.body158.us.preheader, %for.body158.us394.preheader, %for.body158.us402.preheader, %for.body158.us410.preheader, %for.body158.us418.preheader, %for.body158.us426.preheader, %if.end147
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %dir) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %dir) #25
   %arrayidx177 = getelementptr inbounds [6 x %"class.irr::core::vector3d"], ptr @g_6dirs, i64 0, i64 %indvars.iv446
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %dir, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx177, i64 6, i1 false), !tbaa.struct !117
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices, ptr noundef nonnull align 2 dereferenceable(6) %dir, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %dir) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %dir) #25
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices) #25
   br label %for.inc179
 
 for.inc179:                                       ; preds = %for.cond.cleanup157, %for.body142
@@ -9228,9 +9228,9 @@ _ZN21MapblockMeshGenerator14getSpecialTileEiP8TileSpecb.exit: ; preds = %if.then
   br label %if.end222
 
 if.end222:                                        ; preds = %_ZN21MapblockMeshGenerator14getSpecialTileEiP8TileSpecb.exit, %land.lhs.true190, %land.lhs.true, %for.cond.cleanup141
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %nb) #24
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %glass_tiles) #24
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %tiles) #24
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %nb) #25
+  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %glass_tiles) #25
+  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %tiles) #25
   ret void
 }
 
@@ -9323,7 +9323,7 @@ _ZN21MapblockMeshGenerator7useTileEihhb.exit:     ; preds = %if.then7.i, %entry
   %visual_scale = getelementptr inbounds i8, ptr %10, i64 1772
   %11 = load float, ptr %visual_scale, align 4, !tbaa !106
   %mul = fmul nsz float %11, 5.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices) #25
   %fneg = fneg nsz float %mul
   store float %fneg, ptr %vertices, align 16, !tbaa !107
   %Y.i = getelementptr inbounds i8, ptr %vertices, i64 4
@@ -9540,15 +9540,15 @@ for.body.us.preheader:                            ; preds = %_ZN21MapblockMeshGe
   br label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.body.us.preheader, %for.body.us201.preheader, %for.body.us209.preheader, %for.body.us217.preheader, %for.body.us225.preheader, %for.body.us233.preheader, %for.body.us241.preheader, %for.body.us249.preheader, %_ZN21MapblockMeshGenerator7useTileEihhb.exit
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp56) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp56) #25
   store i16 0, ptr %ref.tmp56, align 2, !tbaa !38
   %Y.i96 = getelementptr inbounds i8, ptr %ref.tmp56, i64 2
   store i16 0, ptr %Y.i96, align 2, !tbaa !39
   %Z.i97 = getelementptr inbounds i8, ptr %ref.tmp56, i64 4
   store i16 0, ptr %Z.i97, align 2, !tbaa !40
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp56, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp56) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp56) #25
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices) #25
   ret void
 }
 
@@ -9602,7 +9602,7 @@ _ZN21MapblockMeshGenerator7useTileEihhb.exit:     ; preds = %if.then7.i, %entry
   %visual_scale = getelementptr inbounds i8, ptr %9, i64 1772
   %10 = load float, ptr %visual_scale, align 4, !tbaa !106
   %mul = fmul nsz float %10, 5.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices) #25
   store float 4.375000e+00, ptr %vertices, align 16, !tbaa !107
   %Y.i = getelementptr inbounds i8, ptr %vertices, i64 4
   store float %mul, ptr %Y.i, align 4, !tbaa !104
@@ -9859,15 +9859,15 @@ for.body.us.preheader:                            ; preds = %_ZN21MapblockMeshGe
   br label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.body.us.preheader, %for.body.us200.preheader, %for.body.us208.preheader, %for.body.us216.preheader, %for.body.us224.preheader, %for.body.us232.preheader, %for.body.us240.preheader, %for.body.us248.preheader, %_ZN21MapblockMeshGenerator7useTileEihhb.exit
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp26) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp26) #25
   store i16 0, ptr %ref.tmp26, align 2, !tbaa !38
   %Y.i52 = getelementptr inbounds i8, ptr %ref.tmp26, i64 2
   store i16 0, ptr %Y.i52, align 2, !tbaa !39
   %Z.i53 = getelementptr inbounds i8, ptr %ref.tmp26, i64 4
   store i16 0, ptr %Z.i53, align 2, !tbaa !40
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp26, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp26) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp26) #25
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices) #25
   ret void
 }
 
@@ -9878,7 +9878,7 @@ entry:
   %ref.tmp84 = alloca %"class.irr::core::vector3d", align 2
   %scale2 = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load float, ptr %scale2, align 8, !tbaa !169
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices) #25
   %fneg = fneg nsz float %0
   %conv = fpext float %0 to double
   %mul = fmul nsz double %conv, 2.000000e+00
@@ -10385,7 +10385,7 @@ for.body63.us.preheader:                          ; preds = %for.cond40.preheade
   br label %if.end82
 
 if.end82:                                         ; preds = %for.body63.us.preheader, %for.body63.us282.preheader, %for.body63.us290.preheader, %for.body63.us298.preheader, %for.body63.us306.preheader, %for.cond40.preheader
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp84) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp84) #25
   store i16 0, ptr %ref.tmp84, align 2, !tbaa !38
   %Y.i255 = getelementptr inbounds i8, ptr %ref.tmp84, i64 2
   store i16 0, ptr %Y.i255, align 2, !tbaa !39
@@ -10393,8 +10393,8 @@ if.end82:                                         ; preds = %for.body63.us.prehe
   store i16 0, ptr %Z.i256, align 2, !tbaa !40
   %237 = load float, ptr %plant_height, align 8, !tbaa !170
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp84, float noundef %237)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp84) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp84) #25
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices) #25
   ret void
 }
 
@@ -10668,7 +10668,7 @@ if.then:                                          ; preds = %entry
 
 for.body6.i:                                      ; preds = %if.end.i, %if.then
   %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %if.end.i ]
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp.i) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp.i) #25
   %4 = load i16, ptr %blockpos_nodes.i, align 8, !tbaa !38
   %5 = load i16, ptr %cur_node7.i, align 8, !tbaa !38
   %add.i.i = add i16 %5, %4
@@ -10692,7 +10692,7 @@ for.body6.i:                                      ; preds = %if.end.i, %if.then
   %conv2.i.i = trunc i16 %call10.i to i8
   %11 = lshr i16 %call10.i, 8
   %conv4.i.i = trunc nuw i16 %11 to i8
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp.i) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp.i) #25
   %conv.i = uitofp i8 %conv2.i.i to float
   %arrayidx14.i = getelementptr inbounds [8 x float], ptr %frame12.i, i64 0, i64 %indvars.iv.i
   store float %conv.i, ptr %arrayidx14.i, align 4, !tbaa !49
@@ -10736,7 +10736,7 @@ if.else:                                          ; preds = %entry
   %retval.sroa.0.0.insert.ext.i = zext i16 %add.i17 to i48
   %17 = or disjoint i48 %retval.sroa.2.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i
   %retval.sroa.0.0.insert.insert.i = or disjoint i48 %retval.sroa.3.0.insert.shift.i, %17
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #25
   store i48 %retval.sroa.0.0.insert.insert.i, ptr %voxel_area.i, align 8, !tbaa.struct !117
   %MaxEdge.i.i = getelementptr inbounds i8, ptr %voxel_area.i, i64 6
   store i48 %retval.sroa.0.0.insert.insert.i, ptr %MaxEdge.i.i, align 2, !tbaa.struct !117
@@ -10788,7 +10788,7 @@ if.end.i21:                                       ; preds = %if.else
 
 _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit: ; preds = %if.end.i21, %if.else
   %retval.sroa.0.0.insert.insert.i20 = phi i32 [ %27, %if.end.i21 ], [ 127, %if.else ]
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #25
   %nodedef = getelementptr inbounds i8, ptr %this, i64 16
   %28 = load ptr, ptr %nodedef, align 8, !tbaa !36
   %call10 = call noundef zeroext i16 @_Z16getInteriorLight7MapNodeiPK14NodeDefManager(i32 %retval.sroa.0.0.insert.insert.i20, i32 noundef 0, ptr noundef %28)
@@ -10811,7 +10811,7 @@ entry:
   %ref.tmp11 = alloca %"class.irr::core::vector3d", align 2
   %scale2 = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load float, ptr %scale2, align 8, !tbaa !169
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices) #25
   %fneg = fneg nsz float %0
   %1 = tail call nsz float @llvm.fmuladd.f32(float %0, float 2.000000e+00, float -5.000000e+00)
   %Y.i = getelementptr inbounds i8, ptr %vertices, i64 4
@@ -10886,15 +10886,15 @@ entry:
   store <2 x float> %35, ptr %Z2.i.2, align 16, !tbaa !49
   store float %conv17.i46.3, ptr %Z2.i.3, align 4, !tbaa !50
   store float %add9.2, ptr %Y3.i.3, align 8, !tbaa !104
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11) #25
   store i16 0, ptr %ref.tmp11, align 2, !tbaa !38
   %Y.i29 = getelementptr inbounds i8, ptr %ref.tmp11, i64 2
   store i16 0, ptr %Y.i29, align 2, !tbaa !39
   %Z.i30 = getelementptr inbounds i8, ptr %ref.tmp11, i64 4
   store i16 0, ptr %Z.i30, align 2, !tbaa !40
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp11, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11) #25
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices) #25
   ret void
 }
 
@@ -10963,7 +10963,7 @@ _ZN21MapblockMeshGenerator7useTileEihhb.exit:     ; preds = %if.then7.i, %entry
   %mul = fmul nsz float %9, 5.000000e+00
   %scale = getelementptr inbounds i8, ptr %this, i64 272
   store float %mul, ptr %scale, align 8, !tbaa !169
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %neighbor) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %neighbor) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %neighbor, i8 0, i64 6, i1 false)
   %10 = load i16, ptr %n.i29.i, align 4, !tbaa !116
   %blockpos_nodes = getelementptr inbounds i8, ptr %this, i64 32
@@ -11019,7 +11019,7 @@ for.body:                                         ; preds = %if.end, %_ZN21Mapbl
   %24 = or disjoint i48 %retval.sroa.2.0.insert.shift.i95, %retval.sroa.0.0.insert.ext.i97
   %retval.sroa.0.0.insert.insert.i98 = or disjoint i48 %24, %retval.sroa.3.0.insert.shift.i93
   %25 = load ptr, ptr %this, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #25
   store i48 %retval.sroa.0.0.insert.insert.i98, ptr %voxel_area.i, align 8, !tbaa.struct !117
   store i48 %retval.sroa.0.0.insert.insert.i98, ptr %MaxEdge.i.i, align 2, !tbaa.struct !117
   store i48 4295032833, ptr %m_cache_extent.i.i, align 4, !tbaa.struct !117
@@ -11061,7 +11061,7 @@ for.body:                                         ; preds = %if.end, %_ZN21Mapbl
   br i1 %tobool.not.i, label %_ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit, label %_ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit.thread
 
 _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit.thread: ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #25
   br label %if.end
 
 _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit: ; preds = %for.body
@@ -11069,7 +11069,7 @@ _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit: ; preds = %fo
   %34 = load ptr, ptr %m_data.i, align 8, !tbaa !124
   %arrayidx6.i = getelementptr inbounds %struct.MapNode, ptr %34, i64 %idxprom.i
   %35 = load i32, ptr %arrayidx6.i, align 4, !tbaa.struct !67
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #25
   %n2.sroa.0.0.extract.trunc = trunc i32 %35 to i16
   %36 = and i16 %n2.sroa.0.0.extract.trunc, -2
   %or.cond = icmp eq i16 %36, 126
@@ -11093,7 +11093,7 @@ if.else:                                          ; preds = %for.cond.cleanup
 
 if.end31:                                         ; preds = %for.cond.cleanup
   %37 = load float, ptr %scale, align 8, !tbaa !169
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i) #25
   %fneg.i = fneg nsz float %37
   %38 = call nsz float @llvm.fmuladd.f32(float %37, float 2.000000e+00, float -5.000000e+00)
   %arrayinit.element3.i = getelementptr inbounds i8, ptr %vertices.i, i64 24
@@ -11137,15 +11137,15 @@ if.end31:                                         ; preds = %for.cond.cleanup
   store float %fneg.i, ptr %arrayinit.element4.i, align 4, !tbaa !107
   store float %conv17.i46.3.i, ptr %Z2.i.3.i, align 4, !tbaa !50
   store float 0xC013B23740000000, ptr %Y3.i.3.i, align 8, !tbaa !104
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i) #25
   store i16 0, ptr %ref.tmp11.i, align 2, !tbaa !38
   %Y.i29.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 2
   store i16 0, ptr %Y.i29.i, align 2, !tbaa !39
   %Z.i30.i = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 4
   store i16 0, ptr %Z.i30.i, align 2, !tbaa !40
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices.i, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp11.i, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i) #25
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i) #25
   %arrayidx34 = getelementptr inbounds i8, ptr %neighbor, i64 5
   %53 = load i8, ptr %arrayidx34, align 1, !range !46
   %tobool35.not = icmp eq i8 %53, 0
@@ -11160,7 +11160,7 @@ if.end31.thread414:                               ; preds = %if.else
 
 if.end31.thread:                                  ; preds = %if.else
   %55 = load float, ptr %scale, align 8, !tbaa !169
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i101) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i101) #25
   %fneg.i104 = fneg nsz float %55
   %56 = call nsz float @llvm.fmuladd.f32(float %55, float 2.000000e+00, float -5.000000e+00)
   %Y.i.i105 = getelementptr inbounds i8, ptr %vertices.i101, i64 4
@@ -11208,15 +11208,15 @@ if.end31.thread:                                  ; preds = %if.else
   store float %fneg.i104, ptr %arrayinit.element4.i109, align 4, !tbaa !107
   store float %conv17.i46.3.i131, ptr %Z2.i.3.i128, align 4, !tbaa !50
   store float 0x40090A08C0000000, ptr %Y3.i.3.i129, align 8, !tbaa !104
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i102) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i102) #25
   store i16 0, ptr %ref.tmp11.i102, align 2, !tbaa !38
   %Y.i29.i132 = getelementptr inbounds i8, ptr %ref.tmp11.i102, i64 2
   store i16 0, ptr %Y.i29.i132, align 2, !tbaa !39
   %Z.i30.i133 = getelementptr inbounds i8, ptr %ref.tmp11.i102, i64 4
   store i16 0, ptr %Z.i30.i133, align 2, !tbaa !40
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices.i101, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp11.i102, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i102) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i101) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i102) #25
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i101) #25
   %arrayidx34411 = getelementptr inbounds i8, ptr %neighbor, i64 5
   %68 = load i8, ptr %arrayidx34411, align 1, !range !46
   %tobool35.not412 = icmp eq i8 %68, 0
@@ -11224,7 +11224,7 @@ if.end31.thread:                                  ; preds = %if.else
 
 if.then36:                                        ; preds = %if.end31.thread, %if.end31.thread414, %if.end31
   %69 = load float, ptr %scale, align 8, !tbaa !169
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i134) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i134) #25
   %fneg.i137 = fneg nsz float %69
   %70 = call nsz float @llvm.fmuladd.f32(float %69, float 2.000000e+00, float -5.000000e+00)
   %conv.i.i143 = fpext float %70 to double
@@ -11271,15 +11271,15 @@ if.then36:                                        ; preds = %if.end31.thread, %i
   store <2 x float> %92, ptr %Z2.i.2.i157, align 16, !tbaa !49
   store float %conv17.i46.3.i164, ptr %Z2.i.3.i161, align 4, !tbaa !50
   store float 0xC013B23740000000, ptr %Y3.i.3.i162, align 8, !tbaa !104
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i135) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i135) #25
   store i16 0, ptr %ref.tmp11.i135, align 2, !tbaa !38
   %Y.i29.i165 = getelementptr inbounds i8, ptr %ref.tmp11.i135, i64 2
   store i16 0, ptr %Y.i29.i165, align 2, !tbaa !39
   %Z.i30.i166 = getelementptr inbounds i8, ptr %ref.tmp11.i135, i64 4
   store i16 0, ptr %Z.i30.i166, align 2, !tbaa !40
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices.i134, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp11.i135, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i135) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i134) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i135) #25
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i134) #25
   br label %if.end41
 
 if.else37:                                        ; preds = %if.end31
@@ -11294,7 +11294,7 @@ if.end41:                                         ; preds = %if.else37, %if.then
 
 if.end41.thread:                                  ; preds = %if.else37, %if.end31.thread
   %94 = load float, ptr %scale, align 8, !tbaa !169
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i167) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i167) #25
   %fneg.i170 = fneg nsz float %94
   %95 = call nsz float @llvm.fmuladd.f32(float %94, float 2.000000e+00, float -5.000000e+00)
   %Y.i.i171 = getelementptr inbounds i8, ptr %vertices.i167, i64 4
@@ -11345,15 +11345,15 @@ if.end41.thread:                                  ; preds = %if.else37, %if.end3
   store <2 x float> %114, ptr %Z2.i.2.i192, align 16, !tbaa !49
   store float %conv17.i46.3.i199, ptr %Z2.i.3.i196, align 4, !tbaa !50
   store float 0x40090A08C0000000, ptr %Y3.i.3.i197, align 8, !tbaa !104
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i168) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i168) #25
   store i16 0, ptr %ref.tmp11.i168, align 2, !tbaa !38
   %Y.i29.i200 = getelementptr inbounds i8, ptr %ref.tmp11.i168, i64 2
   store i16 0, ptr %Y.i29.i200, align 2, !tbaa !39
   %Z.i30.i201 = getelementptr inbounds i8, ptr %ref.tmp11.i168, i64 4
   store i16 0, ptr %Z.i30.i201, align 2, !tbaa !40
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices.i167, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp11.i168, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i168) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i167) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i168) #25
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i167) #25
   %arrayidx44419 = getelementptr inbounds i8, ptr %neighbor, i64 3
   %115 = load i8, ptr %arrayidx44419, align 1, !range !46
   %tobool45.not420 = icmp eq i8 %115, 0
@@ -11364,7 +11364,7 @@ if.else47:                                        ; preds = %if.end41
 
 if.end51:                                         ; preds = %if.end41.thread, %if.end41
   %116 = load float, ptr %scale, align 8, !tbaa !169
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i202) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i202) #25
   %fneg.i205 = fneg nsz float %116
   %117 = call nsz float @llvm.fmuladd.f32(float %116, float 2.000000e+00, float -5.000000e+00)
   %conv.i.i211 = fpext float %117 to double
@@ -11410,15 +11410,15 @@ if.end51:                                         ; preds = %if.end41.thread, %i
   store <2 x float> %139, ptr %Z2.i.2.i226, align 16, !tbaa !49
   store float %conv17.i46.3.i233, ptr %Z2.i.3.i230, align 4, !tbaa !50
   store float 0xC013B23740000000, ptr %Y3.i.3.i231, align 8, !tbaa !104
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i203) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i203) #25
   store i16 0, ptr %ref.tmp11.i203, align 2, !tbaa !38
   %Y.i29.i234 = getelementptr inbounds i8, ptr %ref.tmp11.i203, i64 2
   store i16 0, ptr %Y.i29.i234, align 2, !tbaa !39
   %Z.i30.i235 = getelementptr inbounds i8, ptr %ref.tmp11.i203, i64 4
   store i16 0, ptr %Z.i30.i235, align 2, !tbaa !40
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices.i202, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp11.i203, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i203) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i202) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i203) #25
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i202) #25
   %arrayidx54 = getelementptr inbounds i8, ptr %neighbor, i64 2
   %141 = load i8, ptr %arrayidx54, align 1, !range !46
   %tobool55.not = icmp eq i8 %141, 0
@@ -11433,7 +11433,7 @@ if.end51.thread425:                               ; preds = %if.else47
 
 if.end51.thread:                                  ; preds = %if.else47, %if.end41.thread
   %143 = load float, ptr %scale, align 8, !tbaa !169
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i236) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i236) #25
   %fneg.i239 = fneg nsz float %143
   %144 = call nsz float @llvm.fmuladd.f32(float %143, float 2.000000e+00, float -5.000000e+00)
   %Y.i.i240 = getelementptr inbounds i8, ptr %vertices.i236, i64 4
@@ -11482,15 +11482,15 @@ if.end51.thread:                                  ; preds = %if.else47, %if.end4
   store <2 x float> %163, ptr %Z2.i.2.i261, align 16, !tbaa !49
   store float %conv17.i46.3.i268, ptr %Z2.i.3.i265, align 4, !tbaa !50
   store float 0x40090A08C0000000, ptr %Y3.i.3.i266, align 8, !tbaa !104
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i237) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i237) #25
   store i16 0, ptr %ref.tmp11.i237, align 2, !tbaa !38
   %Y.i29.i269 = getelementptr inbounds i8, ptr %ref.tmp11.i237, i64 2
   store i16 0, ptr %Y.i29.i269, align 2, !tbaa !39
   %Z.i30.i270 = getelementptr inbounds i8, ptr %ref.tmp11.i237, i64 4
   store i16 0, ptr %Z.i30.i270, align 2, !tbaa !40
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices.i236, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp11.i237, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i237) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i236) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i237) #25
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i236) #25
   %arrayidx54422 = getelementptr inbounds i8, ptr %neighbor, i64 2
   %164 = load i8, ptr %arrayidx54422, align 1, !range !46
   %tobool55.not423 = icmp eq i8 %164, 0
@@ -11498,7 +11498,7 @@ if.end51.thread:                                  ; preds = %if.else47, %if.end4
 
 if.then56:                                        ; preds = %if.end51.thread, %if.end51.thread425, %if.end51
   %165 = load float, ptr %scale, align 8, !tbaa !169
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i271) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i271) #25
   %fneg.i274 = fneg nsz float %165
   %166 = call nsz float @llvm.fmuladd.f32(float %165, float 2.000000e+00, float -5.000000e+00)
   %conv.i.i280 = fpext float %166 to double
@@ -11543,15 +11543,15 @@ if.then56:                                        ; preds = %if.end51.thread, %i
   store <2 x float> %188, ptr %Z2.i.2.i294, align 16, !tbaa !49
   store float %conv17.i46.3.i301, ptr %Z2.i.3.i298, align 4, !tbaa !50
   store float 0xC013B23740000000, ptr %Y3.i.3.i299, align 8, !tbaa !104
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i272) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i272) #25
   store i16 0, ptr %ref.tmp11.i272, align 2, !tbaa !38
   %Y.i29.i302 = getelementptr inbounds i8, ptr %ref.tmp11.i272, i64 2
   store i16 0, ptr %Y.i29.i302, align 2, !tbaa !39
   %Z.i30.i303 = getelementptr inbounds i8, ptr %ref.tmp11.i272, i64 4
   store i16 0, ptr %Z.i30.i303, align 2, !tbaa !40
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices.i271, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp11.i272, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i272) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i271) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i272) #25
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i271) #25
   br label %if.end61
 
 if.else57:                                        ; preds = %if.end51
@@ -11559,7 +11559,7 @@ if.else57:                                        ; preds = %if.end51
 
 if.then59:                                        ; preds = %if.else57, %if.end51.thread
   %190 = load float, ptr %scale, align 8, !tbaa !169
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i304) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i304) #25
   %fneg.i307 = fneg nsz float %190
   %191 = call nsz float @llvm.fmuladd.f32(float %190, float 2.000000e+00, float -5.000000e+00)
   %Y.i.i308 = getelementptr inbounds i8, ptr %vertices.i304, i64 4
@@ -11607,15 +11607,15 @@ if.then59:                                        ; preds = %if.else57, %if.end5
   store <2 x float> %210, ptr %Z2.i.2.i328, align 16, !tbaa !49
   store float %conv17.i46.3.i335, ptr %Z2.i.3.i332, align 4, !tbaa !50
   store float 0x40090A08C0000000, ptr %Y3.i.3.i333, align 8, !tbaa !104
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i305) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i305) #25
   store i16 0, ptr %ref.tmp11.i305, align 2, !tbaa !38
   %Y.i29.i336 = getelementptr inbounds i8, ptr %ref.tmp11.i305, i64 2
   store i16 0, ptr %Y.i29.i336, align 2, !tbaa !39
   %Z.i30.i337 = getelementptr inbounds i8, ptr %ref.tmp11.i305, i64 4
   store i16 0, ptr %Z.i30.i337, align 2, !tbaa !40
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices.i304, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp11.i305, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i305) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i304) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i305) #25
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i304) #25
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then59, %if.else57, %if.then56, %if.end51.thread425
@@ -11623,7 +11623,7 @@ if.end61:                                         ; preds = %if.then59, %if.else
 
 if.then63:                                        ; preds = %if.end61
   %211 = load float, ptr %scale, align 8, !tbaa !169
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i338) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i338) #25
   %fneg.i341 = fneg nsz float %211
   %212 = call nsz float @llvm.fmuladd.f32(float %211, float 2.000000e+00, float -5.000000e+00)
   %Y.i.i342 = getelementptr inbounds i8, ptr %vertices.i338, i64 4
@@ -11669,17 +11669,17 @@ if.then63:                                        ; preds = %if.end61
   store <2 x float> %234, ptr %Z2.i.2.i361, align 16, !tbaa !49
   store float %conv17.i46.3.i368, ptr %Z2.i.3.i365, align 4, !tbaa !50
   store float -5.000000e+00, ptr %Y3.i.3.i366, align 8, !tbaa !104
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i339) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i339) #25
   store i16 0, ptr %ref.tmp11.i339, align 2, !tbaa !38
   %Y.i29.i369 = getelementptr inbounds i8, ptr %ref.tmp11.i339, i64 2
   store i16 0, ptr %Y.i29.i369, align 2, !tbaa !39
   %Z.i30.i370 = getelementptr inbounds i8, ptr %ref.tmp11.i339, i64 4
   store i16 0, ptr %Z.i30.i370, align 2, !tbaa !40
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices.i338, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp11.i339, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i339) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i338) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i339) #25
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i338) #25
   %235 = load float, ptr %scale, align 8, !tbaa !169
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i371) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices.i371) #25
   %fneg.i374 = fneg nsz float %235
   %236 = call nsz float @llvm.fmuladd.f32(float %235, float 2.000000e+00, float -5.000000e+00)
   %Y.i.i375 = getelementptr inbounds i8, ptr %vertices.i371, i64 4
@@ -11725,19 +11725,19 @@ if.then63:                                        ; preds = %if.end61
   store <2 x float> %258, ptr %Z2.i.2.i394, align 16, !tbaa !49
   store float %conv17.i46.3.i401, ptr %Z2.i.3.i398, align 4, !tbaa !50
   store float -5.000000e+00, ptr %Y3.i.3.i399, align 8, !tbaa !104
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i372) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp11.i372) #25
   store i16 0, ptr %ref.tmp11.i372, align 2, !tbaa !38
   %Y.i29.i402 = getelementptr inbounds i8, ptr %ref.tmp11.i372, i64 2
   store i16 0, ptr %Y.i29.i402, align 2, !tbaa !39
   %Z.i30.i403 = getelementptr inbounds i8, ptr %ref.tmp11.i372, i64 4
   store i16 0, ptr %Z.i30.i403, align 2, !tbaa !40
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices.i371, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp11.i372, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i372) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i371) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp11.i372) #25
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices.i371) #25
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then63, %if.end61
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %neighbor) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %neighbor) #25
   ret void
 }
 
@@ -11819,7 +11819,7 @@ _ZN21MapblockMeshGenerator7useTileEihhb.exit:     ; preds = %if.then7.i, %entry
   %retval.sroa.0.0.insert.ext.i = zext i16 %add.i to i48
   %12 = or disjoint i48 %retval.sroa.2.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i
   %retval.sroa.0.0.insert.insert.i = or disjoint i48 %12, %retval.sroa.3.0.insert.shift.i
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #25
   store i48 %retval.sroa.0.0.insert.insert.i, ptr %voxel_area.i, align 8, !tbaa.struct !117
   %MaxEdge.i.i = getelementptr inbounds i8, ptr %voxel_area.i, i64 6
   store i48 %retval.sroa.0.0.insert.insert.i, ptr %MaxEdge.i.i, align 2, !tbaa.struct !117
@@ -11873,7 +11873,7 @@ if.end.i:                                         ; preds = %_ZN21MapblockMeshGe
 
 _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit: ; preds = %if.end.i, %_ZN21MapblockMeshGenerator7useTileEihhb.exit
   %retval.sroa.0.0.insert.insert.i43 = phi i64 [ %24, %if.end.i ], [ 127, %_ZN21MapblockMeshGenerator7useTileEihhb.exit ]
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #25
   %nodedef = getelementptr inbounds i8, ptr %this, i64 16
   %25 = load ptr, ptr %nodedef, align 8, !tbaa !36
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
@@ -11928,7 +11928,7 @@ if.end:                                           ; preds = %if.then, %_ZNK14Nod
   %retval.sroa.0.0.insert.ext.i56 = zext i16 %add.i44 to i48
   %34 = or disjoint i48 %retval.sroa.2.0.insert.shift.i54, %retval.sroa.0.0.insert.ext.i56
   %retval.sroa.0.0.insert.insert.i57 = or disjoint i48 %34, %retval.sroa.3.0.insert.shift.i52
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i58) #24
+  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i58) #25
   store i48 %retval.sroa.0.0.insert.insert.i57, ptr %voxel_area.i58, align 8, !tbaa.struct !117
   %MaxEdge.i.i59 = getelementptr inbounds i8, ptr %voxel_area.i58, i64 6
   store i48 %retval.sroa.0.0.insert.insert.i57, ptr %MaxEdge.i.i59, align 2, !tbaa.struct !117
@@ -11982,7 +11982,7 @@ if.end.i108:                                      ; preds = %if.end
 
 _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit111: ; preds = %if.end.i108, %if.end
   %retval.sroa.0.0.insert.insert.i107 = phi i64 [ %46, %if.end.i108 ], [ 127, %if.end ]
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i58) #24
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i58) #25
   %47 = load ptr, ptr %nodedef, align 8, !tbaa !36
   %_M_finish.i.i.i113 = getelementptr inbounds i8, ptr %47, i64 8
   %48 = load ptr, ptr %_M_finish.i.i.i113, align 8, !tbaa !126
@@ -12059,7 +12059,7 @@ entry:
   %retval.sroa.0.0.insert.ext.i29 = zext i16 %add.i17 to i48
   %7 = or disjoint i48 %retval.sroa.2.0.insert.shift.i27, %retval.sroa.0.0.insert.ext.i29
   %retval.sroa.0.0.insert.insert.i30 = or disjoint i48 %retval.sroa.3.0.insert.shift.i25, %7
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #25
   store i48 %retval.sroa.0.0.insert.insert.i30, ptr %voxel_area.i, align 8, !tbaa.struct !117
   %MaxEdge.i.i = getelementptr inbounds i8, ptr %voxel_area.i, i64 6
   store i48 %retval.sroa.0.0.insert.insert.i30, ptr %MaxEdge.i.i, align 2, !tbaa.struct !117
@@ -12112,7 +12112,7 @@ if.end.i:                                         ; preds = %entry
 
 _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit: ; preds = %if.end.i, %entry
   %retval.sroa.0.0.insert.insert.i31 = phi i16 [ %18, %if.end.i ], [ 127, %entry ]
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #25
   %n = getelementptr inbounds i8, ptr %this, i64 60
   %19 = load i16, ptr %n, align 4, !tbaa !116
   %cmp = icmp eq i16 %retval.sroa.0.0.insert.insert.i31, %19
@@ -12322,7 +12322,7 @@ _ZN21MapblockMeshGenerator7useTileEihhb.exit:     ; preds = %if.then7.i, %if.end
   %or28.1.i = and i8 %12, -6
   %and.1.i = or disjoint i8 %or28.1.i, 4
   store i8 %and.1.i, ptr %gep.1.i, align 1, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices) #25
   store float -5.000000e+00, ptr %vertices, align 16, !tbaa !107
   %Y.i79 = getelementptr inbounds i8, ptr %vertices, i64 4
   store float %cond, ptr %Y.i79, align 4, !tbaa !104
@@ -12373,15 +12373,15 @@ for.cond36.preheader:                             ; preds = %_ZN21MapblockMeshGe
   br label %if.end43
 
 if.end43:                                         ; preds = %for.cond36.preheader, %_ZN21MapblockMeshGenerator7useTileEihhb.exit
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp45) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp45) #25
   store i16 0, ptr %ref.tmp45, align 2, !tbaa !38
   %Y.i91 = getelementptr inbounds i8, ptr %ref.tmp45, i64 2
   store i16 0, ptr %Y.i91, align 2, !tbaa !39
   %Z.i92 = getelementptr inbounds i8, ptr %ref.tmp45, i64 4
   store i16 0, ptr %Z.i92, align 2, !tbaa !40
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp45, float noundef 1.000000e+00)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp45) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp45) #25
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices) #25
   ret void
 }
 
@@ -12395,7 +12395,7 @@ entry:
   %boxes = alloca %"class.std::vector.45", align 8
   %copy = alloca %"class.irr::core::aabbox3d", align 4
   %agg.tmp257 = alloca %"class.irr::core::aabbox3d", align 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %tiles) #24
+  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %tiles) #25
   store i8 0, ptr %tiles, align 16, !tbaa !51
   %rotation.i = getelementptr inbounds i8, ptr %tiles, i64 1
   store i8 0, ptr %rotation.i, align 1, !tbaa !52
@@ -12686,7 +12686,7 @@ entry:
   br label %for.body30
 
 for.cond.cleanup29:                               ; preds = %if.end104
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %boxes) #24
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %boxes) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %boxes, i8 0, i64 24, i1 false)
   %11 = load ptr, ptr %nodedef, align 8, !tbaa !36
   invoke void @_ZNK7MapNode12getNodeBoxesEPK14NodeDefManagerPSt6vectorIN3irr4core8aabbox3dIfEESaIS7_EEh(ptr noundef nonnull align 4 dereferenceable(4) %n.i, ptr noundef %11, ptr noundef nonnull %boxes, i8 noundef zeroext %neighbors_set.1)
@@ -12734,7 +12734,7 @@ for.body30:                                       ; preds = %if.end104, %entry
   %23 = or disjoint i48 %retval.sroa.2.0.insert.shift.i338, %retval.sroa.0.0.insert.ext.i340
   %retval.sroa.0.0.insert.insert.i341 = or disjoint i48 %23, %retval.sroa.3.0.insert.shift.i336
   %24 = load ptr, ptr %this, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #25
   store i48 %retval.sroa.0.0.insert.insert.i341, ptr %voxel_area.i, align 8, !tbaa.struct !117
   store i48 %retval.sroa.0.0.insert.insert.i341, ptr %MaxEdge.i.i, align 2, !tbaa.struct !117
   store i48 4295032833, ptr %m_cache_extent.i.i, align 4, !tbaa.struct !117
@@ -12784,7 +12784,7 @@ if.end.i:                                         ; preds = %for.body30
 
 _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit: ; preds = %if.end.i, %for.body30
   %retval.sroa.0.0.insert.insert.i343 = phi i32 [ %34, %if.end.i ], [ 127, %for.body30 ]
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #25
   %n2.sroa.0.0.extract.trunc = trunc i32 %retval.sroa.0.0.insert.insert.i343 to i16
   %n2.sroa.6623.0.extract.shift = lshr i32 %retval.sroa.0.0.insert.insert.i343, 24
   %n2.sroa.6623.0.extract.trunc = trunc nuw i32 %n2.sroa.6623.0.extract.shift to i8
@@ -12871,7 +12871,7 @@ if.then76:                                        ; preds = %_ZNK14NodeDefManage
   %53 = or disjoint i48 %retval.sroa.2.0.insert.shift.i368, %retval.sroa.0.0.insert.ext.i370
   %retval.sroa.0.0.insert.insert.i371 = or disjoint i48 %53, %retval.sroa.3.0.insert.shift.i366
   %54 = load ptr, ptr %this, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i372) #24
+  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i372) #25
   store i48 %retval.sroa.0.0.insert.insert.i371, ptr %voxel_area.i372, align 8, !tbaa.struct !117
   store i48 %retval.sroa.0.0.insert.insert.i371, ptr %MaxEdge.i.i373, align 2, !tbaa.struct !117
   store i48 4295032833, ptr %m_cache_extent.i.i374, align 4, !tbaa.struct !117
@@ -12921,7 +12921,7 @@ if.end.i422:                                      ; preds = %if.then76
 
 _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit425: ; preds = %if.end.i422, %if.then76
   %retval.sroa.0.0.insert.insert.i421 = phi i32 [ %64, %if.end.i422 ], [ 127, %if.then76 ]
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i372) #24
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i372) #25
   %65 = load ptr, ptr %nodedef, align 8, !tbaa !36
   %agg.tmp93.sroa.0.0.copyload = load i32, ptr %n.i, align 4, !tbaa.struct !67
   %call97 = call noundef zeroext i1 @_ZNK14NodeDefManager15nodeboxConnectsE7MapNodeS0_h(ptr noundef nonnull align 8 dereferenceable(65848) %65, i32 %agg.tmp93.sroa.0.0.copyload, i32 %retval.sroa.0.0.insert.insert.i421, i8 noundef zeroext %conv31)
@@ -12994,7 +12994,7 @@ if.then128:                                       ; preds = %for.inc122.4, %for.
   br i1 %cmp.i, label %if.then.i, label %if.end.i426
 
 if.then.i:                                        ; preds = %if.then128
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.23) #25
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.23) #26
           to label %.noexc unwind label %ehcleanup239.thread
 
 .noexc:                                           ; preds = %if.then.i
@@ -13006,7 +13006,7 @@ if.end.i426:                                      ; preds = %if.then128
 
 _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i: ; preds = %if.end.i426
   %mul.i.i.i.i = shl nuw nsw i64 %add, 2
-  %call5.i.i.i.i427 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #26
+  %call5.i.i.i.i427 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #27
           to label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i unwind label %ehcleanup239.thread
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i: ; preds = %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i
@@ -13024,7 +13024,7 @@ for.cond.cleanup134:                              ; preds = %for.cond.cleanup185
   br i1 %tobool.not.i.i.i, label %if.end241, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.cond.cleanup134
-  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.7.lcssa774) #23
+  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.7.lcssa774) #24
   br label %if.end241
 
 ehcleanup239.thread:                              ; preds = %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i, %if.then.i
@@ -13057,7 +13057,7 @@ if.else.i:                                        ; preds = %for.body141.prehead
 
 if.then.i.i.i434:                                 ; preds = %if.else.i.7, %if.else.i.6, %if.else.i.5, %if.else.i.4, %if.else.i.3, %if.else.i.2, %if.else.i.1, %if.else.i
   %sections.sroa.0.2701.lcssa = phi ptr [ %sections.sroa.0.1725, %if.else.i ], [ %sections.sroa.0.3, %if.else.i.1 ], [ %sections.sroa.0.3.1, %if.else.i.2 ], [ %sections.sroa.0.3.2, %if.else.i.3 ], [ %sections.sroa.0.3.3, %if.else.i.4 ], [ %sections.sroa.0.3.4, %if.else.i.5 ], [ %sections.sroa.0.3.5, %if.else.i.6 ], [ %sections.sroa.0.3.6, %if.else.i.7 ]
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #25
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #26
           to label %.noexc435 unwind label %lpad142.loopexit.split-lp
 
 .noexc435:                                        ; preds = %if.then.i.i.i434
@@ -13075,7 +13075,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
 
 cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 2
-  %call5.i.i.i.i.i436 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #26
+  %call5.i.i.i.i.i436 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #27
           to label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i unwind label %lpad142.loopexit
 
 _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i
@@ -13095,7 +13095,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i433, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i, label %if.then.i39.i.i
 
 if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i
-  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.1725) #23
+  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.1725) #24
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i
@@ -13133,7 +13133,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.1: ; preds = %if.else.i.1
 
 cond.true.i.i.i.1:                                ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.1
   %mul.i.i.i.i.i.1 = shl nuw nsw i64 %cond.i.i.i.1, 2
-  %call5.i.i.i.i.i436.1 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.1) #26
+  %call5.i.i.i.i.i436.1 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.1) #27
           to label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.1 unwind label %lpad142.loopexit
 
 _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.1: ; preds = %cond.true.i.i.i.1, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.1
@@ -13153,7 +13153,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.1: ; preds = %if.then.
   br i1 %tobool.not.i.i.i433.1, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.1, label %if.then.i39.i.i.1
 
 if.then.i39.i.i.1:                                ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.1
-  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.3) #23
+  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.3) #24
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.1
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.1: ; preds = %if.then.i39.i.i.1, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.1
@@ -13191,7 +13191,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.2: ; preds = %if.else.i.2
 
 cond.true.i.i.i.2:                                ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.2
   %mul.i.i.i.i.i.2 = shl nuw nsw i64 %cond.i.i.i.2, 2
-  %call5.i.i.i.i.i436.2 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.2) #26
+  %call5.i.i.i.i.i436.2 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.2) #27
           to label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.2 unwind label %lpad142.loopexit
 
 _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.2: ; preds = %cond.true.i.i.i.2, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.2
@@ -13211,7 +13211,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.2: ; preds = %if.then.
   br i1 %tobool.not.i.i.i433.2, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.2, label %if.then.i39.i.i.2
 
 if.then.i39.i.i.2:                                ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.2
-  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.3.1) #23
+  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.3.1) #24
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.2
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.2: ; preds = %if.then.i39.i.i.2, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.2
@@ -13249,7 +13249,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.3: ; preds = %if.else.i.3
 
 cond.true.i.i.i.3:                                ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.3
   %mul.i.i.i.i.i.3 = shl nuw nsw i64 %cond.i.i.i.3, 2
-  %call5.i.i.i.i.i436.3 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.3) #26
+  %call5.i.i.i.i.i436.3 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.3) #27
           to label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.3 unwind label %lpad142.loopexit
 
 _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.3: ; preds = %cond.true.i.i.i.3, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.3
@@ -13269,7 +13269,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.3: ; preds = %if.then.
   br i1 %tobool.not.i.i.i433.3, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.3, label %if.then.i39.i.i.3
 
 if.then.i39.i.i.3:                                ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.3
-  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.3.2) #23
+  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.3.2) #24
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.3
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.3: ; preds = %if.then.i39.i.i.3, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.3
@@ -13307,7 +13307,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.4: ; preds = %if.else.i.4
 
 cond.true.i.i.i.4:                                ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.4
   %mul.i.i.i.i.i.4 = shl nuw nsw i64 %cond.i.i.i.4, 2
-  %call5.i.i.i.i.i436.4 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.4) #26
+  %call5.i.i.i.i.i436.4 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.4) #27
           to label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.4 unwind label %lpad142.loopexit
 
 _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.4: ; preds = %cond.true.i.i.i.4, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.4
@@ -13327,7 +13327,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.4: ; preds = %if.then.
   br i1 %tobool.not.i.i.i433.4, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.4, label %if.then.i39.i.i.4
 
 if.then.i39.i.i.4:                                ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.4
-  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.3.3) #23
+  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.3.3) #24
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.4
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.4: ; preds = %if.then.i39.i.i.4, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.4
@@ -13365,7 +13365,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.5: ; preds = %if.else.i.5
 
 cond.true.i.i.i.5:                                ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.5
   %mul.i.i.i.i.i.5 = shl nuw nsw i64 %cond.i.i.i.5, 2
-  %call5.i.i.i.i.i436.5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.5) #26
+  %call5.i.i.i.i.i436.5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.5) #27
           to label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.5 unwind label %lpad142.loopexit
 
 _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.5: ; preds = %cond.true.i.i.i.5, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.5
@@ -13385,7 +13385,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.5: ; preds = %if.then.
   br i1 %tobool.not.i.i.i433.5, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.5, label %if.then.i39.i.i.5
 
 if.then.i39.i.i.5:                                ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.5
-  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.3.4) #23
+  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.3.4) #24
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.5
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.5: ; preds = %if.then.i39.i.i.5, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.5
@@ -13423,7 +13423,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.6: ; preds = %if.else.i.6
 
 cond.true.i.i.i.6:                                ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.6
   %mul.i.i.i.i.i.6 = shl nuw nsw i64 %cond.i.i.i.6, 2
-  %call5.i.i.i.i.i436.6 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.6) #26
+  %call5.i.i.i.i.i436.6 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.6) #27
           to label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.6 unwind label %lpad142.loopexit
 
 _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.6: ; preds = %cond.true.i.i.i.6, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.6
@@ -13443,7 +13443,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.6: ; preds = %if.then.
   br i1 %tobool.not.i.i.i433.6, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.6, label %if.then.i39.i.i.6
 
 if.then.i39.i.i.6:                                ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.6
-  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.3.5) #23
+  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.3.5) #24
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.6
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.6: ; preds = %if.then.i39.i.i.6, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.6
@@ -13481,7 +13481,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.7: ; preds = %if.else.i.7
 
 cond.true.i.i.i.7:                                ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.7
   %mul.i.i.i.i.i.7 = shl nuw nsw i64 %cond.i.i.i.7, 2
-  %call5.i.i.i.i.i436.7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.7) #26
+  %call5.i.i.i.i.i436.7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.7) #27
           to label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.7 unwind label %lpad142.loopexit
 
 _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.7: ; preds = %cond.true.i.i.i.7, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.7
@@ -13501,7 +13501,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.7: ; preds = %if.then.
   br i1 %tobool.not.i.i.i433.7, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.7, label %if.then.i39.i.i.7
 
 if.then.i39.i.i.7:                                ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.7
-  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.3.6) #23
+  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.3.6) #24
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.7
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.7: ; preds = %if.then.i39.i.i.7, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.7
@@ -13563,7 +13563,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.then.i446
   %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i441, i64 %sub.i)
   %add.i.i = add nuw nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i441
   %mul.i.i.i.i585 = shl nuw nsw i64 %add.i.i, 2
-  %call5.i.i.i.i592 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i585) #26
+  %call5.i.i.i.i592 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i585) #27
           to label %call5.i.i.i.i.noexc591 unwind label %lpad148
 
 call5.i.i.i.i.noexc591:                           ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i
@@ -13589,7 +13589,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit.i588: ; preds = %if.then.i.i
   br i1 %tobool.not.i77.i, label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit79.i, label %if.then.i78.i
 
 if.then.i78.i:                                    ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit.i588
-  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.1725) #23
+  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.1725) #24
   br label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit79.i
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit79.i: ; preds = %if.then.i78.i, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit.i588
@@ -13657,7 +13657,7 @@ if.else.i.i:                                      ; preds = %for.body155
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #25
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #26
           to label %.noexc461 unwind label %lpad158.loopexit.split-lp
 
 .noexc461:                                        ; preds = %if.then.i.i.i.i
@@ -13675,7 +13675,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
 
 cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 2
-  %call5.i.i.i.i.i.i462 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #26
+  %call5.i.i.i.i.i.i462 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #27
           to label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.i unwind label %lpad158.loopexit
 
 _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i
@@ -13695,7 +13695,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.i: ; preds = %if.then.
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i, label %if.then.i39.i.i.i
 
 if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.7710) #23
+  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.7710) #24
   %.pre.pre = load ptr, ptr %boxes, align 8, !tbaa !41
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i
 
@@ -13737,7 +13737,7 @@ if.else.i.i471:                                   ; preds = %invoke.cont165
   br i1 %cmp.i.i.i.i475, label %if.then.i.i.i.i497, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i476
 
 if.then.i.i.i.i497:                               ; preds = %if.else.i.i471
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #25
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #26
           to label %.noexc498 unwind label %lpad168.loopexit.split-lp
 
 .noexc498:                                        ; preds = %if.then.i.i.i.i497
@@ -13755,7 +13755,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i476: ; preds = %if.else.i.i47
 
 cond.true.i.i.i.i483:                             ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i476
   %mul.i.i.i.i.i.i484 = shl nuw nsw i64 %cond.i.i.i.i481, 2
-  %call5.i.i.i.i.i.i500 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i484) #26
+  %call5.i.i.i.i.i.i500 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i484) #27
           to label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.i485 unwind label %lpad168.loopexit
 
 _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i.i485: ; preds = %cond.true.i.i.i.i483, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i476
@@ -13776,7 +13776,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.i489: ; preds = %if.th
   br i1 %tobool.not.i.i.i.i492, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i494, label %if.then.i39.i.i.i493
 
 if.then.i39.i.i.i493:                             ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit38.i.i.i489
-  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.8) #23
+  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.8) #24
   %.pre755.pre = load ptr, ptr %boxes, align 8, !tbaa !41
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i494
 
@@ -13869,7 +13869,7 @@ land.lhs.true201:                                 ; preds = %for.body194
   br i1 %cmp205, label %if.then206, label %if.end217
 
 if.then206:                                       ; preds = %land.lhs.true201
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %copy) #24
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %copy) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %copy, ptr noundef nonnull align 4 dereferenceable(24) %box.0716, i64 24, i1 false), !tbaa.struct !201
   store float %108, ptr %add.ptr.i515, align 4, !tbaa !49
   store float %108, ptr %add.ptr.i513, align 4, !tbaa !49
@@ -13893,7 +13893,7 @@ if.else.i524:                                     ; preds = %if.then206
   br i1 %cmp.i.i.i528, label %if.then.i.i.i542, label %_ZNKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i542:                                 ; preds = %if.else.i524
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #25
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #26
           to label %.noexc543 unwind label %lpad208.loopexit.split-lp
 
 .noexc543:                                        ; preds = %if.then.i.i.i542
@@ -13911,7 +13911,7 @@ _ZNKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; pre
 
 cond.true.i.i.i535:                               ; preds = %_ZNKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i536 = mul nuw nsw i64 %cond.i.i.i533, 24
-  %call5.i.i.i.i.i545 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i536) #26
+  %call5.i.i.i.i.i545 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i536) #27
           to label %_ZNSt12_Vector_baseIN3irr4core8aabbox3dIfEESaIS3_EE11_M_allocateEm.exit.i.i unwind label %lpad208.loopexit
 
 _ZNSt12_Vector_baseIN3irr4core8aabbox3dIfEESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i535, %_ZNKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
@@ -13937,7 +13937,7 @@ _ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.
   br i1 %tobool.not.i.i.i540, label %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i41.i.i
 
 if.then.i41.i.i:                                  ; preds = %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i
-  call void @_ZdlPv(ptr noundef nonnull %104) #23
+  call void @_ZdlPv(ptr noundef nonnull %104) #24
   br label %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i41.i.i, %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i
@@ -13951,7 +13951,7 @@ invoke.cont214:                                   ; preds = %_ZNSt6vectorIN3irr4
   %114 = phi ptr [ %cond.i31.i.i537, %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.pre756, %if.then.i521 ]
   %115 = phi ptr [ %incdec.ptr.i.i539, %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %incdec.ptr.i522, %if.then.i521 ]
   %add.ptr.i546 = getelementptr inbounds %"class.irr::core::aabbox3d", ptr %114, i64 %i180.0722
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %copy) #24
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %copy) #25
   br label %if.end217
 
 lpad208.loopexit:                                 ; preds = %cond.true.i.i.i535
@@ -13966,7 +13966,7 @@ lpad208.loopexit.split-lp:                        ; preds = %if.then.i.i.i542
 
 lpad208:                                          ; preds = %lpad208.loopexit.split-lp, %lpad208.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad208.loopexit ], [ %lpad.loopexit.split-lp, %lpad208.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %copy) #24
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %copy) #25
   br label %ehcleanup239
 
 if.end217:                                        ; preds = %invoke.cont214, %land.lhs.true201, %for.body194
@@ -13986,7 +13986,7 @@ ehcleanup239:                                     ; preds = %lpad208, %lpad168.l
   br i1 %tobool.not.i.i.i548, label %ehcleanup273, label %if.then.i.i.i549
 
 if.then.i.i.i549:                                 ; preds = %ehcleanup239
-  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.10) #23
+  call void @_ZdlPv(ptr noundef nonnull %sections.sroa.0.10) #24
   br label %ehcleanup273
 
 if.end241:                                        ; preds = %if.then.i.i.i, %for.cond.cleanup134, %for.inc122.4
@@ -14006,12 +14006,12 @@ for.cond.cleanup251:                              ; preds = %for.cond.cleanup251
   br i1 %tobool.not.i.i.i553, label %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EED2Ev.exit, label %if.then.i.i.i554
 
 if.then.i.i.i554:                                 ; preds = %for.cond.cleanup251
-  call void @_ZdlPv(ptr noundef nonnull %122) #23
+  call void @_ZdlPv(ptr noundef nonnull %122) #24
   br label %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EED2Ev.exit: ; preds = %if.then.i.i.i554, %for.cond.cleanup251
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %boxes) #24
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %tiles) #24
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %boxes) #25
+  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %tiles) #25
   ret void
 
 for.body252:                                      ; preds = %if.end241, %invoke.cont260
@@ -14109,12 +14109,12 @@ ehcleanup273:                                     ; preds = %lpad259, %if.then.i
   br i1 %tobool.not.i.i.i562, label %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EED2Ev.exit564, label %if.then.i.i.i563
 
 if.then.i.i.i563:                                 ; preds = %ehcleanup273
-  call void @_ZdlPv(ptr noundef nonnull %126) #23
+  call void @_ZdlPv(ptr noundef nonnull %126) #24
   br label %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EED2Ev.exit564
 
 _ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EED2Ev.exit564: ; preds = %if.then.i.i.i563, %ehcleanup273
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %boxes) #24
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %tiles) #24
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %boxes) #25
+  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %tiles) #25
   resume { ptr, i32 } %.pn323.pn.pn.pn
 }
 
@@ -14530,7 +14530,7 @@ delete.notnull.i:                                 ; preds = %if.then153
   %vtable.i = load ptr, ptr %add.ptr, align 8, !tbaa !208
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %117 = load ptr, ptr %vfn.i, align 8
-  call void %117(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #24
+  call void %117(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #25
   br label %cleanup
 
 cleanup:                                          ; preds = %delete.notnull.i, %if.then153, %for.cond.cleanup, %if.else72
@@ -14619,7 +14619,7 @@ if.then.i:                                        ; preds = %_ZN11StreamProxylsI
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  tail call void @_ZSt16__throw_bad_castv() #25
+  tail call void @_ZSt16__throw_bad_castv() #26
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %if.then.i
@@ -14648,7 +14648,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %if.e
   br label %_ZN11StreamProxylsEPFRSoS0_E.exit
 
 _ZN11StreamProxylsEPFRSoS0_E.exit:                ; preds = %_ZTW10infostream.exit, %_ZN9LogStreamlsIRA14_KcEER11StreamProxyOT_.exit, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZN11StreamProxylsIRK12NodeDrawTypeEERS_OT_.exit
-  tail call void @_Z14fatal_error_fnPKcS0_jS0_(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 1706, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN21MapblockMeshGenerator20errorUnknownDrawtypeEv) #25
+  tail call void @_Z14fatal_error_fnPKcS0_jS0_(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 1706, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN21MapblockMeshGenerator20errorUnknownDrawtypeEv) #26
   unreachable
 }
 
@@ -14710,7 +14710,7 @@ if.then:                                          ; preds = %sw.epilog
 
 for.body6.i:                                      ; preds = %if.end.i, %if.then
   %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %if.end.i ]
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp.i) #24
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %ref.tmp.i) #25
   %9 = load i16, ptr %blockpos_nodes.i, align 8, !tbaa !38
   %10 = load i16, ptr %cur_node, align 8, !tbaa !38
   %add.i.i = add i16 %10, %9
@@ -14734,7 +14734,7 @@ for.body6.i:                                      ; preds = %if.end.i, %if.then
   %conv2.i.i = trunc i16 %call10.i to i8
   %16 = lshr i16 %call10.i, 8
   %conv4.i.i = trunc nuw i16 %16 to i8
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp.i) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp.i) #25
   %conv.i29 = uitofp i8 %conv2.i.i to float
   %arrayidx14.i = getelementptr inbounds [8 x float], ptr %frame12.i, i64 0, i64 %indvars.iv.i
   store float %conv.i29, ptr %arrayidx14.i, align 4, !tbaa !49
@@ -14907,7 +14907,7 @@ for.body29:                                       ; preds = %for.cond20.preheade
   %retval.sroa.0.0.insert.ext.i = zext i16 %add.i to i48
   %14 = or disjoint i48 %retval.sroa.2.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i
   %retval.sroa.0.0.insert.insert.i = or disjoint i48 %retval.sroa.3.0.insert.shift.i, %14
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #25
   store i48 %retval.sroa.0.0.insert.insert.i, ptr %voxel_area.i, align 8, !tbaa.struct !117
   store i48 %retval.sroa.0.0.insert.insert.i, ptr %MaxEdge.i.i, align 2, !tbaa.struct !117
   store i48 4295032833, ptr %m_cache_extent.i.i, align 4, !tbaa.struct !117
@@ -14957,7 +14957,7 @@ if.end.i:                                         ; preds = %for.body29
 
 _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit: ; preds = %if.end.i, %for.body29
   %retval.sroa.0.0.insert.insert.i57 = phi i32 [ %24, %if.end.i ], [ 127, %for.body29 ]
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #24
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %voxel_area.i) #25
   store i32 %retval.sroa.0.0.insert.insert.i57, ptr %n, align 4, !tbaa.struct !67
   %25 = load ptr, ptr %nodedef, align 8, !tbaa !36
   %26 = and i32 %retval.sroa.0.0.insert.insert.i57, 65535
@@ -15092,7 +15092,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN13ModifySafeMapItSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS1_EEE10null_valueE, align 8
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS0_EED2Ev, ptr nonnull @_ZN13ModifySafeMapItSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS1_EEE10null_valueE, ptr nonnull @__dso_handle) #24
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS0_EED2Ev, ptr nonnull @_ZN13ModifySafeMapItSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS1_EEE10null_valueE, ptr nonnull @__dso_handle) #25
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -15110,7 +15110,7 @@ _ZNKSt14default_deleteI18ClientActiveObjectEclEPS0_.exit: ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !208
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
   %1 = load ptr, ptr %vfn.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   br label %if.end
 
 if.end:                                           ; preds = %_ZNKSt14default_deleteI18ClientActiveObjectEclEPS0_.exit, %entry
@@ -15190,7 +15190,7 @@ terminate.lpad.i.i:                               ; preds = %if.end15
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #27
+  tail call void @__clang_call_terminate(ptr %10) #28
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit: ; preds = %if.end15
@@ -15275,19 +15275,20 @@ return:                                           ; preds = %for.inc, %land.rhs.
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #17 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
-  tail call void @_ZSt9terminatev() #27
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #25
+  tail call void @_ZSt9terminatev() #28
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #18
 
 declare noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #18
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #19
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
@@ -16103,7 +16104,7 @@ declare double @llvm.sin.f64(double) #10
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
@@ -16111,7 +16112,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_content_mapblock.cpp() #20 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_content_mapblock.cpp() #21 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i1 = alloca i64, align 8
   %__dnew.i.i197.i = alloca i64, align 8
@@ -16126,9 +16127,9 @@ entry:
   %__dnew.i.i76.i = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #24
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #25
   store ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 16), ptr @_ZL19accessDeniedStringsB5cxx11, align 16, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #25
   store i64 16, ptr %__dnew.i.i.i, align 8, !tbaa !43
   %call2.i11.i75.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZL19accessDeniedStringsB5cxx11, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i, i64 noundef 0)
   store ptr %call2.i11.i75.i, ptr @_ZL19accessDeniedStringsB5cxx11, align 16, !tbaa !4
@@ -16139,9 +16140,9 @@ entry:
   %2 = load ptr, ptr @_ZL19accessDeniedStringsB5cxx11, align 16, !tbaa !4
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %1
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #25
   store ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 48), ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 32), align 16, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i76.i) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i76.i) #25
   store i64 95, ptr %__dnew.i.i76.i, align 8, !tbaa !43
   %call2.i11.i85.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 32), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i76.i, i64 noundef 0)
           to label %call2.i11.i.noexc84.i unwind label %lpad2.i
@@ -16155,9 +16156,9 @@ call2.i11.i.noexc84.i:                            ; preds = %entry
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 32), align 16, !tbaa !4
   %arrayidx.i.i.i80.i = getelementptr inbounds i8, ptr %4, i64 %3
   store i8 0, ptr %arrayidx.i.i.i80.i, align 1, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i76.i) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i76.i) #25
   store ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 80), ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 64), align 16, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i87.i) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i87.i) #25
   store i64 71, ptr %__dnew.i.i87.i, align 8, !tbaa !43
   %call2.i11.i96.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 64), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i87.i, i64 noundef 0)
           to label %call2.i11.i.noexc95.i unwind label %lpad5.i
@@ -16171,9 +16172,9 @@ call2.i11.i.noexc95.i:                            ; preds = %call2.i11.i.noexc84
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 64), align 16, !tbaa !4
   %arrayidx.i.i.i91.i = getelementptr inbounds i8, ptr %6, i64 %5
   store i8 0, ptr %arrayidx.i.i.i91.i, align 1, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i87.i) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i87.i) #25
   store ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 112), ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 96), align 16, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i98.i) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i98.i) #25
   store i64 80, ptr %__dnew.i.i98.i, align 8, !tbaa !43
   %call2.i11.i107.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 96), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i98.i, i64 noundef 0)
           to label %call2.i11.i.noexc106.i unwind label %lpad8.i
@@ -16187,9 +16188,9 @@ call2.i11.i.noexc106.i:                           ; preds = %call2.i11.i.noexc95
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 96), align 16, !tbaa !4
   %arrayidx.i.i.i102.i = getelementptr inbounds i8, ptr %8, i64 %7
   store i8 0, ptr %arrayidx.i.i.i102.i, align 1, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i98.i) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i98.i) #25
   store ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 144), ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 128), align 16, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i109.i) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i109.i) #25
   store i64 42, ptr %__dnew.i.i109.i, align 8, !tbaa !43
   %call2.i11.i118.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 128), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i109.i, i64 noundef 0)
           to label %call2.i11.i.noexc117.i unwind label %lpad11.i
@@ -16203,9 +16204,9 @@ call2.i11.i.noexc117.i:                           ; preds = %call2.i11.i.noexc10
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 128), align 16, !tbaa !4
   %arrayidx.i.i.i113.i = getelementptr inbounds i8, ptr %10, i64 %9
   store i8 0, ptr %arrayidx.i.i.i113.i, align 1, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i109.i) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i109.i) #25
   store ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 176), ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 160), align 16, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i120.i) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i120.i) #25
   store i64 23, ptr %__dnew.i.i120.i, align 8, !tbaa !43
   %call2.i11.i129.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 160), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i120.i, i64 noundef 0)
           to label %call2.i11.i.noexc128.i unwind label %lpad14.i
@@ -16219,13 +16220,13 @@ call2.i11.i.noexc128.i:                           ; preds = %call2.i11.i.noexc11
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 160), align 16, !tbaa !4
   %arrayidx.i.i.i124.i = getelementptr inbounds i8, ptr %12, i64 %11
   store i8 0, ptr %arrayidx.i.i.i124.i, align 1, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i120.i) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i120.i) #25
   store ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 208), ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 192), align 16, !tbaa !42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(14) getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 208), ptr noundef nonnull align 1 dereferenceable(14) @.str.7, i64 14, i1 false)
   store i64 14, ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 200), align 8, !tbaa !11
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 222), align 2, !tbaa !44
   store ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 240), ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 224), align 16, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i142.i) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i142.i) #25
   store i64 62, ptr %__dnew.i.i142.i, align 8, !tbaa !43
   %call2.i11.i151.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 224), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i142.i, i64 noundef 0)
           to label %call2.i11.i.noexc150.i unwind label %lpad20.i
@@ -16239,9 +16240,9 @@ call2.i11.i.noexc150.i:                           ; preds = %call2.i11.i.noexc12
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 224), align 16, !tbaa !4
   %arrayidx.i.i.i146.i = getelementptr inbounds i8, ptr %14, i64 %13
   store i8 0, ptr %arrayidx.i.i.i146.i, align 1, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i142.i) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i142.i) #25
   store ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 272), ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 256), align 16, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i153.i) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i153.i) #25
   store i64 103, ptr %__dnew.i.i153.i, align 8, !tbaa !43
   %call2.i11.i162.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 256), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i153.i, i64 noundef 0)
           to label %call2.i11.i.noexc161.i unwind label %lpad23.i
@@ -16255,9 +16256,9 @@ call2.i11.i.noexc161.i:                           ; preds = %call2.i11.i.noexc15
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 256), align 16, !tbaa !4
   %arrayidx.i.i.i157.i = getelementptr inbounds i8, ptr %16, i64 %15
   store i8 0, ptr %arrayidx.i.i.i157.i, align 1, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i153.i) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i153.i) #25
   store ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 304), ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 288), align 16, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i164.i) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i164.i) #25
   store i64 21, ptr %__dnew.i.i164.i, align 8, !tbaa !43
   %call2.i11.i173.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 288), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i164.i, i64 noundef 0)
           to label %call2.i11.i.noexc172.i unwind label %lpad26.i
@@ -16271,12 +16272,12 @@ call2.i11.i.noexc172.i:                           ; preds = %call2.i11.i.noexc16
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 288), align 16, !tbaa !4
   %arrayidx.i.i.i168.i = getelementptr inbounds i8, ptr %18, i64 %17
   store i8 0, ptr %arrayidx.i.i.i168.i, align 1, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i164.i) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i164.i) #25
   store ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 336), ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 320), align 16, !tbaa !42
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 328), align 8, !tbaa !11
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 336), align 16, !tbaa !44
   store ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 368), ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 352), align 16, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i186.i) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i186.i) #25
   store i64 20, ptr %__dnew.i.i186.i, align 8, !tbaa !43
   %call2.i11.i195.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 352), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i186.i, i64 noundef 0)
           to label %call2.i11.i.noexc194.i unwind label %lpad32.i
@@ -16290,9 +16291,9 @@ call2.i11.i.noexc194.i:                           ; preds = %call2.i11.i.noexc17
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 352), align 16, !tbaa !4
   %arrayidx.i.i.i190.i = getelementptr inbounds i8, ptr %20, i64 %19
   store i8 0, ptr %arrayidx.i.i.i190.i, align 1, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i186.i) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i186.i) #25
   store ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400), ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i197.i) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i197.i) #25
   store i64 76, ptr %__dnew.i.i197.i, align 8, !tbaa !43
   %call2.i11.i206.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i197.i, i64 noundef 0)
           to label %__cxx_global_var_init.1.exit unwind label %lpad35.i
@@ -16368,7 +16369,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 if.then.i.i208.i:                                 ; preds = %arraydestroy.body.i
-  call void @_ZdlPv(ptr noundef %31) #23
+  call void @_ZdlPv(ptr noundef %31) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i208.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
@@ -16387,10 +16388,10 @@ __cxx_global_var_init.1.exit:                     ; preds = %call2.i11.i.noexc19
   %35 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !4
   %arrayidx.i.i.i201.i = getelementptr inbounds i8, ptr %35, i64 %34
   store i8 0, ptr %arrayidx.i.i.i201.i, align 1, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i197.i) #24
-  %36 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i197.i) #25
+  %36 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #25
   store ptr getelementptr inbounds (i8, ptr @_ZN21MapblockMeshGenerator18raillike_groupnameB5cxx11E, i64 16), ptr @_ZN21MapblockMeshGenerator18raillike_groupnameB5cxx11E, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i1) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i1) #25
   store i64 19, ptr %__dnew.i.i.i1, align 8, !tbaa !43
   %call2.i11.i2.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN21MapblockMeshGenerator18raillike_groupnameB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i1, i64 noundef 0)
   store ptr %call2.i11.i2.i, ptr @_ZN21MapblockMeshGenerator18raillike_groupnameB5cxx11E, align 8, !tbaa !4
@@ -16401,8 +16402,8 @@ __cxx_global_var_init.1.exit:                     ; preds = %call2.i11.i.noexc19
   %38 = load ptr, ptr @_ZN21MapblockMeshGenerator18raillike_groupnameB5cxx11E, align 8, !tbaa !4
   %arrayidx.i.i.i.i2 = getelementptr inbounds i8, ptr %38, i64 %37
   store i8 0, ptr %arrayidx.i.i.i.i2, align 1, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i1) #24
-  %39 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN21MapblockMeshGenerator18raillike_groupnameB5cxx11E, ptr nonnull @__dso_handle) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i1) #25
+  %39 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN21MapblockMeshGenerator18raillike_groupnameB5cxx11E, ptr nonnull @__dso_handle) #25
   ret void
 }
 
@@ -16412,7 +16413,7 @@ declare extern_weak void @_ZTH10infostream() #0
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #21
+declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
@@ -16430,7 +16431,7 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 declare i8 @llvm.umax.i8(i8, i8) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10
@@ -16471,16 +16472,17 @@ attributes #14 = { noreturn uwtable "no-signed-zeros-fp-math"="true" "no-trappin
 attributes #15 = { noreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { noreturn nounwind uwtable "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nobuiltin nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nobuiltin allocsize(0) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #22 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
-attributes #23 = { builtin nounwind }
-attributes #24 = { nounwind }
-attributes #25 = { noreturn }
-attributes #26 = { builtin allocsize(0) }
-attributes #27 = { noreturn nounwind }
+attributes #18 = { cold nofree noreturn }
+attributes #19 = { nobuiltin nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nobuiltin allocsize(0) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #23 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
+attributes #24 = { builtin nounwind }
+attributes #25 = { nounwind }
+attributes #26 = { noreturn }
+attributes #27 = { builtin allocsize(0) }
+attributes #28 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

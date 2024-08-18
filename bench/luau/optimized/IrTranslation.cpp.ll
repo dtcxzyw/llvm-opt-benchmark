@@ -1009,13 +1009,13 @@ _ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit431: ; pr
   %258 = landingpad { ptr, i32 }
           catch ptr null
   %259 = extractvalue { ptr, i32 } %258, 0
-  tail call void @__clang_call_terminate(ptr %259) #10
+  tail call void @__clang_call_terminate(ptr %259) #11
   unreachable
 
 260:                                              ; preds = %254, %252, %250, %248, %246, %240
   %261 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %9) #11
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %9) #12
   resume { ptr, i32 } %261
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %256, %135, %238, %138, %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit426, %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit, %switch.lookup
@@ -1240,7 +1240,7 @@ _ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit: ; pr
 103:                                              ; preds = %.invoke, %127, %120, %115, %110, %105, %101, %99, %97, %95, %90, %84
   %104 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #11
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
   resume { ptr, i32 } %104
 
 105:                                              ; preds = %92
@@ -1288,7 +1288,7 @@ _ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit: ; pr
   %131 = landingpad { ptr, i32 }
           catch ptr null
   %132 = extractvalue { ptr, i32 } %131, 0
-  tail call void @__clang_call_terminate(ptr %132) #10
+  tail call void @__clang_call_terminate(ptr %132) #11
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %129, %48, %82, %._crit_edge, %25
@@ -1318,7 +1318,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(pt
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #10
+  tail call void @__clang_call_terminate(ptr %7) #11
   unreachable
 }
 
@@ -1442,7 +1442,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %15
 78:                                               ; preds = %.invoke, %93, %85, %80, %76, %74, %69, %51
   %79 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #11
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
   resume { ptr, i32 } %79
 
 80:                                               ; preds = %71
@@ -1477,7 +1477,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %15
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  tail call void @__clang_call_terminate(ptr %98) #10
+  tail call void @__clang_call_terminate(ptr %98) #11
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %95, %30, %._crit_edge
@@ -1923,7 +1923,7 @@ _ZN4Luau7CodeGenL12getLoopStepKERNS0_9IrBuilderEi.exit: ; preds = %54, %63
   br i1 %79, label %80, label %_ZNKSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %74
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #12
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #13
   unreachable
 
 _ZNKSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE12_M_check_lenEmPKc.exit.i: ; preds = %74
@@ -1938,7 +1938,7 @@ _ZNKSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE12_M_check_lenEmPKc.exit
 
 86:                                               ; preds = %_ZNKSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE12_M_check_lenEmPKc.exit.i
   %87 = shl nuw nsw i64 %85, 3
-  %88 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %87) #13
+  %88 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %87) #14
   br label %_ZNSt12_Vector_baseIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_M_allocateEm.exit.i: ; preds = %86, %_ZNKSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE12_M_check_lenEmPKc.exit.i
@@ -1971,7 +1971,7 @@ _ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_S_relocateEPS3_S6_S6_R
   br i1 %.not.i23.i, label %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit, label %95
 
 95:                                               ; preds = %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %78) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %78) #15
   br label %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit
 
 _ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i, %95
@@ -2610,7 +2610,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %20
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  tail call void @__clang_call_terminate(ptr %67) #10
+  tail call void @__clang_call_terminate(ptr %67) #11
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %64
@@ -2619,7 +2619,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %64
 68:                                               ; preds = %62, %60, %57, %55, %53, %51, %31
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #11
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
   resume { ptr, i32 } %69
 }
 
@@ -2725,7 +2725,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %20
   %70 = landingpad { ptr, i32 }
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
-  tail call void @__clang_call_terminate(ptr %71) #10
+  tail call void @__clang_call_terminate(ptr %71) #11
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %68
@@ -2734,7 +2734,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %68
 72:                                               ; preds = %66, %64, %61, %59, %57, %55, %31
   %73 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #11
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
   resume { ptr, i32 } %73
 }
 
@@ -2851,7 +2851,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %20
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  tail call void @__clang_call_terminate(ptr %77) #10
+  tail call void @__clang_call_terminate(ptr %77) #11
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %74
@@ -2860,7 +2860,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %74
 78:                                               ; preds = %72, %70, %68, %66, %64, %62, %41
   %79 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #11
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
   resume { ptr, i32 } %79
 }
 
@@ -2981,7 +2981,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %20
   %80 = landingpad { ptr, i32 }
           catch ptr null
   %81 = extractvalue { ptr, i32 } %80, 0
-  tail call void @__clang_call_terminate(ptr %81) #10
+  tail call void @__clang_call_terminate(ptr %81) #11
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %78
@@ -2990,7 +2990,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %78
 82:                                               ; preds = %76, %74, %72, %70, %68, %66, %41
   %83 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #11
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
   resume { ptr, i32 } %83
 }
 
@@ -3055,7 +3055,7 @@ define dso_local void @_ZN4Luau7CodeGen22translateInstGetImportERNS0_9IrBuilderE
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #10
+  tail call void @__clang_call_terminate(ptr %42) #11
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %39
@@ -3064,7 +3064,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %39
 43:                                               ; preds = %37, %35, %33, %31, %29, %3
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #11
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
   resume { ptr, i32 } %44
 }
 
@@ -3311,7 +3311,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %22
   %169 = landingpad { ptr, i32 }
           catch ptr null
   %170 = extractvalue { ptr, i32 } %169, 0
-  tail call void @__clang_call_terminate(ptr %170) #10
+  tail call void @__clang_call_terminate(ptr %170) #11
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %167, %112, %48, %68, %88, %58, %85, %125
@@ -3320,7 +3320,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %167, %112, %48, %68
 171:                                              ; preds = %165, %163, %161, %159, %157, %138
   %172 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #11
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
   resume { ptr, i32 } %172
 }
 
@@ -3453,7 +3453,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %20
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  tail call void @__clang_call_terminate(ptr %85) #10
+  tail call void @__clang_call_terminate(ptr %85) #11
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %82, %33
@@ -3462,7 +3462,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %82, %33
 86:                                               ; preds = %80, %78, %76, %74, %72, %49
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #11
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
   resume { ptr, i32 } %87
 }
 
@@ -3519,7 +3519,7 @@ define dso_local void @_ZN4Luau7CodeGen22translateInstGetGlobalERNS0_9IrBuilderE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #10
+  tail call void @__clang_call_terminate(ptr %37) #11
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %34
@@ -3528,7 +3528,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %34
 38:                                               ; preds = %32, %30, %28, %26, %3
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #11
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
   resume { ptr, i32 } %39
 }
 
@@ -3589,7 +3589,7 @@ define dso_local void @_ZN4Luau7CodeGen22translateInstSetGlobalERNS0_9IrBuilderE
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #10
+  tail call void @__clang_call_terminate(ptr %41) #11
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %38
@@ -3598,7 +3598,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %38
 42:                                               ; preds = %36, %34, %32, %30, %3
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #11
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
   resume { ptr, i32 } %43
 }
 
@@ -4088,48 +4088,50 @@ define dso_local void @_ZN4Luau7CodeGen23translateInstNewClosureERNS0_9IrBuilder
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #10
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #11
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
+declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #8
+declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #9
+declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { builtin allocsize(0) }
-attributes #14 = { builtin nounwind }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

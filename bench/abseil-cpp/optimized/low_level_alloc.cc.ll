@@ -83,7 +83,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 288), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 292), align 4
-  %call.i.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
+  %call.i.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
   store i64 %call.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 296), align 8
   store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 304), align 8
   store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 312), align 8
@@ -96,7 +96,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 288), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 292), align 4
-  %call.i.i1.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
+  %call.i.i1.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
   store i64 %call.i.i1.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 296), align 8
   store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 304), align 8
   store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 312), align 8
@@ -109,7 +109,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 288), align 8
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 292), align 4
-  %call.i.i2.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
+  %call.i.i2.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
   store i64 %call.i.i2.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 296), align 8
   store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 304), align 8
   store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 312), align 8
@@ -140,7 +140,7 @@ entry:
   %flags = getelementptr inbounds i8, ptr %this, i64 292
   store i32 %flags_value, ptr %flags, align 4
   %pagesize = getelementptr inbounds i8, ptr %this, i64 296
-  %call.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
+  %call.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
   store i64 %call.i, ptr %pagesize, align 8
   %round_up = getelementptr inbounds i8, ptr %this, i64 304
   store i64 32, ptr %round_up, align 8
@@ -195,7 +195,7 @@ if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 288), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 292), align 4
-  %call.i.i.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
+  %call.i.i.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
   store i64 %call.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 296), align 8
   store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 304), align 8
   store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 312), align 8
@@ -208,7 +208,7 @@ if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 288), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 292), align 4
-  %call.i.i1.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
+  %call.i.i1.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
   store i64 %call.i.i1.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 296), align 8
   store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 304), align 8
   store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 312), align 8
@@ -221,7 +221,7 @@ if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 288), align 8
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 292), align 4
-  %call.i.i2.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
+  %call.i.i2.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
   store i64 %call.i.i2.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 296), align 8
   store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 304), align 8
   store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 312), align 8
@@ -257,7 +257,7 @@ if.end6:                                          ; preds = %if.then5.i.i.i, %if
   %flags.i = getelementptr inbounds i8, ptr %call.i, i64 292
   store i32 %flags, ptr %flags.i, align 4
   %pagesize.i = getelementptr inbounds i8, ptr %call.i, i64 296
-  %call.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
+  %call.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
   store i64 %call.i.i, ptr %pagesize.i, align 8
   %round_up.i = getelementptr inbounds i8, ptr %call.i, i64 304
   store i64 32, ptr %round_up.i, align 8
@@ -301,7 +301,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 288), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 292), align 4
-  %call.i.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
+  %call.i.i.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
   store i64 %call.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 296), align 8
   store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 304), align 8
   store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, i64 312), align 8
@@ -314,7 +314,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 288), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 292), align 4
-  %call.i.i1.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
+  %call.i.i1.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
   store i64 %call.i.i1.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 296), align 8
   store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 304), align 8
   store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, i64 312), align 8
@@ -327,7 +327,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 288), align 8
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 292), align 4
-  %call.i.i2.i = tail call noundef i64 @sysconf(i32 noundef 30) #10
+  %call.i.i2.i = tail call noundef i64 @sysconf(i32 noundef 30) #11
   store i64 %call.i.i2.i, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 296), align 8
   store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 304), align 8
   store i64 64, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, i64 312), align 8
@@ -400,9 +400,9 @@ do.end7:                                          ; preds = %land.rhs
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end7
-  %call.i = call i32 @sigfillset(ptr noundef nonnull %all.i) #10
+  %call.i = call i32 @sigfillset(ptr noundef nonnull %all.i) #11
   %mask_2.i = getelementptr inbounds i8, ptr %section, i64 8
-  %call3.i = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %all.i, ptr noundef nonnull %mask_2.i) #10
+  %call3.i = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %all.i, ptr noundef nonnull %mask_2.i) #11
   %cmp4.i = icmp eq i32 %call3.i, 0
   %frombool.i = zext i1 %cmp4.i to i8
   store i8 %frombool.i, ptr %mask_valid_.i, align 1
@@ -425,7 +425,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %if.end.i
   br i1 %5, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.end.i
-  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %1) #11
+  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %1) #12
   br label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
 
 _ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.then.i.i
@@ -449,7 +449,7 @@ if.then9:                                         ; preds = %_ZN4absl13base_inte
   br i1 %cmp6.not.i.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.then9
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef %9) #11
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef %9) #12
           to label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i unwind label %lpad
 
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i, %if.then9
@@ -459,7 +459,7 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i, %if.t
 
 if.then.i25:                                      ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
   %mask_.i = getelementptr inbounds i8, ptr %section, i64 8
-  %call.i26 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %mask_.i, ptr noundef null) #10
+  %call.i26 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %mask_.i, ptr noundef null) #11
   %cmp.not.i27 = icmp eq i32 %call.i26, 0
   br i1 %cmp.not.i27, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit, label %do.body.i41.invoke
 
@@ -467,7 +467,7 @@ lpad:                                             ; preds = %do.body77.invoke, %
   %11 = landingpad { ptr, i32 }
           cleanup
   %section.val = load i8, ptr %section, align 8
-  call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %section.val) #10
+  call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %section.val) #11
   resume { ptr, i32 } %11
 
 while.cond:                                       ; preds = %while.cond.preheader, %if.end93
@@ -521,11 +521,11 @@ do.end87:                                         ; preds = %do.body71
   br i1 %cmp88, label %if.then89, label %if.else
 
 if.then89:                                        ; preds = %do.end87
-  %call90 = call i32 @munmap(ptr noundef nonnull %12, i64 noundef %13) #10
+  %call90 = call i32 @munmap(ptr noundef nonnull %12, i64 noundef %13) #11
   br label %if.end93
 
 if.else:                                          ; preds = %do.end87
-  %call.i29 = call i64 (i64, ...) @syscall(i64 noundef 11, ptr noundef nonnull %12, i64 noundef %13) #10
+  %call.i29 = call i64 (i64, ...) @syscall(i64 noundef 11, ptr noundef nonnull %12, i64 noundef %13) #11
   %conv.i = trunc i64 %call.i29 to i32
   br label %if.end93
 
@@ -535,7 +535,7 @@ if.end93:                                         ; preds = %if.else, %if.then89
   br i1 %cmp94.not, label %while.cond, label %do.body96, !llvm.loop !5
 
 do.body96:                                        ; preds = %if.end93
-  %call98 = tail call ptr @__errno_location() #12
+  %call98 = tail call ptr @__errno_location() #13
   %24 = load i32, ptr %call98, align 4
   br label %do.body.i41.invoke
 
@@ -548,7 +548,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %cmp6.not.i.i32, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i34, label %if.then7.i.i33
 
 if.then7.i.i33:                                   ; preds = %while.end
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %25, i32 noundef %27) #11
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %25, i32 noundef %27) #12
           to label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i34 unwind label %lpad
 
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i34: ; preds = %if.then7.i.i33, %while.end
@@ -558,7 +558,7 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i34: ; preds = %if.then7.i.i33, %
 
 if.then.i37:                                      ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i34
   %mask_.i38 = getelementptr inbounds i8, ptr %section, i64 8
-  %call.i39 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %mask_.i38, ptr noundef null) #10
+  %call.i39 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %mask_.i38, ptr noundef null) #11
   %cmp.not.i40 = icmp eq i32 %call.i39, 0
   br i1 %cmp.not.i40, label %invoke.cont106, label %do.body.i41.invoke
 
@@ -593,7 +593,7 @@ terminate.lpad.i:                                 ; preds = %do.body2.i
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #13
+  call void @__clang_call_terminate(ptr %34) #14
   unreachable
 
 _ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit: ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, %if.then.i25, %cleanup
@@ -634,9 +634,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call.i = call i32 @sigfillset(ptr noundef nonnull %all.i) #10
+  %call.i = call i32 @sigfillset(ptr noundef nonnull %all.i) #11
   %mask_2.i = getelementptr inbounds i8, ptr %section, i64 8
-  %call3.i = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %all.i, ptr noundef nonnull %mask_2.i) #10
+  %call3.i = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %all.i, ptr noundef nonnull %mask_2.i) #11
   %cmp4.i = icmp eq i32 %call3.i, 0
   %frombool.i = zext i1 %cmp4.i to i8
   store i8 %frombool.i, ptr %mask_valid_.i, align 1
@@ -659,7 +659,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %if.end.i
   br i1 %6, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.end.i
-  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %2) #11
+  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %2) #12
   br label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
 
 _ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.then.i.i
@@ -684,7 +684,7 @@ lpad:                                             ; preds = %do.body.i, %if.then
   %8 = landingpad { ptr, i32 }
           cleanup
   %section.val = load i8, ptr %section, align 8
-  call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %section.val) #10
+  call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %section.val) #11
   resume { ptr, i32 } %8
 
 do.end10:                                         ; preds = %do.body
@@ -698,7 +698,7 @@ do.end10:                                         ; preds = %do.body
   br i1 %cmp6.not.i.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %do.end10
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef %11) #11
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef %11) #12
           to label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i unwind label %lpad
 
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i, %do.end10
@@ -708,7 +708,7 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i, %do.e
 
 if.then.i9:                                       ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
   %mask_.i = getelementptr inbounds i8, ptr %section, i64 8
-  %call.i10 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %mask_.i, ptr noundef null) #10
+  %call.i10 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %mask_.i, ptr noundef null) #11
   %cmp.not.i11 = icmp eq i32 %call.i10, 0
   br i1 %cmp.not.i11, label %if.end13, label %do.body.i
 
@@ -743,7 +743,7 @@ terminate.lpad:                                   ; preds = %do.body2
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #13
+  tail call void @__clang_call_terminate(ptr %1) #14
   unreachable
 }
 
@@ -934,9 +934,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call.i = call i32 @sigfillset(ptr noundef nonnull %all.i) #10
+  %call.i = call i32 @sigfillset(ptr noundef nonnull %all.i) #11
   %mask_2.i = getelementptr inbounds i8, ptr %section, i64 8
-  %call3.i = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %all.i, ptr noundef nonnull %mask_2.i) #10
+  %call3.i = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %all.i, ptr noundef nonnull %mask_2.i) #11
   %cmp4.i = icmp eq i32 %call3.i, 0
   %frombool.i = zext i1 %cmp4.i to i8
   store i8 %frombool.i, ptr %mask_valid_.i, align 1
@@ -959,7 +959,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %if.end.i
   br i1 %5, label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.end.i
-  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %1) #11
+  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %1) #12
   br label %_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit
 
 _ZN4absl13base_internal12_GLOBAL__N_19ArenaLockC2EPNS0_13LowLevelAlloc5ArenaE.exit: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.then.i.i
@@ -1082,7 +1082,7 @@ lpad.loopexit.split-lp:                           ; preds = %do.body76.invoke, %
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit102, %lpad.loopexit ], [ %lpad.loopexit.split-lp103, %lpad.loopexit.split-lp ]
   %section.val49 = load i8, ptr %section, align 8
-  call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %section.val49) #10
+  call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %section.val49) #11
   resume { ptr, i32 } %lpad.phi
 
 if.end14:                                         ; preds = %do.end4.i, %invoke.cont3
@@ -1093,7 +1093,7 @@ if.end14:                                         ; preds = %do.end4.i, %invoke.
   br i1 %cmp6.not.i64, label %invoke.cont15, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end14
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %arena, i32 noundef %19) #11
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %arena, i32 noundef %19) #12
           to label %invoke.cont15 unwind label %lpad.loopexit
 
 invoke.cont15:                                    ; preds = %if.end14, %if.then7.i
@@ -1112,12 +1112,12 @@ invoke.cont16:                                    ; preds = %invoke.cont15
   br i1 %cmp18.not, label %if.else, label %if.then19
 
 if.then19:                                        ; preds = %invoke.cont16
-  %call.i74 = call i64 (i64, ...) @syscall(i64 noundef 9, i64 noundef 0, i64 noundef %and.i70, i64 noundef 3, i64 noundef 34, i64 noundef -1, i64 noundef 0) #10
+  %call.i74 = call i64 (i64, ...) @syscall(i64 noundef 9, i64 noundef 0, i64 noundef %and.i70, i64 noundef 3, i64 noundef 34, i64 noundef -1, i64 noundef 0) #11
   %22 = inttoptr i64 %call.i74 to ptr
   br label %if.end22
 
 if.else:                                          ; preds = %invoke.cont16
-  %call21 = call ptr @mmap(ptr noundef null, i64 noundef %and.i70, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #10
+  %call21 = call ptr @mmap(ptr noundef null, i64 noundef %and.i70, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #11
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else, %if.then19
@@ -1126,7 +1126,7 @@ if.end22:                                         ; preds = %if.else, %if.then19
   br i1 %cmp23, label %do.body, label %if.end30
 
 do.body:                                          ; preds = %if.end22
-  %call25 = tail call ptr @__errno_location() #12
+  %call25 = tail call ptr @__errno_location() #13
   %23 = load i32, ptr %call25, align 4
   br label %do.body.invoke
 
@@ -1155,7 +1155,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i: ; preds = %if.end30
   br i1 %30, label %invoke.cont32, label %if.then.i75
 
 if.then.i75:                                      ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i, %if.end30
-  invoke void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %arena) #11
+  invoke void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %arena) #12
           to label %invoke.cont32 unwind label %lpad.loopexit
 
 invoke.cont32:                                    ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i, %if.then.i75
@@ -1331,7 +1331,7 @@ do.end86:                                         ; preds = %if.end66
   br i1 %cmp6.not.i.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %do.end86
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %54, i32 noundef %56) #11
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %54, i32 noundef %56) #12
           to label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i unwind label %lpad.loopexit.split-lp
 
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i, %do.end86
@@ -1341,7 +1341,7 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i, %do.e
 
 if.then.i96:                                      ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
   %mask_.i = getelementptr inbounds i8, ptr %section, i64 8
-  %call.i97 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %mask_.i, ptr noundef null) #10
+  %call.i97 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %mask_.i, ptr noundef null) #11
   %cmp.not.i98 = icmp eq i32 %call.i97, 0
   br i1 %cmp.not.i98, label %if.end89, label %do.body.invoke
 
@@ -1364,14 +1364,15 @@ declare void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull al
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: cold
 declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #6
@@ -1751,13 +1752,13 @@ declare noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_2
 declare void @AbslInternalSpinLockWake(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #8
+declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1767,12 +1768,13 @@ attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "f
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { cold }
-attributes #12 = { nounwind willreturn memory(none) }
-attributes #13 = { noreturn nounwind }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind }
+attributes #12 = { cold }
+attributes #13 = { nounwind willreturn memory(none) }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

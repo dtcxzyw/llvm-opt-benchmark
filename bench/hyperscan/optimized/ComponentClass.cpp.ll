@@ -430,7 +430,7 @@ _ZN3ue29CharReachC2Ehh.exit:                      ; preds = %entry
   br label %return
 
 sw.bb6:                                           ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #18
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
           to label %invoke.cont unwind label %lpad
 
@@ -440,8 +440,8 @@ invoke.cont:                                      ; preds = %sw.bb6
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #18
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #19
   br label %return
 
 lpad:                                             ; preds = %sw.bb6
@@ -452,7 +452,7 @@ lpad:                                             ; preds = %sw.bb6
 lpad9:                                            ; preds = %invoke.cont
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #19
   br label %eh.resume
 
 sw.bb11:                                          ; preds = %entry
@@ -479,11 +479,11 @@ sw.bb15:                                          ; preds = %entry
 sw.bb16:                                          ; preds = %entry
   call void @_ZN3ue225getPredefinedCodePointSetENS_15PredefinedClassERKNS_9ParseModeE(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp17, i32 noundef 17, ptr noundef nonnull align 1 dereferenceable(6) %mode)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp17)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp17) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp17) #19
   br label %return
 
 sw.bb21:                                          ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #18
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23)
           to label %invoke.cont25 unwind label %lpad24
 
@@ -493,8 +493,8 @@ invoke.cont25:                                    ; preds = %sw.bb21
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %invoke.cont25
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #18
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #19
   br label %return
 
 lpad24:                                           ; preds = %sw.bb21
@@ -505,7 +505,7 @@ lpad24:                                           ; preds = %sw.bb21
 lpad26:                                           ; preds = %invoke.cont25
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #19
   br label %eh.resume
 
 sw.bb30:                                          ; preds = %entry
@@ -540,7 +540,7 @@ sw.bb34:                                          ; preds = %entry
 sw.bb35:                                          ; preds = %entry
   call void @_ZN3ue225getPredefinedCodePointSetENS_15PredefinedClassERKNS_9ParseModeE(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp36, i32 noundef 18, ptr noundef nonnull align 1 dereferenceable(6) %mode)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp36)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp36) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp36) #19
   br label %return
 
 sw.bb40:                                          ; preds = %entry
@@ -554,11 +554,11 @@ sw.bb40:                                          ; preds = %entry
 sw.bb47:                                          ; preds = %entry
   call void @_ZN3ue225getPredefinedCodePointSetENS_15PredefinedClassERKNS_9ParseModeE(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp48, i32 noundef 19, ptr noundef nonnull align 1 dereferenceable(6) %mode)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp48)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp48) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp48) #19
   br label %return
 
 sw.bb52:                                          ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #18
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54)
           to label %invoke.cont56 unwind label %lpad55
 
@@ -568,8 +568,8 @@ invoke.cont56:                                    ; preds = %sw.bb52
           to label %invoke.cont58 unwind label %lpad57
 
 invoke.cont58:                                    ; preds = %invoke.cont56
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53) #18
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #19
   br label %return
 
 lpad55:                                           ; preds = %sw.bb52
@@ -580,7 +580,7 @@ lpad55:                                           ; preds = %sw.bb52
 lpad57:                                           ; preds = %invoke.cont56
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53) #19
   br label %eh.resume
 
 sw.bb61:                                          ; preds = %entry
@@ -605,7 +605,7 @@ if.else65:                                        ; preds = %sw.bb61
   br label %return
 
 sw.bb66:                                          ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #18
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68)
           to label %invoke.cont70 unwind label %lpad69
 
@@ -615,8 +615,8 @@ invoke.cont70:                                    ; preds = %sw.bb66
           to label %invoke.cont72 unwind label %lpad71
 
 invoke.cont72:                                    ; preds = %invoke.cont70
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #18
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #19
   br label %return
 
 lpad69:                                           ; preds = %sw.bb66
@@ -627,7 +627,7 @@ lpad69:                                           ; preds = %sw.bb66
 lpad71:                                           ; preds = %invoke.cont70
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #19
   br label %eh.resume
 
 sw.bb75:                                          ; preds = %entry
@@ -639,7 +639,7 @@ sw.bb75:                                          ; preds = %entry
   br label %return
 
 sw.bb79:                                          ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp81) #18
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp81) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80, ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp81)
           to label %invoke.cont83 unwind label %lpad82
 
@@ -649,8 +649,8 @@ invoke.cont83:                                    ; preds = %sw.bb79
           to label %invoke.cont85 unwind label %lpad84
 
 invoke.cont85:                                    ; preds = %invoke.cont83
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #18
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp81) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp81) #19
   br label %return
 
 lpad82:                                           ; preds = %sw.bb79
@@ -661,217 +661,217 @@ lpad82:                                           ; preds = %sw.bb79
 lpad84:                                           ; preds = %invoke.cont83
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #19
   br label %eh.resume
 
 sw.bb88:                                          ; preds = %entry
   call void @_ZN3ue27getUcpCEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp89)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp89)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp89) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp89) #19
   br label %return
 
 sw.bb93:                                          ; preds = %entry
   call void @_ZN3ue28getUcpCcEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp94)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp94)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp94) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp94) #19
   br label %return
 
 sw.bb98:                                          ; preds = %entry
   call void @_ZN3ue28getUcpCfEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp99)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp99)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp99) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp99) #19
   br label %return
 
 sw.bb103:                                         ; preds = %entry
   call void @_ZN3ue28getUcpCnEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp104)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp104)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp104) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp104) #19
   br label %return
 
 sw.bb108:                                         ; preds = %entry
   call void @_ZN3ue28getUcpCoEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp109)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp109)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp109) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp109) #19
   br label %return
 
 sw.bb113:                                         ; preds = %entry
   call void @_ZN3ue28getUcpCsEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp114)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp114)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp114) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp114) #19
   br label %return
 
 sw.bb118:                                         ; preds = %entry
   call void @_ZN3ue27getUcpLEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp119)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp119)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp119) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp119) #19
   br label %return
 
 sw.bb123:                                         ; preds = %entry
   call void @_ZN3ue211getUcpL_andEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp124)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp124)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp124) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp124) #19
   br label %return
 
 sw.bb128:                                         ; preds = %entry
   call void @_ZN3ue28getUcpLlEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp129)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp129)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp129) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp129) #19
   br label %return
 
 sw.bb133:                                         ; preds = %entry
   call void @_ZN3ue28getUcpLmEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp134)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp134)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp134) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp134) #19
   br label %return
 
 sw.bb138:                                         ; preds = %entry
   call void @_ZN3ue28getUcpLoEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp139)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp139)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp139) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp139) #19
   br label %return
 
 sw.bb143:                                         ; preds = %entry
   call void @_ZN3ue28getUcpLtEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp144)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp144)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp144) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp144) #19
   br label %return
 
 sw.bb148:                                         ; preds = %entry
   call void @_ZN3ue28getUcpLuEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp149)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp149)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp149) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp149) #19
   br label %return
 
 sw.bb153:                                         ; preds = %entry
   call void @_ZN3ue27getUcpMEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp154)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp154)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp154) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp154) #19
   br label %return
 
 sw.bb158:                                         ; preds = %entry
   call void @_ZN3ue28getUcpMcEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp159)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp159)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp159) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp159) #19
   br label %return
 
 sw.bb163:                                         ; preds = %entry
   call void @_ZN3ue28getUcpMeEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp164)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp164)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp164) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp164) #19
   br label %return
 
 sw.bb168:                                         ; preds = %entry
   call void @_ZN3ue28getUcpMnEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp169)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp169)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp169) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp169) #19
   br label %return
 
 sw.bb173:                                         ; preds = %entry
   call void @_ZN3ue27getUcpNEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp174)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp174)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp174) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp174) #19
   br label %return
 
 sw.bb178:                                         ; preds = %entry
   call void @_ZN3ue28getUcpNdEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp179)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp179)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp179) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp179) #19
   br label %return
 
 sw.bb183:                                         ; preds = %entry
   call void @_ZN3ue28getUcpNlEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp184)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp184)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp184) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp184) #19
   br label %return
 
 sw.bb188:                                         ; preds = %entry
   call void @_ZN3ue28getUcpNoEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp189)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp189)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp189) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp189) #19
   br label %return
 
 sw.bb193:                                         ; preds = %entry
   call void @_ZN3ue27getUcpPEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp194)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp194)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp194) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp194) #19
   br label %return
 
 sw.bb198:                                         ; preds = %entry
   call void @_ZN3ue28getUcpPcEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp199)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp199)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp199) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp199) #19
   br label %return
 
 sw.bb203:                                         ; preds = %entry
   call void @_ZN3ue28getUcpPdEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp204)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp204)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp204) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp204) #19
   br label %return
 
 sw.bb208:                                         ; preds = %entry
   call void @_ZN3ue28getUcpPeEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp209)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp209)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp209) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp209) #19
   br label %return
 
 sw.bb213:                                         ; preds = %entry
   call void @_ZN3ue28getUcpPfEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp214)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp214)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp214) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp214) #19
   br label %return
 
 sw.bb218:                                         ; preds = %entry
   call void @_ZN3ue28getUcpPiEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp219)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp219)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp219) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp219) #19
   br label %return
 
 sw.bb223:                                         ; preds = %entry
   call void @_ZN3ue28getUcpPoEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp224)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp224)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp224) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp224) #19
   br label %return
 
 sw.bb228:                                         ; preds = %entry
   call void @_ZN3ue28getUcpPsEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp229)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp229)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp229) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp229) #19
   br label %return
 
 sw.bb233:                                         ; preds = %entry
   call void @_ZN3ue27getUcpSEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp234)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp234)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp234) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp234) #19
   br label %return
 
 sw.bb238:                                         ; preds = %entry
   call void @_ZN3ue28getUcpScEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp239)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp239)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp239) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp239) #19
   br label %return
 
 sw.bb243:                                         ; preds = %entry
   call void @_ZN3ue28getUcpSkEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp244)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp244)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp244) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp244) #19
   br label %return
 
 sw.bb248:                                         ; preds = %entry
   call void @_ZN3ue28getUcpSmEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp249)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp249)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp249) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp249) #19
   br label %return
 
 sw.bb253:                                         ; preds = %entry
   call void @_ZN3ue28getUcpSoEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp254)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp254)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp254) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp254) #19
   br label %return
 
 sw.bb258:                                         ; preds = %entry
   call void @_ZN3ue29getUcpXanEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp259)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp259)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp259) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp259) #19
   br label %return
 
 sw.bb263:                                         ; preds = %entry, %entry
@@ -906,601 +906,601 @@ sw.bb263:                                         ; preds = %entry, %entry
 sw.bb266:                                         ; preds = %entry
   call void @_ZN3ue29getUcpXwdEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp267)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp267)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp267) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp267) #19
   br label %return
 
 sw.bb271:                                         ; preds = %entry
   call void @_ZN3ue27getUcpZEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp272)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp272)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp272) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp272) #19
   br label %return
 
 sw.bb276:                                         ; preds = %entry
   call void @_ZN3ue28getUcpZlEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp277)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp277)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp277) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp277) #19
   br label %return
 
 sw.bb281:                                         ; preds = %entry
   call void @_ZN3ue28getUcpZpEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp282)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp282)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp282) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp282) #19
   br label %return
 
 sw.bb286:                                         ; preds = %entry
   call void @_ZN3ue28getUcpZsEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp287)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp287)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp287) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp287) #19
   br label %return
 
 sw.bb291:                                         ; preds = %entry
   call void @_ZN3ue212getUcpArabicEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp292)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp292)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp292) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp292) #19
   br label %return
 
 sw.bb296:                                         ; preds = %entry
   call void @_ZN3ue214getUcpArmenianEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp297)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp297)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp297) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp297) #19
   br label %return
 
 sw.bb301:                                         ; preds = %entry
   call void @_ZN3ue213getUcpAvestanEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp302)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp302)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp302) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp302) #19
   br label %return
 
 sw.bb306:                                         ; preds = %entry
   call void @_ZN3ue214getUcpBalineseEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp307)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp307)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp307) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp307) #19
   br label %return
 
 sw.bb311:                                         ; preds = %entry
   call void @_ZN3ue211getUcpBamumEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp312)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp312)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp312) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp312) #19
   br label %return
 
 sw.bb316:                                         ; preds = %entry
   call void @_ZN3ue211getUcpBatakEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp317)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp317)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp317) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp317) #19
   br label %return
 
 sw.bb321:                                         ; preds = %entry
   call void @_ZN3ue213getUcpBengaliEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp322)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp322)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp322) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp322) #19
   br label %return
 
 sw.bb326:                                         ; preds = %entry
   call void @_ZN3ue214getUcpBopomofoEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp327)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp327)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp327) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp327) #19
   br label %return
 
 sw.bb331:                                         ; preds = %entry
   call void @_ZN3ue212getUcpBrahmiEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp332)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp332)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp332) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp332) #19
   br label %return
 
 sw.bb336:                                         ; preds = %entry
   call void @_ZN3ue213getUcpBrailleEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp337)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp337)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp337) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp337) #19
   br label %return
 
 sw.bb341:                                         ; preds = %entry
   call void @_ZN3ue214getUcpBugineseEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp342)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp342)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp342) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp342) #19
   br label %return
 
 sw.bb346:                                         ; preds = %entry
   call void @_ZN3ue211getUcpBuhidEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp347)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp347)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp347) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp347) #19
   br label %return
 
 sw.bb351:                                         ; preds = %entry
   call void @_ZN3ue225getUcpCanadian_AboriginalEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp352)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp352)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp352) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp352) #19
   br label %return
 
 sw.bb356:                                         ; preds = %entry
   call void @_ZN3ue212getUcpCarianEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp357)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp357)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp357) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp357) #19
   br label %return
 
 sw.bb361:                                         ; preds = %entry
   call void @_ZN3ue210getUcpChamEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp362)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp362)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp362) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp362) #19
   br label %return
 
 sw.bb366:                                         ; preds = %entry
   call void @_ZN3ue214getUcpCherokeeEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp367)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp367)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp367) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp367) #19
   br label %return
 
 sw.bb371:                                         ; preds = %entry
   call void @_ZN3ue212getUcpCommonEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp372)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp372)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp372) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp372) #19
   br label %return
 
 sw.bb376:                                         ; preds = %entry
   call void @_ZN3ue212getUcpCopticEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp377)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp377)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp377) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp377) #19
   br label %return
 
 sw.bb381:                                         ; preds = %entry
   call void @_ZN3ue215getUcpCuneiformEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp382)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp382)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp382) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp382) #19
   br label %return
 
 sw.bb386:                                         ; preds = %entry
   call void @_ZN3ue213getUcpCypriotEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp387)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp387)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp387) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp387) #19
   br label %return
 
 sw.bb391:                                         ; preds = %entry
   call void @_ZN3ue214getUcpCyrillicEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp392)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp392)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp392) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp392) #19
   br label %return
 
 sw.bb396:                                         ; preds = %entry
   call void @_ZN3ue213getUcpDeseretEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp397)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp397)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp397) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp397) #19
   br label %return
 
 sw.bb401:                                         ; preds = %entry
   call void @_ZN3ue216getUcpDevanagariEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp402)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp402)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp402) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp402) #19
   br label %return
 
 sw.bb406:                                         ; preds = %entry
   call void @_ZN3ue226getUcpEgyptian_HieroglyphsEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp407)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp407)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp407) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp407) #19
   br label %return
 
 sw.bb411:                                         ; preds = %entry
   call void @_ZN3ue214getUcpEthiopicEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp412)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp412)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp412) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp412) #19
   br label %return
 
 sw.bb416:                                         ; preds = %entry
   call void @_ZN3ue214getUcpGeorgianEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp417)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp417)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp417) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp417) #19
   br label %return
 
 sw.bb421:                                         ; preds = %entry
   call void @_ZN3ue216getUcpGlagoliticEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp422)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp422)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp422) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp422) #19
   br label %return
 
 sw.bb426:                                         ; preds = %entry
   call void @_ZN3ue212getUcpGothicEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp427)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp427)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp427) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp427) #19
   br label %return
 
 sw.bb431:                                         ; preds = %entry
   call void @_ZN3ue211getUcpGreekEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp432)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp432)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp432) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp432) #19
   br label %return
 
 sw.bb436:                                         ; preds = %entry
   call void @_ZN3ue214getUcpGujaratiEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp437)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp437)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp437) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp437) #19
   br label %return
 
 sw.bb441:                                         ; preds = %entry
   call void @_ZN3ue214getUcpGurmukhiEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp442)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp442)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp442) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp442) #19
   br label %return
 
 sw.bb446:                                         ; preds = %entry
   call void @_ZN3ue29getUcpHanEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp447)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp447)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp447) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp447) #19
   br label %return
 
 sw.bb451:                                         ; preds = %entry
   call void @_ZN3ue212getUcpHangulEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp452)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp452)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp452) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp452) #19
   br label %return
 
 sw.bb456:                                         ; preds = %entry
   call void @_ZN3ue213getUcpHanunooEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp457)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp457)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp457) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp457) #19
   br label %return
 
 sw.bb461:                                         ; preds = %entry
   call void @_ZN3ue212getUcpHebrewEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp462)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp462)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp462) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp462) #19
   br label %return
 
 sw.bb466:                                         ; preds = %entry
   call void @_ZN3ue214getUcpHiraganaEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp467)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp467)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp467) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp467) #19
   br label %return
 
 sw.bb471:                                         ; preds = %entry
   call void @_ZN3ue222getUcpImperial_AramaicEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp472)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp472)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp472) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp472) #19
   br label %return
 
 sw.bb476:                                         ; preds = %entry
   call void @_ZN3ue215getUcpInheritedEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp477)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp477)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp477) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp477) #19
   br label %return
 
 sw.bb481:                                         ; preds = %entry
   call void @_ZN3ue227getUcpInscriptional_PahlaviEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp482)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp482)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp482) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp482) #19
   br label %return
 
 sw.bb486:                                         ; preds = %entry
   call void @_ZN3ue228getUcpInscriptional_ParthianEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp487)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp487)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp487) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp487) #19
   br label %return
 
 sw.bb491:                                         ; preds = %entry
   call void @_ZN3ue214getUcpJavaneseEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp492)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp492)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp492) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp492) #19
   br label %return
 
 sw.bb496:                                         ; preds = %entry
   call void @_ZN3ue212getUcpKaithiEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp497)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp497)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp497) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp497) #19
   br label %return
 
 sw.bb501:                                         ; preds = %entry
   call void @_ZN3ue213getUcpKannadaEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp502)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp502)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp502) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp502) #19
   br label %return
 
 sw.bb506:                                         ; preds = %entry
   call void @_ZN3ue214getUcpKatakanaEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp507)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp507)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp507) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp507) #19
   br label %return
 
 sw.bb511:                                         ; preds = %entry
   call void @_ZN3ue214getUcpKayah_LiEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp512)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp512)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp512) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp512) #19
   br label %return
 
 sw.bb516:                                         ; preds = %entry
   call void @_ZN3ue216getUcpKharoshthiEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp517)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp517)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp517) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp517) #19
   br label %return
 
 sw.bb521:                                         ; preds = %entry
   call void @_ZN3ue211getUcpKhmerEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp522)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp522)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp522) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp522) #19
   br label %return
 
 sw.bb526:                                         ; preds = %entry
   call void @_ZN3ue29getUcpLaoEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp527)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp527)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp527) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp527) #19
   br label %return
 
 sw.bb531:                                         ; preds = %entry
   call void @_ZN3ue211getUcpLatinEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp532)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp532)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp532) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp532) #19
   br label %return
 
 sw.bb536:                                         ; preds = %entry
   call void @_ZN3ue212getUcpLepchaEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp537)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp537)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp537) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp537) #19
   br label %return
 
 sw.bb541:                                         ; preds = %entry
   call void @_ZN3ue211getUcpLimbuEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp542)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp542)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp542) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp542) #19
   br label %return
 
 sw.bb546:                                         ; preds = %entry
   call void @_ZN3ue214getUcpLinear_BEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp547)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp547)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp547) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp547) #19
   br label %return
 
 sw.bb551:                                         ; preds = %entry
   call void @_ZN3ue210getUcpLisuEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp552)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp552)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp552) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp552) #19
   br label %return
 
 sw.bb556:                                         ; preds = %entry
   call void @_ZN3ue212getUcpLycianEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp557)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp557)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp557) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp557) #19
   br label %return
 
 sw.bb561:                                         ; preds = %entry
   call void @_ZN3ue212getUcpLydianEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp562)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp562)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp562) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp562) #19
   br label %return
 
 sw.bb566:                                         ; preds = %entry
   call void @_ZN3ue215getUcpMalayalamEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp567)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp567)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp567) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp567) #19
   br label %return
 
 sw.bb571:                                         ; preds = %entry
   call void @_ZN3ue213getUcpMandaicEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp572)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp572)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp572) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp572) #19
   br label %return
 
 sw.bb576:                                         ; preds = %entry
   call void @_ZN3ue218getUcpMeetei_MayekEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp577)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp577)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp577) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp577) #19
   br label %return
 
 sw.bb581:                                         ; preds = %entry
   call void @_ZN3ue215getUcpMongolianEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp582)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp582)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp582) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp582) #19
   br label %return
 
 sw.bb586:                                         ; preds = %entry
   call void @_ZN3ue213getUcpMyanmarEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp587)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp587)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp587) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp587) #19
   br label %return
 
 sw.bb591:                                         ; preds = %entry
   call void @_ZN3ue217getUcpNew_Tai_LueEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp592)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp592)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp592) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp592) #19
   br label %return
 
 sw.bb596:                                         ; preds = %entry
   call void @_ZN3ue29getUcpNkoEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp597)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp597)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp597) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp597) #19
   br label %return
 
 sw.bb601:                                         ; preds = %entry
   call void @_ZN3ue211getUcpOghamEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp602)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp602)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp602) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp602) #19
   br label %return
 
 sw.bb606:                                         ; preds = %entry
   call void @_ZN3ue214getUcpOl_ChikiEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp607)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp607)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp607) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp607) #19
   br label %return
 
 sw.bb611:                                         ; preds = %entry
   call void @_ZN3ue216getUcpOld_ItalicEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp612)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp612)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp612) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp612) #19
   br label %return
 
 sw.bb616:                                         ; preds = %entry
   call void @_ZN3ue217getUcpOld_PersianEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp617)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp617)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp617) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp617) #19
   br label %return
 
 sw.bb621:                                         ; preds = %entry
   call void @_ZN3ue223getUcpOld_South_ArabianEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp622)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp622)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp622) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp622) #19
   br label %return
 
 sw.bb626:                                         ; preds = %entry
   call void @_ZN3ue216getUcpOld_TurkicEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp627)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp627)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp627) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp627) #19
   br label %return
 
 sw.bb631:                                         ; preds = %entry
   call void @_ZN3ue211getUcpOriyaEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp632)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp632)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp632) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp632) #19
   br label %return
 
 sw.bb636:                                         ; preds = %entry
   call void @_ZN3ue213getUcpOsmanyaEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp637)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp637)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp637) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp637) #19
   br label %return
 
 sw.bb641:                                         ; preds = %entry
   call void @_ZN3ue214getUcpPhags_PaEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp642)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp642)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp642) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp642) #19
   br label %return
 
 sw.bb646:                                         ; preds = %entry
   call void @_ZN3ue216getUcpPhoenicianEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp647)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp647)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp647) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp647) #19
   br label %return
 
 sw.bb651:                                         ; preds = %entry
   call void @_ZN3ue212getUcpRejangEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp652)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp652)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp652) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp652) #19
   br label %return
 
 sw.bb656:                                         ; preds = %entry
   call void @_ZN3ue211getUcpRunicEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp657)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp657)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp657) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp657) #19
   br label %return
 
 sw.bb661:                                         ; preds = %entry
   call void @_ZN3ue215getUcpSamaritanEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp662)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp662)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp662) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp662) #19
   br label %return
 
 sw.bb666:                                         ; preds = %entry
   call void @_ZN3ue216getUcpSaurashtraEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp667)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp667)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp667) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp667) #19
   br label %return
 
 sw.bb671:                                         ; preds = %entry
   call void @_ZN3ue213getUcpShavianEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp672)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp672)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp672) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp672) #19
   br label %return
 
 sw.bb676:                                         ; preds = %entry
   call void @_ZN3ue213getUcpSinhalaEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp677)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp677)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp677) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp677) #19
   br label %return
 
 sw.bb681:                                         ; preds = %entry
   call void @_ZN3ue215getUcpSundaneseEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp682)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp682)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp682) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp682) #19
   br label %return
 
 sw.bb686:                                         ; preds = %entry
   call void @_ZN3ue218getUcpSyloti_NagriEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp687)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp687)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp687) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp687) #19
   br label %return
 
 sw.bb691:                                         ; preds = %entry
   call void @_ZN3ue212getUcpSyriacEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp692)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp692)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp692) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp692) #19
   br label %return
 
 sw.bb696:                                         ; preds = %entry
   call void @_ZN3ue213getUcpTagalogEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp697)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp697)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp697) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp697) #19
   br label %return
 
 sw.bb701:                                         ; preds = %entry
   call void @_ZN3ue214getUcpTagbanwaEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp702)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp702)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp702) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp702) #19
   br label %return
 
 sw.bb706:                                         ; preds = %entry
   call void @_ZN3ue212getUcpTai_LeEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp707)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp707)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp707) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp707) #19
   br label %return
 
 sw.bb711:                                         ; preds = %entry
   call void @_ZN3ue214getUcpTai_ThamEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp712)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp712)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp712) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp712) #19
   br label %return
 
 sw.bb716:                                         ; preds = %entry
   call void @_ZN3ue214getUcpTai_VietEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp717)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp717)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp717) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp717) #19
   br label %return
 
 sw.bb721:                                         ; preds = %entry
   call void @_ZN3ue211getUcpTamilEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp722)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp722)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp722) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp722) #19
   br label %return
 
 sw.bb726:                                         ; preds = %entry
   call void @_ZN3ue212getUcpTeluguEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp727)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp727)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp727) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp727) #19
   br label %return
 
 sw.bb731:                                         ; preds = %entry
   call void @_ZN3ue212getUcpThaanaEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp732)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp732)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp732) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp732) #19
   br label %return
 
 sw.bb736:                                         ; preds = %entry
   call void @_ZN3ue210getUcpThaiEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp737)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp737)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp737) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp737) #19
   br label %return
 
 sw.bb741:                                         ; preds = %entry
   call void @_ZN3ue213getUcpTibetanEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp742)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp742)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp742) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp742) #19
   br label %return
 
 sw.bb746:                                         ; preds = %entry
   call void @_ZN3ue214getUcpTifinaghEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp747)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp747)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp747) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp747) #19
   br label %return
 
 sw.bb751:                                         ; preds = %entry
   call void @_ZN3ue214getUcpUgariticEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp752)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp752)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp752) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp752) #19
   br label %return
 
 sw.bb756:                                         ; preds = %entry
   call void @_ZN3ue29getUcpVaiEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp757)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp757)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp757) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp757) #19
   br label %return
 
 sw.bb761:                                         ; preds = %entry
   call void @_ZN3ue28getUcpYiEv(ptr nonnull sret(%"class.ue2::CodePointSet") align 8 %ref.tmp762)
   call fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp762)
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp762) #18
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp762) #19
   br label %return
 
 sw.bb766:                                         ; preds = %entry
@@ -1527,7 +1527,7 @@ return:                                           ; preds = %for.body.i.i.i187, 
 eh.resume:                                        ; preds = %lpad82, %lpad84, %lpad69, %lpad71, %lpad55, %lpad57, %lpad24, %lpad26, %lpad, %lpad9
   %ref.tmp81.sink = phi ptr [ %ref.tmp8, %lpad9 ], [ %ref.tmp8, %lpad ], [ %ref.tmp23, %lpad26 ], [ %ref.tmp23, %lpad24 ], [ %ref.tmp54, %lpad57 ], [ %ref.tmp54, %lpad55 ], [ %ref.tmp68, %lpad71 ], [ %ref.tmp68, %lpad69 ], [ %ref.tmp81, %lpad84 ], [ %ref.tmp81, %lpad82 ]
   %.pn20 = phi { ptr, i32 } [ %5, %lpad9 ], [ %4, %lpad ], [ %8, %lpad26 ], [ %7, %lpad24 ], [ %12, %lpad57 ], [ %11, %lpad55 ], [ %15, %lpad71 ], [ %14, %lpad69 ], [ %17, %lpad84 ], [ %16, %lpad82 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp81.sink) #18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp81.sink) #19
   resume { ptr, i32 } %.pn20
 }
 
@@ -1543,7 +1543,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.5) #19
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.5) #20
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -1552,11 +1552,11 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #19
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #18
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #19
   %add.ptr = getelementptr inbounds i8, ptr %__s, i64 %call.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__s, ptr noundef nonnull %add.ptr)
           to label %invoke.cont4 unwind label %lpad
@@ -1676,7 +1676,7 @@ if.end37.sink.split.i.i:                          ; preds = %if.then29.i.i, %if.
   br label %_ZN3ue29CharReach8setRangeEhh.exit
 
 _ZN3ue29CharReach8setRangeEhh.exit:               ; preds = %for.end.i.i, %if.end37.sink.split.i.i
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.010) #20
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.010) #21
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1698,7 +1698,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #22
   unreachable
 
 _ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev.exit: ; preds = %entry
@@ -1984,14 +1984,14 @@ entry:
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #22, !noalias !38
+  %call.i = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #23, !noalias !38
   invoke void @_ZN3ue218UTF8ComponentClassC1ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(208) %call.i, ptr noundef nonnull align 1 dereferenceable(6) %mode)
           to label %return unwind label %lpad.i, !noalias !38
 
 common.resume:                                    ; preds = %lpad.i4, %lpad.i
   %call.i3.sink = phi ptr [ %call.i3, %lpad.i4 ], [ %call.i, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i4 ], [ %1, %lpad.i ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i3.sink) #23, !noalias !41
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i3.sink) #24, !noalias !41
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then
@@ -2000,7 +2000,7 @@ lpad.i:                                           ; preds = %if.then
   br label %common.resume
 
 if.else:                                          ; preds = %entry
-  %call.i3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22, !noalias !42
+  %call.i3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !42
   invoke void @_ZN3ue219AsciiComponentClassC1ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(72) %call.i3, ptr noundef nonnull align 1 dereferenceable(6) %mode)
           to label %return unwind label %lpad.i4, !noalias !42
 
@@ -2025,7 +2025,7 @@ entry:
   br i1 %tobool.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #22, !noalias !48
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #23, !noalias !48
   invoke void @_ZN3ue218UTF8ComponentClassC1ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(208) %call.i.i, ptr noundef nonnull align 1 dereferenceable(6) %mode)
           to label %_ZN3ue217getComponentClassERKNS_9ParseModeE.exit unwind label %lpad.i.i, !noalias !48
 
@@ -2036,7 +2036,7 @@ common.resume:                                    ; preds = %_ZNSt10unique_ptrIN
 common.resume.i:                                  ; preds = %lpad.i4.i, %lpad.i.i
   %call.i3.sink.i = phi ptr [ %call.i3.i, %lpad.i4.i ], [ %call.i.i, %lpad.i.i ]
   %common.resume.op.i = phi { ptr, i32 } [ %2, %lpad.i4.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i3.sink.i) #23, !noalias !45
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i3.sink.i) #24, !noalias !45
   br label %common.resume
 
 lpad.i.i:                                         ; preds = %if.then.i
@@ -2045,7 +2045,7 @@ lpad.i.i:                                         ; preds = %if.then.i
   br label %common.resume.i
 
 if.else.i:                                        ; preds = %entry
-  %call.i3.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22, !noalias !51
+  %call.i3.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !51
   invoke void @_ZN3ue219AsciiComponentClassC1ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(72) %call.i3.i, ptr noundef nonnull align 1 dereferenceable(6) %mode)
           to label %_ZN3ue217getComponentClassERKNS_9ParseModeE.exit unwind label %lpad.i4.i, !noalias !51
 
@@ -2076,7 +2076,7 @@ _ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit: ; pre
   %vtable.i.i = load ptr, ptr %storemerge.i, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(29) %storemerge.i) #18
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(29) %storemerge.i) #19
   store ptr null, ptr %agg.result, align 8
   br label %common.resume
 
@@ -2093,7 +2093,7 @@ if.else.i:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %0, i8 0, i64 5, i1 false)
   store i8 %frombool, ptr %mode, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  %call.i3.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22, !noalias !57
+  %call.i3.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !57
   invoke void @_ZN3ue219AsciiComponentClassC1ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(72) %call.i3.i, ptr noundef nonnull align 1 dereferenceable(6) %mode)
           to label %_ZN3ue217getComponentClassERKNS_9ParseModeE.exit unwind label %common.resume.i, !noalias !57
 
@@ -2104,7 +2104,7 @@ common.resume:                                    ; preds = %_ZNSt10unique_ptrIN
 common.resume.i:                                  ; preds = %if.else.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call.i3.i) #23, !noalias !54
+  call void @_ZdlPv(ptr noundef nonnull %call.i3.i) #24, !noalias !54
   br label %common.resume
 
 _ZN3ue217getComponentClassERKNS_9ParseModeE.exit: ; preds = %if.else.i
@@ -2129,7 +2129,7 @@ _ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit: ; pre
   %vtable.i.i = load ptr, ptr %call.i3.i, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(29) %call.i3.i) #18
+  call void %4(ptr noundef nonnull align 8 dereferenceable(29) %call.i3.i) #19
   store ptr null, ptr %agg.result, align 8
   br label %common.resume
 
@@ -2160,7 +2160,7 @@ declare void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue214ComponentClassD2Ev(ptr noundef nonnull align 8 dereferenceable(29) %this) unnamed_addr #5 align 2 {
 entry:
-  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #18
+  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #19
   ret void
 }
 
@@ -2170,7 +2170,7 @@ declare void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZN3ue214ComponentClassD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
 entry:
-  tail call void @llvm.trap() #21
+  tail call void @llvm.trap() #22
   unreachable
 }
 
@@ -2247,17 +2247,18 @@ declare void @_ZN3ue29CharReach3setERKNSt7__cxx1112basic_stringIcSt11char_traits
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
-  tail call void @_ZSt9terminatev() #21
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
+  tail call void @_ZSt9terminatev() #22
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #11
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2272,7 +2273,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
   %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #24
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !60
 
@@ -2281,14 +2282,14 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2317,7 +2318,7 @@ terminate.lpad.i:                                 ; preds = %if.else
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #22
   unreachable
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -2326,7 +2327,7 @@ if.end:                                           ; preds = %if.else, %if.then
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #19
   store ptr null, ptr %__guard, align 8
   %3 = load i64, ptr %__dnew, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %3)
@@ -2338,12 +2339,12 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 lpad:                                             ; preds = %invoke.cont, %if.end
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #18
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #19
   resume { ptr, i32 } %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 
@@ -2376,7 +2377,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #22
   unreachable
 }
 
@@ -2386,17 +2387,17 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
 
 declare void @_ZN3ue218UTF8ComponentClassC1ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef nonnull align 1 dereferenceable(6)) unnamed_addr #4
 
 declare void @_ZN3ue219AsciiComponentClassC1ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 1 dereferenceable(6)) unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #16
+declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2409,19 +2410,20 @@ attributes #7 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn }
-attributes #20 = { nounwind willreturn memory(read) }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { builtin allocsize(0) }
-attributes #23 = { builtin nounwind }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #19 = { nounwind }
+attributes #20 = { noreturn }
+attributes #21 = { nounwind willreturn memory(read) }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { builtin allocsize(0) }
+attributes #24 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

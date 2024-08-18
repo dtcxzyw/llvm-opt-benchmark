@@ -2570,7 +2570,7 @@ lpad5:                                            ; preds = %invoke.cont4
 lpad10:                                           ; preds = %if.else.i165, %if.then3.i166, %if.then.i158, %if.else.i146, %if.then3.i147, %if.then.i141, %if.else.i130, %if.then7.i, %if.then3.i, %if.then47
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5arrow4util16TempVectorHolderIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %null_hash_temp_buf) #9
+  call void @_ZN5arrow4util16TempVectorHolderIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %null_hash_temp_buf) #10
   br label %ehcleanup
 
 for.body30:                                       ; preds = %for.cond28.preheader, %for.body30
@@ -3045,7 +3045,7 @@ terminate.lpad.i:                                 ; preds = %for.end193
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #10
+  call void @__clang_call_terminate(ptr %80) #11
   unreachable
 
 _ZN5arrow4util16TempVectorHolderIjED2Ev.exit:     ; preds = %for.end193
@@ -3060,7 +3060,7 @@ terminate.lpad.i184:                              ; preds = %_ZN5arrow4util16Tem
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #10
+  call void @__clang_call_terminate(ptr %85) #11
   unreachable
 
 _ZN5arrow4util16TempVectorHolderItED2Ev.exit:     ; preds = %_ZN5arrow4util16TempVectorHolderIjED2Ev.exit
@@ -3075,7 +3075,7 @@ terminate.lpad.i188:                              ; preds = %_ZN5arrow4util16Tem
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #10
+  call void @__clang_call_terminate(ptr %90) #11
   unreachable
 
 _ZN5arrow4util16TempVectorHolderIjED2Ev.exit189:  ; preds = %_ZN5arrow4util16TempVectorHolderItED2Ev.exit
@@ -3083,12 +3083,12 @@ _ZN5arrow4util16TempVectorHolderIjED2Ev.exit189:  ; preds = %_ZN5arrow4util16Tem
 
 ehcleanup:                                        ; preds = %lpad10, %lpad5
   %.pn = phi { ptr, i32 } [ %15, %lpad10 ], [ %14, %lpad5 ]
-  call void @_ZN5arrow4util16TempVectorHolderItED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %null_indices_buf) #9
+  call void @_ZN5arrow4util16TempVectorHolderItED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %null_indices_buf) #10
   br label %ehcleanup194
 
 ehcleanup194:                                     ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %13, %lpad ]
-  call void @_ZN5arrow4util16TempVectorHolderIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %hash_temp_buf) #9
+  call void @_ZN5arrow4util16TempVectorHolderIjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %hash_temp_buf) #10
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -3115,7 +3115,7 @@ terminate.lpad:                                   ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #10
+  tail call void @__clang_call_terminate(ptr %4) #11
   unreachable
 }
 
@@ -3138,7 +3138,7 @@ terminate.lpad:                                   ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #10
+  tail call void @__clang_call_terminate(ptr %4) #11
   unreachable
 }
 
@@ -5844,7 +5844,7 @@ lpad:                                             ; preds = %entry
 lpad5:                                            ; preds = %if.else.i136, %if.then.i138, %if.else.i127, %if.then.i129, %if.else.i118, %if.then3.i, %if.then42
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5arrow4util16TempVectorHolderImED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %null_hash_temp_buf) #9
+  call void @_ZN5arrow4util16TempVectorHolderImED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %null_hash_temp_buf) #10
   br label %ehcleanup
 
 for.body25:                                       ; preds = %for.cond23.preheader, %for.body25
@@ -6271,7 +6271,7 @@ terminate.lpad.i:                                 ; preds = %for.end185
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #10
+  call void @__clang_call_terminate(ptr %73) #11
   unreachable
 
 _ZN5arrow4util16TempVectorHolderImED2Ev.exit:     ; preds = %for.end185
@@ -6286,7 +6286,7 @@ terminate.lpad.i153:                              ; preds = %_ZN5arrow4util16Tem
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #10
+  call void @__clang_call_terminate(ptr %78) #11
   unreachable
 
 _ZN5arrow4util16TempVectorHolderItED2Ev.exit:     ; preds = %_ZN5arrow4util16TempVectorHolderImED2Ev.exit
@@ -6294,7 +6294,7 @@ _ZN5arrow4util16TempVectorHolderItED2Ev.exit:     ; preds = %_ZN5arrow4util16Tem
 
 ehcleanup:                                        ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %12, %lpad5 ], [ %11, %lpad ]
-  call void @_ZN5arrow4util16TempVectorHolderItED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %null_indices_buf) #9
+  call void @_ZN5arrow4util16TempVectorHolderItED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %null_indices_buf) #10
   resume { ptr, i32 } %.pn
 }
 
@@ -6317,7 +6317,7 @@ terminate.lpad:                                   ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #10
+  tail call void @__clang_call_terminate(ptr %4) #11
   unreachable
 }
 
@@ -6348,17 +6348,18 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
-  tail call void @_ZSt9terminatev() #10
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
+  tail call void @_ZSt9terminatev() #11
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #3
@@ -6368,19 +6369,19 @@ declare void @_ZN5arrow4util15TempVectorStack5allocEjPPhPi(ptr noundef nonnull a
 declare void @_ZN5arrow4util15TempVectorStack7releaseEij(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #7
+declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #7
+declare i64 @llvm.fshl.i64(i64, i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #7
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
+declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #8
+declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
@@ -6388,11 +6389,12 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(argmem: r
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -180,7 +180,7 @@ define void @_ZN6google8protobuf2io16ArrayInputStream6BackUpEi(ptr nocapture nou
           to label %17 unwind label %31
 
 17:                                               ; preds = %16
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #17
   %.pre = load i32, ptr %9, align 4
   br label %.critedge
 
@@ -199,7 +199,7 @@ define void @_ZN6google8protobuf2io16ArrayInputStream6BackUpEi(ptr nocapture nou
           to label %22 unwind label %33
 
 22:                                               ; preds = %21
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #17
   br label %.critedge17
 
 .critedge17:                                      ; preds = %.critedge, %22
@@ -216,7 +216,7 @@ define void @_ZN6google8protobuf2io16ArrayInputStream6BackUpEi(ptr nocapture nou
           to label %27 unwind label %35
 
 27:                                               ; preds = %26
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
   br label %.critedge19
 
 .critedge19:                                      ; preds = %.critedge17, %27
@@ -245,7 +245,7 @@ define void @_ZN6google8protobuf2io16ArrayInputStream6BackUpEi(ptr nocapture nou
 37:                                               ; preds = %35, %33, %31
   %.sink = phi ptr [ %7, %35 ], [ %5, %33 ], [ %3, %31 ]
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ], [ %32, %31 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #17
   resume { ptr, i32 } %.pn
 }
 
@@ -277,7 +277,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16ArrayInputStream4SkipEi(ptr n
           to label %9 unwind label %18
 
 9:                                                ; preds = %8
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #17
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %9
@@ -297,7 +297,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16ArrayInputStream4SkipEi(ptr n
 18:                                               ; preds = %8, %6
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #17
   resume { ptr, i32 } %19
 }
 
@@ -391,7 +391,7 @@ define void @_ZN6google8protobuf2io17ArrayOutputStream6BackUpEi(ptr nocapture no
           to label %17 unwind label %31
 
 17:                                               ; preds = %16
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #17
   %.pre = load i32, ptr %9, align 4
   br label %.critedge
 
@@ -410,7 +410,7 @@ define void @_ZN6google8protobuf2io17ArrayOutputStream6BackUpEi(ptr nocapture no
           to label %22 unwind label %33
 
 22:                                               ; preds = %21
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #17
   br label %.critedge17
 
 .critedge17:                                      ; preds = %.critedge, %22
@@ -427,7 +427,7 @@ define void @_ZN6google8protobuf2io17ArrayOutputStream6BackUpEi(ptr nocapture no
           to label %27 unwind label %35
 
 27:                                               ; preds = %26
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
   br label %.critedge19
 
 .critedge19:                                      ; preds = %.critedge17, %27
@@ -456,7 +456,7 @@ define void @_ZN6google8protobuf2io17ArrayOutputStream6BackUpEi(ptr nocapture no
 37:                                               ; preds = %35, %33, %31
   %.sink = phi ptr [ %7, %35 ], [ %5, %33 ], [ %3, %31 ]
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ], [ %32, %31 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #17
   resume { ptr, i32 } %.pn
 }
 
@@ -495,27 +495,27 @@ define noundef zeroext i1 @_ZN6google8protobuf2io18StringOutputStream4NextEPPvPi
           to label %11 unwind label %20
 
 11:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #17
   %.pre = load ptr, ptr %6, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %3, %11
   %12 = phi ptr [ %7, %3 ], [ %.pre, %11 ]
-  %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
+  %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #17
   %14 = load ptr, ptr %6, align 8
-  %15 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #16
+  %15 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #17
   %16 = icmp ult i64 %13, %15
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %.critedge
   %18 = load ptr, ptr %6, align 8
-  %19 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #16
+  %19 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #17
   br label %24
 
 20:                                               ; preds = %10, %8
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #17
   resume { ptr, i32 } %21
 
 22:                                               ; preds = %.critedge
@@ -534,7 +534,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io18StringOutputStream4NextEPPvPi
   %29 = getelementptr inbounds i8, ptr %28, i64 %13
   store ptr %29, ptr %1, align 8
   %30 = load ptr, ptr %6, align 8
-  %31 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #16
+  %31 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #17
   %32 = sub i64 %31, %13
   %33 = trunc i64 %32 to i32
   store i32 %33, ptr %2, align 4
@@ -568,7 +568,7 @@ define void @_ZN6google8protobuf2io18StringOutputStream6BackUpEi(ptr nocapture n
           to label %13 unwind label %30
 
 13:                                               ; preds = %12
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #17
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %13
@@ -587,14 +587,14 @@ define void @_ZN6google8protobuf2io18StringOutputStream6BackUpEi(ptr nocapture n
           to label %19 unwind label %32
 
 19:                                               ; preds = %18
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #17
   %.pre = load ptr, ptr %14, align 8
   br label %.critedge18
 
 .critedge18:                                      ; preds = %.critedge, %19
   %20 = phi ptr [ %15, %.critedge ], [ %.pre, %19 ]
   %21 = sext i32 %1 to i64
-  %22 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #16
+  %22 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #17
   %.not15 = icmp ult i64 %22, %21
   br i1 %.not15, label %23, label %.critedge20
 
@@ -608,12 +608,12 @@ define void @_ZN6google8protobuf2io18StringOutputStream6BackUpEi(ptr nocapture n
           to label %26 unwind label %34
 
 26:                                               ; preds = %25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
   br label %.critedge20
 
 .critedge20:                                      ; preds = %.critedge18, %26
   %27 = load ptr, ptr %14, align 8
-  %28 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #16
+  %28 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #17
   %29 = sub i64 %28, %21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %27, i64 noundef %29)
   ret void
@@ -636,7 +636,7 @@ define void @_ZN6google8protobuf2io18StringOutputStream6BackUpEi(ptr nocapture n
 36:                                               ; preds = %34, %32, %30
   %.sink = phi ptr [ %7, %34 ], [ %5, %32 ], [ %3, %30 ]
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ], [ %31, %30 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #17
   resume { ptr, i32 } %.pn
 }
 
@@ -661,19 +661,19 @@ define noundef i64 @_ZNK6google8protobuf2io18StringOutputStream9ByteCountEv(ptr 
           to label %9 unwind label %12
 
 9:                                                ; preds = %8
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #17
   %.pre = load ptr, ptr %4, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %1, %9
   %10 = phi ptr [ %5, %1 ], [ %.pre, %9 ]
-  %11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
+  %11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
   ret i64 %11
 
 12:                                               ; preds = %8, %6
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #17
   resume { ptr, i32 } %13
 }
 
@@ -744,7 +744,7 @@ define void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD2Ev(ptr nocapture
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %7) #16
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   br label %13
 
 13:                                               ; preds = %5, %9, %1
@@ -754,7 +754,7 @@ define void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD2Ev(ptr nocapture
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %13
-  tail call void @_ZdaPv(ptr noundef nonnull %15) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %15) #18
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %13, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -764,8 +764,8 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %13, %_ZNKSt14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #7 align 2 {
-  tail call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #16
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #17
+  tail call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #18
   ret void
 }
 
@@ -789,7 +789,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i: ; preds = %
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #18
+  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #19
   store ptr %14, ptr %8, align 8
   br label %_ZN6google8protobuf2io25CopyingInputStreamAdaptor22AllocateBufferIfNeededEv.exit
 
@@ -867,7 +867,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit: ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #18
+  %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #19
   store ptr %8, ptr %2, align 8
   br label %9
 
@@ -894,7 +894,7 @@ define void @_ZN6google8protobuf2io25CopyingInputStreamAdaptor10FreeBufferEv(ptr
           to label %9 unwind label %13
 
 9:                                                ; preds = %8
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #17
   br label %.critedge
 
 .critedge:                                        ; preds = %1, %9
@@ -907,7 +907,7 @@ define void @_ZN6google8protobuf2io25CopyingInputStreamAdaptor10FreeBufferEv(ptr
   br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i: ; preds = %.critedge
-  call void @_ZdaPv(ptr noundef nonnull %12) #17
+  call void @_ZdaPv(ptr noundef nonnull %12) #18
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit: ; preds = %.critedge, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
@@ -916,7 +916,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit: ; preds = %.critedg
 13:                                               ; preds = %8, %6
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #17
   resume { ptr, i32 } %14
 }
 
@@ -951,7 +951,7 @@ define void @_ZN6google8protobuf2io25CopyingInputStreamAdaptor6BackUpEi(ptr noca
           to label %19 unwind label %35
 
 19:                                               ; preds = %18
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #17
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %19
@@ -974,7 +974,7 @@ define void @_ZN6google8protobuf2io25CopyingInputStreamAdaptor6BackUpEi(ptr noca
           to label %27 unwind label %37
 
 27:                                               ; preds = %26
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #17
   br label %.critedge18
 
 .critedge18:                                      ; preds = %.critedge, %27
@@ -995,7 +995,7 @@ define void @_ZN6google8protobuf2io25CopyingInputStreamAdaptor6BackUpEi(ptr noca
           to label %34 unwind label %39
 
 34:                                               ; preds = %33
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
   br label %.critedge20
 
 .critedge20:                                      ; preds = %.critedge18, %34
@@ -1020,7 +1020,7 @@ define void @_ZN6google8protobuf2io25CopyingInputStreamAdaptor6BackUpEi(ptr noca
 41:                                               ; preds = %39, %37, %35
   %.sink = phi ptr [ %7, %39 ], [ %5, %37 ], [ %3, %35 ]
   %.pn = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ], [ %36, %35 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #17
   resume { ptr, i32 } %.pn
 }
 
@@ -1041,7 +1041,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io25CopyingInputStreamAdaptor4Ski
           to label %9 unwind label %13
 
 9:                                                ; preds = %8
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #17
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %9
@@ -1053,7 +1053,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io25CopyingInputStreamAdaptor4Ski
 13:                                               ; preds = %8, %6
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #17
   resume { ptr, i32 } %14
 
 15:                                               ; preds = %.critedge
@@ -1170,7 +1170,7 @@ define void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorD2Ev(ptr nocaptur
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i: ; preds = %24
-  tail call void @_ZdaPv(ptr noundef nonnull %25) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %25) #18
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit
 
 _ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit: ; preds = %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i, %24, %18, %5, %1
@@ -1189,7 +1189,7 @@ _ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit: ; preds 
   %34 = load ptr, ptr %31, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %31) #16
+  tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %31) #17
   br label %37
 
 37:                                               ; preds = %29, %33, %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit
@@ -1199,7 +1199,7 @@ _ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit: ; preds 
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %37
-  tail call void @_ZdaPv(ptr noundef nonnull %39) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %39) #18
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %37, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -1210,7 +1210,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %37, %_ZNKSt14
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #19
+  tail call void @__clang_call_terminate(ptr %42) #20
   unreachable
 }
 
@@ -1257,7 +1257,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11W
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor10FreeBufferEv.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i: ; preds = %24
-  tail call void @_ZdaPv(ptr noundef nonnull %25) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %25) #18
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor10FreeBufferEv.exit
 
 _ZN6google8protobuf2io26CopyingOutputStreamAdaptor10FreeBufferEv.exit: ; preds = %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i, %24, %5, %1, %18
@@ -1267,19 +1267,20 @@ _ZN6google8protobuf2io26CopyingOutputStreamAdaptor10FreeBufferEv.exit: ; preds =
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
-  tail call void @_ZSt9terminatev() #19
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 align 2 {
-  tail call void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #17
+  tail call void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #18
   ret void
 }
 
@@ -1326,7 +1327,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor5Fl
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i: ; preds = %24
-  tail call void @_ZdaPv(ptr noundef nonnull %25) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %25) #18
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit
 
 _ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit: ; preds = %1, %5, %18, %24, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i
@@ -1383,7 +1384,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor4Ne
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit.thread, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i: ; preds = %30
-  tail call void @_ZdaPv(ptr noundef nonnull %31) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %31) #18
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit.thread
 
 _ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit: ; preds = %24, %13, %3
@@ -1396,7 +1397,7 @@ _ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit: ; preds 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i: ; preds = %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit
   %35 = load i32, ptr %6, align 8
   %36 = sext i32 %35 to i64
-  %37 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %36) #18
+  %37 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %36) #19
   store ptr %37, ptr %33, align 8
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor22AllocateBufferIfNeededEv.exit
 
@@ -1429,7 +1430,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit: ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #18
+  %7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #19
   store ptr %7, ptr %2, align 8
   br label %8
 
@@ -1458,7 +1459,7 @@ define void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor6BackUpEi(ptr noc
           to label %13 unwind label %33
 
 13:                                               ; preds = %12
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #17
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %13
@@ -1483,7 +1484,7 @@ define void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor6BackUpEi(ptr noc
           to label %23 unwind label %35
 
 23:                                               ; preds = %22
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #17
   %.pre = load i32, ptr %14, align 4
   br label %.critedge18
 
@@ -1506,7 +1507,7 @@ define void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor6BackUpEi(ptr noc
           to label %30 unwind label %37
 
 30:                                               ; preds = %29
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
   %.pre21 = load i32, ptr %14, align 4
   br label %.critedge20
 
@@ -1534,7 +1535,7 @@ define void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor6BackUpEi(ptr noc
 39:                                               ; preds = %37, %35, %33
   %.sink = phi ptr [ %7, %37 ], [ %5, %35 ], [ %3, %33 ]
   %.pn = phi { ptr, i32 } [ %38, %37 ], [ %36, %35 ], [ %34, %33 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #17
   resume { ptr, i32 } %.pn
 }
 
@@ -1607,7 +1608,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor15W
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv.exit.thread, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i: ; preds = %35
-  tail call void @_ZdaPv(ptr noundef nonnull %36) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %36) #18
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv.exit.thread
 
 _ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv.exit: ; preds = %29, %16
@@ -1665,7 +1666,7 @@ _ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor10FreeBufferEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
@@ -1678,7 +1679,7 @@ define void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor10FreeBufferEv(pt
   br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i: ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #18
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit: ; preds = %1, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
@@ -1727,14 +1728,14 @@ define void @_ZN6google8protobuf2io19LimitingInputStreamD2Ev(ptr nocapture nound
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #19
+  tail call void @__clang_call_terminate(ptr %16) #20
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf2io19LimitingInputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 align 2 {
-  tail call void @_ZN6google8protobuf2io19LimitingInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #17
+  tail call void @_ZN6google8protobuf2io19LimitingInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #18
   ret void
 }
 
@@ -1883,7 +1884,7 @@ define linkonce_odr void @_ZN6google8protobuf2io18CopyingInputStreamD2Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf2io18CopyingInputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @llvm.trap() #19
+  tail call void @llvm.trap() #20
   unreachable
 }
 
@@ -1896,7 +1897,7 @@ define linkonce_odr void @_ZN6google8protobuf2io16ArrayInputStreamD2Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf2io16ArrayInputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #18
   ret void
 }
 
@@ -1907,7 +1908,7 @@ define linkonce_odr void @_ZN6google8protobuf2io17ArrayOutputStreamD2Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf2io17ArrayOutputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #18
   ret void
 }
 
@@ -1925,7 +1926,7 @@ define linkonce_odr void @_ZN6google8protobuf2io18StringOutputStreamD2Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf2io18StringOutputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #18
   ret void
 }
 
@@ -1935,31 +1936,31 @@ define linkonce_odr noundef zeroext i1 @_ZNK6google8protobuf2io26CopyingOutputSt
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #12
+declare void @llvm.trap() #13
 
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_zero_copy_stream_impl_lite.cc() #14 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_zero_copy_stream_impl_lite.cc() #15 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
+declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
+declare i64 @llvm.umax.i64(i64, i64) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1972,15 +1973,16 @@ attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { builtin nounwind }
-attributes #18 = { builtin allocsize(0) }
-attributes #19 = { noreturn nounwind }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { builtin nounwind }
+attributes #19 = { builtin allocsize(0) }
+attributes #20 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

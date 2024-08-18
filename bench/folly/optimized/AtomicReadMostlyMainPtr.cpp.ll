@@ -64,7 +64,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly6detail12_GLOBAL__N_115FailingExecutorD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void
 }
 
@@ -73,7 +73,7 @@ define internal void @_ZN5folly6detail12_GLOBAL__N_115FailingExecutor3addENS_8Fu
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %agg.tmp = alloca %"class.folly::Function", align 16
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #14
   call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp, ptr noundef nonnull @.str, i32 noundef 28, i32 noundef 2)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -83,15 +83,15 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #13
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #13
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #14
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #14
   %0 = load atomic i64, ptr @_ZN5folly14InlineExecutor5cacheE acquire, align 8
   %atomic-temp.0.i.i = inttoptr i64 %0 to ptr
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %cond.false.i, label %_ZN5folly14InlineExecutor8instanceEv.exit
 
 cond.false.i:                                     ; preds = %invoke.cont2
-  %call1.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly14InlineExecutor13instance_slowEv() #14
+  %call1.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly14InlineExecutor13instance_slowEv() #15
   br label %_ZN5folly14InlineExecutor8instanceEv.exit
 
 _ZN5folly14InlineExecutor8instanceEv.exit:        ; preds = %cond.false.i, %invoke.cont2
@@ -111,7 +111,7 @@ _ZN5folly14InlineExecutor8instanceEv.exit:        ; preds = %cond.false.i, %invo
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN5folly14InlineExecutor8instanceEv.exit
-  %call.i.i11 = call noundef i64 %2(i32 noundef 0, ptr noundef nonnull %func, ptr noundef nonnull %agg.tmp) #13
+  %call.i.i11 = call noundef i64 %2(i32 noundef 0, ptr noundef nonnull %func, ptr noundef nonnull %agg.tmp) #14
   br label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %_ZN5folly14InlineExecutor8instanceEv.exit
@@ -127,7 +127,7 @@ invoke.cont6:                                     ; preds = %_ZN5folly8FunctionI
   br i1 %tobool.not.i.i12, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %if.end.i.i13
 
 if.end.i.i13:                                     ; preds = %invoke.cont6
-  %call.i.i14 = call noundef i64 %4(i32 noundef 1, ptr noundef nonnull %agg.tmp, ptr noundef null) #13
+  %call.i.i14 = call noundef i64 %4(i32 noundef 1, ptr noundef nonnull %agg.tmp, ptr noundef null) #14
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit
 
 _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %if.end.i.i13, %invoke.cont6
@@ -136,8 +136,8 @@ _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %if.end.i.i13, %invo
 lpad:                                             ; preds = %invoke.cont, %entry
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #13
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #13
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #14
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #14
   br label %eh.resume
 
 lpad5:                                            ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
@@ -148,7 +148,7 @@ lpad5:                                            ; preds = %_ZN5folly8FunctionI
   br i1 %tobool.not.i.i16, label %eh.resume, label %if.end.i.i17
 
 if.end.i.i17:                                     ; preds = %lpad5
-  %call.i.i18 = call noundef i64 %7(i32 noundef 1, ptr noundef nonnull %agg.tmp, ptr noundef null) #13
+  %call.i.i18 = call noundef i64 %7(i32 noundef 1, ptr noundef nonnull %agg.tmp, ptr noundef null) #14
   br label %eh.resume
 
 eh.resume:                                        ; preds = %if.end.i.i17, %lpad5, %lpad
@@ -190,7 +190,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly14InlineExecuto
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE(ptr noundef nonnull align 16 dereferenceable(48) %0) #5 comdat align 2 {
 entry:
-  tail call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #15
+  tail call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #11
   unreachable
 }
 
@@ -198,9 +198,9 @@ entry:
 define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !14
-  invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #15
+  invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #11
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -209,15 +209,15 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt17bad_function_callD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #13
+  call void @_ZNSt17bad_function_callD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #14
   resume { ptr, i32 } %0
 }
 
 ; Function Attrs: cold mustprogress noreturn optsize uwtable
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #10 comdat {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 8) #13
+  %exception = tail call ptr @__cxa_allocate_exception(i64 8) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !14
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #16
   unreachable
@@ -228,10 +228,11 @@ declare void @_ZNSt17bad_function_callD1Ev(ptr noundef nonnull align 8 dereferen
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #11
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_AtomicReadMostlyMainPtr.cpp() #11 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_AtomicReadMostlyMainPtr.cpp() #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5folly6detail18atomicReadMostlyMuE, i8 0, i64 40, i1 false)
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17
@@ -258,11 +259,11 @@ attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { cold nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { cold mustprogress noreturn optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { builtin nounwind }
-attributes #13 = { nounwind }
-attributes #14 = { cold nounwind }
-attributes #15 = { cold noreturn }
+attributes #11 = { cold noreturn }
+attributes #12 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { builtin nounwind }
+attributes #14 = { nounwind }
+attributes #15 = { cold nounwind }
 attributes #16 = { noreturn }
 attributes #17 = { builtin allocsize(0) }
 

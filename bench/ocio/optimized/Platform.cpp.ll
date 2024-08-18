@@ -60,14 +60,14 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !4
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN19OpenColorIO_v2_4dev14GetEnvVariableEPKcE5valueB5cxx11) #13
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN19OpenColorIO_v2_4dev14GetEnvVariableEPKcE5valueB5cxx11) #14
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN19OpenColorIO_v2_4dev14GetEnvVariableEPKcE5valueB5cxx11) #13
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZZN19OpenColorIO_v2_4dev14GetEnvVariableEPKcE5valueB5cxx11, ptr nonnull @__dso_handle) #13
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN19OpenColorIO_v2_4dev14GetEnvVariableEPKcE5valueB5cxx11) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN19OpenColorIO_v2_4dev14GetEnvVariableEPKcE5valueB5cxx11) #14
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZZN19OpenColorIO_v2_4dev14GetEnvVariableEPKcE5valueB5cxx11, ptr nonnull @__dso_handle) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN19OpenColorIO_v2_4dev14GetEnvVariableEPKcE5valueB5cxx11) #14
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
@@ -80,7 +80,7 @@ lor.lhs.false.i:                                  ; preds = %init.end
   br i1 %tobool1.not.i, label %_ZN19OpenColorIO_v2_4dev8Platform6GetenvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i = tail call ptr @getenv(ptr noundef nonnull readonly %name) #13
+  %call.i = tail call ptr @getenv(ptr noundef nonnull readonly %name) #14
   %tobool2.i.not = icmp eq ptr %call.i, null
   br i1 %tobool2.i.not, label %cond.end.i, label %land.lhs.true.i
 
@@ -96,7 +96,7 @@ cond.end.i:                                       ; preds = %land.lhs.true.i, %i
   br label %_ZN19OpenColorIO_v2_4dev8Platform6GetenvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN19OpenColorIO_v2_4dev8Platform6GetenvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %init.end, %lor.lhs.false.i, %cond.end.i
-  %call1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN19OpenColorIO_v2_4dev14GetEnvVariableEPKcE5valueB5cxx11) #13
+  %call1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN19OpenColorIO_v2_4dev14GetEnvVariableEPKcE5valueB5cxx11) #14
   ret ptr %call1
 }
 
@@ -127,7 +127,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call ptr @getenv(ptr noundef nonnull %name) #13
+  %call = tail call ptr @getenv(ptr noundef nonnull %name) #14
   %tobool2 = icmp ne ptr %call, null
   br i1 %tobool2, label %land.lhs.true, label %cond.end
 
@@ -157,7 +157,7 @@ entry:
   %ref.tmp1 = alloca %"class.std::allocator", align 1
   %tobool.not = icmp eq ptr %value, null
   %cond = select i1 %tobool.not, ptr @.str, ptr %value
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #13
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %cond, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %invoke.cont unwind label %lpad
 
@@ -171,19 +171,19 @@ lor.lhs.false.i:                                  ; preds = %invoke.cont
   br i1 %tobool1.not.i, label %_ZN19OpenColorIO_v2_4dev8Platform6SetenvEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
-  %call2.i = call i32 @setenv(ptr noundef nonnull %name, ptr noundef %call.i, i32 noundef 1) #13
+  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
+  %call2.i = call i32 @setenv(ptr noundef nonnull %name, ptr noundef %call.i, i32 noundef 1) #14
   br label %_ZN19OpenColorIO_v2_4dev8Platform6SetenvEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN19OpenColorIO_v2_4dev8Platform6SetenvEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %invoke.cont, %lor.lhs.false.i, %if.end.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #14
   ret void
 
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #13
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #14
   resume { ptr, i32 } %1
 }
 
@@ -199,8 +199,8 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %value) #13
-  %call2 = tail call i32 @setenv(ptr noundef nonnull %name, ptr noundef %call, i32 noundef 1) #13
+  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %value) #14
+  %call2 = tail call i32 @setenv(ptr noundef nonnull %name, ptr noundef %call, i32 noundef 1) #14
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -229,7 +229,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %_ZN19OpenColorIO_v2_4dev8Platform8UnsetenvEPKc.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i = tail call i32 @unsetenv(ptr noundef nonnull readonly %name) #13
+  %call.i = tail call i32 @unsetenv(ptr noundef nonnull readonly %name) #14
   br label %_ZN19OpenColorIO_v2_4dev8Platform8UnsetenvEPKc.exit
 
 _ZN19OpenColorIO_v2_4dev8Platform8UnsetenvEPKc.exit: ; preds = %entry, %lor.lhs.false.i, %if.end.i
@@ -248,7 +248,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 @unsetenv(ptr noundef nonnull %name) #13
+  %call = tail call i32 @unsetenv(ptr noundef nonnull %name) #14
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -269,13 +269,13 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %_ZN19OpenColorIO_v2_4dev8Platform12isEnvPresentEPKc.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %lor.lhs.false.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #14
   %1 = load i8, ptr %name, align 1
   %tobool1.not.i.i = icmp eq i8 %1, 0
   br i1 %tobool1.not.i.i, label %invoke.cont.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
-  %call.i.i = call ptr @getenv(ptr noundef nonnull readonly %name) #13
+  %call.i.i = call ptr @getenv(ptr noundef nonnull readonly %name) #14
   %tobool2.i.i = icmp ne ptr %call.i.i, null
   br i1 %tobool2.i.i, label %land.lhs.true.i.i, label %cond.end.i.i
 
@@ -292,13 +292,13 @@ cond.end.i.i:                                     ; preds = %land.lhs.true.i.i, 
 
 invoke.cont.i:                                    ; preds = %cond.end.i.i, %lor.lhs.false.i.i
   %retval.0.i.i = phi i1 [ false, %lor.lhs.false.i.i ], [ %tobool2.i.i, %cond.end.i.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #14
   br label %_ZN19OpenColorIO_v2_4dev8Platform12isEnvPresentEPKc.exit
 
 lpad.i:                                           ; preds = %cond.end.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #14
   resume { ptr, i32 } %3
 
 _ZN19OpenColorIO_v2_4dev8Platform12isEnvPresentEPKc.exit: ; preds = %entry, %lor.lhs.false.i, %invoke.cont.i
@@ -320,13 +320,13 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value) #14
   %1 = load i8, ptr %name, align 1
   %tobool1.not.i = icmp eq i8 %1, 0
   br i1 %tobool1.not.i, label %invoke.cont, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i = call ptr @getenv(ptr noundef nonnull readonly %name) #13
+  %call.i = call ptr @getenv(ptr noundef nonnull readonly %name) #14
   %tobool2.i = icmp ne ptr %call.i, null
   br i1 %tobool2.i, label %land.lhs.true.i, label %cond.end.i
 
@@ -343,13 +343,13 @@ cond.end.i:                                       ; preds = %land.lhs.true.i, %i
 
 invoke.cont:                                      ; preds = %lor.lhs.false.i, %cond.end.i
   %retval.0.i = phi i1 [ false, %lor.lhs.false.i ], [ %tobool2.i, %cond.end.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value) #14
   br label %return
 
 lpad:                                             ; preds = %cond.end.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value) #14
   resume { ptr, i32 } %3
 
 return:                                           ; preds = %entry, %lor.lhs.false, %invoke.cont
@@ -371,7 +371,7 @@ declare noundef i32 @unsetenv(ptr nocapture noundef readonly) local_unnamed_addr
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev8Platform10StrcasecmpEPKcS2_(ptr nocapture noundef readonly %str1, ptr nocapture noundef readonly %str2) local_unnamed_addr #8 {
 entry:
-  %call = tail call i32 @strcasecmp(ptr noundef %str1, ptr noundef %str2) #14
+  %call = tail call i32 @strcasecmp(ptr noundef %str1, ptr noundef %str2) #15
   ret i32 %call
 }
 
@@ -381,7 +381,7 @@ declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unna
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev8Platform11StrncasecmpEPKcS2_m(ptr nocapture noundef readonly %str1, ptr nocapture noundef readonly %str2, i64 noundef %n) local_unnamed_addr #8 {
 entry:
-  %call = tail call i32 @strncasecmp(ptr noundef %str1, ptr noundef %str2, i64 noundef %n) #14
+  %call = tail call i32 @strncasecmp(ptr noundef %str1, ptr noundef %str2, i64 noundef %n) #15
   ret i32 %call
 }
 
@@ -393,7 +393,7 @@ define hidden noundef ptr @_ZN19OpenColorIO_v2_4dev8Platform13AlignedMallocEmm(i
 entry:
   %memBlock = alloca ptr, align 8
   store ptr null, ptr %memBlock, align 8
-  %call = call i32 @posix_memalign(ptr noundef nonnull %memBlock, i64 noundef %alignment, i64 noundef %size) #13
+  %call = call i32 @posix_memalign(ptr noundef nonnull %memBlock, i64 noundef %alignment, i64 noundef %size) #14
   %tobool.not = icmp eq i32 %call, 0
   %0 = load ptr, ptr %memBlock, align 8
   %retval.0 = select i1 %tobool.not, ptr %0, ptr null
@@ -406,7 +406,7 @@ declare i32 @posix_memalign(ptr noundef, i64 noundef, i64 noundef) local_unnamed
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev8Platform11AlignedFreeEPv(ptr nocapture noundef %memBlock) local_unnamed_addr #10 {
 entry:
-  tail call void @free(ptr noundef %memBlock) #13
+  tail call void @free(ptr noundef %memBlock) #14
   ret void
 }
 
@@ -418,7 +418,7 @@ define hidden void @_ZN19OpenColorIO_v2_4dev8Platform18CreateTempFilenameERKNSt7
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss)
           to label %invoke.cont unwind label %lpad
 
@@ -433,7 +433,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
   br i1 %guard.uninitialized.i, label %init.check.i, label %init.end.i, !prof !4
 
 init.check.i:                                     ; preds = %invoke.cont2
-  %1 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE6engine) #13
+  %1 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE6engine) #14
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %init.end.i, label %init.i
 
@@ -457,7 +457,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 
 invoke.cont.i:                                    ; preds = %for.body.i.i.i.i
   store i64 624, ptr getelementptr inbounds (i8, ptr @_ZZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE6engine, i64 4992), align 8
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE6engine) #13
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE6engine) #14
   br label %init.end.i
 
 init.end.i:                                       ; preds = %invoke.cont.i, %init.check.i, %invoke.cont2
@@ -466,14 +466,14 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
   br i1 %guard.uninitialized1.i, label %init.check2.i, label %init.end7.i, !prof !4
 
 init.check2.i:                                    ; preds = %init.end.i
-  %4 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE4dist) #13
+  %4 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE4dist) #14
   %tobool3.not.i = icmp eq i32 %4, 0
   br i1 %tobool3.not.i, label %init.end7.i, label %invoke.cont6.i
 
 invoke.cont6.i:                                   ; preds = %init.check2.i
   store i32 0, ptr @_ZZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE4dist, align 4
   store i32 2147483647, ptr getelementptr inbounds (i8, ptr @_ZZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE4dist, i64 4), align 4
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE4dist) #13
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE4dist) #14
   br label %init.end7.i
 
 init.end7.i:                                      ; preds = %invoke.cont6.i, %init.check2.i, %init.end.i
@@ -489,13 +489,13 @@ invoke.cont5:                                     ; preds = %invoke.cont3
           to label %invoke.cont7 unwind label %lpad1
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
+  %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   %call10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filenameExt)
           to label %invoke.cont9 unwind label %lpad1
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #13
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #14
   ret void
 
 lpad:                                             ; preds = %entry
@@ -506,12 +506,12 @@ lpad:                                             ; preds = %entry
 lpad1:                                            ; preds = %init.end7.i, %invoke.cont7, %invoke.cont5, %invoke.cont3, %invoke.cont
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #13
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #14
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad1, %lpad
   %.pn = phi { ptr, i32 } [ %6, %lpad1 ], [ %5, %lpad ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
   resume { ptr, i32 } %.pn
 }
 
@@ -561,26 +561,26 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev8Platform11Utf8ToUtf16ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::__cxx11::basic_string.1") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #13
+  %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #14
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
   ret void
 
 if.end:                                           ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #13
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #14
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
   unreachable
 
 lpad:                                             ; preds = %if.end
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #13
+  tail call void @__cxa_free_exception(ptr %exception) #14
   resume { ptr, i32 } %0
 }
 
@@ -599,31 +599,32 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev8Platform11Utf16ToUtf8ERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %wstr) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %wstr) #13
+  %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %wstr) #14
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
   ret void
 
 if.end:                                           ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #13
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #14
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
   unreachable
 
 lpad:                                             ; preds = %if.end
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #13
+  tail call void @__cxa_free_exception(ptr %exception) #14
   resume { ptr, i32 } %0
 }
 
@@ -636,8 +637,8 @@ entry:
   %fileInfo = alloca %struct.stat, align 8
   %fasthash = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #13
-  %call1 = call i32 @stat(ptr noundef %call, ptr noundef nonnull %fileInfo) #13
+  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #14
+  %call1 = call i32 @stat(ptr noundef %call, ptr noundef nonnull %fileInfo) #14
   %cmp = icmp eq i32 %call1, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -662,28 +663,28 @@ invoke.cont5:                                     ; preds = %invoke.cont3
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %fasthash) #13
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %fasthash) #14
   br label %return
 
 lpad:                                             ; preds = %invoke.cont5, %invoke.cont3, %invoke.cont, %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %fasthash) #13
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %fasthash) #14
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %if.end
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   br label %return
 
 lpad8:                                            ; preds = %if.end
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   br label %eh.resume
 
 return:                                           ; preds = %invoke.cont9, %invoke.cont7
@@ -884,10 +885,10 @@ if.end:                                           ; preds = %_ZNSt23mersenne_twi
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
@@ -901,10 +902,11 @@ attributes #8 = { mustprogress nofree nounwind willreturn memory(read) uwtable "
 attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { noreturn }
+attributes #12 = { cold noreturn }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

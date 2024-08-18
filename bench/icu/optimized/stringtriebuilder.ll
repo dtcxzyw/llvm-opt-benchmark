@@ -99,14 +99,14 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr null, ptr %nodes.i, align 8
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
   ret void
 
 terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #14
+  tail call void @__clang_call_terminate(ptr %2) #15
   unreachable
 }
 
@@ -124,27 +124,28 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #14
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #15
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
+declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7517StringTrieBuilderD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define void @_ZN6icu_7517StringTrieBuilderD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
 entry:
-  tail call void @llvm.trap() #14
+  tail call void @llvm.trap() #15
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #6
+declare void @llvm.trap() #7
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7517StringTrieBuilder20createCompactBuilderEiR10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i32 noundef %sizeGuess, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #2 align 2 {
@@ -177,10 +178,10 @@ if.end11:                                         ; preds = %if.then7, %if.else,
   ret void
 }
 
-declare ptr @uhash_openSize_75(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
+declare ptr @uhash_openSize_75(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL18hashStringTrieNode8UElement(ptr nocapture readonly %key.coerce) #8 {
+define internal noundef i32 @_ZL18hashStringTrieNode8UElement(ptr nocapture readonly %key.coerce) #9 {
 entry:
   %hash.i.i = getelementptr inbounds i8, ptr %key.coerce, i64 8
   %0 = load i32, ptr %hash.i.i, align 8
@@ -198,11 +199,11 @@ entry:
   ret i8 %conv.i
 }
 
-declare ptr @uhash_setKeyDeleter_75(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare ptr @uhash_setKeyDeleter_75(ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @uprv_deleteUObject_75(ptr noundef) #7
+declare void @uprv_deleteUObject_75(ptr noundef) #8
 
-declare void @uhash_close_75(ptr noundef) local_unnamed_addr #7
+declare void @uhash_close_75(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7517StringTrieBuilder5buildE22UStringTrieBuildOptioniR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %buildOption, i32 noundef %elementsLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #2 align 2 {
@@ -479,7 +480,7 @@ delete.notnull.i:                                 ; preds = %if.then.i
   %vtable.i = load ptr, ptr %call35, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %9 = load ptr, ptr %vfn.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %call35) #13
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %call35) #14
   br label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit
 
 if.end.i:                                         ; preds = %while.body
@@ -499,7 +500,7 @@ delete.notnull8.i:                                ; preds = %if.end3.i
   %vtable9.i = load ptr, ptr %call35, align 8
   %vfn10.i = getelementptr inbounds i8, ptr %vtable9.i, i64 8
   %11 = load ptr, ptr %vfn10.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %call35) #13
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %call35) #14
   %key.i = getelementptr inbounds i8, ptr %call4.i, i64 16
   %12 = load ptr, ptr %key.i, align 8
   br label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit
@@ -515,7 +516,7 @@ delete.notnull19.i:                               ; preds = %if.end12.i
   %vtable20.i = load ptr, ptr %call35, align 8
   %vfn21.i = getelementptr inbounds i8, ptr %vtable20.i, i64 8
   %15 = load ptr, ptr %vfn21.i, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %call35) #13
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %call35) #14
   br label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit
 
 _ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit: ; preds = %if.then.i, %delete.notnull.i, %if.then2.i, %delete.notnull8.i, %if.end12.i, %delete.notnull19.i
@@ -537,7 +538,7 @@ if.else:                                          ; preds = %if.end11
   %17 = load ptr, ptr %vfn42, align 8
   %call43 = tail call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %start.addr.0, i32 noundef %limit, i32 noundef %unitIndex)
   %call44 = tail call noundef ptr @_ZN6icu_7517StringTrieBuilder17makeBranchSubNodeEiiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %start.addr.0, i32 noundef %limit, i32 noundef %unitIndex, i32 noundef %call43, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %call45 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #13
+  %call45 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #14
   %new.isnull = icmp eq ptr %call45, null
   br i1 %new.isnull, label %if.end70, label %new.notnull
 
@@ -595,7 +596,7 @@ if.then54:                                        ; preds = %if.then49
   br label %if.end70.sink.split
 
 if.else55:                                        ; preds = %if.then49
-  %call56 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #13
+  %call56 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #14
   %new.isnull57 = icmp eq ptr %call56, null
   br i1 %new.isnull57, label %if.end70, label %new.notnull58
 
@@ -608,7 +609,7 @@ delete.notnull.i51:                               ; preds = %new.notnull58
   %vtable.i52 = load ptr, ptr %node.0, align 8
   %vfn.i53 = getelementptr inbounds i8, ptr %vtable.i52, i64 8
   %23 = load ptr, ptr %vfn.i53, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %node.0) #13
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %node.0) #14
   br label %_ZN6icu_7517StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit
 
 if.end3.i56:                                      ; preds = %new.notnull58
@@ -635,14 +636,14 @@ delete.notnull19.i67:                             ; preds = %call14.i65.noexc
   %vtable20.i68 = load ptr, ptr %node.0, align 8
   %vfn21.i69 = getelementptr inbounds i8, ptr %vtable20.i68, i64 8
   %27 = load ptr, ptr %vfn21.i69, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %node.0) #13
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %node.0) #14
   br label %_ZN6icu_7517StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit
 
 invoke.cont62:                                    ; preds = %call4.i58.noexc
   %vtable9.i61 = load ptr, ptr %node.0, align 8
   %vfn10.i62 = getelementptr inbounds i8, ptr %vtable9.i61, i64 8
   %28 = load ptr, ptr %vfn10.i62, align 8
-  tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %node.0) #13
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %node.0) #14
   %key.i63 = getelementptr inbounds i8, ptr %call4.i5871, i64 16
   %29 = load ptr, ptr %key.i63, align 8
   %cmp.i.i74 = icmp eq ptr %29, null
@@ -674,7 +675,7 @@ _ZN6icu_7517StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit: ; pred
 lpad61:                                           ; preds = %if.end12.i64, %if.end3.i56
   %33 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call56) #13
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call56) #14
   resume { ptr, i32 } %33
 
 if.end70.sink.split:                              ; preds = %if.then54, %_ZN6icu_7517StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit
@@ -699,7 +700,7 @@ delete.notnull.i85:                               ; preds = %if.then.i84
   %vtable.i86 = load ptr, ptr %node.1, align 8
   %vfn.i87 = getelementptr inbounds i8, ptr %vtable.i86, i64 8
   %35 = load ptr, ptr %vfn.i87, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %node.1) #13
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %node.1) #14
   br label %return
 
 if.end.i89:                                       ; preds = %if.end70
@@ -720,7 +721,7 @@ delete.notnull8.i94:                              ; preds = %if.end3.i90
   %vtable9.i95 = load ptr, ptr %node.1, align 8
   %vfn10.i96 = getelementptr inbounds i8, ptr %vtable9.i95, i64 8
   %37 = load ptr, ptr %vfn10.i96, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %node.1) #13
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %node.1) #14
   %key.i97 = getelementptr inbounds i8, ptr %call4.i92, i64 16
   %38 = load ptr, ptr %key.i97, align 8
   br label %return
@@ -736,7 +737,7 @@ delete.notnull19.i101:                            ; preds = %if.end12.i98
   %vtable20.i102 = load ptr, ptr %node.1, align 8
   %vfn21.i103 = getelementptr inbounds i8, ptr %vtable20.i102, i64 8
   %41 = load ptr, ptr %vfn21.i103, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %node.1) #13
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %node.1) #14
   br label %return
 
 return:                                           ; preds = %delete.notnull19.i101, %if.end12.i98, %delete.notnull8.i94, %if.then2.i104, %delete.notnull.i85, %if.then.i84, %entry, %if.then8
@@ -992,11 +993,11 @@ if.then3:                                         ; preds = %invoke.cont
 lpad:                                             ; preds = %if.end11, %if.end
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key) #13
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key) #14
   resume { ptr, i32 } %3
 
 if.end5:                                          ; preds = %invoke.cont
-  %call6 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #13
+  %call6 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #14
   %new.isnull = icmp eq ptr %call6, null
   br i1 %new.isnull, label %if.then10, label %if.end11
 
@@ -1025,12 +1026,12 @@ delete.notnull:                                   ; preds = %invoke.cont13
   %vtable = load ptr, ptr %call6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %6 = load ptr, ptr %vfn, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %call6) #13
+  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %call6) #14
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont13, %delete.notnull, %if.then10, %if.then3
   %retval.1 = phi ptr [ %2, %if.then3 ], [ null, %if.then10 ], [ null, %delete.notnull ], [ %call6, %invoke.cont13 ]
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key) #13
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key) #14
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
@@ -1053,7 +1054,7 @@ delete.notnull:                                   ; preds = %if.then
   %vtable = load ptr, ptr %newNode, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(16) %newNode) #13
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(16) %newNode) #14
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1074,7 +1075,7 @@ delete.notnull8:                                  ; preds = %if.end3
   %vtable9 = load ptr, ptr %newNode, align 8
   %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 8
   %3 = load ptr, ptr %vfn10, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %newNode) #13
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %newNode) #14
   %key = getelementptr inbounds i8, ptr %call4, i64 16
   %4 = load ptr, ptr %key, align 8
   br label %return
@@ -1090,7 +1091,7 @@ delete.notnull19:                                 ; preds = %if.end12
   %vtable20 = load ptr, ptr %newNode, align 8
   %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 8
   %7 = load ptr, ptr %vfn21, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %newNode) #13
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %newNode) #14
   br label %return
 
 return:                                           ; preds = %if.end12, %if.then, %delete.notnull, %delete.notnull19, %delete.notnull8, %if.then2
@@ -1155,7 +1156,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   br i1 %cmp.i56, label %if.end17, label %return
 
 if.end17:                                         ; preds = %while.end
-  %call18 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 104) #13
+  %call18 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 104) #14
   %new.isnull = icmp eq ptr %call18, null
   br i1 %new.isnull, label %if.then20, label %new.cont
 
@@ -1364,7 +1365,7 @@ delete.notnull.i:                                 ; preds = %if.end68
   %vtable.i = load ptr, ptr %call18, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %37 = load ptr, ptr %vfn.i, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %call18) #13
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %call18) #14
   br label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit
 
 if.end3.i:                                        ; preds = %if.end68
@@ -1378,7 +1379,7 @@ delete.notnull8.i:                                ; preds = %if.end3.i
   %vtable9.i = load ptr, ptr %call18, align 8
   %vfn10.i = getelementptr inbounds i8, ptr %vtable9.i, i64 8
   %39 = load ptr, ptr %vfn10.i, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %call18) #13
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %call18) #14
   %key.i = getelementptr inbounds i8, ptr %call4.i, i64 16
   %40 = load ptr, ptr %key.i, align 8
   br label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit
@@ -1394,7 +1395,7 @@ delete.notnull19.i:                               ; preds = %if.end12.i
   %vtable20.i = load ptr, ptr %call18, align 8
   %vfn21.i = getelementptr inbounds i8, ptr %vtable20.i, i64 8
   %43 = load ptr, ptr %vfn21.i, align 8
-  tail call void %43(ptr noundef nonnull align 8 dereferenceable(16) %call18) #13
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(16) %call18) #14
   br label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit
 
 _ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit: ; preds = %delete.notnull.i, %delete.notnull8.i, %if.end12.i, %delete.notnull19.i
@@ -1411,7 +1412,7 @@ while.body72:                                     ; preds = %while.body72.lr.ph,
   %indvars.iv165 = phi i64 [ %44, %while.body72.lr.ph ], [ %indvars.iv.next166, %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149 ]
   %node.0162 = phi ptr [ %retval.0.i, %while.body72.lr.ph ], [ %retval.0.i132, %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149 ]
   %indvars.iv.next166 = add nsw i64 %indvars.iv165, -1
-  %call73 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #13
+  %call73 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #14
   %new.isnull74 = icmp eq ptr %call73, null
   br i1 %new.isnull74, label %new.cont87, label %new.notnull75
 
@@ -1470,7 +1471,7 @@ delete.notnull.i129:                              ; preds = %new.cont87.thread
   %vtable.i130 = load ptr, ptr %call73, align 8
   %vfn.i131 = getelementptr inbounds i8, ptr %vtable.i130, i64 8
   %52 = load ptr, ptr %vfn.i131, align 8
-  tail call void %52(ptr noundef nonnull align 8 dereferenceable(16) %call73) #13
+  tail call void %52(ptr noundef nonnull align 8 dereferenceable(16) %call73) #14
   br label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149
 
 if.then2.i148:                                    ; preds = %new.cont87
@@ -1487,7 +1488,7 @@ delete.notnull8.i138:                             ; preds = %if.end3.i134
   %vtable9.i139 = load ptr, ptr %call73, align 8
   %vfn10.i140 = getelementptr inbounds i8, ptr %vtable9.i139, i64 8
   %54 = load ptr, ptr %vfn10.i140, align 8
-  tail call void %54(ptr noundef nonnull align 8 dereferenceable(16) %call73) #13
+  tail call void %54(ptr noundef nonnull align 8 dereferenceable(16) %call73) #14
   %key.i141 = getelementptr inbounds i8, ptr %call4.i136, i64 16
   %55 = load ptr, ptr %key.i141, align 8
   br label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149
@@ -1503,7 +1504,7 @@ delete.notnull19.i145:                            ; preds = %if.end12.i142
   %vtable20.i146 = load ptr, ptr %call73, align 8
   %vfn21.i147 = getelementptr inbounds i8, ptr %vtable20.i146, i64 8
   %58 = load ptr, ptr %vfn21.i147, align 8
-  tail call void %58(ptr noundef nonnull align 8 dereferenceable(16) %call73) #13
+  tail call void %58(ptr noundef nonnull align 8 dereferenceable(16) %call73) #14
   br label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149
 
 _ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149: ; preds = %new.cont87, %delete.notnull.i129, %if.then2.i148, %delete.notnull8.i138, %if.end12.i142, %delete.notnull19.i145
@@ -1517,24 +1518,24 @@ return:                                           ; preds = %_ZN6icu_7517StringT
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #4
+declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #4
+declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #5
 
-declare ptr @uhash_find_75(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare ptr @uhash_find_75(ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare i32 @uhash_puti_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @uhash_puti_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder14FinalValueNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN6icu_7517StringTrieBuilder8hashNodeEPKv(ptr nocapture noundef readonly %node) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZN6icu_7517StringTrieBuilder8hashNodeEPKv(ptr nocapture noundef readonly %node) local_unnamed_addr #9 align 2 {
 entry:
   %hash.i = getelementptr inbounds i8, ptr %node, i64 8
   %0 = load i32, ptr %hash.i, align 8
@@ -1553,7 +1554,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7517StringTrieBuilder4NodeeqERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7517StringTrieBuilder4NodeeqERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %lor.end, label %typeid.end
@@ -1582,7 +1583,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %cmp.i.i = icmp eq i8 %7, 42
   %cond.idx.i.i = zext i1 %cmp.i.i to i64
   %cond.i.i = getelementptr inbounds i8, ptr %5, i64 %cond.idx.i.i
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i) #13
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i) #14
   %cmp7.i = icmp eq i32 %call6.i, 0
   br i1 %cmp7.i, label %land.rhs, label %lor.end
 
@@ -1600,7 +1601,7 @@ lor.end:                                          ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN6icu_7517StringTrieBuilder4Node19markRightEdgesFirstEi(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef returned %edgeNumber) unnamed_addr #10 align 2 {
+define noundef i32 @_ZN6icu_7517StringTrieBuilder4Node19markRightEdgesFirstEi(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef returned %edgeNumber) unnamed_addr #11 align 2 {
 entry:
   %offset = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %offset, align 4
@@ -1616,7 +1617,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7517StringTrieBuilder14FinalValueNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7517StringTrieBuilder14FinalValueNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %typeid.end.i
@@ -1645,7 +1646,7 @@ _ZNKSt9type_infoeqERKS_.exit.i:                   ; preds = %if.end.i.i
   %cmp.i.i.i = icmp eq i8 %7, 42
   %cond.idx.i.i.i = zext i1 %cmp.i.i.i to i64
   %cond.i.i.i = getelementptr inbounds i8, ptr %5, i64 %cond.idx.i.i.i
-  %call6.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i) #13
+  %call6.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i) #14
   %cmp7.i.i = icmp eq i32 %call6.i.i, 0
   br i1 %cmp7.i.i, label %_ZNK6icu_7517StringTrieBuilder4NodeeqERKS1_.exit, label %return
 
@@ -1685,7 +1686,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7517StringTrieBuilder9ValueNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7517StringTrieBuilder9ValueNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %typeid.end.i
@@ -1714,7 +1715,7 @@ _ZNKSt9type_infoeqERKS_.exit.i:                   ; preds = %if.end.i.i
   %cmp.i.i.i = icmp eq i8 %7, 42
   %cond.idx.i.i.i = zext i1 %cmp.i.i.i to i64
   %cond.i.i.i = getelementptr inbounds i8, ptr %5, i64 %cond.idx.i.i.i
-  %call6.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i) #13
+  %call6.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i) #14
   %cmp7.i.i = icmp eq i32 %call6.i.i, 0
   br i1 %cmp7.i.i, label %_ZNK6icu_7517StringTrieBuilder4NodeeqERKS1_.exit, label %return
 
@@ -1752,7 +1753,7 @@ return:                                           ; preds = %if.end.i.i, %_ZNKSt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7517StringTrieBuilder21IntermediateValueNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7517StringTrieBuilder21IntermediateValueNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %typeid.end.i.i
@@ -1781,7 +1782,7 @@ _ZNKSt9type_infoeqERKS_.exit.i.i:                 ; preds = %if.end.i.i.i
   %cmp.i.i.i.i = icmp eq i8 %7, 42
   %cond.idx.i.i.i.i = zext i1 %cmp.i.i.i.i to i64
   %cond.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 %cond.idx.i.i.i.i
-  %call6.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i.i) #13
+  %call6.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i.i) #14
   %cmp7.i.i.i = icmp eq i32 %call6.i.i.i, 0
   br i1 %cmp7.i.i.i, label %_ZNK6icu_7517StringTrieBuilder4NodeeqERKS1_.exit.i, label %return
 
@@ -1870,7 +1871,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7517StringTrieBuilder15LinearMatchNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7517StringTrieBuilder15LinearMatchNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %typeid.end.i.i
@@ -1899,7 +1900,7 @@ _ZNKSt9type_infoeqERKS_.exit.i.i:                 ; preds = %if.end.i.i.i
   %cmp.i.i.i.i = icmp eq i8 %7, 42
   %cond.idx.i.i.i.i = zext i1 %cmp.i.i.i.i to i64
   %cond.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 %cond.idx.i.i.i.i
-  %call6.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i.i) #13
+  %call6.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i.i) #14
   %cmp7.i.i.i = icmp eq i32 %call6.i.i.i, 0
   br i1 %cmp7.i.i.i, label %_ZNK6icu_7517StringTrieBuilder4NodeeqERKS1_.exit.i, label %return
 
@@ -1976,7 +1977,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7517StringTrieBuilder14ListBranchNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 dereferenceable(98) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7517StringTrieBuilder14ListBranchNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 dereferenceable(98) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %typeid.end.i
@@ -2005,7 +2006,7 @@ _ZNKSt9type_infoeqERKS_.exit.i:                   ; preds = %if.end.i.i
   %cmp.i.i.i = icmp eq i8 %7, 42
   %cond.idx.i.i.i = zext i1 %cmp.i.i.i to i64
   %cond.i.i.i = getelementptr inbounds i8, ptr %5, i64 %cond.idx.i.i.i
-  %call6.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i) #13
+  %call6.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i) #14
   %cmp7.i.i = icmp eq i32 %call6.i.i, 0
   br i1 %cmp7.i.i, label %_ZNK6icu_7517StringTrieBuilder4NodeeqERKS1_.exit, label %return
 
@@ -2256,7 +2257,7 @@ while.end:                                        ; preds = %if.end43, %if.end20
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7517StringTrieBuilder15SplitBranchNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7517StringTrieBuilder15SplitBranchNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %typeid.end.i
@@ -2285,7 +2286,7 @@ _ZNKSt9type_infoeqERKS_.exit.i:                   ; preds = %if.end.i.i
   %cmp.i.i.i = icmp eq i8 %7, 42
   %cond.idx.i.i.i = zext i1 %cmp.i.i.i to i64
   %cond.i.i.i = getelementptr inbounds i8, ptr %5, i64 %cond.idx.i.i.i
-  %call6.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i) #13
+  %call6.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i) #14
   %cmp7.i.i = icmp eq i32 %call6.i.i, 0
   br i1 %cmp7.i.i, label %_ZNK6icu_7517StringTrieBuilder4NodeeqERKS1_.exit, label %return
 
@@ -2414,7 +2415,7 @@ _ZN6icu_7517StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7517StringTrieBuilder14BranchHeadNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7517StringTrieBuilder14BranchHeadNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %typeid.end.i.i
@@ -2443,7 +2444,7 @@ _ZNKSt9type_infoeqERKS_.exit.i.i:                 ; preds = %if.end.i.i.i
   %cmp.i.i.i.i = icmp eq i8 %7, 42
   %cond.idx.i.i.i.i = zext i1 %cmp.i.i.i.i to i64
   %cond.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 %cond.idx.i.i.i.i
-  %call6.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i.i) #13
+  %call6.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i.i) #14
   %cmp7.i.i.i = icmp eq i32 %call6.i.i.i, 0
   br i1 %cmp7.i.i.i, label %_ZNK6icu_7517StringTrieBuilder4NodeeqERKS1_.exit.i, label %return
 
@@ -2577,138 +2578,139 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder4NodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder4NodeD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #14
+  tail call void @llvm.trap() #15
   unreachable
 }
 
-declare noundef ptr @_ZNK6icu_757UObject17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
+declare noundef ptr @_ZNK6icu_757UObject17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder14FinalValueNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #13
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder9ValueNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder9ValueNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #14
+  tail call void @llvm.trap() #15
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder21IntermediateValueNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder21IntermediateValueNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #13
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder15LinearMatchNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder15LinearMatchNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #14
+  tail call void @llvm.trap() #15
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder14ListBranchNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder14ListBranchNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(98) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #13
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder15SplitBranchNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder15SplitBranchNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #13
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder14BranchHeadNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder14BranchHeadNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #13
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn nounwind }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

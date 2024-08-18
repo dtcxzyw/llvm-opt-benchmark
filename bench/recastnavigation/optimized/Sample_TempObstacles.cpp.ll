@@ -191,7 +191,7 @@ $_ZN6Sample13getAgentClimbEv = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16FastLZCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN21dtTileCacheCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN21dtTileCacheCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -200,8 +200,8 @@ declare void @_ZN21dtTileCacheCompressorD2Ev(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16FastLZCompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN21dtTileCacheCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZN21dtTileCacheCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
 
@@ -217,14 +217,14 @@ define dso_local void @_ZN15LinearAllocatorD2Ev(ptr noundef nonnull align 8 dere
           to label %4 unwind label %5
 
 4:                                                ; preds = %1
-  tail call void @_ZN16dtTileCacheAllocD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN16dtTileCacheAllocD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 
 5:                                                ; preds = %1
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #16
+  tail call void @__clang_call_terminate(ptr %7) #17
   unreachable
 }
 
@@ -234,14 +234,15 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare void @_ZN16dtTileCacheAllocD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
@@ -258,18 +259,18 @@ define dso_local void @_ZN15LinearAllocatorD0Ev(ptr noundef nonnull align 8 dere
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #16
+  tail call void @__clang_call_terminate(ptr %6) #17
   unreachable
 
 _ZN15LinearAllocatorD2Ev.exit:                    ; preds = %1
-  tail call void @_ZN16dtTileCacheAllocD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZN16dtTileCacheAllocD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN11MeshProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN22dtTileCacheMeshProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN22dtTileCacheMeshProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -278,13 +279,13 @@ declare void @_ZN22dtTileCacheMeshProcessD2Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN11MeshProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN22dtTileCacheMeshProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZN22dtTileCacheMeshProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiRK8rcConfigP13TileCacheDatai(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(92) %3, ptr nocapture noundef writeonly %4, i32 noundef %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiRK8rcConfigP13TileCacheDatai(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(92) %3, ptr nocapture noundef writeonly %4, i32 noundef %5) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %struct.FastLZCompressor, align 8
   %8 = alloca %struct.RasterizationContext, align 8
   %9 = alloca %struct.rcConfig, align 4
@@ -406,8 +407,8 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit100
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit100 ], [ %lpad.loopexit102, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit106, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN20RasterizationContextD2Ev(ptr noundef nonnull align 8 dereferenceable(548) %8) #14
-  call void @_ZN21dtTileCacheCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+  call void @_ZN20RasterizationContextD2Ev(ptr noundef nonnull align 8 dereferenceable(548) %8) #15
+  call void @_ZN21dtTileCacheCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
   resume { ptr, i32 } %lpad.phi
 
 75:                                               ; preds = %70
@@ -431,7 +432,7 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
   %87 = getelementptr inbounds i8, ptr %20, i64 28
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
-  %90 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %89) #17
+  %90 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %89) #18
           to label %91 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 91:                                               ; preds = %86
@@ -812,7 +813,7 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
   br i1 %321, label %323, label %322
 
 322:                                              ; preds = %318
-  call void @_ZdaPv(ptr noundef nonnull %320) #15
+  call void @_ZdaPv(ptr noundef nonnull %320) #16
   br label %323
 
 323:                                              ; preds = %322, %318
@@ -857,11 +858,11 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
 334:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %335 = extractvalue { ptr, i32 } %lpad.phi.i, 0
-  call void @__clang_call_terminate(ptr %335) #16
+  call void @__clang_call_terminate(ptr %335) #17
   unreachable
 
 _ZN20RasterizationContextD2Ev.exit:               ; preds = %333
-  call void @_ZN21dtTileCacheCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+  call void @_ZN21dtTileCacheCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
   br label %336
 
 336:                                              ; preds = %_ZN20RasterizationContextD2Ev.exit, %21
@@ -872,22 +873,22 @@ _ZN20RasterizationContextD2Ev.exit:               ; preds = %333
 declare void @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10), i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #7
+declare float @llvm.fmuladd.f32(float, float, float) #8
 
 declare noundef ptr @_Z18rcAllocHeightfieldv() local_unnamed_addr #3
 
 declare noundef zeroext i1 @_Z19rcCreateHeightfieldP9rcContextR13rcHeightfieldiiPKfS4_ff(ptr noundef, ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef, ptr noundef, float noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
 
 declare noundef i32 @_Z26rcGetChunksOverlappingRectPK15rcChunkyTriMeshPfS2_Pii(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 declare void @_Z23rcMarkWalkableTrianglesP9rcContextfPKfiPKiiPh(ptr noundef, float noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -926,7 +927,7 @@ define linkonce_odr dso_local void @_ZN20RasterizationContextD2Ev(ptr noundef no
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #15
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #16
   br label %8
 
 8:                                                ; preds = %7, %3
@@ -974,12 +975,12 @@ define linkonce_odr dso_local void @_ZN20RasterizationContextD2Ev(ptr noundef no
 20:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %21 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %21) #16
+  tail call void @__clang_call_terminate(ptr %21) #17
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z9drawTilesP11duDebugDrawP11dtTileCache(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @_Z9drawTilesP11duDebugDrawP11dtTileCache(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = alloca [6 x i32], align 16
   %4 = alloca [3 x float], align 4
   %5 = alloca [3 x float], align 4
@@ -1093,7 +1094,7 @@ declare void @_Z14duDebugDrawBoxP11duDebugDrawffffffPKj(ptr noundef, float nound
 declare void @_Z18duDebugDrawBoxWireP11duDebugDrawffffffjf(ptr noundef, float noundef, float noundef, float noundef, float noundef, float noundef, float noundef, i32 noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z10drawDetailP11duDebugDrawP11dtTileCacheiii(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z10drawDetailP11duDebugDrawP11dtTileCacheiii(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %6 = alloca [32 x i32], align 16
   %7 = alloca %struct.TileCacheBuildContext, align 8
   %8 = call noundef i32 @_ZNK11dtTileCache10getTilesAtEiiPji(ptr noundef nonnull align 8 dereferenceable(912) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %6, i32 noundef 32)
@@ -1218,7 +1219,7 @@ _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit
 
 71:                                               ; preds = %.split.us, %.split
   %.us-phi = phi { ptr, i32 } [ %70, %.split ], [ %51, %.split.us ]
-  call fastcc void @_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
+  call fastcc void @_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
   resume { ptr, i32 } %.us-phi
 
 72:                                               ; preds = %68
@@ -1330,7 +1331,7 @@ _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit
 122:                                              ; preds = %.split58.us, %.split58
   %.us-phi59 = phi { ptr, i32 } [ %121, %.split58 ], [ %52, %.split58.us ]
   %123 = extractvalue { ptr, i32 } %.us-phi59, 0
-  call void @__clang_call_terminate(ptr %123) #16
+  call void @__clang_call_terminate(ptr %123) #17
   unreachable
 
 _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit: ; preds = %.noexc1.i
@@ -1400,12 +1401,12 @@ define internal fastcc void @_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21T
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #16
+  tail call void @__clang_call_terminate(ptr %14) #17
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z17drawDetailOverlayPK11dtTileCacheiiPdS2_Pi(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 {
+define dso_local void @_Z17drawDetailOverlayPK11dtTileCacheiiPdS2_Pi(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #6 {
   %7 = alloca [32 x i32], align 16
   %8 = alloca [128 x i8], align 16
   %9 = alloca double, align 8
@@ -1465,7 +1466,7 @@ define dso_local void @_Z17drawDetailOverlayPK11dtTileCacheiiPdS2_Pi(ptr noundef
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr inbounds i8, ptr %49, i64 16
   %55 = load i32, ptr %54, align 4
-  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.9, i32 noundef %51, i32 noundef %53, i32 noundef %55) #14
+  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.9, i32 noundef %51, i32 noundef %53, i32 noundef %55) #15
   %57 = load double, ptr %9, align 8
   %58 = fptosi double %57 to i32
   %59 = load double, ptr %10, align 8
@@ -1477,14 +1478,14 @@ define dso_local void @_Z17drawDetailOverlayPK11dtTileCacheiiPdS2_Pi(ptr noundef
   %64 = sitofp i32 %63 to float
   %65 = fmul float %64, 0x3F50000000000000
   %66 = fpext float %65 to double
-  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.10, double noundef %66) #14
+  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.10, double noundef %66) #15
   %68 = load double, ptr %9, align 8
   %69 = fptosi double %68 to i32
   %70 = load double, ptr %10, align 8
   %71 = fptosi double %70 to i32
   %72 = add nsw i32 %71, -45
   call void @_Z13imguiDrawTextiiiPKcj(i32 noundef %69, i32 noundef %72, i32 noundef 1, ptr noundef nonnull %8, i32 noundef -2147483648)
-  %73 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.11, double noundef %23) #14
+  %73 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.11, double noundef %23) #15
   %74 = load double, ptr %9, align 8
   %75 = fptosi double %74 to i32
   %76 = load double, ptr %10, align 8
@@ -1505,12 +1506,12 @@ define dso_local void @_Z17drawDetailOverlayPK11dtTileCacheiiPdS2_Pi(ptr noundef
 declare i32 @gluProject(double noundef, double noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 declare void @_Z13imguiDrawTextiiiPKcj(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z15hitTestObstaclePK11dtTileCachePKfS3_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define dso_local noundef i32 @_Z15hitTestObstaclePK11dtTileCachePKfS3_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 {
   %4 = alloca [3 x float], align 4
   %5 = alloca [3 x float], align 4
   %6 = alloca [3 x float], align 4
@@ -1650,7 +1651,7 @@ declare void @_ZNK11dtTileCache17getObstacleBoundsEPK19dtTileCacheObstaclePfS3_(
 declare noundef i32 @_ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle(ptr noundef nonnull align 8 dereferenceable(912), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z13drawObstaclesP11duDebugDrawPK11dtTileCache(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @_Z13drawObstaclesP11duDebugDrawPK11dtTileCache(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = alloca [3 x float], align 4
   %4 = alloca [3 x float], align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 88
@@ -1729,7 +1730,7 @@ declare void @_Z23duDebugDrawCylinderWireP11duDebugDrawffffffjf(ptr noundef, flo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN23TempObstacleHilightToolD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -1738,26 +1739,26 @@ declare void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN23TempObstacleHilightToolD0Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN22TempObstacleCreateToolD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN22TempObstacleCreateToolD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstaclesC2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20Sample_TempObstaclesC2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTV20Sample_TempObstacles, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 200
@@ -1770,7 +1771,7 @@ define dso_local void @_ZN20Sample_TempObstaclesC2Ev(ptr noundef nonnull align 8
           to label %5 unwind label %25
 
 5:                                                ; preds = %1
-  %6 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %6 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
           to label %7 unwind label %25
 
 7:                                                ; preds = %5
@@ -1783,8 +1784,8 @@ define dso_local void @_ZN20Sample_TempObstaclesC2Ev(ptr noundef nonnull align 8
 .body:                                            ; preds = %7
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN16dtTileCacheAllocD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #15
+  tail call void @_ZN16dtTileCacheAllocD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #16
   br label %27
 
 11:                                               ; preds = %7
@@ -1793,14 +1794,14 @@ define dso_local void @_ZN20Sample_TempObstaclesC2Ev(ptr noundef nonnull align 8
   store i64 32000, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 208
   store ptr %6, ptr %13, align 8
-  %14 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17
+  %14 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18
           to label %15 unwind label %25
 
 15:                                               ; preds = %11
   store ptr getelementptr inbounds (i8, ptr @_ZTV16FastLZCompressor, i64 16), ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 216
   store ptr %14, ptr %16, align 8
-  %17 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17
+  %17 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
           to label %18 unwind label %25
 
 18:                                               ; preds = %15
@@ -1809,7 +1810,7 @@ define dso_local void @_ZN20Sample_TempObstaclesC2Ev(ptr noundef nonnull align 8
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 224
   store ptr %17, ptr %20, align 8
-  %21 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17
+  %21 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
           to label %22 unwind label %25
 
 22:                                               ; preds = %18
@@ -1829,7 +1830,7 @@ define dso_local void @_ZN20Sample_TempObstaclesC2Ev(ptr noundef nonnull align 8
 
 27:                                               ; preds = %.body, %25
   %.pn = phi { ptr, i32 } [ %26, %25 ], [ %10, %.body ]
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #15
   resume { ptr, i32 } %.pn
 }
 
@@ -1838,7 +1839,7 @@ declare void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200)) u
 declare void @_ZN6Sample19resetCommonSettingsEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 declare void @_ZN6Sample7setToolEP10SampleTool(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) local_unnamed_addr #3
 
@@ -1861,14 +1862,14 @@ define dso_local void @_ZN20Sample_TempObstaclesD2Ev(ptr noundef nonnull align 8
           to label %7 unwind label %8
 
 7:                                                ; preds = %4
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #14
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #15
   ret void
 
 8:                                                ; preds = %4, %1
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #16
+  tail call void @__clang_call_terminate(ptr %10) #17
   unreachable
 }
 
@@ -1895,17 +1896,17 @@ define dso_local void @_ZN20Sample_TempObstaclesD0Ev(ptr noundef nonnull align 8
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #16
+  tail call void @__clang_call_terminate(ptr %9) #17
   unreachable
 
 _ZN20Sample_TempObstaclesD2Ev.exit:               ; preds = %4
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles14handleSettingsEv(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles14handleSettingsEv(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #6 align 2 {
   %2 = alloca [64 x i8], align 16
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -1955,7 +1956,7 @@ define dso_local void @_ZN20Sample_TempObstacles14handleSettingsEv(ptr noundef n
   %33 = load i32, ptr %4, align 4
   %34 = add i32 %30, %33
   %35 = sdiv i32 %34, %28
-  %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.15, i32 noundef %32, i32 noundef %35) #14
+  %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.15, i32 noundef %32, i32 noundef %35) #15
   call void @_Z10imguiValuePKc(ptr noundef nonnull %2)
   %37 = mul nsw i32 %35, %32
   %38 = shl nsw i32 %37, 2
@@ -1996,10 +1997,10 @@ define dso_local void @_ZN20Sample_TempObstacles14handleSettingsEv(ptr noundef n
   %72 = shl nuw nsw i32 1, %69
   %73 = getelementptr inbounds i8, ptr %0, i64 268
   store i32 %72, ptr %73, align 4
-  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.16, i32 noundef %70) #14
+  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.16, i32 noundef %70) #15
   call void @_Z10imguiValuePKc(ptr noundef nonnull %2)
   %75 = load i32, ptr %73, align 4
-  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.17, i32 noundef %75) #14
+  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.17, i32 noundef %75) #15
   call void @_Z10imguiValuePKc(ptr noundef nonnull %2)
   %77 = sitofp i32 %37 to float
   br label %81
@@ -2025,13 +2026,13 @@ define dso_local void @_ZN20Sample_TempObstacles14handleSettingsEv(ptr noundef n
   %89 = fdiv float %84, %88
   %90 = getelementptr inbounds i8, ptr %0, i64 252
   %91 = load i32, ptr %90, align 4
-  %92 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.19, i32 noundef %91) #14
+  %92 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.19, i32 noundef %91) #15
   call void @_Z10imguiValuePKc(ptr noundef nonnull %5)
   %93 = load i32, ptr %90, align 4
   %94 = sitofp i32 %93 to float
   %95 = fdiv float %94, %.0
   %96 = fpext float %95 to double
-  %97 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.20, double noundef %96) #14
+  %97 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.20, double noundef %96) #15
   call void @_Z10imguiValuePKc(ptr noundef nonnull %5)
   %98 = load i32, ptr %82, align 4
   %99 = sitofp i32 %98 to float
@@ -2043,19 +2044,19 @@ define dso_local void @_ZN20Sample_TempObstacles14handleSettingsEv(ptr noundef n
   %105 = fpext float %104 to double
   %106 = fmul float %89, 1.000000e+02
   %107 = fpext float %106 to double
-  %108 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.21, double noundef %101, double noundef %105, double noundef %107) #14
+  %108 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.21, double noundef %101, double noundef %105, double noundef %107) #15
   call void @_Z10imguiValuePKc(ptr noundef nonnull %5)
   %109 = getelementptr inbounds i8, ptr %0, i64 240
   %110 = load float, ptr %109, align 8
   %111 = fpext float %110 to double
-  %112 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.22, double noundef %111) #14
+  %112 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.22, double noundef %111) #15
   call void @_Z10imguiValuePKc(ptr noundef nonnull %5)
   %113 = getelementptr inbounds i8, ptr %0, i64 256
   %114 = load i32, ptr %113, align 8
   %115 = uitofp i32 %114 to float
   %116 = fmul float %115, 0x3F50000000000000
   %117 = fpext float %116 to double
-  %118 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.23, double noundef %117) #14
+  %118 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.23, double noundef %117) #15
   call void @_Z10imguiValuePKc(ptr noundef nonnull %5)
   call void @_Z14imguiSeparatorv()
   call void @_Z11imguiIndentv()
@@ -2111,7 +2112,7 @@ declare void @_Z11imguiIndentv() local_unnamed_addr #3
 declare noundef zeroext i1 @_Z11imguiButtonPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles7saveAllEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles7saveAllEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 {
   %3 = alloca %struct.TileCacheSetHeader, align 4
   %4 = alloca %struct.TileCacheTileHeader, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 232
@@ -2243,7 +2244,7 @@ define dso_local void @_ZN20Sample_TempObstacles7saveAllEPKc(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles7loadAllEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(276) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles7loadAllEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(276) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 {
   %3 = alloca %struct.TileCacheSetHeader, align 4
   %4 = alloca %struct.TileCacheTileHeader, align 4
   %5 = alloca i32, align 4
@@ -2413,7 +2414,7 @@ declare noundef i32 @_ZN14dtNavMeshQuery4initEPK9dtNavMeshi(ptr noundef nonnull 
 declare void @_Z13imguiUnindentv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles11handleToolsEv(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20Sample_TempObstacles11handleToolsEv(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2433,7 +2434,7 @@ define dso_local void @_ZN20Sample_TempObstacles11handleToolsEv(ptr noundef nonn
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %9
-  %14 = tail call noalias noundef nonnull dereferenceable(33408) ptr @_Znwm(i64 noundef 33408) #17
+  %14 = tail call noalias noundef nonnull dereferenceable(33408) ptr @_Znwm(i64 noundef 33408) #18
   invoke void @_ZN17NavMeshTesterToolC1Ev(ptr noundef nonnull align 8 dereferenceable(33408) %14)
           to label %15 unwind label %16
 
@@ -2452,7 +2453,7 @@ define dso_local void @_ZN20Sample_TempObstacles11handleToolsEv(ptr noundef nonn
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %18
-  %22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   store ptr getelementptr inbounds (i8, ptr @_ZTV23TempObstacleHilightTool, i64 16), ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = getelementptr inbounds i8, ptr %22, i64 32
@@ -2467,7 +2468,7 @@ define dso_local void @_ZN20Sample_TempObstacles11handleToolsEv(ptr noundef nonn
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %25
-  %29 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17
+  %29 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
   store ptr getelementptr inbounds (i8, ptr @_ZTV22TempObstacleCreateTool, i64 16), ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr null, ptr %30, align 8
@@ -2480,7 +2481,7 @@ define dso_local void @_ZN20Sample_TempObstacles11handleToolsEv(ptr noundef nonn
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %31
-  %35 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
+  %35 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   invoke void @_ZN21OffMeshConnectionToolC1Ev(ptr noundef nonnull align 8 dereferenceable(31) %35)
           to label %36 unwind label %37
 
@@ -2499,7 +2500,7 @@ define dso_local void @_ZN20Sample_TempObstacles11handleToolsEv(ptr noundef nonn
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %39
-  %43 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #17
+  %43 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #18
   invoke void @_ZN16ConvexVolumeToolC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %43)
           to label %44 unwind label %45
 
@@ -2518,7 +2519,7 @@ define dso_local void @_ZN20Sample_TempObstacles11handleToolsEv(ptr noundef nonn
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %47
-  %51 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
+  %51 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   invoke void @_ZN9CrowdToolC1Ev(ptr noundef nonnull align 8 dereferenceable(28) %51)
           to label %52 unwind label %53
 
@@ -2552,7 +2553,7 @@ define dso_local void @_ZN20Sample_TempObstacles11handleToolsEv(ptr noundef nonn
 62:                                               ; preds = %53, %45, %37, %16
   %.sink = phi ptr [ %51, %53 ], [ %43, %45 ], [ %35, %37 ], [ %14, %16 ]
   %.pn = phi { ptr, i32 } [ %54, %53 ], [ %46, %45 ], [ %38, %37 ], [ %17, %16 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sink) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -2567,7 +2568,7 @@ declare void @_ZN9CrowdToolC1Ev(ptr noundef nonnull align 8 dereferenceable(28))
 declare void @_Z18imguiSeparatorLinev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles15handleDebugModeEv(ptr nocapture noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles15handleDebugModeEv(ptr nocapture noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #6 align 2 {
   %2 = alloca [8 x i8], align 8
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2748,7 +2749,7 @@ define dso_local void @_ZN20Sample_TempObstacles15handleDebugModeEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles12handleRenderEv(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles12handleRenderEv(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #6 align 2 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2966,7 +2967,7 @@ declare void @_ZN9InputGeom17drawConvexVolumesEP11duDebugDrawb(ptr noundef nonnu
 declare void @_ZN6Sample16renderToolStatesEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles16renderCachedTileEiii(ptr noundef nonnull align 8 dereferenceable(276) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles16renderCachedTileEiii(ptr noundef nonnull align 8 dereferenceable(276) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 232
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -2982,7 +2983,7 @@ define dso_local void @_ZN20Sample_TempObstacles16renderCachedTileEiii(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles23renderCachedTileOverlayEiiPdS0_Pi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles23renderCachedTileOverlayEiiPdS0_Pi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 232
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -2997,7 +2998,7 @@ define dso_local void @_ZN20Sample_TempObstacles23renderCachedTileOverlayEiiPdS0
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles19handleRenderOverlayEPdS0_Pi(ptr noundef nonnull align 8 dereferenceable(276) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles19handleRenderOverlayEPdS0_Pi(ptr noundef nonnull align 8 dereferenceable(276) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #6 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -3018,7 +3019,7 @@ define dso_local void @_ZN20Sample_TempObstacles19handleRenderOverlayEPdS0_Pi(pt
 declare void @_ZN6Sample23renderOverlayToolStatesEPdS0_Pi(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles17handleMeshChangedEP9InputGeom(ptr noundef nonnull align 8 dereferenceable(276) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles17handleMeshChangedEP9InputGeom(ptr noundef nonnull align 8 dereferenceable(276) %0, ptr noundef %1) unnamed_addr #6 align 2 {
   tail call void @_ZN6Sample17handleMeshChangedEP9InputGeom(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1)
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
@@ -3064,7 +3065,7 @@ declare void @_ZN6Sample15resetToolStatesEv(ptr noundef nonnull align 8 derefere
 declare void @_ZN6Sample14initToolStatesEPS_(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles15addTempObstacleEPKf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles15addTempObstacleEPKf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 {
   %3 = alloca [3 x float], align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 232
   %5 = load ptr, ptr %4, align 8
@@ -3093,7 +3094,7 @@ define dso_local void @_ZN20Sample_TempObstacles15addTempObstacleEPKf(ptr nocapt
 declare noundef i32 @_ZN11dtTileCache11addObstacleEPKfffPj(ptr noundef nonnull align 8 dereferenceable(912), ptr noundef, float noundef, float noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles18removeTempObstacleEPKfS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles18removeTempObstacleEPKfS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 232
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -3112,7 +3113,7 @@ define dso_local void @_ZN20Sample_TempObstacles18removeTempObstacleEPKfS1_(ptr 
 declare noundef i32 @_ZN11dtTileCache14removeObstacleEj(ptr noundef nonnull align 8 dereferenceable(912), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles21clearAllTempObstaclesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles21clearAllTempObstaclesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3155,7 +3156,7 @@ define dso_local void @_ZN20Sample_TempObstacles21clearAllTempObstaclesEv(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN20Sample_TempObstacles11handleBuildEv(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZN20Sample_TempObstacles11handleBuildEv(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #6 align 2 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca %struct.rcConfig, align 4
@@ -3659,10 +3660,10 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit: ; preds = %_ZN9rcContext
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #7
+declare float @llvm.ceil.f32(float) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #7
+declare float @llvm.floor.f32(float) #8
 
 declare noundef ptr @_Z16dtAllocTileCachev() local_unnamed_addr #3
 
@@ -3681,10 +3682,10 @@ declare noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 d
 declare noundef ptr @_ZNK9dtNavMesh7getTileEi(ptr noundef nonnull align 8 dereferenceable(100), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles12handleUpdateEf(ptr noundef nonnull align 8 dereferenceable(276) %0, float noundef %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles12handleUpdateEf(ptr noundef nonnull align 8 dereferenceable(276) %0, float noundef %1) unnamed_addr #6 align 2 {
   tail call void @_ZN6Sample12handleUpdateEf(ptr noundef nonnull align 8 dereferenceable(200) %0, float noundef %1)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -3710,7 +3711,7 @@ declare void @_ZN6Sample12handleUpdateEf(ptr noundef nonnull align 8 dereference
 declare noundef i32 @_ZN11dtTileCache6updateEfP9dtNavMeshPb(ptr noundef nonnull align 8 dereferenceable(912), float noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN20Sample_TempObstacles10getTilePosEPKfRiS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles10getTilePosEPKfRiS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #12 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -3748,20 +3749,20 @@ define dso_local void @_ZN20Sample_TempObstacles10getTilePosEPKfRiS2_(ptr nocapt
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #11
 
 declare noundef ptr @_ZNK9dtNavMesh9getParamsEv(ptr noundef nonnull align 8 dereferenceable(100)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 declare noundef i32 @_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile(ptr noundef nonnull align 8 dereferenceable(912), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 declare noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -3776,14 +3777,14 @@ define linkonce_odr dso_local noundef i32 @_ZN16FastLZCompressor17maxCompressedS
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN16FastLZCompressor8compressEPKhiPhiPi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #5 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN16FastLZCompressor8compressEPKhiPhiPi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #6 comdat align 2 {
   %7 = tail call i32 @fastlz_compress(ptr noundef %1, i32 noundef %2, ptr noundef %3)
   store i32 %7, ptr %5, align 4
   ret i32 1073741824
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN16FastLZCompressor10decompressEPKhiPhiPi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #5 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN16FastLZCompressor10decompressEPKhiPhiPi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #6 comdat align 2 {
   %7 = tail call i32 @fastlz_decompress(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4)
   store i32 %7, ptr %5, align 4
   %8 = icmp slt i32 %7, 0
@@ -3792,7 +3793,7 @@ define linkonce_odr dso_local noundef i32 @_ZN16FastLZCompressor10decompressEPKh
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN15LinearAllocator5resetEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr dso_local void @_ZN15LinearAllocator5resetEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3835,7 +3836,7 @@ define linkonce_odr dso_local void @_ZN15LinearAllocator4freeEPv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN11MeshProcess7processEP21dtNavMeshCreateParamsPhPt(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 comdat align 2 {
+define linkonce_odr dso_local void @_ZN11MeshProcess7processEP21dtNavMeshCreateParamsPhPt(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #6 comdat align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
@@ -3936,7 +3937,7 @@ define linkonce_odr dso_local void @_ZN23TempObstacleHilightTool5resetEv(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN23TempObstacleHilightTool10handleMenuEv(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr dso_local void @_ZN23TempObstacleHilightTool10handleMenuEv(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #6 comdat align 2 {
   tail call void @_Z10imguiLabelPKc(ptr noundef nonnull @.str.28)
   tail call void @_Z10imguiValuePKc(ptr noundef nonnull @.str.54)
   tail call void @_Z14imguiSeparatorv()
@@ -4015,7 +4016,7 @@ define linkonce_odr dso_local void @_ZN23TempObstacleHilightTool11handleClickEPK
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN23TempObstacleHilightTool12handleRenderEv(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr dso_local void @_ZN23TempObstacleHilightTool12handleRenderEv(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
@@ -4126,7 +4127,7 @@ _ZN20Sample_TempObstacles16renderCachedTileEiii.exit: ; preds = %72, %_ZN20Sampl
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN23TempObstacleHilightTool19handleRenderOverlayEPdS0_Pi(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 comdat align 2 {
+define linkonce_odr dso_local void @_ZN23TempObstacleHilightTool19handleRenderOverlayEPdS0_Pi(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #6 comdat align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 28
   %6 = load i8, ptr %5, align 4
   %7 = trunc i8 %6 to i1
@@ -4219,7 +4220,7 @@ define linkonce_odr dso_local void @_ZN22TempObstacleCreateTool5resetEv(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN22TempObstacleCreateTool10handleMenuEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr dso_local void @_ZN22TempObstacleCreateTool10handleMenuEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
   tail call void @_Z10imguiLabelPKc(ptr noundef nonnull @.str.29)
   %2 = tail call noundef zeroext i1 @_Z11imguiButtonPKcb(ptr noundef nonnull @.str.59, i1 noundef zeroext true)
   br i1 %2, label %3, label %_ZN20Sample_TempObstacles21clearAllTempObstaclesEv.exit
@@ -4272,7 +4273,7 @@ _ZN20Sample_TempObstacles21clearAllTempObstaclesEv.exit: ; preds = %21, %.prehea
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN22TempObstacleCreateTool11handleClickEPKfS1_b(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #5 comdat align 2 {
+define linkonce_odr dso_local void @_ZN22TempObstacleCreateTool11handleClickEPKfS1_b(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #6 comdat align 2 {
   %5 = alloca [3 x float], align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -4422,7 +4423,7 @@ declare void @_Z25dtFreeTileCacheContourSetP16dtTileCacheAllocP21dtTileCacheCont
 declare void @_Z23dtFreeTileCachePolyMeshP16dtTileCacheAllocP19dtTileCachePolyMesh(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #7
+declare float @llvm.fabs.f32(float) #8
 
 declare i32 @fastlz_compress(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -4439,38 +4440,39 @@ declare void @glVertex3f(float noundef, float noundef, float noundef) local_unna
 declare void @glEnd() local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+declare i32 @llvm.umin.i32(i32, i32) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { builtin nounwind }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { builtin allocsize(0) }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind }
+attributes #16 = { builtin nounwind }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

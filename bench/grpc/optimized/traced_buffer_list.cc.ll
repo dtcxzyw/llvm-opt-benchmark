@@ -44,7 +44,7 @@ define linkonce_odr void @_ZN4absl12lts_2023080212AnyInvocableIFvPvPN17grpc_even
 entry:
   %manager_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %manager_.i.i, align 16
-  tail call void %0(i1 noundef zeroext true, ptr noundef nonnull %this, ptr noundef nonnull %this) #13
+  tail call void %0(i1 noundef zeroext true, ptr noundef nonnull %this, ptr noundef nonnull %this) #14
   ret void
 }
 
@@ -72,7 +72,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17grpc_event_engine12experimental16TracedBufferList11AddNewEntryEiiPv(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %seq_no, i32 noundef %fd, ptr noundef %arg) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(1240) ptr @_Znwm(i64 noundef 1240) #14
+  %call = tail call noalias noundef nonnull dereferenceable(1240) ptr @_Znwm(i64 noundef 1240) #15
   %next_.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr null, ptr %next_.i, align 8
   %seq_no_.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -419,7 +419,7 @@ terminate.lpad.i:                                 ; preds = %if.end
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #15
+  tail call void @__clang_call_terminate(ptr %31) #16
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %if.end
@@ -549,24 +549,24 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #15
+  call void @__clang_call_terminate(ptr %14) #16
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont37, %if.then.i.i
   %next_38 = getelementptr inbounds i8, ptr %elem.068, i64 16
   %15 = load ptr, ptr %next_38, align 8
   store ptr %15, ptr %head_, align 8
-  call void @_ZdlPv(ptr noundef nonnull %elem.068) #16
+  call void @_ZdlPv(ptr noundef nonnull %elem.068) #17
   br label %if.end
 
 lpad36:                                           ; preds = %sw.bb24
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #13
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #14
   br label %ehcleanup
 
 sw.default:                                       ; preds = %if.then
-  call void @abort() #15
+  call void @abort() #16
   unreachable
 
 if.end:                                           ; preds = %sw.bb, %sw.bb9, %_ZN4absl12lts_202308026StatusD2Ev.exit
@@ -641,7 +641,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit52.us:      ; preds = %if.then.i.i50.us, %
   %next_68.us = getelementptr inbounds i8, ptr %elem.270.us, i64 16
   %25 = load ptr, ptr %next_68.us, align 8
   store ptr %25, ptr %head_, align 8
-  call void @_ZdlPv(ptr noundef nonnull %elem.270.us) #16
+  call void @_ZdlPv(ptr noundef nonnull %elem.270.us) #17
   %elem.3.us = load ptr, ptr %head_, align 8
   %cmp44.not.us = icmp eq ptr %elem.3.us, null
   br i1 %cmp44.not.us, label %while.end75, label %while.body45.us, !llvm.loop !9
@@ -716,14 +716,14 @@ terminate.lpad.i51.split:                         ; preds = %if.then.i.i50
 terminate.lpad.i51:                               ; preds = %terminate.lpad.i51.split.us, %terminate.lpad.i51.split
   %.us-phi74 = phi { ptr, i32 } [ %34, %terminate.lpad.i51.split ], [ %27, %terminate.lpad.i51.split.us ]
   %35 = extractvalue { ptr, i32 } %.us-phi74, 0
-  call void @__clang_call_terminate(ptr %35) #15
+  call void @__clang_call_terminate(ptr %35) #16
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit52:         ; preds = %invoke.cont58, %if.then.i.i50
   %next_61 = getelementptr inbounds i8, ptr %elem.270, i64 16
   %36 = load ptr, ptr %next_61, align 8
   store ptr %36, ptr %next_62, align 8
-  call void @_ZdlPv(ptr noundef nonnull %elem.270) #16
+  call void @_ZdlPv(ptr noundef nonnull %elem.270) #17
   %elem.3 = load ptr, ptr %next_62, align 8
   %cmp44.not = icmp eq ptr %elem.3, null
   br i1 %cmp44.not, label %while.end75, label %while.body45, !llvm.loop !9
@@ -735,7 +735,7 @@ lpad57.split:                                     ; preds = %invoke.cont56
 
 lpad57:                                           ; preds = %lpad57.split.us, %lpad57.split
   %.us-phi73 = phi { ptr, i32 } [ %37, %lpad57.split ], [ %26, %lpad57.split.us ]
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp54) #13
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp54) #14
   br label %ehcleanup
 
 while.end75:                                      ; preds = %if.then49, %_ZN4absl12lts_202308026StatusD2Ev.exit52, %_ZN4absl12lts_202308026StatusD2Ev.exit52.us, %invoke.cont42
@@ -752,7 +752,7 @@ terminate.lpad.i53:                               ; preds = %while.end75
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #15
+  call void @__clang_call_terminate(ptr %40) #16
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %while.end75
@@ -767,7 +767,7 @@ terminate.lpad.i54:                               ; preds = %ehcleanup
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #15
+  call void @__clang_call_terminate(ptr %42) #16
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit55:      ; preds = %ehcleanup
@@ -1029,7 +1029,7 @@ terminate.lpad:                                   ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #15
+  tail call void @__clang_call_terminate(ptr %2) #16
   unreachable
 }
 
@@ -1085,7 +1085,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i7
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #15
+  call void @__clang_call_terminate(ptr %9) #16
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont4, %if.then.i.i7
@@ -1093,7 +1093,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont4, %if.t
   %next_ = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load ptr, ptr %next_, align 8
   store ptr %11, ptr %head_, align 8
-  call void @_ZdlPv(ptr noundef nonnull %1) #16
+  call void @_ZdlPv(ptr noundef nonnull %1) #17
   %12 = load ptr, ptr %head_, align 8
   %tobool.not = icmp eq ptr %12, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !11
@@ -1139,7 +1139,7 @@ terminate.lpad.i17:                               ; preds = %if.then.i.i16
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #15
+  call void @__clang_call_terminate(ptr %20) #16
   unreachable
 
 lpad9:                                            ; preds = %invoke.cont8
@@ -1158,7 +1158,7 @@ terminate.lpad.i19:                               ; preds = %if.end
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #15
+  call void @__clang_call_terminate(ptr %24) #16
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %if.end
@@ -1167,7 +1167,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %if.end
 ehcleanup:                                        ; preds = %lpad9, %lpad3
   %agg.tmp7.sink = phi ptr [ %agg.tmp7, %lpad9 ], [ %agg.tmp, %lpad3 ]
   %.pn = phi { ptr, i32 } [ %21, %lpad9 ], [ %13, %lpad3 ]
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp7.sink) #13
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp7.sink) #14
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit21 unwind label %terminate.lpad.i20
 
@@ -1175,7 +1175,7 @@ terminate.lpad.i20:                               ; preds = %ehcleanup
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #15
+  call void @__clang_call_terminate(ptr %26) #16
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit21:      ; preds = %ehcleanup
@@ -1186,12 +1186,12 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit21:      ; preds = %ehcleanup
 define void @_ZN17grpc_event_engine12experimental29TcpSetWriteTimestampsCallbackEN4absl12lts_2023080212AnyInvocableIFvPvPNS0_10TimestampsENS2_6StatusEEEE(ptr noundef %fn) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 16), align 16
-  tail call void %0(i1 noundef zeroext true, ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE) #13
+  tail call void %0(i1 noundef zeroext true, ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE) #14
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 16), align 16
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 24), align 8
   %manager_.i.i.i = getelementptr inbounds i8, ptr %fn, i64 16
   %1 = load ptr, ptr %manager_.i.i.i, align 16
-  tail call void %1(i1 noundef zeroext false, ptr noundef nonnull %fn, ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE) #13
+  tail call void %1(i1 noundef zeroext false, ptr noundef nonnull %fn, ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE) #14
   %2 = load ptr, ptr %manager_.i.i.i, align 16
   store ptr %2, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 16), align 16
   %invoker_.i.i.i = getelementptr inbounds i8, ptr %fn, i64 24
@@ -1243,13 +1243,13 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #15
+  call void @__clang_call_terminate(ptr %4) #16
   unreachable
 
 lpad.i.i.i.i:                                     ; preds = %entry
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i.i.i.i) #13
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i.i.i.i) #14
   resume { ptr, i32 } %5
 
 _ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRPFvPvPN17grpc_event_engine12experimental10TimestampsENS0_6StatusEEJS3_S7_S8_EvEEvOT0_DpOT1_.exit: ; preds = %invoke.cont.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -1259,14 +1259,15 @@ _ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRPFvPvPN17grpc_event_eng
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #15
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_(i1 noundef zeroext %0, ptr noundef %from, ptr noundef %to) #3 comdat {
@@ -1282,22 +1283,22 @@ declare void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 
 declare void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_traced_buffer_list.cc() #11 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_traced_buffer_list.cc() #12 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   store ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_125DefaultTimestampsCallbackEPvPNS0_10TimestampsEN4absl12lts_202308026StatusE, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRPFvPvPN17grpc_event_engine12experimental10TimestampsENS0_6StatusEEJS3_S7_S8_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 24), align 8
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 16), align 16
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4absl12lts_2023080212AnyInvocableIFvPvPN17grpc_event_engine12experimental10TimestampsENS0_6StatusEEED2Ev, ptr nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, ptr nonnull @__dso_handle) #13
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4absl12lts_2023080212AnyInvocableIFvPvPN17grpc_event_engine12experimental10TimestampsENS0_6StatusEEED2Ev, ptr nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, ptr nonnull @__dso_handle) #14
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1310,12 +1311,13 @@ attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { builtin allocsize(0) }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { builtin nounwind }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { builtin allocsize(0) }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

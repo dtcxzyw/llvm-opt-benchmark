@@ -272,11 +272,11 @@ terminate.lpad.i.i.i:                             ; preds = %lpad4.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #21
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev.exit.i.i: ; preds = %lpad4.i.i
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN6mygame26_Monster_default_instance_E, i64 16)) #22
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN6mygame26_Monster_default_instance_E, i64 16)) #23
   resume { ptr, i32 } %1
 
 _ZN6mygame7MonsterC2Ev.exit:                      ; preds = %entry, %if.then.i.i.i.i
@@ -307,7 +307,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 lpad2.i.i:                                        ; preds = %if.then.i.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN6mygame27_Monsters_default_instance_E, i64 16)) #22
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN6mygame27_Monsters_default_instance_E, i64 16)) #23
   resume { ptr, i32 } %1
 
 _ZN6mygame8MonstersC2Ev.exit:                     ; preds = %entry, %if.then.i.i.i.i
@@ -388,7 +388,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 lpad2.i.i:                                        ; preds = %if.then.i.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN6mygame26_persons_default_instance_E, i64 16)) #22
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN6mygame26_persons_default_instance_E, i64 16)) #23
   resume { ptr, i32 } %1
 
 _ZN6mygame7personsC2Ev.exit:                      ; preds = %entry, %if.then.i.i.i.i
@@ -432,7 +432,7 @@ terminate.lpad.i.i.i:                             ; preds = %lpad2.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #21
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EED2Ev.exit.i.i: ; preds = %lpad2.i.i
@@ -500,7 +500,7 @@ if.then.i15.i.i:                                  ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
   %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
-  %call.i.i.i4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i4, i8 0, i64 32, i1 false)
   %3 = ptrtoint ptr %call.i.i.i4 to i64
   %or.i.i = or i64 %3, 1
@@ -559,18 +559,18 @@ invoke.cont.i.i.i:                                ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   br label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #21
+  tail call void @__clang_call_terminate(ptr %8) #22
   unreachable
 
 _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, %if.then.i.i, %invoke.cont
@@ -579,14 +579,15 @@ invoke.cont2:                                     ; preds = %_ZN6google8protobuf
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
-  tail call void @_ZSt9terminatev() #21
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
+  tail call void @_ZSt9terminatev() #22
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6mygame4Vec3D0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
@@ -627,27 +628,27 @@ invoke.cont.i.i.i.i:                              ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   br label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #21
+  tail call void @__clang_call_terminate(ptr %8) #22
   unreachable
 
 _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
   br label %_ZN6mygame4Vec3D2Ev.exit
 
 _ZN6mygame4Vec3D2Ev.exit:                         ; preds = %entry, %if.then.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local void @_ZN6mygame4Vec39ArenaDtorEPv(ptr nocapture noundef readnone %object) local_unnamed_addr #4 align 2 {
@@ -656,7 +657,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK6mygame4Vec313SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %size) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK6mygame4Vec313SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %size) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 4
@@ -709,7 +710,7 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN6mygame4Vec314_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -853,7 +854,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %if.en
   br i1 %cmp.i.i12, label %if.then.i15.i, label %if.else.i14.i
 
 if.then.i15.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
@@ -1045,7 +1046,7 @@ declare noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame4Vec39MergeFromERKN6google8protobuf7MessageE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame4Vec3E, i64 0) #22
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame4Vec3E, i64 0) #23
   %cmp8 = icmp eq ptr %0, null
   br i1 %cmp8, label %if.then, label %if.else
 
@@ -1094,7 +1095,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %if.
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
@@ -1196,7 +1197,7 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN6mygame4Vec35ClearEv.exit
 
 _ZN6mygame4Vec35ClearEv.exit:                     ; preds = %if.end, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame4Vec3E, i64 0) #22
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame4Vec3E, i64 0) #23
   %cmp8.i = icmp eq ptr %5, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
@@ -1287,7 +1288,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %if.th
   br i1 %cmp.i.i, label %if.then.i15.i, label %if.else.i14.i
 
 if.then.i15.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
@@ -1336,7 +1337,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %_ZN
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
@@ -1463,7 +1464,7 @@ if.then.i15.i.i:                                  ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
   %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
-  %call.i.i.i6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i6, i8 0, i64 32, i1 false)
   %3 = ptrtoint ptr %call.i.i.i6 to i64
   %or.i.i = or i64 %3, 1
@@ -1521,14 +1522,14 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value)
           to label %_ZN6google8protobuf8internal14ArenaStringPtr14CreateInstanceEPNS0_5ArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #25
   resume { ptr, i32 } %1
 
 if.else.i.i:                                      ; preds = %if.then
@@ -1583,12 +1584,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull.i.i
-  tail call void @_ZdlPv(ptr noundef %1) #24
+  tail call void @_ZdlPv(ptr noundef %1) #25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %entry
@@ -1628,18 +1629,18 @@ invoke.cont.i.i.i:                                ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #25
   br label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i1
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #21
+  tail call void @__clang_call_terminate(ptr %12) #22
   unreachable
 
 _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, %if.then.i.i, %invoke.cont
@@ -1649,8 +1650,8 @@ invoke.cont2:                                     ; preds = %_ZN6google8protobuf
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6mygame6WeaponD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 {
 entry:
-  tail call void @_ZN6mygame6WeaponD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZN6mygame6WeaponD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -1661,7 +1662,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK6mygame6Weapon13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %size) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK6mygame6Weapon13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %size) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 4
@@ -1903,7 +1904,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %if.en
   br i1 %cmp.i.i19, label %if.then.i15.i, label %if.else.i14.i
 
 if.then.i15.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
@@ -2157,7 +2158,7 @@ return:                                           ; preds = %if.end18, %if.then1
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame6Weapon9MergeFromERKN6google8protobuf7MessageE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6WeaponE, i64 0) #22
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6WeaponE, i64 0) #23
   %cmp8 = icmp eq ptr %0, null
   br i1 %cmp8, label %if.then, label %if.else
 
@@ -2204,7 +2205,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %if.
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
@@ -2324,7 +2325,7 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN6mygame6Weapon5ClearEv.exit
 
 _ZN6mygame6Weapon5ClearEv.exit:                   ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6WeaponE, i64 0) #22
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6WeaponE, i64 0) #23
   %cmp8.i = icmp eq ptr %7, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
@@ -2428,7 +2429,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %if.th
   br i1 %cmp.i.i, label %if.then.i15.i, label %if.else.i14.i
 
 if.then.i15.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
@@ -2477,7 +2478,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %_ZN
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
@@ -2557,7 +2558,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN6mygame7Monster21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN6mygame7Monster21InitAsDefaultInstanceEv() local_unnamed_addr #13 align 2 {
 entry:
   store ptr @_ZN6mygame23_Vec3_default_instance_E, ptr getelementptr inbounds (i8, ptr @_ZN6mygame26_Monster_default_instance_E, i64 80), align 8
   store ptr @_ZN6mygame25_Weapon_default_instance_E, ptr getelementptr inbounds (i8, ptr @_ZN6mygame26_Monster_default_instance_E, i64 88), align 8
@@ -2565,7 +2566,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN6mygame7Monster9_Internal3posEPKS0_(ptr nocapture noundef readonly %msg) local_unnamed_addr #13 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN6mygame7Monster9_Internal3posEPKS0_(ptr nocapture noundef readonly %msg) local_unnamed_addr #14 align 2 {
 entry:
   %pos_ = getelementptr inbounds i8, ptr %msg, i64 80
   %0 = load ptr, ptr %pos_, align 8
@@ -2573,7 +2574,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN6mygame7Monster9_Internal8equippedEPKS0_(ptr nocapture noundef readonly %msg) local_unnamed_addr #13 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN6mygame7Monster9_Internal8equippedEPKS0_(ptr nocapture noundef readonly %msg) local_unnamed_addr #14 align 2 {
 entry:
   %equipped_ = getelementptr inbounds i8, ptr %msg, i64 88
   %0 = load ptr, ptr %equipped_, align 8
@@ -2623,11 +2624,11 @@ terminate.lpad.i:                                 ; preds = %lpad4
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #21
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev.exit: ; preds = %lpad4
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %weapons_) #22
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %weapons_) #23
   resume { ptr, i32 } %1
 }
 
@@ -2660,8 +2661,8 @@ for.body.i:                                       ; preds = %_ZN6google8protobuf
   br i1 %isnull.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %for.body.i
-  tail call void @_ZN6mygame6WeaponD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #24
+  tail call void @_ZN6mygame6WeaponD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #25
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE6DeleteEPS4_PNS0_5ArenaE.exit.i
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE6DeleteEPS4_PNS0_5ArenaE.exit.i: ; preds = %delete.notnull.i.i, %for.body.i
@@ -2675,7 +2676,7 @@ for.end.loopexit.i:                               ; preds = %_ZN6google8protobuf
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.then.i
   %4 = phi ptr [ %.pre.i, %for.end.loopexit.i ], [ %0, %if.then.i ]
-  tail call void @_ZdlPv(ptr noundef %4) #22
+  tail call void @_ZdlPv(ptr noundef %4) #23
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %for.end.i, %entry
@@ -2729,7 +2730,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %if.
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i17 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i17 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
           to label %call.i.i.i.noexc unwind label %lpad7
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i15.i.i
@@ -2844,7 +2845,7 @@ invoke.cont40:                                    ; preds = %invoke.cont24, %inv
   br i1 %24, label %if.then42, label %invoke.cont50
 
 if.then42:                                        ; preds = %invoke.cont40
-  %call44 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call44 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
           to label %invoke.cont43 unwind label %lpad7
 
 invoke.cont43:                                    ; preds = %if.then42
@@ -2861,7 +2862,7 @@ invoke.cont43:                                    ; preds = %if.then42
   br i1 %cmp.i.not.i35, label %invoke.cont46, label %if.then.i15.i.i.i
 
 if.then.i15.i.i.i:                                ; preds = %invoke.cont43
-  %call.i.i.i4.i37 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i4.i37 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
           to label %call.i.i.i4.i.noexc unwind label %lpad45
 
 call.i.i.i4.i.noexc:                              ; preds = %if.then.i15.i.i.i
@@ -2886,7 +2887,7 @@ invoke.cont46:                                    ; preds = %invoke.cont43, %cal
 lpad45:                                           ; preds = %call.i.i.i4.i.noexc, %if.then.i15.i.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call44) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %call44) #25
   br label %ehcleanup
 
 invoke.cont50:                                    ; preds = %invoke.cont40, %invoke.cont46
@@ -2900,7 +2901,7 @@ invoke.cont50:                                    ; preds = %invoke.cont40, %inv
   br i1 %32, label %if.then52, label %if.end60
 
 if.then52:                                        ; preds = %invoke.cont50
-  %call54 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call54 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
           to label %invoke.cont53 unwind label %lpad7
 
 invoke.cont53:                                    ; preds = %if.then52
@@ -2917,7 +2918,7 @@ invoke.cont53:                                    ; preds = %if.then52
   br i1 %cmp.i.not.i44, label %invoke.cont6.i, label %if.then.i15.i.i.i45
 
 if.then.i15.i.i.i45:                              ; preds = %invoke.cont53
-  %call.i.i.i6.i50 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i6.i50 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
           to label %call.i.i.i6.i.noexc unwind label %lpad55
 
 call.i.i.i6.i.noexc:                              ; preds = %if.then.i15.i.i.i45
@@ -2971,7 +2972,7 @@ invoke.cont56:                                    ; preds = %invoke.cont6.i, %in
 lpad55:                                           ; preds = %invoke.cont14.i, %call.i.i.i6.i.noexc, %if.then.i15.i.i.i45
   %45 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call54) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %call54) #25
   br label %ehcleanup
 
 if.end60:                                         ; preds = %invoke.cont50, %invoke.cont56
@@ -2992,17 +2993,17 @@ terminate.lpad.i:                                 ; preds = %ehcleanup
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  tail call void @__clang_call_terminate(ptr %47) #21
+  tail call void @__clang_call_terminate(ptr %47) #22
   unreachable
 
 ehcleanup63:                                      ; preds = %ehcleanup, %lpad4
   %.pn.pn = phi { ptr, i32 } [ %15, %lpad4 ], [ %.pn, %ehcleanup ]
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %weapons_) #22
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %weapons_) #23
   resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6mygame7MonsterD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
@@ -3047,18 +3048,18 @@ invoke.cont.i.i.i:                                ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   br label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #21
+  tail call void @__clang_call_terminate(ptr %8) #22
   unreachable
 
 _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, %if.then.i.i, %invoke.cont
@@ -3070,7 +3071,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont2
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #21
+  tail call void @__clang_call_terminate(ptr %10) #22
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev.exit: ; preds = %invoke.cont2
@@ -3101,8 +3102,8 @@ for.body.i.i:                                     ; preds = %_ZN6google8protobuf
   br i1 %isnull.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %for.body.i.i
-  tail call void @_ZN6mygame6WeaponD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #24
+  tail call void @_ZN6mygame6WeaponD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #25
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i: ; preds = %delete.notnull.i.i.i, %for.body.i.i
@@ -3116,7 +3117,7 @@ for.end.loopexit.i.i:                             ; preds = %_ZN6google8protobuf
 
 for.end.i.i:                                      ; preds = %for.end.loopexit.i.i, %if.then.i.i1
   %15 = phi ptr [ %.pre.i.i, %for.end.loopexit.i.i ], [ %11, %if.then.i.i1 ]
-  tail call void @_ZdlPv(ptr noundef %15) #22
+  tail call void @_ZdlPv(ptr noundef %15) #23
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEED2Ev.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEED2Ev.exit: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev.exit, %for.end.i.i
@@ -3127,7 +3128,7 @@ terminate.lpad:                                   ; preds = %entry
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #21
+  tail call void @__clang_call_terminate(ptr %17) #22
   unreachable
 }
 
@@ -3155,12 +3156,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 if.then.i.i.i:                                    ; preds = %delete.notnull.i
-  tail call void @_ZdlPv(ptr noundef %1) #24
+  tail call void @_ZdlPv(ptr noundef %1) #25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %entry, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
@@ -3185,12 +3186,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i8
 
 if.then.i.i.i7:                                   ; preds = %delete.notnull.i5
-  tail call void @_ZdlPv(ptr noundef %5) #24
+  tail call void @_ZdlPv(ptr noundef %5) #25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i8
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i8: ; preds = %if.then.i.i.i7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i9
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #24
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #25
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit12
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit12: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i8
@@ -3240,22 +3241,22 @@ invoke.cont.i.i.i.i:                              ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %15) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %15) #25
   br label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #21
+  tail call void @__clang_call_terminate(ptr %17) #22
   unreachable
 
 _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #25
   br label %_ZN6mygame4Vec3D2Ev.exit
 
 _ZN6mygame4Vec3D2Ev.exit:                         ; preds = %delete.notnull, %if.then.i.i.i13, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #25
   br label %if.then14
 
 if.then14:                                        ; preds = %if.then, %_ZN6mygame4Vec3D2Ev.exit
@@ -3265,8 +3266,8 @@ if.then14:                                        ; preds = %if.then, %_ZN6mygam
   br i1 %isnull15, label %if.end18, label %delete.notnull16
 
 delete.notnull16:                                 ; preds = %if.then14
-  tail call void @_ZN6mygame6WeaponD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %18) #24
+  tail call void @_ZN6mygame6WeaponD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #25
   br label %if.end18
 
 if.end18:                                         ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit12, %if.then14, %delete.notnull16
@@ -3276,8 +3277,8 @@ if.end18:                                         ; preds = %_ZN6google8protobuf
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6mygame7MonsterD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 {
 entry:
-  tail call void @_ZN6mygame7MonsterD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZN6mygame7MonsterD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -3288,7 +3289,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK6mygame7Monster13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %this, i32 noundef %size) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK6mygame7Monster13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %this, i32 noundef %size) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 108
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 4
@@ -3511,22 +3512,22 @@ invoke.cont.i.i.i.i:                              ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %33) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %33) #25
   br label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #21
+  tail call void @__clang_call_terminate(ptr %35) #22
   unreachable
 
 _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %29) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %29) #25
   br label %_ZN6mygame4Vec3D2Ev.exit
 
 _ZN6mygame4Vec3D2Ev.exit:                         ; preds = %delete.notnull, %if.then.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %26) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %26) #25
   %.pre = load ptr, ptr %_internal_metadata_.i, align 8
   %.pre53 = ptrtoint ptr %.pre to i64
   %.pre54 = and i64 %.pre53, 1
@@ -3559,8 +3560,8 @@ land.lhs.true11:                                  ; preds = %_ZNK6google8protobu
   br i1 %cmp12.not, label %if.end18, label %delete.notnull16
 
 delete.notnull16:                                 ; preds = %land.lhs.true11
-  tail call void @_ZN6mygame6WeaponD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %39) #24
+  tail call void @_ZN6mygame6WeaponD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %39) #25
   %.pre52 = load ptr, ptr %_internal_metadata_.i, align 8
   %.pre55 = ptrtoint ptr %.pre52 to i64
   %.pre57 = and i64 %.pre55, 1
@@ -3712,7 +3713,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i: ; preds = %if.then.i.i.i, %
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i
-  %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5ArenaE.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i
@@ -4325,7 +4326,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %if.en
   br i1 %cmp.i.i226, label %if.then.i15.i, label %if.else.i14.i
 
 if.then.i15.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %call.i.i228 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i228 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i228, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
@@ -5461,7 +5462,7 @@ return:                                           ; preds = %if.end87, %if.then8
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7Monster9MergeFromERKN6google8protobuf7MessageE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(16) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7MonsterE, i64 0) #22
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7MonsterE, i64 0) #23
   %cmp8 = icmp eq ptr %0, null
   br i1 %cmp8, label %if.then, label %if.else
 
@@ -5508,7 +5509,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %if.
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
@@ -5635,7 +5636,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i: ; preds = %if.then.i.i.i31,
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i
-  %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5ArenaE.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i
@@ -5757,7 +5758,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6mygame7Monster5ClearEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7MonsterE, i64 0) #22
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7MonsterE, i64 0) #23
   %cmp8.i = icmp eq ptr %0, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
@@ -5825,7 +5826,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %if.th
   br i1 %cmp.i.i, label %if.then.i15.i, label %if.else.i14.i
 
 if.then.i15.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
@@ -5874,7 +5875,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %_ZN
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
@@ -6010,7 +6011,7 @@ invoke.cont3:                                     ; preds = %entry, %if.then.i.i
 lpad2:                                            ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %monsters_) #22
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %monsters_) #23
   resume { ptr, i32 } %1
 }
 
@@ -6043,8 +6044,8 @@ for.body.i:                                       ; preds = %_ZN6google8protobuf
   br i1 %isnull.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame7MonsterEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %for.body.i
-  tail call void @_ZN6mygame7MonsterD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #24
+  tail call void @_ZN6mygame7MonsterD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #25
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame7MonsterEE6DeleteEPS4_PNS0_5ArenaE.exit.i
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame7MonsterEE6DeleteEPS4_PNS0_5ArenaE.exit.i: ; preds = %delete.notnull.i.i, %for.body.i
@@ -6058,7 +6059,7 @@ for.end.loopexit.i:                               ; preds = %_ZN6google8protobuf
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.then.i
   %4 = phi ptr [ %.pre.i, %for.end.loopexit.i ], [ %0, %if.then.i ]
-  tail call void @_ZdlPv(ptr noundef %4) #22
+  tail call void @_ZdlPv(ptr noundef %4) #23
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %for.end.i, %entry
@@ -6105,7 +6106,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %if.
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i5 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i5 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
           to label %call.i.i.i.noexc unwind label %lpad4
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i15.i.i
@@ -6151,7 +6152,7 @@ invoke.cont5:                                     ; preds = %_ZN6google8protobuf
 lpad4:                                            ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i9.i.i, %if.then.i15.i.i
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %monsters_) #22
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %monsters_) #23
   resume { ptr, i32 } %9
 }
 
@@ -6194,18 +6195,18 @@ invoke.cont.i.i.i:                                ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   br label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #21
+  tail call void @__clang_call_terminate(ptr %8) #22
   unreachable
 
 _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, %if.then.i.i, %invoke.cont
@@ -6236,8 +6237,8 @@ for.body.i.i:                                     ; preds = %_ZN6google8protobuf
   br i1 %isnull.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame7MonsterEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %for.body.i.i
-  tail call void @_ZN6mygame7MonsterD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #24
+  tail call void @_ZN6mygame7MonsterD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #25
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame7MonsterEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame7MonsterEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i: ; preds = %delete.notnull.i.i.i, %for.body.i.i
@@ -6251,7 +6252,7 @@ for.end.loopexit.i.i:                             ; preds = %_ZN6google8protobuf
 
 for.end.i.i:                                      ; preds = %for.end.loopexit.i.i, %if.then.i.i1
   %13 = phi ptr [ %.pre.i.i, %for.end.loopexit.i.i ], [ %9, %if.then.i.i1 ]
-  tail call void @_ZdlPv(ptr noundef %13) #22
+  tail call void @_ZdlPv(ptr noundef %13) #23
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev.exit: ; preds = %invoke.cont2, %for.end.i.i
@@ -6262,8 +6263,8 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev.exit: ; preds = %in
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6mygame8MonstersD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
-  tail call void @_ZN6mygame8MonstersD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZN6mygame8MonstersD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -6274,7 +6275,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK6mygame8Monsters13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %size) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK6mygame8Monsters13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %size) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 8
@@ -6587,7 +6588,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %if.en
   br i1 %cmp.i.i26, label %if.then.i15.i, label %if.else.i14.i
 
 if.then.i15.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %call.i.i28 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i28 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i28, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
@@ -6795,7 +6796,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame8Monsters9MergeFromERKN6google8protobuf7MessageE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame8MonstersE, i64 0) #22
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame8MonstersE, i64 0) #23
   %cmp8 = icmp eq ptr %0, null
   br i1 %cmp8, label %if.then, label %if.else
 
@@ -6842,7 +6843,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %if.
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
@@ -6938,7 +6939,7 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN6mygame8Monsters5ClearEv.exit
 
 _ZN6mygame8Monsters5ClearEv.exit:                 ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEE5ClearEv.exit.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %8 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame8MonstersE, i64 0) #22
+  %8 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame8MonstersE, i64 0) #23
   %cmp8.i = icmp eq ptr %8, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
@@ -7053,7 +7054,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %if.th
   br i1 %cmp.i.i, label %if.then.i15.i, label %if.else.i14.i
 
 if.then.i15.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
@@ -7102,7 +7103,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %_ZN
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
@@ -7210,7 +7211,7 @@ if.then.i15.i.i:                                  ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
   %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
-  %call.i.i.i4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i4, i8 0, i64 32, i1 false)
   %3 = ptrtoint ptr %call.i.i.i4 to i64
   %or.i.i = or i64 %3, 1
@@ -7266,18 +7267,18 @@ invoke.cont.i.i.i:                                ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   br label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #21
+  tail call void @__clang_call_terminate(ptr %8) #22
   unreachable
 
 _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, %if.then.i.i, %invoke.cont
@@ -7323,22 +7324,22 @@ invoke.cont.i.i.i.i:                              ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   br label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #21
+  tail call void @__clang_call_terminate(ptr %8) #22
   unreachable
 
 _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
   br label %_ZN6mygame6rect32D2Ev.exit
 
 _ZN6mygame6rect32D2Ev.exit:                       ; preds = %entry, %if.then.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -7349,7 +7350,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK6mygame6rect3213SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i32 noundef %size) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK6mygame6rect3213SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i32 noundef %size) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 32
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 8
@@ -7672,7 +7673,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %if.en
   br i1 %cmp.i.i71, label %if.then.i15.i, label %if.else.i14.i
 
 if.then.i15.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
@@ -8134,7 +8135,7 @@ return:                                           ; preds = %if.end33, %if.then3
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame6rect329MergeFromERKN6google8protobuf7MessageE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6rect32E, i64 0) #22
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6rect32E, i64 0) #23
   %cmp8 = icmp eq ptr %0, null
   br i1 %cmp8, label %if.then, label %if.else
 
@@ -8181,7 +8182,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %if.
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
@@ -8294,7 +8295,7 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN6mygame6rect325ClearEv.exit
 
 _ZN6mygame6rect325ClearEv.exit:                   ; preds = %if.end, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6rect32E, i64 0) #22
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6rect32E, i64 0) #23
   %cmp8.i = icmp eq ptr %5, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
@@ -8385,7 +8386,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %if.th
   br i1 %cmp.i.i, label %if.then.i15.i, label %if.else.i14.i
 
 if.then.i15.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
@@ -8434,7 +8435,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %_ZN
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
@@ -8543,7 +8544,7 @@ terminate.lpad.i:                                 ; preds = %lpad2
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #21
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EED2Ev.exit: ; preds = %lpad2
@@ -8589,7 +8590,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %if.
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i5 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i5 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
           to label %call.i.i.i.noexc unwind label %lpad4
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i15.i.i
@@ -8642,7 +8643,7 @@ terminate.lpad.i:                                 ; preds = %lpad4
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #21
+  tail call void @__clang_call_terminate(ptr %11) #22
   unreachable
 
 ehcleanup:                                        ; preds = %lpad4
@@ -8688,18 +8689,18 @@ invoke.cont.i.i.i:                                ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   br label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #21
+  tail call void @__clang_call_terminate(ptr %8) #22
   unreachable
 
 _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, %if.then.i.i, %invoke.cont
@@ -8711,7 +8712,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont2
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #21
+  tail call void @__clang_call_terminate(ptr %10) #22
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EED2Ev.exit: ; preds = %invoke.cont2
@@ -8721,8 +8722,8 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EED2Ev.exit: ; preds = %inv
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6mygame7rect32sD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
-  tail call void @_ZN6mygame7rect32sD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZN6mygame7rect32sD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8733,7 +8734,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK6mygame7rect32s13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %size) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK6mygame7rect32s13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %size) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 8
@@ -9012,7 +9013,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %if.en
   br i1 %cmp.i.i27, label %if.then.i15.i, label %if.else.i14.i
 
 if.then.i15.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %call.i.i29 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i29 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i29, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
@@ -9220,7 +9221,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7rect32s9MergeFromERKN6google8protobuf7MessageE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7rect32sE, i64 0) #22
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7rect32sE, i64 0) #23
   %cmp8 = icmp eq ptr %0, null
   br i1 %cmp8, label %if.then, label %if.else
 
@@ -9267,7 +9268,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %if.
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
@@ -9386,7 +9387,7 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN6mygame7rect32s5ClearEv.exit
 
 _ZN6mygame7rect32s5ClearEv.exit:                  ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EE5ClearEv.exit.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %13 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7rect32sE, i64 0) #22
+  %13 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7rect32sE, i64 0) #23
   %cmp8.i = icmp eq ptr %13, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
@@ -9524,7 +9525,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %if.th
   br i1 %cmp.i.i, label %if.then.i15.i, label %if.else.i14.i
 
 if.then.i15.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
@@ -9573,7 +9574,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %_ZN
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
@@ -9694,7 +9695,7 @@ if.then.i15.i.i:                                  ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
   %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
-  %call.i.i.i6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i6, i8 0, i64 32, i1 false)
   %3 = ptrtoint ptr %call.i.i.i6 to i64
   %or.i.i = or i64 %3, 1
@@ -9763,12 +9764,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull.i.i
-  tail call void @_ZdlPv(ptr noundef %1) #24
+  tail call void @_ZdlPv(ptr noundef %1) #25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %entry
@@ -9808,18 +9809,18 @@ invoke.cont.i.i.i:                                ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #25
   br label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i1
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #21
+  tail call void @__clang_call_terminate(ptr %12) #22
   unreachable
 
 _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, %if.then.i.i, %invoke.cont
@@ -9829,8 +9830,8 @@ invoke.cont2:                                     ; preds = %_ZN6google8protobuf
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6mygame6personD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
-  tail call void @_ZN6mygame6personD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZN6mygame6personD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -9841,7 +9842,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK6mygame6person13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %size) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK6mygame6person13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %size) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 8
@@ -10138,7 +10139,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %if.en
   br i1 %cmp.i.i38, label %if.then.i15.i, label %if.else.i14.i
 
 if.then.i15.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
@@ -10514,7 +10515,7 @@ return:                                           ; preds = %if.end33, %if.then3
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame6person9MergeFromERKN6google8protobuf7MessageE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6personE, i64 0) #22
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6personE, i64 0) #23
   %cmp8 = icmp eq ptr %0, null
   br i1 %cmp8, label %if.then, label %if.else
 
@@ -10561,7 +10562,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %if.
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
@@ -10703,7 +10704,7 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN6mygame6person5ClearEv.exit
 
 _ZN6mygame6person5ClearEv.exit:                   ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6personE, i64 0) #22
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6personE, i64 0) #23
   %cmp8.i = icmp eq ptr %7, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
@@ -10807,7 +10808,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %if.th
   br i1 %cmp.i.i, label %if.then.i15.i, label %if.else.i14.i
 
 if.then.i15.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
@@ -10856,7 +10857,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %_ZN
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
@@ -10964,7 +10965,7 @@ invoke.cont3:                                     ; preds = %entry, %if.then.i.i
 lpad2:                                            ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %person_list_) #22
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %person_list_) #23
   resume { ptr, i32 } %1
 }
 
@@ -10997,8 +10998,8 @@ for.body.i:                                       ; preds = %_ZN6google8protobuf
   br i1 %isnull.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %for.body.i
-  tail call void @_ZN6mygame6personD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #24
+  tail call void @_ZN6mygame6personD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #25
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE6DeleteEPS4_PNS0_5ArenaE.exit.i
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE6DeleteEPS4_PNS0_5ArenaE.exit.i: ; preds = %delete.notnull.i.i, %for.body.i
@@ -11012,7 +11013,7 @@ for.end.loopexit.i:                               ; preds = %_ZN6google8protobuf
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.then.i
   %4 = phi ptr [ %.pre.i, %for.end.loopexit.i ], [ %0, %if.then.i ]
-  tail call void @_ZdlPv(ptr noundef %4) #22
+  tail call void @_ZdlPv(ptr noundef %4) #23
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %for.end.i, %entry
@@ -11059,7 +11060,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %if.
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i5 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i5 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
           to label %call.i.i.i.noexc unwind label %lpad4
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i15.i.i
@@ -11105,7 +11106,7 @@ invoke.cont5:                                     ; preds = %_ZN6google8protobuf
 lpad4:                                            ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i9.i.i, %if.then.i15.i.i
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %person_list_) #22
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %person_list_) #23
   resume { ptr, i32 } %9
 }
 
@@ -11148,18 +11149,18 @@ invoke.cont.i.i.i:                                ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   br label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #21
+  tail call void @__clang_call_terminate(ptr %8) #22
   unreachable
 
 _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, %if.then.i.i, %invoke.cont
@@ -11190,8 +11191,8 @@ for.body.i.i:                                     ; preds = %_ZN6google8protobuf
   br i1 %isnull.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %for.body.i.i
-  tail call void @_ZN6mygame6personD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #24
+  tail call void @_ZN6mygame6personD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #25
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i: ; preds = %delete.notnull.i.i.i, %for.body.i.i
@@ -11205,7 +11206,7 @@ for.end.loopexit.i.i:                             ; preds = %_ZN6google8protobuf
 
 for.end.i.i:                                      ; preds = %for.end.loopexit.i.i, %if.then.i.i1
   %13 = phi ptr [ %.pre.i.i, %for.end.loopexit.i.i ], [ %9, %if.then.i.i1 ]
-  tail call void @_ZdlPv(ptr noundef %13) #22
+  tail call void @_ZdlPv(ptr noundef %13) #23
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev.exit: ; preds = %invoke.cont2, %for.end.i.i
@@ -11216,8 +11217,8 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev.exit: ; preds = %inv
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6mygame7personsD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
-  tail call void @_ZN6mygame7personsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZN6mygame7personsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -11228,7 +11229,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK6mygame7persons13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %size) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK6mygame7persons13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %size) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 8
@@ -11577,7 +11578,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %if.en
   br i1 %cmp.i.i26, label %if.then.i15.i, label %if.else.i14.i
 
 if.then.i15.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %call.i.i28 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i28 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i28, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
@@ -11893,7 +11894,7 @@ _ZNK6mygame6person12ByteSizeLongEv.exit:          ; preds = %if.then30.i, %if.en
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7persons9MergeFromERKN6google8protobuf7MessageE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7personsE, i64 0) #22
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7personsE, i64 0) #23
   %cmp8 = icmp eq ptr %0, null
   br i1 %cmp8, label %if.then, label %if.else
 
@@ -11940,7 +11941,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %if.
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
@@ -12072,7 +12073,7 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN6mygame7persons5ClearEv.exit
 
 _ZN6mygame7persons5ClearEv.exit:                  ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEE5ClearEv.exit.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %15 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7personsE, i64 0) #22
+  %15 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7personsE, i64 0) #23
   %cmp8.i = icmp eq ptr %15, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
@@ -12223,7 +12224,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %if.th
   br i1 %cmp.i.i, label %if.then.i15.i, label %if.else.i14.i
 
 if.then.i15.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
@@ -12272,7 +12273,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i: ; preds = %_ZN
   br i1 %cmp.i.i.i, label %if.then.i15.i.i, label %if.else.i14.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
@@ -12351,7 +12352,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame4Vec3EEEPT_PS1_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -12386,7 +12387,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame6WeaponE, i64 16), ptr %call.i, align 8
@@ -12403,7 +12404,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #25
   resume { ptr, i32 } %1
 
 if.else.i:                                        ; preds = %entry
@@ -12447,7 +12448,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #23
+  %call.i = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #24
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame7MonsterE, i64 16), ptr %call.i, align 8
@@ -12474,12 +12475,12 @@ terminate.lpad.i.i.i:                             ; preds = %lpad4.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #21
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev.exit.i.i: ; preds = %lpad4.i.i
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %weapons_.i.i) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #24
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %weapons_.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #25
   br label %common.resume
 
 common.resume:                                    ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev.exit.i.i13, %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev.exit.i.i
@@ -12529,11 +12530,11 @@ terminate.lpad.i.i.i12:                           ; preds = %lpad4.i.i11
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #21
+  tail call void @__clang_call_terminate(ptr %8) #22
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev.exit.i.i13: ; preds = %lpad4.i.i11
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %weapons_.i.i6) #22
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %weapons_.i.i6) #23
   br label %common.resume
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame7MonsterEEEPT_PS1_.exit: ; preds = %if.then.i.i.i.i10, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i.i.i.i, %if.then.i
@@ -12554,7 +12555,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
+  %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame8MonstersE, i64 16), ptr %call.i, align 8
@@ -12571,8 +12572,8 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i
 lpad2.i.i:                                        ; preds = %if.then.i.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %monsters_.i.i) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #24
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %monsters_.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #25
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad2.i.i9, %lpad2.i.i
@@ -12609,7 +12610,7 @@ if.then.i.i.i.i8:                                 ; preds = %_ZNK6google8protobu
 lpad2.i.i9:                                       ; preds = %if.then.i.i.i.i8
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %monsters_.i.i6) #22
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %monsters_.i.i6) #23
   br label %common.resume
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame8MonstersEEEPT_PS1_.exit: ; preds = %if.then.i.i.i.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i.i.i.i, %if.then.i
@@ -12624,7 +12625,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
+  %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame6rect32EEEPT_PS1_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -12659,7 +12660,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
+  %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame7rect32sE, i64 16), ptr %call.i, align 8
@@ -12683,7 +12684,7 @@ terminate.lpad.i.i.i:                             ; preds = %lpad2.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #21
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 common.resume:                                    ; preds = %lpad2.i.i9, %lpad.i.body
@@ -12691,7 +12692,7 @@ common.resume:                                    ; preds = %lpad2.i.i9, %lpad.i
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.body:                                      ; preds = %lpad2.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #25
   br label %common.resume
 
 if.else.i:                                        ; preds = %entry
@@ -12731,7 +12732,7 @@ terminate.lpad.i.i.i10:                           ; preds = %lpad2.i.i9
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #21
+  tail call void @__clang_call_terminate(ptr %8) #22
   unreachable
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame7rect32sEEEPT_PS1_.exit: ; preds = %if.then.i.i.i.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i.i.i.i, %if.then.i
@@ -12746,7 +12747,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
+  %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame6personE, i64 16), ptr %call.i, align 8
@@ -12763,7 +12764,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #25
   resume { ptr, i32 } %1
 
 if.else.i:                                        ; preds = %entry
@@ -12807,7 +12808,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
+  %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame7personsE, i64 16), ptr %call.i, align 8
@@ -12824,8 +12825,8 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i
 lpad2.i.i:                                        ; preds = %if.then.i.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %person_list_.i.i) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #24
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %person_list_.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #25
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad2.i.i9, %lpad2.i.i
@@ -12862,7 +12863,7 @@ if.then.i.i.i.i8:                                 ; preds = %_ZNK6google8protobu
 lpad2.i.i9:                                       ; preds = %if.then.i.i.i.i8
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %person_list_.i.i6) #22
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %person_list_.i.i6) #23
   br label %common.resume
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame7personsEEEPT_PS1_.exit: ; preds = %if.then.i.i.i.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i.i.i.i, %if.then.i
@@ -12875,7 +12876,7 @@ declare void @_ZNK6google8protobuf7Message11GetTypeNameB5cxx11Ev(ptr sret(%"clas
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK6mygame4Vec33NewEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame4Vec3E, i64 16), ptr %call.i.i.i, align 8
@@ -12891,7 +12892,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5ArenaE.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -12943,7 +12944,7 @@ declare noundef i64 @_ZNK6google8protobuf7Message13SpaceUsedLongEv(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK6mygame6Weapon3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame6WeaponE, i64 16), ptr %call.i.i, align 8
@@ -12960,7 +12961,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #25
   resume { ptr, i32 } %1
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame6WeaponEJEEEPT_PS1_DpOT0_.exit: ; preds = %entry, %if.then.i.i.i.i.i
@@ -12989,7 +12990,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK6mygame7Monster3NewEv(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #24
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame7MonsterE, i64 16), ptr %call.i.i, align 8
@@ -13016,12 +13017,12 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad4.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #21
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev.exit.i.i.i: ; preds = %lpad4.i.i.i
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %weapons_.i.i.i) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #24
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %weapons_.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #25
   resume { ptr, i32 } %1
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame7MonsterEJEEEPT_PS1_DpOT0_.exit: ; preds = %entry, %if.then.i.i.i.i.i
@@ -13052,7 +13053,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK6mygame8Monsters3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame8MonstersE, i64 16), ptr %call.i.i, align 8
@@ -13069,8 +13070,8 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 lpad2.i.i.i:                                      ; preds = %if.then.i.i.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %monsters_.i.i.i) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #24
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %monsters_.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #25
   resume { ptr, i32 } %1
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame8MonstersEJEEEPT_PS1_DpOT0_.exit: ; preds = %entry, %if.then.i.i.i.i.i
@@ -13095,7 +13096,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK6mygame6rect323NewEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame6rect32E, i64 16), ptr %call.i.i.i, align 8
@@ -13111,7 +13112,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame6rect32EEEPT_PNS0_5ArenaE.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -13149,7 +13150,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK6mygame7rect32s3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame7rect32sE, i64 16), ptr %call.i.i, align 8
@@ -13173,11 +13174,11 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad2.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #21
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 lpad.i.body.i:                                    ; preds = %lpad2.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #25
   resume { ptr, i32 } %1
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame7rect32sEJEEEPT_PS1_DpOT0_.exit: ; preds = %entry, %if.then.i.i.i.i.i
@@ -13202,7 +13203,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK6mygame6person3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame6personE, i64 16), ptr %call.i.i, align 8
@@ -13219,7 +13220,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #25
   resume { ptr, i32 } %1
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame6personEJEEEPT_PS1_DpOT0_.exit: ; preds = %entry, %if.then.i.i.i.i.i
@@ -13248,7 +13249,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK6mygame7persons3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame7personsE, i64 16), ptr %call.i.i, align 8
@@ -13265,8 +13266,8 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 lpad2.i.i.i:                                      ; preds = %if.then.i.i.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %person_list_.i.i.i) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #24
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %person_list_.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #25
   resume { ptr, i32 } %1
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame7personsEJEEEPT_PS1_DpOT0_.exit: ; preds = %entry, %if.then.i.i.i.i.i
@@ -13307,10 +13308,10 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 entry:
   %ref.tmp = alloca %"class.std::allocator.9", align 1
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %__str) #22
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %__str) #23
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
   store ptr %0, ptr %this, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
   %1 = load ptr, ptr %__str, align 8
   %_M_string_length.i = getelementptr inbounds i8, ptr %__str, i64 8
   %2 = load i64, ptr %_M_string_length.i, align 8
@@ -13326,7 +13327,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end11.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #25
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #26
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %if.then.i.i
@@ -13338,14 +13339,14 @@ if.end11.i.i:                                     ; preds = %if.then.i
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end11.i.i
-  invoke void @_ZSt17__throw_bad_allocv() #25
+  invoke void @_ZSt17__throw_bad_allocv() #26
           to label %.noexc4 unwind label %lpad3
 
 .noexc4:                                          ; preds = %if.end.i.i.i.i
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; preds = %if.end11.i.i
-  %call5.i.i.i.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i.i) #23
+  %call5.i.i.i.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i.i) #24
           to label %call5.i.i.i.i.noexc unwind label %lpad3
 
 call5.i.i.i.i.noexc:                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i
@@ -13380,7 +13381,7 @@ invoke.cont9:                                     ; preds = %if.end.i.i.i3.i, %i
 lpad3:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, %if.end.i.i.i.i, %if.then.i.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #23
   resume { ptr, i32 } %6
 }
 
@@ -13394,10 +13395,10 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #15
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #16
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -13422,11 +13423,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #24
+  tail call void @_ZdlPv(ptr noundef %0) #25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %object) #22
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %object) #23
   ret void
 }
 
@@ -13464,7 +13465,7 @@ if.then4:                                         ; preds = %_ZNKSt7__cxx1112bas
   br i1 %cmp.i, label %if.then.i, label %land.lhs.true.i
 
 if.then.i:                                        ; preds = %if.then4
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #25
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #26
   unreachable
 
 land.lhs.true.i:                                  ; preds = %if.then4
@@ -13477,11 +13478,11 @@ land.lhs.true.i:                                  ; preds = %if.then4
   br i1 %cmp.i.i.i, label %if.end.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true.i
-  tail call void @_ZSt17__throw_bad_allocv() #25
+  tail call void @_ZSt17__throw_bad_allocv() #26
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit: ; preds = %land.lhs.true.i
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i) #23
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i) #24
   br i1 %cmp.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i, label %if.then.i9
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit
@@ -13492,7 +13493,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %if.end.thread
 
 if.then.i9:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit
-  tail call void @_ZdlPv(ptr noundef %1) #24
+  tail call void @_ZdlPv(ptr noundef %1) #25
   br label %if.end.thread
 
 if.end.thread:                                    ; preds = %if.then.i9, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i
@@ -13552,14 +13553,14 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i, ptr noundef nonnull align 8 dereferenceable(32) %default_value)
           to label %_ZN6google8protobuf8internal14ArenaStringPtr14CreateInstanceEPNS0_5ArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #25
   resume { ptr, i32 } %1
 
 if.else.i.i:                                      ; preds = %if.then
@@ -13594,7 +13595,7 @@ declare { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr n
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream30WriteStringMaybeAliasedOutlineEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #16
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #17
 
 declare void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
@@ -13651,7 +13652,7 @@ if.end12:                                         ; preds = %if.then10, %lor.lhs
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end12
-  %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end12
@@ -13744,7 +13745,7 @@ if.end12:                                         ; preds = %if.then10, %lor.lhs
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end12
-  %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
+  %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end12
@@ -13812,14 +13813,14 @@ invoke.cont.i.i:                                  ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
   br label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #21
+  tail call void @__clang_call_terminate(ptr %4) #22
   unreachable
 
 _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit: ; preds = %invoke.cont.i.i, %if.then.i.i.i.i.i
@@ -13827,7 +13828,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #17
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7DestroyINS0_16RepeatedPtrFieldIN6mygame4Vec3EE11TypeHandlerEEEvv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13894,22 +13895,22 @@ invoke.cont.i.i.i.i.i:                            ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #25
   br label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #21
+  tail call void @__clang_call_terminate(ptr %12) #22
   unreachable
 
 _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   br label %_ZN6mygame4Vec3D2Ev.exit.i
 
 _ZN6mygame4Vec3D2Ev.exit.i:                       ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i.i, %if.then.i.i.i.i, %delete.notnull.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #25
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE6DeleteEPS4_PNS0_5ArenaE.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE6DeleteEPS4_PNS0_5ArenaE.exit: ; preds = %for.body, %_ZN6mygame4Vec3D2Ev.exit.i
@@ -13923,7 +13924,7 @@ for.end.loopexit:                                 ; preds = %_ZN6google8protobuf
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then
   %13 = phi ptr [ %.pre, %for.end.loopexit ], [ %0, %if.then ]
-  tail call void @_ZdlPv(ptr noundef %13) #22
+  tail call void @_ZdlPv(ptr noundef %13) #23
   br label %if.end
 
 if.end:                                           ; preds = %for.end, %entry
@@ -14065,7 +14066,7 @@ for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, 
   %indvars.iv13 = phi i64 [ %indvars.iv.next14, %for.body8.i.us ], [ %9, %for.body8.i.lr.ph ]
   %arrayidx11.i.us = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv13
   %10 = load ptr, ptr %arrayidx11.i.us, align 8
-  %call.i.i.i.i.us = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  %call.i.i.i.i.us = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %_internal_metadata_.i.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.i.i.i.us, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i.i.us, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame4Vec3E, i64 16), ptr %call.i.i.i.i.us, align 8
@@ -14265,22 +14266,22 @@ invoke.cont.i.i.i.i.i:                            ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #25
   br label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #21
+  tail call void @__clang_call_terminate(ptr %12) #22
   unreachable
 
 _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   br label %_ZN6mygame6rect32D2Ev.exit.i
 
 _ZN6mygame6rect32D2Ev.exit.i:                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i.i, %if.then.i.i.i.i, %delete.notnull.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #25
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE6DeleteEPS4_PNS0_5ArenaE.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE6DeleteEPS4_PNS0_5ArenaE.exit: ; preds = %for.body, %_ZN6mygame6rect32D2Ev.exit.i
@@ -14294,7 +14295,7 @@ for.end.loopexit:                                 ; preds = %_ZN6google8protobuf
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then
   %13 = phi ptr [ %.pre, %for.end.loopexit ], [ %0, %if.then ]
-  tail call void @_ZdlPv(ptr noundef %13) #22
+  tail call void @_ZdlPv(ptr noundef %13) #23
   br label %if.end
 
 if.end:                                           ; preds = %for.end, %entry
@@ -14355,7 +14356,7 @@ for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, 
   %indvars.iv13 = phi i64 [ %indvars.iv.next14, %for.body8.i.us ], [ %9, %for.body8.i.lr.ph ]
   %arrayidx11.i.us = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv13
   %10 = load ptr, ptr %arrayidx11.i.us, align 8
-  %call.i.i.i.i.us = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
+  %call.i.i.i.i.us = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   %_internal_metadata_.i.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.i.i.i.us, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i.i.us, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6mygame6rect32E, i64 16), ptr %call.i.i.i.i.us, align 8
@@ -14491,22 +14492,22 @@ return:                                           ; preds = %if.then.i, %_ZN6goo
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_data_def.pb.cc() #18 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_data_def.pb.cc() #19 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
   tail call void @_ZN6google8protobuf8internal14AddDescriptorsEPKNS1_15DescriptorTableE(ptr noundef nonnull @descriptor_table_data_5fdef_2eproto)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #19
+declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #20
+declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #20
+declare i32 @llvm.smin.i32(i32, i32) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -14517,23 +14518,24 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { nounwind }
-attributes #23 = { builtin allocsize(0) }
-attributes #24 = { builtin nounwind }
-attributes #25 = { noreturn }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #19 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { nounwind }
+attributes #24 = { builtin allocsize(0) }
+attributes #25 = { builtin nounwind }
+attributes #26 = { noreturn }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

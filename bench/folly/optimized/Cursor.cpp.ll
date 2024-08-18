@@ -35,11 +35,11 @@ $_ZNSt12out_of_rangeC2EOS_ = comdat any
 define void @_ZN5folly2io8Appender6printfEPKcz(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #0 align 2 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ap) #9
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ap) #10
   call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @_ZN5folly2io8Appender7vprintfEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %fmt, ptr noundef nonnull %ap)
   call void @llvm.va_end.p0(ptr nonnull %ap)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap) #10
   ret void
 }
 
@@ -54,7 +54,7 @@ define void @_ZN5folly2io8Appender7vprintfEPKcP13__va_list_tag(ptr nocapture nou
 invoke.cont2:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %apCopy = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %apCopy) #9
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %apCopy) #10
   call void @llvm.va_copy.p0(ptr nonnull %apCopy, ptr %ap)
   %crtBuf_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %crtBuf_.i, align 8, !tbaa !7
@@ -70,17 +70,17 @@ invoke.cont2:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %call4 = call i32 @vsnprintf(ptr noundef %add.ptr.i.i, i64 noundef %sub.ptr.sub.i.i, ptr noundef %fmt, ptr noundef %ap) #9
+  %call4 = call i32 @vsnprintf(ptr noundef %add.ptr.i.i, i64 noundef %sub.ptr.sub.i.i, ptr noundef %fmt, ptr noundef %ap) #10
   %cmp = icmp slt i32 %call4, 0
   br i1 %cmp, label %if.then, label %invoke.cont8
 
 if.then:                                          ; preds = %invoke.cont2
-  %exception = call ptr @__cxa_allocate_exception(i64 16) #9
+  %exception = call ptr @__cxa_allocate_exception(i64 16) #10
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.then
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #10
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
           to label %unreachable unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont6
@@ -91,7 +91,7 @@ lpad:                                             ; preds = %invoke.cont6
 lpad5:                                            ; preds = %if.then
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #9
+  call void @__cxa_free_exception(ptr %exception) #10
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_2io8Appender7vprintfEPKcP13__va_list_tagE3$_0Lb1EED2Ev.exit100"
 
 invoke.cont8:                                     ; preds = %invoke.cont2
@@ -129,7 +129,7 @@ if.end13:                                         ; preds = %invoke.cont8
   br i1 %cmp2.i, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.end13
-  invoke void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef nonnull @.str.4) #11
+  invoke void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef nonnull @.str.4) #6
           to label %.noexc unwind label %lpad7
 
 .noexc:                                           ; preds = %if.then3.i
@@ -139,7 +139,7 @@ if.end4.i:                                        ; preds = %if.end13
   %add = add nuw nsw i64 %conv, 1
   %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %13, i64 %add)
   %14 = load ptr, ptr %this, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #10
   invoke void @_ZN5folly5IOBuf6createEm(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %ref.tmp.i, i64 noundef %.sroa.speculated.i)
           to label %.noexc72 unwind label %lpad7
 
@@ -153,12 +153,12 @@ invoke.cont.i:                                    ; preds = %.noexc72
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %invoke.cont.i
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #9
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %15) #9
+  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #10
+  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %15) #10
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #10
   %16 = load ptr, ptr %this, align 8, !tbaa !19
   %prev_.i.i = getelementptr inbounds i8, ptr %16, i64 40
   %17 = load ptr, ptr %prev_.i.i, align 8, !tbaa !21
@@ -175,26 +175,26 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %in
   %sub.ptr.lhs.cast.i.i82 = ptrtoint ptr %add.ptr.i.i.i79 to i64
   %sub.ptr.rhs.cast.i.i83 = ptrtoint ptr %add.ptr.i.i75 to i64
   %sub.ptr.sub.i.i84 = sub i64 %sub.ptr.lhs.cast.i.i82, %sub.ptr.rhs.cast.i.i83
-  %call20 = call i32 @vsnprintf(ptr noundef %add.ptr.i.i75, i64 noundef %sub.ptr.sub.i.i84, ptr noundef %fmt, ptr noundef nonnull %apCopy) #9
+  %call20 = call i32 @vsnprintf(ptr noundef %add.ptr.i.i75, i64 noundef %sub.ptr.sub.i.i84, ptr noundef %fmt, ptr noundef nonnull %apCopy) #10
   %cmp21 = icmp slt i32 %call20, 0
   br i1 %cmp21, label %if.then22, label %invoke.cont28
 
 lpad.i:                                           ; preds = %.noexc72
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #9
+  call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #10
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_2io8Appender7vprintfEPKcP13__va_list_tagE3$_0Lb1EED2Ev.exit100"
 
 if.then22:                                        ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
-  %exception23 = call ptr @__cxa_allocate_exception(i64 16) #9
+  %exception23 = call ptr @__cxa_allocate_exception(i64 16) #10
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception23, ptr noundef nonnull @.str)
           to label %invoke.cont34.invoke unwind label %lpad24
 
 lpad24:                                           ; preds = %if.then22
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception23) #9
+  call void @__cxa_free_exception(ptr %exception23) #10
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_2io8Appender7vprintfEPKcP13__va_list_tagE3$_0Lb1EED2Ev.exit100"
 
 invoke.cont28:                                    ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
@@ -216,13 +216,13 @@ invoke.cont28:                                    ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp30.not, label %if.end35, label %if.then31
 
 if.then31:                                        ; preds = %invoke.cont28
-  %exception32 = call ptr @__cxa_allocate_exception(i64 16) #9
+  %exception32 = call ptr @__cxa_allocate_exception(i64 16) #10
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception32, ptr noundef nonnull @.str.1)
           to label %invoke.cont34.invoke unwind label %lpad33
 
 invoke.cont34.invoke:                             ; preds = %if.then31, %if.then22
   %29 = phi ptr [ %exception23, %if.then22 ], [ %exception32, %if.then31 ]
-  invoke void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #10
+  invoke void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
           to label %invoke.cont34.cont unwind label %lpad7
 
 invoke.cont34.cont:                               ; preds = %invoke.cont34.invoke
@@ -231,7 +231,7 @@ invoke.cont34.cont:                               ; preds = %invoke.cont34.invok
 lpad33:                                           ; preds = %if.then31
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception32) #9
+  call void @__cxa_free_exception(ptr %exception32) #10
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_2io8Appender7vprintfEPKcP13__va_list_tagE3$_0Lb1EED2Ev.exit100"
 
 if.end35:                                         ; preds = %invoke.cont28
@@ -241,13 +241,13 @@ if.end35:                                         ; preds = %invoke.cont28
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_2io8Appender7vprintfEPKcP13__va_list_tagE3$_0Lb1EED2Ev.exit": ; preds = %if.end35, %if.then11
   call void @llvm.va_end.p0(ptr nonnull %apCopy)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %apCopy) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %apCopy) #10
   ret void
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_2io8Appender7vprintfEPKcP13__va_list_tagE3$_0Lb1EED2Ev.exit100": ; preds = %lpad33, %lpad24, %lpad.i, %lpad7, %lpad5, %lpad
   %.pn56 = phi { ptr, i32 } [ %5, %lpad ], [ %6, %lpad5 ], [ %23, %lpad24 ], [ %30, %lpad33 ], [ %12, %lpad7 ], [ %22, %lpad.i ]
   call void @llvm.va_end.p0(ptr nonnull %apCopy)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %apCopy) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %apCopy) #10
   resume { ptr, i32 } %.pn56
 
 unreachable:                                      ; preds = %invoke.cont6
@@ -277,20 +277,21 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 declare void @_ZN5folly5IOBuf6createEm(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !20
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit: ; preds = %entry
-  tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #9
-  tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %0) #9
+  tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #10
+  tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %0) #10
   br label %if.end
 
 if.end:                                           ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit, %entry
@@ -299,12 +300,12 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: cold mustprogress noreturn optsize uwtable
-define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef %args) local_unnamed_addr #7 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef %args) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::out_of_range", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #10
   call void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %args)
-  invoke void @_ZN5folly15throw_exceptionISt12out_of_rangeEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #11
+  invoke void @_ZN5folly15throw_exceptionISt12out_of_rangeEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #6
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -313,17 +314,17 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #9
+  call void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #10
   resume { ptr, i32 } %0
 }
 
 ; Function Attrs: cold mustprogress noreturn optsize uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionISt12out_of_rangeEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ex) local_unnamed_addr #7 comdat {
+define linkonce_odr void @_ZN5folly15throw_exceptionISt12out_of_rangeEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ex) local_unnamed_addr #8 comdat {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #9
-  tail call void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 8 dereferenceable(16) %ex) #9
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZNSt12out_of_rangeD1Ev) #10
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  tail call void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 8 dereferenceable(16) %ex) #10
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZNSt12out_of_rangeD1Ev) #11
   unreachable
 }
 
@@ -333,9 +334,9 @@ declare void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferencea
 declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #9
+  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #10
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8, !tbaa !22
   ret void
 }
@@ -352,7 +353,7 @@ declare void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56
 declare void @_ZN5folly5IOBufdlEPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
+declare i64 @llvm.umax.i64(i64, i64) #9
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -360,12 +361,12 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold mustprogress noreturn optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn }
-attributes #11 = { cold noreturn }
+attributes #6 = { cold noreturn }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold mustprogress noreturn optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

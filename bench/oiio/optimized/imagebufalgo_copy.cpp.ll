@@ -1180,15 +1180,15 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3fmt2v812format_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3fmt2v812format_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #22
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #24
   ret void
 }
 
@@ -1233,7 +1233,7 @@ entry:
 
 _ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i:   ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i.i)
-  %call.i.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i) #22
+  %call.i.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i) #24
   %1 = load i64, ptr %t.i.i.i.i, align 8
   %mul.i.i.i.i = mul nsw i64 %1, 1000000000
   %tv_nsec.i.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i.i, i64 8
@@ -1246,7 +1246,7 @@ _ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i:   ; preds = %entry
 
 _ZN18OpenImageIO_v2_6_05TimerC2Eb.exit.i:         ; preds = %_ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i, %entry
   %m_name.i = getelementptr inbounds i8, ptr %logtime, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #24
   %m_count.i = getelementptr inbounds i8, ptr %logtime, i64 64
   store i32 1, ptr %m_count.i, align 8
   %3 = load i32, ptr @_ZN18OpenImageIO_v2_6_03pvt14oiio_log_timesE, align 4
@@ -1264,8 +1264,8 @@ common.resume:                                    ; preds = %ehcleanup349, %lpad
 lpad.i:                                           ; preds = %if.then.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #22
-  call void @_ZN18OpenImageIO_v2_6_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %logtime) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #24
+  call void @_ZN18OpenImageIO_v2_6_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %logtime) #24
   br label %common.resume
 
 _ZN18OpenImageIO_v2_6_03pvt11LoggedTimerC2ENS_17basic_string_viewIcSt11char_traitsIcEEE.exit: ; preds = %_ZN18OpenImageIO_v2_6_05TimerC2Eb.exit.i, %if.then.i
@@ -1382,7 +1382,7 @@ call1.i.noexc:                                    ; preds = %land.rhs.i
 
 cond.false.i:                                     ; preds = %call1.i.noexc, %call.i.noexc
   %14 = load ptr, ptr @stderr, align 8
-  %call2.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, i32 noundef 59, ptr noundef nonnull @__FUNCTION__._ZN18OpenImageIO_v2_6_0L11deep_paste_ERNS_8ImageBufERKS0_NS_3ROIES4_i, ptr noundef nonnull @.str.66) #24
+  %call2.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, i32 noundef 59, ptr noundef nonnull @__FUNCTION__._ZN18OpenImageIO_v2_6_0L11deep_paste_ERNS_8ImageBufERKS0_NS_3ROIES4_i, ptr noundef nonnull @.str.66) #26
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %call1.i.noexc
@@ -1477,7 +1477,7 @@ for.end27.i:                                      ; preds = %for.cond12.for.inc2
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp29.i, i64 16
   %21 = getelementptr inbounds i8, ptr %agg.tmp29.i, i64 8
   store i64 0, ptr %21, align 8
-  %call.i.i2.i.i148 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
+  %call.i.i2.i.i148 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
           to label %call.i.i2.i.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.i2.i.i.noexc:                              ; preds = %for.end27.i
@@ -1510,7 +1510,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #26
+  call void @__clang_call_terminate(ptr %24) #28
   unreachable
 
 lpad.i138:                                        ; preds = %call.i.i2.i.i.noexc
@@ -1528,7 +1528,7 @@ terminate.lpad.i.i22.i:                           ; preds = %if.then.i.i20.i
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #26
+  call void @__clang_call_terminate(ptr %28) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_0L11deep_paste_ERNS_8ImageBufERKS0_NS_3ROIES4_i.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
@@ -1713,13 +1713,13 @@ invoke.cont147:                                   ; preds = %invoke.cont144
           to label %invoke.cont151 unwind label %lpad146
 
 invoke.cont151:                                   ; preds = %invoke.cont147
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp) #24
   br label %cleanup
 
 lpad146:                                          ; preds = %invoke.cont147, %invoke.cont144
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp) #24
   br label %ehcleanup349
 
 sw.bb155:                                         ; preds = %invoke.cont108
@@ -1770,13 +1770,13 @@ invoke.cont190:                                   ; preds = %invoke.cont187
           to label %invoke.cont194 unwind label %lpad189
 
 invoke.cont194:                                   ; preds = %invoke.cont190
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp186) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp186) #24
   br label %cleanup
 
 lpad189:                                          ; preds = %invoke.cont190, %invoke.cont187
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp186) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp186) #24
   br label %ehcleanup349
 
 sw.bb198:                                         ; preds = %invoke.cont108
@@ -1827,13 +1827,13 @@ invoke.cont233:                                   ; preds = %invoke.cont230
           to label %invoke.cont237 unwind label %lpad232
 
 invoke.cont237:                                   ; preds = %invoke.cont233
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp229) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp229) #24
   br label %cleanup
 
 lpad232:                                          ; preds = %invoke.cont233, %invoke.cont230
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp229) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp229) #24
   br label %ehcleanup349
 
 sw.bb241:                                         ; preds = %invoke.cont108
@@ -1884,13 +1884,13 @@ invoke.cont276:                                   ; preds = %invoke.cont273
           to label %invoke.cont280 unwind label %lpad275
 
 invoke.cont280:                                   ; preds = %invoke.cont276
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp272) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp272) #24
   br label %cleanup
 
 lpad275:                                          ; preds = %invoke.cont276, %invoke.cont273
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp272) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp272) #24
   br label %ehcleanup349
 
 sw.default284:                                    ; preds = %invoke.cont108
@@ -1974,7 +1974,7 @@ invoke.cont328:                                   ; preds = %invoke.cont325
           to label %invoke.cont332 unwind label %lpad327
 
 invoke.cont332:                                   ; preds = %invoke.cont328
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp324) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp324) #24
   br label %if.then336
 
 if.then336:                                       ; preds = %sw.bb317, %sw.bb311, %sw.bb305, %sw.bb299, %invoke.cont332
@@ -1993,26 +1993,26 @@ if.then336:                                       ; preds = %sw.bb317, %sw.bb311
 lpad327:                                          ; preds = %invoke.cont328, %invoke.cont325
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp324) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp324) #24
   br label %ehcleanup
 
 if.end345:                                        ; preds = %if.then336
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp) #24
   br label %cleanup
 
 ehcleanup:                                        ; preds = %lpad327, %lpad286
   %.pn = phi { ptr, i32 } [ %47, %lpad286 ], [ %49, %lpad327 ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp) #24
   br label %ehcleanup349
 
 cleanup:                                          ; preds = %sw.bb259, %sw.bb253, %sw.bb247, %sw.bb222, %sw.bb210, %sw.bb204, %sw.bb179, %sw.bb173, %sw.bb161, %sw.bb137, %sw.bb131, %sw.bb125, %sw.bb98, %sw.bb92, %sw.bb86, %sw.bb80, %sw.bb74, %sw.bb68.invoke, %sw.bb62.invoke, %sw.bb56.invoke, %sw.bb.invoke, %_ZN18OpenImageIO_v2_6_0L11deep_paste_ERNS_8ImageBufERKS0_NS_3ROIES4_i.exit, %invoke.cont280, %invoke.cont237, %invoke.cont194, %invoke.cont151, %if.end345, %invoke.cont104, %invoke.cont38
   %retval.0 = phi i1 [ true, %_ZN18OpenImageIO_v2_6_0L11deep_paste_ERNS_8ImageBufERKS0_NS_3ROIES4_i.exit ], [ false, %invoke.cont38 ], [ true, %if.end345 ], [ true, %invoke.cont280 ], [ true, %invoke.cont237 ], [ true, %invoke.cont194 ], [ true, %invoke.cont151 ], [ true, %sw.bb74 ], [ true, %sw.bb80 ], [ true, %sw.bb86 ], [ true, %sw.bb92 ], [ true, %sw.bb98 ], [ false, %invoke.cont104 ], [ true, %sw.bb125 ], [ true, %sw.bb131 ], [ true, %sw.bb137 ], [ true, %sw.bb161 ], [ true, %sw.bb173 ], [ true, %sw.bb179 ], [ true, %sw.bb204 ], [ true, %sw.bb210 ], [ true, %sw.bb222 ], [ true, %sw.bb247 ], [ true, %sw.bb253 ], [ true, %sw.bb259 ], [ true, %sw.bb.invoke ], [ true, %sw.bb56.invoke ], [ true, %sw.bb62.invoke ], [ true, %sw.bb68.invoke ]
-  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #22
+  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #24
   ret i1 %retval.0
 
 ehcleanup349:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i138, %if.then.i.i20.i, %ehcleanup, %lpad275, %lpad232, %lpad189, %lpad146
   %.pn124 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %46, %lpad275 ], [ %44, %lpad232 ], [ %42, %lpad189 ], [ %40, %lpad146 ], [ %25, %if.then.i.i20.i ], [ %25, %lpad.i138 ], [ %lpad.loopexit179, %lpad.loopexit ], [ %lpad.loopexit.split-lp180, %lpad.loopexit.split-lp ]
-  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #22
+  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #24
   br label %common.resume
 }
 
@@ -2070,7 +2070,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -2101,7 +2101,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -2122,7 +2122,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -2168,7 +2168,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -2199,7 +2199,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -2220,7 +2220,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -2266,7 +2266,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -2297,7 +2297,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -2318,7 +2318,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -2364,7 +2364,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -2395,7 +2395,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -2416,7 +2416,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -2462,7 +2462,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -2493,7 +2493,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -2514,7 +2514,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -2560,7 +2560,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -2591,7 +2591,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -2612,7 +2612,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -2658,7 +2658,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -2689,7 +2689,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -2710,7 +2710,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -2756,7 +2756,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -2787,7 +2787,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -2808,7 +2808,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -2854,7 +2854,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -2885,7 +2885,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -2906,7 +2906,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -2920,7 +2920,7 @@ entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %call.i2.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt) #22, !noalias !8
+  %call.i2.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt) #24, !noalias !8
   %0 = ptrtoint ptr %args to i64
   %1 = ptrtoint ptr %args1 to i64
   store i64 %0, ptr %ref.tmp.i, align 16, !alias.scope !11, !noalias !8
@@ -2930,22 +2930,22 @@ entry:
   store i64 ptrtoint (ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN18OpenImageIO_v2_6_08TypeDescENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ to i64), ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i.i, align 8, !alias.scope !11, !noalias !8
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %fmt, i64 %call.i2.i, i64 252, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store ptr %call.i, ptr %agg.tmp, align 8
   %m_len.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store i64 %call2.i, ptr %m_len.i, align 8
   invoke void @_ZNK18OpenImageIO_v2_6_08ImageBuf5errorENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   ret void
 
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   resume { ptr, i32 } %2
 }
 
@@ -2988,7 +2988,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -3019,7 +3019,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -3040,7 +3040,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -3086,7 +3086,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -3117,7 +3117,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -3138,7 +3138,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -3184,7 +3184,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -3215,7 +3215,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -3236,7 +3236,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -3289,7 +3289,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -3320,7 +3320,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -3341,7 +3341,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -3387,7 +3387,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -3418,7 +3418,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -3439,7 +3439,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -3485,7 +3485,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -3516,7 +3516,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -3537,7 +3537,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -3583,7 +3583,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -3614,7 +3614,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -3635,7 +3635,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -3681,7 +3681,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -3712,7 +3712,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -3733,7 +3733,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -3779,7 +3779,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -3810,7 +3810,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -3831,7 +3831,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -3877,7 +3877,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -3908,7 +3908,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -3929,7 +3929,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -3975,7 +3975,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -4006,7 +4006,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -4027,7 +4027,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -4073,7 +4073,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   %6 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 0, ptr %6, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %relative_x, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %relative_y, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -4104,7 +4104,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #26
+  call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -4125,7 +4125,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -4147,10 +4147,10 @@ entry:
 
 if.then:                                          ; preds = %entry
   %m_name = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name) #22
+  %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name) #24
   store ptr %call.i, ptr %agg.tmp, align 8
   %m_len.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name) #22
+  %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name) #24
   store i64 %call2.i, ptr %m_len.i, align 8
   %m_count = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i32, ptr %m_count, align 8
@@ -4159,7 +4159,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %m_name2 = getelementptr inbounds i8, ptr %this, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name2) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name2) #24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   %m_printdtr.i = getelementptr inbounds i8, ptr %this, i64 1
   %2 = load i8, ptr %m_printdtr.i, align 1
@@ -4179,7 +4179,7 @@ cond.true.i.i.i:                                  ; preds = %if.then.i
   %m_starttime.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i64, ptr %m_starttime.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i.i)
-  %call.i.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i) #22
+  %call.i.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i) #24
   %6 = load i64, ptr %t.i.i.i.i, align 8
   %mul.i.i.i.i = mul nsw i64 %6, 1000000000
   %tv_nsec.i.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i.i, i64 8
@@ -4210,7 +4210,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #26
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_05TimerD2Ev.exit:           ; preds = %if.end, %.noexc.i
@@ -4221,7 +4221,7 @@ terminate.lpad:                                   ; preds = %if.then
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #26
+  call void @__clang_call_terminate(ptr %15) #28
   unreachable
 }
 
@@ -4249,7 +4249,7 @@ entry:
 
 _ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i:   ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i.i)
-  %call.i.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i) #22
+  %call.i.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i) #24
   %1 = load i64, ptr %t.i.i.i.i, align 8
   %mul.i.i.i.i = mul nsw i64 %1, 1000000000
   %tv_nsec.i.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i.i, i64 8
@@ -4262,7 +4262,7 @@ _ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i:   ; preds = %entry
 
 _ZN18OpenImageIO_v2_6_05TimerC2Eb.exit.i:         ; preds = %_ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i, %entry
   %m_name.i = getelementptr inbounds i8, ptr %logtime, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #24
   %m_count.i = getelementptr inbounds i8, ptr %logtime, i64 64
   store i32 1, ptr %m_count.i, align 8
   %3 = load i32, ptr @_ZN18OpenImageIO_v2_6_03pvt14oiio_log_timesE, align 4
@@ -4280,8 +4280,8 @@ common.resume:                                    ; preds = %ehcleanup603, %lpad
 lpad.i:                                           ; preds = %if.then.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #22
-  call void @_ZN18OpenImageIO_v2_6_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %logtime) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #24
+  call void @_ZN18OpenImageIO_v2_6_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %logtime) #24
   br label %common.resume
 
 _ZN18OpenImageIO_v2_6_03pvt11LoggedTimerC2ENS_17basic_string_viewIcSt11char_traitsIcEEE.exit: ; preds = %_ZN18OpenImageIO_v2_6_05TimerC2Eb.exit.i, %if.then.i
@@ -4332,7 +4332,7 @@ lpad:                                             ; preds = %sw.bb585, %sw.bb580
 lpad13:                                           ; preds = %if.end21, %if.end15, %if.then11
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_09ImageSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %newspec) #22
+  call void @_ZN18OpenImageIO_v2_6_09ImageSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %newspec) #24
   br label %ehcleanup603
 
 if.end15:                                         ; preds = %invoke.cont14, %invoke.cont9
@@ -4378,7 +4378,7 @@ if.then19:                                        ; preds = %invoke.cont16, %lan
   %arraylen5.i = getelementptr inbounds i8, ptr %convert, i64 4
   %16 = load i32, ptr %arraylen5.i, align 4
   store i32 %16, ptr %arraylen.i, align 4
-  call void @_ZN18OpenImageIO_v2_6_09ImageSpec10set_formatENS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(160) %newspec, ptr noundef nonnull %agg.tmp20) #22
+  call void @_ZN18OpenImageIO_v2_6_09ImageSpec10set_formatENS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(160) %newspec, ptr noundef nonnull %agg.tmp20) #24
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then19, %_ZNK18OpenImageIO_v2_6_08TypeDescneERKS0_.exit
@@ -4395,7 +4395,7 @@ invoke.cont22:                                    ; preds = %if.end21
 
 for.body.i.i.i.i.i.i:                             ; preds = %invoke.cont22, %for.body.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %17, %invoke.cont22 ]
-  call void @_ZN18OpenImageIO_v2_6_010ParamValue11clear_valueEv(ptr noundef nonnull align 8 dereferenceable(39) %__first.addr.04.i.i.i.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_010ParamValue11clear_valueEv(ptr noundef nonnull align 8 dereferenceable(39) %__first.addr.04.i.i.i.i.i.i) #24
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 40
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %18
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !17
@@ -4410,7 +4410,7 @@ invoke.cont.i.i.i:                                ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i, label %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %19) #23
+  call void @_ZdlPv(ptr noundef nonnull %19) #25
   br label %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i
 
 _ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i: ; preds = %if.then.i.i.i.i.i, %invoke.cont.i.i.i
@@ -4423,7 +4423,7 @@ _ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i: ; preds = %if.then.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %20, %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #24
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %21
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !18
@@ -4438,7 +4438,7 @@ invoke.cont.i.i:                                  ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
-  call void @_ZdlPv(ptr noundef nonnull %22) #23
+  call void @_ZdlPv(ptr noundef nonnull %22) #25
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %invoke.cont.i.i
@@ -4448,7 +4448,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %tobool.not.i.i.i2.i, label %if.end23, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %23) #23
+  call void @_ZdlPv(ptr noundef nonnull %23) #25
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then.i.i.i3.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, %invoke.cont4
@@ -4531,7 +4531,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #26
+  call void @__clang_call_terminate(ptr %34) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit: ; preds = %for.cond.cleanup, %if.then.i.i
@@ -4546,7 +4546,7 @@ lpad30:                                           ; preds = %_ZN18OpenImageIO_v2
 lpad32:                                           ; preds = %if.end13.i339, %if.then2.i347, %if.end13.i, %if.then2.i, %invoke.cont35, %for.body
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d) #24
   br label %ehcleanup
 
 for.body:                                         ; preds = %for.cond, %land.lhs.true.i, %land.lhs.true3.i, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -4688,12 +4688,12 @@ terminate.lpad.i.i354:                            ; preds = %if.then.i.i353
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #26
+  call void @__clang_call_terminate(ptr %69) #28
   unreachable
 
 ehcleanup:                                        ; preds = %lpad32, %lpad30
   %.pn = phi { ptr, i32 } [ %36, %lpad32 ], [ %35, %lpad30 ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s) #24
   br label %ehcleanup603
 
 if.end43:                                         ; preds = %invoke.cont26
@@ -5381,12 +5381,12 @@ invoke.cont597.invoke:                            ; preds = %sw.default596.invok
 
 cleanup:                                          ; preds = %sw.bb585, %sw.bb580, %sw.bb575, %sw.bb570, %sw.bb565, %sw.bb560, %sw.bb555, %sw.bb550, %sw.bb545, %sw.bb528, %sw.bb523, %sw.bb518, %sw.bb513, %sw.bb508, %sw.bb503, %sw.bb498, %sw.bb493, %sw.bb488, %sw.bb471, %sw.bb466, %sw.bb461, %sw.bb456, %sw.bb451, %sw.bb446, %sw.bb441, %sw.bb436, %sw.bb431, %sw.bb414, %sw.bb409, %sw.bb404, %sw.bb399, %sw.bb394, %sw.bb389, %sw.bb384, %sw.bb379, %sw.bb374, %sw.bb357, %sw.bb352, %sw.bb347, %sw.bb342, %sw.bb337, %sw.bb332, %sw.bb327, %sw.bb322, %sw.bb317, %sw.bb300, %sw.bb295, %sw.bb290, %sw.bb285, %sw.bb280, %sw.bb275, %sw.bb270, %sw.bb265, %sw.bb260, %sw.bb243, %sw.bb238, %sw.bb233, %sw.bb228, %sw.bb223, %sw.bb218, %sw.bb213, %sw.bb208, %sw.bb203, %sw.bb186, %sw.bb181, %sw.bb176, %sw.bb171, %sw.bb166, %sw.bb161, %sw.bb156, %sw.bb151, %sw.bb146, %sw.bb131, %sw.bb126, %sw.bb121, %sw.bb116, %sw.bb111, %sw.bb106, %sw.bb101, %sw.bb96, %sw.bb92, %invoke.cont597.invoke, %if.then.i.i353, %invoke.cont41, %invoke.cont79, %_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerC2ENS_17basic_string_viewIcSt11char_traitsIcEEE.exit
   %retval.0 = phi i1 [ true, %_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerC2ENS_17basic_string_viewIcSt11char_traitsIcEEE.exit ], [ %call82, %invoke.cont79 ], [ true, %sw.bb92 ], [ true, %sw.bb96 ], [ true, %sw.bb101 ], [ true, %sw.bb106 ], [ true, %sw.bb111 ], [ true, %sw.bb116 ], [ true, %sw.bb121 ], [ true, %sw.bb126 ], [ true, %sw.bb131 ], [ true, %sw.bb146 ], [ true, %sw.bb151 ], [ true, %sw.bb156 ], [ true, %sw.bb161 ], [ true, %sw.bb166 ], [ true, %sw.bb171 ], [ true, %sw.bb176 ], [ true, %sw.bb181 ], [ true, %sw.bb186 ], [ true, %sw.bb203 ], [ true, %sw.bb208 ], [ true, %sw.bb213 ], [ true, %sw.bb218 ], [ true, %sw.bb223 ], [ true, %sw.bb228 ], [ true, %sw.bb233 ], [ true, %sw.bb238 ], [ true, %sw.bb243 ], [ true, %sw.bb260 ], [ true, %sw.bb265 ], [ true, %sw.bb270 ], [ true, %sw.bb275 ], [ true, %sw.bb280 ], [ true, %sw.bb285 ], [ true, %sw.bb290 ], [ true, %sw.bb295 ], [ true, %sw.bb300 ], [ true, %sw.bb317 ], [ true, %sw.bb322 ], [ true, %sw.bb327 ], [ true, %sw.bb332 ], [ true, %sw.bb337 ], [ true, %sw.bb342 ], [ true, %sw.bb347 ], [ true, %sw.bb352 ], [ true, %sw.bb357 ], [ true, %sw.bb374 ], [ true, %sw.bb379 ], [ true, %sw.bb384 ], [ true, %sw.bb389 ], [ true, %sw.bb394 ], [ true, %sw.bb399 ], [ true, %sw.bb404 ], [ true, %sw.bb409 ], [ true, %sw.bb414 ], [ true, %sw.bb431 ], [ true, %sw.bb436 ], [ true, %sw.bb441 ], [ true, %sw.bb446 ], [ true, %sw.bb451 ], [ true, %sw.bb456 ], [ true, %sw.bb461 ], [ true, %sw.bb466 ], [ true, %sw.bb471 ], [ true, %sw.bb488 ], [ true, %sw.bb493 ], [ true, %sw.bb498 ], [ true, %sw.bb503 ], [ true, %sw.bb508 ], [ true, %sw.bb513 ], [ true, %sw.bb518 ], [ true, %sw.bb523 ], [ true, %sw.bb528 ], [ true, %sw.bb545 ], [ true, %sw.bb550 ], [ true, %sw.bb555 ], [ true, %sw.bb560 ], [ true, %sw.bb565 ], [ true, %sw.bb570 ], [ true, %sw.bb575 ], [ true, %sw.bb580 ], [ true, %sw.bb585 ], [ true, %invoke.cont41 ], [ true, %if.then.i.i353 ], [ false, %invoke.cont597.invoke ]
-  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #22
+  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #24
   ret i1 %retval.0
 
 ehcleanup603:                                     ; preds = %ehcleanup, %lpad13, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %7, %lpad ], [ %8, %lpad13 ]
-  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #22
+  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #24
   br label %common.resume
 }
 
@@ -5432,11 +5432,11 @@ cond.true.i.i.i.i:                                ; preds = %entry
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_08TypeDescEEE8allocateERS2_m.exit.i.i.i.i
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #29
   unreachable
 
 _ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_08TypeDescEEE8allocateERS2_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i6.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #25
+  %call5.i.i.i.i2.i6.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #27
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_08TypeDescEEE8allocateERS2_m.exit.i.i.i.i, %entry
@@ -5504,7 +5504,7 @@ lpad:                                             ; preds = %_ZNSt6vectorIN18Ope
 lpad8:                                            ; preds = %invoke.cont
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %channelnames) #22
+  tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %channelnames) #24
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad8, %lpad
@@ -5514,7 +5514,7 @@ ehcleanup:                                        ; preds = %lpad8, %lpad
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %ehcleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %15) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %15) #25
   br label %_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EED2Ev.exit: ; preds = %ehcleanup, %if.then.i.i.i
@@ -5542,7 +5542,7 @@ entry:
 
 for.body.i.i.i.i.i:                               ; preds = %entry, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %0, %entry ]
-  tail call void @_ZN18OpenImageIO_v2_6_010ParamValue11clear_valueEv(ptr noundef nonnull align 8 dereferenceable(39) %__first.addr.04.i.i.i.i.i) #22
+  tail call void @_ZN18OpenImageIO_v2_6_010ParamValue11clear_valueEv(ptr noundef nonnull align 8 dereferenceable(39) %__first.addr.04.i.i.i.i.i) #24
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 40
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !17
@@ -5557,7 +5557,7 @@ invoke.cont.i.i:                                  ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i, label %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
   br label %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit
 
 _ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit: ; preds = %invoke.cont.i.i, %if.then.i.i.i.i
@@ -5570,7 +5570,7 @@ _ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit: ; preds = %invoke.cont.i.i, %i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %3, %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #24
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !18
@@ -5585,7 +5585,7 @@ invoke.cont.i:                                    ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #25
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
@@ -5595,7 +5595,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %tobool.not.i.i.i2, label %_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   br label %_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %if.then.i.i.i3
@@ -5618,7 +5618,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -5639,7 +5639,7 @@ land.rhs:                                         ; preds = %entry
 
 cond.false:                                       ; preds = %entry, %land.rhs
   %0 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, i32 noundef 157, ptr noundef nonnull @__FUNCTION__._ZN18OpenImageIO_v2_6_0L9copy_deepERNS_8ImageBufERKS0_NS_3ROIEi, ptr noundef nonnull @.str.66) #24
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, i32 noundef 157, ptr noundef nonnull @__FUNCTION__._ZN18OpenImageIO_v2_6_0L9copy_deepERNS_8ImageBufERKS0_NS_3ROIEi, ptr noundef nonnull @.str.66) #26
   br label %cond.end
 
 cond.end:                                         ; preds = %land.rhs, %cond.false
@@ -5677,7 +5677,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -5698,7 +5698,7 @@ terminate.lpad.i.i8:                              ; preds = %if.then.i.i6
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit9: ; preds = %lpad, %if.then.i.i6
@@ -5721,7 +5721,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -5781,7 +5781,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -5802,7 +5802,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -5848,7 +5848,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -5869,7 +5869,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -5915,7 +5915,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -5936,7 +5936,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -5982,7 +5982,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -6003,7 +6003,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -6049,7 +6049,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -6070,7 +6070,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -6116,7 +6116,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -6137,7 +6137,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -6183,7 +6183,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -6204,7 +6204,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -6250,7 +6250,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -6271,7 +6271,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -6317,7 +6317,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -6338,7 +6338,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -6352,7 +6352,7 @@ entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %call.i2.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt) #22, !noalias !20
+  %call.i2.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt) #24, !noalias !20
   %0 = ptrtoint ptr %args to i64
   %1 = ptrtoint ptr %args1 to i64
   store i64 %0, ptr %ref.tmp.i, align 16, !alias.scope !23, !noalias !20
@@ -6362,22 +6362,22 @@ entry:
   store i64 ptrtoint (ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN18OpenImageIO_v2_6_08TypeDescENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ to i64), ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i.i, align 8, !alias.scope !23, !noalias !20
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %fmt, i64 %call.i2.i, i64 252, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store ptr %call.i, ptr %agg.tmp, align 8
   %m_len.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store i64 %call2.i, ptr %m_len.i, align 8
   invoke void @_ZNK18OpenImageIO_v2_6_08ImageBuf5errorENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   ret void
 
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   resume { ptr, i32 } %2
 }
 
@@ -6420,7 +6420,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -6441,7 +6441,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -6487,7 +6487,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -6508,7 +6508,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -6554,7 +6554,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -6575,7 +6575,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -6621,7 +6621,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -6642,7 +6642,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -6688,7 +6688,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -6709,7 +6709,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -6755,7 +6755,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -6776,7 +6776,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -6822,7 +6822,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -6843,7 +6843,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -6889,7 +6889,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -6910,7 +6910,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -6956,7 +6956,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -6977,7 +6977,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -7023,7 +7023,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -7044,7 +7044,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -7090,7 +7090,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -7111,7 +7111,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -7157,7 +7157,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -7178,7 +7178,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -7224,7 +7224,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -7245,7 +7245,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -7291,7 +7291,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -7312,7 +7312,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -7358,7 +7358,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -7379,7 +7379,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -7425,7 +7425,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -7446,7 +7446,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -7492,7 +7492,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -7513,7 +7513,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -7559,7 +7559,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -7580,7 +7580,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -7626,7 +7626,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -7647,7 +7647,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -7693,7 +7693,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -7714,7 +7714,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -7760,7 +7760,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -7781,7 +7781,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -7827,7 +7827,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -7848,7 +7848,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -7894,7 +7894,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -7915,7 +7915,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -7961,7 +7961,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -7982,7 +7982,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -8028,7 +8028,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -8049,7 +8049,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -8095,7 +8095,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -8116,7 +8116,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -8162,7 +8162,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -8183,7 +8183,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -8229,7 +8229,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -8250,7 +8250,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -8296,7 +8296,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -8317,7 +8317,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -8363,7 +8363,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -8384,7 +8384,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -8430,7 +8430,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -8451,7 +8451,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -8497,7 +8497,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -8518,7 +8518,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -8564,7 +8564,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -8585,7 +8585,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -8631,7 +8631,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -8652,7 +8652,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -8698,7 +8698,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -8719,7 +8719,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -8765,7 +8765,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -8786,7 +8786,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -8832,7 +8832,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -8853,7 +8853,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -8899,7 +8899,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -8920,7 +8920,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -8966,7 +8966,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -8987,7 +8987,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -9033,7 +9033,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -9054,7 +9054,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -9100,7 +9100,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -9121,7 +9121,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -9167,7 +9167,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -9188,7 +9188,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -9234,7 +9234,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -9255,7 +9255,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -9301,7 +9301,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -9322,7 +9322,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -9368,7 +9368,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -9389,7 +9389,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -9435,7 +9435,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -9456,7 +9456,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -9502,7 +9502,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -9523,7 +9523,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -9569,7 +9569,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -9590,7 +9590,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -9636,7 +9636,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -9657,7 +9657,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -9703,7 +9703,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -9724,7 +9724,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -9770,7 +9770,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -9791,7 +9791,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -9837,7 +9837,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -9858,7 +9858,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -9904,7 +9904,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -9925,7 +9925,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -9971,7 +9971,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -9992,7 +9992,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -10038,7 +10038,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -10059,7 +10059,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -10105,7 +10105,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -10126,7 +10126,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -10172,7 +10172,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -10193,7 +10193,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -10239,7 +10239,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -10260,7 +10260,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -10306,7 +10306,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -10327,7 +10327,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -10373,7 +10373,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -10394,7 +10394,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -10440,7 +10440,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -10461,7 +10461,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -10507,7 +10507,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -10528,7 +10528,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -10574,7 +10574,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -10595,7 +10595,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -10641,7 +10641,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -10662,7 +10662,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -10708,7 +10708,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -10729,7 +10729,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -10775,7 +10775,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -10796,7 +10796,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -10842,7 +10842,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -10863,7 +10863,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -10909,7 +10909,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -10930,7 +10930,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -10976,7 +10976,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -10997,7 +10997,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -11043,7 +11043,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -11064,7 +11064,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -11110,7 +11110,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -11131,7 +11131,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -11177,7 +11177,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #26
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -11198,7 +11198,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -11246,7 +11246,7 @@ if.then:                                          ; preds = %invoke.cont2
 lpad:                                             ; preds = %if.then, %land.lhs.true, %entry
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #22
+  tail call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #24
   resume { ptr, i32 } %4
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont, %invoke.cont2, %if.then
@@ -11262,25 +11262,25 @@ entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %call.i2.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt) #22, !noalias !26
+  %call.i2.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt) #24, !noalias !26
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %fmt, i64 %call.i2.i, i64 0, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store ptr %call.i, ptr %agg.tmp, align 8
   %m_len.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store i64 %call2.i, ptr %m_len.i, align 8
   invoke void @_ZNK18OpenImageIO_v2_6_08ImageBuf5errorENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   ret void
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   resume { ptr, i32 } %0
 }
 
@@ -11305,7 +11305,7 @@ entry:
 
 _ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i:   ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i.i)
-  %call.i.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i) #22
+  %call.i.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i) #24
   %1 = load i64, ptr %t.i.i.i.i, align 8
   %mul.i.i.i.i = mul nsw i64 %1, 1000000000
   %tv_nsec.i.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i.i, i64 8
@@ -11318,7 +11318,7 @@ _ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i:   ; preds = %entry
 
 _ZN18OpenImageIO_v2_6_05TimerC2Eb.exit.i:         ; preds = %_ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i, %entry
   %m_name.i = getelementptr inbounds i8, ptr %logtime, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #24
   %m_count.i = getelementptr inbounds i8, ptr %logtime, i64 64
   store i32 1, ptr %m_count.i, align 8
   %3 = load i32, ptr @_ZN18OpenImageIO_v2_6_03pvt14oiio_log_timesE, align 4
@@ -11336,8 +11336,8 @@ common.resume:                                    ; preds = %ehcleanup584, %lpad
 lpad.i:                                           ; preds = %if.then.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #22
-  call void @_ZN18OpenImageIO_v2_6_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %logtime) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #24
+  call void @_ZN18OpenImageIO_v2_6_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %logtime) #24
   br label %common.resume
 
 _ZN18OpenImageIO_v2_6_03pvt11LoggedTimerC2ENS_17basic_string_viewIcSt11char_traitsIcEEE.exit: ; preds = %_ZN18OpenImageIO_v2_6_05TimerC2Eb.exit.i, %if.then.i
@@ -11440,7 +11440,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #26
+  call void @__clang_call_terminate(ptr %17) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit: ; preds = %for.cond.cleanup, %if.then.i.i
@@ -11455,7 +11455,7 @@ lpad11:                                           ; preds = %_ZN18OpenImageIO_v2
 lpad13:                                           ; preds = %if.end13.i333, %if.then2.i341, %if.end13.i, %if.then2.i, %invoke.cont16, %for.body
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d) #24
   br label %ehcleanup
 
 for.body:                                         ; preds = %for.cond, %land.lhs.true.i, %land.lhs.true3.i, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -11597,12 +11597,12 @@ terminate.lpad.i.i348:                            ; preds = %if.then.i.i347
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #26
+  call void @__clang_call_terminate(ptr %52) #28
   unreachable
 
 ehcleanup:                                        ; preds = %lpad13, %lpad11
   %.pn = phi { ptr, i32 } [ %19, %lpad13 ], [ %18, %lpad11 ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s) #24
   br label %ehcleanup584
 
 if.end24:                                         ; preds = %invoke.cont7
@@ -12290,12 +12290,12 @@ invoke.cont578.invoke:                            ; preds = %sw.default577.invok
 
 cleanup:                                          ; preds = %sw.bb566, %sw.bb561, %sw.bb556, %sw.bb551, %sw.bb546, %sw.bb541, %sw.bb536, %sw.bb531, %sw.bb526, %sw.bb509, %sw.bb504, %sw.bb499, %sw.bb494, %sw.bb489, %sw.bb484, %sw.bb479, %sw.bb474, %sw.bb469, %sw.bb452, %sw.bb447, %sw.bb442, %sw.bb437, %sw.bb432, %sw.bb427, %sw.bb422, %sw.bb417, %sw.bb412, %sw.bb395, %sw.bb390, %sw.bb385, %sw.bb380, %sw.bb375, %sw.bb370, %sw.bb365, %sw.bb360, %sw.bb355, %sw.bb338, %sw.bb333, %sw.bb328, %sw.bb323, %sw.bb318, %sw.bb313, %sw.bb308, %sw.bb303, %sw.bb298, %sw.bb281, %sw.bb276, %sw.bb271, %sw.bb266, %sw.bb261, %sw.bb256, %sw.bb251, %sw.bb246, %sw.bb241, %sw.bb224, %sw.bb219, %sw.bb214, %sw.bb209, %sw.bb204, %sw.bb199, %sw.bb194, %sw.bb189, %sw.bb184, %sw.bb167, %sw.bb162, %sw.bb157, %sw.bb152, %sw.bb147, %sw.bb142, %sw.bb137, %sw.bb132, %sw.bb127, %sw.bb112, %sw.bb107, %sw.bb102, %sw.bb97, %sw.bb92, %sw.bb87, %sw.bb82, %sw.bb77, %sw.bb73, %invoke.cont578.invoke, %if.then.i.i347, %invoke.cont22, %invoke.cont60, %invoke.cont5
   %retval.0 = phi i1 [ false, %invoke.cont5 ], [ %call63, %invoke.cont60 ], [ true, %sw.bb73 ], [ true, %sw.bb77 ], [ true, %sw.bb82 ], [ true, %sw.bb87 ], [ true, %sw.bb92 ], [ true, %sw.bb97 ], [ true, %sw.bb102 ], [ true, %sw.bb107 ], [ true, %sw.bb112 ], [ true, %sw.bb127 ], [ true, %sw.bb132 ], [ true, %sw.bb137 ], [ true, %sw.bb142 ], [ true, %sw.bb147 ], [ true, %sw.bb152 ], [ true, %sw.bb157 ], [ true, %sw.bb162 ], [ true, %sw.bb167 ], [ true, %sw.bb184 ], [ true, %sw.bb189 ], [ true, %sw.bb194 ], [ true, %sw.bb199 ], [ true, %sw.bb204 ], [ true, %sw.bb209 ], [ true, %sw.bb214 ], [ true, %sw.bb219 ], [ true, %sw.bb224 ], [ true, %sw.bb241 ], [ true, %sw.bb246 ], [ true, %sw.bb251 ], [ true, %sw.bb256 ], [ true, %sw.bb261 ], [ true, %sw.bb266 ], [ true, %sw.bb271 ], [ true, %sw.bb276 ], [ true, %sw.bb281 ], [ true, %sw.bb298 ], [ true, %sw.bb303 ], [ true, %sw.bb308 ], [ true, %sw.bb313 ], [ true, %sw.bb318 ], [ true, %sw.bb323 ], [ true, %sw.bb328 ], [ true, %sw.bb333 ], [ true, %sw.bb338 ], [ true, %sw.bb355 ], [ true, %sw.bb360 ], [ true, %sw.bb365 ], [ true, %sw.bb370 ], [ true, %sw.bb375 ], [ true, %sw.bb380 ], [ true, %sw.bb385 ], [ true, %sw.bb390 ], [ true, %sw.bb395 ], [ true, %sw.bb412 ], [ true, %sw.bb417 ], [ true, %sw.bb422 ], [ true, %sw.bb427 ], [ true, %sw.bb432 ], [ true, %sw.bb437 ], [ true, %sw.bb442 ], [ true, %sw.bb447 ], [ true, %sw.bb452 ], [ true, %sw.bb469 ], [ true, %sw.bb474 ], [ true, %sw.bb479 ], [ true, %sw.bb484 ], [ true, %sw.bb489 ], [ true, %sw.bb494 ], [ true, %sw.bb499 ], [ true, %sw.bb504 ], [ true, %sw.bb509 ], [ true, %sw.bb526 ], [ true, %sw.bb531 ], [ true, %sw.bb536 ], [ true, %sw.bb541 ], [ true, %sw.bb546 ], [ true, %sw.bb551 ], [ true, %sw.bb556 ], [ true, %sw.bb561 ], [ true, %sw.bb566 ], [ true, %invoke.cont22 ], [ true, %if.then.i.i347 ], [ false, %invoke.cont578.invoke ]
-  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #22
+  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #24
   ret i1 %retval.0
 
 ehcleanup584:                                     ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %6, %lpad ]
-  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #22
+  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #24
   br label %common.resume
 }
 
@@ -12325,7 +12325,7 @@ if.then:                                          ; preds = %invoke.cont1
 lpad:                                             ; preds = %if.then, %land.lhs.true, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #22
+  tail call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #24
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont, %invoke.cont1, %if.then
@@ -12349,7 +12349,7 @@ entry:
 
 _ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i:   ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i.i)
-  %call.i.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i) #22
+  %call.i.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i) #24
   %1 = load i64, ptr %t.i.i.i.i, align 8
   %mul.i.i.i.i = mul nsw i64 %1, 1000000000
   %tv_nsec.i.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i.i, i64 8
@@ -12362,7 +12362,7 @@ _ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i:   ; preds = %entry
 
 _ZN18OpenImageIO_v2_6_05TimerC2Eb.exit.i:         ; preds = %_ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i, %entry
   %m_name.i = getelementptr inbounds i8, ptr %logtime, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #24
   %m_count.i = getelementptr inbounds i8, ptr %logtime, i64 64
   store i32 1, ptr %m_count.i, align 8
   %3 = load i32, ptr @_ZN18OpenImageIO_v2_6_03pvt14oiio_log_timesE, align 4
@@ -12380,8 +12380,8 @@ common.resume:                                    ; preds = %lpad, %lpad.i
 lpad.i:                                           ; preds = %if.then.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #22
-  call void @_ZN18OpenImageIO_v2_6_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %logtime) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #24
+  call void @_ZN18OpenImageIO_v2_6_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %logtime) #24
   br label %common.resume
 
 _ZN18OpenImageIO_v2_6_03pvt11LoggedTimerC2ENS_17basic_string_viewIcSt11char_traitsIcEEE.exit: ; preds = %_ZN18OpenImageIO_v2_6_05TimerC2Eb.exit.i, %if.then.i
@@ -12394,7 +12394,7 @@ invoke.cont:                                      ; preds = %_ZN18OpenImageIO_v2
 lpad:                                             ; preds = %invoke.cont8, %invoke.cont6, %invoke.cont4, %invoke.cont2, %if.end, %_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerC2ENS_17basic_string_viewIcSt11char_traitsIcEEE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #22
+  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #24
   br label %common.resume
 
 if.end:                                           ; preds = %invoke.cont
@@ -12423,7 +12423,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %invoke.cont8, %invoke.cont
-  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #22
+  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #24
   ret i1 %call
 }
 
@@ -12455,7 +12455,7 @@ if.then:                                          ; preds = %invoke.cont1
 lpad:                                             ; preds = %if.then, %land.lhs.true, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #22
+  tail call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #24
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont, %invoke.cont1, %if.then
@@ -12545,7 +12545,7 @@ entry:
 
 _ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i:   ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i.i)
-  %call.i.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i) #22
+  %call.i.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i) #24
   %1 = load i64, ptr %t.i.i.i.i, align 8
   %mul.i.i.i.i = mul nsw i64 %1, 1000000000
   %tv_nsec.i.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i.i, i64 8
@@ -12558,7 +12558,7 @@ _ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i:   ; preds = %entry
 
 _ZN18OpenImageIO_v2_6_05TimerC2Eb.exit.i:         ; preds = %_ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i, %entry
   %m_name.i = getelementptr inbounds i8, ptr %logtime, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #24
   %m_count.i = getelementptr inbounds i8, ptr %logtime, i64 64
   store i32 1, ptr %m_count.i, align 8
   %3 = load i32, ptr @_ZN18OpenImageIO_v2_6_03pvt14oiio_log_timesE, align 4
@@ -12576,8 +12576,8 @@ common.resume:                                    ; preds = %ehcleanup307, %lpad
 lpad.i:                                           ; preds = %if.then.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #22
-  call void @_ZN18OpenImageIO_v2_6_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %logtime) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #24
+  call void @_ZN18OpenImageIO_v2_6_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %logtime) #24
   br label %common.resume
 
 _ZN18OpenImageIO_v2_6_03pvt11LoggedTimerC2ENS_17basic_string_viewIcSt11char_traitsIcEEE.exit: ; preds = %_ZN18OpenImageIO_v2_6_05TimerC2Eb.exit.i, %if.then.i
@@ -12676,7 +12676,7 @@ sw.bb:                                            ; preds = %invoke.cont8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 16
   %15 = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 8
   store i64 0, ptr %15, align 8
-  %call.i.i2.i.i219 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i.i219 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
           to label %call.i.i2.i.i.noexc unwind label %lpad
 
 call.i.i2.i.i.noexc:                              ; preds = %sw.bb
@@ -12711,7 +12711,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #26
+  call void @__clang_call_terminate(ptr %18) #28
   unreachable
 
 lpad.i217:                                        ; preds = %call.i.i2.i.i.noexc
@@ -12729,7 +12729,7 @@ terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #26
+  call void @__clang_call_terminate(ptr %22) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_0L15circular_shift_IffEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
@@ -12766,7 +12766,7 @@ sw.bb15:                                          ; preds = %invoke.cont8
   %_M_manager.i.i.i232 = getelementptr inbounds i8, ptr %agg.tmp2.i226, i64 16
   %23 = getelementptr inbounds i8, ptr %agg.tmp2.i226, i64 8
   store i64 0, ptr %23, align 8
-  %call.i.i2.i.i251 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i.i251 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
           to label %call.i.i2.i.i.noexc250 unwind label %lpad
 
 call.i.i2.i.i.noexc250:                           ; preds = %sw.bb15
@@ -12801,7 +12801,7 @@ terminate.lpad.i.i.i249:                          ; preds = %if.then.i.i.i247
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #26
+  call void @__clang_call_terminate(ptr %26) #28
   unreachable
 
 lpad.i239:                                        ; preds = %call.i.i2.i.i.noexc250
@@ -12819,7 +12819,7 @@ terminate.lpad.i.i6.i243:                         ; preds = %if.then.i.i4.i241
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #26
+  call void @__clang_call_terminate(ptr %30) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_0L15circular_shift_IhhEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit: ; preds = %invoke.cont.i245, %if.then.i.i.i247
@@ -12856,7 +12856,7 @@ sw.bb21:                                          ; preds = %invoke.cont8
   %_M_manager.i.i.i266 = getelementptr inbounds i8, ptr %agg.tmp2.i260, i64 16
   %31 = getelementptr inbounds i8, ptr %agg.tmp2.i260, i64 8
   store i64 0, ptr %31, align 8
-  %call.i.i2.i.i285 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i.i285 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
           to label %call.i.i2.i.i.noexc284 unwind label %lpad
 
 call.i.i2.i.i.noexc284:                           ; preds = %sw.bb21
@@ -12891,7 +12891,7 @@ terminate.lpad.i.i.i283:                          ; preds = %if.then.i.i.i281
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #26
+  call void @__clang_call_terminate(ptr %34) #28
   unreachable
 
 lpad.i273:                                        ; preds = %call.i.i2.i.i.noexc284
@@ -12909,7 +12909,7 @@ terminate.lpad.i.i6.i277:                         ; preds = %if.then.i.i4.i275
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #26
+  call void @__clang_call_terminate(ptr %38) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_0L15circular_shift_IttEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit: ; preds = %invoke.cont.i279, %if.then.i.i.i281
@@ -12946,7 +12946,7 @@ sw.bb27:                                          ; preds = %invoke.cont8
   %_M_manager.i.i.i300 = getelementptr inbounds i8, ptr %agg.tmp2.i294, i64 16
   %39 = getelementptr inbounds i8, ptr %agg.tmp2.i294, i64 8
   store i64 0, ptr %39, align 8
-  %call.i.i2.i.i319 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i.i319 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
           to label %call.i.i2.i.i.noexc318 unwind label %lpad
 
 call.i.i2.i.i.noexc318:                           ; preds = %sw.bb27
@@ -12981,7 +12981,7 @@ terminate.lpad.i.i.i317:                          ; preds = %if.then.i.i.i315
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #26
+  call void @__clang_call_terminate(ptr %42) #28
   unreachable
 
 lpad.i307:                                        ; preds = %call.i.i2.i.i.noexc318
@@ -12999,7 +12999,7 @@ terminate.lpad.i.i6.i311:                         ; preds = %if.then.i.i4.i309
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #26
+  call void @__clang_call_terminate(ptr %46) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_0L15circular_shift_I4halfS1_EEbRNS_8ImageBufERKS2_iiiNS_3ROIES6_i.exit: ; preds = %invoke.cont.i313, %if.then.i.i.i315
@@ -13036,7 +13036,7 @@ sw.bb33:                                          ; preds = %invoke.cont8
   %_M_manager.i.i.i334 = getelementptr inbounds i8, ptr %agg.tmp2.i328, i64 16
   %47 = getelementptr inbounds i8, ptr %agg.tmp2.i328, i64 8
   store i64 0, ptr %47, align 8
-  %call.i.i2.i.i353 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i.i353 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
           to label %call.i.i2.i.i.noexc352 unwind label %lpad
 
 call.i.i2.i.i.noexc352:                           ; preds = %sw.bb33
@@ -13071,7 +13071,7 @@ terminate.lpad.i.i.i351:                          ; preds = %if.then.i.i.i349
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #26
+  call void @__clang_call_terminate(ptr %50) #28
   unreachable
 
 lpad.i341:                                        ; preds = %call.i.i2.i.i.noexc352
@@ -13089,7 +13089,7 @@ terminate.lpad.i.i6.i345:                         ; preds = %if.then.i.i4.i343
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #26
+  call void @__clang_call_terminate(ptr %54) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_0L15circular_shift_IccEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit: ; preds = %invoke.cont.i347, %if.then.i.i.i349
@@ -13126,7 +13126,7 @@ sw.bb39:                                          ; preds = %invoke.cont8
   %_M_manager.i.i.i368 = getelementptr inbounds i8, ptr %agg.tmp2.i362, i64 16
   %55 = getelementptr inbounds i8, ptr %agg.tmp2.i362, i64 8
   store i64 0, ptr %55, align 8
-  %call.i.i2.i.i387 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i.i387 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
           to label %call.i.i2.i.i.noexc386 unwind label %lpad
 
 call.i.i2.i.i.noexc386:                           ; preds = %sw.bb39
@@ -13161,7 +13161,7 @@ terminate.lpad.i.i.i385:                          ; preds = %if.then.i.i.i383
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #26
+  call void @__clang_call_terminate(ptr %58) #28
   unreachable
 
 lpad.i375:                                        ; preds = %call.i.i2.i.i.noexc386
@@ -13179,7 +13179,7 @@ terminate.lpad.i.i6.i379:                         ; preds = %if.then.i.i4.i377
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #26
+  call void @__clang_call_terminate(ptr %62) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_0L15circular_shift_IssEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit: ; preds = %invoke.cont.i381, %if.then.i.i.i383
@@ -13216,7 +13216,7 @@ sw.bb45:                                          ; preds = %invoke.cont8
   %_M_manager.i.i.i402 = getelementptr inbounds i8, ptr %agg.tmp2.i396, i64 16
   %63 = getelementptr inbounds i8, ptr %agg.tmp2.i396, i64 8
   store i64 0, ptr %63, align 8
-  %call.i.i2.i.i421 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i.i421 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
           to label %call.i.i2.i.i.noexc420 unwind label %lpad
 
 call.i.i2.i.i.noexc420:                           ; preds = %sw.bb45
@@ -13251,7 +13251,7 @@ terminate.lpad.i.i.i419:                          ; preds = %if.then.i.i.i417
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #26
+  call void @__clang_call_terminate(ptr %66) #28
   unreachable
 
 lpad.i409:                                        ; preds = %call.i.i2.i.i.noexc420
@@ -13269,7 +13269,7 @@ terminate.lpad.i.i6.i413:                         ; preds = %if.then.i.i4.i411
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #26
+  call void @__clang_call_terminate(ptr %70) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_0L15circular_shift_IjjEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit: ; preds = %invoke.cont.i415, %if.then.i.i.i417
@@ -13306,7 +13306,7 @@ sw.bb51:                                          ; preds = %invoke.cont8
   %_M_manager.i.i.i436 = getelementptr inbounds i8, ptr %agg.tmp2.i430, i64 16
   %71 = getelementptr inbounds i8, ptr %agg.tmp2.i430, i64 8
   store i64 0, ptr %71, align 8
-  %call.i.i2.i.i455 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i.i455 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
           to label %call.i.i2.i.i.noexc454 unwind label %lpad
 
 call.i.i2.i.i.noexc454:                           ; preds = %sw.bb51
@@ -13341,7 +13341,7 @@ terminate.lpad.i.i.i453:                          ; preds = %if.then.i.i.i451
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 lpad.i443:                                        ; preds = %call.i.i2.i.i.noexc454
@@ -13359,7 +13359,7 @@ terminate.lpad.i.i6.i447:                         ; preds = %if.then.i.i4.i445
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #26
+  call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_0L15circular_shift_IiiEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit: ; preds = %invoke.cont.i449, %if.then.i.i.i451
@@ -13396,7 +13396,7 @@ sw.bb57:                                          ; preds = %invoke.cont8
   %_M_manager.i.i.i470 = getelementptr inbounds i8, ptr %agg.tmp2.i464, i64 16
   %79 = getelementptr inbounds i8, ptr %agg.tmp2.i464, i64 8
   store i64 0, ptr %79, align 8
-  %call.i.i2.i.i489 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i.i489 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
           to label %call.i.i2.i.i.noexc488 unwind label %lpad
 
 call.i.i2.i.i.noexc488:                           ; preds = %sw.bb57
@@ -13431,7 +13431,7 @@ terminate.lpad.i.i.i487:                          ; preds = %if.then.i.i.i485
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #26
+  call void @__clang_call_terminate(ptr %82) #28
   unreachable
 
 lpad.i477:                                        ; preds = %call.i.i2.i.i.noexc488
@@ -13449,7 +13449,7 @@ terminate.lpad.i.i6.i481:                         ; preds = %if.then.i.i4.i479
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #26
+  call void @__clang_call_terminate(ptr %86) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_0L15circular_shift_IddEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit: ; preds = %invoke.cont.i483, %if.then.i.i.i485
@@ -13536,13 +13536,13 @@ invoke.cont106:                                   ; preds = %invoke.cont103
           to label %invoke.cont110 unwind label %lpad105
 
 invoke.cont110:                                   ; preds = %invoke.cont106
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp) #24
   br label %cleanup
 
 lpad105:                                          ; preds = %invoke.cont106, %invoke.cont103
   %89 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp) #24
   br label %ehcleanup307
 
 sw.bb114:                                         ; preds = %invoke.cont67
@@ -13597,13 +13597,13 @@ invoke.cont149:                                   ; preds = %invoke.cont146
           to label %invoke.cont153 unwind label %lpad148
 
 invoke.cont153:                                   ; preds = %invoke.cont149
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp145) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp145) #24
   br label %cleanup
 
 lpad148:                                          ; preds = %invoke.cont149, %invoke.cont146
   %91 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp145) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp145) #24
   br label %ehcleanup307
 
 sw.bb157:                                         ; preds = %invoke.cont67
@@ -13658,13 +13658,13 @@ invoke.cont192:                                   ; preds = %invoke.cont189
           to label %invoke.cont196 unwind label %lpad191
 
 invoke.cont196:                                   ; preds = %invoke.cont192
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp188) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp188) #24
   br label %cleanup
 
 lpad191:                                          ; preds = %invoke.cont192, %invoke.cont189
   %93 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp188) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp188) #24
   br label %ehcleanup307
 
 sw.bb200:                                         ; preds = %invoke.cont67
@@ -13719,13 +13719,13 @@ invoke.cont235:                                   ; preds = %invoke.cont232
           to label %invoke.cont239 unwind label %lpad234
 
 invoke.cont239:                                   ; preds = %invoke.cont235
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp231) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp231) #24
   br label %cleanup
 
 lpad234:                                          ; preds = %invoke.cont235, %invoke.cont232
   %95 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp231) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp231) #24
   br label %ehcleanup307
 
 sw.default243:                                    ; preds = %invoke.cont67
@@ -13809,7 +13809,7 @@ invoke.cont287:                                   ; preds = %invoke.cont284
           to label %invoke.cont291 unwind label %lpad286
 
 invoke.cont291:                                   ; preds = %invoke.cont287
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp283) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp283) #24
   br label %if.then295
 
 if.then295:                                       ; preds = %sw.bb276, %sw.bb270, %sw.bb264, %sw.bb258, %invoke.cont291
@@ -13828,26 +13828,26 @@ if.then295:                                       ; preds = %sw.bb276, %sw.bb270
 lpad286:                                          ; preds = %invoke.cont287, %invoke.cont284
   %98 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp283) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp283) #24
   br label %ehcleanup
 
 if.end303:                                        ; preds = %if.then295
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp) #24
   br label %cleanup
 
 ehcleanup:                                        ; preds = %lpad286, %lpad245
   %.pn = phi { ptr, i32 } [ %96, %lpad245 ], [ %98, %lpad286 ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp) #24
   br label %ehcleanup307
 
 cleanup:                                          ; preds = %sw.bb218, %sw.bb212, %sw.bb206, %sw.bb181, %sw.bb169, %sw.bb163, %sw.bb138, %sw.bb132, %sw.bb120, %sw.bb96, %sw.bb90, %sw.bb84, %sw.bb175, %sw.bb224, %sw.bb126, %sw.bb78, %_ZN18OpenImageIO_v2_6_0L15circular_shift_IddEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit, %_ZN18OpenImageIO_v2_6_0L15circular_shift_IiiEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit, %_ZN18OpenImageIO_v2_6_0L15circular_shift_IjjEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit, %_ZN18OpenImageIO_v2_6_0L15circular_shift_IssEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit, %_ZN18OpenImageIO_v2_6_0L15circular_shift_IccEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit, %_ZN18OpenImageIO_v2_6_0L15circular_shift_I4halfS1_EEbRNS_8ImageBufERKS2_iiiNS_3ROIES6_i.exit, %_ZN18OpenImageIO_v2_6_0L15circular_shift_IttEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit, %_ZN18OpenImageIO_v2_6_0L15circular_shift_IhhEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit, %_ZN18OpenImageIO_v2_6_0L15circular_shift_IffEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit, %invoke.cont239, %invoke.cont196, %invoke.cont153, %invoke.cont110, %if.end303, %invoke.cont63, %invoke.cont
   %retval.0 = phi i1 [ false, %invoke.cont ], [ true, %if.end303 ], [ true, %invoke.cont239 ], [ true, %invoke.cont196 ], [ true, %invoke.cont153 ], [ true, %invoke.cont110 ], [ true, %_ZN18OpenImageIO_v2_6_0L15circular_shift_IffEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit ], [ true, %_ZN18OpenImageIO_v2_6_0L15circular_shift_IhhEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit ], [ true, %_ZN18OpenImageIO_v2_6_0L15circular_shift_IttEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit ], [ true, %_ZN18OpenImageIO_v2_6_0L15circular_shift_I4halfS1_EEbRNS_8ImageBufERKS2_iiiNS_3ROIES6_i.exit ], [ true, %_ZN18OpenImageIO_v2_6_0L15circular_shift_IccEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit ], [ true, %_ZN18OpenImageIO_v2_6_0L15circular_shift_IssEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit ], [ true, %_ZN18OpenImageIO_v2_6_0L15circular_shift_IjjEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit ], [ true, %_ZN18OpenImageIO_v2_6_0L15circular_shift_IiiEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit ], [ true, %_ZN18OpenImageIO_v2_6_0L15circular_shift_IddEEbRNS_8ImageBufERKS1_iiiNS_3ROIES5_i.exit ], [ false, %invoke.cont63 ], [ true, %sw.bb78 ], [ true, %sw.bb84 ], [ true, %sw.bb90 ], [ true, %sw.bb96 ], [ true, %sw.bb120 ], [ true, %sw.bb126 ], [ true, %sw.bb132 ], [ true, %sw.bb138 ], [ true, %sw.bb163 ], [ true, %sw.bb169 ], [ true, %sw.bb175 ], [ true, %sw.bb181 ], [ true, %sw.bb206 ], [ true, %sw.bb212 ], [ true, %sw.bb218 ], [ true, %sw.bb224 ]
-  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #22
+  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #24
   ret i1 %retval.0
 
 ehcleanup307:                                     ; preds = %lpad.i477, %if.then.i.i4.i479, %lpad.i443, %if.then.i.i4.i445, %lpad.i409, %if.then.i.i4.i411, %lpad.i375, %if.then.i.i4.i377, %lpad.i341, %if.then.i.i4.i343, %lpad.i307, %if.then.i.i4.i309, %lpad.i273, %if.then.i.i4.i275, %lpad.i239, %if.then.i.i4.i241, %lpad.i217, %if.then.i.i4.i, %lpad, %ehcleanup, %lpad234, %lpad191, %lpad148, %lpad105
   %.pn213 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %95, %lpad234 ], [ %93, %lpad191 ], [ %91, %lpad148 ], [ %89, %lpad105 ], [ %5, %lpad ], [ %19, %if.then.i.i4.i ], [ %19, %lpad.i217 ], [ %27, %if.then.i.i4.i241 ], [ %27, %lpad.i239 ], [ %35, %if.then.i.i4.i275 ], [ %35, %lpad.i273 ], [ %43, %if.then.i.i4.i309 ], [ %43, %lpad.i307 ], [ %51, %if.then.i.i4.i343 ], [ %51, %lpad.i341 ], [ %59, %if.then.i.i4.i377 ], [ %59, %lpad.i375 ], [ %67, %if.then.i.i4.i411 ], [ %67, %lpad.i409 ], [ %75, %if.then.i.i4.i445 ], [ %75, %lpad.i443 ], [ %83, %if.then.i.i4.i479 ], [ %83, %lpad.i477 ]
-  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #22
+  call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtime) #24
   br label %common.resume
 }
 
@@ -13877,7 +13877,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 0, ptr %0, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %dstroi, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %src, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -13908,7 +13908,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -13929,7 +13929,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -13962,7 +13962,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 0, ptr %0, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %dstroi, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %src, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -13993,7 +13993,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -14014,7 +14014,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -14047,7 +14047,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 0, ptr %0, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %dstroi, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %src, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -14078,7 +14078,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -14099,7 +14099,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -14132,7 +14132,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 0, ptr %0, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %dstroi, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %src, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -14163,7 +14163,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -14184,7 +14184,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -14198,7 +14198,7 @@ entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %call.i2.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt) #22, !noalias !29
+  %call.i2.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt) #24, !noalias !29
   %0 = ptrtoint ptr %args to i64
   %1 = ptrtoint ptr %args1 to i64
   store i64 %0, ptr %ref.tmp.i, align 16, !alias.scope !32, !noalias !29
@@ -14208,22 +14208,22 @@ entry:
   store i64 ptrtoint (ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN18OpenImageIO_v2_6_08TypeDescENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ to i64), ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i.i, align 8, !alias.scope !32, !noalias !29
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %fmt, i64 %call.i2.i, i64 252, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store ptr %call.i, ptr %agg.tmp, align 8
   %m_len.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store i64 %call2.i, ptr %m_len.i, align 8
   invoke void @_ZNK18OpenImageIO_v2_6_08ImageBuf5errorENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   ret void
 
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   resume { ptr, i32 } %2
 }
 
@@ -14253,7 +14253,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 0, ptr %0, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %dstroi, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %src, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -14284,7 +14284,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -14305,7 +14305,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -14338,7 +14338,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 0, ptr %0, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %dstroi, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %src, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -14369,7 +14369,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -14390,7 +14390,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -14423,7 +14423,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 0, ptr %0, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %dstroi, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %src, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -14454,7 +14454,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -14475,7 +14475,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -14508,7 +14508,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 0, ptr %0, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %dstroi, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %src, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -14539,7 +14539,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -14560,7 +14560,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -14593,7 +14593,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 0, ptr %0, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %dstroi, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %src, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -14624,7 +14624,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -14645,7 +14645,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -14678,7 +14678,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 0, ptr %0, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %dstroi, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %src, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -14709,7 +14709,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -14730,7 +14730,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -14763,7 +14763,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 0, ptr %0, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %dstroi, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %src, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -14794,7 +14794,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -14815,7 +14815,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -14848,7 +14848,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 0, ptr %0, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %dstroi, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %src, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -14879,7 +14879,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -14900,7 +14900,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -14933,7 +14933,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 0, ptr %0, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %dstroi, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %src, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -14964,7 +14964,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -14985,7 +14985,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -15018,7 +15018,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 0, ptr %0, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %dstroi, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %src, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -15049,7 +15049,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -15070,7 +15070,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -15103,7 +15103,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 0, ptr %0, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %dstroi, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %src, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -15134,7 +15134,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -15155,7 +15155,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -15188,7 +15188,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 0, ptr %0, align 8
-  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr %dstroi, ptr %call.i.i2.i, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store ptr %src, ptr %ref.tmp.sroa.2.0.call.i.i2.i.sroa_idx, align 8
@@ -15219,7 +15219,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -15240,7 +15240,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #26
+  call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -15271,7 +15271,7 @@ if.then:                                          ; preds = %invoke.cont1
 lpad:                                             ; preds = %if.then, %land.lhs.true, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #22
+  tail call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #24
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont, %invoke.cont1, %if.then
@@ -15283,17 +15283,18 @@ declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 de
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
-  tail call void @_ZSt9terminatev() #26
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
+  tail call void @_ZSt9terminatev() #28
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
@@ -15321,7 +15322,7 @@ cond.true.i.i:                                    ; preds = %if.then
   %m_starttime.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %m_starttime.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i)
-  %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #22
+  %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #24
   %4 = load i64, ptr %t.i.i.i, align 8
   %mul.i.i.i = mul nsw i64 %4, 1000000000
   %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i, i64 8
@@ -15355,7 +15356,7 @@ terminate.lpad:                                   ; preds = %.noexc
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #26
+  call void @__clang_call_terminate(ptr %11) #28
   unreachable
 }
 
@@ -15369,17 +15370,17 @@ define linkonce_odr hidden void @_ZN3fmt2v86vprintEP8_IO_FILENS0_17basic_string_
 entry:
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8
   store i64 500, ptr %capacity_.i.i, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   invoke void @_ZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %buffer, ptr %format_str.coerce0, i64 %format_str.coerce1, i64 %args.coerce0, ptr %args.coerce1, ptr null)
           to label %invoke.cont5 unwind label %lpad3
 
@@ -15396,17 +15397,17 @@ invoke.cont8:                                     ; preds = %invoke.cont5
   br i1 %cmp.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont8
-  call void @_ZdlPv(ptr noundef %2) #23
+  call void @_ZdlPv(ptr noundef %2) #25
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %invoke.cont8, %if.then.i.i
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #24
   ret void
 
 lpad3:                                            ; preds = %invoke.cont5, %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #22
+  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #24
   resume { ptr, i32 } %3
 }
 
@@ -15481,8 +15482,8 @@ if.end.thread:                                    ; preds = %_ZNK3fmt2v817basic_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i, ptr noundef nonnull @.str.17)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i, align 8
-  %call.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
+  %call.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   br label %return
 
@@ -15727,8 +15728,8 @@ if.then14.i:                                      ; preds = %lor.lhs.false.i, %i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i94)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i94, ptr noundef nonnull @.str.43)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i94, align 8
-  %call.i.i95 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i94) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i94) #22
+  %call.i.i95 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i94) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i94) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i94)
   br label %return
 
@@ -15871,7 +15872,7 @@ land.lhs.true.i:                                  ; preds = %while.body21.i
   %add.ptr25.i = getelementptr inbounds i8, ptr %begin.i.2194, i64 1
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr25.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i158, %sub.ptr.rhs.cast.i
-  %call1.i = call noundef ptr @memchr(ptr noundef nonnull %add.ptr25.i, i32 noundef 123, i64 noundef %sub.ptr.sub.i) #28
+  %call1.i = call noundef ptr @memchr(ptr noundef nonnull %add.ptr25.i, i32 noundef 123, i64 noundef %sub.ptr.sub.i) #30
   %cmp.i159.not = icmp eq ptr %call1.i, null
   br i1 %cmp.i159.not, label %if.then27.i, label %if.end28.i
 
@@ -15900,12 +15901,12 @@ entry:
   br i1 %cmp.not.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEE10deallocateEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef %0) #25
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEE10deallocateEv.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEE10deallocateEv.exit: ; preds = %entry, %if.then.i
   %alloc_ = getelementptr inbounds i8, ptr %this, i64 532
-  tail call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_) #22
+  tail call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_) #24
   ret void
 }
 
@@ -15936,14 +15937,14 @@ if.end6:                                          ; preds = %entry, %if.then4
   br i1 %cmp.i.i, label %if.end.i.i, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit
 
 if.end.i.i:                                       ; preds = %if.end6
-  tail call void @_ZSt17__throw_bad_allocv() #27
+  tail call void @_ZSt17__throw_bad_allocv() #29
   unreachable
 
 _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit: ; preds = %if.else, %if.end6
   %new_capacity.022 = phi i64 [ %new_capacity.0, %if.end6 ], [ %add, %if.else ]
   %ptr_.i23 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %ptr_.i23, align 8
-  %call5.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %new_capacity.022) #25
+  %call5.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %new_capacity.022) #27
   %size_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %size_.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq i64 %2, 0
@@ -15961,7 +15962,7 @@ _ZSt18uninitialized_copyIPcS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt16allocator_tr
   br i1 %cmp13.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %_ZSt18uninitialized_copyIPcS0_ET0_T_S2_S1_.exit
-  tail call void @_ZdlPv(ptr noundef %1) #23
+  tail call void @_ZdlPv(ptr noundef %1) #25
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %_ZSt18uninitialized_copyIPcS0_ET0_T_S2_S1_.exit
@@ -15969,13 +15970,13 @@ if.end16:                                         ; preds = %if.then14, %_ZSt18u
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #9
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #10
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #9
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #10
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
@@ -16063,7 +16064,7 @@ _ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_sp
 if.end16.i:                                       ; preds = %entry
   %4 = lshr i32 %0, 23
   %fspecs.sroa.2.0.i = and i32 %4, 256
-  %call17.i = tail call i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %value.addr.0.i) #22
+  %call17.i = tail call i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %value.addr.0.i) #24
   store i64 %call17.i, ptr %dec.i, align 8
   %fspecs.sroa.2.0.insert.ext.i = zext nneg i32 %fspecs.sroa.2.0.i to i64
   %fspecs.sroa.2.0.insert.shift.i = shl nuw nsw i64 %fspecs.sroa.2.0.insert.ext.i, 32
@@ -16115,7 +16116,7 @@ _ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_sp
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEdTnNSt9enable_ifIXsr13is_fast_floatIT1_EE5valueEiE4typeELi0EEET0_S8_S5_.exit
 
 if.end16.i:                                       ; preds = %entry
-  %call17.i = tail call { i64, i32 } @_ZN3fmt2v86detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %value.addr.0.i) #22
+  %call17.i = tail call { i64, i32 } @_ZN3fmt2v86detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %value.addr.0.i) #24
   %4 = extractvalue { i64, i32 } %call17.i, 0
   store i64 %4, ptr %dec.i, align 8
   %5 = getelementptr inbounds i8, ptr %dec.i, i64 8
@@ -16453,7 +16454,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEjTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %out.coerce, i32 noundef %value) local_unnamed_addr #5 comdat {
@@ -16838,7 +16839,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEyTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %out.coerce, i64 noundef %value) local_unnamed_addr #5 comdat {
@@ -17521,11 +17522,11 @@ land.lhs.true.i:                                  ; preds = %sw.bb.i
 lpad.i:                                           ; preds = %land.lhs.true.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping.i) #24
   resume { ptr, i32 } %2
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping.i) #24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %grouping.i)
   br label %_ZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE.exit
 
@@ -18418,8 +18419,8 @@ sw.default.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i, ptr noundef nonnull @.str.23)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i, align 8
-  %call.i350 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #22
+  %call.i350 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
   br label %_ZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE.exit
 
@@ -18433,7 +18434,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail14digit_groupingIcEC2ENS1_10lo
 entry:
   %result.i = alloca %"struct.fmt::v8::detail::thousands_sep_result", align 8
   %ref.tmp = alloca %"struct.fmt::v8::detail::thousands_sep_result", align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #24
   br i1 %localized, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -18449,7 +18450,7 @@ if.then:                                          ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result.i) #24
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -18457,13 +18458,13 @@ invoke.cont:                                      ; preds = %.noexc
   %thousands_sep3.i = getelementptr inbounds i8, ptr %result.i, i64 32
   %1 = load i8, ptr %thousands_sep3.i, align 8, !noalias !53
   store i8 %1, ptr %thousands_sep.i, align 8, !alias.scope !53
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result.i) #24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %result.i)
-  %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   %2 = load i8, ptr %thousands_sep.i, align 8
   %thousands_sep3.i2 = getelementptr inbounds i8, ptr %this, i64 32
   store i8 %2, ptr %thousands_sep3.i2, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   br label %if.end
 
 lpad:                                             ; preds = %if.then
@@ -18473,7 +18474,7 @@ lpad:                                             ; preds = %if.then
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #24
   resume { ptr, i32 } %eh.lpad-body
 
 if.else:                                          ; preds = %entry
@@ -18548,7 +18549,7 @@ if.end.i:                                         ; preds = %while.end.i
 _ZN3fmt2v86detail14format_decimalIcmEENS1_21format_decimal_resultIPT_EES5_T0_i.exit: ; preds = %if.then.i, %if.end.i
   %6 = load i32, ptr %prefix.addr, align 4
   %7 = load i32, ptr %num_digits, align 4
-  %call.i.i = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  %call.i.i = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   %thousands_sep.i.i = getelementptr inbounds i8, ptr %grouping, i64 32
   %8 = load i8, ptr %thousands_sep.i.i, align 8
   %tobool.not.i6.i = icmp eq i8 %8, 0
@@ -18558,12 +18559,12 @@ if.end.i.i:                                       ; preds = %_ZN3fmt2v86detail14
   %count.09.i = phi i32 [ %inc.i, %while.body.i6 ], [ 0, %_ZN3fmt2v86detail14format_decimalIcmEENS1_21format_decimal_resultIPT_EES5_T0_i.exit ]
   %state.sroa.0.08.i = phi ptr [ %state.sroa.0.1.i, %while.body.i6 ], [ %call.i.i, %_ZN3fmt2v86detail14format_decimalIcmEENS1_21format_decimal_resultIPT_EES5_T0_i.exit ]
   %state.sroa.3.07.i = phi i32 [ %add29.i.i, %while.body.i6 ], [ 0, %_ZN3fmt2v86detail14format_decimalIcmEENS1_21format_decimal_resultIPT_EES5_T0_i.exit ]
-  %call3.i.i = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  %call3.i.i = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   %cmp.i.i.i = icmp eq ptr %state.sroa.0.08.i, %call3.i.i
   br i1 %cmp.i.i.i, label %if.then5.i.i, label %if.end9.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %call8.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  %call8.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   %.pre.i = load i8, ptr %call8.i.i, align 1
   br label %_ZNK3fmt2v86detail14digit_groupingIcE4nextERNS3_10next_stateE.exit.i
 
@@ -18618,11 +18619,11 @@ entry:
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
-  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %loc.coerce) #22
+  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %loc.coerce) #24
   br label %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit
 
 cond.false.i:                                     ; preds = %entry
-  call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #22
+  call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
   br label %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit
 
 _ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit: ; preds = %cond.true.i, %cond.false.i
@@ -18630,9 +18631,9 @@ _ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit: ; preds = %cond.true.i, 
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #22
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
   call void @_ZNKSt7__cxx118numpunctIcE8groupingEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %grouping, ptr noundef nonnull align 8 dereferenceable(24) %call)
-  %call1 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  %call1 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   br i1 %call1, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %invoke.cont
@@ -18641,22 +18642,22 @@ cond.false:                                       ; preds = %invoke.cont
 
 cond.end:                                         ; preds = %cond.false, %invoke.cont
   %cond = phi i8 [ 0, %invoke.cont ], [ %call4, %cond.false ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   %thousands_sep6 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 %cond, ptr %thousands_sep6, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   ret void
 
 lpad:                                             ; preds = %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #22
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
   br label %eh.resume
 
 lpad2:                                            ; preds = %cond.false
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad2, %lpad
@@ -18993,7 +18994,7 @@ invoke.cont5:
   store i64 500, ptr %capacity_.i.i, align 8
   store i64 1, ptr %0, align 8
   store i32 0, ptr %store_.i, align 8
-  %call.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
+  %call.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #24
   %thousands_sep.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %thousands_sep.i, align 8
   %tobool.not.i57 = icmp eq i8 %1, 0
@@ -19002,12 +19003,12 @@ invoke.cont5:
 if.end.i:                                         ; preds = %invoke.cont5, %_ZN3fmt2v86detail6bufferIiE9push_backERKi.exit23
   %state.sroa.3.059 = phi i32 [ %add29.i, %_ZN3fmt2v86detail6bufferIiE9push_backERKi.exit23 ], [ 0, %invoke.cont5 ]
   %state.sroa.0.058 = phi ptr [ %state.sroa.0.1, %_ZN3fmt2v86detail6bufferIiE9push_backERKi.exit23 ], [ %call.i, %invoke.cont5 ]
-  %call3.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
+  %call3.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #24
   %cmp.i.i9 = icmp eq ptr %state.sroa.0.058, %call3.i
   br i1 %cmp.i.i9, label %if.then5.i, label %if.end9.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  %call8.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
+  %call8.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #24
   %.pre = load i8, ptr %call8.i, align 1
   br label %invoke.cont7
 
@@ -19048,7 +19049,7 @@ lpad4:                                            ; preds = %lpad4.loopexit.spli
   br i1 %cmp.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIiLm500ESaIiEED2Ev.exit, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %lpad4
-  call void @_ZdlPv(ptr noundef %5) #23
+  call void @_ZdlPv(ptr noundef %5) #25
   br label %_ZN3fmt2v819basic_memory_bufferIiLm500ESaIiEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIiLm500ESaIiEED2Ev.exit: ; preds = %lpad4, %if.then.i.i10
@@ -19176,7 +19177,7 @@ for.end:                                          ; preds = %for.inc, %while.end
   br i1 %cmp.not.i.i47, label %_ZN3fmt2v819basic_memory_bufferIiLm500ESaIiEED2Ev.exit49, label %if.then.i.i48
 
 if.then.i.i48:                                    ; preds = %for.end
-  call void @_ZdlPv(ptr noundef %30) #23
+  call void @_ZdlPv(ptr noundef %30) #25
   br label %_ZN3fmt2v819basic_memory_bufferIiLm500ESaIiEED2Ev.exit49
 
 _ZN3fmt2v819basic_memory_bufferIiLm500ESaIiEED2Ev.exit49: ; preds = %for.end, %if.then.i.i48
@@ -19211,11 +19212,11 @@ if.then.i.i:                                      ; preds = %if.end6
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #29
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  tail call void @_ZSt17__throw_bad_allocv() #27
+  tail call void @_ZSt17__throw_bad_allocv() #29
   unreachable
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit: ; preds = %if.else, %if.end6
@@ -19223,7 +19224,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit: ; preds = %if.else, %if.end6
   %ptr_.i23 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %ptr_.i23, align 8
   %mul.i.i = shl nuw nsw i64 %new_capacity.022, 2
-  %call5.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i) #25
+  %call5.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i) #27
   %size_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %size_.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq i64 %2, 0
@@ -19242,7 +19243,7 @@ _ZSt18uninitialized_copyIPiS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt16allocator_tr
   br i1 %cmp13.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %_ZSt18uninitialized_copyIPiS0_ET0_T_S2_S1_.exit
-  tail call void @_ZdlPv(ptr noundef %1) #23
+  tail call void @_ZdlPv(ptr noundef %1) #25
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %_ZSt18uninitialized_copyIPiS0_ET0_T_S2_S1_.exit
@@ -21528,7 +21529,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %x) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -22187,7 +22188,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(8) %fp, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 %fspecs.coerce, ptr %loc.coerce) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
@@ -22246,11 +22247,11 @@ cond.true:                                        ; preds = %entry
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %cond.true
-  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %loc.coerce) #22
+  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %loc.coerce) #24
   br label %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
 
 cond.false.i.i.i:                                 ; preds = %cond.true
-  call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #22
+  call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #24
   br label %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
 
 _ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i: ; preds = %cond.false.i.i.i, %cond.true.i.i.i
@@ -22268,11 +22269,11 @@ common.resume:                                    ; preds = %lpad, %lpad161, %lp
 lpad.i.i:                                         ; preds = %invoke.cont.i.i, %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #22
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #24
   br label %common.resume
 
 _ZN3fmt2v86detail13decimal_pointIcEET_NS1_10locale_refE.exit: ; preds = %invoke.cont.i.i
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #22
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   %.pre = load i32, ptr %significand_size, align 4
   br label %cond.end
@@ -22403,7 +22404,7 @@ if.end110:                                        ; preds = %if.end102, %if.then
   %bf.cast116 = icmp ne i32 %5, 0
   call void @_ZN3fmt2v86detail14digit_groupingIcEC2ENS1_10locale_refEb(ptr noundef nonnull align 8 dereferenceable(40) %grouping, ptr %loc.coerce, i1 noundef zeroext %bf.cast116)
   %27 = load i32, ptr %significand_size, align 4
-  %call.i.i38 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  %call.i.i38 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   %thousands_sep.i.i = getelementptr inbounds i8, ptr %grouping, i64 32
   %28 = load i8, ptr %thousands_sep.i.i, align 8
   %tobool.not.i6.i = icmp eq i8 %28, 0
@@ -22413,12 +22414,12 @@ if.end.i.i:                                       ; preds = %if.end110, %while.b
   %count.09.i = phi i32 [ %inc.i, %while.body.i ], [ 0, %if.end110 ]
   %state.sroa.0.08.i = phi ptr [ %state.sroa.0.1.i, %while.body.i ], [ %call.i.i38, %if.end110 ]
   %state.sroa.3.07.i = phi i32 [ %add29.i.i, %while.body.i ], [ 0, %if.end110 ]
-  %call3.i.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  %call3.i.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   %cmp.i.i.i = icmp eq ptr %state.sroa.0.08.i, %call3.i.i
   br i1 %cmp.i.i.i, label %if.then5.i.i, label %if.end9.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %call8.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  %call8.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   %.pre.i = load i8, ptr %call8.i.i, align 1
   br label %_ZNK3fmt2v86detail14digit_groupingIcE4nextERNS3_10next_stateE.exit.i
 
@@ -22475,13 +22476,13 @@ invoke.cont:                                      ; preds = %invoke.cont.loopexi
           to label %invoke.cont125 unwind label %lpad
 
 invoke.cont125:                                   ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   br label %return
 
 lpad:                                             ; preds = %invoke.cont
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   br label %common.resume
 
 if.else129:                                       ; preds = %if.end77
@@ -22498,7 +22499,7 @@ if.then131:                                       ; preds = %if.else129
   %bf.cast159 = icmp ne i32 %5, 0
   call void @_ZN3fmt2v86detail14digit_groupingIcEC2ENS1_10locale_refEb(ptr noundef nonnull align 8 dereferenceable(40) %grouping153, ptr %loc.coerce, i1 noundef zeroext %bf.cast159)
   %44 = load i32, ptr %significand_size, align 4
-  %call.i.i41 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #22
+  %call.i.i41 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #24
   %thousands_sep.i.i42 = getelementptr inbounds i8, ptr %grouping153, i64 32
   %45 = load i8, ptr %thousands_sep.i.i42, align 8
   %tobool.not.i6.i43 = icmp eq i8 %45, 0
@@ -22508,12 +22509,12 @@ if.end.i.i44:                                     ; preds = %if.then131, %while.
   %count.09.i45 = phi i32 [ %inc.i61, %while.body.i60 ], [ 0, %if.then131 ]
   %state.sroa.0.08.i46 = phi ptr [ %state.sroa.0.1.i55, %while.body.i60 ], [ %call.i.i41, %if.then131 ]
   %state.sroa.3.07.i47 = phi i32 [ %add29.i.i57, %while.body.i60 ], [ 0, %if.then131 ]
-  %call3.i.i48 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #22
+  %call3.i.i48 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #24
   %cmp.i.i.i49 = icmp eq ptr %state.sroa.0.08.i46, %call3.i.i48
   br i1 %cmp.i.i.i49, label %if.then5.i.i63, label %if.end9.i.i50
 
 if.then5.i.i63:                                   ; preds = %if.end.i.i44
-  %call8.i.i64 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #22
+  %call8.i.i64 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #24
   %.pre.i65 = load i8, ptr %call8.i.i64, align 1
   br label %_ZNK3fmt2v86detail14digit_groupingIcE4nextERNS3_10next_stateE.exit.i54
 
@@ -22571,13 +22572,13 @@ invoke.cont162:                                   ; preds = %invoke.cont162.loop
           to label %invoke.cont171 unwind label %lpad161
 
 invoke.cont171:                                   ; preds = %invoke.cont162
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #24
   br label %return
 
 lpad161:                                          ; preds = %invoke.cont162
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #24
   br label %common.resume
 
 if.end176:                                        ; preds = %if.else129
@@ -23883,17 +23884,17 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSERKc.exit.i: ; preds = 
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !65
 
 invoke.cont17:                                    ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #24
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #22
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #24
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8
   store i64 500, ptr %capacity_.i.i, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #24
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i.i5)
   %idx.ext.i.i.i6 = sext i32 %significand_size to i64
   %add.ptr.i.i.i7 = getelementptr inbounds i8, ptr %buffer.i.i5, i64 %idx.ext.i.i.i6
@@ -24042,11 +24043,11 @@ invoke.cont40:                                    ; preds = %invoke.cont29
   br i1 %cmp.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont40
-  call void @_ZdlPv(ptr noundef %37) #23
+  call void @_ZdlPv(ptr noundef %37) #25
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %invoke.cont40, %if.then.i.i
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #24
   br label %return
 
 lpad16.loopexit:                                  ; preds = %if.then.i.i.i.i73
@@ -24066,7 +24067,7 @@ lpad16.loopexit.split-lp.loopexit.split-lp:       ; preds = %invoke.cont29
 
 lpad16:                                           ; preds = %lpad16.loopexit.split-lp.loopexit, %lpad16.loopexit.split-lp.loopexit.split-lp, %lpad16.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad16.loopexit ], [ %lpad.loopexit82, %lpad16.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp83, %lpad16.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #22
+  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #24
   resume { ptr, i32 } %lpad.phi
 
 return:                                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSERKc.exit.i, %_ZN3fmt2v86detail17write_significandIcNS0_8appenderEjEET0_S4_T1_i.exit, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
@@ -24427,17 +24428,17 @@ if.then:                                          ; preds = %entry
   br label %return
 
 invoke.cont9:                                     ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8
   store i64 500, ptr %capacity_.i.i, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %call13 = invoke ptr @_ZN3fmt2v86detail17write_significandINS0_8appenderEjcTnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEES7_S7_T0_iiT1_(ptr nonnull %buffer, i32 noundef %significand, i32 noundef %significand_size, i32 noundef %integral_size, i8 noundef signext %decimal_point)
           to label %invoke.cont12 unwind label %lpad8.loopexit.split-lp
 
@@ -24519,11 +24520,11 @@ invoke.cont32:                                    ; preds = %invoke.cont32.loope
   br i1 %cmp.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont32
-  call void @_ZdlPv(ptr noundef %11) #23
+  call void @_ZdlPv(ptr noundef %11) #25
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %invoke.cont32, %if.then.i.i
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #24
   br label %return
 
 lpad8.loopexit:                                   ; preds = %if.then.i.i.i.i
@@ -24538,7 +24539,7 @@ lpad8.loopexit.split-lp:                          ; preds = %invoke.cont9, %invo
 
 lpad8:                                            ; preds = %lpad8.loopexit.split-lp, %lpad8.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad8.loopexit ], [ %lpad.loopexit.split-lp, %lpad8.loopexit.split-lp ]
-  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #22
+  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #24
   resume { ptr, i32 } %lpad.phi
 
 return:                                           ; preds = %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, %if.then
@@ -25766,7 +25767,7 @@ return:                                           ; preds = %if.then66, %if.else
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #11
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %out.coerce, ptr noundef nonnull align 8 dereferenceable(16) %fp, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 %fspecs.coerce, ptr %loc.coerce) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
@@ -25827,11 +25828,11 @@ cond.true:                                        ; preds = %entry
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %cond.true
-  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %loc.coerce) #22
+  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %loc.coerce) #24
   br label %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
 
 cond.false.i.i.i:                                 ; preds = %cond.true
-  call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #22
+  call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #24
   br label %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
 
 _ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i: ; preds = %cond.false.i.i.i, %cond.true.i.i.i
@@ -25849,11 +25850,11 @@ common.resume:                                    ; preds = %lpad, %lpad161, %lp
 lpad.i.i:                                         ; preds = %invoke.cont.i.i, %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #22
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #24
   br label %common.resume
 
 _ZN3fmt2v86detail13decimal_pointIcEET_NS1_10locale_refE.exit: ; preds = %invoke.cont.i.i
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #22
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   %.pre = load i32, ptr %significand_size, align 4
   br label %cond.end
@@ -25984,7 +25985,7 @@ if.end110:                                        ; preds = %if.end102, %if.then
   %bf.cast116 = icmp ne i32 %6, 0
   call void @_ZN3fmt2v86detail14digit_groupingIcEC2ENS1_10locale_refEb(ptr noundef nonnull align 8 dereferenceable(40) %grouping, ptr %loc.coerce, i1 noundef zeroext %bf.cast116)
   %28 = load i32, ptr %significand_size, align 4
-  %call.i.i38 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  %call.i.i38 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   %thousands_sep.i.i = getelementptr inbounds i8, ptr %grouping, i64 32
   %29 = load i8, ptr %thousands_sep.i.i, align 8
   %tobool.not.i6.i = icmp eq i8 %29, 0
@@ -25994,12 +25995,12 @@ if.end.i.i:                                       ; preds = %if.end110, %while.b
   %count.09.i = phi i32 [ %inc.i, %while.body.i ], [ 0, %if.end110 ]
   %state.sroa.0.08.i = phi ptr [ %state.sroa.0.1.i, %while.body.i ], [ %call.i.i38, %if.end110 ]
   %state.sroa.3.07.i = phi i32 [ %add29.i.i, %while.body.i ], [ 0, %if.end110 ]
-  %call3.i.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  %call3.i.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   %cmp.i.i.i39 = icmp eq ptr %state.sroa.0.08.i, %call3.i.i
   br i1 %cmp.i.i.i39, label %if.then5.i.i, label %if.end9.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %call8.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  %call8.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   %.pre.i = load i8, ptr %call8.i.i, align 1
   br label %_ZNK3fmt2v86detail14digit_groupingIcE4nextERNS3_10next_stateE.exit.i
 
@@ -26056,13 +26057,13 @@ invoke.cont:                                      ; preds = %invoke.cont.loopexi
           to label %invoke.cont125 unwind label %lpad
 
 invoke.cont125:                                   ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   br label %return
 
 lpad:                                             ; preds = %invoke.cont
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   br label %common.resume
 
 if.else129:                                       ; preds = %if.end77
@@ -26079,7 +26080,7 @@ if.then131:                                       ; preds = %if.else129
   %bf.cast159 = icmp ne i32 %6, 0
   call void @_ZN3fmt2v86detail14digit_groupingIcEC2ENS1_10locale_refEb(ptr noundef nonnull align 8 dereferenceable(40) %grouping153, ptr %loc.coerce, i1 noundef zeroext %bf.cast159)
   %45 = load i32, ptr %significand_size, align 4
-  %call.i.i42 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #22
+  %call.i.i42 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #24
   %thousands_sep.i.i43 = getelementptr inbounds i8, ptr %grouping153, i64 32
   %46 = load i8, ptr %thousands_sep.i.i43, align 8
   %tobool.not.i6.i44 = icmp eq i8 %46, 0
@@ -26089,12 +26090,12 @@ if.end.i.i45:                                     ; preds = %if.then131, %while.
   %count.09.i46 = phi i32 [ %inc.i62, %while.body.i61 ], [ 0, %if.then131 ]
   %state.sroa.0.08.i47 = phi ptr [ %state.sroa.0.1.i56, %while.body.i61 ], [ %call.i.i42, %if.then131 ]
   %state.sroa.3.07.i48 = phi i32 [ %add29.i.i58, %while.body.i61 ], [ 0, %if.then131 ]
-  %call3.i.i49 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #22
+  %call3.i.i49 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #24
   %cmp.i.i.i50 = icmp eq ptr %state.sroa.0.08.i47, %call3.i.i49
   br i1 %cmp.i.i.i50, label %if.then5.i.i64, label %if.end9.i.i51
 
 if.then5.i.i64:                                   ; preds = %if.end.i.i45
-  %call8.i.i65 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #22
+  %call8.i.i65 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #24
   %.pre.i66 = load i8, ptr %call8.i.i65, align 1
   br label %_ZNK3fmt2v86detail14digit_groupingIcE4nextERNS3_10next_stateE.exit.i55
 
@@ -26152,13 +26153,13 @@ invoke.cont162:                                   ; preds = %invoke.cont162.loop
           to label %invoke.cont171 unwind label %lpad161
 
 invoke.cont171:                                   ; preds = %invoke.cont162
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #24
   br label %return
 
 lpad161:                                          ; preds = %invoke.cont162
   %59 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #24
   br label %common.resume
 
 if.end176:                                        ; preds = %if.else129
@@ -27273,17 +27274,17 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSERKc.exit.i: ; preds = 
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !65
 
 invoke.cont17:                                    ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #24
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #22
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #24
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8
   store i64 500, ptr %capacity_.i.i, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #24
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i5)
   %idx.ext.i.i.i6 = sext i32 %significand_size to i64
   %add.ptr.i.i.i7 = getelementptr inbounds i8, ptr %buffer.i.i5, i64 %idx.ext.i.i.i6
@@ -27430,11 +27431,11 @@ invoke.cont40:                                    ; preds = %invoke.cont29
   br i1 %cmp.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont40
-  call void @_ZdlPv(ptr noundef %33) #23
+  call void @_ZdlPv(ptr noundef %33) #25
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %invoke.cont40, %if.then.i.i
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #24
   br label %return
 
 lpad16.loopexit:                                  ; preds = %if.then.i.i.i.i73
@@ -27454,7 +27455,7 @@ lpad16.loopexit.split-lp.loopexit.split-lp:       ; preds = %invoke.cont29
 
 lpad16:                                           ; preds = %lpad16.loopexit.split-lp.loopexit, %lpad16.loopexit.split-lp.loopexit.split-lp, %lpad16.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad16.loopexit ], [ %lpad.loopexit82, %lpad16.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp83, %lpad16.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #22
+  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #24
   resume { ptr, i32 } %lpad.phi
 
 return:                                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSERKc.exit.i, %_ZN3fmt2v86detail17write_significandIcNS0_8appenderEmEET0_S4_T1_i.exit, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
@@ -27815,17 +27816,17 @@ if.then:                                          ; preds = %entry
   br label %return
 
 invoke.cont9:                                     ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8
   store i64 500, ptr %capacity_.i.i, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %call13 = invoke ptr @_ZN3fmt2v86detail17write_significandINS0_8appenderEmcTnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEES7_S7_T0_iiT1_(ptr nonnull %buffer, i64 noundef %significand, i32 noundef %significand_size, i32 noundef %integral_size, i8 noundef signext %decimal_point)
           to label %invoke.cont12 unwind label %lpad8.loopexit.split-lp
 
@@ -27907,11 +27908,11 @@ invoke.cont32:                                    ; preds = %invoke.cont32.loope
   br i1 %cmp.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont32
-  call void @_ZdlPv(ptr noundef %11) #23
+  call void @_ZdlPv(ptr noundef %11) #25
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %invoke.cont32, %if.then.i.i
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #24
   br label %return
 
 lpad8.loopexit:                                   ; preds = %if.then.i.i.i.i
@@ -27926,7 +27927,7 @@ lpad8.loopexit.split-lp:                          ; preds = %invoke.cont9, %invo
 
 lpad8:                                            ; preds = %lpad8.loopexit.split-lp, %lpad8.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad8.loopexit ], [ %lpad.loopexit.split-lp, %lpad8.loopexit.split-lp ]
-  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #22
+  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #24
   resume { ptr, i32 } %lpad.phi
 
 return:                                           ; preds = %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, %if.then
@@ -28541,17 +28542,17 @@ if.then73:                                        ; preds = %_ZNSt20back_insert_
 
 if.end76:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %if.then73, %if.end34
   %fspecs.sroa.5.1 = phi i32 [ %bf.clear70, %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit ], [ %bf.clear70, %if.then73 ], [ %fspecs.sroa.5.0, %if.end34 ]
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #24
   %ptr_.i.i10 = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i10, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #22
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #24
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i10, align 8
   store i64 500, ptr %capacity_.i.i, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #24
   %bf.cast80 = trunc i32 %fspecs.sroa.5.1 to i8
   %cmp81 = icmp eq i8 %bf.cast80, 3
   br i1 %cmp81, label %if.then82, label %if.end113
@@ -28596,7 +28597,7 @@ _ZN3fmt2v86detail6bufferIcE9push_backERKc.exit:   ; preds = %if.then88, %.noexc
 lpad95:                                           ; preds = %invoke.cont138, %if.then127, %invoke.cont101, %if.then.i.i, %if.end131, %if.end97
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #22
+  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #24
   resume { ptr, i32 } %25
 
 if.end97:                                         ; preds = %_ZN3fmt2v86detail6bufferIcE9push_backERKc.exit, %if.then82
@@ -28646,8 +28647,8 @@ if.then127:                                       ; preds = %if.then124
 
 _ZN3fmt2v86detail18throw_format_errorEPKc.exit:   ; preds = %if.then127
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i, align 8
-  %call.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #22
+  %call.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
   br label %if.end131
 
@@ -28687,11 +28688,11 @@ cleanup:                                          ; preds = %invoke.cont138, %_Z
   br i1 %cmp.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i27
 
 if.then.i.i27:                                    ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef %33) #23
+  call void @_ZdlPv(ptr noundef %33) #25
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %cleanup, %if.then.i.i27
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #24
   br label %return
 
 return:                                           ; preds = %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -28781,8 +28782,8 @@ sw.default:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i, ptr noundef nonnull @.str.23)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i, align 8
-  %call.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
+  %call.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   br label %sw.epilog
 
@@ -29165,7 +29166,7 @@ if.then17:                                        ; preds = %if.end15
 
 if.then22:                                        ; preds = %if.then17
   %conv23 = fptrunc x86_fp80 %value to float
-  %call24 = tail call i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %conv23) #22
+  %call24 = tail call i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %conv23) #24
   %dec.sroa.0.0.extract.trunc = trunc i64 %call24 to i32
   %dec.sroa.2.0.extract.shift = lshr i64 %call24, 32
   %dec.sroa.2.0.extract.trunc = trunc nuw i64 %dec.sroa.2.0.extract.shift to i32
@@ -29174,7 +29175,7 @@ if.then22:                                        ; preds = %if.then17
 
 if.end30:                                         ; preds = %if.then17
   %conv32 = fptrunc x86_fp80 %value to double
-  %call33 = tail call { i64, i32 } @_ZN3fmt2v86detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %conv32) #22
+  %call33 = tail call { i64, i32 } @_ZN3fmt2v86detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %conv32) #24
   %12 = extractvalue { i64, i32 } %call33, 0
   %13 = extractvalue { i64, i32 } %call33, 1
   %call38 = tail call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEmTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr nonnull %buf, i64 noundef %12)
@@ -29275,7 +29276,7 @@ return:                                           ; preds = %if.end74, %if.end30
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_11write_bytesILS4_2EcS5_EET1_S7_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EEEUlS5_E_EESB_SB_RKNSA_IS7_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #5 comdat {
@@ -30068,7 +30069,7 @@ lpad5:                                            ; preds = %lpad5.loopexit.spli
   br i1 %cmp.not.i.i.i, label %ehcleanup, label %if.then.i.i.i200
 
 if.then.i.i.i200:                                 ; preds = %lpad5
-  call void @_ZdlPv(ptr noundef %39) #23
+  call void @_ZdlPv(ptr noundef %39) #25
   br label %ehcleanup
 
 if.end:                                           ; preds = %_ZN3fmt2v86detail6bufferIjE9push_backERKj.exit.i190, %for.end.i184, %invoke.cont15, %invoke.cont11
@@ -31470,7 +31471,7 @@ cleanup:                                          ; preds = %_ZN3fmt2v86detail6b
   br i1 %cmp.not.i.i.i879, label %_ZN3fmt2v86detail6bigintD2Ev.exit881, label %if.then.i.i.i880
 
 if.then.i.i.i880:                                 ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef %239) #23
+  call void @_ZdlPv(ptr noundef %239) #25
   br label %_ZN3fmt2v86detail6bigintD2Ev.exit881
 
 _ZN3fmt2v86detail6bigintD2Ev.exit881:             ; preds = %cleanup, %if.then.i.i.i880
@@ -31479,7 +31480,7 @@ _ZN3fmt2v86detail6bigintD2Ev.exit881:             ; preds = %cleanup, %if.then.i
   br i1 %cmp.not.i.i.i884, label %_ZN3fmt2v86detail6bigintD2Ev.exit886, label %if.then.i.i.i885
 
 if.then.i.i.i885:                                 ; preds = %_ZN3fmt2v86detail6bigintD2Ev.exit881
-  call void @_ZdlPv(ptr noundef %240) #23
+  call void @_ZdlPv(ptr noundef %240) #25
   br label %_ZN3fmt2v86detail6bigintD2Ev.exit886
 
 _ZN3fmt2v86detail6bigintD2Ev.exit886:             ; preds = %_ZN3fmt2v86detail6bigintD2Ev.exit881, %if.then.i.i.i885
@@ -31488,7 +31489,7 @@ _ZN3fmt2v86detail6bigintD2Ev.exit886:             ; preds = %_ZN3fmt2v86detail6b
   br i1 %cmp.not.i.i.i889, label %_ZN3fmt2v86detail6bigintD2Ev.exit891, label %if.then.i.i.i890
 
 if.then.i.i.i890:                                 ; preds = %_ZN3fmt2v86detail6bigintD2Ev.exit886
-  call void @_ZdlPv(ptr noundef %241) #23
+  call void @_ZdlPv(ptr noundef %241) #25
   br label %_ZN3fmt2v86detail6bigintD2Ev.exit891
 
 _ZN3fmt2v86detail6bigintD2Ev.exit891:             ; preds = %_ZN3fmt2v86detail6bigintD2Ev.exit886, %if.then.i.i.i890
@@ -31497,7 +31498,7 @@ _ZN3fmt2v86detail6bigintD2Ev.exit891:             ; preds = %_ZN3fmt2v86detail6b
   br i1 %cmp.not.i.i.i894, label %_ZN3fmt2v86detail6bigintD2Ev.exit896, label %if.then.i.i.i895
 
 if.then.i.i.i895:                                 ; preds = %_ZN3fmt2v86detail6bigintD2Ev.exit891
-  call void @_ZdlPv(ptr noundef %242) #23
+  call void @_ZdlPv(ptr noundef %242) #25
   br label %_ZN3fmt2v86detail6bigintD2Ev.exit896
 
 _ZN3fmt2v86detail6bigintD2Ev.exit896:             ; preds = %_ZN3fmt2v86detail6bigintD2Ev.exit891, %if.then.i.i.i895
@@ -31509,7 +31510,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i200, %
   br i1 %cmp.not.i.i.i899, label %ehcleanup204, label %if.then.i.i.i900
 
 if.then.i.i.i900:                                 ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef %243) #23
+  call void @_ZdlPv(ptr noundef %243) #25
   br label %ehcleanup204
 
 ehcleanup204:                                     ; preds = %if.then.i.i.i900, %ehcleanup
@@ -31518,7 +31519,7 @@ ehcleanup204:                                     ; preds = %if.then.i.i.i900, %
   br i1 %cmp.not.i.i.i904, label %ehcleanup206, label %if.then.i.i.i905
 
 if.then.i.i.i905:                                 ; preds = %ehcleanup204
-  call void @_ZdlPv(ptr noundef %244) #23
+  call void @_ZdlPv(ptr noundef %244) #25
   br label %ehcleanup206
 
 ehcleanup206:                                     ; preds = %if.then.i.i.i905, %ehcleanup204
@@ -31527,7 +31528,7 @@ ehcleanup206:                                     ; preds = %if.then.i.i.i905, %
   br i1 %cmp.not.i.i.i909, label %_ZN3fmt2v86detail6bigintD2Ev.exit911, label %if.then.i.i.i910
 
 if.then.i.i.i910:                                 ; preds = %ehcleanup206
-  call void @_ZdlPv(ptr noundef %245) #23
+  call void @_ZdlPv(ptr noundef %245) #25
   br label %_ZN3fmt2v86detail6bigintD2Ev.exit911
 
 _ZN3fmt2v86detail6bigintD2Ev.exit911:             ; preds = %ehcleanup206, %if.then.i.i.i910
@@ -32040,11 +32041,11 @@ if.then.i.i:                                      ; preds = %if.end6
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #29
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  tail call void @_ZSt17__throw_bad_allocv() #27
+  tail call void @_ZSt17__throw_bad_allocv() #29
   unreachable
 
 _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit: ; preds = %if.else, %if.end6
@@ -32052,7 +32053,7 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit: ; preds = %if.else, %if.end6
   %ptr_.i23 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %ptr_.i23, align 8
   %mul.i.i = shl nuw nsw i64 %new_capacity.022, 2
-  %call5.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i) #25
+  %call5.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i) #27
   %size_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %size_.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq i64 %2, 0
@@ -32071,7 +32072,7 @@ _ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt16allocator_tr
   br i1 %cmp13.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %_ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit
-  tail call void @_ZdlPv(ptr noundef %1) #23
+  tail call void @_ZdlPv(ptr noundef %1) #25
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %_ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit
@@ -32147,14 +32148,14 @@ if.then.i.i.i97:                                  ; preds = %if.end6.i
   br i1 %cmp2.i.i.i, label %if.then3.i.i.i, label %if.end.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i97
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #27
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #29
           to label %.noexc98 unwind label %terminate.lpad.i
 
 .noexc98:                                         ; preds = %if.then3.i.i.i
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i97
-  invoke void @_ZSt17__throw_bad_allocv() #27
+  invoke void @_ZSt17__throw_bad_allocv() #29
           to label %.noexc99 unwind label %terminate.lpad.i
 
 .noexc99:                                         ; preds = %if.end.i.i.i
@@ -32163,7 +32164,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i97
 _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i: ; preds = %if.end6.i, %if.else.i
   %new_capacity.022.i = phi i64 [ %new_capacity.0.i, %if.end6.i ], [ %add.i, %if.else.i ]
   %mul.i.i.i = shl nuw nsw i64 %new_capacity.022.i, 2
-  %call5.i.i.i100 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
+  %call5.i.i.i100 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #27
           to label %_ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit.i unwind label %terminate.lpad.i
 
 _ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit.i: ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i
@@ -32174,7 +32175,7 @@ _ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit.i: ; preds = %_ZNSt16allocator_t
   br i1 %cmp13.not.i, label %_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEEC2EOS3_.exit, label %if.then14.i
 
 if.then14.i:                                      ; preds = %_ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit.i
-  call void @_ZdlPv(ptr noundef %3) #23
+  call void @_ZdlPv(ptr noundef %3) #25
   %.pre.i.i.i.i.pre = load i64, ptr %capacity_.i.i, align 8
   %.pre.pre = load i64, ptr %capacity_.i.i.i, align 8
   br label %_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEEC2EOS3_.exit
@@ -32183,7 +32184,7 @@ terminate.lpad.i:                                 ; preds = %_ZNSt16allocator_tr
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #26
+  call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
 _ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEEC2EOS3_.exit: ; preds = %_ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit.i, %if.then14.i, %if.end.i.i
@@ -32261,7 +32262,7 @@ lpad:                                             ; preds = %if.then.i.i.i.i, %i
   br i1 %cmp.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEED2Ev.exit, label %if.then.i.i30
 
 if.then.i.i30:                                    ; preds = %lpad
-  call void @_ZdlPv(ptr noundef %16) #23
+  call void @_ZdlPv(ptr noundef %16) #25
   br label %_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEED2Ev.exit: ; preds = %lpad, %if.then.i.i30
@@ -32376,7 +32377,7 @@ invoke.cont52:                                    ; preds = %.noexc43, %while.en
   br i1 %cmp.not.i.i46, label %_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEED2Ev.exit48, label %if.then.i.i47
 
 if.then.i.i47:                                    ; preds = %invoke.cont52
-  call void @_ZdlPv(ptr noundef %33) #23
+  call void @_ZdlPv(ptr noundef %33) #25
   br label %_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEED2Ev.exit48
 
 _ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEED2Ev.exit48: ; preds = %invoke.cont52, %if.then.i.i47
@@ -32432,11 +32433,11 @@ cond.true:                                        ; preds = %entry
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %cond.true
-  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %loc.coerce) #22
+  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %loc.coerce) #24
   br label %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
 
 cond.false.i.i.i:                                 ; preds = %cond.true
-  call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #22
+  call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #24
   br label %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
 
 _ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i: ; preds = %cond.false.i.i.i, %cond.true.i.i.i
@@ -32454,11 +32455,11 @@ common.resume:                                    ; preds = %lpad, %lpad161, %lp
 lpad.i.i:                                         ; preds = %invoke.cont.i.i, %_ZNK3fmt2v86detail10locale_ref3getISt6localeEET_v.exit.i.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #22
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #24
   br label %common.resume
 
 _ZN3fmt2v86detail13decimal_pointIcEET_NS1_10locale_refE.exit: ; preds = %invoke.cont.i.i
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #22
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   %.pre = load i32, ptr %significand_size, align 4
   br label %cond.end
@@ -32589,7 +32590,7 @@ if.end110:                                        ; preds = %if.end102, %if.then
   %bf.cast116 = icmp ne i32 %4, 0
   call void @_ZN3fmt2v86detail14digit_groupingIcEC2ENS1_10locale_refEb(ptr noundef nonnull align 8 dereferenceable(40) %grouping, ptr %loc.coerce, i1 noundef zeroext %bf.cast116)
   %26 = load i32, ptr %significand_size, align 4
-  %call.i.i38 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  %call.i.i38 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   %thousands_sep.i.i = getelementptr inbounds i8, ptr %grouping, i64 32
   %27 = load i8, ptr %thousands_sep.i.i, align 8
   %tobool.not.i6.i = icmp eq i8 %27, 0
@@ -32599,12 +32600,12 @@ if.end.i.i:                                       ; preds = %if.end110, %while.b
   %count.09.i = phi i32 [ %inc.i, %while.body.i ], [ 0, %if.end110 ]
   %state.sroa.0.08.i = phi ptr [ %state.sroa.0.1.i, %while.body.i ], [ %call.i.i38, %if.end110 ]
   %state.sroa.3.07.i = phi i32 [ %add29.i.i, %while.body.i ], [ 0, %if.end110 ]
-  %call3.i.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  %call3.i.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   %cmp.i.i.i = icmp eq ptr %state.sroa.0.08.i, %call3.i.i
   br i1 %cmp.i.i.i, label %if.then5.i.i, label %if.end9.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %call8.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  %call8.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   %.pre.i = load i8, ptr %call8.i.i, align 1
   br label %_ZNK3fmt2v86detail14digit_groupingIcE4nextERNS3_10next_stateE.exit.i
 
@@ -32661,13 +32662,13 @@ invoke.cont:                                      ; preds = %invoke.cont.loopexi
           to label %invoke.cont125 unwind label %lpad
 
 invoke.cont125:                                   ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   br label %return
 
 lpad:                                             ; preds = %invoke.cont
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   br label %common.resume
 
 if.else129:                                       ; preds = %if.end77
@@ -32684,7 +32685,7 @@ if.then131:                                       ; preds = %if.else129
   %bf.cast159 = icmp ne i32 %4, 0
   call void @_ZN3fmt2v86detail14digit_groupingIcEC2ENS1_10locale_refEb(ptr noundef nonnull align 8 dereferenceable(40) %grouping153, ptr %loc.coerce, i1 noundef zeroext %bf.cast159)
   %43 = load i32, ptr %significand_size, align 4
-  %call.i.i41 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #22
+  %call.i.i41 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #24
   %thousands_sep.i.i42 = getelementptr inbounds i8, ptr %grouping153, i64 32
   %44 = load i8, ptr %thousands_sep.i.i42, align 8
   %tobool.not.i6.i43 = icmp eq i8 %44, 0
@@ -32694,12 +32695,12 @@ if.end.i.i44:                                     ; preds = %if.then131, %while.
   %count.09.i45 = phi i32 [ %inc.i61, %while.body.i60 ], [ 0, %if.then131 ]
   %state.sroa.0.08.i46 = phi ptr [ %state.sroa.0.1.i55, %while.body.i60 ], [ %call.i.i41, %if.then131 ]
   %state.sroa.3.07.i47 = phi i32 [ %add29.i.i57, %while.body.i60 ], [ 0, %if.then131 ]
-  %call3.i.i48 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #22
+  %call3.i.i48 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #24
   %cmp.i.i.i49 = icmp eq ptr %state.sroa.0.08.i46, %call3.i.i48
   br i1 %cmp.i.i.i49, label %if.then5.i.i63, label %if.end9.i.i50
 
 if.then5.i.i63:                                   ; preds = %if.end.i.i44
-  %call8.i.i64 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #22
+  %call8.i.i64 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #24
   %.pre.i65 = load i8, ptr %call8.i.i64, align 1
   br label %_ZNK3fmt2v86detail14digit_groupingIcE4nextERNS3_10next_stateE.exit.i54
 
@@ -32757,13 +32758,13 @@ invoke.cont162:                                   ; preds = %invoke.cont162.loop
           to label %invoke.cont171 unwind label %lpad161
 
 invoke.cont171:                                   ; preds = %invoke.cont162
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #24
   br label %return
 
 lpad161:                                          ; preds = %invoke.cont162
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping153) #24
   br label %common.resume
 
 if.end176:                                        ; preds = %if.else129
@@ -33789,17 +33790,17 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSERKc.exit.i: ; preds = 
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !65
 
 invoke.cont17:                                    ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #24
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #22
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #24
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8
   store i64 500, ptr %capacity_.i.i, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #24
   %idx.ext.i13 = sext i32 %significand_size to i64
   %add.ptr.i14 = getelementptr inbounds i8, ptr %significand, i64 %idx.ext.i13
   %cmp.not11.i.i.i15 = icmp eq i32 %significand_size, 0
@@ -33906,11 +33907,11 @@ invoke.cont40:                                    ; preds = %invoke.cont29
   br i1 %cmp.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont40
-  call void @_ZdlPv(ptr noundef %27) #23
+  call void @_ZdlPv(ptr noundef %27) #25
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %invoke.cont40, %if.then.i.i
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #24
   br label %return
 
 lpad16.loopexit:                                  ; preds = %if.then.i.i.i.i58
@@ -33930,7 +33931,7 @@ lpad16.loopexit.split-lp.loopexit.split-lp:       ; preds = %invoke.cont29
 
 lpad16:                                           ; preds = %lpad16.loopexit.split-lp.loopexit, %lpad16.loopexit.split-lp.loopexit.split-lp, %lpad16.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad16.loopexit ], [ %lpad.loopexit67, %lpad16.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp68, %lpad16.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #22
+  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #24
   resume { ptr, i32 } %lpad.phi
 
 return:                                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSERKc.exit.i, %_ZN3fmt2v86detail17write_significandIcNS0_8appenderEEET0_S4_PKci.exit, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
@@ -34291,17 +34292,17 @@ if.then:                                          ; preds = %entry
   br label %return
 
 invoke.cont9:                                     ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8
   store i64 500, ptr %capacity_.i.i, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %call13 = invoke ptr @_ZN3fmt2v86detail17write_significandINS0_8appenderEcEET_S4_PKciiT0_(ptr nonnull %buffer, ptr noundef %significand, i32 noundef %significand_size, i32 noundef %integral_size, i8 noundef signext %decimal_point)
           to label %invoke.cont12 unwind label %lpad8.loopexit.split-lp
 
@@ -34383,11 +34384,11 @@ invoke.cont32:                                    ; preds = %invoke.cont32.loope
   br i1 %cmp.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont32
-  call void @_ZdlPv(ptr noundef %11) #23
+  call void @_ZdlPv(ptr noundef %11) #25
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %invoke.cont32, %if.then.i.i
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #24
   br label %return
 
 lpad8.loopexit:                                   ; preds = %if.then.i.i.i.i
@@ -34402,7 +34403,7 @@ lpad8.loopexit.split-lp:                          ; preds = %invoke.cont9, %invo
 
 lpad8:                                            ; preds = %lpad8.loopexit.split-lp, %lpad8.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad8.loopexit ], [ %lpad.loopexit.split-lp, %lpad8.loopexit.split-lp ]
-  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #22
+  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #24
   resume { ptr, i32 } %lpad.phi
 
 return:                                           ; preds = %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, %if.then
@@ -34853,13 +34854,13 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i, ptr noundef nonnull @.str.42)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i, align 8
-  %call.i3 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #22
+  %call.i3 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %call.i4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #22
+  %call.i4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #24
   %add.ptr.i.i = getelementptr inbounds i8, ptr %value, i64 %call.i4
   %cmp.not11.i.i.i.i = icmp eq i64 %call.i4, 0
   br i1 %cmp.not11.i.i.i.i, label %if.end, label %while.body.lr.ph.i.i.i.i
@@ -35336,8 +35337,8 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i, ptr noundef nonnull @.str.44)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i, align 8
-  %call.i.i97 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
+  %call.i.i97 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   br label %return
 
@@ -35367,8 +35368,8 @@ _ZZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_E
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i, ptr noundef nonnull @.str.47)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #22
+  %call.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i)
   %context.i52243 = getelementptr inbounds i8, ptr %handler, i64 32
   %args_.i.i244 = getelementptr inbounds i8, ptr %handler, i64 40
@@ -35444,8 +35445,8 @@ _ZN3fmt2v86detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEENT_10fo
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i), !noalias !108
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i, ptr noundef nonnull @.str.17), !noalias !108
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i, align 8, !noalias !108
-  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22, !noalias !108
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22, !noalias !108
+  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24, !noalias !108
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24, !noalias !108
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i), !noalias !108
   %retval.sroa.0.0.copyload.i266 = load ptr, ptr %context.i52251, align 8
   br label %_ZZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refEEN14format_handler20on_replacement_fieldEiPKc.exit100
@@ -35678,8 +35679,8 @@ if.end.i.i.i:                                     ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i, ptr noundef nonnull @.str.47)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i) #22
+  %call.i.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i.i)
   br label %_ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEPKS5_SS_SS_OT0_EN10id_adapterclEv.exit
 
@@ -35767,8 +35768,8 @@ _ZN3fmt2v86detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEENT_10fo
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i128), !noalias !116
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i128, ptr noundef nonnull @.str.17), !noalias !116
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i128, align 8, !noalias !116
-  %call.i.i.i.i135 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i128) #22, !noalias !116
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i128) #22, !noalias !116
+  %call.i.i.i.i135 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i128) #24, !noalias !116
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i128) #24, !noalias !116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i128), !noalias !116
   %retval.sroa.0.0.copyload.i153276 = load ptr, ptr %context.i, align 8
   br label %_ZZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refEEN14format_handler20on_replacement_fieldEiPKc.exit
@@ -35934,8 +35935,8 @@ if.then24:                                        ; preds = %lor.lhs.false, %if.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i204)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i204, ptr noundef nonnull @.str.45)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i204, align 8
-  %call.i.i205 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i204) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i204) #22
+  %call.i.i205 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i204) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i204) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i204)
   br label %return
 
@@ -35943,8 +35944,8 @@ if.else26:                                        ; preds = %_ZN3fmt2v86detail12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i206)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i206, ptr noundef nonnull @.str.46)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i206, align 8
-  %call.i.i207 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i206) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i206) #22
+  %call.i.i207 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i206) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i206) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i206)
   br label %return
 
@@ -35969,7 +35970,7 @@ for.cond.preheader:                               ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %pend to i64
   %sub.ptr.rhs.cast.i42 = ptrtoint ptr %pbegin to i64
   %sub.ptr.sub.i43 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i42
-  %call1.i44 = tail call noundef ptr @memchr(ptr noundef %pbegin, i32 noundef 125, i64 noundef %sub.ptr.sub.i43) #28
+  %call1.i44 = tail call noundef ptr @memchr(ptr noundef %pbegin, i32 noundef 125, i64 noundef %sub.ptr.sub.i43) #30
   %cmp.i.not45 = icmp eq ptr %call1.i44, null
   br i1 %cmp.i.not45, label %if.then2, label %if.end3
 
@@ -36049,8 +36050,8 @@ if.then6:                                         ; preds = %lor.lhs.false, %if.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i, ptr noundef nonnull @.str.43)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i, align 8
-  %call.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
+  %call.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   br label %return
 
@@ -36115,7 +36116,7 @@ _ZZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_E
   %add.ptr = getelementptr inbounds i8, ptr %call1.i47, i64 2
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call1.i = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr, i32 noundef 125, i64 noundef %sub.ptr.sub.i) #28
+  %call1.i = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr, i32 noundef 125, i64 noundef %sub.ptr.sub.i) #30
   %cmp.i.not = icmp eq ptr %call1.i, null
   br i1 %cmp.i.not, label %if.then2, label %if.end3, !llvm.loop !117
 
@@ -36206,8 +36207,8 @@ _ZN3fmt2v86detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEENT_10fo
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i), !noalias !125
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i, ptr noundef nonnull @.str.17), !noalias !125
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i, align 8, !noalias !125
-  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22, !noalias !125
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22, !noalias !125
+  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24, !noalias !125
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24, !noalias !125
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i), !noalias !125
   %align.i.phi.trans.insert = getelementptr inbounds i8, ptr %specs, i64 9
   %bf.load.i141.pre = load i16, ptr %align.i.phi.trans.insert, align 1
@@ -36342,8 +36343,8 @@ if.then.i.i:                                      ; preds = %if.then29.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i, ptr noundef nonnull @.str.52)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i) #22
+  %call.i.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i.i)
   br label %_ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE7on_hashEv.exit
 
@@ -36377,8 +36378,8 @@ if.then.i.i148:                                   ; preds = %if.then37.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i.i146)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i146, ptr noundef nonnull @.str.52)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i.i.i146, align 8
-  %call.i.i.i.i.i.i149 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i146) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i146) #22
+  %call.i.i.i.i.i.i149 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i146) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i146) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i.i146)
   br label %_ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i
 
@@ -36479,8 +36480,8 @@ if.then17:                                        ; preds = %lor.lhs.false, %_ZN
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i, ptr noundef nonnull @.str.46)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i, align 8
-  %call.i.i155 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
+  %call.i.i155 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   br label %if.end18
 
@@ -36751,8 +36752,8 @@ if.then.i.i223:                                   ; preds = %sw.bb65.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i221)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i221, ptr noundef nonnull @.str.23)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i221, align 8
-  %call.i.i.i.i224 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i221) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i221) #22
+  %call.i.i.i.i224 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i221) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i221) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i221)
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit
 
@@ -36772,8 +36773,8 @@ if.then.i.i230:                                   ; preds = %sw.bb72.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i226)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i226, ptr noundef nonnull @.str.23)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i226, align 8
-  %call.i.i.i.i231 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i226) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i226) #22
+  %call.i.i.i.i231 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i226) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i226) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i226)
   br label %_ZN3fmt2v86detail23check_pointer_type_specINS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit.i
 
@@ -36896,8 +36897,8 @@ if.then14:                                        ; preds = %lor.lhs.false, %if.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i, ptr noundef nonnull @.str.44)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i, align 8
-  %call.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #22
+  %call.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
   br label %return
 
@@ -36912,8 +36913,8 @@ if.then.i.i.i:                                    ; preds = %if.else15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i, ptr noundef nonnull @.str.48)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i) #22
+  %call.i.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i.i)
   br label %_ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEPKS5_SS_SS_OT0_EN10id_adapterclEi.exit
 
@@ -36943,8 +36944,8 @@ if.then19:                                        ; preds = %if.end17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i19)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i19, ptr noundef nonnull @.str.44)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i19, align 8
-  %call.i.i.i20 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i19) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i19) #22
+  %call.i.i.i20 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i19) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i19) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i19)
   br label %return
 
@@ -37010,7 +37011,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %i.013.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.inc.i.i ]
   %arrayidx4.i.i = getelementptr inbounds %"struct.fmt::v8::detail::named_arg_info", ptr %4, i64 %i.013.i.i
   %5 = load ptr, ptr %arrayidx4.i.i, align 8
-  %call.i8.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #22
+  %call.i8.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #24
   %.other.coerce1.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %call.i8.i.i, i64 %id.coerce1)
   %cmp.i.i.i.i.i = icmp eq i64 %.other.coerce1.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -37042,8 +37043,8 @@ if.then:                                          ; preds = %for.inc.i.i, %if.en
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i, ptr noundef nonnull @.str.17)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i, align 8
-  %call.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
+  %call.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   br label %if.end
 
@@ -37138,8 +37139,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i, ptr noundef %message)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i, align 8
-  %call.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #22
+  %call.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
   ret void
 }
@@ -37191,8 +37192,8 @@ if.then11:                                        ; preds = %if.then8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i, ptr noundef nonnull @.str.49)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i, align 8
-  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22
+  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   br label %return
 
@@ -37209,8 +37210,8 @@ if.then.i.i:                                      ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i, ptr noundef nonnull @.str.51)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i, align 8
-  %call.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #22
+  %call.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
   br label %if.end15
 
@@ -37265,8 +37266,8 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i, ptr noundef nonnull @.str.52)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #22
+  %call.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i)
   %.pr = load i32, ptr %arg_type_.i, align 8
   %.pre = add i32 %.pr, -1
@@ -37289,8 +37290,8 @@ if.then:                                          ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i, ptr noundef nonnull @.str.53)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i, align 8
-  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22
+  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   br label %if.end
 
@@ -37381,8 +37382,8 @@ if.else:                                          ; preds = %land.lhs.true15.i, 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i, ptr noundef nonnull @.str.38)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i, align 8
-  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22
+  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   br label %return
 
@@ -37430,8 +37431,8 @@ if.then19:                                        ; preds = %lor.lhs.false, %if.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i15)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i15, ptr noundef nonnull @.str.44)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i15, align 8
-  %call.i.i.i.i16 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i15) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i15) #22
+  %call.i.i.i.i16 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i15) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i15) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i15)
   br label %return
 
@@ -37527,8 +37528,8 @@ if.else:                                          ; preds = %land.lhs.true15.i, 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i, ptr noundef nonnull @.str.38)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i, align 8
-  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22
+  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   br label %if.end24
 
@@ -37579,8 +37580,8 @@ if.then20:                                        ; preds = %lor.lhs.false, %if.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i19)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i19, ptr noundef nonnull @.str.44)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i19, align 8
-  %call.i.i.i.i20 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i19) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i19) #22
+  %call.i.i.i.i20 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i19) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i19) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i19)
   br label %return
 
@@ -37588,8 +37589,8 @@ if.else22:                                        ; preds = %entry, %if.else6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i21)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i21, ptr noundef nonnull @.str.56)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i21, align 8
-  %call.i.i.i.i22 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i21) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i21) #22
+  %call.i.i.i.i22 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i21) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i21) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i21)
   br label %return
 
@@ -37613,8 +37614,8 @@ if.then.i23:                                      ; preds = %if.end24, %if.end24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i, ptr noundef nonnull @.str.59)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #22
+  %call.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i)
   br label %return
 
@@ -37637,8 +37638,8 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i, ptr noundef nonnull @.str.52)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #22
+  %call.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i)
   br label %_ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit
 
@@ -37739,8 +37740,8 @@ if.then14:                                        ; preds = %lor.lhs.false, %if.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i, ptr noundef nonnull @.str.44)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #22
+  %call.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i)
   br label %return
 
@@ -37771,8 +37772,8 @@ if.then19:                                        ; preds = %if.end17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i19)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i19, ptr noundef nonnull @.str.44)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i.i19, align 8
-  %call.i.i.i.i.i20 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i19) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i19) #22
+  %call.i.i.i.i.i20 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i19) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i19) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i19)
   br label %return
 
@@ -37815,8 +37816,8 @@ if.then.i.i.i.i:                                  ; preds = %do.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i.i.i), !noalias !144
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i.i, ptr noundef nonnull @.str.17)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i.i.i.i, align 8, !noalias !144
-  %call.i.i.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i.i) #22
+  %call.i.i.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i.i.i), !noalias !144
   br label %_ZZN3fmt2v86detail11parse_widthIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_EN13width_adapterclENS0_17basic_string_viewIcEE.exit
 
@@ -37878,8 +37879,8 @@ if.then.i:                                        ; preds = %sw.bb1.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i, ptr noundef nonnull @.str.54)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i, align 8
-  %call.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #22
+  %call.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
   br label %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit
 
@@ -37901,8 +37902,8 @@ _ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i34)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i34, ptr noundef nonnull @.str.54)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i34, align 8
-  %call.i.i.i37 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i34) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i34) #22
+  %call.i.i.i37 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i34) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i34) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i34)
   br label %if.then
 
@@ -37920,8 +37921,8 @@ if.then.i40:                                      ; preds = %sw.bb11.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i38)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i38, ptr noundef nonnull @.str.54)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i38, align 8
-  %call.i.i.i41 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i38) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i38) #22
+  %call.i.i.i41 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i38) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i38) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i38)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
 
@@ -37934,8 +37935,8 @@ sw.bb24.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i44)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i44, ptr noundef nonnull @.str.55)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i44, align 8
-  %call.i.i.i45 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i44) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i44) #22
+  %call.i.i.i45 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i44) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i44) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i44)
   br label %if.end
 
@@ -37943,8 +37944,8 @@ sw.bb27.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i46)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i46, ptr noundef nonnull @.str.55)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i46, align 8
-  %call.i.i.i47 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i46) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i46) #22
+  %call.i.i.i47 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i46) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i46) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i46)
   br label %if.end
 
@@ -37952,8 +37953,8 @@ sw.bb30.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i48)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i48, ptr noundef nonnull @.str.55)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i48, align 8
-  %call.i.i.i49 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i48) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i48) #22
+  %call.i.i.i49 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i48) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i48) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i48)
   br label %if.end
 
@@ -37961,8 +37962,8 @@ sw.bb33.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i50)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i50, ptr noundef nonnull @.str.55)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i50, align 8
-  %call.i.i.i51 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i50) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i50) #22
+  %call.i.i.i51 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i50) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i50) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i50)
   br label %if.end
 
@@ -37970,8 +37971,8 @@ sw.bb36.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i52)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i52, ptr noundef nonnull @.str.55)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i52, align 8
-  %call.i.i.i53 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i52) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i52) #22
+  %call.i.i.i53 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i52) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i52) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i52)
   br label %if.end
 
@@ -37979,8 +37980,8 @@ sw.bb39.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i54)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i54, ptr noundef nonnull @.str.55)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i54, align 8
-  %call.i.i.i55 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i54) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i54) #22
+  %call.i.i.i55 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i54) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i54) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i54)
   br label %if.end
 
@@ -37988,8 +37989,8 @@ sw.bb42.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i56)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i56, ptr noundef nonnull @.str.55)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i56, align 8
-  %call.i.i.i57 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i56) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i56) #22
+  %call.i.i.i57 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i56) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i56) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i56)
   br label %if.end
 
@@ -37997,8 +37998,8 @@ sw.bb47.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i58)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i58, ptr noundef nonnull @.str.55)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i58, align 8
-  %call.i.i.i59 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i58) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i58) #22
+  %call.i.i.i59 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i58) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i58) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i58)
   br label %if.end
 
@@ -38006,8 +38007,8 @@ sw.bb50.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i60)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i60, ptr noundef nonnull @.str.55)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i60, align 8
-  %call.i.i.i61 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i60) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i60) #22
+  %call.i.i.i61 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i60) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i60) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i60)
   br label %if.end
 
@@ -38015,8 +38016,8 @@ sw.epilog.i:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i62)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i62, ptr noundef nonnull @.str.55)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i62, align 8
-  %call.i.i.i63 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i62) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i62) #22
+  %call.i.i.i63 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i62) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i62) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i62)
   br label %if.end
 
@@ -38030,8 +38031,8 @@ if.then:                                          ; preds = %_ZN3fmt2v816visit_f
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i, ptr noundef nonnull @.str.38)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i, align 8
-  %call.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
+  %call.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   br label %if.end
 
@@ -38057,8 +38058,8 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i, ptr noundef nonnull @.str.48)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i, align 8
-  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22
+  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   br label %_ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE12check_arg_idEi.exit
 
@@ -38120,8 +38121,8 @@ if.then.i3:                                       ; preds = %_ZNK3fmt2v820basic_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i2), !noalias !145
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i2, ptr noundef nonnull @.str.17), !noalias !145
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i2, align 8, !noalias !145
-  %call.i.i.i.i4 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i2) #22, !noalias !145
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i2) #22, !noalias !145
+  %call.i.i.i.i4 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i2) #24, !noalias !145
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i2) #24, !noalias !145
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i2), !noalias !145
   br label %_ZN3fmt2v86detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEENT_10format_argERS6_T0_.exit
 
@@ -38156,7 +38157,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %i.013.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %arrayidx4.i = getelementptr inbounds %"struct.fmt::v8::detail::named_arg_info", ptr %4, i64 %i.013.i
   %5 = load ptr, ptr %arrayidx4.i, align 8
-  %call.i8.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #22
+  %call.i8.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #24
   %.other.coerce1.i.i.i = tail call i64 @llvm.umin.i64(i64 %call.i8.i, i64 %name.coerce1)
   %cmp.i.i.i.i = icmp eq i64 %.other.coerce1.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
@@ -38260,8 +38261,8 @@ _ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i, ptr noundef nonnull @.str.47)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i, align 8
-  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22
+  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !168)
   call void @llvm.experimental.noalias.scope.decl(metadata !170)
@@ -38320,8 +38321,8 @@ if.then.i2:                                       ; preds = %_ZNK3fmt2v820basic_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i1), !noalias !158
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i1, ptr noundef nonnull @.str.17), !noalias !158
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i1, align 8, !noalias !158
-  %call.i.i.i.i3 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i1) #22, !noalias !158
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i1) #22, !noalias !158
+  %call.i.i.i.i3 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i1) #24, !noalias !158
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i1) #24, !noalias !158
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i1), !noalias !158
   br label %_ZN3fmt2v86detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEENT_10format_argERS6_T0_.exit
 
@@ -38417,8 +38418,8 @@ if.then14:                                        ; preds = %lor.lhs.false, %if.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i, ptr noundef nonnull @.str.44)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #22
+  %call.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i)
   br label %return
 
@@ -38450,8 +38451,8 @@ if.then19:                                        ; preds = %if.end17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i19)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i19, ptr noundef nonnull @.str.44)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i.i19, align 8
-  %call.i.i.i.i.i20 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i19) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i19) #22
+  %call.i.i.i.i.i20 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i19) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i19) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i19)
   br label %return
 
@@ -38494,8 +38495,8 @@ if.then.i.i.i.i:                                  ; preds = %do.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i.i.i), !noalias !182
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i.i, ptr noundef nonnull @.str.17)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i.i.i.i, align 8, !noalias !182
-  %call.i.i.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i.i) #22
+  %call.i.i.i.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i.i.i), !noalias !182
   br label %_ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_EN17precision_adapterclENS0_17basic_string_viewIcEE.exit
 
@@ -38558,8 +38559,8 @@ if.then.i:                                        ; preds = %sw.bb1.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i, ptr noundef nonnull @.str.57)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i, align 8
-  %call.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #22
+  %call.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
   br label %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit
 
@@ -38581,8 +38582,8 @@ _ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerE
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i34)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i34, ptr noundef nonnull @.str.57)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i34, align 8
-  %call.i.i.i37 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i34) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i34) #22
+  %call.i.i.i37 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i34) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i34) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i34)
   br label %if.then
 
@@ -38600,8 +38601,8 @@ if.then.i40:                                      ; preds = %sw.bb11.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i38)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i38, ptr noundef nonnull @.str.57)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i38, align 8
-  %call.i.i.i41 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i38) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i38) #22
+  %call.i.i.i41 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i38) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i38) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i38)
   br label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
 
@@ -38614,8 +38615,8 @@ sw.bb24.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i44)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i44, ptr noundef nonnull @.str.58)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i44, align 8
-  %call.i.i.i45 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i44) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i44) #22
+  %call.i.i.i45 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i44) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i44) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i44)
   br label %if.end
 
@@ -38623,8 +38624,8 @@ sw.bb27.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i46)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i46, ptr noundef nonnull @.str.58)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i46, align 8
-  %call.i.i.i47 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i46) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i46) #22
+  %call.i.i.i47 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i46) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i46) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i46)
   br label %if.end
 
@@ -38632,8 +38633,8 @@ sw.bb30.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i48)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i48, ptr noundef nonnull @.str.58)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i48, align 8
-  %call.i.i.i49 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i48) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i48) #22
+  %call.i.i.i49 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i48) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i48) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i48)
   br label %if.end
 
@@ -38641,8 +38642,8 @@ sw.bb33.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i50)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i50, ptr noundef nonnull @.str.58)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i50, align 8
-  %call.i.i.i51 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i50) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i50) #22
+  %call.i.i.i51 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i50) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i50) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i50)
   br label %if.end
 
@@ -38650,8 +38651,8 @@ sw.bb36.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i52)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i52, ptr noundef nonnull @.str.58)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i52, align 8
-  %call.i.i.i53 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i52) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i52) #22
+  %call.i.i.i53 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i52) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i52) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i52)
   br label %if.end
 
@@ -38659,8 +38660,8 @@ sw.bb39.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i54)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i54, ptr noundef nonnull @.str.58)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i54, align 8
-  %call.i.i.i55 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i54) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i54) #22
+  %call.i.i.i55 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i54) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i54) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i54)
   br label %if.end
 
@@ -38668,8 +38669,8 @@ sw.bb42.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i56)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i56, ptr noundef nonnull @.str.58)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i56, align 8
-  %call.i.i.i57 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i56) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i56) #22
+  %call.i.i.i57 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i56) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i56) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i56)
   br label %if.end
 
@@ -38677,8 +38678,8 @@ sw.bb47.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i58)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i58, ptr noundef nonnull @.str.58)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i58, align 8
-  %call.i.i.i59 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i58) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i58) #22
+  %call.i.i.i59 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i58) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i58) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i58)
   br label %if.end
 
@@ -38686,8 +38687,8 @@ sw.bb50.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i60)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i60, ptr noundef nonnull @.str.58)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i60, align 8
-  %call.i.i.i61 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i60) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i60) #22
+  %call.i.i.i61 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i60) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i60) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i60)
   br label %if.end
 
@@ -38695,8 +38696,8 @@ sw.epilog.i:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i62)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i62, ptr noundef nonnull @.str.58)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i62, align 8
-  %call.i.i.i63 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i62) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i62) #22
+  %call.i.i.i63 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i62) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i62) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i62)
   br label %if.end
 
@@ -38710,8 +38711,8 @@ if.then:                                          ; preds = %_ZN3fmt2v816visit_f
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i, ptr noundef nonnull @.str.38)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i, align 8
-  %call.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
+  %call.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   br label %if.end
 
@@ -38764,11 +38765,11 @@ land.lhs.true.i:                                  ; preds = %sw.bb.i
 lpad.i:                                           ; preds = %land.lhs.true.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping.i) #24
   resume { ptr, i32 } %2
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping.i) #24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %grouping.i)
   br label %_ZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE.exit
 
@@ -39672,8 +39673,8 @@ sw.default.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i, ptr noundef nonnull @.str.23)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i, align 8
-  %call.i362 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #22
+  %call.i362 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
   br label %_ZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE.exit
 
@@ -41458,11 +41459,11 @@ land.lhs.true.i:                                  ; preds = %sw.bb.i
 lpad.i:                                           ; preds = %land.lhs.true.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping.i) #24
   resume { ptr, i32 } %2
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %grouping.i) #24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %grouping.i)
   br label %_ZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE.exit
 
@@ -42393,8 +42394,8 @@ sw.default.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i, ptr noundef nonnull @.str.23)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i, align 8
-  %call.i369 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #22
+  %call.i369 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
   br label %_ZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE.exit
 
@@ -42507,7 +42508,7 @@ if.end.i:                                         ; preds = %while.end.i
 _ZN3fmt2v86detail14format_decimalIcoEENS1_21format_decimal_resultIPT_EES5_T0_i.exit: ; preds = %if.then.i, %if.end.i
   %3 = load i32, ptr %prefix.addr, align 4
   %4 = load i32, ptr %num_digits, align 4
-  %call.i.i = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  %call.i.i = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   %thousands_sep.i.i = getelementptr inbounds i8, ptr %grouping, i64 32
   %5 = load i8, ptr %thousands_sep.i.i, align 8
   %tobool.not.i6.i = icmp eq i8 %5, 0
@@ -42517,12 +42518,12 @@ if.end.i.i4:                                      ; preds = %_ZN3fmt2v86detail14
   %count.09.i = phi i32 [ %inc.i, %while.body.i6 ], [ 0, %_ZN3fmt2v86detail14format_decimalIcoEENS1_21format_decimal_resultIPT_EES5_T0_i.exit ]
   %state.sroa.0.08.i = phi ptr [ %state.sroa.0.1.i, %while.body.i6 ], [ %call.i.i, %_ZN3fmt2v86detail14format_decimalIcoEENS1_21format_decimal_resultIPT_EES5_T0_i.exit ]
   %state.sroa.3.07.i = phi i32 [ %add29.i.i, %while.body.i6 ], [ 0, %_ZN3fmt2v86detail14format_decimalIcoEENS1_21format_decimal_resultIPT_EES5_T0_i.exit ]
-  %call3.i.i = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  %call3.i.i = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   %cmp.i.i.i = icmp eq ptr %state.sroa.0.08.i, %call3.i.i
   br i1 %cmp.i.i.i, label %if.then5.i.i, label %if.end9.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i4
-  %call8.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #22
+  %call8.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %grouping) #24
   %.pre.i = load i8, ptr %call8.i.i, align 1
   br label %_ZNK3fmt2v86detail14digit_groupingIcE4nextERNS3_10next_stateE.exit.i
 
@@ -44603,8 +44604,8 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i, ptr noundef nonnull @.str.23)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i, align 8
-  %call.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #22
+  %call.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
   br label %return
 
@@ -44622,8 +44623,8 @@ if.then14:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i, ptr noundef nonnull @.str.60)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i, align 8
-  %call.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #22
+  %call.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i)
   br label %return
 
@@ -44763,17 +44764,17 @@ if.then73:                                        ; preds = %_ZNSt20back_insert_
 
 if.end76:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %if.then73, %if.end34
   %fspecs.sroa.5.1 = phi i32 [ %bf.clear70, %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit ], [ %bf.clear70, %if.then73 ], [ %fspecs.sroa.5.0, %if.end34 ]
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #24
   %ptr_.i.i10 = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i10, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #22
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #24
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i10, align 8
   store i64 500, ptr %capacity_.i.i, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #24
   %bf.cast80 = trunc i32 %fspecs.sroa.5.1 to i8
   %cmp81 = icmp eq i8 %bf.cast80, 3
   br i1 %cmp81, label %if.then82, label %if.end113
@@ -44818,7 +44819,7 @@ _ZN3fmt2v86detail6bufferIcE9push_backERKc.exit:   ; preds = %if.then88, %.noexc
 lpad95:                                           ; preds = %invoke.cont138, %if.then127, %invoke.cont101, %if.then.i.i, %if.end131, %if.end97
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #22
+  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #24
   resume { ptr, i32 } %25
 
 if.end97:                                         ; preds = %_ZN3fmt2v86detail6bufferIcE9push_backERKc.exit, %if.then82
@@ -44869,8 +44870,8 @@ if.then127:                                       ; preds = %if.then124
 
 _ZN3fmt2v86detail18throw_format_errorEPKc.exit:   ; preds = %if.then127
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i, align 8
-  %call.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #22
+  %call.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
   br label %if.end131
 
@@ -44911,11 +44912,11 @@ cleanup:                                          ; preds = %invoke.cont138, %_Z
   br i1 %cmp.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i28
 
 if.then.i.i28:                                    ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef %33) #23
+  call void @_ZdlPv(ptr noundef %33) #25
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %cleanup, %if.then.i.i28
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #24
   br label %return
 
 return:                                           ; preds = %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -45294,7 +45295,7 @@ if.then17:                                        ; preds = %if.end15
 
 if.then22:                                        ; preds = %if.then17
   %conv23 = fptrunc double %value to float
-  %call24 = tail call i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %conv23) #22
+  %call24 = tail call i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %conv23) #24
   %dec.sroa.0.0.extract.trunc = trunc i64 %call24 to i32
   %dec.sroa.2.0.extract.shift = lshr i64 %call24, 32
   %dec.sroa.2.0.extract.trunc = trunc nuw i64 %dec.sroa.2.0.extract.shift to i32
@@ -45302,7 +45303,7 @@ if.then22:                                        ; preds = %if.then17
   br label %return
 
 if.end30:                                         ; preds = %if.then17
-  %call32 = tail call { i64, i32 } @_ZN3fmt2v86detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %value) #22
+  %call32 = tail call { i64, i32 } @_ZN3fmt2v86detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %value) #24
   %12 = extractvalue { i64, i32 } %call32, 0
   %13 = extractvalue { i64, i32 } %call32, 1
   %call37 = tail call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEmTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr nonnull %buf, i64 noundef %12)
@@ -45392,8 +45393,8 @@ if.then.i:                                        ; preds = %_ZN3fmt2v86detail9n
 if.then21.i:                                      ; preds = %if.then.i
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24.i, ptr noundef nonnull @.str.38)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp24.i, align 8
-  %call25.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24.i) #22
+  %call25.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24.i) #24
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then21.i, %if.then.i
@@ -45964,17 +45965,17 @@ if.then73:                                        ; preds = %_ZNSt20back_insert_
 
 if.end76:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %if.then73, %if.end34
   %fspecs.sroa.5.1 = phi i32 [ %bf.clear70, %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit ], [ %bf.clear70, %if.then73 ], [ %fspecs.sroa.5.0, %if.end34 ]
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #24
   %ptr_.i.i10 = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i10, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #22
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #24
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i10, align 8
   store i64 500, ptr %capacity_.i.i, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #24
   %bf.cast80 = trunc i32 %fspecs.sroa.5.1 to i8
   %cmp81 = icmp eq i8 %bf.cast80, 3
   br i1 %cmp81, label %if.then82, label %if.end113
@@ -46019,7 +46020,7 @@ _ZN3fmt2v86detail6bufferIcE9push_backERKc.exit:   ; preds = %if.then88, %.noexc
 lpad95:                                           ; preds = %invoke.cont135, %if.then127, %invoke.cont101, %if.then.i.i, %if.end131, %if.end97
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #22
+  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #24
   resume { ptr, i32 } %25
 
 if.end97:                                         ; preds = %_ZN3fmt2v86detail6bufferIcE9push_backERKc.exit, %if.then82
@@ -46069,8 +46070,8 @@ if.then127:                                       ; preds = %if.then124
 
 _ZN3fmt2v86detail18throw_format_errorEPKc.exit:   ; preds = %if.then127
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i, align 8
-  %call.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #22
+  %call.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
   br label %if.end131
 
@@ -46109,11 +46110,11 @@ cleanup:                                          ; preds = %invoke.cont135, %_Z
   br i1 %cmp.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i27
 
 if.then.i.i27:                                    ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef %33) #23
+  call void @_ZdlPv(ptr noundef %33) #25
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %cleanup, %if.then.i.i27
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #24
   br label %return
 
 return:                                           ; preds = %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -46139,8 +46140,8 @@ if.then3.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i, ptr noundef nonnull @.str.23)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i, align 8
-  %call.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #22
+  %call.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
   br label %_ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presentation_typeEOT_.exit
 
@@ -46150,7 +46151,7 @@ _ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presenta
   br i1 %or.cond.i, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %_ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presentation_typeEOT_.exit
-  %call.i5 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #22
+  %call.i5 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #24
   %2 = load i8, ptr %type, align 4
   %3 = and i8 %2, -17
   %or.cond.not.i.i = icmp eq i8 %3, 0
@@ -46160,8 +46161,8 @@ if.then.i.i:                                      ; preds = %cond.true
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i, ptr noundef nonnull @.str.23)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i, align 8
-  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #22
+  %call.i.i.i.i = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit
 
@@ -46701,7 +46702,7 @@ _ZZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_poi
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
+declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN3fmt2v86detail12fwrite_fullyEPKvmmP8_IO_FILE(ptr noundef %ptr, i64 noundef %size, i64 noundef %count, ptr noundef %stream) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
@@ -46714,11 +46715,11 @@ entry:
   br i1 %cmp, label %do.body, label %if.end
 
 do.body:                                          ; preds = %entry
-  %call3 = tail call ptr @__errno_location() #29
+  %call3 = tail call ptr @__errno_location() #31
   %0 = load i32, ptr %call3, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !220
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #29
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #31
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr nonnull @.str.62, i64 20, i64 0, ptr nonnull %ref.tmp.i), !noalias !223
   invoke void @_ZNSt12system_errorC2ESt10error_codeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i32 %0, ptr nonnull %call.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
           to label %_ZN3fmt2v812system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_.exit unwind label %lpad.i.i
@@ -46726,15 +46727,15 @@ do.body:                                          ; preds = %entry
 lpad.i.i:                                         ; preds = %do.body
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #24
   resume { ptr, i32 } %1
 
 _ZN3fmt2v812system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_.exit: ; preds = %do.body
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !220
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %call4 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2) #22
-  call void @_ZNSt12system_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #22
+  %call4 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2) #24
+  call void @_ZNSt12system_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #24
   br label %if.end
 
 if.end:                                           ; preds = %_ZN3fmt2v812system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_.exit, %entry
@@ -46742,16 +46743,16 @@ if.end:                                           ; preds = %_ZN3fmt2v812system_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #14
+declare ptr @__errno_location() local_unnamed_addr #15
 
 ; Function Attrs: nounwind
 declare void @_ZNSt12system_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() local_unnamed_addr #14
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr %fmt.coerce0, i64 %fmt.coerce1, i64 %args.coerce0, ptr %args.coerce1) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
@@ -46760,17 +46761,17 @@ entry:
   %ref.tmp3.i = alloca %"class.std::allocator", align 1
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8
   store i64 500, ptr %capacity_.i.i, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   invoke void @_ZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %buffer, ptr %fmt.coerce0, i64 %fmt.coerce1, i64 %args.coerce0, ptr %args.coerce1, ptr null)
           to label %invoke.cont5 unwind label %lpad3
 
@@ -46779,24 +46780,24 @@ invoke.cont5:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp3.i)
   %size_.i.i = getelementptr inbounds i8, ptr %buffer, i64 16
   %0 = load i64, ptr %size_.i.i, align 8, !noalias !226
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #22, !noalias !226
-  %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #22, !noalias !226
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #24, !noalias !226
+  %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #24, !noalias !226
   %cmp.i = icmp ult i64 %0, %call1.i
   call void @llvm.assume(i1 %cmp.i)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #22, !noalias !226
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #24, !noalias !226
   %1 = load ptr, ptr %ptr_.i.i, align 8, !noalias !226
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #22, !noalias !226
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #24, !noalias !226
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %1, i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i)
           to label %invoke.cont6 unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %invoke.cont5
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #24
   br label %lpad3.body
 
 invoke.cont6:                                     ; preds = %invoke.cont5
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp3.i)
   %3 = load ptr, ptr %ptr_.i.i, align 8
@@ -46804,11 +46805,11 @@ invoke.cont6:                                     ; preds = %invoke.cont5
   br i1 %cmp.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont6
-  call void @_ZdlPv(ptr noundef %3) #23
+  call void @_ZdlPv(ptr noundef %3) #25
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %invoke.cont6, %if.then.i.i
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #24
   ret void
 
 lpad3:                                            ; preds = %entry
@@ -46818,7 +46819,7 @@ lpad3:                                            ; preds = %entry
 
 lpad3.body:                                       ; preds = %lpad4.i, %lpad3
   %eh.lpad-body = phi { ptr, i32 } [ %4, %lpad3 ], [ %2, %lpad4.i ]
-  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #22
+  call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #24
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -46834,7 +46835,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %ehcleanup, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %.pn, %ehcleanup ], [ %2, %lpad ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #24
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -46850,15 +46851,15 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
-  %call.i3 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #22, !noalias !232
-  %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #22, !noalias !232
+  %call.i3 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #24, !noalias !232
+  %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #24, !noalias !232
   %add.i = add i64 %call1.i, %call.i3
-  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #22, !noalias !232
+  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #24, !noalias !232
   %cmp.i = icmp ugt i64 %add.i, %call2.i
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end7.i
 
 land.lhs.true.i:                                  ; preds = %invoke.cont
-  %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #22, !noalias !232
+  %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #24, !noalias !232
   %cmp4.not.i = icmp ugt i64 %add.i, %call3.i
   br i1 %cmp4.not.i, label %if.end7.i, label %if.then5.i
 
@@ -46872,14 +46873,14 @@ if.end7.i:                                        ; preds = %land.lhs.true.i, %i
 
 invoke.cont5:                                     ; preds = %if.then5.i, %if.end7.i
   %call8.sink.i = phi ptr [ %call6.i4, %if.then5.i ], [ %call8.i5, %if.end7.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %call8.sink.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %call8.sink.i) #24
   invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #24
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8
@@ -46900,12 +46901,12 @@ lpad4:                                            ; preds = %if.end7.i, %if.then
 lpad6:                                            ; preds = %invoke.cont5
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad6, %lpad4
   %.pn = phi { ptr, i32 } [ %4, %lpad6 ], [ %3, %lpad4 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #24
   br label %common.resume
 }
 
@@ -46915,7 +46916,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8max_
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
+declare void @llvm.assume(i1 noundef) #16
 
 declare void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
@@ -46932,7 +46933,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
 
 declare void @_ZN18OpenImageIO_v2_6_08ImageBuf16set_deep_samplesEiiii(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
@@ -46993,7 +46994,7 @@ if.then:                                          ; preds = %_ZNK18OpenImageIO_v
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFvN18OpenImageIO_v2_6_03ROIEEEclES1_.exit
 
 if.then.i:                                        ; preds = %if.then
-  call void @_ZSt25__throw_bad_function_callv() #27
+  call void @_ZSt25__throw_bad_function_callv() #29
   unreachable
 
 _ZNKSt8functionIFvN18OpenImageIO_v2_6_03ROIEEEclES1_.exit: ; preds = %if.then
@@ -47125,7 +47126,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #26
+  call void @__clang_call_terminate(ptr %29) #28
   unreachable
 
 return:                                           ; preds = %if.then.i.i, %invoke.cont, %_ZNKSt8functionIFvN18OpenImageIO_v2_6_03ROIEEEclES1_.exit
@@ -47146,7 +47147,7 @@ terminate.lpad.i.i48:                             ; preds = %if.then.i.i46
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #26
+  call void @__clang_call_terminate(ptr %33) #28
   unreachable
 
 _ZNSt8functionIFvllllEED2Ev.exit49:               ; preds = %lpad, %if.then.i.i46
@@ -47158,10 +47159,10 @@ declare void @_ZN18OpenImageIO_v2_6_06paropt7resolveEv(ptr noundef nonnull align
 declare void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvllllEENS_6paroptE(i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef byval(%"class.OpenImageIO_v2_6_0::paropt") align 8) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #9
+declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #11
+declare double @llvm.sqrt.f64(double) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt17_Function_handlerIFvllllEZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS1_3ROIENS1_6paroptESt8functionIFvS3_EEEUlllllE_E9_M_invokeERKSt9_Any_dataOlSD_SD_SD_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 8 dereferenceable(8) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5) #5 comdat align 2 {
@@ -47208,7 +47209,7 @@ entry:
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS0_3ROIENS0_6paroptESt8functionIFvS2_EEEUlllllE_JllllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  tail call void @_ZSt25__throw_bad_function_callv() #27
+  tail call void @_ZSt25__throw_bad_function_callv() #29
   unreachable
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS0_3ROIENS0_6paroptESt8functionIFvS2_EEEUlllllE_JllllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %entry
@@ -47333,7 +47334,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %__source.val5, i64 40, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -47344,7 +47345,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -47377,11 +47378,11 @@ cond.true.i.i.i:                                  ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %if.then3.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i
 
 if.then3.i.i.i.i.i:                               ; preds = %cond.true.i.i.i
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #29
   unreachable
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i: ; preds = %cond.true.i.i.i
-  %call5.i.i.i.i2.i6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #25
+  %call5.i.i.i.i2.i6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #27
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i, %entry
@@ -47413,19 +47414,19 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = tail call ptr @__cxa_begin_catch(ptr %5) #22
+  %6 = tail call ptr @__cxa_begin_catch(ptr %5) #24
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %cond.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i.i.i, %lpad.i.i.i.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i) #24
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %__cur.010.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !18
 
 invoke.cont5.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %lpad.i.i.i.i
-  invoke void @__cxa_rethrow() #27
+  invoke void @__cxa_rethrow() #29
           to label %unreachable.i.i.i.i unwind label %lpad4.i.i.i.i
 
 lpad4.i.i.i.i:                                    ; preds = %invoke.cont5.i.i.i.i
@@ -47438,7 +47439,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad4.i.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #26
+  tail call void @__clang_call_terminate(ptr %9) #28
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %invoke.cont5.i.i.i.i
@@ -47455,7 +47456,7 @@ lpad10.body:                                      ; preds = %lpad4.i.i.i.i
   br i1 %tobool.not.i.i, label %eh.resume, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad10.body
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #25
   br label %eh.resume
 
 eh.resume:                                        ; preds = %if.then.i.i, %lpad10.body
@@ -47473,7 +47474,7 @@ entry:
 
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #24
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !18
@@ -47488,7 +47489,7 @@ invoke.cont:                                      ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -47520,11 +47521,11 @@ cond.true.i.i.i:                                  ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %if.then3.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_010ParamValueEEE8allocateERS2_m.exit.i.i.i
 
 if.then3.i.i.i.i.i:                               ; preds = %cond.true.i.i.i
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #29
   unreachable
 
 _ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_010ParamValueEEE8allocateERS2_m.exit.i.i.i: ; preds = %cond.true.i.i.i
-  %call5.i.i.i.i2.i6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #25
+  %call5.i.i.i.i2.i6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #27
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_010ParamValueEEE8allocateERS2_m.exit.i.i.i, %entry
@@ -47592,7 +47593,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %m_data.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 16
   %12 = load ptr, ptr %m_data.i.i.i.i.i.i.i, align 8
   %cond.i.i.i.i.i.i.i = select i1 %tobool.i.i.i.i.i.i.i, ptr %12, ptr %m_data.i.i.i.i.i.i.i
-  call void @_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE(ptr noundef nonnull align 8 dereferenceable(39) %__cur.07.i.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i.i.i.i, i32 noundef %9, i32 noundef %conv.i.i.i.i.i.i.i, ptr noundef %cond.i.i.i.i.i.i.i, i8 1, i8 1) #22
+  call void @_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE(ptr noundef nonnull align 8 dereferenceable(39) %__cur.07.i.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i.i.i.i, i32 noundef %9, i32 noundef %conv.i.i.i.i.i.i.i, ptr noundef %cond.i.i.i.i.i.i.i, i8 1, i8 1) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i.i.i.i.i.i)
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 40
@@ -47788,7 +47789,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #26
+  call void @__clang_call_terminate(ptr %15) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.cond.cleanup.i.i.i
@@ -47805,7 +47806,7 @@ terminate.lpad.i.i20.i.i.i:                       ; preds = %if.then.i.i19.i.i.i
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #26
+  call void @__clang_call_terminate(ptr %18) #28
   unreachable
 
 lpad.i.i.i:                                       ; preds = %entry
@@ -47860,7 +47861,7 @@ terminate.lpad.i.i28.i.i.i:                       ; preds = %if.then.i.i27.i.i.i
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #26
+  call void @__clang_call_terminate(ptr %26) #28
   unreachable
 
 if.end.i.i.i:                                     ; preds = %invoke.cont5.i.i.i
@@ -48084,7 +48085,7 @@ terminate.lpad.i.i95.i.i.i:                       ; preds = %if.then.i.i94.i.i.i
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #26
+  call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit96.i.i.i: ; preds = %if.then.i.i94.i.i.i, %ehcleanup.i.i.i
@@ -48100,7 +48101,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit96.i.i.i: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L9copy_deepERNS0_8ImageBufERKS3_S1_iE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L9copy_deepERNS0_8ImageBufERKS3_S1_iE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -48296,7 +48297,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad9.i.i.i:                                      ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
@@ -48566,7 +48567,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #26
+  call void @__clang_call_terminate(ptr %98) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end32.i.i.i
@@ -48582,12 +48583,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #26
+  call void @__clang_call_terminate(ptr %101) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad9.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %35, %lpad9.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_IffEEbRNS0_8ImageBufERKS2_NS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -48619,7 +48620,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -48630,7 +48631,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -48834,7 +48835,7 @@ invoke.cont22.i.i.i:                              ; preds = %cond.true.i.i.i, %i
 lpad19.i.i.i:                                     ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont22.i.i.i, %for.body14.i.i.i
@@ -49065,7 +49066,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #26
+  call void @__clang_call_terminate(ptr %98) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end31.i.i.i
@@ -49081,12 +49082,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #26
+  call void @__clang_call_terminate(ptr %101) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %43, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_IhhEEbRNS0_8ImageBufERKS2_NS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -49118,7 +49119,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -49129,7 +49130,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -49152,7 +49153,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -49175,7 +49176,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -49383,7 +49384,7 @@ invoke.cont22.i.i.i:                              ; preds = %cond.true.i.i.i, %i
 lpad19.i.i.i:                                     ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont22.i.i.i, %for.body14.i.i.i
@@ -49614,7 +49615,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #26
+  call void @__clang_call_terminate(ptr %98) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end31.i.i.i
@@ -49630,12 +49631,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #26
+  call void @__clang_call_terminate(ptr %101) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %43, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_IttEEbRNS0_8ImageBufERKS2_NS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -49667,7 +49668,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -49678,7 +49679,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -49701,7 +49702,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -49724,7 +49725,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -49928,7 +49929,7 @@ invoke.cont23.i.i.i:                              ; preds = %invoke.cont20.i.i.i
 lpad19.i.i.i:                                     ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont23.i.i.i, %for.body14.i.i.i
@@ -50159,7 +50160,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %96 = landingpad { ptr, i32 }
           catch ptr null
   %97 = extractvalue { ptr, i32 } %96, 0
-  call void @__clang_call_terminate(ptr %97) #26
+  call void @__clang_call_terminate(ptr %97) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end35.i.i.i
@@ -50175,12 +50176,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #26
+  call void @__clang_call_terminate(ptr %100) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %42, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_I4halfS2_EEbRNS0_8ImageBufERKS3_NS0_3ROIES7_iEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -50212,7 +50213,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -50223,7 +50224,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -50246,7 +50247,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -50269,7 +50270,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -50475,7 +50476,7 @@ invoke.cont22.i.i.i:                              ; preds = %cond.true.i.i.i, %i
 lpad19.i.i.i:                                     ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont22.i.i.i, %for.body14.i.i.i
@@ -50706,7 +50707,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #26
+  call void @__clang_call_terminate(ptr %98) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end31.i.i.i
@@ -50722,12 +50723,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #26
+  call void @__clang_call_terminate(ptr %101) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %43, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_IccEEbRNS0_8ImageBufERKS2_NS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -50759,7 +50760,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -50770,7 +50771,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -50793,7 +50794,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -50816,7 +50817,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -51020,7 +51021,7 @@ invoke.cont22.i.i.i:                              ; preds = %cond.true.i.i.i, %i
 lpad19.i.i.i:                                     ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont22.i.i.i, %for.body14.i.i.i
@@ -51251,7 +51252,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #26
+  call void @__clang_call_terminate(ptr %98) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end31.i.i.i
@@ -51267,12 +51268,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #26
+  call void @__clang_call_terminate(ptr %101) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %43, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_IssEEbRNS0_8ImageBufERKS2_NS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -51304,7 +51305,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -51315,7 +51316,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -51338,7 +51339,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -51361,7 +51362,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -51565,7 +51566,7 @@ invoke.cont22.i.i.i:                              ; preds = %cond.true.i.i.i, %i
 lpad19.i.i.i:                                     ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont22.i.i.i, %for.body14.i.i.i
@@ -51796,7 +51797,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #26
+  call void @__clang_call_terminate(ptr %98) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end31.i.i.i
@@ -51812,12 +51813,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #26
+  call void @__clang_call_terminate(ptr %101) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %43, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_IjjEEbRNS0_8ImageBufERKS2_NS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -51849,7 +51850,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -51860,7 +51861,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -51883,7 +51884,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -51906,7 +51907,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -52110,7 +52111,7 @@ invoke.cont22.i.i.i:                              ; preds = %cond.true.i.i.i, %i
 lpad19.i.i.i:                                     ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont22.i.i.i, %for.body14.i.i.i
@@ -52341,7 +52342,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #26
+  call void @__clang_call_terminate(ptr %98) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end31.i.i.i
@@ -52357,12 +52358,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #26
+  call void @__clang_call_terminate(ptr %101) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %43, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_IiiEEbRNS0_8ImageBufERKS2_NS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -52394,7 +52395,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -52405,7 +52406,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -52428,7 +52429,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -52451,7 +52452,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -52655,7 +52656,7 @@ invoke.cont22.i.i.i:                              ; preds = %cond.true.i.i.i, %i
 lpad19.i.i.i:                                     ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont22.i.i.i, %for.body14.i.i.i
@@ -52886,7 +52887,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #26
+  call void @__clang_call_terminate(ptr %98) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end31.i.i.i
@@ -52902,12 +52903,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #26
+  call void @__clang_call_terminate(ptr %101) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %43, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_IddEEbRNS0_8ImageBufERKS2_NS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -52939,7 +52940,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -52950,7 +52951,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -52973,7 +52974,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -52996,7 +52997,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -53034,18 +53035,18 @@ land.lhs.true5.i:                                 ; preds = %if.end.i
   br i1 %cmp7.not.i, label %_ZN3fmt2v89formatterIN18OpenImageIO_v2_6_08TypeDescEcvE5parseERNS0_26basic_format_parse_contextIcNS0_6detail13error_handlerEEE.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %land.lhs.true5.i
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #22
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #24
   invoke void @_ZN3fmt2v812format_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull @.str.67)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then8.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN3fmt2v812format_errorE, ptr nonnull @_ZN3fmt2v812format_errorD2Ev) #27
+  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN3fmt2v812format_errorE, ptr nonnull @_ZN3fmt2v812format_errorD2Ev) #29
   unreachable
 
 lpad.i:                                           ; preds = %if.then8.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #22
+  tail call void @__cxa_free_exception(ptr %exception.i) #24
   resume { ptr, i32 } %4
 
 _ZN3fmt2v89formatterIN18OpenImageIO_v2_6_08TypeDescEcvE5parseERNS0_26basic_format_parse_contextIcNS0_6detail13error_handlerEEE.exit: ; preds = %if.end.i, %land.lhs.true5.i
@@ -53071,7 +53072,8 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #18
 
 declare noundef ptr @_ZNK18OpenImageIO_v2_6_08TypeDesc5c_strEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #0
 
@@ -53274,7 +53276,7 @@ invoke.cont22.i.i.i:                              ; preds = %cond.true.i.i.i, %i
 lpad19.i.i.i:                                     ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont22.i.i.i, %for.body14.i.i.i
@@ -53505,7 +53507,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #26
+  call void @__clang_call_terminate(ptr %98) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end30.i.i.i
@@ -53521,12 +53523,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #26
+  call void @__clang_call_terminate(ptr %101) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %43, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_IfhEEbRNS0_8ImageBufERKS2_NS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -53558,7 +53560,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -53569,7 +53571,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -53592,7 +53594,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -53799,7 +53801,7 @@ invoke.cont22.i.i.i:                              ; preds = %cond.true.i.i.i, %i
 lpad19.i.i.i:                                     ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont22.i.i.i, %for.body14.i.i.i
@@ -54030,7 +54032,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %98 = landingpad { ptr, i32 }
           catch ptr null
   %99 = extractvalue { ptr, i32 } %98, 0
-  call void @__clang_call_terminate(ptr %99) #26
+  call void @__clang_call_terminate(ptr %99) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end30.i.i.i
@@ -54046,12 +54048,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %101 = landingpad { ptr, i32 }
           catch ptr null
   %102 = extractvalue { ptr, i32 } %101, 0
-  call void @__clang_call_terminate(ptr %102) #26
+  call void @__clang_call_terminate(ptr %102) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %44, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_If4halfEEbRNS0_8ImageBufERKS3_NS0_3ROIES7_iEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -54083,7 +54085,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -54094,7 +54096,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -54117,7 +54119,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -54323,7 +54325,7 @@ invoke.cont22.i.i.i:                              ; preds = %cond.true.i.i.i, %i
 lpad19.i.i.i:                                     ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont22.i.i.i, %for.body14.i.i.i
@@ -54554,7 +54556,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #26
+  call void @__clang_call_terminate(ptr %98) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end30.i.i.i
@@ -54570,12 +54572,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #26
+  call void @__clang_call_terminate(ptr %101) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %43, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_IftEEbRNS0_8ImageBufERKS2_NS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -54607,7 +54609,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -54618,7 +54620,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -54641,7 +54643,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -54854,7 +54856,7 @@ invoke.cont22.i.i.i:                              ; preds = %cond.true.i.i.i, %i
 lpad19.i.i.i:                                     ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont22.i.i.i, %for.body14.i.i.i
@@ -55085,7 +55087,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #26
+  call void @__clang_call_terminate(ptr %98) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end30.i.i.i
@@ -55101,12 +55103,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #26
+  call void @__clang_call_terminate(ptr %101) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %43, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIfhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIfhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_IhfEEbRNS0_8ImageBufERKS2_NS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -55138,7 +55140,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -55149,7 +55151,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -55172,7 +55174,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -55385,7 +55387,7 @@ invoke.cont22.i.i.i:                              ; preds = %cond.true.i.i.i, %i
 lpad19.i.i.i:                                     ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont22.i.i.i, %for.body14.i.i.i
@@ -55616,7 +55618,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #26
+  call void @__clang_call_terminate(ptr %100) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end30.i.i.i
@@ -55632,12 +55634,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #26
+  call void @__clang_call_terminate(ptr %103) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %45, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_Ih4halfEEbRNS0_8ImageBufERKS3_NS0_3ROIES7_iEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -55669,7 +55671,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -55680,7 +55682,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -55703,7 +55705,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -55711,7 +55713,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #11
+declare float @llvm.fmuladd.f32(float, float, float) #12
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L6paste_IhtEEbRNS0_8ImageBufERKS4_S1_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -55917,7 +55919,7 @@ invoke.cont22.i.i.i:                              ; preds = %cond.true.i.i.i, %i
 lpad19.i.i.i:                                     ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont22.i.i.i, %for.body14.i.i.i
@@ -56148,7 +56150,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %98 = landingpad { ptr, i32 }
           catch ptr null
   %99 = extractvalue { ptr, i32 } %98, 0
-  call void @__clang_call_terminate(ptr %99) #26
+  call void @__clang_call_terminate(ptr %99) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end30.i.i.i
@@ -56164,12 +56166,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %101 = landingpad { ptr, i32 }
           catch ptr null
   %102 = extractvalue { ptr, i32 } %101, 0
-  call void @__clang_call_terminate(ptr %102) #26
+  call void @__clang_call_terminate(ptr %102) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %44, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIthED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIthED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_IhtEEbRNS0_8ImageBufERKS2_NS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -56201,7 +56203,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -56212,7 +56214,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -56235,7 +56237,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -56478,7 +56480,7 @@ lpad19.loopexit.split-lp.i.i.i:                   ; preds = %if.end13.i41.i.i.i,
 
 lpad19.i.i.i:                                     ; preds = %lpad19.loopexit.split-lp.i.i.i, %lpad19.loopexit.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %lpad19.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad19.loopexit.split-lp.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont23.i.i.i, %for.body14.i.i.i
@@ -56709,7 +56711,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #26
+  call void @__clang_call_terminate(ptr %100) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end34.i.i.i
@@ -56725,12 +56727,12 @@ terminate.lpad.i.i56.i.i.i:                       ; preds = %if.then.i.i55.i.i.i
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #26
+  call void @__clang_call_terminate(ptr %103) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIf4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIf4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_I4halffEEbRNS0_8ImageBufERKS3_NS0_3ROIES7_iEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i, %if.then.i.i55.i.i.i
@@ -56762,7 +56764,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -56773,7 +56775,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -56796,7 +56798,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -57041,7 +57043,7 @@ lpad19.loopexit.split-lp.i.i.i:                   ; preds = %if.end13.i41.i.i.i,
 
 lpad19.i.i.i:                                     ; preds = %lpad19.loopexit.split-lp.i.i.i, %lpad19.loopexit.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %lpad19.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad19.loopexit.split-lp.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont23.i.i.i, %for.body14.i.i.i
@@ -57272,7 +57274,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #26
+  call void @__clang_call_terminate(ptr %100) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end34.i.i.i
@@ -57288,12 +57290,12 @@ terminate.lpad.i.i56.i.i.i:                       ; preds = %if.then.i.i55.i.i.i
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #26
+  call void @__clang_call_terminate(ptr %103) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIh4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIh4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_I4halfhEEbRNS0_8ImageBufERKS3_NS0_3ROIES7_iEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i, %if.then.i.i55.i.i.i
@@ -57325,7 +57327,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -57336,7 +57338,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -57359,7 +57361,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -57604,7 +57606,7 @@ lpad19.loopexit.split-lp.i.i.i:                   ; preds = %if.end13.i41.i.i.i,
 
 lpad19.i.i.i:                                     ; preds = %lpad19.loopexit.split-lp.i.i.i, %lpad19.loopexit.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %lpad19.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad19.loopexit.split-lp.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont23.i.i.i, %for.body14.i.i.i
@@ -57835,7 +57837,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #26
+  call void @__clang_call_terminate(ptr %100) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end34.i.i.i
@@ -57851,12 +57853,12 @@ terminate.lpad.i.i56.i.i.i:                       ; preds = %if.then.i.i55.i.i.i
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #26
+  call void @__clang_call_terminate(ptr %103) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIt4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIt4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_I4halftEEbRNS0_8ImageBufERKS3_NS0_3ROIES7_iEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i, %if.then.i.i55.i.i.i
@@ -57888,7 +57890,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -57899,7 +57901,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -57922,7 +57924,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -58135,7 +58137,7 @@ invoke.cont22.i.i.i:                              ; preds = %cond.true.i.i.i, %i
 lpad19.i.i.i:                                     ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont22.i.i.i, %for.body14.i.i.i
@@ -58366,7 +58368,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #26
+  call void @__clang_call_terminate(ptr %98) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end30.i.i.i
@@ -58382,12 +58384,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #26
+  call void @__clang_call_terminate(ptr %101) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %43, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIftED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIftED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_ItfEEbRNS0_8ImageBufERKS2_NS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -58419,7 +58421,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -58430,7 +58432,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -58453,7 +58455,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -58664,7 +58666,7 @@ invoke.cont22.i.i.i:                              ; preds = %cond.true.i.i.i, %i
 lpad19.i.i.i:                                     ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont22.i.i.i, %for.body14.i.i.i
@@ -58895,7 +58897,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %98 = landingpad { ptr, i32 }
           catch ptr null
   %99 = extractvalue { ptr, i32 } %98, 0
-  call void @__clang_call_terminate(ptr %99) #26
+  call void @__clang_call_terminate(ptr %99) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end30.i.i.i
@@ -58911,12 +58913,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %101 = landingpad { ptr, i32 }
           catch ptr null
   %102 = extractvalue { ptr, i32 } %101, 0
-  call void @__clang_call_terminate(ptr %102) #26
+  call void @__clang_call_terminate(ptr %102) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %44, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhtED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhtED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_IthEEbRNS0_8ImageBufERKS2_NS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -58948,7 +58950,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -58959,7 +58961,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -58982,7 +58984,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -59195,7 +59197,7 @@ invoke.cont22.i.i.i:                              ; preds = %cond.true.i.i.i, %i
 lpad19.i.i.i:                                     ; preds = %if.end13.i40.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i24.i.i, %if.then2.i42.i.i
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont22.i.i.i, %for.body14.i.i.i
@@ -59426,7 +59428,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #26
+  call void @__clang_call_terminate(ptr %100) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end30.i.i.i
@@ -59442,12 +59444,12 @@ terminate.lpad.i.i55.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #26
+  call void @__clang_call_terminate(ptr %103) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad19.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %45, %lpad19.i.i.i ], [ %34, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halftED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halftED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L6paste_It4halfEEbRNS0_8ImageBufERKS3_NS0_3ROIES7_iEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i, %if.then.i.i54.i.i.i
@@ -59479,7 +59481,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -59490,7 +59492,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -59513,7 +59515,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -59642,7 +59644,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -59865,7 +59867,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -59881,12 +59883,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IffEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -59897,7 +59899,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IffEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IffEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IffEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -60045,7 +60047,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -60268,7 +60270,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -60284,12 +60286,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IfhEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -60300,7 +60302,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IfhEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IfhEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IfhEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -60449,7 +60451,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -60672,7 +60674,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -60688,12 +60690,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #26
+  call void @__clang_call_terminate(ptr %77) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %lpad4.i.i.i ], [ %20, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_If4halfEEbRNS0_8ImageBufERKS3_NS0_3ROIEiEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -60704,7 +60706,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_If4halfEEbRNS0_8ImageBufERKS3_NS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_If4halfEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_If4halfEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -60852,7 +60854,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -61075,7 +61077,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -61091,12 +61093,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IftEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -61107,7 +61109,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IftEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IftEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IftEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -61255,7 +61257,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -61478,7 +61480,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -61494,12 +61496,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIcfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIcfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IfcEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -61510,7 +61512,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IfcEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IfcEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IfcEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -61550,7 +61552,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -61681,7 +61683,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -61904,7 +61906,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -61920,12 +61922,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIsfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIsfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IfsEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -61936,7 +61938,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IfsEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IfsEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IfsEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -61976,7 +61978,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -62107,7 +62109,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -62330,7 +62332,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -62346,12 +62348,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IfjEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -62362,7 +62364,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IfjEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IfjEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IfjEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -62402,7 +62404,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -62533,7 +62535,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -62756,7 +62758,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -62772,12 +62774,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIifED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIifED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IfiEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -62788,7 +62790,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IfiEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IfiEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IfiEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -62828,7 +62830,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -62958,7 +62960,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -63181,7 +63183,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -63197,12 +63199,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIdfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIdfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IfdEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -63213,7 +63215,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IfdEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IfdEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IfdEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -63253,7 +63255,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -63391,7 +63393,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -63614,7 +63616,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -63630,12 +63632,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIfhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIfhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IhfEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -63646,7 +63648,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IhfEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IhfEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IhfEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -63792,7 +63794,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -64015,7 +64017,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -64031,12 +64033,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IhhEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -64047,7 +64049,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IhhEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IhhEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IhhEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -64202,7 +64204,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -64425,7 +64427,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #26
+  call void @__clang_call_terminate(ptr %75) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -64441,12 +64443,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #26
+  call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %22, %lpad4.i.i.i ], [ %21, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_Ih4halfEEbRNS0_8ImageBufERKS3_NS0_3ROIEiEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -64457,7 +64459,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_Ih4halfEEbRNS0_8ImageBufERKS3_NS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_Ih4halfEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_Ih4halfEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -64610,7 +64612,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -64833,7 +64835,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -64849,12 +64851,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #26
+  call void @__clang_call_terminate(ptr %77) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %lpad4.i.i.i ], [ %20, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIthED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIthED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IhtEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -64865,7 +64867,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IhtEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IhtEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IhtEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -65021,7 +65023,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -65244,7 +65246,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -65260,12 +65262,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIchED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIchED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IhcEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -65276,7 +65278,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IhcEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IhcEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IhcEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -65316,7 +65318,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -65455,7 +65457,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -65678,7 +65680,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -65694,12 +65696,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIshED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIshED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IhsEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -65710,7 +65712,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IhsEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IhsEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IhsEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -65750,7 +65752,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -65886,7 +65888,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -66109,7 +66111,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -66125,12 +66127,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #26
+  call void @__clang_call_terminate(ptr %77) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %lpad4.i.i.i ], [ %20, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IhjEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -66141,7 +66143,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IhjEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IhjEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IhjEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -66181,7 +66183,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -66320,7 +66322,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -66543,7 +66545,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -66559,12 +66561,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIihED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIihED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IhiEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -66575,7 +66577,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IhiEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IhiEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IhiEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -66615,7 +66617,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -66754,7 +66756,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -66977,7 +66979,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -66993,12 +66995,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIdhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIdhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IhdEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -67009,7 +67011,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IhdEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IhdEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IhdEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -67049,7 +67051,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -67221,7 +67223,7 @@ lpad4.loopexit.split-lp.i.i.i:                    ; preds = %if.end13.i36.i.i.i,
 
 lpad4.i.i.i:                                      ; preds = %lpad4.loopexit.split-lp.i.i.i, %lpad4.loopexit.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %lpad4.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad4.loopexit.split-lp.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc13.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -67444,7 +67446,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #26
+  call void @__clang_call_terminate(ptr %75) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end16.i.i.i
@@ -67460,12 +67462,12 @@ terminate.lpad.i.i51.i.i.i:                       ; preds = %if.then.i.i50.i.i.i
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #26
+  call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %lpad4.i.i.i ], [ %22, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIf4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIf4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halffEEbRNS0_8ImageBufERKS3_NS0_3ROIEiEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i, %if.then.i.i50.i.i.i
@@ -67476,7 +67478,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halffEEbRNS0_8ImageBufERKS3_NS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halffEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halffEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -67667,7 +67669,7 @@ lpad4.loopexit.split-lp.i.i.i:                    ; preds = %if.end13.i36.i.i.i,
 
 lpad4.i.i.i:                                      ; preds = %lpad4.loopexit.split-lp.i.i.i, %lpad4.loopexit.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %lpad4.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad4.loopexit.split-lp.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc13.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -67890,7 +67892,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #26
+  call void @__clang_call_terminate(ptr %75) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end16.i.i.i
@@ -67906,12 +67908,12 @@ terminate.lpad.i.i51.i.i.i:                       ; preds = %if.then.i.i50.i.i.i
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #26
+  call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %lpad4.i.i.i ], [ %22, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIh4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIh4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halfhEEbRNS0_8ImageBufERKS3_NS0_3ROIEiEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i, %if.then.i.i50.i.i.i
@@ -67922,7 +67924,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halfhEEbRNS0_8ImageBufERKS3_NS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halfhEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halfhEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -68068,7 +68070,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc13.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -68291,7 +68293,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #26
+  call void @__clang_call_terminate(ptr %72) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end16.i.i.i
@@ -68307,12 +68309,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #26
+  call void @__clang_call_terminate(ptr %75) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %19, %lpad4.i.i.i ], [ %18, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halfS2_EEbRNS0_8ImageBufERKS3_NS0_3ROIEiEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -68323,7 +68325,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halfS2_EEbRNS0_8ImageBufERKS3_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halfS4_EEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halfS4_EEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -68514,7 +68516,7 @@ lpad4.loopexit.split-lp.i.i.i:                    ; preds = %if.end13.i36.i.i.i,
 
 lpad4.i.i.i:                                      ; preds = %lpad4.loopexit.split-lp.i.i.i, %lpad4.loopexit.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %lpad4.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad4.loopexit.split-lp.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc13.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -68737,7 +68739,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #26
+  call void @__clang_call_terminate(ptr %75) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end16.i.i.i
@@ -68753,12 +68755,12 @@ terminate.lpad.i.i51.i.i.i:                       ; preds = %if.then.i.i50.i.i.i
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #26
+  call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %lpad4.i.i.i ], [ %22, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIt4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIt4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halftEEbRNS0_8ImageBufERKS3_NS0_3ROIEiEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i, %if.then.i.i50.i.i.i
@@ -68769,7 +68771,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halftEEbRNS0_8ImageBufERKS3_NS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halftEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halftEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -68960,7 +68962,7 @@ lpad4.loopexit.split-lp.i.i.i:                    ; preds = %if.end13.i36.i.i.i,
 
 lpad4.i.i.i:                                      ; preds = %lpad4.loopexit.split-lp.i.i.i, %lpad4.loopexit.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %lpad4.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad4.loopexit.split-lp.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc13.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -69183,7 +69185,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #26
+  call void @__clang_call_terminate(ptr %75) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end16.i.i.i
@@ -69199,12 +69201,12 @@ terminate.lpad.i.i51.i.i.i:                       ; preds = %if.then.i.i50.i.i.i
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #26
+  call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %lpad4.i.i.i ], [ %22, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIc4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIc4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halfcEEbRNS0_8ImageBufERKS3_NS0_3ROIEiEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i, %if.then.i.i50.i.i.i
@@ -69215,7 +69217,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halfcEEbRNS0_8ImageBufERKS3_NS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halfcEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halfcEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -69255,7 +69257,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -69429,7 +69431,7 @@ lpad4.loopexit.split-lp.i.i.i:                    ; preds = %if.end13.i36.i.i.i,
 
 lpad4.i.i.i:                                      ; preds = %lpad4.loopexit.split-lp.i.i.i, %lpad4.loopexit.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %lpad4.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad4.loopexit.split-lp.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc13.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -69652,7 +69654,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #26
+  call void @__clang_call_terminate(ptr %75) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end16.i.i.i
@@ -69668,12 +69670,12 @@ terminate.lpad.i.i51.i.i.i:                       ; preds = %if.then.i.i50.i.i.i
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #26
+  call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %lpad4.i.i.i ], [ %22, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIs4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIs4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halfsEEbRNS0_8ImageBufERKS3_NS0_3ROIEiEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i, %if.then.i.i50.i.i.i
@@ -69684,7 +69686,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halfsEEbRNS0_8ImageBufERKS3_NS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halfsEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halfsEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -69724,7 +69726,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -69898,7 +69900,7 @@ lpad4.loopexit.split-lp.i.i.i:                    ; preds = %if.end13.i36.i.i.i,
 
 lpad4.i.i.i:                                      ; preds = %lpad4.loopexit.split-lp.i.i.i, %lpad4.loopexit.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %lpad4.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad4.loopexit.split-lp.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc13.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -70121,7 +70123,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #26
+  call void @__clang_call_terminate(ptr %75) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end16.i.i.i
@@ -70137,12 +70139,12 @@ terminate.lpad.i.i51.i.i.i:                       ; preds = %if.then.i.i50.i.i.i
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #26
+  call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %lpad4.i.i.i ], [ %22, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIj4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIj4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halfjEEbRNS0_8ImageBufERKS3_NS0_3ROIEiEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i, %if.then.i.i50.i.i.i
@@ -70153,7 +70155,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halfjEEbRNS0_8ImageBufERKS3_NS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halfjEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halfjEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -70193,7 +70195,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -70367,7 +70369,7 @@ lpad4.loopexit.split-lp.i.i.i:                    ; preds = %if.end13.i36.i.i.i,
 
 lpad4.i.i.i:                                      ; preds = %lpad4.loopexit.split-lp.i.i.i, %lpad4.loopexit.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %lpad4.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad4.loopexit.split-lp.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc13.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -70590,7 +70592,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #26
+  call void @__clang_call_terminate(ptr %75) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end16.i.i.i
@@ -70606,12 +70608,12 @@ terminate.lpad.i.i51.i.i.i:                       ; preds = %if.then.i.i50.i.i.i
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #26
+  call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %lpad4.i.i.i ], [ %22, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIi4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIi4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halfiEEbRNS0_8ImageBufERKS3_NS0_3ROIEiEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i, %if.then.i.i50.i.i.i
@@ -70622,7 +70624,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halfiEEbRNS0_8ImageBufERKS3_NS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halfiEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halfiEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -70662,7 +70664,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -70835,7 +70837,7 @@ lpad4.loopexit.split-lp.i.i.i:                    ; preds = %if.end13.i36.i.i.i,
 
 lpad4.i.i.i:                                      ; preds = %lpad4.loopexit.split-lp.i.i.i, %lpad4.loopexit.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %lpad4.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad4.loopexit.split-lp.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc13.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -71058,7 +71060,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #26
+  call void @__clang_call_terminate(ptr %75) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end16.i.i.i
@@ -71074,12 +71076,12 @@ terminate.lpad.i.i51.i.i.i:                       ; preds = %if.then.i.i50.i.i.i
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #26
+  call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %lpad4.i.i.i ], [ %22, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorId4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorId4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halfdEEbRNS0_8ImageBufERKS3_NS0_3ROIEiEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i, %if.then.i.i50.i.i.i
@@ -71090,7 +71092,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_I4halfdEEbRNS0_8ImageBufERKS3_NS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halfdEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_I4halfdEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -71130,7 +71132,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -71268,7 +71270,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -71491,7 +71493,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -71507,12 +71509,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIftED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIftED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_ItfEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -71523,7 +71525,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_ItfEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_ItfEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_ItfEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -71676,7 +71678,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -71899,7 +71901,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -71915,12 +71917,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #26
+  call void @__clang_call_terminate(ptr %77) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %lpad4.i.i.i ], [ %20, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhtED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhtED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IthEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -71931,7 +71933,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IthEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IthEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IthEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -72086,7 +72088,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -72309,7 +72311,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #26
+  call void @__clang_call_terminate(ptr %75) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -72325,12 +72327,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #26
+  call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %22, %lpad4.i.i.i ], [ %21, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halftED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halftED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_It4halfEEbRNS0_8ImageBufERKS3_NS0_3ROIEiEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -72341,7 +72343,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_It4halfEEbRNS0_8ImageBufERKS3_NS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_It4halfEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_It4halfEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -72487,7 +72489,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -72710,7 +72712,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -72726,12 +72728,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IttEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -72742,7 +72744,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IttEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IttEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IttEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -72898,7 +72900,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -73121,7 +73123,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -73137,12 +73139,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIctED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIctED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_ItcEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -73153,7 +73155,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_ItcEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_ItcEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_ItcEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -73193,7 +73195,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -73332,7 +73334,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -73555,7 +73557,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -73571,12 +73573,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIstED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIstED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_ItsEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -73587,7 +73589,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_ItsEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_ItsEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_ItsEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -73627,7 +73629,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -73763,7 +73765,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -73986,7 +73988,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -74002,12 +74004,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #26
+  call void @__clang_call_terminate(ptr %77) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %lpad4.i.i.i ], [ %20, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjtED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjtED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_ItjEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -74018,7 +74020,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_ItjEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_ItjEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_ItjEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -74058,7 +74060,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -74197,7 +74199,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -74420,7 +74422,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -74436,12 +74438,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIitED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIitED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_ItiEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -74452,7 +74454,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_ItiEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_ItiEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_ItiEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -74492,7 +74494,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -74631,7 +74633,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -74854,7 +74856,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -74870,12 +74872,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIdtED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIdtED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_ItdEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -74886,7 +74888,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_ItdEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_ItdEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_ItdEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -74926,7 +74928,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -75064,7 +75066,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -75287,7 +75289,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -75303,12 +75305,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIfcED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIfcED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IcfEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -75319,7 +75321,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IcfEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IcfEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IcfEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -75359,7 +75361,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -75495,7 +75497,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -75718,7 +75720,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -75734,12 +75736,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #26
+  call void @__clang_call_terminate(ptr %77) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %lpad4.i.i.i ], [ %20, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhcED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhcED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IchEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -75750,7 +75752,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IchEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IchEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IchEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -75790,7 +75792,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -75928,7 +75930,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -76151,7 +76153,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #26
+  call void @__clang_call_terminate(ptr %75) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -76167,12 +76169,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #26
+  call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %22, %lpad4.i.i.i ], [ %21, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfcED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfcED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_Ic4halfEEbRNS0_8ImageBufERKS3_NS0_3ROIEiEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -76183,7 +76185,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_Ic4halfEEbRNS0_8ImageBufERKS3_NS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_Ic4halfEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_Ic4halfEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -76223,7 +76225,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -76359,7 +76361,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -76582,7 +76584,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -76598,12 +76600,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #26
+  call void @__clang_call_terminate(ptr %77) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %lpad4.i.i.i ], [ %20, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItcED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItcED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IctEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -76614,7 +76616,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IctEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IctEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IctEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -76654,7 +76656,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -76783,7 +76785,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -77006,7 +77008,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -77022,12 +77024,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IccEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -77038,7 +77040,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IccEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IccEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IccEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -77194,7 +77196,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -77417,7 +77419,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -77433,12 +77435,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIscED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIscED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IcsEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -77449,7 +77451,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IcsEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IcsEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IcsEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -77489,7 +77491,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -77625,7 +77627,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -77848,7 +77850,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -77864,12 +77866,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #26
+  call void @__clang_call_terminate(ptr %77) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %lpad4.i.i.i ], [ %20, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjcED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjcED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IcjEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -77880,7 +77882,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IcjEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IcjEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IcjEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -77920,7 +77922,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -78059,7 +78061,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -78282,7 +78284,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -78298,12 +78300,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIicED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIicED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IciEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -78314,7 +78316,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IciEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IciEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IciEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -78354,7 +78356,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -78493,7 +78495,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -78716,7 +78718,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -78732,12 +78734,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIdcED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIdcED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IcdEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -78748,7 +78750,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IcdEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IcdEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IcdEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -78788,7 +78790,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -78926,7 +78928,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -79149,7 +79151,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -79165,12 +79167,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIfsED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIfsED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IsfEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -79181,7 +79183,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IsfEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IsfEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IsfEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -79221,7 +79223,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -79357,7 +79359,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -79580,7 +79582,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -79596,12 +79598,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #26
+  call void @__clang_call_terminate(ptr %77) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %lpad4.i.i.i ], [ %20, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhsED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhsED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IshEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -79612,7 +79614,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IshEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IshEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IshEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -79652,7 +79654,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -79790,7 +79792,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -80013,7 +80015,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #26
+  call void @__clang_call_terminate(ptr %75) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -80029,12 +80031,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #26
+  call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %22, %lpad4.i.i.i ], [ %21, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfsED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfsED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_Is4halfEEbRNS0_8ImageBufERKS3_NS0_3ROIEiEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -80045,7 +80047,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_Is4halfEEbRNS0_8ImageBufERKS3_NS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_Is4halfEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_Is4halfEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -80085,7 +80087,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -80221,7 +80223,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -80444,7 +80446,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -80460,12 +80462,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #26
+  call void @__clang_call_terminate(ptr %77) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %lpad4.i.i.i ], [ %20, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItsED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItsED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IstEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -80476,7 +80478,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IstEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IstEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IstEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -80516,7 +80518,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -80655,7 +80657,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -80878,7 +80880,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -80894,12 +80896,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIcsED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIcsED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IscEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -80910,7 +80912,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IscEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IscEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IscEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -80950,7 +80952,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -81079,7 +81081,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -81302,7 +81304,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -81318,12 +81320,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IssEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -81334,7 +81336,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IssEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IssEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IssEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -81487,7 +81489,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -81710,7 +81712,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -81726,12 +81728,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #26
+  call void @__clang_call_terminate(ptr %77) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %lpad4.i.i.i ], [ %20, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjsED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjsED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IsjEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -81742,7 +81744,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IsjEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IsjEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IsjEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -81782,7 +81784,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -81921,7 +81923,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -82144,7 +82146,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -82160,12 +82162,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIisED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIisED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IsiEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -82176,7 +82178,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IsiEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IsiEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IsiEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -82216,7 +82218,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -82355,7 +82357,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -82578,7 +82580,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -82594,12 +82596,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIdsED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIdsED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IsdEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -82610,7 +82612,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IsdEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IsdEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IsdEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -82650,7 +82652,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -82789,7 +82791,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -83012,7 +83014,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -83028,12 +83030,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIfjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIfjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IjfEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -83044,7 +83046,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IjfEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IjfEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IjfEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -83084,7 +83086,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -83220,7 +83222,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -83443,7 +83445,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -83459,12 +83461,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #26
+  call void @__clang_call_terminate(ptr %77) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %lpad4.i.i.i ], [ %20, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IjhEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -83475,7 +83477,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IjhEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IjhEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IjhEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -83515,7 +83517,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -83523,7 +83525,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #11
+declare double @llvm.fmuladd.f64(double, double, double) #12
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_Ij4halfEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -83657,7 +83659,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -83880,7 +83882,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #26
+  call void @__clang_call_terminate(ptr %75) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -83896,12 +83898,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #26
+  call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %22, %lpad4.i.i.i ], [ %21, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_Ij4halfEEbRNS0_8ImageBufERKS3_NS0_3ROIEiEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -83912,7 +83914,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_Ij4halfEEbRNS0_8ImageBufERKS3_NS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_Ij4halfEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_Ij4halfEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -83952,7 +83954,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -84088,7 +84090,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -84311,7 +84313,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -84327,12 +84329,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #26
+  call void @__clang_call_terminate(ptr %77) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %lpad4.i.i.i ], [ %20, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IjtEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -84343,7 +84345,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IjtEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IjtEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IjtEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -84383,7 +84385,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -84522,7 +84524,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -84745,7 +84747,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -84761,12 +84763,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIcjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIcjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IjcEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -84777,7 +84779,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IjcEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IjcEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IjcEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -84817,7 +84819,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -84956,7 +84958,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -85179,7 +85181,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -85195,12 +85197,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIsjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIsjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IjsEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -85211,7 +85213,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IjsEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IjsEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IjsEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -85251,7 +85253,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -85380,7 +85382,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -85603,7 +85605,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -85619,12 +85621,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IjjEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -85635,7 +85637,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IjjEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IjjEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IjjEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -85791,7 +85793,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -86014,7 +86016,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -86030,12 +86032,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIijED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIijED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IjiEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -86046,7 +86048,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IjiEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IjiEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IjiEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -86086,7 +86088,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -86224,7 +86226,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -86447,7 +86449,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -86463,12 +86465,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIdjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIdjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IjdEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -86479,7 +86481,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IjdEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IjdEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IjdEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -86519,7 +86521,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -86658,7 +86660,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -86881,7 +86883,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -86897,12 +86899,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIfiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIfiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IifEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -86913,7 +86915,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IifEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IifEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IifEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -86953,7 +86955,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -87089,7 +87091,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -87312,7 +87314,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -87328,12 +87330,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #26
+  call void @__clang_call_terminate(ptr %77) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %lpad4.i.i.i ], [ %20, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IihEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -87344,7 +87346,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IihEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IihEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IihEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -87384,7 +87386,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -87523,7 +87525,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -87746,7 +87748,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #26
+  call void @__clang_call_terminate(ptr %75) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -87762,12 +87764,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #26
+  call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %22, %lpad4.i.i.i ], [ %21, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_Ii4halfEEbRNS0_8ImageBufERKS3_NS0_3ROIEiEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -87778,7 +87780,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_Ii4halfEEbRNS0_8ImageBufERKS3_NS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_Ii4halfEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_Ii4halfEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -87818,7 +87820,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -87954,7 +87956,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -88177,7 +88179,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -88193,12 +88195,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #26
+  call void @__clang_call_terminate(ptr %77) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %lpad4.i.i.i ], [ %20, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IitEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -88209,7 +88211,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IitEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IitEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IitEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -88249,7 +88251,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -88388,7 +88390,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -88611,7 +88613,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -88627,12 +88629,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIciED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIciED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IicEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -88643,7 +88645,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IicEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IicEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IicEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -88683,7 +88685,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -88822,7 +88824,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -89045,7 +89047,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -89061,12 +89063,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIsiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIsiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IisEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -89077,7 +89079,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IisEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IisEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IisEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -89117,7 +89119,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -89253,7 +89255,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -89476,7 +89478,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -89492,12 +89494,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #26
+  call void @__clang_call_terminate(ptr %77) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %lpad4.i.i.i ], [ %20, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IijEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -89508,7 +89510,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IijEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IijEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IijEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -89548,7 +89550,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -89677,7 +89679,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -89900,7 +89902,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -89916,12 +89918,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IiiEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -89932,7 +89934,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IiiEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IiiEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IiiEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -90087,7 +90089,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -90310,7 +90312,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -90326,12 +90328,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIdiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIdiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IidEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -90342,7 +90344,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IidEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IidEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IidEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -90382,7 +90384,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -90512,7 +90514,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -90735,7 +90737,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -90751,12 +90753,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIfdED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIfdED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IdfEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -90767,7 +90769,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IdfEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IdfEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IdfEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -90807,7 +90809,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -90938,7 +90940,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -91161,7 +91163,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -91177,12 +91179,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhdED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhdED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IdhEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -91193,7 +91195,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IdhEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IdhEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IdhEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -91233,7 +91235,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -91366,7 +91368,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -91589,7 +91591,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #26
+  call void @__clang_call_terminate(ptr %74) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -91605,12 +91607,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #26
+  call void @__clang_call_terminate(ptr %77) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %21, %lpad4.i.i.i ], [ %20, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfdED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfdED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_Id4halfEEbRNS0_8ImageBufERKS3_NS0_3ROIEiEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -91621,7 +91623,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_Id4halfEEbRNS0_8ImageBufERKS3_NS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_Id4halfEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_Id4halfEEbRNS0_8ImageBufERKS5_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -91661,7 +91663,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -91792,7 +91794,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -92015,7 +92017,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -92031,12 +92033,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItdED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItdED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IdtEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -92047,7 +92049,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IdtEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IdtEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IdtEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -92087,7 +92089,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -92218,7 +92220,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -92441,7 +92443,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -92457,12 +92459,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIcdED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIcdED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IdcEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -92473,7 +92475,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IdcEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IdcEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IdcEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -92513,7 +92515,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -92644,7 +92646,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -92867,7 +92869,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -92883,12 +92885,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIsdED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIsdED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IdsEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -92899,7 +92901,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IdsEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IdsEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IdsEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -92939,7 +92941,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -93070,7 +93072,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -93293,7 +93295,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -93309,12 +93311,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjdED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjdED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IdjEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -93325,7 +93327,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IdjEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IdjEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IdjEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -93365,7 +93367,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -93496,7 +93498,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -93719,7 +93721,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -93735,12 +93737,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIidED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIidED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IdiEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -93751,7 +93753,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IdiEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IdiEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IdiEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -93791,7 +93793,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #26
+  tail call void @__clang_call_terminate(ptr %2) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %entry, %if.then.i
@@ -93920,7 +93922,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad4.i.i.i:                                      ; preds = %if.end13.i35.i.i.i, %if.then15.i.i.i, %if.then2.i.i.i, %if.end13.i.i.i.i, %if.then15.i22.i.i, %if.then2.i39.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 for.inc10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i, %for.body.i.i.i
@@ -94143,7 +94145,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end13.i.i.i
@@ -94159,12 +94161,12 @@ terminate.lpad.i.i50.i.i.i:                       ; preds = %if.then.i.i49.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %20, %lpad4.i.i.i ], [ %19, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IddEEbRNS0_8ImageBufERKS2_NS0_3ROIEiEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i, %if.then.i.i49.i.i.i
@@ -94175,7 +94177,7 @@ _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L5copy_IddEEbRNS0_8ImageBufERKS2_NS0_3R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IddEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_L5copy_IddEEbRNS0_8ImageBufERKS4_S1_iEUlS1_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -94336,7 +94338,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad5.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont18.i.i.i, %invoke.cont13.i.i.i, %invoke.cont8.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont20.i.i.i
@@ -94433,7 +94435,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #26
+  call void @__clang_call_terminate(ptr %62) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end31.i.i.i
@@ -94450,12 +94452,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #26
+  call void @__clang_call_terminate(ptr %65) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad5.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad5.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_IffEEbRNS0_8ImageBufERKS2_iiiNS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -94489,7 +94491,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -94500,7 +94502,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -94648,7 +94650,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont15.i.i.i, %invoke.cont11.i.i.i, %invoke.cont7.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -94745,7 +94747,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #26
+  call void @__clang_call_terminate(ptr %62) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end28.i.i.i
@@ -94762,12 +94764,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #26
+  call void @__clang_call_terminate(ptr %65) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_IhhEEbRNS0_8ImageBufERKS2_iiiNS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -94801,7 +94803,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -94812,7 +94814,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -94956,7 +94958,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont15.i.i.i, %invoke.cont11.i.i.i, %invoke.cont7.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -95053,7 +95055,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #26
+  call void @__clang_call_terminate(ptr %62) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end28.i.i.i
@@ -95070,12 +95072,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #26
+  call void @__clang_call_terminate(ptr %65) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_IttEEbRNS0_8ImageBufERKS2_iiiNS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -95109,7 +95111,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -95120,7 +95122,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -95264,7 +95266,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont15.i.i.i, %invoke.cont11.i.i.i, %invoke.cont7.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -95361,7 +95363,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #26
+  call void @__clang_call_terminate(ptr %61) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end31.i.i.i
@@ -95378,12 +95380,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #26
+  call void @__clang_call_terminate(ptr %64) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_I4halfS2_EEbRNS0_8ImageBufERKS3_iiiNS0_3ROIES7_iEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -95417,7 +95419,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -95428,7 +95430,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -95572,7 +95574,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont15.i.i.i, %invoke.cont11.i.i.i, %invoke.cont7.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -95669,7 +95671,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #26
+  call void @__clang_call_terminate(ptr %62) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end28.i.i.i
@@ -95686,12 +95688,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #26
+  call void @__clang_call_terminate(ptr %65) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIccED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_IccEEbRNS0_8ImageBufERKS2_iiiNS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIccED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -95725,7 +95727,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -95736,7 +95738,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -95880,7 +95882,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont15.i.i.i, %invoke.cont11.i.i.i, %invoke.cont7.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -95977,7 +95979,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #26
+  call void @__clang_call_terminate(ptr %62) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end28.i.i.i
@@ -95994,12 +95996,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #26
+  call void @__clang_call_terminate(ptr %65) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIssED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_IssEEbRNS0_8ImageBufERKS2_iiiNS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIssED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -96033,7 +96035,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -96044,7 +96046,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -96188,7 +96190,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont15.i.i.i, %invoke.cont11.i.i.i, %invoke.cont7.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -96285,7 +96287,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #26
+  call void @__clang_call_terminate(ptr %62) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end28.i.i.i
@@ -96302,12 +96304,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #26
+  call void @__clang_call_terminate(ptr %65) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_IjjEEbRNS0_8ImageBufERKS2_iiiNS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIjjED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -96341,7 +96343,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -96352,7 +96354,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -96496,7 +96498,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont15.i.i.i, %invoke.cont11.i.i.i, %invoke.cont7.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -96593,7 +96595,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #26
+  call void @__clang_call_terminate(ptr %62) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end28.i.i.i
@@ -96610,12 +96612,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #26
+  call void @__clang_call_terminate(ptr %65) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_IiiEEbRNS0_8ImageBufERKS2_iiiNS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIiiED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -96649,7 +96651,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -96660,7 +96662,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -96804,7 +96806,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont15.i.i.i, %invoke.cont11.i.i.i, %invoke.cont7.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -96901,7 +96903,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #26
+  call void @__clang_call_terminate(ptr %62) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end28.i.i.i
@@ -96918,12 +96920,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #26
+  call void @__clang_call_terminate(ptr %65) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIddED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_IddEEbRNS0_8ImageBufERKS2_iiiNS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIddED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -96957,7 +96959,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -96968,7 +96970,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -97112,7 +97114,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont15.i.i.i, %invoke.cont11.i.i.i, %invoke.cont7.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -97211,7 +97213,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #26
+  call void @__clang_call_terminate(ptr %62) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end28.i.i.i
@@ -97228,12 +97230,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #26
+  call void @__clang_call_terminate(ptr %65) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_IfhEEbRNS0_8ImageBufERKS2_iiiNS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -97267,7 +97269,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -97278,7 +97280,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -97422,7 +97424,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont15.i.i.i, %invoke.cont11.i.i.i, %invoke.cont7.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -97522,7 +97524,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #26
+  call void @__clang_call_terminate(ptr %63) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end28.i.i.i
@@ -97539,12 +97541,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #26
+  call void @__clang_call_terminate(ptr %66) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_If4halfEEbRNS0_8ImageBufERKS3_iiiNS0_3ROIES7_iEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -97578,7 +97580,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -97589,7 +97591,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -97733,7 +97735,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont15.i.i.i, %invoke.cont11.i.i.i, %invoke.cont7.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -97832,7 +97834,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #26
+  call void @__clang_call_terminate(ptr %62) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end28.i.i.i
@@ -97849,12 +97851,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #26
+  call void @__clang_call_terminate(ptr %65) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_IftEEbRNS0_8ImageBufERKS2_iiiNS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIffED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -97888,7 +97890,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -97899,7 +97901,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -98043,7 +98045,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont15.i.i.i, %invoke.cont11.i.i.i, %invoke.cont7.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -98149,7 +98151,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #26
+  call void @__clang_call_terminate(ptr %62) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end28.i.i.i
@@ -98166,12 +98168,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #26
+  call void @__clang_call_terminate(ptr %65) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIfhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIfhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_IhfEEbRNS0_8ImageBufERKS2_iiiNS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -98205,7 +98207,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -98216,7 +98218,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -98360,7 +98362,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont15.i.i.i, %invoke.cont11.i.i.i, %invoke.cont7.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -98466,7 +98468,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #26
+  call void @__clang_call_terminate(ptr %64) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end28.i.i.i
@@ -98483,12 +98485,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #26
+  call void @__clang_call_terminate(ptr %67) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_Ih4halfEEbRNS0_8ImageBufERKS3_iiiNS0_3ROIES7_iEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -98522,7 +98524,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -98533,7 +98535,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -98677,7 +98679,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont15.i.i.i, %invoke.cont11.i.i.i, %invoke.cont7.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -98781,7 +98783,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #26
+  call void @__clang_call_terminate(ptr %63) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end28.i.i.i
@@ -98798,12 +98800,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #26
+  call void @__clang_call_terminate(ptr %66) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIthED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIthED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_IhtEEbRNS0_8ImageBufERKS2_iiiNS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIhhED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -98837,7 +98839,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -98848,7 +98850,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -99001,7 +99003,7 @@ lpad6.loopexit.split-lp.i.i.i:                    ; preds = %if.end13.i.i.i.i, %
 
 lpad6.i.i.i:                                      ; preds = %lpad6.loopexit.split-lp.i.i.i, %lpad6.loopexit.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %lpad6.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad6.loopexit.split-lp.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -99132,7 +99134,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #26
+  call void @__clang_call_terminate(ptr %64) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end31.i.i.i
@@ -99149,12 +99151,12 @@ terminate.lpad.i.i28.i.i.i:                       ; preds = %if.then.i.i27.i.i.i
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #26
+  call void @__clang_call_terminate(ptr %67) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIf4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIf4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_I4halffEEbRNS0_8ImageBufERKS3_iiiNS0_3ROIES7_iEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i, %if.then.i.i27.i.i.i
@@ -99188,7 +99190,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -99199,7 +99201,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -99352,7 +99354,7 @@ lpad6.loopexit.split-lp.i.i.i:                    ; preds = %if.end13.i.i.i.i, %
 
 lpad6.i.i.i:                                      ; preds = %lpad6.loopexit.split-lp.i.i.i, %lpad6.loopexit.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %lpad6.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad6.loopexit.split-lp.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -99485,7 +99487,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #26
+  call void @__clang_call_terminate(ptr %64) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end31.i.i.i
@@ -99502,12 +99504,12 @@ terminate.lpad.i.i28.i.i.i:                       ; preds = %if.then.i.i27.i.i.i
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #26
+  call void @__clang_call_terminate(ptr %67) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIh4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIh4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_I4halfhEEbRNS0_8ImageBufERKS3_iiiNS0_3ROIES7_iEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i, %if.then.i.i27.i.i.i
@@ -99541,7 +99543,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -99552,7 +99554,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -99705,7 +99707,7 @@ lpad6.loopexit.split-lp.i.i.i:                    ; preds = %if.end13.i.i.i.i, %
 
 lpad6.i.i.i:                                      ; preds = %lpad6.loopexit.split-lp.i.i.i, %lpad6.loopexit.i.i.i
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %lpad6.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad6.loopexit.split-lp.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -99838,7 +99840,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #26
+  call void @__clang_call_terminate(ptr %64) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end31.i.i.i
@@ -99855,12 +99857,12 @@ terminate.lpad.i.i28.i.i.i:                       ; preds = %if.then.i.i27.i.i.i
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #26
+  call void @__clang_call_terminate(ptr %67) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIt4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIt4halfED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_I4halftEEbRNS0_8ImageBufERKS3_iiiNS0_3ROIES7_iEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorI4halfS2_ED2Ev.exit.i.i.i, %if.then.i.i27.i.i.i
@@ -99894,7 +99896,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -99905,7 +99907,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -100049,7 +100051,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont15.i.i.i, %invoke.cont11.i.i.i, %invoke.cont7.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -100155,7 +100157,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #26
+  call void @__clang_call_terminate(ptr %62) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end28.i.i.i
@@ -100172,12 +100174,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #26
+  call void @__clang_call_terminate(ptr %65) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIftED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIftED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_ItfEEbRNS0_8ImageBufERKS2_iiiNS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -100211,7 +100213,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -100222,7 +100224,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -100366,7 +100368,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont15.i.i.i, %invoke.cont11.i.i.i, %invoke.cont7.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -100470,7 +100472,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #26
+  call void @__clang_call_terminate(ptr %63) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end28.i.i.i
@@ -100487,12 +100489,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #26
+  call void @__clang_call_terminate(ptr %66) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhtED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhtED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_IthEEbRNS0_8ImageBufERKS2_iiiNS0_3ROIES6_iEUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -100526,7 +100528,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -100537,7 +100539,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -100681,7 +100683,7 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %if.end13.i.i.i.i, %if.then2.i.i.i.i, %invoke.cont15.i.i.i, %invoke.cont11.i.i.i, %invoke.cont7.i.i.i, %for.body.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %d.i.i.i) #24
   br label %ehcleanup.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont17.i.i.i
@@ -100787,7 +100789,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #26
+  call void @__clang_call_terminate(ptr %64) #28
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.end28.i.i.i
@@ -100804,12 +100806,12 @@ terminate.lpad.i.i27.i.i.i:                       ; preds = %if.then.i.i26.i.i.i
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #26
+  call void @__clang_call_terminate(ptr %67) #28
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %40, %lpad6.i.i.i ], [ %39, %lpad.i.i.i ]
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halftED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #22
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halftED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %s.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15circular_shift_It4halfEEbRNS0_8ImageBufERKS3_iiiNS0_3ROIES7_iEUlS7_E_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf8IteratorIttED2Ev.exit.i.i.i, %if.then.i.i26.i.i.i
@@ -100843,7 +100845,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %__source.val5, i64 48, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -100854,7 +100856,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -100862,60 +100864,60 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_imagebufalgo_copy.cpp() #17 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_imagebufalgo_copy.cpp() #19 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #24
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
+declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #18
+declare i64 @llvm.usub.sat.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #18
+declare float @llvm.fabs.f32(float) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #18
+declare i32 @llvm.umin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #18
+declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #18
+declare double @llvm.fabs.f64(double) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #18
+declare i32 @llvm.smin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #18
+declare i64 @llvm.abs.i64(i64, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #18
+declare i32 @llvm.abs.i32(i32, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #21
+declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #18
+declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #18
+declare i64 @llvm.smax.i64(i64, i64) #20
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -100925,28 +100927,30 @@ attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #22 = { nounwind }
-attributes #23 = { builtin nounwind }
-attributes #24 = { cold }
-attributes #25 = { builtin allocsize(0) }
-attributes #26 = { noreturn nounwind }
-attributes #27 = { noreturn }
-attributes #28 = { nounwind willreturn memory(read) }
-attributes #29 = { nounwind willreturn memory(none) }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { cold noreturn }
+attributes #19 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #24 = { nounwind }
+attributes #25 = { builtin nounwind }
+attributes #26 = { cold }
+attributes #27 = { builtin allocsize(0) }
+attributes #28 = { noreturn nounwind }
+attributes #29 = { noreturn }
+attributes #30 = { nounwind willreturn memory(read) }
+attributes #31 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

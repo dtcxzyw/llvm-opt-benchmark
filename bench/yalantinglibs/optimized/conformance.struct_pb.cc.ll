@@ -368,10 +368,10 @@ if.end:                                           ; preds = %if.end104.i47, %if.
 
 sw.bb:                                            ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %tmp_str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %tmp_str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   store ptr %0, ptr %tmp_str, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   store i64 0, ptr %_M_string_length.i.i.i, align 8
   %14 = load ptr, ptr %tmp_str, align 8
   store i8 0, ptr %14, align 1
@@ -557,7 +557,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.i.i
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit183, %lpad.loopexit ], [ %lpad.loopexit.split-lp184, %lpad.loopexit.split-lp ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %tmp_str) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %tmp_str) #15
   resume { ptr, i32 } %lpad.phi
 
 if.end5:                                          ; preds = %if.end104.i, %if.end73.i, %if.end64.i, %if.end55.i, %if.end46.i, %if.end37.i, %if.end28.i, %if.end19.i, %if.end12.i, %if.then5.i, %if.then.i, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit
@@ -574,7 +574,7 @@ if.then.i.i:                                      ; preds = %if.end5
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
           to label %.noexc unwind label %lpad.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then.i.i.i.i.i
@@ -646,7 +646,7 @@ if.end9:                                          ; preds = %invoke.cont6
 
 if.then.i.i162:                                   ; preds = %if.end9
   %38 = getelementptr inbounds i8, ptr %36, i64 16
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull align 1 dereferenceable(1) %tmp_str) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull align 1 dereferenceable(1) %tmp_str) #15
   store ptr %38, ptr %36, align 8
   %39 = load ptr, ptr %tmp_str, align 8
   %cmp.i.i.i.i.i.i163 = icmp eq ptr %39, %0
@@ -701,11 +701,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i168:                                   ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef %45) #16
+  call void @_ZdlPv(ptr noundef %45) #17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i168
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %tmp_str) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %tmp_str) #15
   br i1 %switch, label %return, label %while.cond
 
 sw.default:                                       ; preds = %if.end
@@ -736,11 +736,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %invoke.cont
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #16
+  tail call void @_ZdlPv(ptr noundef %0) #17
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #14
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #15
   ret void
 }
 
@@ -920,7 +920,7 @@ if.else.i.i.i:                                    ; preds = %if.end3
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.else.i.i.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #15
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #16
   unreachable
 
 _ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %if.else.i.i.i
@@ -935,7 +935,7 @@ _ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.
 
 cond.true.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i.i, 4
-  %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #17
+  %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #18
   br label %_ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i
 
 _ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i.i, %_ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
@@ -958,7 +958,7 @@ _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, label %if.then.i18.i.i.i.i
 
 if.then.i18.i.i.i.i:                              ; preds = %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %18) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #17
   br label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %if.then.i18.i.i.i.i, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i
@@ -1002,7 +1002,7 @@ if.else.i.i.i185:                                 ; preds = %if.end7
   br i1 %cmp.i.i.i.i.i189, label %if.then.i.i.i.i.i213, label %_ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i190
 
 if.then.i.i.i.i.i213:                             ; preds = %if.else.i.i.i185
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #15
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #16
   unreachable
 
 _ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i190: ; preds = %if.else.i.i.i185
@@ -1017,7 +1017,7 @@ _ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.
 
 cond.true.i.i.i.i.i197:                           ; preds = %_ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i190
   %mul.i.i.i.i.i.i.i198 = shl nuw nsw i64 %cond.i.i.i.i.i195, 4
-  %call5.i.i.i.i.i.i.i199 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i198) #17
+  %call5.i.i.i.i.i.i.i199 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i198) #18
   br label %_ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i200
 
 _ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i200: ; preds = %cond.true.i.i.i.i.i197, %_ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i190
@@ -1040,7 +1040,7 @@ _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS
   br i1 %tobool.not.i.i.i.i.i208, label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i210, label %if.then.i18.i.i.i.i209
 
 if.then.i18.i.i.i.i209:                           ; preds = %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i205
-  tail call void @_ZdlPv(ptr noundef nonnull %23) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %23) #17
   br label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i210
 
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i210: ; preds = %if.then.i18.i.i.i.i209, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i205
@@ -1258,7 +1258,7 @@ if.else.i.i.i223:                                 ; preds = %if.end19
   br i1 %cmp.i.i.i.i.i227, label %if.then.i.i.i.i.i251, label %_ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i228
 
 if.then.i.i.i.i.i251:                             ; preds = %if.else.i.i.i223
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #15
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #16
   unreachable
 
 _ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i228: ; preds = %if.else.i.i.i223
@@ -1273,7 +1273,7 @@ _ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.
 
 cond.true.i.i.i.i.i235:                           ; preds = %_ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i228
   %mul.i.i.i.i.i.i.i236 = shl nuw nsw i64 %cond.i.i.i.i.i233, 4
-  %call5.i.i.i.i.i.i.i237 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i236) #17
+  %call5.i.i.i.i.i.i.i237 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i236) #18
   br label %_ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i238
 
 _ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i238: ; preds = %cond.true.i.i.i.i.i235, %_ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i228
@@ -1296,7 +1296,7 @@ _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS
   br i1 %tobool.not.i.i.i.i.i246, label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i248, label %if.then.i18.i.i.i.i247
 
 if.then.i18.i.i.i.i247:                           ; preds = %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i243
-  tail call void @_ZdlPv(ptr noundef nonnull %45) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %45) #17
   br label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i248
 
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i248: ; preds = %if.then.i18.i.i.i.i247, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i243
@@ -1340,7 +1340,7 @@ if.else.i.i.i261:                                 ; preds = %if.end25
   br i1 %cmp.i.i.i.i.i265, label %if.then.i.i.i.i.i289, label %_ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i266
 
 if.then.i.i.i.i.i289:                             ; preds = %if.else.i.i.i261
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #15
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #16
   unreachable
 
 _ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i266: ; preds = %if.else.i.i.i261
@@ -1355,7 +1355,7 @@ _ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.
 
 cond.true.i.i.i.i.i273:                           ; preds = %_ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i266
   %mul.i.i.i.i.i.i.i274 = shl nuw nsw i64 %cond.i.i.i.i.i271, 4
-  %call5.i.i.i.i.i.i.i275 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i274) #17
+  %call5.i.i.i.i.i.i.i275 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i274) #18
   br label %_ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i276
 
 _ZNSt12_Vector_baseIN9struct_pb13UnknownFields5FieldESaIS2_EE11_M_allocateEm.exit.i.i.i.i276: ; preds = %cond.true.i.i.i.i.i273, %_ZNKSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i266
@@ -1378,7 +1378,7 @@ _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS
   br i1 %tobool.not.i.i.i.i.i284, label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i286, label %if.then.i18.i.i.i.i285
 
 if.then.i18.i.i.i.i285:                           ; preds = %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i281
-  tail call void @_ZdlPv(ptr noundef nonnull %50) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %50) #17
   br label %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i286
 
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i286: ; preds = %if.then.i18.i.i.i.i285, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i281
@@ -1407,7 +1407,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %tobool.not.i.i.i.i, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef nonnull %0) #16
+  call void @_ZdlPv(ptr noundef nonnull %0) #17
   br label %_ZN9struct_pb13UnknownFieldsD2Ev.exit
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont, %if.then.i.i.i.i
@@ -1421,7 +1421,7 @@ lpad:                                             ; preds = %entry
   br i1 %tobool.not.i.i.i.i1, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit3, label %if.then.i.i.i.i2
 
 if.then.i.i.i.i2:                                 ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %2) #16
+  call void @_ZdlPv(ptr noundef nonnull %2) #17
   br label %_ZN9struct_pb13UnknownFieldsD2Ev.exit3
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit3:           ; preds = %lpad, %if.then.i.i.i.i2
@@ -1686,11 +1686,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit385: ; preds = %entry
   br i1 %cmp.not.i, label %_ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit385
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit385
@@ -1723,11 +1723,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit369: ; preds = %while.body.i
   br i1 %cmp.not.i170, label %_ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit180, label %if.then.i171
 
 if.then.i171:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit369
-  %exception.i.i.i172 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i172 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i172, align 8
   %_M_reason.i.i.i.i173 = getelementptr inbounds i8, ptr %exception.i.i.i172, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i173, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i172, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i172, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit180: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit369
@@ -1740,11 +1740,11 @@ _ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br i1 %cmp.not.i183, label %if.end.thread, label %if.then.i184
 
 if.then.i184:                                     ; preds = %_ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit180
-  %exception.i.i.i185 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i185 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i185, align 8
   %_M_reason.i.i.i.i186 = getelementptr inbounds i8, ptr %exception.i.i.i185, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i186, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i185, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i185, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 if.end.thread:                                    ; preds = %_ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit180
@@ -1759,11 +1759,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit353: ; preds = %entry
   br i1 %cmp.not.i192, label %_ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit, label %if.then.i193
 
 if.then.i193:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit353
-  %exception.i.i.i194 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i194 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i194, align 8
   %_M_reason.i.i.i.i195 = getelementptr inbounds i8, ptr %exception.i.i.i194, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i195, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i194, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i194, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit353
@@ -1797,11 +1797,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit337: ; preds = %while.body.i
   br i1 %cmp.not.i198, label %_ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit208, label %if.then.i199
 
 if.then.i199:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit337
-  %exception.i.i.i200 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i200 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i200, align 8
   %_M_reason.i.i.i.i201 = getelementptr inbounds i8, ptr %exception.i.i.i200, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i201, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i200, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i200, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit208: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit337
@@ -1814,11 +1814,11 @@ _ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br i1 %cmp.not.i211, label %_ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit215, label %if.then.i212
 
 if.then.i212:                                     ; preds = %_ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit208
-  %exception.i.i.i213 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i213 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i213, align 8
   %_M_reason.i.i.i.i214 = getelementptr inbounds i8, ptr %exception.i.i.i213, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i214, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i213, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i213, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit215: ; preds = %_ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit208
@@ -1998,11 +1998,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit193: ; preds = %if.end67
   br i1 %cmp.not.i240, label %_ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit, label %if.then.i241
 
 if.then.i241:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit193
-  %exception.i.i.i242 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i242 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i242, align 8
   %_M_reason.i.i.i.i243 = getelementptr inbounds i8, ptr %exception.i.i.i242, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i243, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i242, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i242, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit193
@@ -2037,11 +2037,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit177: ; preds = %while.body.i
   br i1 %cmp.not.i247, label %_ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit259, label %if.then.i248
 
 if.then.i248:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit177
-  %exception.i.i.i249 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i249 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i249, align 8
   %_M_reason.i.i.i.i250 = getelementptr inbounds i8, ptr %exception.i.i.i249, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i250, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i249, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i249, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit259: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit177
@@ -2054,11 +2054,11 @@ _ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br i1 %cmp.not.i262, label %if.end86.thread, label %if.then.i263
 
 if.then.i263:                                     ; preds = %_ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit259
-  %exception.i.i.i264 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i264 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i264, align 8
   %_M_reason.i.i.i.i265 = getelementptr inbounds i8, ptr %exception.i.i.i264, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i265, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i264, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i264, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 if.end86.thread:                                  ; preds = %_ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit259
@@ -2074,11 +2074,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit161: ; preds = %if.end67
   br i1 %cmp.not.i272, label %_ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit, label %if.then.i273
 
 if.then.i273:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit161
-  %exception.i.i.i274 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i274 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i274, align 8
   %_M_reason.i.i.i.i275 = getelementptr inbounds i8, ptr %exception.i.i.i274, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i275, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i274, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i274, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit161
@@ -2113,11 +2113,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit145: ; preds = %while.body.i
   br i1 %cmp.not.i279, label %_ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit291, label %if.then.i280
 
 if.then.i280:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit145
-  %exception.i.i.i281 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i281 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i281, align 8
   %_M_reason.i.i.i.i282 = getelementptr inbounds i8, ptr %exception.i.i.i281, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i282, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i281, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i281, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit291: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit145
@@ -2130,11 +2130,11 @@ _ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br i1 %cmp.not.i294, label %_ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit299, label %if.then.i295
 
 if.then.i295:                                     ; preds = %_ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit291
-  %exception.i.i.i296 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i296 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i296, align 8
   %_M_reason.i.i.i.i297 = getelementptr inbounds i8, ptr %exception.i.i.i296, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i297, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i296, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i296, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit299: ; preds = %_ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit291
@@ -2440,10 +2440,10 @@ sw.bb:                                            ; preds = %if.end
 if.then3:                                         ; preds = %sw.bb
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_EE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(33) %t)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   store ptr %1, ptr %t, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i924, align 8
   %16 = load ptr, ptr %t, align 8
   store i8 0, ptr %16, align 1
@@ -2638,7 +2638,7 @@ if.then.i.i:                                      ; preds = %_ZSt3getILm1EJSt9mo
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i: ; preds = %if.then.i.i
@@ -2700,11 +2700,11 @@ if.end16:                                         ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.not.i827, label %_ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit832, label %if.then.i828
 
 if.then.i828:                                     ; preds = %if.end16
-  %exception.i.i.i829 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i829 = call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i829, align 8
   %_M_reason.i.i.i.i830 = getelementptr inbounds i8, ptr %exception.i.i.i829, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i830, align 8
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i829, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i829, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit832: ; preds = %if.end16
@@ -2724,10 +2724,10 @@ sw.bb21:                                          ; preds = %if.end
 if.then25:                                        ; preds = %sw.bb21
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_EE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(33) %t)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i835)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i835) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i835) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i835) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i835) #15
   store ptr %1, ptr %t, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i835) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i835) #15
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i924, align 8
   %42 = load ptr, ptr %t, align 8
   store i8 0, ptr %42, align 1
@@ -2922,7 +2922,7 @@ if.then.i.i850:                                   ; preds = %_ZSt3getILm2EJSt9mo
   br i1 %cmp.i.i.i.i.i853, label %if.then.i.i.i.i.i868, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i854
 
 if.then.i.i.i.i.i868:                             ; preds = %if.then.i.i850
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i854: ; preds = %if.then.i.i850
@@ -2984,11 +2984,11 @@ if.end40:                                         ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.not.i871, label %_ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit876, label %if.then.i872
 
 if.then.i872:                                     ; preds = %if.end40
-  %exception.i.i.i873 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i873 = call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i873, align 8
   %_M_reason.i.i.i.i874 = getelementptr inbounds i8, ptr %exception.i.i.i873, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i874, align 8
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i873, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i873, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit876: ; preds = %if.end40
@@ -3008,10 +3008,10 @@ sw.bb46:                                          ; preds = %if.end
 if.then50:                                        ; preds = %sw.bb46
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_EE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(33) %t)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i879)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i879) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i879) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i879) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i879) #15
   store ptr %1, ptr %t, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i879) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i879) #15
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i924, align 8
   %68 = load ptr, ptr %t, align 8
   store i8 0, ptr %68, align 1
@@ -3206,7 +3206,7 @@ if.then.i.i894:                                   ; preds = %_ZSt3getILm3EJSt9mo
   br i1 %cmp.i.i.i.i.i897, label %if.then.i.i.i.i.i912, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i898
 
 if.then.i.i.i.i.i912:                             ; preds = %if.then.i.i894
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i898: ; preds = %if.then.i.i894
@@ -3268,11 +3268,11 @@ if.end65:                                         ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.not.i915, label %_ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit920, label %if.then.i916
 
 if.then.i916:                                     ; preds = %if.end65
-  %exception.i.i.i917 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i917 = call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i917, align 8
   %_M_reason.i.i.i.i918 = getelementptr inbounds i8, ptr %exception.i.i.i917, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i918, align 8
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i917, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i917, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit920: ; preds = %if.end65
@@ -3292,10 +3292,10 @@ sw.bb71:                                          ; preds = %if.end
 if.then75:                                        ; preds = %sw.bb71
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_EE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(33) %t)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i923)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i923) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i923) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i923) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i923) #15
   store ptr %1, ptr %t, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i923) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i923) #15
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i924, align 8
   %94 = load ptr, ptr %t, align 8
   store i8 0, ptr %94, align 1
@@ -3490,7 +3490,7 @@ if.then.i.i938:                                   ; preds = %_ZSt3getILm4EJSt9mo
   br i1 %cmp.i.i.i.i.i941, label %if.then.i.i.i.i.i956, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i942
 
 if.then.i.i.i.i.i956:                             ; preds = %if.then.i.i938
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i942: ; preds = %if.then.i.i938
@@ -3552,11 +3552,11 @@ if.end90:                                         ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.not.i959, label %_ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit964, label %if.then.i960
 
 if.then.i960:                                     ; preds = %if.end90
-  %exception.i.i.i961 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i961 = call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i961, align 8
   %_M_reason.i.i.i.i962 = getelementptr inbounds i8, ptr %exception.i.i.i961, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i962, align 8
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i961, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i961, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit964: ; preds = %if.end90
@@ -3912,7 +3912,7 @@ if.then.i.i971:                                   ; preds = %if.end107
   br i1 %cmp.i.i.i.i.i974, label %if.then.i.i.i.i.i989, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i975
 
 if.then.i.i.i.i.i989:                             ; preds = %if.then.i.i971
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i975: ; preds = %if.then.i.i971
@@ -4142,7 +4142,7 @@ sw.bb124:                                         ; preds = %if.end
   br i1 %cmp.i991.not, label %_ZNSt10unique_ptrIN11conformance18JspbEncodingConfigESt14default_deleteIS1_EED2Ev.exit, label %if.end129
 
 _ZNSt10unique_ptrIN11conformance18JspbEncodingConfigESt14default_deleteIS1_EED2Ev.exit: ; preds = %sw.bb124
-  %call.i = call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #17, !noalias !9
+  %call.i = call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #18, !noalias !9
   store i8 0, ptr %call.i, align 1, !noalias !9
   store ptr %call.i, ptr %jspb_encoding_options, align 8
   br label %if.end129
@@ -4334,7 +4334,7 @@ invoke.cont.i:                                    ; preds = %if.end135
   br i1 %tobool.not.i.i.i.i.i, label %_ZN9struct_pb8internal14deserialize_toIN11conformance18JspbEncodingConfigEEEbRT_PKcm.exit, label %if.then.i.i.i.i.i995
 
 if.then.i.i.i.i.i995:                             ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %189) #16
+  call void @_ZdlPv(ptr noundef nonnull %189) #17
   br label %_ZN9struct_pb8internal14deserialize_toIN11conformance18JspbEncodingConfigEEEbRT_PKcm.exit
 
 lpad.i:                                           ; preds = %if.end135
@@ -4345,7 +4345,7 @@ lpad.i:                                           ; preds = %if.end135
   br i1 %tobool.not.i.i.i.i1.i, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit3.i, label %if.then.i.i.i.i2.i
 
 if.then.i.i.i.i2.i:                               ; preds = %lpad.i
-  call void @_ZdlPv(ptr noundef nonnull %191) #16
+  call void @_ZdlPv(ptr noundef nonnull %191) #17
   br label %_ZN9struct_pb13UnknownFieldsD2Ev.exit3.i
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit3.i:         ; preds = %if.then.i.i.i.i2.i, %lpad.i
@@ -4609,7 +4609,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %tobool.not.i.i.i.i, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef nonnull %0) #16
+  call void @_ZdlPv(ptr noundef nonnull %0) #17
   br label %_ZN9struct_pb13UnknownFieldsD2Ev.exit
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont, %if.then.i.i.i.i
@@ -4623,7 +4623,7 @@ lpad:                                             ; preds = %entry
   br i1 %tobool.not.i.i.i.i1, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit3, label %if.then.i.i.i.i2
 
 if.then.i.i.i.i2:                                 ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %2) #16
+  call void @_ZdlPv(ptr noundef nonnull %2) #17
   br label %_ZN9struct_pb13UnknownFieldsD2Ev.exit3
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit3:           ; preds = %lpad, %if.then.i.i.i.i2
@@ -4644,7 +4644,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %tobool.not.i.i.i.i, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef nonnull %0) #16
+  call void @_ZdlPv(ptr noundef nonnull %0) #17
   br label %_ZN9struct_pb13UnknownFieldsD2Ev.exit
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont, %if.then.i.i.i.i
@@ -4658,7 +4658,7 @@ lpad:                                             ; preds = %entry
   br i1 %tobool.not.i.i.i.i1, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit3, label %if.then.i.i.i.i2
 
 if.then.i.i.i.i2:                                 ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %2) #16
+  call void @_ZdlPv(ptr noundef nonnull %2) #17
   br label %_ZN9struct_pb13UnknownFieldsD2Ev.exit3
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit3:           ; preds = %lpad, %if.then.i.i.i.i2
@@ -4931,11 +4931,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit436: ; preds = %entry
   br i1 %cmp.not.i, label %_ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit436
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit436
@@ -4968,11 +4968,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit420: ; preds = %while.body.i
   br i1 %cmp.not.i182, label %_ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit192, label %if.then.i183
 
 if.then.i183:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit420
-  %exception.i.i.i184 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i184 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i184, align 8
   %_M_reason.i.i.i.i185 = getelementptr inbounds i8, ptr %exception.i.i.i184, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i185, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i184, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i184, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit192: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit420
@@ -4985,11 +4985,11 @@ _ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br i1 %cmp.not.i195, label %if.end.thread, label %if.then.i196
 
 if.then.i196:                                     ; preds = %_ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit192
-  %exception.i.i.i197 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i197 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i197, align 8
   %_M_reason.i.i.i.i198 = getelementptr inbounds i8, ptr %exception.i.i.i197, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i198, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i197, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i197, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 if.end.thread:                                    ; preds = %_ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit192
@@ -5004,11 +5004,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit404: ; preds = %entry
   br i1 %cmp.not.i204, label %_ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit, label %if.then.i205
 
 if.then.i205:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit404
-  %exception.i.i.i206 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i206 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i206, align 8
   %_M_reason.i.i.i.i207 = getelementptr inbounds i8, ptr %exception.i.i.i206, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i207, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i206, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i206, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit404
@@ -5045,11 +5045,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit388: ; preds = %_ZN9struct_p
   br i1 %cmp.not.i210, label %_ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit220, label %if.then.i211
 
 if.then.i211:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit388
-  %exception.i.i.i212 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i212 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i212, align 8
   %_M_reason.i.i.i.i213 = getelementptr inbounds i8, ptr %exception.i.i.i212, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i213, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i212, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i212, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit220: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit388
@@ -5062,11 +5062,11 @@ _ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br i1 %cmp.not.i223, label %_ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit227, label %if.then.i224
 
 if.then.i224:                                     ; preds = %_ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit220
-  %exception.i.i.i225 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i225 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i225, align 8
   %_M_reason.i.i.i.i226 = getelementptr inbounds i8, ptr %exception.i.i.i225, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i226, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i225, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i225, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit227: ; preds = %_ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit220
@@ -5081,11 +5081,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit372: ; preds = %entry
   br i1 %cmp.not.i232, label %_ZSt3getILm5EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit, label %if.then.i233
 
 if.then.i233:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit372
-  %exception.i.i.i234 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i234 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i234, align 8
   %_M_reason.i.i.i.i235 = getelementptr inbounds i8, ptr %exception.i.i.i234, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i235, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i234, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i234, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm5EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit372
@@ -5122,11 +5122,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit356: ; preds = %_ZN9struct_p
   br i1 %cmp.not.i238, label %_ZSt3getILm5EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit248, label %if.then.i239
 
 if.then.i239:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit356
-  %exception.i.i.i240 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i240 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i240, align 8
   %_M_reason.i.i.i.i241 = getelementptr inbounds i8, ptr %exception.i.i.i240, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i241, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i240, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i240, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm5EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit248: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit356
@@ -5139,11 +5139,11 @@ _ZSt3getILm5EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br i1 %cmp.not.i251, label %_ZSt3getILm5EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit255, label %if.then.i252
 
 if.then.i252:                                     ; preds = %_ZSt3getILm5EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit248
-  %exception.i.i.i253 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i253 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i253, align 8
   %_M_reason.i.i.i.i254 = getelementptr inbounds i8, ptr %exception.i.i.i253, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i254, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i253, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i253, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm5EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit255: ; preds = %_ZSt3getILm5EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit248
@@ -5158,11 +5158,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit340: ; preds = %entry
   br i1 %cmp.not.i260, label %_ZSt3getILm6EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit, label %if.then.i261
 
 if.then.i261:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit340
-  %exception.i.i.i262 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i262 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i262, align 8
   %_M_reason.i.i.i.i263 = getelementptr inbounds i8, ptr %exception.i.i.i262, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i263, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i262, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i262, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm6EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit340
@@ -5199,11 +5199,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit324: ; preds = %_ZN9struct_p
   br i1 %cmp.not.i266, label %_ZSt3getILm6EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit276, label %if.then.i267
 
 if.then.i267:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit324
-  %exception.i.i.i268 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i268 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i268, align 8
   %_M_reason.i.i.i.i269 = getelementptr inbounds i8, ptr %exception.i.i.i268, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i269, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i268, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i268, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm6EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit276: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit324
@@ -5216,11 +5216,11 @@ _ZSt3getILm6EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br i1 %cmp.not.i279, label %_ZSt3getILm6EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit283, label %if.then.i280
 
 if.then.i280:                                     ; preds = %_ZSt3getILm6EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit276
-  %exception.i.i.i281 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i281 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i281, align 8
   %_M_reason.i.i.i.i282 = getelementptr inbounds i8, ptr %exception.i.i.i281, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i282, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i281, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i281, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm6EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit283: ; preds = %_ZSt3getILm6EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit276
@@ -5235,11 +5235,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit308: ; preds = %entry
   br i1 %cmp.not.i288, label %_ZSt3getILm7EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit, label %if.then.i289
 
 if.then.i289:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit308
-  %exception.i.i.i290 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i290 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i290, align 8
   %_M_reason.i.i.i.i291 = getelementptr inbounds i8, ptr %exception.i.i.i290, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i291, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i290, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i290, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm7EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit308
@@ -5276,11 +5276,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit292: ; preds = %_ZN9struct_p
   br i1 %cmp.not.i294, label %_ZSt3getILm7EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit304, label %if.then.i295
 
 if.then.i295:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit292
-  %exception.i.i.i296 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i296 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i296, align 8
   %_M_reason.i.i.i.i297 = getelementptr inbounds i8, ptr %exception.i.i.i296, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i297, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i296, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i296, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm7EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit304: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit292
@@ -5293,11 +5293,11 @@ _ZSt3getILm7EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br i1 %cmp.not.i307, label %_ZSt3getILm7EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit311, label %if.then.i308
 
 if.then.i308:                                     ; preds = %_ZSt3getILm7EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit304
-  %exception.i.i.i309 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i309 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i309, align 8
   %_M_reason.i.i.i.i310 = getelementptr inbounds i8, ptr %exception.i.i.i309, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i310, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i309, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i309, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm7EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit311: ; preds = %_ZSt3getILm7EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit304
@@ -5312,11 +5312,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit276: ; preds = %entry
   br i1 %cmp.not.i316, label %_ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit, label %if.then.i317
 
 if.then.i317:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit276
-  %exception.i.i.i318 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i318 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i318, align 8
   %_M_reason.i.i.i.i319 = getelementptr inbounds i8, ptr %exception.i.i.i318, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i319, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i318, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i318, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit276
@@ -5353,11 +5353,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit260: ; preds = %_ZN9struct_p
   br i1 %cmp.not.i322, label %_ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit332, label %if.then.i323
 
 if.then.i323:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit260
-  %exception.i.i.i324 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i324 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i324, align 8
   %_M_reason.i.i.i.i325 = getelementptr inbounds i8, ptr %exception.i.i.i324, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i325, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i324, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i324, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit332: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit260
@@ -5370,11 +5370,11 @@ _ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br i1 %cmp.not.i335, label %_ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit339, label %if.then.i336
 
 if.then.i336:                                     ; preds = %_ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit332
-  %exception.i.i.i337 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i337 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i337, align 8
   %_M_reason.i.i.i.i338 = getelementptr inbounds i8, ptr %exception.i.i.i337, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i338, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i337, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i337, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit339: ; preds = %_ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit332
@@ -5389,11 +5389,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit244: ; preds = %entry
   br i1 %cmp.not.i344, label %_ZSt3getILm8EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit, label %if.then.i345
 
 if.then.i345:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit244
-  %exception.i.i.i346 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i346 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i346, align 8
   %_M_reason.i.i.i.i347 = getelementptr inbounds i8, ptr %exception.i.i.i346, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i347, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i346, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i346, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm8EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit244
@@ -5430,11 +5430,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit228: ; preds = %_ZN9struct_p
   br i1 %cmp.not.i350, label %_ZSt3getILm8EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit360, label %if.then.i351
 
 if.then.i351:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit228
-  %exception.i.i.i352 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i352 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i352, align 8
   %_M_reason.i.i.i.i353 = getelementptr inbounds i8, ptr %exception.i.i.i352, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i353, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i352, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i352, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm8EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit360: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit228
@@ -5447,11 +5447,11 @@ _ZSt3getILm8EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br i1 %cmp.not.i363, label %_ZSt3getILm8EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit367, label %if.then.i364
 
 if.then.i364:                                     ; preds = %_ZSt3getILm8EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit360
-  %exception.i.i.i365 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i365 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i365, align 8
   %_M_reason.i.i.i.i366 = getelementptr inbounds i8, ptr %exception.i.i.i365, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i366, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i365, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i365, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm8EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit367: ; preds = %_ZSt3getILm8EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit360
@@ -5466,11 +5466,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit212: ; preds = %entry
   br i1 %cmp.not.i372, label %_ZSt3getILm9EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit, label %if.then.i373
 
 if.then.i373:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit212
-  %exception.i.i.i374 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i374 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i374, align 8
   %_M_reason.i.i.i.i375 = getelementptr inbounds i8, ptr %exception.i.i.i374, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i375, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i374, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i374, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm9EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit212
@@ -5507,11 +5507,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit196: ; preds = %_ZN9struct_p
   br i1 %cmp.not.i378, label %_ZSt3getILm9EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit388, label %if.then.i379
 
 if.then.i379:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit196
-  %exception.i.i.i380 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i380 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i380, align 8
   %_M_reason.i.i.i.i381 = getelementptr inbounds i8, ptr %exception.i.i.i380, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i381, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i380, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i380, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm9EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit388: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit196
@@ -5524,11 +5524,11 @@ _ZSt3getILm9EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br i1 %cmp.not.i391, label %if.end145.thread, label %if.then.i392
 
 if.then.i392:                                     ; preds = %_ZSt3getILm9EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit388
-  %exception.i.i.i393 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i393 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i393, align 8
   %_M_reason.i.i.i.i394 = getelementptr inbounds i8, ptr %exception.i.i.i393, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i394, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i393, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i393, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 if.end145.thread:                                 ; preds = %_ZSt3getILm9EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit388
@@ -5543,11 +5543,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit180: ; preds = %entry
   br i1 %cmp.not.i400, label %_ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit, label %if.then.i401
 
 if.then.i401:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit180
-  %exception.i.i.i402 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i402 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i402, align 8
   %_M_reason.i.i.i.i403 = getelementptr inbounds i8, ptr %exception.i.i.i402, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i403, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i402, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i402, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit180
@@ -5584,11 +5584,11 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %_ZN9struct_pb8i
   br i1 %cmp.not.i406, label %_ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit416, label %if.then.i407
 
 if.then.i407:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
-  %exception.i.i.i408 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i408 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i408, align 8
   %_M_reason.i.i.i.i409 = getelementptr inbounds i8, ptr %exception.i.i.i408, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i409, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i408, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i408, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit416: ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
@@ -5601,11 +5601,11 @@ _ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br i1 %cmp.not.i419, label %_ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit423, label %if.then.i420
 
 if.then.i420:                                     ; preds = %_ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit416
-  %exception.i.i.i421 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i421 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i421, align 8
   %_M_reason.i.i.i.i422 = getelementptr inbounds i8, ptr %exception.i.i.i421, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i422, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i421, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i421, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit423: ; preds = %_ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit416
@@ -5864,10 +5864,10 @@ if.then3:                                         ; preds = %sw.bb
   store i8 -1, ptr %_M_index.i1178, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   store ptr %0, ptr %t, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1183, align 8
   %18 = load ptr, ptr %t, align 8
   store i8 0, ptr %18, align 1
@@ -6062,7 +6062,7 @@ if.then.i.i:                                      ; preds = %_ZSt3getILm1EJSt9mo
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i: ; preds = %if.then.i.i
@@ -6124,11 +6124,11 @@ if.end16:                                         ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.not.i856, label %_ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit861, label %if.then.i857
 
 if.then.i857:                                     ; preds = %if.end16
-  %exception.i.i.i858 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i858 = call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i858, align 8
   %_M_reason.i.i.i.i859 = getelementptr inbounds i8, ptr %exception.i.i.i858, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i859, align 8
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i858, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i858, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit861: ; preds = %if.end16
@@ -6151,10 +6151,10 @@ if.then25:                                        ; preds = %sw.bb21
   store i8 -1, ptr %_M_index.i1178, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i865)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i864)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i864) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i864) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i864) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i864) #15
   store ptr %0, ptr %t, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i864) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i864) #15
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1183, align 8
   %44 = load ptr, ptr %t, align 8
   store i8 0, ptr %44, align 1
@@ -6349,7 +6349,7 @@ if.then.i.i880:                                   ; preds = %_ZSt3getILm2EJSt9mo
   br i1 %cmp.i.i.i.i.i883, label %if.then.i.i.i.i.i898, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i884
 
 if.then.i.i.i.i.i898:                             ; preds = %if.then.i.i880
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i884: ; preds = %if.then.i.i880
@@ -6411,11 +6411,11 @@ if.end40:                                         ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.not.i901, label %_ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit906, label %if.then.i902
 
 if.then.i902:                                     ; preds = %if.end40
-  %exception.i.i.i903 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i903 = call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i903, align 8
   %_M_reason.i.i.i.i904 = getelementptr inbounds i8, ptr %exception.i.i.i903, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i904, align 8
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i903, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i903, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit906: ; preds = %if.end40
@@ -6438,10 +6438,10 @@ if.then50:                                        ; preds = %sw.bb46
   store i8 -1, ptr %_M_index.i1178, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i910)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i909)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i909) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i909) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i909) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i909) #15
   store ptr %0, ptr %t, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i909) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i909) #15
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1183, align 8
   %70 = load ptr, ptr %t, align 8
   store i8 0, ptr %70, align 1
@@ -6636,7 +6636,7 @@ if.then.i.i925:                                   ; preds = %_ZSt3getILm3EJSt9mo
   br i1 %cmp.i.i.i.i.i928, label %if.then.i.i.i.i.i943, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i929
 
 if.then.i.i.i.i.i943:                             ; preds = %if.then.i.i925
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i929: ; preds = %if.then.i.i925
@@ -6698,11 +6698,11 @@ if.end65:                                         ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.not.i946, label %_ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit951, label %if.then.i947
 
 if.then.i947:                                     ; preds = %if.end65
-  %exception.i.i.i948 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i948 = call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i948, align 8
   %_M_reason.i.i.i.i949 = getelementptr inbounds i8, ptr %exception.i.i.i948, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i949, align 8
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i948, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i948, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit951: ; preds = %if.end65
@@ -6725,10 +6725,10 @@ if.then75:                                        ; preds = %sw.bb71
   store i8 -1, ptr %_M_index.i1178, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i955)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i954)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i954) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i954) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i954) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i954) #15
   store ptr %0, ptr %t, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i954) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i954) #15
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1183, align 8
   %96 = load ptr, ptr %t, align 8
   store i8 0, ptr %96, align 1
@@ -6923,7 +6923,7 @@ if.then.i.i970:                                   ; preds = %_ZSt3getILm4EJSt9mo
   br i1 %cmp.i.i.i.i.i973, label %if.then.i.i.i.i.i988, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i974
 
 if.then.i.i.i.i.i988:                             ; preds = %if.then.i.i970
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i974: ; preds = %if.then.i.i970
@@ -6985,11 +6985,11 @@ if.end90:                                         ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.not.i991, label %_ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit997, label %if.then.i992
 
 if.then.i992:                                     ; preds = %if.end90
-  %exception.i.i.i993 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i993 = call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i993, align 8
   %_M_reason.i.i.i.i994 = getelementptr inbounds i8, ptr %exception.i.i.i993, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i994, align 8
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i993, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i993, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit997: ; preds = %if.end90
@@ -7012,10 +7012,10 @@ if.then100:                                       ; preds = %sw.bb96
   store i8 -1, ptr %_M_index.i1178, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1001)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i1000)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1000) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1000) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1000) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1000) #15
   store ptr %0, ptr %t, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1000) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1000) #15
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1183, align 8
   %122 = load ptr, ptr %t, align 8
   store i8 0, ptr %122, align 1
@@ -7210,7 +7210,7 @@ if.then.i.i1016:                                  ; preds = %_ZSt3getILm5EJSt9mo
   br i1 %cmp.i.i.i.i.i1019, label %if.then.i.i.i.i.i1034, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i1020
 
 if.then.i.i.i.i.i1034:                            ; preds = %if.then.i.i1016
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i1020: ; preds = %if.then.i.i1016
@@ -7272,11 +7272,11 @@ if.end115:                                        ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.not.i1037, label %_ZSt3getILm5EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit1042, label %if.then.i1038
 
 if.then.i1038:                                    ; preds = %if.end115
-  %exception.i.i.i1039 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i1039 = call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i1039, align 8
   %_M_reason.i.i.i.i1040 = getelementptr inbounds i8, ptr %exception.i.i.i1039, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i1040, align 8
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i1039, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i1039, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm5EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit1042: ; preds = %if.end115
@@ -7299,10 +7299,10 @@ if.then125:                                       ; preds = %sw.bb121
   store i8 -1, ptr %_M_index.i1178, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1046)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i1045)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1045) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1045) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1045) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1045) #15
   store ptr %0, ptr %t, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1045) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1045) #15
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1183, align 8
   %148 = load ptr, ptr %t, align 8
   store i8 0, ptr %148, align 1
@@ -7497,7 +7497,7 @@ if.then.i.i1061:                                  ; preds = %_ZSt3getILm6EJSt9mo
   br i1 %cmp.i.i.i.i.i1064, label %if.then.i.i.i.i.i1079, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i1065
 
 if.then.i.i.i.i.i1079:                            ; preds = %if.then.i.i1061
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i1065: ; preds = %if.then.i.i1061
@@ -7559,11 +7559,11 @@ if.end140:                                        ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.not.i1082, label %_ZSt3getILm6EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit1087, label %if.then.i1083
 
 if.then.i1083:                                    ; preds = %if.end140
-  %exception.i.i.i1084 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i1084 = call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i1084, align 8
   %_M_reason.i.i.i.i1085 = getelementptr inbounds i8, ptr %exception.i.i.i1084, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i1085, align 8
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i1084, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i1084, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm6EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit1087: ; preds = %if.end140
@@ -7586,10 +7586,10 @@ if.then150:                                       ; preds = %sw.bb146
   store i8 -1, ptr %_M_index.i1178, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1091)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i1090)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1090) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1090) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1090) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1090) #15
   store ptr %0, ptr %t, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1090) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1090) #15
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1183, align 8
   %174 = load ptr, ptr %t, align 8
   store i8 0, ptr %174, align 1
@@ -7784,7 +7784,7 @@ if.then.i.i1106:                                  ; preds = %_ZSt3getILm7EJSt9mo
   br i1 %cmp.i.i.i.i.i1109, label %if.then.i.i.i.i.i1124, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i1110
 
 if.then.i.i.i.i.i1124:                            ; preds = %if.then.i.i1106
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i1110: ; preds = %if.then.i.i1106
@@ -7846,11 +7846,11 @@ if.end165:                                        ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.not.i1127, label %_ZSt3getILm7EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit1132, label %if.then.i1128
 
 if.then.i1128:                                    ; preds = %if.end165
-  %exception.i.i.i1129 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i1129 = call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i1129, align 8
   %_M_reason.i.i.i.i1130 = getelementptr inbounds i8, ptr %exception.i.i.i1129, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i1130, align 8
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i1129, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i1129, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm7EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit1132: ; preds = %if.end165
@@ -7873,10 +7873,10 @@ if.then175:                                       ; preds = %sw.bb171
   store i8 -1, ptr %_M_index.i1178, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1136)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i1135)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1135) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1135) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1135) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1135) #15
   store ptr %0, ptr %t, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1135) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1135) #15
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1183, align 8
   %200 = load ptr, ptr %t, align 8
   store i8 0, ptr %200, align 1
@@ -8071,7 +8071,7 @@ if.then.i.i1151:                                  ; preds = %_ZSt3getILm8EJSt9mo
   br i1 %cmp.i.i.i.i.i1154, label %if.then.i.i.i.i.i1169, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i1155
 
 if.then.i.i.i.i.i1169:                            ; preds = %if.then.i.i1151
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i1155: ; preds = %if.then.i.i1151
@@ -8133,11 +8133,11 @@ if.end190:                                        ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.not.i1172, label %_ZSt3getILm8EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit1177, label %if.then.i1173
 
 if.then.i1173:                                    ; preds = %if.end190
-  %exception.i.i.i1174 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i1174 = call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i1174, align 8
   %_M_reason.i.i.i.i1175 = getelementptr inbounds i8, ptr %exception.i.i.i1174, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i1175, align 8
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i1174, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i1174, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm8EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit1177: ; preds = %if.end190
@@ -8160,10 +8160,10 @@ if.then200:                                       ; preds = %sw.bb196
   store i8 -1, ptr %_M_index.i1178, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1181)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i1180)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1180) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1180) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1180) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %t, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1180) #15
   store ptr %0, ptr %t, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1180) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i1180) #15
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1183, align 8
   %226 = load ptr, ptr %t, align 8
   store i8 0, ptr %226, align 1
@@ -8358,7 +8358,7 @@ if.then.i.i1196:                                  ; preds = %_ZSt3getILm9EJSt9mo
   br i1 %cmp.i.i.i.i.i1199, label %if.then.i.i.i.i.i1214, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i1200
 
 if.then.i.i.i.i.i1214:                            ; preds = %if.then.i.i1196
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i1200: ; preds = %if.then.i.i1196
@@ -8420,11 +8420,11 @@ if.end215:                                        ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.not.i1217, label %_ZSt3getILm9EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit1222, label %if.then.i1218
 
 if.then.i1218:                                    ; preds = %if.end215
-  %exception.i.i.i1219 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %exception.i.i.i1219 = call ptr @__cxa_allocate_exception(i64 16) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i1219, align 8
   %_M_reason.i.i.i.i1220 = getelementptr inbounds i8, ptr %exception.i.i.i1219, i64 8
   store ptr @.str.4, ptr %_M_reason.i.i.i.i1220, align 8
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i1219, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i1219, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
   unreachable
 
 _ZSt3getILm9EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit1222: ; preds = %if.end215
@@ -8505,7 +8505,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %tobool.not.i.i.i.i, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef nonnull %0) #16
+  call void @_ZdlPv(ptr noundef nonnull %0) #17
   br label %_ZN9struct_pb13UnknownFieldsD2Ev.exit
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont, %if.then.i.i.i.i
@@ -8519,7 +8519,7 @@ lpad:                                             ; preds = %entry
   br i1 %tobool.not.i.i.i.i1, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit3, label %if.then.i.i.i.i2
 
 if.then.i.i.i.i2:                                 ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %2) #16
+  call void @_ZdlPv(ptr noundef nonnull %2) #17
   br label %_ZN9struct_pb13UnknownFieldsD2Ev.exit3
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit3:           ; preds = %lpad, %if.then.i.i.i.i2
@@ -8907,7 +8907,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds 
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #15
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #16
   unreachable
 
 if.end.i:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit
@@ -8930,11 +8930,11 @@ if.end11.i:                                       ; preds = %if.then4.i, %land.l
   br i1 %cmp.i.i.i, label %if.end.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit
 
 if.end.i.i.i:                                     ; preds = %if.end11.i
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit: ; preds = %if.end11.i
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i) #17
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i) #18
   switch i64 %__pos, label %if.end.i.i [
     i64 0, label %if.end
     i64 1, label %if.then.i18
@@ -9001,7 +9001,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit
 
 if.then.i28:                                      ; preds = %if.end19
-  tail call void @_ZdlPv(ptr noundef %2) #16
+  tail call void @_ZdlPv(ptr noundef %2) #17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i, %if.then.i28
@@ -9038,7 +9038,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #15
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #16
   unreachable
 
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -9056,14 +9056,14 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
 
 cond.true.i:                                      ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #17
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #18
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %sub.ptr.div.i
   %3 = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__args) #14
+  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__args) #15
   store ptr %3, ptr %add.ptr, align 8
   %4 = load ptr, ptr %__args, align 8
   %5 = getelementptr inbounds i8, ptr %__args, i64 16
@@ -9104,7 +9104,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %9 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
-  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #14
+  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #15
   store ptr %9, ptr %__cur.07.i.i.i, align 8, !alias.scope !15, !noalias !18
   %10 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !18, !noalias !15
   %11 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
@@ -9136,7 +9136,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store ptr %11, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !18, !noalias !15
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i, align 8, !alias.scope !18, !noalias !15
   store i8 0, ptr %11, align 1, !alias.scope !18, !noalias !15
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #14
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #15
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -9154,7 +9154,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
-  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i13, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i14) #14
+  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i13, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i14) #15
   store ptr %15, ptr %__cur.07.i.i.i13, align 8, !alias.scope !22, !noalias !25
   %16 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !25, !noalias !22
   %17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
@@ -9186,7 +9186,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store ptr %17, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !25, !noalias !22
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i20, align 8, !alias.scope !25, !noalias !22
   store i8 0, ptr %17, align 1, !alias.scope !25, !noalias !22
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i14) #14
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i14) #15
   %incdec.ptr.i.i.i22 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
   %incdec.ptr1.i.i.i23 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
   %cmp.not.i.i.i24 = icmp eq ptr %incdec.ptr.i.i.i22, %0
@@ -9198,7 +9198,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %if.then.i31
 
 if.then.i31:                                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit30
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #17
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit30, %if.then.i31
@@ -9218,17 +9218,18 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt18bad_variant_accessD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
   ret void
 }
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
 }
 
@@ -9270,7 +9271,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %return.sink.split.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %sw.bb2.i
-  tail call void @_ZdlPv(ptr noundef %1) #16
+  tail call void @_ZdlPv(ptr noundef %1) #17
   br label %return.sink.split.i
 
 sw.bb3.i:                                         ; preds = %if.end
@@ -9287,7 +9288,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %return.sink.split.i
 
 if.then.i.i.i.i.i.i.i.i11.i:                      ; preds = %sw.bb3.i
-  tail call void @_ZdlPv(ptr noundef %4) #16
+  tail call void @_ZdlPv(ptr noundef %4) #17
   br label %return.sink.split.i
 
 sw.bb4.i:                                         ; preds = %if.end
@@ -9304,7 +9305,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %return.sink.split.i
 
 if.then.i.i.i.i.i.i.i.i16.i:                      ; preds = %sw.bb4.i
-  tail call void @_ZdlPv(ptr noundef %7) #16
+  tail call void @_ZdlPv(ptr noundef %7) #17
   br label %return.sink.split.i
 
 sw.bb5.i:                                         ; preds = %if.end
@@ -9321,14 +9322,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %return.sink.split.i
 
 if.then.i.i.i.i.i.i.i.i21.i:                      ; preds = %sw.bb5.i
-  tail call void @_ZdlPv(ptr noundef %10) #16
+  tail call void @_ZdlPv(ptr noundef %10) #17
   br label %return.sink.split.i
 
 sw.default.i:                                     ; preds = %if.end
   unreachable
 
 return.sink.split.i:                              ; preds = %if.then.i.i.i.i.i.i.i.i21.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i22.i, %if.then.i.i.i.i.i.i.i.i16.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i17.i, %if.then.i.i.i.i.i.i.i.i11.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i12.i, %if.then.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #14
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #15
   br label %return
 
 return:                                           ; preds = %return.sink.split.i, %if.end
@@ -9368,7 +9369,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %return.sink.split
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %sw.bb2
-  tail call void @_ZdlPv(ptr noundef %1) #16
+  tail call void @_ZdlPv(ptr noundef %1) #17
   br label %return.sink.split
 
 sw.bb3:                                           ; preds = %entry
@@ -9385,7 +9386,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %return.sink.split
 
 if.then.i.i.i.i.i.i.i.i21:                        ; preds = %sw.bb3
-  tail call void @_ZdlPv(ptr noundef %4) #16
+  tail call void @_ZdlPv(ptr noundef %4) #17
   br label %return.sink.split
 
 sw.bb4:                                           ; preds = %entry
@@ -9402,7 +9403,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %return.sink.split
 
 if.then.i.i.i.i.i.i.i.i26:                        ; preds = %sw.bb4
-  tail call void @_ZdlPv(ptr noundef %7) #16
+  tail call void @_ZdlPv(ptr noundef %7) #17
   br label %return.sink.split
 
 sw.bb5:                                           ; preds = %entry
@@ -9419,7 +9420,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %return.sink.split
 
 if.then.i.i.i.i.i.i.i.i31:                        ; preds = %sw.bb5
-  tail call void @_ZdlPv(ptr noundef %10) #16
+  tail call void @_ZdlPv(ptr noundef %10) #17
   br label %return.sink.split
 
 sw.bb6:                                           ; preds = %entry
@@ -9436,7 +9437,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %return.sink.split
 
 if.then.i.i.i.i.i.i.i.i36:                        ; preds = %sw.bb6
-  tail call void @_ZdlPv(ptr noundef %13) #16
+  tail call void @_ZdlPv(ptr noundef %13) #17
   br label %return.sink.split
 
 sw.bb7:                                           ; preds = %entry
@@ -9453,7 +9454,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %return.sink.split
 
 if.then.i.i.i.i.i.i.i.i41:                        ; preds = %sw.bb7
-  tail call void @_ZdlPv(ptr noundef %16) #16
+  tail call void @_ZdlPv(ptr noundef %16) #17
   br label %return.sink.split
 
 sw.bb8:                                           ; preds = %entry
@@ -9470,7 +9471,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %return.sink.split
 
 if.then.i.i.i.i.i.i.i.i46:                        ; preds = %sw.bb8
-  tail call void @_ZdlPv(ptr noundef %19) #16
+  tail call void @_ZdlPv(ptr noundef %19) #17
   br label %return.sink.split
 
 sw.bb9:                                           ; preds = %entry
@@ -9487,7 +9488,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %return.sink.split
 
 if.then.i.i.i.i.i.i.i.i51:                        ; preds = %sw.bb9
-  tail call void @_ZdlPv(ptr noundef %22) #16
+  tail call void @_ZdlPv(ptr noundef %22) #17
   br label %return.sink.split
 
 sw.bb10:                                          ; preds = %entry
@@ -9504,14 +9505,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %return.sink.split
 
 if.then.i.i.i.i.i.i.i.i56:                        ; preds = %sw.bb10
-  tail call void @_ZdlPv(ptr noundef %25) #16
+  tail call void @_ZdlPv(ptr noundef %25) #17
   br label %return.sink.split
 
 sw.default:                                       ; preds = %entry
   unreachable
 
 return.sink.split:                                ; preds = %if.then.i.i.i.i.i.i.i.i56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i57, %if.then.i.i.i.i.i.i.i.i51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i52, %if.then.i.i.i.i.i.i.i.i46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i47, %if.then.i.i.i.i.i.i.i.i41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i42, %if.then.i.i.i.i.i.i.i.i36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i37, %if.then.i.i.i.i.i.i.i.i31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i32, %if.then.i.i.i.i.i.i.i.i26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i27, %if.then.i.i.i.i.i.i.i.i21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i22, %if.then.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__variants) #14
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__variants) #15
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry
@@ -9519,25 +9520,25 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #10
+declare i64 @llvm.fshl.i64(i64, i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #10
+declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #12
+declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9549,14 +9550,15 @@ attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn }
-attributes #16 = { builtin nounwind }
-attributes #17 = { builtin allocsize(0) }
+attributes #10 = { cold noreturn }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn }
+attributes #17 = { builtin nounwind }
+attributes #18 = { builtin allocsize(0) }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

@@ -1409,7 +1409,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
@@ -1423,7 +1423,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #14
+  call void @__clang_call_terminate(ptr %57) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %53
@@ -1432,7 +1432,7 @@ _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %53
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13HasherVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
 
@@ -1562,7 +1562,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #14
+  call void @__clang_call_terminate(ptr %59) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %45, %55
@@ -1576,7 +1576,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %45, %55
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #14
+  call void @__clang_call_terminate(ptr %64) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %60
@@ -1709,7 +1709,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #14
+  call void @__clang_call_terminate(ptr %59) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %45, %55
@@ -1723,7 +1723,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %45, %55
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #14
+  call void @__clang_call_terminate(ptr %64) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %60
@@ -1851,7 +1851,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
@@ -1865,7 +1865,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #14
+  call void @__clang_call_terminate(ptr %57) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %53
@@ -2023,7 +2023,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #14
+  call void @__clang_call_terminate(ptr %60) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
@@ -2037,7 +2037,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #14
+  call void @__clang_call_terminate(ptr %65) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %61
@@ -2173,7 +2173,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #14
+  call void @__clang_call_terminate(ptr %60) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
@@ -2187,7 +2187,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #14
+  call void @__clang_call_terminate(ptr %65) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %61
@@ -2326,7 +2326,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #14
+  call void @__clang_call_terminate(ptr %78) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %64, %74
@@ -2340,7 +2340,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %64, %74
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #14
+  call void @__clang_call_terminate(ptr %83) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %79
@@ -2483,7 +2483,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #14
+  call void @__clang_call_terminate(ptr %59) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %45, %55
@@ -2497,7 +2497,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %45, %55
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #14
+  call void @__clang_call_terminate(ptr %64) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %60
@@ -2624,7 +2624,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #14
+  call void @__clang_call_terminate(ptr %60) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
@@ -2638,7 +2638,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #14
+  call void @__clang_call_terminate(ptr %65) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %61
@@ -2758,7 +2758,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -2772,7 +2772,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -2906,7 +2906,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #14
+  call void @__clang_call_terminate(ptr %61) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %47, %57
@@ -2920,7 +2920,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %47, %57
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #14
+  call void @__clang_call_terminate(ptr %66) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %62
@@ -3034,7 +3034,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
@@ -3048,7 +3048,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #14
+  call void @__clang_call_terminate(ptr %57) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %53
@@ -3157,7 +3157,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #14
+  call void @__clang_call_terminate(ptr %47) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %33, %43
@@ -3171,7 +3171,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %33, %43
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %48
@@ -3317,7 +3317,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -3331,7 +3331,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -3453,7 +3453,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -3467,7 +3467,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -3585,7 +3585,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
@@ -3599,7 +3599,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #14
+  call void @__clang_call_terminate(ptr %57) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %53
@@ -3728,7 +3728,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #14
+  call void @__clang_call_terminate(ptr %59) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %45, %55
@@ -3742,7 +3742,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %45, %55
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #14
+  call void @__clang_call_terminate(ptr %64) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %60
@@ -3858,7 +3858,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -3872,7 +3872,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %54
@@ -4029,7 +4029,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #14
+  call void @__clang_call_terminate(ptr %62) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %48, %58
@@ -4043,7 +4043,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %48, %58
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #14
+  call void @__clang_call_terminate(ptr %67) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %63
@@ -4172,7 +4172,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #14
+  call void @__clang_call_terminate(ptr %59) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %45, %55
@@ -4186,7 +4186,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %45, %55
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #14
+  call void @__clang_call_terminate(ptr %64) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %60
@@ -4332,7 +4332,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -4346,7 +4346,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %54
@@ -4483,7 +4483,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #14
+  call void @__clang_call_terminate(ptr %60) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
@@ -4497,7 +4497,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #14
+  call void @__clang_call_terminate(ptr %65) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %61
@@ -4611,7 +4611,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
@@ -4625,7 +4625,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #14
+  call void @__clang_call_terminate(ptr %57) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %53
@@ -4742,7 +4742,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #14
+  call void @__clang_call_terminate(ptr %54) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %40, %50
@@ -4756,7 +4756,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %40, %50
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #14
+  call void @__clang_call_terminate(ptr %59) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %55
@@ -4900,7 +4900,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -4914,7 +4914,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %54
@@ -5040,7 +5040,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #14
+  call void @__clang_call_terminate(ptr %60) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
@@ -5054,7 +5054,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #14
+  call void @__clang_call_terminate(ptr %65) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %61
@@ -5246,7 +5246,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -5260,7 +5260,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -5426,7 +5426,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -5440,7 +5440,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -5616,7 +5616,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -5630,7 +5630,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %54
@@ -5770,7 +5770,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #14
+  call void @__clang_call_terminate(ptr %61) #15
   unreachable
 
 62:                                               ; preds = %.body
@@ -5781,7 +5781,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #14
+  call void @__clang_call_terminate(ptr %66) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %57, %47, %_ZN7AstNode11privateCastI18AstAssocArrayDTypeP12AstNodeDTypeEEPT_PS_.exit
@@ -5913,11 +5913,11 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i36: ; preds = %_ZN14VN
   %135 = landingpad { ptr, i32 }
           catch ptr null
   %136 = extractvalue { ptr, i32 } %135, 0
-  call void @__clang_call_terminate(ptr %136) #14
+  call void @__clang_call_terminate(ptr %136) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit46:                  ; preds = %124, %132
-  %137 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.073.085) #16
+  %137 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.073.085) #17
   %.not = icmp eq ptr %137, %69
   br i1 %.not, label %_ZNSt8functionIFvvEED2Ev.exit69, label %74
 
@@ -5929,7 +5929,7 @@ _ZNSt8functionIFvvEED2Ev.exit46:                  ; preds = %124, %132
   %141 = landingpad { ptr, i32 }
           catch ptr null
   %142 = extractvalue { ptr, i32 } %141, 0
-  call void @__clang_call_terminate(ptr %142) #14
+  call void @__clang_call_terminate(ptr %142) #15
   unreachable
 
 _ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit: ; preds = %8
@@ -5937,7 +5937,7 @@ _ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit: ; pr
   %144 = getelementptr inbounds i8, ptr %5, i64 24
   %145 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 0, ptr %145, align 8
-  %146 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %146 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   store ptr %0, ptr %146, align 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %146, i64 8
   store ptr %1, ptr %.sroa.2.0..sroa_idx, align 8
@@ -6083,7 +6083,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i58: ; preds = %172, %_ZNKS
   %199 = landingpad { ptr, i32 }
           catch ptr null
   %200 = extractvalue { ptr, i32 } %199, 0
-  call void @__clang_call_terminate(ptr %200) #14
+  call void @__clang_call_terminate(ptr %200) #15
   unreachable
 
 201:                                              ; preds = %.body65
@@ -6094,7 +6094,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i58: ; preds = %172, %_ZNKS
   %204 = landingpad { ptr, i32 }
           catch ptr null
   %205 = extractvalue { ptr, i32 } %204, 0
-  call void @__clang_call_terminate(ptr %205) #14
+  call void @__clang_call_terminate(ptr %205) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit69:                  ; preds = %_ZNSt8functionIFvvEED2Ev.exit46, %8, %_ZNSt8functionIFvvEED2Ev.exit, %2, %196, %186
@@ -6212,7 +6212,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
@@ -6226,7 +6226,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #14
+  call void @__clang_call_terminate(ptr %57) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %53
@@ -6358,7 +6358,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -6372,7 +6372,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %54
@@ -6524,7 +6524,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
@@ -6538,7 +6538,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #14
+  call void @__clang_call_terminate(ptr %57) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %53
@@ -6643,7 +6643,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #14
+  call void @__clang_call_terminate(ptr %47) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %33, %43
@@ -6657,7 +6657,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %33, %43
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %48
@@ -6777,7 +6777,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -6791,7 +6791,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -6917,7 +6917,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -6931,7 +6931,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -7051,7 +7051,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -7065,7 +7065,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -7185,7 +7185,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -7199,7 +7199,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -7312,7 +7312,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #14
+  call void @__clang_call_terminate(ptr %55) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %41, %51
@@ -7326,7 +7326,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %41, %51
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #14
+  call void @__clang_call_terminate(ptr %60) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %56
@@ -7543,7 +7543,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %90 = landingpad { ptr, i32 }
           catch ptr null
   %91 = extractvalue { ptr, i32 } %90, 0
-  call void @__clang_call_terminate(ptr %91) #14
+  call void @__clang_call_terminate(ptr %91) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %77, %87
@@ -7557,7 +7557,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %77, %87
   %95 = landingpad { ptr, i32 }
           catch ptr null
   %96 = extractvalue { ptr, i32 } %95, 0
-  call void @__clang_call_terminate(ptr %96) #14
+  call void @__clang_call_terminate(ptr %96) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %92
@@ -7685,7 +7685,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -7699,7 +7699,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -7813,7 +7813,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -7827,7 +7827,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %54
@@ -7936,7 +7936,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #14
+  call void @__clang_call_terminate(ptr %47) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %33, %43
@@ -7950,7 +7950,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %33, %43
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %48
@@ -8070,7 +8070,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
@@ -8084,7 +8084,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #14
+  call void @__clang_call_terminate(ptr %57) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %53
@@ -8204,7 +8204,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -8218,7 +8218,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -8350,7 +8350,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #14
+  call void @__clang_call_terminate(ptr %60) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
@@ -8364,7 +8364,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #14
+  call void @__clang_call_terminate(ptr %65) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %61
@@ -8484,7 +8484,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -8498,7 +8498,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -8620,7 +8620,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -8634,7 +8634,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -8748,7 +8748,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
@@ -8762,7 +8762,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #14
+  call void @__clang_call_terminate(ptr %57) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %53
@@ -8876,7 +8876,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
@@ -8890,7 +8890,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #14
+  call void @__clang_call_terminate(ptr %57) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %53
@@ -9006,7 +9006,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
@@ -9020,7 +9020,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #14
+  call void @__clang_call_terminate(ptr %57) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %53
@@ -9125,7 +9125,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #14
+  call void @__clang_call_terminate(ptr %46) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %32, %42
@@ -9139,7 +9139,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %32, %42
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #14
+  call void @__clang_call_terminate(ptr %51) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit4:                   ; preds = %.body, %47
@@ -9252,7 +9252,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #14
+  call void @__clang_call_terminate(ptr %47) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %33, %43
@@ -9266,7 +9266,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %33, %43
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %48
@@ -9456,7 +9456,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
@@ -9470,7 +9470,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #14
+  call void @__clang_call_terminate(ptr %57) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %53
@@ -9606,7 +9606,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -9620,7 +9620,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -9740,7 +9740,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -9754,7 +9754,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -9882,7 +9882,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -9896,7 +9896,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -10038,7 +10038,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #14
+  call void @__clang_call_terminate(ptr %60) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
@@ -10052,7 +10052,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #14
+  call void @__clang_call_terminate(ptr %65) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %61
@@ -10182,7 +10182,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -10196,7 +10196,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %54
@@ -10323,7 +10323,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #14
+  call void @__clang_call_terminate(ptr %47) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %33, %43
@@ -10337,7 +10337,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %33, %43
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %48
@@ -10475,7 +10475,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -10489,7 +10489,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -10609,7 +10609,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -10623,7 +10623,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -10755,7 +10755,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -10769,7 +10769,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -10891,7 +10891,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
@@ -10905,7 +10905,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #14
+  call void @__clang_call_terminate(ptr %57) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %53
@@ -11035,7 +11035,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #14
+  call void @__clang_call_terminate(ptr %60) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
@@ -11049,7 +11049,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #14
+  call void @__clang_call_terminate(ptr %65) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %61
@@ -11163,7 +11163,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  call void @__clang_call_terminate(ptr %52) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
@@ -11177,7 +11177,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #14
+  call void @__clang_call_terminate(ptr %57) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %53
@@ -11314,7 +11314,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #14
+  call void @__clang_call_terminate(ptr %46) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %32, %42
@@ -11328,7 +11328,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %32, %42
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #14
+  call void @__clang_call_terminate(ptr %51) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit4:                   ; preds = %.body, %47
@@ -11502,7 +11502,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -11516,7 +11516,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %54
@@ -11642,7 +11642,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -11656,7 +11656,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -11776,7 +11776,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -11790,7 +11790,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -11924,7 +11924,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -11938,7 +11938,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %54
@@ -12064,7 +12064,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -12078,7 +12078,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -12198,7 +12198,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -12212,7 +12212,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -12359,7 +12359,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #14
+  call void @__clang_call_terminate(ptr %66) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %62
@@ -12373,7 +12373,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %62
   %70 = landingpad { ptr, i32 }
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #14
+  call void @__clang_call_terminate(ptr %71) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %67
@@ -12493,7 +12493,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -12507,7 +12507,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %.body, %54
@@ -12606,7 +12606,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #14
+  call void @__clang_call_terminate(ptr %46) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %32, %42
@@ -12620,7 +12620,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %32, %42
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #14
+  call void @__clang_call_terminate(ptr %51) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit4:                   ; preds = %.body, %47
@@ -12740,7 +12740,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #14
+  call void @__clang_call_terminate(ptr %53) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
@@ -12754,7 +12754,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  call void @__clang_call_terminate(ptr %58) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit5:                   ; preds = %.body, %54
@@ -12826,17 +12826,18 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP7AstNodeEUlvE_E10_
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
-  tail call void @_ZSt9terminatev() #14
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
+  tail call void @_ZSt9terminatev() #15
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP9AstActiveEUlvE_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
@@ -13280,7 +13281,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP9AstCDTypeENKUlvE
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -13293,9 +13294,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP9AstCDTypeENKUlvE
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 21:                                               ; preds = %1
@@ -13305,7 +13306,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP9AstCDTypeENKUlvE
 
 .body:                                            ; preds = %11, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -13452,7 +13453,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP14AstCMethodHardE
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -13465,9 +13466,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP14AstCMethodHardE
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 21:                                               ; preds = %1
@@ -13477,7 +13478,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP14AstCMethodHardE
 
 .body:                                            ; preds = %11, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -13542,7 +13543,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP7AstCellENKUlvE_c
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -13555,9 +13556,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP7AstCellENKUlvE_c
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   %21 = load ptr, ptr %6, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 264
   %23 = load ptr, ptr %22, align 8
@@ -13581,7 +13582,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit: ; preds = %13, %24
 
 .body:                                            ; preds = %11, %28
   %eh.lpad-body = phi { ptr, i32 } [ %29, %28 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -13646,7 +13647,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP13AstCellInlineEN
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -13659,9 +13660,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP13AstCellInlineEN
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   %21 = load ptr, ptr %6, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 224
   %23 = load ptr, ptr %22, align 8
@@ -13685,7 +13686,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit: ; preds = %13, %24
 
 .body:                                            ; preds = %11, %28
   %eh.lpad-body = phi { ptr, i32 } [ %29, %28 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -14206,7 +14207,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstEnumItemENKU
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -14219,9 +14220,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstEnumItemENKU
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 21:                                               ; preds = %1
@@ -14231,7 +14232,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstEnumItemENKU
 
 .body:                                            ; preds = %11, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -14296,7 +14297,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP9AstFScanFENKUlvE
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -14309,9 +14310,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP9AstFScanFENKUlvE
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 21:                                               ; preds = %1
@@ -14321,7 +14322,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP9AstFScanFENKUlvE
 
 .body:                                            ; preds = %11, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -14479,7 +14480,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP12AstInitArrayEUlv
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #9
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE1_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
@@ -14543,7 +14544,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZ
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8
-  %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store ptr %9, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP12AstInitArrayEUlvE1_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit
@@ -14554,7 +14555,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZ
   br i1 %12, label %_ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP12AstInitArrayEUlvE1_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit, label %13
 
 13:                                               ; preds = %10
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #16
   br label %_ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP12AstInitArrayEUlvE1_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP12AstInitArrayEUlvE1_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit: ; preds = %3, %13, %10, %7, %5, %4
@@ -14562,7 +14563,7 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP12AstInitArrayEUlv
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK17AstNodeArrayDType13elementsConstEv(ptr noundef nonnull align 8 dereferenceable(176) %0) #3 comdat align 2 {
@@ -15068,7 +15069,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP14AstMemberDTypeE
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -15081,9 +15082,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP14AstMemberDTypeE
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 21:                                               ; preds = %1
@@ -15093,7 +15094,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP14AstMemberDTypeE
 
 .body:                                            ; preds = %11, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -15158,7 +15159,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP12AstMemberSelENK
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -15171,9 +15172,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP12AstMemberSelENK
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 21:                                               ; preds = %1
@@ -15183,7 +15184,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP12AstMemberSelENK
 
 .body:                                            ; preds = %11, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -15248,7 +15249,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP10AstModportENKUl
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -15261,9 +15262,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP10AstModportENKUl
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 21:                                               ; preds = %1
@@ -15273,7 +15274,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP10AstModportENKUl
 
 .body:                                            ; preds = %11, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -15338,7 +15339,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP18AstModportFTask
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -15351,9 +15352,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP18AstModportFTask
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   %21 = load ptr, ptr %6, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 192
   %23 = load ptr, ptr %22, align 8
@@ -15377,7 +15378,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit: ; preds = %13, %24
 
 .body:                                            ; preds = %11, %28
   %eh.lpad-body = phi { ptr, i32 } [ %29, %28 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -15442,7 +15443,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP16AstModportVarRe
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -15455,9 +15456,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP16AstModportVarRe
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   %21 = load ptr, ptr %6, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 192
   %23 = load ptr, ptr %22, align 8
@@ -15481,7 +15482,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit: ; preds = %13, %24
 
 .body:                                            ; preds = %11, %28
   %eh.lpad-body = phi { ptr, i32 } [ %29, %28 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -15755,7 +15756,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP12AstNodeBlockENK
 13:                                               ; preds = %.noexc
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 15:                                               ; preds = %.noexc
@@ -15768,9 +15769,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP12AstNodeBlockENK
   %22 = xor i32 %21, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %22, ptr %11, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 23:                                               ; preds = %1
@@ -15780,7 +15781,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP12AstNodeBlockENK
 
 .body:                                            ; preds = %13, %23
   %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -15885,7 +15886,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP20AstNodeCoverOrA
 13:                                               ; preds = %.noexc
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 15:                                               ; preds = %.noexc
@@ -15898,9 +15899,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP20AstNodeCoverOrA
   %22 = xor i32 %21, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %22, ptr %11, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 23:                                               ; preds = %1
@@ -15910,7 +15911,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP20AstNodeCoverOrA
 
 .body:                                            ; preds = %13, %23
   %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -15994,7 +15995,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP12AstNodeFTaskENK
 13:                                               ; preds = %.noexc
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 15:                                               ; preds = %.noexc
@@ -16007,9 +16008,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP12AstNodeFTaskENK
   %22 = xor i32 %21, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %22, ptr %11, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 23:                                               ; preds = %1
@@ -16019,7 +16020,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP12AstNodeFTaskENK
 
 .body:                                            ; preds = %13, %23
   %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -16139,7 +16140,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstNodeFileENKU
 13:                                               ; preds = %.noexc
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 15:                                               ; preds = %.noexc
@@ -16152,9 +16153,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstNodeFileENKU
   %22 = xor i32 %21, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %22, ptr %11, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 23:                                               ; preds = %1
@@ -16164,7 +16165,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstNodeFileENKU
 
 .body:                                            ; preds = %13, %23
   %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -16224,7 +16225,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP13AstNodeModuleEN
 13:                                               ; preds = %.noexc
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 15:                                               ; preds = %.noexc
@@ -16237,9 +16238,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP13AstNodeModuleEN
   %22 = xor i32 %21, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %22, ptr %11, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 23:                                               ; preds = %1
@@ -16249,7 +16250,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP13AstNodeModuleEN
 
 .body:                                            ; preds = %13, %23
   %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -16403,7 +16404,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstNodeTextENKU
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -16416,9 +16417,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstNodeTextENKU
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 21:                                               ; preds = %1
@@ -16428,7 +16429,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstNodeTextENKU
 
 .body:                                            ; preds = %11, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -16516,7 +16517,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP17AstParamTypeDTy
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -16529,9 +16530,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP17AstParamTypeDTy
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   %21 = load ptr, ptr %6, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 162
   %.sroa.0.0.copyload.i = load i8, ptr %22, align 2
@@ -16553,7 +16554,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP17AstParamTypeDTy
 
 .body:                                            ; preds = %11, %31
   %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -16630,7 +16631,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstParseRefENKU
 21:                                               ; preds = %.noexc
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 23:                                               ; preds = %.noexc
@@ -16643,9 +16644,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstParseRefENKU
   %30 = xor i32 %29, %20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %30, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 31:                                               ; preds = %1
@@ -16655,7 +16656,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstParseRefENKU
 
 .body:                                            ; preds = %21, %31
   %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %22, %21 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -16720,7 +16721,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP6AstPinENKUlvE_cl
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -16733,9 +16734,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP6AstPinENKUlvE_cl
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   %21 = load ptr, ptr %6, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 152
   %23 = load i32, ptr %22, align 8
@@ -16756,7 +16757,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP6AstPinENKUlvE_cl
 
 .body:                                            ; preds = %11, %31
   %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -16910,7 +16911,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstRefDTypeENKU
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -16923,9 +16924,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstRefDTypeENKU
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   %21 = load ptr, ptr %6, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 200
   %23 = load ptr, ptr %22, align 8
@@ -16964,7 +16965,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit3: ; preds = %_ZN14VNVisitor
 
 .body:                                            ; preds = %11, %35
   %eh.lpad-body = phi { ptr, i32 } [ %36, %35 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -17043,7 +17044,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstSFormatFENKU
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -17056,9 +17057,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstSFormatFENKU
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 21:                                               ; preds = %1
@@ -17068,7 +17069,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP11AstSFormatFENKU
 
 .body:                                            ; preds = %11, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -17126,7 +17127,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP9AstSScanFENKUlvE
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -17139,9 +17140,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP9AstSScanFENKUlvE
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 21:                                               ; preds = %1
@@ -17151,7 +17152,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP9AstSScanFENKUlvE
 
 .body:                                            ; preds = %11, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -17209,7 +17210,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP8AstScopeENKUlvE_
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -17222,9 +17223,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP8AstScopeENKUlvE_
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   %21 = load ptr, ptr %6, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
@@ -17248,7 +17249,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit: ; preds = %13, %24
 
 .body:                                            ; preds = %11, %28
   %eh.lpad-body = phi { ptr, i32 } [ %29, %28 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -17481,7 +17482,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP10AstTypedefENKUl
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -17494,9 +17495,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP10AstTypedefENKUl
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 21:                                               ; preds = %1
@@ -17506,7 +17507,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP10AstTypedefENKUl
 
 .body:                                            ; preds = %11, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -17571,7 +17572,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP13AstTypedefFwdEN
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -17584,9 +17585,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP13AstTypedefFwdEN
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 21:                                               ; preds = %1
@@ -17596,7 +17597,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP13AstTypedefFwdEN
 
 .body:                                            ; preds = %11, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -17706,7 +17707,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP6AstVarENKUlvE_cl
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -17719,9 +17720,9 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP6AstVarENKUlvE_cl
   %20 = xor i32 %19, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %20, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   %21 = load ptr, ptr %6, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 248
   %.sroa.0.0.copyload.i = load i8, ptr %22, align 8
@@ -17743,7 +17744,7 @@ define linkonce_odr dso_local void @_ZZN13HasherVisitor5visitEP6AstVarENKUlvE_cl
 
 .body:                                            ; preds = %11, %31
   %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %12, %11 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -17844,7 +17845,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit3: ; preds = %13, %16
 25:                                               ; preds = %.noexc
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 27:                                               ; preds = %.noexc
@@ -17857,9 +17858,9 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit3: ; preds = %13, %16
   %34 = xor i32 %33, %24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %34, ptr %23, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %37
 
 35:                                               ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit3
@@ -17869,7 +17870,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit3: ; preds = %13, %16
 
 .body:                                            ; preds = %25, %35
   %eh.lpad-body = phi { ptr, i32 } [ %36, %35 ], [ %26, %25 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 
 37:                                               ; preds = %27, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit
@@ -18019,7 +18020,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit: ; preds = %1, %10
 18:                                               ; preds = %.noexc
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 20:                                               ; preds = %.noexc
@@ -18032,9 +18033,9 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit: ; preds = %1, %10
   %27 = xor i32 %26, %17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i32 %27, ptr %16, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
 28:                                               ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit
@@ -18044,7 +18045,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit: ; preds = %1, %10
 
 .body:                                            ; preds = %18, %28
   %eh.lpad-body = phi { ptr, i32 } [ %29, %28 ], [ %19, %18 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -18118,23 +18119,23 @@ _ZNSt14_Function_base13_Base_managerIZN13HasherVisitor5visitEP21AstWildcardArray
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_V3Hasher.cpp() #11 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_V3Hasher.cpp() #12 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -18144,17 +18145,18 @@ attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { builtin nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { builtin allocsize(0) }
-attributes #18 = { nounwind }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { builtin nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { builtin allocsize(0) }
+attributes #19 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

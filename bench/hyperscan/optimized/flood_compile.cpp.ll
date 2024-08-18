@@ -34,7 +34,7 @@ define hidden void @_ZN3ue220setupFDRFloodControlERKSt6vectorINS_11hwlmLiteralES
 entry:
   %flood2chars = alloca %"class.std::map", align 8
   %fl221 = alloca %struct.FDRFlood, align 8
-  %call5.i.i.i.i2.i.i143 = tail call noalias noundef nonnull dereferenceable(53248) ptr @_Znwm(i64 noundef 53248) #13
+  %call5.i.i.i.i2.i.i143 = tail call noalias noundef nonnull dereferenceable(53248) ptr @_Znwm(i64 noundef 53248) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %call5.i.i.i.i2.i.i143, i8 0, i64 208, i1 false)
   br label %for.body.i.i.i.i.i.i.i.i.i
 
@@ -79,17 +79,17 @@ for.end:                                          ; preds = %for.body
 
 for.body10:                                       ; preds = %for.end, %for.inc200
   %__begin1.sroa.0.0239 = phi ptr [ %incdec.ptr.i, %for.inc200 ], [ %2, %for.end ]
-  %call12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.0239) #14
+  %call12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.0239) #16
   %cmp.not.i.i = icmp ult i64 %call12, 4294967296
   br i1 %cmp.not.i.i, label %invoke.cont13, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body10
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #14
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #16
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #15
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #17
           to label %.noexc unwind label %lpad1
 
 .noexc:                                           ; preds = %invoke.cont.i.i
@@ -98,7 +98,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #14
+  tail call void @__cxa_free_exception(ptr %exception.i.i) #16
   br label %_ZNSt6vectorI8FDRFloodSaIS0_EED2Ev.exit202
 
 invoke.cont13:                                    ; preds = %for.body10
@@ -113,7 +113,7 @@ invoke.cont13:                                    ; preds = %for.body10
   %conv16 = trunc i64 %sub.ptr.sub.i to i32
   %sub = add nuw nsw i64 %call12, 4294967295
   %conv19 = and i64 %sub, 4294967295
-  %call20 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.0239, i64 noundef %conv19) #14
+  %call20 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.0239, i64 noundef %conv19) #16
   %7 = load i8, ptr %call20, align 1
   %8 = add i8 %7, -65
   %9 = icmp ult i8 %8, 26
@@ -185,7 +185,7 @@ if.then58.us:                                     ; preds = %for.body56.us
   %25 = xor i64 %indvars.iv265, -1
   %sub61.us = add nsw i64 %call12, %25
   %conv62.us = and i64 %sub61.us, 4294967295
-  %call63.us = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.0239, i64 noundef %conv62.us) #14
+  %call63.us = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.0239, i64 noundef %conv62.us) #16
   %26 = load i8, ptr %call63.us, align 1
   %27 = load i8, ptr %nocase23, align 4
   %tobool65.us = trunc i8 %27 to i1
@@ -248,7 +248,7 @@ if.then58:                                        ; preds = %for.body56
   %37 = xor i64 %indvars.iv261, -1
   %sub61 = add nsw i64 %call12, %37
   %conv62 = and i64 %sub61, 4294967295
-  %call63 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.0239, i64 noundef %conv62) #14
+  %call63 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.0239, i64 noundef %conv62) #16
   %38 = load i8, ptr %call63, align 1
   %39 = load i8, ptr %nocase23, align 4
   %tobool65 = trunc i8 %39 to i1
@@ -464,7 +464,7 @@ while.body.i.i.i.i:                               ; preds = %for.body220, %while
   %__x.addr.03.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %this.val.i.i.i, %for.body220 ]
   %__y.addr.02.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %75, %for.body220 ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.03.i.i.i.i, i64 32
-  %call.i.i.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %fl221, i64 noundef 208) #16
+  %call.i.i.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %fl221, i64 noundef 208) #18
   %cmp.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.02.i.i.i.i, ptr %__x.addr.03.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
@@ -480,14 +480,14 @@ _ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pai
 lor.rhs.i:                                        ; preds = %_ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit.i
   %__y.addr.02.i.i.i.i.sroa.gep = getelementptr inbounds i8, ptr %__y.addr.02.i.i.i.i, i64 32
   %__y.addr.1.i.i.i.i.sroa.sel = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.02.i.i.i.i.sroa.gep, ptr %_M_storage.i.i.i.i.i.i
-  %call.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %fl221, ptr noundef nonnull readonly dereferenceable(208) %__y.addr.1.i.i.i.i.sroa.sel, i64 noundef 208) #16
+  %call.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %fl221, ptr noundef nonnull readonly dereferenceable(208) %__y.addr.1.i.i.i.i.sroa.sel, i64 noundef 208) #18
   %cmp.i3.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i3.i, label %if.then.i182, label %for.inc229
 
 if.then.i182:                                     ; preds = %lor.rhs.i, %_ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit.i, %for.body220
   %cmp.i18.i = phi i1 [ true, %_ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit.i ], [ false, %lor.rhs.i ], [ true, %for.body220 ]
   %__y.addr.0.lcssa.i.i.i17.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %75, %for.body220 ]
-  %call5.i.i.i.i.i.i.i184 = invoke noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #13
+  %call5.i.i.i.i.i.i.i184 = invoke noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #15
           to label %call5.i.i.i.i.i.i.i.noexc unwind label %lpad224.loopexit
 
 call5.i.i.i.i.i.i.i.noexc:                        ; preds = %if.then.i182
@@ -505,7 +505,7 @@ if.then.i.i.i:                                    ; preds = %call5.i.i.i.i.i.i.i
 land.lhs.true.i.i.i:                              ; preds = %if.then.i.i.i
   %76 = load ptr, ptr %_M_right.i.i.i.i.i, align 8
   %_M_storage.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %76, i64 32
-  %call.i.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i3.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #16
+  %call.i.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i3.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %invoke.cont7.i.i, label %if.else.i.i.i
 
@@ -515,7 +515,7 @@ if.else.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
 while.body.i.i.i7.i:                              ; preds = %if.else.i.i.i, %while.body.i.i.i7.i
   %__x.024.i.i.i.i = phi ptr [ %__x.0.i.i.i.i, %while.body.i.i.i7.i ], [ %this.val.i.i.i, %if.else.i.i.i ]
   %_M_storage.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %__x.024.i.i.i.i, i64 32
-  %call.i.i.i.i8.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i11.i.i.i, i64 noundef 208) #16
+  %call.i.i.i.i8.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i11.i.i.i, i64 noundef 208) #18
   %cmp.i.i.i.i9.i = icmp slt i32 %call.i.i.i.i8.i, 0
   %cond.in.v.i.i.i.i = select i1 %cmp.i.i.i.i9.i, i64 16, i64 24
   %cond.in.i.i.i.i = getelementptr i8, ptr %__x.024.i.i.i.i, i64 %cond.in.v.i.i.i.i
@@ -533,20 +533,20 @@ if.then.i.i.i.i:                                  ; preds = %while.end.i.i.i.i, 
   br i1 %cmp.i5.i.i.i.i, label %if.then.i.i183, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
-  %call.i6.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa28.i.i.i.i) #16
+  %call.i6.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa28.i.i.i.i) #18
   br label %if.end12.i.i.i.i
 
 if.end12.i.i.i.i:                                 ; preds = %if.else.i.i.i.i, %while.end.i.i.i.i
   %__y.0.lcssa29.i.i.i.i = phi ptr [ %__y.0.lcssa28.i.i.i.i, %if.else.i.i.i.i ], [ %__x.024.i.i.i.i, %while.end.i.i.i.i ]
   %__j.sroa.0.0.i.i.i.i = phi ptr [ %call.i6.i.i.i.i, %if.else.i.i.i.i ], [ %__x.024.i.i.i.i, %while.end.i.i.i.i ]
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i.i.i.i, i64 32
-  %call.i7.i.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #16
+  %call.i7.i.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
   %cmp.i8.i.i.i.i = icmp slt i32 %call.i7.i.i.i.i, 0
   br i1 %cmp.i8.i.i.i.i, label %if.then.i.i183, label %if.then.i12.i.i
 
 if.else12.i.i.i:                                  ; preds = %call5.i.i.i.i.i.i.i.noexc
   %_M_storage.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i17.i, i64 32
-  %call.i13.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i12.i.i.i, i64 noundef 208) #16
+  %call.i13.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i12.i.i.i, i64 noundef 208) #18
   %cmp.i14.i.i.i = icmp slt i32 %call.i13.i.i.i, 0
   br i1 %cmp.i14.i.i.i, label %if.then18.i.i.i, label %if.else44.i.i.i
 
@@ -556,9 +556,9 @@ if.then18.i.i.i:                                  ; preds = %if.else12.i.i.i
   br i1 %cmp21.i.i.i, label %invoke.cont7.i.i, label %if.else25.i.i.i
 
 if.else25.i.i.i:                                  ; preds = %if.then18.i.i.i
-  %call.i18.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__y.addr.0.lcssa.i.i.i17.i) #16
+  %call.i18.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__y.addr.0.lcssa.i.i.i17.i) #18
   %_M_storage.i.i.i19.i.i.i = getelementptr inbounds i8, ptr %call.i18.i.i.i, i64 32
-  %call.i20.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i19.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #16
+  %call.i20.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i19.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
   %cmp.i21.i.i.i = icmp slt i32 %call.i20.i.i.i, 0
   br i1 %cmp.i21.i.i.i, label %if.then32.i.i.i, label %if.else42.i.i.i
 
@@ -574,7 +574,7 @@ if.else42.i.i.i:                                  ; preds = %if.else25.i.i.i
 while.body.i27.i.i.i:                             ; preds = %if.else42.i.i.i, %while.body.i27.i.i.i
   %__x.024.i28.i.i.i = phi ptr [ %__x.0.i34.i.i.i, %while.body.i27.i.i.i ], [ %this.val.i.i.i, %if.else42.i.i.i ]
   %_M_storage.i.i.i29.i.i.i = getelementptr inbounds i8, ptr %__x.024.i28.i.i.i, i64 32
-  %call.i.i30.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i29.i.i.i, i64 noundef 208) #16
+  %call.i.i30.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i29.i.i.i, i64 noundef 208) #18
   %cmp.i.i31.i.i.i = icmp slt i32 %call.i.i30.i.i.i, 0
   %cond.in.v.i32.i.i.i = select i1 %cmp.i.i31.i.i.i, i64 16, i64 24
   %cond.in.i33.i.i.i = getelementptr i8, ptr %__x.024.i28.i.i.i, i64 %cond.in.v.i32.i.i.i
@@ -591,19 +591,19 @@ if.then.i49.i.i.i:                                ; preds = %while.end.i36.i.i.i
   br i1 %cmp.i5.i52.i.i.i, label %if.then.i.i183, label %if.else.i53.i.i.i
 
 if.else.i53.i.i.i:                                ; preds = %if.then.i49.i.i.i
-  %call.i6.i54.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa28.i50.i.i.i) #16
+  %call.i6.i54.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa28.i50.i.i.i) #18
   br label %if.end12.i37.i.i.i
 
 if.end12.i37.i.i.i:                               ; preds = %if.else.i53.i.i.i, %while.end.i36.i.i.i
   %__y.0.lcssa29.i38.i.i.i = phi ptr [ %__y.0.lcssa28.i50.i.i.i, %if.else.i53.i.i.i ], [ %__x.024.i28.i.i.i, %while.end.i36.i.i.i ]
   %__j.sroa.0.0.i39.i.i.i = phi ptr [ %call.i6.i54.i.i.i, %if.else.i53.i.i.i ], [ %__x.024.i28.i.i.i, %while.end.i36.i.i.i ]
   %_M_storage.i.i.i.i40.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i39.i.i.i, i64 32
-  %call.i7.i41.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i40.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #16
+  %call.i7.i41.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i40.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
   %cmp.i8.i42.i.i.i = icmp slt i32 %call.i7.i41.i.i.i, 0
   br i1 %cmp.i8.i42.i.i.i, label %if.then.i.i183, label %if.then.i12.i.i
 
 if.else44.i.i.i:                                  ; preds = %if.else12.i.i.i
-  %call.i57.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i12.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #16
+  %call.i57.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i12.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
   %cmp.i58.i.i.i = icmp slt i32 %call.i57.i.i.i, 0
   br i1 %cmp.i58.i.i.i, label %if.then50.i.i.i, label %if.then.i12.i.i
 
@@ -613,9 +613,9 @@ if.then50.i.i.i:                                  ; preds = %if.else44.i.i.i
   br i1 %cmp53.i.i.i, label %invoke.cont7.i.i, label %if.else57.i.i.i
 
 if.else57.i.i.i:                                  ; preds = %if.then50.i.i.i
-  %call.i62.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__y.addr.0.lcssa.i.i.i17.i) #16
+  %call.i62.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__y.addr.0.lcssa.i.i.i17.i) #18
   %_M_storage.i.i.i63.i.i.i = getelementptr inbounds i8, ptr %call.i62.i.i.i, i64 32
-  %call.i64.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i63.i.i.i, i64 noundef 208) #16
+  %call.i64.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i63.i.i.i, i64 noundef 208) #18
   %cmp.i65.i.i.i = icmp slt i32 %call.i64.i.i.i, 0
   br i1 %cmp.i65.i.i.i, label %if.then64.i.i.i, label %if.else74.i.i.i
 
@@ -631,7 +631,7 @@ if.else74.i.i.i:                                  ; preds = %if.else57.i.i.i
 while.body.i71.i.i.i:                             ; preds = %if.else74.i.i.i, %while.body.i71.i.i.i
   %__x.024.i72.i.i.i = phi ptr [ %__x.0.i78.i.i.i, %while.body.i71.i.i.i ], [ %this.val.i.i.i, %if.else74.i.i.i ]
   %_M_storage.i.i.i73.i.i.i = getelementptr inbounds i8, ptr %__x.024.i72.i.i.i, i64 32
-  %call.i.i74.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i73.i.i.i, i64 noundef 208) #16
+  %call.i.i74.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i73.i.i.i, i64 noundef 208) #18
   %cmp.i.i75.i.i.i = icmp slt i32 %call.i.i74.i.i.i, 0
   %cond.in.v.i76.i.i.i = select i1 %cmp.i.i75.i.i.i, i64 16, i64 24
   %cond.in.i77.i.i.i = getelementptr i8, ptr %__x.024.i72.i.i.i, i64 %cond.in.v.i76.i.i.i
@@ -649,14 +649,14 @@ if.then.i93.i.i.i:                                ; preds = %while.end.i80.i.i.i
   br i1 %cmp.i5.i96.i.i.i, label %if.then.i.i183, label %if.else.i97.i.i.i
 
 if.else.i97.i.i.i:                                ; preds = %if.then.i93.i.i.i
-  %call.i6.i98.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa28.i94.i.i.i) #16
+  %call.i6.i98.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa28.i94.i.i.i) #18
   br label %if.end12.i81.i.i.i
 
 if.end12.i81.i.i.i:                               ; preds = %if.else.i97.i.i.i, %while.end.i80.i.i.i
   %__y.0.lcssa29.i82.i.i.i = phi ptr [ %__y.0.lcssa28.i94.i.i.i, %if.else.i97.i.i.i ], [ %__x.024.i72.i.i.i, %while.end.i80.i.i.i ]
   %__j.sroa.0.0.i83.i.i.i = phi ptr [ %call.i6.i98.i.i.i, %if.else.i97.i.i.i ], [ %__x.024.i72.i.i.i, %while.end.i80.i.i.i ]
   %_M_storage.i.i.i.i84.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i83.i.i.i, i64 32
-  %call.i7.i85.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i84.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #16
+  %call.i7.i85.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i84.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
   %cmp.i8.i86.i.i.i = icmp slt i32 %call.i7.i85.i.i.i, 0
   br i1 %cmp.i8.i86.i.i.i, label %if.then.i.i183, label %if.then.i12.i.i
 
@@ -676,13 +676,13 @@ if.then.i.i183:                                   ; preds = %invoke.cont7.i.i, %
 
 lor.rhs.i.i.i.i:                                  ; preds = %if.then.i.i183
   %_M_storage.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %retval.sroa.12.0.i11.i.i, i64 32
-  %call.i.i.i8.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i7.i.i, i64 noundef 208) #16
+  %call.i.i.i8.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i7.i.i, i64 noundef 208) #18
   %cmp.i.i.i9.i.i = icmp slt i32 %call.i.i.i8.i.i, 0
   br label %cleanup.i.i
 
 cleanup.i.i:                                      ; preds = %lor.rhs.i.i.i.i, %if.then.i.i183
   %81 = phi i1 [ true, %if.then.i.i183 ], [ %cmp.i.i.i9.i.i, %lor.rhs.i.i.i.i ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %81, ptr noundef nonnull %call5.i.i.i.i.i.i.i184, ptr noundef nonnull %retval.sroa.12.0.i11.i.i, ptr noundef nonnull align 8 dereferenceable(32) %75) #14
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %81, ptr noundef nonnull %call5.i.i.i.i.i.i.i184, ptr noundef nonnull %retval.sroa.12.0.i11.i.i, ptr noundef nonnull align 8 dereferenceable(32) %75) #16
   %82 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
   %inc.i.i.i.i = add i64 %82, 1
   store i64 %inc.i.i.i.i, ptr %_M_node_count.i.i.i.i.i, align 8
@@ -690,7 +690,7 @@ cleanup.i.i:                                      ; preds = %lor.rhs.i.i.i.i, %i
 
 if.then.i12.i.i:                                  ; preds = %invoke.cont7.i.i, %if.end12.i81.i.i.i, %if.else44.i.i.i, %if.end12.i37.i.i.i, %if.end12.i.i.i.i
   %retval.sroa.0.0.ph.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %invoke.cont7.i.i ], [ %__j.sroa.0.0.i83.i.i.i, %if.end12.i81.i.i.i ], [ %__j.sroa.0.0.i39.i.i.i, %if.end12.i37.i.i.i ], [ %__j.sroa.0.0.i.i.i.i, %if.end12.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17.i, %if.else44.i.i.i ]
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i.i184) #17
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i.i184) #19
   br label %for.inc229
 
 for.inc229:                                       ; preds = %lor.rhs.i, %cleanup.i.i, %if.then.i12.i.i
@@ -828,19 +828,19 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %if.then7.i.i, %if.t
 
 for.end266:                                       ; preds = %for.inc.i.i, %_ZNK3ue29CharReach9find_nextEm.exit, %for.cond.i.i, %for.body261.preheader, %_ZNK3ue29CharReach10find_firstEv.exit
   %inc267 = add i32 %currentFloodIndex.0249, 1
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1244.sroa.0.0248) #16
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1244.sroa.0.0248) #18
   %cmp.i188.not = icmp eq ptr %call.i, %75
   br i1 %cmp.i188.not, label %_ZNSt6vectorI8FDRFloodSaIS0_EED2Ev.exit, label %for.body252
 
 _ZNSt6vectorI8FDRFloodSaIS0_EED2Ev.exit:          ; preds = %for.end266, %invoke.cont237
   %flood2chars.val141 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   call fastcc void @_ZNSt8_Rb_treeI8FDRFloodSt4pairIKS0_N3ue29CharReachEESt10_Select1stIS5_ENS3_12_GLOBAL__N_115FloodComparatorESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef %flood2chars.val141)
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i143) #17
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i143) #19
   ret void
 
 _ZNSt6vectorI8FDRFloodSaIS0_EED2Ev.exit202:       ; preds = %lpad1, %lpad.i.i, %lpad224
   %.pn129 = phi { ptr, i32 } [ %lpad.phi, %lpad224 ], [ %1, %lpad1 ], [ %4, %lpad.i.i ]
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i143) #17
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i143) #19
   resume { ptr, i32 } %.pn129
 }
 
@@ -860,20 +860,21 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #18
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrIhN3ue212bytecode_ptrIhE7deleterIhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10unique_ptrIhN3ue212bytecode_ptrIhE7deleterIhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -891,14 +892,14 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #18
+  tail call void @__clang_call_terminate(ptr %2) #20
   unreachable
 }
 
-declare void @_ZN3ue221aligned_free_internalEPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZN3ue221aligned_free_internalEPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeI8FDRFloodSt4pairIKS0_N3ue29CharReachEESt10_Select1stIS5_ENS3_12_GLOBAL__N_115FloodComparatorESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef %__x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeI8FDRFloodSt4pairIKS0_N3ue29CharReachEESt10_Select1stIS5_ENS3_12_GLOBAL__N_115FloodComparatorESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef %__x) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not1 = icmp eq ptr %__x, null
   br i1 %cmp.not1, label %while.end, label %while.body
@@ -910,7 +911,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call fastcc void @_ZNSt8_Rb_treeI8FDRFloodSt4pairIKS0_N3ue29CharReachEESt10_Select1stIS5_ENS3_12_GLOBAL__N_115FloodComparatorESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef %__x.addr.0.val4)
   %1 = getelementptr i8, ptr %__x.addr.02, i64 16
   %__x.addr.0.val = load ptr, ptr %1, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.02) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.02) #19
   %cmp.not = icmp eq ptr %__x.addr.0.val, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !17
 
@@ -919,27 +920,28 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-declare void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #7
+declare void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #8
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind
 declare void @_ZN3ue218ResourceLimitErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #2
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #11
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
@@ -970,7 +972,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #18
+  tail call void @__clang_call_terminate(ptr %2) #20
   unreachable
 
 _ZNSt10unique_ptrIhN3ue212bytecode_ptrIhE7deleterIhEEE5resetEPh.exitthread-pre-split: ; preds = %if.then.i.i
@@ -983,15 +985,15 @@ _ZNSt10unique_ptrIhN3ue212bytecode_ptrIhE7deleterIhEEE5resetEPh.exit: ; preds = 
   br i1 %cmp.i1.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNSt10unique_ptrIhN3ue212bytecode_ptrIhE7deleterIhEEE5resetEPh.exit
-  %exception = tail call ptr @__cxa_allocate_exception(i64 8) #14
+  %exception = tail call ptr @__cxa_allocate_exception(i64 8) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #15
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #17
           to label %unreachable unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %entry
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt10unique_ptrIhN3ue212bytecode_ptrIhE7deleterIhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZNSt10unique_ptrIhN3ue212bytecode_ptrIhE7deleterIhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
   resume { ptr, i32 } %4
 
 if.end:                                           ; preds = %_ZNSt10unique_ptrIhN3ue212bytecode_ptrIhE7deleterIhEEE5resetEPh.exit
@@ -1001,42 +1003,44 @@ unreachable:                                      ; preds = %if.then
   unreachable
 }
 
-declare noundef ptr @_ZN3ue223aligned_malloc_internalEmm(i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noundef ptr @_ZN3ue223aligned_malloc_internalEmm(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #11
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
+declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+declare i32 @llvm.umin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare i64 @llvm.umax.i64(i64, i64) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { builtin allocsize(0) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { builtin nounwind }
-attributes #18 = { noreturn nounwind }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold noreturn }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { builtin allocsize(0) }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn }
+attributes #18 = { nounwind willreturn memory(read) }
+attributes #19 = { builtin nounwind }
+attributes #20 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

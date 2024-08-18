@@ -77,7 +77,7 @@ define void @_ZN5ZXing6Pdf41711ModulusPolyC2ERKNS0_9ModulusGFERKSt6vectorIiSaIiE
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %26
 
 26:                                               ; preds = %23
-  call void @_ZdlPv(ptr noundef nonnull %25) #11
+  call void @_ZdlPv(ptr noundef nonnull %25) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23, %26
@@ -139,11 +139,11 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   br i1 %18, label %19, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
 
 19:                                               ; preds = %17
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #12
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #13
   unreachable
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %17
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #13
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #14
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEPimT_S9_.exit, label %21
 
@@ -156,7 +156,7 @@ _ZNSt6vectorIiSaIiEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKiS1_
   br i1 %.not.i, label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit, label %22
 
 22:                                               ; preds = %_ZNSt6vectorIiSaIiEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEPimT_S9_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #12
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %_ZNSt6vectorIiSaIiEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEPimT_S9_.exit, %22
@@ -244,7 +244,7 @@ define noundef i32 @_ZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEi(ptr nocapture n
   br i1 %.not.i.i.i.not, label %13, label %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit
 
 13:                                               ; preds = %4
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef %12, i64 noundef %11) #12
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef %12, i64 noundef %11) #13
   unreachable
 
 _ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit: ; preds = %4
@@ -338,18 +338,18 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly3addERKS1_(ptr dead_on_unwind noalias
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %8 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str)
           to label %9 unwind label %10
 
 9:                                                ; preds = %7
-  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #12
+  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #13
   unreachable
 
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #14
+  tail call void @__cxa_free_exception(ptr %8) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 12:                                               ; preds = %3
@@ -361,7 +361,7 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly3addERKS1_(ptr dead_on_unwind noalias
   br i1 %.not.i.i.not.i, label %17, label %_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit
 
 17:                                               ; preds = %12
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #12
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #13
   unreachable
 
 _ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit:     ; preds = %12
@@ -396,11 +396,11 @@ _ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit:     ; preds = %12
   br i1 %33, label %.noexc.i.i.i, label %34
 
 .noexc.i.i.i:                                     ; preds = %32
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #12
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #13
   unreachable
 
 34:                                               ; preds = %32
-  %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #13
+  %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #14
   store ptr %35, ptr %21, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %35, ptr %36, align 8
@@ -426,7 +426,7 @@ _ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit:       ; preds = %.thread, %34
   br i1 %.not.i.i.not.i19, label %47, label %_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit20
 
 47:                                               ; preds = %42
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #12
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #13
   unreachable
 
 _ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit20:   ; preds = %42
@@ -443,12 +443,12 @@ _ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit20:   ; preds = %42
   br i1 %54, label %.noexc.i.i.i24, label %_ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit25
 
 .noexc.i.i.i24:                                   ; preds = %50
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #12
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #13
   unreachable
 
 _ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit25:     ; preds = %50
   %55 = getelementptr inbounds i8, ptr %0, i64 8
-  %56 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %53) #13
+  %56 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %53) #14
   store ptr %56, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 16
   %58 = getelementptr inbounds i8, ptr %56, i64 %53
@@ -479,7 +479,7 @@ _ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit25:     ; preds = %50
   br i1 %75, label %.noexc, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
 .noexc:                                           ; preds = %60
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #12
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #13
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %60
@@ -491,7 +491,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   br label %82
 
 .noexc26:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %76 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %74) #13
+  %76 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %74) #14
   store ptr %76, ptr %4, align 8
   %77 = getelementptr i8, ptr %76, i64 %74
   %78 = getelementptr inbounds i8, ptr %4, i64 16
@@ -564,7 +564,7 @@ _ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmNS1_IPiS6_EEET
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %114
 
 114:                                              ; preds = %111
-  call void @_ZdlPv(ptr noundef nonnull %113) #11
+  call void @_ZdlPv(ptr noundef nonnull %113) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmNS1_IPiS6_EEET1_T_T0_SA_.exit
@@ -577,7 +577,7 @@ _ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmNS1_IPiS6_EEET
   br i1 %.not.i.i.i27, label %_ZNSt6vectorIiSaIiEED2Ev.exit28, label %117
 
 117:                                              ; preds = %115
-  call void @_ZdlPv(ptr noundef nonnull %116) #11
+  call void @_ZdlPv(ptr noundef nonnull %116) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit28
 
 _ZNSt6vectorIiSaIiEED2Ev.exit28:                  ; preds = %117, %115, %_ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit25, %_ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit
@@ -597,7 +597,8 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5ZXing6Pdf41711ModulusPoly8subtractERKS1_(ptr dead_on_unwind noalias writable sret(%"class.ZXing::Pdf417::ModulusPoly") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -608,18 +609,18 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly8subtractERKS1_(ptr dead_on_unwind no
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %8 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str)
           to label %9 unwind label %10
 
 9:                                                ; preds = %7
-  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #12
+  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #13
   unreachable
 
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #14
+  tail call void @__cxa_free_exception(ptr %8) #15
   br label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit8
 
 12:                                               ; preds = %3
@@ -631,7 +632,7 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly8subtractERKS1_(ptr dead_on_unwind no
   br i1 %.not.i.i.not.i, label %17, label %_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit
 
 17:                                               ; preds = %12
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #12
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #13
   unreachable
 
 _ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit:     ; preds = %12
@@ -666,11 +667,11 @@ _ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit:     ; preds = %12
   br i1 %33, label %.noexc.i.i.i, label %34
 
 .noexc.i.i.i:                                     ; preds = %32
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #12
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #13
   unreachable
 
 34:                                               ; preds = %32
-  %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #13
+  %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #14
   store ptr %35, ptr %21, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %35, ptr %36, align 8
@@ -699,7 +700,7 @@ _ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit:       ; preds = %.thread, %34
   br i1 %.not.i.i.i.i, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit, label %46
 
 46:                                               ; preds = %43
-  call void @_ZdlPv(ptr noundef nonnull %45) #11
+  call void @_ZdlPv(ptr noundef nonnull %45) #12
   br label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit
 
 47:                                               ; preds = %42
@@ -711,7 +712,7 @@ _ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit:       ; preds = %.thread, %34
   br i1 %.not.i.i.i.i7, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit8, label %51
 
 51:                                               ; preds = %47
-  call void @_ZdlPv(ptr noundef nonnull %50) #11
+  call void @_ZdlPv(ptr noundef nonnull %50) #12
   br label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit8
 
 _ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit:           ; preds = %46, %43, %_ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit
@@ -737,7 +738,7 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly8negativeEv(ptr dead_on_unwind noalia
   br i1 %12, label %.noexc, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
 .noexc:                                           ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #12
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #13
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
@@ -745,7 +746,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   br i1 %.not.i.i.i.i, label %19, label %.noexc11
 
 .noexc11:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #13
+  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #14
   store ptr %13, ptr %3, align 8
   %14 = getelementptr i8, ptr %13, i64 %10
   %15 = getelementptr inbounds i8, ptr %3, i64 16
@@ -796,7 +797,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc11
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %35
 
 35:                                               ; preds = %32
-  call void @_ZdlPv(ptr noundef nonnull %34) #11
+  call void @_ZdlPv(ptr noundef nonnull %34) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
@@ -810,7 +811,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc11
   br i1 %.not.i.i.i12, label %_ZNSt6vectorIiSaIiEED2Ev.exit13, label %39
 
 39:                                               ; preds = %37
-  call void @_ZdlPv(ptr noundef nonnull %38) #11
+  call void @_ZdlPv(ptr noundef nonnull %38) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit13
 
 _ZNSt6vectorIiSaIiEED2Ev.exit13:                  ; preds = %37, %39
@@ -829,18 +830,18 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly8multiplyERKS1_(ptr dead_on_unwind no
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %8 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str)
           to label %9 unwind label %10
 
 9:                                                ; preds = %7
-  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #12
+  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #13
   unreachable
 
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #14
+  tail call void @__cxa_free_exception(ptr %8) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 12:                                               ; preds = %3
@@ -852,7 +853,7 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly8multiplyERKS1_(ptr dead_on_unwind no
   br i1 %.not.i.i.not.i, label %17, label %_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit
 
 17:                                               ; preds = %12
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #12
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #13
   unreachable
 
 _ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit:     ; preds = %12
@@ -869,7 +870,7 @@ _ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit:     ; preds = %12
   br i1 %.not.i.i.not.i28, label %25, label %_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit29
 
 25:                                               ; preds = %20
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #12
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #13
   unreachable
 
 _ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit29:   ; preds = %20
@@ -906,11 +907,11 @@ _ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit29:   ; preds = %20
   br i1 %43, label %.noexc.i.i.i, label %44
 
 .noexc.i.i.i:                                     ; preds = %42
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #12
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #13
   unreachable
 
 44:                                               ; preds = %42
-  %45 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #13
+  %45 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #14
   store ptr %45, ptr %31, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %45, ptr %46, align 8
@@ -942,7 +943,7 @@ _ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit:       ; preds = %.thread, %44
   br i1 %63, label %.noexc, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
 .noexc:                                           ; preds = %52
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #12
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #13
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %52
@@ -956,7 +957,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
 
 .noexc30:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %65 = shl nuw nsw i64 %62, 2
-  %66 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %65) #13
+  %66 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %65) #14
   store ptr %66, ptr %4, align 8
   %67 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %66, ptr %67, align 8
@@ -1056,7 +1057,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %122
 
 122:                                              ; preds = %119
-  call void @_ZdlPv(ptr noundef nonnull %121) #11
+  call void @_ZdlPv(ptr noundef nonnull %121) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 ._crit_edge38:                                    ; preds = %._crit_edge.us
@@ -1070,7 +1071,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   br i1 %.not.i.i.i31, label %_ZNSt6vectorIiSaIiEED2Ev.exit32, label %125
 
 125:                                              ; preds = %123
-  call void @_ZdlPv(ptr noundef nonnull %124) #11
+  call void @_ZdlPv(ptr noundef nonnull %124) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit32
 
 _ZNSt6vectorIiSaIiEED2Ev.exit32:                  ; preds = %125, %123, %_ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit
@@ -1119,11 +1120,11 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly8multiplyEi(ptr dead_on_unwind noalia
   br i1 %21, label %.noexc.i.i.i, label %22
 
 .noexc.i.i.i:                                     ; preds = %20
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #12
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #13
   unreachable
 
 22:                                               ; preds = %20
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #13
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #14
   store ptr %23, ptr %9, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %24, align 8
@@ -1168,11 +1169,11 @@ _ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit:       ; preds = %.thread27, %22
   br i1 %44, label %.noexc.i.i.i18, label %45
 
 .noexc.i.i.i18:                                   ; preds = %43
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #12
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #13
   unreachable
 
 45:                                               ; preds = %43
-  %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #13
+  %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #14
   store ptr %46, ptr %32, align 8
   %47 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %46, ptr %47, align 8
@@ -1202,7 +1203,7 @@ _ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit19:     ; preds = %.thread, %45
   br i1 %62, label %.noexc, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
 .noexc:                                           ; preds = %53
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #12
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #13
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %53
@@ -1210,7 +1211,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %53
   br i1 %.not.i.i.i.i, label %69, label %.noexc20
 
 .noexc20:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %63 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #13
+  %63 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #14
   store ptr %63, ptr %4, align 8
   %64 = getelementptr i8, ptr %63, i64 %60
   %65 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1280,7 +1281,7 @@ _ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit:     ; preds = %.lr.ph.split, %79
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %98
 
 98:                                               ; preds = %95
-  call void @_ZdlPv(ptr noundef nonnull %97) #11
+  call void @_ZdlPv(ptr noundef nonnull %97) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 ._crit_edge:                                      ; preds = %_ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit, %69
@@ -1294,7 +1295,7 @@ _ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit:     ; preds = %.lr.ph.split, %79
   br i1 %.not.i.i.i21, label %_ZNSt6vectorIiSaIiEED2Ev.exit22, label %102
 
 102:                                              ; preds = %100
-  call void @_ZdlPv(ptr noundef nonnull %101) #11
+  call void @_ZdlPv(ptr noundef nonnull %101) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit22
 
 _ZNSt6vectorIiSaIiEED2Ev.exit22:                  ; preds = %102, %100, %_ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit19, %_ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit
@@ -1311,18 +1312,18 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly18multiplyByMonomialEii(ptr dead_on_u
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %8 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str.1)
           to label %9 unwind label %10
 
 9:                                                ; preds = %7
-  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #12
+  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #13
   unreachable
 
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #14
+  tail call void @__cxa_free_exception(ptr %8) #15
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 12:                                               ; preds = %4
@@ -1359,11 +1360,11 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly18multiplyByMonomialEii(ptr dead_on_u
   br i1 %30, label %.noexc.i.i.i, label %31
 
 .noexc.i.i.i:                                     ; preds = %29
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #12
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #13
   unreachable
 
 31:                                               ; preds = %29
-  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #13
+  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #14
   store ptr %32, ptr %18, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %32, ptr %33, align 8
@@ -1395,7 +1396,7 @@ _ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit:       ; preds = %.thread, %31
   br i1 %50, label %.noexc, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
 .noexc:                                           ; preds = %39
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #12
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #13
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %39
@@ -1409,7 +1410,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
 
 .noexc17:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %52 = shl nuw nsw i64 %49, 2
-  %53 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %52) #13
+  %53 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %52) #14
   store ptr %53, ptr %5, align 8
   %54 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %53, ptr %54, align 8
@@ -1475,7 +1476,7 @@ _ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit:     ; preds = %64, %68
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %87
 
 87:                                               ; preds = %84
-  call void @_ZdlPv(ptr noundef nonnull %86) #11
+  call void @_ZdlPv(ptr noundef nonnull %86) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 ._crit_edge:                                      ; preds = %_ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit, %.loopexit
@@ -1489,7 +1490,7 @@ _ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit:     ; preds = %64, %68
   br i1 %.not.i.i.i18, label %_ZNSt6vectorIiSaIiEED2Ev.exit19, label %91
 
 91:                                               ; preds = %89
-  call void @_ZdlPv(ptr noundef nonnull %90) #11
+  call void @_ZdlPv(ptr noundef nonnull %90) #12
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit19
 
 _ZNSt6vectorIiSaIiEED2Ev.exit19:                  ; preds = %91, %89, %_ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit
@@ -1512,18 +1513,18 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly6divideERKS1_RS1_S4_(ptr noundef nonn
   br i1 %.not, label %16, label %11
 
 11:                                               ; preds = %4
-  %12 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %12 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str)
           to label %13 unwind label %14
 
 13:                                               ; preds = %11
-  tail call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #12
+  tail call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #13
   unreachable
 
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #14
+  tail call void @__cxa_free_exception(ptr %12) #15
   br label %common.resume
 
 16:                                               ; preds = %4
@@ -1535,7 +1536,7 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly6divideERKS1_RS1_S4_(ptr noundef nonn
   br i1 %.not.i.i.not.i, label %21, label %_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit
 
 21:                                               ; preds = %16
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #12
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #13
   unreachable
 
 _ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit:     ; preds = %16
@@ -1544,18 +1545,18 @@ _ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit:     ; preds = %16
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit
-  %25 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %25 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull @.str.2)
           to label %26 unwind label %27
 
 26:                                               ; preds = %24
-  tail call void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #12
+  tail call void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #13
   unreachable
 
 27:                                               ; preds = %24
   %28 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %25) #14
+  tail call void @__cxa_free_exception(ptr %25) #15
   br label %common.resume
 
 29:                                               ; preds = %_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit
@@ -1583,7 +1584,7 @@ _ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit:     ; preds = %16
   br i1 %.not.i.i.i, label %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit, label %47
 
 47:                                               ; preds = %29
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef %46, i64 noundef %44) #12
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef %46, i64 noundef %44) #13
   unreachable
 
 _ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit: ; preds = %29
@@ -1593,12 +1594,12 @@ _ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit: ; preds = %29
   br i1 %50, label %51, label %_ZNK5ZXing6Pdf4179ModulusGF7inverseEi.exit
 
 51:                                               ; preds = %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit
-  %52 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  %52 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull @.str.4)
           to label %53 unwind label %54
 
 53:                                               ; preds = %51
-  tail call void @__cxa_throw(ptr nonnull %52, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #12
+  tail call void @__cxa_throw(ptr nonnull %52, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #13
   unreachable
 
 common.resume:                                    ; preds = %14, %27, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45, %170, %54
@@ -1608,7 +1609,7 @@ common.resume:                                    ; preds = %14, %27, %_ZN5ZXing
 54:                                               ; preds = %51
   %55 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %52) #14
+  tail call void @__cxa_free_exception(ptr %52) #15
   br label %common.resume
 
 _ZNK5ZXing6Pdf4179ModulusGF7inverseEi.exit:       ; preds = %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit
@@ -1666,7 +1667,7 @@ _ZNK5ZXing6Pdf4179ModulusGF7inverseEi.exit:       ; preds = %_ZNK5ZXing6Pdf41711
   br i1 %.not.i.i.not.i32, label %100, label %_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit33
 
 100:                                              ; preds = %94
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #12
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #13
   unreachable
 
 _ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit33:   ; preds = %94
@@ -1685,7 +1686,7 @@ _ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit33:   ; preds = %94
   br i1 %.not.i.i.i34, label %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit35, label %109
 
 109:                                              ; preds = %103
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef %108, i64 noundef %106) #12
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef %108, i64 noundef %106) #13
   unreachable
 
 _ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit35: ; preds = %103
@@ -1739,13 +1740,13 @@ _ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit:     ; preds = %_ZNK5ZXing6Pdf41711
   br i1 %.not.i.i.i.i.i.i, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit, label %_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit
 
 _ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit:        ; preds = %131
-  call void @_ZdlPv(ptr noundef nonnull %133) #11
+  call void @_ZdlPv(ptr noundef nonnull %133) #12
   %.pr = load ptr, ptr %83, align 8
   %.not.i.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit, label %137
 
 137:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit
-  call void @_ZdlPv(ptr noundef nonnull %.pr) #11
+  call void @_ZdlPv(ptr noundef nonnull %.pr) #12
   br label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit
 
 _ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit:           ; preds = %131, %_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit, %137
@@ -1767,13 +1768,13 @@ _ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit:           ; preds = %131, %_ZN5ZXing6Pdf
   br i1 %.not.i.i.i.i.i.i36, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit39, label %_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit37
 
 _ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit37:      ; preds = %138
-  call void @_ZdlPv(ptr noundef nonnull %140) #11
+  call void @_ZdlPv(ptr noundef nonnull %140) #12
   %.pr48 = load ptr, ptr %88, align 8
   %.not.i.i.i.i38 = icmp eq ptr %.pr48, null
   br i1 %.not.i.i.i.i38, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit39, label %144
 
 144:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit37
-  call void @_ZdlPv(ptr noundef nonnull %.pr48) #11
+  call void @_ZdlPv(ptr noundef nonnull %.pr48) #12
   br label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit39
 
 _ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit39:         ; preds = %138, %_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit37, %144
@@ -1782,7 +1783,7 @@ _ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit39:         ; preds = %138, %_ZN5ZXing6Pdf
   br i1 %.not.i.i.i.i40, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit41, label %146
 
 146:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit39
-  call void @_ZdlPv(ptr noundef nonnull %145) #11
+  call void @_ZdlPv(ptr noundef nonnull %145) #12
   br label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit41
 
 _ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit41:         ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit39, %146
@@ -1791,7 +1792,7 @@ _ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit41:         ; preds = %_ZN5ZXing6Pdf41711M
   br i1 %.not.i.i.i.i42, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43, label %148
 
 148:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit41
-  call void @_ZdlPv(ptr noundef nonnull %147) #11
+  call void @_ZdlPv(ptr noundef nonnull %147) #12
   br label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43
 
 _ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43:         ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit41, %148
@@ -1825,7 +1826,7 @@ _ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43:         ; preds = %_ZN5ZXing6Pdf41711M
   br i1 %.not.i.i.i.i44, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45, label %168
 
 168:                                              ; preds = %165
-  call void @_ZdlPv(ptr noundef nonnull %167) #11
+  call void @_ZdlPv(ptr noundef nonnull %167) #12
   br label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45
 
 _ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45:         ; preds = %168, %165, %163
@@ -1835,7 +1836,7 @@ _ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45:         ; preds = %168, %165, %163
   br i1 %.not.i.i.i.i46, label %common.resume, label %170
 
 170:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45
-  call void @_ZdlPv(ptr noundef nonnull %169) #11
+  call void @_ZdlPv(ptr noundef nonnull %169) #12
   br label %common.resume
 
 .critedge:                                        ; preds = %_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit33, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43, %_ZNK5ZXing6Pdf4179ModulusGF7inverseEi.exit
@@ -1845,19 +1846,19 @@ _ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45:         ; preds = %168, %165, %163
 declare void @_ZNK5ZXing6Pdf4179ModulusGF13buildMonomialEii(ptr dead_on_unwind writable sret(%"class.ZXing::Pdf417::ModulusPoly") align 8, ptr noundef nonnull align 8 dereferenceable(120), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #3
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #3
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #4
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1966,7 +1967,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt2
   br i1 %48, label %49, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
 
 49:                                               ; preds = %42
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #12
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #13
   unreachable
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %42
@@ -1982,7 +1983,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %42
 
 56:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
   %57 = shl nuw nsw i64 %53, 2
-  %58 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #13
+  %58 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #14
   br label %59
 
 59:                                               ; preds = %56, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
@@ -2022,7 +2023,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; pred
   br i1 %.not.i83, label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit, label %70
 
 70:                                               ; preds = %68
-  tail call void @_ZdlPv(ptr noundef nonnull %43) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %43) #12
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %68, %70
@@ -2037,7 +2038,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i71, %.l
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #3
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2088,7 +2089,7 @@ _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_Z
   br i1 %26, label %27, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
 
 27:                                               ; preds = %25
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #12
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #13
   unreachable
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %25
@@ -2096,7 +2097,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %25
   %28 = add nuw nsw i64 %.sroa.speculated.i, %10
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 2305843009213693951)
   %30 = shl nuw nsw i64 %29, 2
-  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #13
+  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #14
   %32 = getelementptr inbounds i8, ptr %31, i64 %9
   store i32 0, ptr %32, align 4
   %33 = icmp eq i64 %1, 1
@@ -2122,7 +2123,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
   br i1 %.not.i34, label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35, label %39
 
 39:                                               ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #12
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %39
@@ -2138,35 +2139,36 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIi
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
+declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #9
+declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { builtin nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { builtin allocsize(0) }
-attributes #14 = { nounwind }
+attributes #3 = { cold noreturn }
+attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { builtin nounwind }
+attributes #13 = { noreturn }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

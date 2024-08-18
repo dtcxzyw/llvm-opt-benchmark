@@ -43,7 +43,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tev10Image
   br i1 %2, label %3, label %8, !prof !5
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tev10ImageSaver9getSaversEvE11imageSavers) #11
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tev10ImageSaver9getSaversEvE11imageSavers) #12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
 
@@ -52,8 +52,8 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tev10Image
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEED2B8ne190000Ev, ptr nonnull @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, ptr nonnull @__dso_handle) #11
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tev10ImageSaver9getSaversEvE11imageSavers) #11
+  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEED2B8ne190000Ev, ptr nonnull @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, ptr nonnull @__dso_handle) #12
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tev10ImageSaver9getSaversEvE11imageSavers) #12
   br label %8
 
 8:                                                ; preds = %6, %3, %0
@@ -62,7 +62,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tev10Image
 9:                                                ; preds = %5
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN3tev10ImageSaver9getSaversEvE11imageSavers) #11
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN3tev10ImageSaver9getSaversEvE11imageSavers) #12
   resume { ptr, i32 } %10
 }
 
@@ -75,12 +75,12 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @"_ZZN3tev10ImageSaver9getSaversEvENK3$_0clEv"() unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i8 0, i64 24, i1 false)
-  %1 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #12
+  %1 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
           to label %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i unwind label %65
 
 _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i: ; preds = %0
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev13ExrImageSaverE, i64 16), ptr %1, align 8
-  %2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #12
+  %2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
           to label %3 unwind label %65
 
 3:                                                ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i
@@ -89,12 +89,12 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10Im
   store ptr %2, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, align 8
   store ptr %4, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 16), align 8
   store ptr %4, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
-  %5 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #12
+  %5 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
           to label %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i8 unwind label %65
 
 _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i8: ; preds = %3
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev13QoiImageSaverE, i64 16), ptr %5, align 8
-  %6 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #12
+  %6 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
           to label %7 unwind label %65
 
 7:                                                ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i8
@@ -107,9 +107,9 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10Im
   store ptr %6, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, align 8
   store ptr %10, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
   store ptr %9, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 16), align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
   store ptr %10, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
-  %12 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #12
+  %12 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
           to label %13 unwind label %65
 
 13:                                               ; preds = %7
@@ -149,7 +149,7 @@ _ZNKSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEEN
 
 _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i20: ; preds = %30
   %32 = shl nuw i64 %.0.i.i.i19, 3
-  %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #12
+  %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #13
           to label %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i21 unwind label %65
 
 _ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i21: ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i20, %_ZNKSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE11__recommendB8ne190000Em.exit.i.i16
@@ -166,13 +166,13 @@ _ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteI
   br i1 %.not.i5.i.i23, label %38, label %37
 
 37:                                               ; preds = %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i21
-  tail call void @_ZdlPv(ptr noundef nonnull %19) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %19) #14
   br label %38
 
 38:                                               ; preds = %37, %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i21, %16
   %.0.i24 = phi ptr [ %17, %16 ], [ %36, %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i21 ], [ %36, %37 ]
   store ptr %.0.i24, ptr getelementptr inbounds (i8, ptr @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers, i64 8), align 8
-  %39 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #12
+  %39 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
           to label %40 unwind label %65
 
 40:                                               ; preds = %38
@@ -197,7 +197,7 @@ _ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteI
   br i1 %52, label %.invoke8, label %_ZNKSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE11__recommendB8ne190000Em.exit.i.i28
 
 .invoke8:                                         ; preds = %45, %18
-  invoke void @_ZNKSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers) #14
+  invoke void @_ZNKSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers) #15
           to label %.cont9 unwind label %65
 
 .cont9:                                           ; preds = %.invoke8
@@ -218,7 +218,7 @@ _ZNKSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEEN
   br i1 %58, label %.invoke, label %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i32
 
 .invoke:                                          ; preds = %57, %30
-  invoke void @_ZSt28__throw_bad_array_new_lengthB8ne190000v() #14
+  invoke void @_ZSt28__throw_bad_array_new_lengthB8ne190000v() #15
           to label %.cont unwind label %65
 
 .cont:                                            ; preds = %.invoke
@@ -226,7 +226,7 @@ _ZNKSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEEN
 
 _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i32: ; preds = %57
   %59 = shl nuw i64 %.0.i.i.i31, 3
-  %60 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #12
+  %60 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #13
           to label %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i33 unwind label %65
 
 _ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i33: ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i32, %_ZNKSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE11__recommendB8ne190000Em.exit.i.i28
@@ -243,13 +243,13 @@ _ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteI
   br i1 %.not.i5.i.i35, label %67, label %64
 
 64:                                               ; preds = %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i33
-  tail call void @_ZdlPv(ptr noundef nonnull %46) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %46) #14
   br label %67
 
 65:                                               ; preds = %.invoke8, %.invoke, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i32, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i20, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i8, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSB_m.exit.i.i.i, %38, %7, %3, %0
   %66 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers) #11
+  tail call void @_ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN3tev10ImageSaver9getSaversEvE11imageSavers) #12
   resume { ptr, i32 } %66
 
 67:                                               ; preds = %64, %_ZNSt3__114__split_bufferINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEERNS_9allocatorIS6_EEE5clearB8ne190000Ev.exit.i.i.i33, %43
@@ -284,7 +284,7 @@ _ZNKSt3__114default_deleteIN3tev10ImageSaverEEclB8ne190000EPS2_.exit.i.i.i.i.i.i
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
   br label %_ZNSt3__116allocator_traitsINS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEE7destroyB8ne190000IS7_vTnNS_9enable_ifIXntsr13__has_destroyIS8_PT_EE5valueEiE4typeELi0EEEvRS8_SD_.exit.i.i.i
 
 _ZNSt3__116allocator_traitsINS_9allocatorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS4_EEEEEEE7destroyB8ne190000IS7_vTnNS_9enable_ifIXntsr13__has_destroyIS8_PT_EE5valueEiE4typeELi0EEEvRS8_SD_.exit.i.i.i: ; preds = %_ZNKSt3__114default_deleteIN3tev10ImageSaverEEclB8ne190000EPS2_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i
@@ -298,7 +298,7 @@ _ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS
 _ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE7__clearB8ne190000Ev.exit.i: ; preds = %_ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE7__clearB8ne190000Ev.exit.i.loopexit, %3
   %11 = phi ptr [ %.pre, %_ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE7__clearB8ne190000Ev.exit.i.loopexit ], [ %2, %3 ]
   store ptr %2, ptr %4, align 8
-  tail call void @_ZdlPv(ptr noundef %11) #13
+  tail call void @_ZdlPv(ptr noundef %11) #14
   br label %_ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE16__destroy_vectorclB8ne190000Ev.exit
 
 _ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE16__destroy_vectorclB8ne190000Ev.exit: ; preds = %1, %_ZNSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE7__clearB8ne190000Ev.exit.i
@@ -322,24 +322,24 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZNKSt3__16vectorINS_10unique_ptrIN3tev10ImageSaverENS_14default_deleteIS3_EEEENS_9allocatorIS6_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #7 comdat align 2 {
-  tail call void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef nonnull @.str) #14
+  tail call void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef nonnull @.str) #15
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef %0) local_unnamed_addr #7 comdat personality ptr @__gxx_personality_v0 {
-  %2 = tail call ptr @__cxa_allocate_exception(i64 16) #11
+  %2 = tail call ptr @__cxa_allocate_exception(i64 16) #12
   invoke void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %0)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTISt12length_error, ptr nonnull @_ZNSt12length_errorD1Ev) #14
+  tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTISt12length_error, ptr nonnull @_ZNSt12length_errorD1Ev) #15
   unreachable
 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %2) #11
+  tail call void @__cxa_free_exception(ptr %2) #12
   resume { ptr, i32 } %5
 }
 
@@ -357,15 +357,16 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #9
 
-declare void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #9
+declare void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #10
 
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZSt28__throw_bad_array_new_lengthB8ne190000v() local_unnamed_addr #7 comdat {
-  %1 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  tail call void @_ZNSt20bad_array_new_lengthC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
-  tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTISt20bad_array_new_length, ptr nonnull @_ZNSt20bad_array_new_lengthD1Ev) #14
+  %1 = tail call ptr @__cxa_allocate_exception(i64 8) #12
+  tail call void @_ZNSt20bad_array_new_lengthC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #12
+  tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTISt20bad_array_new_length, ptr nonnull @_ZNSt20bad_array_new_lengthD1Ev) #15
   unreachable
 }
 
@@ -376,7 +377,7 @@ declare void @_ZNSt20bad_array_new_lengthC1Ev(ptr noundef nonnull align 8 derefe
 declare void @_ZNSt20bad_array_new_lengthD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 attributes #0 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -387,12 +388,13 @@ attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { builtin allocsize(0) }
-attributes #13 = { builtin nounwind }
-attributes #14 = { noreturn }
+attributes #9 = { cold noreturn }
+attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { builtin allocsize(0) }
+attributes #14 = { builtin nounwind }
+attributes #15 = { noreturn }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

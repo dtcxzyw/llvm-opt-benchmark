@@ -51,7 +51,7 @@ $__clang_call_terminate = comdat any
 define linkonce_odr dso_local void @_ZN2EA6Thread18EAThreadGlobalVarsD2Ev(ptr noundef nonnull align 8 dereferenceable(31280) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %gThreadDynamicMutex = getelementptr inbounds i8, ptr %this, i64 31232
-  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %gThreadDynamicMutex) #23
+  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %gThreadDynamicMutex) #24
   ret void
 }
 
@@ -92,7 +92,7 @@ if.then2:                                         ; preds = %for.end
   br label %return
 
 if.else:                                          ; preds = %for.end
-  %call4 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znam(i64 noundef 240) #24
+  %call4 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znam(i64 noundef 240) #25
   br label %return
 
 return:                                           ; preds = %if.else, %if.then2, %if.then
@@ -117,15 +117,15 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %_ZN19EAThreadDynamicDataD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call.i = tail call i32 @pthread_detach(i64 noundef %0) #23
+  %call.i = tail call i32 @pthread_detach(i64 noundef %0) #24
   br label %_ZN19EAThreadDynamicDataD2Ev.exit
 
 _ZN19EAThreadDynamicDataD2Ev.exit:                ; preds = %if.then, %if.then.i
   %mStartedSemaphore.i = getelementptr inbounds i8, ptr %pEAThreadDynamicData, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %pEAThreadDynamicData, i8 0, i64 20, i1 false)
-  tail call void @_ZN2EA6Thread9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mStartedSemaphore.i) #23
+  tail call void @_ZN2EA6Thread9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mStartedSemaphore.i) #24
   %mRunMutex.i = getelementptr inbounds i8, ptr %pEAThreadDynamicData, i64 144
-  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex.i) #23
+  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex.i) #24
   %sub.ptr.lhs.cast = ptrtoint ptr %pEAThreadDynamicData to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE to i64)
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 240
@@ -137,15 +137,15 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.not.i, label %_ZN19EAThreadDynamicDataD2Ev.exit13, label %if.then.i9
 
 if.then.i9:                                       ; preds = %if.else
-  %call.i10 = tail call i32 @pthread_detach(i64 noundef %0) #23
+  %call.i10 = tail call i32 @pthread_detach(i64 noundef %0) #24
   br label %_ZN19EAThreadDynamicDataD2Ev.exit13
 
 _ZN19EAThreadDynamicDataD2Ev.exit13:              ; preds = %if.else, %if.then.i9
   %mStartedSemaphore.i11 = getelementptr inbounds i8, ptr %pEAThreadDynamicData, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %pEAThreadDynamicData, i8 0, i64 20, i1 false)
-  tail call void @_ZN2EA6Thread9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mStartedSemaphore.i11) #23
+  tail call void @_ZN2EA6Thread9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mStartedSemaphore.i11) #24
   %mRunMutex.i12 = getelementptr inbounds i8, ptr %pEAThreadDynamicData, i64 144
-  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex.i12) #23
+  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex.i12) #24
   %2 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %delete.notnull, label %if.then2
@@ -158,7 +158,7 @@ if.then2:                                         ; preds = %_ZN19EAThreadDynami
   br label %if.end4
 
 delete.notnull:                                   ; preds = %_ZN19EAThreadDynamicDataD2Ev.exit13
-  tail call void @_ZdaPv(ptr noundef nonnull %pEAThreadDynamicData) #25
+  tail call void @_ZdaPv(ptr noundef nonnull %pEAThreadDynamicData) #26
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %delete.notnull, %_ZN19EAThreadDynamicDataD2Ev.exit
@@ -222,7 +222,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex) #23
+  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex) #24
   resume { ptr, i32 } %1
 }
 
@@ -246,15 +246,15 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @pthread_detach(i64 noundef %0) #23
+  %call = tail call i32 @pthread_detach(i64 noundef %0) #24
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %mStartedSemaphore = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %this, i8 0, i64 20, i1 false)
-  tail call void @_ZN2EA6Thread9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mStartedSemaphore) #23
+  tail call void @_ZN2EA6Thread9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mStartedSemaphore) #24
   %mRunMutex = getelementptr inbounds i8, ptr %this, i64 144
-  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex) #23
+  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex) #24
   ret void
 }
 
@@ -432,20 +432,21 @@ terminate.lpad:                                   ; preds = %if.then.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #26
+  tail call void @__clang_call_terminate(ptr %3) #27
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #14 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
-  tail call void @_ZSt9terminatev() #26
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
+  tail call void @_ZSt9terminatev() #27
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %pFunction, ptr noundef %pContext, ptr noundef %pTP, ptr noundef %pUserWrapper) local_unnamed_addr #2 align 2 {
@@ -542,7 +543,7 @@ if.then2.i:                                       ; preds = %for.end.i
   br label %_ZN2EA6Thread25AllocateThreadDynamicDataEv.exit
 
 if.else.i:                                        ; preds = %for.end.i
-  %call4.i = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znam(i64 noundef 240) #24
+  %call4.i = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znam(i64 noundef 240) #25
   br label %_ZN2EA6Thread25AllocateThreadDynamicDataEv.exit
 
 _ZN2EA6Thread25AllocateThreadDynamicDataEv.exit:  ; preds = %if.then.i, %if.then2.i, %if.else.i
@@ -569,7 +570,7 @@ _ZN2EA6Thread25AllocateThreadDynamicDataEv.exit:  ; preds = %if.then.i, %if.then
 common.resume:                                    ; preds = %lpad.i89, %lpad.i
   %mRunMutex.i87.sink = phi ptr [ %mRunMutex.i87, %lpad.i89 ], [ %mRunMutex.i, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %16, %lpad.i89 ], [ %6, %lpad.i ]
-  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex.i87.sink) #23
+  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex.i87.sink) #24
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %_ZN2EA6Thread25AllocateThreadDynamicDataEv.exit
@@ -590,7 +591,7 @@ _ZN19EAThreadDynamicDataC2Ev.exit:                ; preds = %_ZN2EA6Thread25Allo
   store i64 %call.i, ptr %mSysThreadId, align 8
   %mThreadPid = getelementptr inbounds i8, ptr %retval.0.i58, i64 16
   store i32 0, ptr %mThreadPid, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %mName.i, ptr noundef nonnull align 1 dereferenceable(64) @str, i64 noundef 63, i1 false) #23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %mName.i, ptr noundef nonnull align 1 dereferenceable(64) @str, i64 noundef 63, i1 false) #24
   %arrayidx = getelementptr inbounds i8, ptr %retval.0.i58, i64 131
   store i8 0, ptr %arrayidx, align 1
   %call8 = tail call noundef ptr @_ZN2EA6Thread12GetStackBaseEv()
@@ -645,7 +646,7 @@ if.then2.i71:                                     ; preds = %for.end.i69
   br label %_ZN2EA6Thread25AllocateThreadDynamicDataEv.exit80
 
 if.else.i76:                                      ; preds = %for.end.i69
-  %call4.i77 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znam(i64 noundef 240) #24
+  %call4.i77 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znam(i64 noundef 240) #25
   br label %_ZN2EA6Thread25AllocateThreadDynamicDataEv.exit80
 
 _ZN2EA6Thread25AllocateThreadDynamicDataEv.exit80: ; preds = %if.then.i78, %if.then2.i71, %if.else.i76
@@ -712,14 +713,14 @@ land.lhs.true:                                    ; preds = %if.then17
   br i1 %tobool33.not, label %if.end39, label %if.then34
 
 if.then34:                                        ; preds = %land.lhs.true
-  %call38 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %mName.i91, ptr noundef nonnull dereferenceable(1) %22, i64 noundef 64) #23
+  %call38 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %mName.i91, ptr noundef nonnull dereferenceable(1) %22, i64 noundef 64) #24
   br label %if.end39
 
 if.end39:                                         ; preds = %cond.end30.thread, %if.then34, %land.lhs.true
   %arrayidx41 = getelementptr inbounds i8, ptr %retval.0.i75, i64 131
   store i8 0, ptr %arrayidx41, align 1
-  %call42 = call i32 @pthread_attr_init(ptr noundef nonnull %creationAttribs) #23
-  %call43 = call i32 @pthread_attr_setinheritsched(ptr noundef nonnull %creationAttribs, i32 noundef 1) #23
+  %call42 = call i32 @pthread_attr_init(ptr noundef nonnull %creationAttribs) #24
+  %call43 = call i32 @pthread_attr_setinheritsched(ptr noundef nonnull %creationAttribs, i32 noundef 1) #24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %param.i)
   br i1 %tobool25.not, label %_ZN12_GLOBAL__N_121SetupThreadAttributesER14pthread_attr_tPKN2EA6Thread16ThreadParametersE.exit, label %if.then.i97
 
@@ -731,7 +732,7 @@ if.then.i97:                                      ; preds = %if.end39
   br i1 %tobool1.not.i, label %if.else.i100, label %if.then2.i98
 
 if.then2.i98:                                     ; preds = %if.then.i97
-  %call.i99 = call i32 @pthread_attr_setstack(ptr noundef nonnull %creationAttribs, ptr noundef nonnull %23, i64 noundef %24) #23
+  %call.i99 = call i32 @pthread_attr_setstack(ptr noundef nonnull %creationAttribs, ptr noundef nonnull %23, i64 noundef %24) #24
   br label %if.end9.i
 
 if.else.i100:                                     ; preds = %if.then.i97
@@ -739,25 +740,25 @@ if.else.i100:                                     ; preds = %if.then.i97
   br i1 %tobool5.not.i, label %if.end9.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i100
-  %call8.i = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %creationAttribs, i64 noundef %24) #23
+  %call8.i = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %creationAttribs, i64 noundef %24) #24
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then6.i, %if.else.i100, %if.then2.i98
-  %call10.i = call i32 @pthread_attr_getschedparam(ptr noundef nonnull %creationAttribs, ptr noundef nonnull %param.i) #23
+  %call10.i = call i32 @pthread_attr_getschedparam(ptr noundef nonnull %creationAttribs, ptr noundef nonnull %param.i) #24
   store i32 0, ptr %param.i, align 4
-  %call11.i = call i32 @pthread_attr_setschedpolicy(ptr noundef nonnull %creationAttribs, i32 noundef 0) #23
-  %call12.i = call i32 @pthread_attr_setschedparam(ptr noundef nonnull %creationAttribs, ptr noundef nonnull %param.i) #23
+  %call11.i = call i32 @pthread_attr_setschedpolicy(ptr noundef nonnull %creationAttribs, i32 noundef 0) #24
+  %call12.i = call i32 @pthread_attr_setschedparam(ptr noundef nonnull %creationAttribs, ptr noundef nonnull %param.i) #24
   br label %_ZN12_GLOBAL__N_121SetupThreadAttributesER14pthread_attr_tPKN2EA6Thread16ThreadParametersE.exit
 
 _ZN12_GLOBAL__N_121SetupThreadAttributesER14pthread_attr_tPKN2EA6Thread16ThreadParametersE.exit: ; preds = %if.end39, %if.end9.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %param.i)
-  %call45 = call i32 @pthread_create(ptr noundef nonnull %retval.0.i75, ptr noundef nonnull %creationAttribs, ptr noundef %InternalThreadFunction, ptr noundef nonnull %retval.0.i75) #23
+  %call45 = call i32 @pthread_create(ptr noundef nonnull %retval.0.i75, ptr noundef nonnull %creationAttribs, ptr noundef %InternalThreadFunction, ptr noundef nonnull %retval.0.i75) #24
   %cmp = icmp eq i32 %call45, 0
   br i1 %cmp, label %if.then46, label %if.then67
 
 if.then46:                                        ; preds = %_ZN12_GLOBAL__N_121SetupThreadAttributesER14pthread_attr_tPKN2EA6Thread16ThreadParametersE.exit
   %25 = load i64, ptr %retval.0.i75, align 8
-  %call50 = call i32 @pthread_attr_destroy(ptr noundef nonnull %creationAttribs) #23
+  %call50 = call i32 @pthread_attr_destroy(ptr noundef nonnull %creationAttribs) #24
   %26 = load i32, ptr %mStartupProcessor.i85, align 4
   %switch = icmp ugt i32 %26, -3
   br i1 %switch, label %if.else, label %if.then57
@@ -785,7 +786,7 @@ cond.true.i:                                      ; preds = %do.body.i
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %do.body.i
-  %call.i103 = call i32 @pthread_setaffinity_np(i64 noundef %27, i64 noundef 128, ptr noundef nonnull %cpus.i) #23
+  %call.i103 = call i32 @pthread_setaffinity_np(i64 noundef %27, i64 noundef 128, ptr noundef nonnull %cpus.i) #24
   br label %_ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit
 
 _ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit: ; preds = %if.then57, %cond.end.i
@@ -811,7 +812,7 @@ if.then.i107:                                     ; preds = %if.end64
   br label %return
 
 if.then67:                                        ; preds = %_ZN12_GLOBAL__N_121SetupThreadAttributesER14pthread_attr_tPKN2EA6Thread16ThreadParametersE.exit
-  %call68 = call i32 @pthread_attr_destroy(ptr noundef nonnull %creationAttribs) #23
+  %call68 = call i32 @pthread_attr_destroy(ptr noundef nonnull %creationAttribs) #24
   %31 = atomicrmw sub ptr %mnRefCount.i84, i32 1 seq_cst, align 4
   %cmp.i110 = icmp eq i32 %31, 1
   br i1 %cmp.i110, label %if.then.i111, label %_ZN19EAThreadDynamicData7ReleaseEv.exit112
@@ -856,7 +857,7 @@ entry:
   %0 = load ptr, ptr %mpStartContext, align 8
   %arrayidx2 = getelementptr inbounds i8, ptr %pContext, i64 40
   %1 = load ptr, ptr %arrayidx2, align 8
-  %call = tail call i64 (i64, ...) @syscall(i64 noundef 186) #23
+  %call = tail call i64 (i64, ...) @syscall(i64 noundef 186) #24
   %conv = trunc i64 %call to i32
   %mThreadPid = getelementptr inbounds i8, ptr %pContext, i64 16
   store i32 %conv, ptr %mThreadPid, align 8
@@ -888,7 +889,7 @@ cond.true.i:                                      ; preds = %do.body.i
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %do.body.i
-  %call.i = call i32 @pthread_setaffinity_np(i64 noundef %3, i64 noundef 128, ptr noundef nonnull %cpus.i) #23
+  %call.i = call i32 @pthread_setaffinity_np(i64 noundef %3, i64 noundef 128, ptr noundef nonnull %cpus.i) #24
   br label %_ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit
 
 _ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit: ; preds = %if.then, %cond.end.i
@@ -1043,7 +1044,7 @@ entry:
   %0 = load ptr, ptr %mpStartContext, align 8
   %arrayidx2 = getelementptr inbounds i8, ptr %pContext, i64 40
   %1 = load ptr, ptr %arrayidx2, align 8
-  %call = tail call i64 (i64, ...) @syscall(i64 noundef 186) #23
+  %call = tail call i64 (i64, ...) @syscall(i64 noundef 186) #24
   %conv = trunc i64 %call to i32
   %mThreadPid = getelementptr inbounds i8, ptr %pContext, i64 16
   store i32 %conv, ptr %mThreadPid, align 8
@@ -1075,7 +1076,7 @@ cond.true.i:                                      ; preds = %do.body.i
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %do.body.i
-  %call.i = call i32 @pthread_setaffinity_np(i64 noundef %3, i64 noundef 128, ptr noundef nonnull %cpus.i) #23
+  %call.i = call i32 @pthread_setaffinity_np(i64 noundef %3, i64 noundef 128, ptr noundef nonnull %cpus.i) #24
   br label %_ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit
 
 _ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit: ; preds = %if.then, %cond.end.i
@@ -1257,7 +1258,7 @@ while.body:                                       ; preds = %land.rhs
   store i64 1000000, ptr %tv_nsec.i14, align 8
   call void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp54)
   fence seq_cst
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !8
   %.pr = load ptr, ptr %this, align 8
   br label %while.cond, !llvm.loop !9
 
@@ -1276,7 +1277,7 @@ return:                                           ; preds = %if.then14, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local noundef i32 @_ZNK2EA6Thread6Thread9GetStatusEPl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef writeonly %pThreadReturnValue) local_unnamed_addr #15 align 2 {
+define dso_local noundef i32 @_ZNK2EA6Thread6Thread9GetStatusEPl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef writeonly %pThreadReturnValue) local_unnamed_addr #16 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1318,7 +1319,7 @@ declare { i64, i64 } @_ZN2EA6Thread13GetThreadTimeEv() local_unnamed_addr #6
 declare void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK2EA6Thread6Thread5GetIdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #16 align 2 {
+define dso_local noundef i64 @_ZNK2EA6Thread6Thread5GetIdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #17 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1344,7 +1345,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load i64, ptr %0, align 8
-  %call = call i32 @pthread_getschedparam(i64 noundef %1, ptr noundef nonnull %policy, ptr noundef nonnull %param) #23
+  %call = call i32 @pthread_getschedparam(i64 noundef %1, ptr noundef nonnull %policy, ptr noundef nonnull %param) #24
   %cmp = icmp eq i32 %call, 0
   %param.val = load i32, ptr %param, align 4
   %spec.select = select i1 %cmp, i32 %param.val, i32 0
@@ -1369,7 +1370,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load i64, ptr %0, align 8
-  %call = call i32 @pthread_getschedparam(i64 noundef %1, ptr noundef nonnull %policy, ptr noundef nonnull %param) #23
+  %call = call i32 @pthread_getschedparam(i64 noundef %1, ptr noundef nonnull %policy, ptr noundef nonnull %param) #24
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then4, label %return
 
@@ -1378,7 +1379,7 @@ if.then4:                                         ; preds = %if.then
   store i32 0, ptr %param, align 4
   %2 = load ptr, ptr %this, align 8
   %3 = load i64, ptr %2, align 8
-  %call8 = call i32 @pthread_setschedparam(i64 noundef %3, i32 noundef 0, ptr noundef nonnull %param) #23
+  %call8 = call i32 @pthread_setschedparam(i64 noundef %3, i32 noundef 0, ptr noundef nonnull %param) #24
   %4 = icmp eq i32 %call8, 0
   br label %return
 
@@ -1426,7 +1427,7 @@ cond.true.i:                                      ; preds = %do.body.i
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %do.body.i
-  %call.i = call i32 @pthread_setaffinity_np(i64 noundef %2, i64 noundef 128, ptr noundef nonnull %cpus.i) #23
+  %call.i = call i32 @pthread_setaffinity_np(i64 noundef %2, i64 noundef 128, ptr noundef nonnull %cpus.i) #24
   br label %_ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit
 
 _ZN12_GLOBAL__N_125SetPlatformThreadAffinityEP19EAThreadDynamicData.exit: ; preds = %if.then, %cond.end.i
@@ -1440,7 +1441,7 @@ if.end:                                           ; preds = %_ZN12_GLOBAL__N_125
 declare void @_ZN2EA6Thread21SetThreadAffinityMaskERKmm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN2EA6Thread6Thread15GetAffinityMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #16 align 2 {
+define dso_local noundef i64 @_ZN2EA6Thread6Thread15GetAffinityMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #17 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i64, ptr %0, align 8
@@ -1458,13 +1459,13 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN2EA6Thread6Thread4WakeEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this) local_unnamed_addr #17 align 2 {
+define dso_local void @_ZN2EA6Thread6Thread4WakeEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this) local_unnamed_addr #18 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull ptr @_ZNK2EA6Thread6Thread7GetNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #18 align 2 {
+define dso_local noundef nonnull ptr @_ZNK2EA6Thread6Thread7GetNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #19 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1490,7 +1491,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
+  %call1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -1531,7 +1532,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #26
+  tail call void @__clang_call_terminate(ptr %4) #27
   unreachable
 
 _ZN2EA6Thread6ThreadD2Ev.exit:                    ; preds = %if.then, %if.then.i, %if.then.i.i
@@ -1565,11 +1566,11 @@ terminate.lpad.i8:                                ; preds = %if.then.i.i7
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #26
+  tail call void @__clang_call_terminate(ptr %10) #27
   unreachable
 
 _ZN2EA6Thread6ThreadD2Ev.exit9:                   ; preds = %delete.notnull, %if.then.i4, %if.then.i.i7
-  tail call void @_ZdlPv(ptr noundef nonnull %pThread) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %pThread) #26
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %_ZN2EA6Thread6ThreadD2Ev.exit9, %_ZN2EA6Thread6ThreadD2Ev.exit
@@ -1577,7 +1578,7 @@ if.end:                                           ; preds = %if.else, %_ZN2EA6Th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN2EA6Thread13ThreadFactory13GetThreadSizeEv() local_unnamed_addr #17 align 2 {
+define dso_local noundef i64 @_ZN2EA6Thread13ThreadFactory13GetThreadSizeEv() local_unnamed_addr #18 align 2 {
 entry:
   ret i64 8
 }
@@ -1610,7 +1611,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #26
+  tail call void @__clang_call_terminate(ptr %3) #27
   unreachable
 
 _ZN2EA6Thread6ThreadD2Ev.exit:                    ; preds = %entry, %if.then.i, %if.then.i.i
@@ -1652,7 +1653,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #26
+  tail call void @__clang_call_terminate(ptr %3) #27
   unreachable
 }
 
@@ -1726,7 +1727,7 @@ for.end:                                          ; preds = %for.inc
 declare noundef i64 @_ZN2EA6Thread11GetThreadIdEv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #19
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #20
 
 declare noundef ptr @_ZN2EA6Thread12GetStackBaseEv() local_unnamed_addr #6
 
@@ -1768,25 +1769,25 @@ declare void @_ZN2EA6Thread21SetThreadAffinityMaskEm(i64 noundef) local_unnamed_
 declare i32 @pthread_setaffinity_np(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_eathread_thread.cpp() #20 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_eathread_thread.cpp() #21 section ".text.startup" {
 entry:
   store i64 2147483647, ptr @_ZN2EA6ThreadL12kTimeoutNoneE, align 8
   store i64 2147483647, ptr getelementptr inbounds (i8, ptr @_ZN2EA6ThreadL12kTimeoutNoneE, i64 8), align 8
   tail call void @_ZN2EA6Thread5MutexC1EPKNS0_15MutexParametersEb(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 31232), ptr noundef null, i1 noundef zeroext true)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2EA6Thread18EAThreadGlobalVarsD2Ev, ptr nonnull @_ZN2EA6Thread19gEAThreadGlobalVarsE, ptr nonnull @__dso_handle) #23
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2EA6Thread18EAThreadGlobalVarsD2Ev, ptr nonnull @_ZN2EA6Thread19gEAThreadGlobalVarsE, ptr nonnull @__dso_handle) #24
   %1 = atomicrmw xchg ptr @_ZN2EA6Thread6Thread17sDefaultProcessorE, i32 -2 seq_cst, align 4
   %2 = atomicrmw xchg ptr @_ZN2EA6Thread6Thread21sDefaultProcessorMaskE, i64 -1 seq_cst, align 8
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #21
+declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
@@ -1803,18 +1804,19 @@ attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #12 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nounwind }
-attributes #24 = { builtin allocsize(0) }
-attributes #25 = { builtin nounwind }
-attributes #26 = { noreturn nounwind }
+attributes #15 = { cold nofree noreturn }
+attributes #16 = { mustprogress nofree norecurse nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #24 = { nounwind }
+attributes #25 = { builtin allocsize(0) }
+attributes #26 = { builtin nounwind }
+attributes #27 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -375,7 +375,7 @@ _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %_ZNK9grpc_core11Sli
 lpad:                                             ; preds = %_ZNK9grpc_core11SliceBuffer8RefSliceEm.exit
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #13
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #14
   resume { ptr, i32 } %4
 
 for.end:                                          ; preds = %_ZN9grpc_core5SliceD2Ev.exit, %entry
@@ -428,7 +428,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #14
+  tail call void @__clang_call_terminate(ptr %4) #15
   unreachable
 }
 
@@ -622,7 +622,7 @@ entry:
   br i1 %cmp.not.i, label %if.then.i, label %grpc_slice_buffer_take_first.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 459, ptr noundef nonnull @.str.4) #15, !noalias !18
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 459, ptr noundef nonnull @.str.4) #16, !noalias !18
   unreachable
 
 grpc_slice_buffer_take_first.exit:                ; preds = %entry
@@ -661,7 +661,7 @@ entry:
   br i1 %cmp.not, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 459, ptr noundef nonnull @.str.4) #15
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 459, ptr noundef nonnull @.str.4) #16
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -748,7 +748,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK9grpc_core11SliceBuffer14JoinIntoStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
   %length = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %length, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %0)
@@ -810,7 +810,7 @@ lpad.loopexit.split-lp:                           ; preds = %entry
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit11, %lpad.loopexit ], [ %lpad.loopexit.split-lp12, %lpad.loopexit.split-lp ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
   resume { ptr, i32 } %lpad.phi
 
 nrvo.skipdtor:                                    ; preds = %for.inc, %for.cond.preheader
@@ -935,7 +935,7 @@ do.body:                                          ; preds = %cond.end68, %if.end
   br i1 %cmp72.not, label %do.end, label %if.then74
 
 if.then74:                                        ; preds = %do.body
-  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 84, ptr noundef nonnull @.str.1) #15
+  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 84, ptr noundef nonnull @.str.1) #16
   unreachable
 
 do.end:                                           ; preds = %do.body
@@ -1463,7 +1463,7 @@ entry:
   br i1 %cmp.not.i, label %if.then.i, label %do.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 330, ptr noundef nonnull @.str.2) #15
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 330, ptr noundef nonnull @.str.2) #16
   unreachable
 
 do.end.i:                                         ; preds = %entry
@@ -1559,7 +1559,7 @@ if.else17.i:                                      ; preds = %if.else.i
   br i1 %cmp31.not.i, label %do.end36.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.else17.i
-  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 351, ptr noundef nonnull @.str.5) #15
+  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 351, ptr noundef nonnull @.str.5) #16
   unreachable
 
 do.end36.i:                                       ; preds = %if.else17.i
@@ -1572,7 +1572,7 @@ do.body39.i:                                      ; preds = %if.then12.i, %do.en
   br i1 %cmp41.not.i, label %do.body47.i, label %if.then44.i
 
 if.then44.i:                                      ; preds = %do.body39.i
-  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 362, ptr noundef nonnull @.str.6) #15
+  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 362, ptr noundef nonnull @.str.6) #16
   unreachable
 
 do.body47.i:                                      ; preds = %do.body39.i
@@ -1581,7 +1581,7 @@ do.body47.i:                                      ; preds = %do.body39.i
   br i1 %cmp49.not.i, label %do.body55.i, label %if.then52.i
 
 if.then52.i:                                      ; preds = %do.body47.i
-  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 363, ptr noundef nonnull @.str.7) #15
+  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 363, ptr noundef nonnull @.str.7) #16
   unreachable
 
 do.body55.i:                                      ; preds = %do.body47.i
@@ -1590,7 +1590,7 @@ do.body55.i:                                      ; preds = %do.body47.i
   br i1 %cmp57.not.i, label %if.then60.i, label %_ZL33slice_buffer_move_first_maybe_refILb1EEvP17grpc_slice_buffermS1_.exit
 
 if.then60.i:                                      ; preds = %do.body55.i
-  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 364, ptr noundef nonnull @.str.8) #15
+  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 364, ptr noundef nonnull @.str.8) #16
   unreachable
 
 _ZL33slice_buffer_move_first_maybe_refILb1EEvP17grpc_slice_buffermS1_.exit: ; preds = %if.then3.i, %do.body55.i
@@ -1614,7 +1614,7 @@ entry:
   br i1 %cmp.not.i, label %if.then.i, label %do.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 330, ptr noundef nonnull @.str.2) #15
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 330, ptr noundef nonnull @.str.2) #16
   unreachable
 
 do.end.i:                                         ; preds = %entry
@@ -1710,7 +1710,7 @@ if.else17.i:                                      ; preds = %if.else.i
   br i1 %cmp31.not.i, label %do.end36.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.else17.i
-  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 357, ptr noundef nonnull @.str.5) #15
+  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 357, ptr noundef nonnull @.str.5) #16
   unreachable
 
 do.end36.i:                                       ; preds = %if.else17.i
@@ -1802,7 +1802,7 @@ do.body39.i:                                      ; preds = %if.then12.i, %grpc_
   br i1 %cmp41.not.i, label %do.body47.i, label %if.then44.i
 
 if.then44.i:                                      ; preds = %do.body39.i
-  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 362, ptr noundef nonnull @.str.6) #15
+  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 362, ptr noundef nonnull @.str.6) #16
   unreachable
 
 do.body47.i:                                      ; preds = %do.body39.i
@@ -1811,7 +1811,7 @@ do.body47.i:                                      ; preds = %do.body39.i
   br i1 %cmp49.not.i, label %do.body55.i, label %if.then52.i
 
 if.then52.i:                                      ; preds = %do.body47.i
-  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 363, ptr noundef nonnull @.str.7) #15
+  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 363, ptr noundef nonnull @.str.7) #16
   unreachable
 
 do.body55.i:                                      ; preds = %do.body47.i
@@ -1820,7 +1820,7 @@ do.body55.i:                                      ; preds = %do.body47.i
   br i1 %cmp57.not.i, label %if.then60.i, label %_ZL33slice_buffer_move_first_maybe_refILb0EEvP17grpc_slice_buffermS1_.exit
 
 if.then60.i:                                      ; preds = %do.body55.i
-  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 364, ptr noundef nonnull @.str.8) #15
+  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 364, ptr noundef nonnull @.str.8) #16
   unreachable
 
 _ZL33slice_buffer_move_first_maybe_refILb0EEvP17grpc_slice_buffermS1_.exit: ; preds = %if.then3.i, %do.body55.i
@@ -1855,7 +1855,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 380, ptr noundef nonnull @.str.2) #15
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 380, ptr noundef nonnull @.str.2) #16
   unreachable
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end45
@@ -1866,7 +1866,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.not.i, label %if.then.i, label %grpc_slice_buffer_take_first.exit
 
 if.then.i:                                        ; preds = %while.body
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 459, ptr noundef nonnull @.str.4) #15, !noalias !39
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 459, ptr noundef nonnull @.str.4) #16, !noalias !39
   unreachable
 
 grpc_slice_buffer_take_first.exit:                ; preds = %while.body
@@ -1993,7 +1993,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 if.then:                                          ; preds = %entry
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 406, ptr noundef nonnull @.str.2) #15
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 406, ptr noundef nonnull @.str.2) #16
   unreachable
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end16
@@ -2044,7 +2044,7 @@ entry:
   br i1 %cmp.not, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 423, ptr noundef nonnull @.str.3) #15
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 423, ptr noundef nonnull @.str.3) #16
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -2543,14 +2543,15 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #14
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #15
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
@@ -2562,10 +2563,10 @@ declare ptr @gpr_realloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 declare void @grpc_slice_split_tail_maybe_ref(ptr sret(%struct.grpc_slice) align 8, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2579,10 +2580,11 @@ attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { noreturn }
+attributes #12 = { cold nofree noreturn }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

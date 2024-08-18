@@ -45,18 +45,18 @@ $_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm79764919ELb1EE9get_tableEvE5table =
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZN5folly6detail8crc32_hwEPKhmj(ptr nocapture noundef readnone %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #8
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #9
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #10
   unreachable
 
 lpad:                                             ; preds = %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #8
+  tail call void @__cxa_free_exception(ptr %exception) #9
   resume { ptr, i32 } %3
 }
 
@@ -71,32 +71,33 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN5folly6detail19crc32c_hw_supportedEv() local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN5folly6detail19crc32c_hw_supportedEv() local_unnamed_addr #4 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN5folly6detail18crc32_hw_supportedEv() local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN5folly6detail18crc32_hw_supportedEv() local_unnamed_addr #4 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly6detail9crc32c_swEPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum) local_unnamed_addr #4 {
+define noundef i32 @_ZN5folly6detail9crc32c_swEPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum) local_unnamed_addr #5 {
 entry:
   %call = tail call noundef i32 @_ZN5folly6detail6crc_swILj517762881EEEjPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5folly6detail6crc_swILj517762881EEEjPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5folly6detail6crc_swILj517762881EEEjPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %or19 = tail call i32 @llvm.bitreverse.i32(i32 %startingChecksum)
   br label %for.body.i.i.i
@@ -123,7 +124,7 @@ _ZN5boost11crc_optimalILm32ELj517762881ELj4294967295ELj0ELb1ELb1EEC2Ej.exit: ; p
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %init.end.i.i, !prof !9
 
 init.check.i.i:                                   ; preds = %_ZN5boost11crc_optimalILm32ELj517762881ELj4294967295ELj0ELb1ELb1EEC2Ej.exit
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm517762881EE10crc_updateEjPKhmE5table) #8
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm517762881EE10crc_updateEjPKhmE5table) #9
   %tobool.not.i.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i.i, label %init.end.i.i, label %init.i.i
 
@@ -133,7 +134,7 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store ptr %call.i.i, ptr @_ZZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm517762881EE10crc_updateEjPKhmE5table, align 8, !tbaa !10
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm517762881EE10crc_updateEjPKhmE5table) #8
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm517762881EE10crc_updateEjPKhmE5table) #9
   br label %init.end.i.i
 
 init.end.i.i:                                     ; preds = %invoke.cont.i.i, %init.check.i.i, %_ZN5boost11crc_optimalILm32ELj517762881ELj4294967295ELj0ELb1ELb1EEC2Ej.exit
@@ -196,7 +197,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.prol
 lpad.i.i:                                         ; preds = %init.i.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm517762881EE10crc_updateEjPKhmE5table) #8
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm517762881EE10crc_updateEjPKhmE5table) #9
   resume { ptr, i32 } %13
 
 _ZN5boost11crc_optimalILm32ELj517762881ELj4294967295ELj0ELb1ELb1EE13process_bytesEPKvm.exit: ; preds = %while.body.i.i, %while.body.i.i.prol.loopexit, %init.end.i.i
@@ -205,20 +206,20 @@ _ZN5boost11crc_optimalILm32ELj517762881ELj4294967295ELj0ELb1ELb1EE13process_byte
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #6
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(1024) ptr @_ZN5boost6detail11crc_table_tILi32ELi8ELm517762881ELb1EE9get_tableEv() local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 4 dereferenceable(1024) ptr @_ZN5boost6detail11crc_table_tILi32ELi8ELm517762881ELb1EE9get_tableEv() local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm517762881ELb1EE9get_tableEvE5table acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !9
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm517762881ELb1EE9get_tableEvE5table) #8
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm517762881ELb1EE9get_tableEvE5table) #9
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
@@ -228,7 +229,7 @@ init:                                             ; preds = %init.check
 
 invoke.cont:                                      ; preds = %init
   %2 = tail call ptr @llvm.invariant.start.p0(i64 1024, ptr nonnull @_ZZN5boost6detail11crc_table_tILi32ELi8ELm517762881ELb1EE9get_tableEvE5table)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm517762881ELb1EE9get_tableEvE5table) #8
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm517762881ELb1EE9get_tableEvE5table) #9
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
@@ -237,18 +238,18 @@ init.end:                                         ; preds = %invoke.cont, %init.
 lpad:                                             ; preds = %init
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm517762881ELb1EE9get_tableEvE5table) #8
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm517762881ELb1EE9get_tableEvE5table) #9
   resume { ptr, i32 } %3
 }
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_abort(ptr) local_unnamed_addr #6
+declare void @__cxa_guard_abort(ptr) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #6
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5boost6detail31make_partial_xor_products_tableILi8EjEENS_5arrayIT0_XlsLm1ET_EEEiS3_b(ptr dead_on_unwind noalias writable sret(%"class.boost::array") align 4 %agg.result, i32 noundef %register_length, i32 noundef %truncated_divisor, i1 noundef zeroext %reflect) local_unnamed_addr #4 comdat {
+define linkonce_odr void @_ZN5boost6detail31make_partial_xor_products_tableILi8EjEENS_5arrayIT0_XlsLm1ET_EEEiS3_b(ptr dead_on_unwind noalias writable sret(%"class.boost::array") align 4 %agg.result, i32 noundef %register_length, i32 noundef %truncated_divisor, i1 noundef zeroext %reflect) local_unnamed_addr #5 comdat {
 entry:
   %sub.i = add nsw i32 %register_length, -1
   %sh_prom.i = zext nneg i32 %sub.i to i64
@@ -633,17 +634,17 @@ for.body.i.preheader:                             ; preds = %for.body.i.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #5
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly6detail8crc32_swEPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum) local_unnamed_addr #4 {
+define noundef i32 @_ZN5folly6detail8crc32_swEPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum) local_unnamed_addr #5 {
 entry:
   %call = tail call noundef i32 @_ZN5folly6detail6crc_swILj79764919EEEjPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5folly6detail6crc_swILj79764919EEEjPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5folly6detail6crc_swILj79764919EEEjPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %or19 = tail call i32 @llvm.bitreverse.i32(i32 %startingChecksum)
   br label %for.body.i.i.i
@@ -670,7 +671,7 @@ _ZN5boost11crc_optimalILm32ELj79764919ELj4294967295ELj0ELb1ELb1EEC2Ej.exit: ; pr
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %init.end.i.i, !prof !9
 
 init.check.i.i:                                   ; preds = %_ZN5boost11crc_optimalILm32ELj79764919ELj4294967295ELj0ELb1ELb1EEC2Ej.exit
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm79764919EE10crc_updateEjPKhmE5table) #8
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm79764919EE10crc_updateEjPKhmE5table) #9
   %tobool.not.i.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i.i, label %init.end.i.i, label %init.i.i
 
@@ -680,7 +681,7 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store ptr %call.i.i, ptr @_ZZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm79764919EE10crc_updateEjPKhmE5table, align 8, !tbaa !10
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm79764919EE10crc_updateEjPKhmE5table) #8
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm79764919EE10crc_updateEjPKhmE5table) #9
   br label %init.end.i.i
 
 init.end.i.i:                                     ; preds = %invoke.cont.i.i, %init.check.i.i, %_ZN5boost11crc_optimalILm32ELj79764919ELj4294967295ELj0ELb1ELb1EEC2Ej.exit
@@ -743,7 +744,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.prol
 lpad.i.i:                                         ; preds = %init.i.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm79764919EE10crc_updateEjPKhmE5table) #8
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm79764919EE10crc_updateEjPKhmE5table) #9
   resume { ptr, i32 } %13
 
 _ZN5boost11crc_optimalILm32ELj79764919ELj4294967295ELj0ELb1ELb1EE13process_bytesEPKvm.exit: ; preds = %while.body.i.i, %while.body.i.i.prol.loopexit, %init.end.i.i
@@ -752,14 +753,14 @@ _ZN5boost11crc_optimalILm32ELj79764919ELj4294967295ELj0ELb1ELb1EE13process_bytes
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(1024) ptr @_ZN5boost6detail11crc_table_tILi32ELi8ELm79764919ELb1EE9get_tableEv() local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 4 dereferenceable(1024) ptr @_ZN5boost6detail11crc_table_tILi32ELi8ELm79764919ELb1EE9get_tableEv() local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm79764919ELb1EE9get_tableEvE5table acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !9
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm79764919ELb1EE9get_tableEvE5table) #8
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm79764919ELb1EE9get_tableEvE5table) #9
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
@@ -769,7 +770,7 @@ init:                                             ; preds = %init.check
 
 invoke.cont:                                      ; preds = %init
   %2 = tail call ptr @llvm.invariant.start.p0(i64 1024, ptr nonnull @_ZZN5boost6detail11crc_table_tILi32ELi8ELm79764919ELb1EE9get_tableEvE5table)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm79764919ELb1EE9get_tableEvE5table) #8
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm79764919ELb1EE9get_tableEvE5table) #9
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
@@ -778,26 +779,26 @@ init.end:                                         ; preds = %invoke.cont, %init.
 lpad:                                             ; preds = %init
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm79764919ELb1EE9get_tableEvE5table) #8
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm79764919ELb1EE9get_tableEvE5table) #9
   resume { ptr, i32 } %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly6crc32cEPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum) local_unnamed_addr #4 {
+define noundef i32 @_ZN5folly6crc32cEPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum) local_unnamed_addr #5 {
 entry:
   %call.i = tail call noundef i32 @_ZN5folly6detail6crc_swILj517762881EEEjPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum)
   ret i32 %call.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly5crc32EPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum) local_unnamed_addr #4 {
+define noundef i32 @_ZN5folly5crc32EPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum) local_unnamed_addr #5 {
 entry:
   %call.i = tail call noundef i32 @_ZN5folly6detail6crc_swILj79764919EEEjPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum)
   ret i32 %call.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly10crc32_typeEPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum) local_unnamed_addr #4 {
+define noundef i32 @_ZN5folly10crc32_typeEPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum) local_unnamed_addr #5 {
 entry:
   %call.i.i = tail call noundef i32 @_ZN5folly6detail6crc_swILj79764919EEEjPKhmj(ptr noundef %data, i64 noundef %nbytes, i32 noundef %startingChecksum)
   %not = xor i32 %call.i.i, -1
@@ -805,10 +806,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly13crc32_combineEjjm(i32 noundef %crc1, i32 noundef %crc2, i64 noundef %crc2len) local_unnamed_addr #4 {
+define noundef i32 @_ZN5folly13crc32_combineEjjm(i32 noundef %crc1, i32 noundef %crc2, i64 noundef %crc2len) local_unnamed_addr #5 {
 entry:
   %data = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data) #9
   store i32 0, ptr %data, align 4
   %and = and i64 %crc2len, 3
   %tobool.not = icmp eq i64 %and, 0
@@ -821,17 +822,17 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %crc1.addr.0 = phi i32 [ %call.i.i, %if.then ], [ %crc1, %entry ]
   %call4 = call noundef i32 @_ZN5folly6detail16crc32_combine_swEjjm(i32 noundef %crc1.addr.0, i32 noundef %crc2, i64 noundef %crc2len)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data) #9
   ret i32 %call4
 }
 
 declare noundef i32 @_ZN5folly6detail16crc32_combine_swEjjm(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly14crc32c_combineEjjm(i32 noundef %crc1, i32 noundef %crc2, i64 noundef %crc2len) local_unnamed_addr #4 {
+define noundef i32 @_ZN5folly14crc32c_combineEjjm(i32 noundef %crc1, i32 noundef %crc2, i64 noundef %crc2len) local_unnamed_addr #5 {
 entry:
   %data = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data) #9
   store i32 0, ptr %data, align 4
   %and = and i64 %crc2len, 3
   %tobool.not = icmp eq i64 %and, 0
@@ -845,25 +846,26 @@ if.end:                                           ; preds = %if.then, %entry
   %crc1.addr.0 = phi i32 [ %call.i.i, %if.then ], [ %crc1, %entry ]
   %sub4 = and i64 %crc2len, -4
   %call5 = call noundef i32 @_ZN5folly6detail17crc32c_combine_swEjjm(i32 noundef %crc1.addr.0, i32 noundef %crc2, i64 noundef %sub4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data) #9
   ret i32 %call5
 }
 
 declare noundef i32 @_ZN5folly6detail17crc32c_combine_swEjjm(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bitreverse.i32(i32) #7
+declare i32 @llvm.bitreverse.i32(i32) #8
 
 attributes #0 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree nounwind }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn }
+attributes #3 = { cold noreturn }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nofree nounwind }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

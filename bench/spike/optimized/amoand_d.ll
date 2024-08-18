@@ -198,7 +198,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_Z19fast_rv32i_amoand_dP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %4 = tail call ptr @__cxa_allocate_exception(i64 32) #20
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
@@ -206,7 +206,7 @@ define noundef i64 @_Z19fast_rv32i_amoand_dP11processor_t6insn_tm(ptr nocapture 
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %1, ptr %7, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %4, align 8
-  tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 }
 
@@ -221,10 +221,11 @@ define linkonce_odr void @_ZN24trap_illegal_instructionD2Ev(ptr noundef nonnull 
   ret void
 }
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19fast_rv64i_amoand_dP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_Z19fast_rv64i_amoand_dP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 8
   %5 = alloca %"class.std::tuple.144", align 8
   %6 = alloca %class.target_endian, align 8
@@ -238,7 +239,7 @@ define noundef i64 @_Z19fast_rv64i_amoand_dP11processor_t6insn_tm(ptr nocapture 
   br i1 %.0.i.i.not, label %12, label %17
 
 12:                                               ; preds = %3
-  %13 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %13 = tail call ptr @__cxa_allocate_exception(i64 32) #20
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 2, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 16
@@ -246,7 +247,7 @@ define noundef i64 @_Z19fast_rv64i_amoand_dP11processor_t6insn_tm(ptr nocapture 
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   store i64 %1, ptr %16, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %13, align 8
-  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
 17:                                               ; preds = %3
@@ -410,13 +411,13 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           catch ptr @_ZTI26trap_load_guest_page_fault
   %103 = extractvalue { ptr, i32 } %102, 0
   %104 = extractvalue { ptr, i32 } %102, 1
-  %105 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI28trap_load_address_misaligned) #18
+  %105 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI28trap_load_address_misaligned) #20
   %106 = icmp eq i32 %104, %105
   br i1 %106, label %107, label %135
 
 107:                                              ; preds = %101
-  %108 = call ptr @__cxa_begin_catch(ptr %103) #18
-  %109 = call ptr @__cxa_allocate_exception(i64 48) #18
+  %108 = call ptr @__cxa_begin_catch(ptr %103) #20
+  %109 = call ptr @__cxa_allocate_exception(i64 48) #20
   %110 = load ptr, ptr %108, align 8
   %111 = load ptr, ptr %110, align 8
   %112 = invoke noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(48) %108)
@@ -456,17 +457,17 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
   %134 = getelementptr inbounds i8, ptr %109, i64 40
   store i64 %127, ptr %134, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %109, align 8
-  invoke void @__cxa_throw(ptr nonnull %109, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %109, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #21
           to label %247 unwind label %240
 
 135:                                              ; preds = %101
-  %136 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI20trap_load_page_fault) #18
+  %136 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI20trap_load_page_fault) #20
   %137 = icmp eq i32 %104, %136
   br i1 %137, label %138, label %166
 
 138:                                              ; preds = %135
-  %139 = call ptr @__cxa_begin_catch(ptr %103) #18
-  %140 = call ptr @__cxa_allocate_exception(i64 48) #18
+  %139 = call ptr @__cxa_begin_catch(ptr %103) #20
+  %140 = call ptr @__cxa_allocate_exception(i64 48) #20
   %141 = load ptr, ptr %139, align 8
   %142 = load ptr, ptr %141, align 8
   %143 = invoke noundef zeroext i1 %142(ptr noundef nonnull align 8 dereferenceable(48) %139)
@@ -506,17 +507,17 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
   %165 = getelementptr inbounds i8, ptr %140, i64 40
   store i64 %158, ptr %165, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %140, align 8
-  invoke void @__cxa_throw(ptr nonnull %140, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %140, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #21
           to label %247 unwind label %235
 
 166:                                              ; preds = %135
-  %167 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI22trap_load_access_fault) #18
+  %167 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI22trap_load_access_fault) #20
   %168 = icmp eq i32 %104, %167
   br i1 %168, label %169, label %197
 
 169:                                              ; preds = %166
-  %170 = call ptr @__cxa_begin_catch(ptr %103) #18
-  %171 = call ptr @__cxa_allocate_exception(i64 48) #18
+  %170 = call ptr @__cxa_begin_catch(ptr %103) #20
+  %171 = call ptr @__cxa_allocate_exception(i64 48) #20
   %172 = load ptr, ptr %170, align 8
   %173 = load ptr, ptr %172, align 8
   %174 = invoke noundef zeroext i1 %173(ptr noundef nonnull align 8 dereferenceable(48) %170)
@@ -556,17 +557,17 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
   %196 = getelementptr inbounds i8, ptr %171, i64 40
   store i64 %189, ptr %196, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %171, align 8
-  invoke void @__cxa_throw(ptr nonnull %171, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %171, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #21
           to label %247 unwind label %230
 
 197:                                              ; preds = %166
-  %198 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI26trap_load_guest_page_fault) #18
+  %198 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI26trap_load_guest_page_fault) #20
   %199 = icmp eq i32 %104, %198
   br i1 %199, label %200, label %243
 
 200:                                              ; preds = %197
-  %201 = call ptr @__cxa_begin_catch(ptr %103) #18
-  %202 = call ptr @__cxa_allocate_exception(i64 48) #18
+  %201 = call ptr @__cxa_begin_catch(ptr %103) #20
+  %202 = call ptr @__cxa_allocate_exception(i64 48) #20
   %203 = load ptr, ptr %201, align 8
   %204 = getelementptr inbounds i8, ptr %203, i64 16
   %205 = load ptr, ptr %204, align 8
@@ -599,13 +600,13 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
   %222 = getelementptr inbounds i8, ptr %202, i64 40
   store i64 %216, ptr %222, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %202, align 8
-  invoke void @__cxa_throw(ptr nonnull %202, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %202, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #21
           to label %247 unwind label %225
 
 223:                                              ; preds = %212, %207, %200
   %224 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %202) #18
+  call void @__cxa_free_exception(ptr %202) #20
   br label %227
 
 225:                                              ; preds = %217
@@ -621,7 +622,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
 228:                                              ; preds = %185, %180, %175, %169
   %229 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %171) #18
+  call void @__cxa_free_exception(ptr %171) #20
   br label %232
 
 230:                                              ; preds = %190
@@ -637,7 +638,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
 233:                                              ; preds = %154, %149, %144, %138
   %234 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %140) #18
+  call void @__cxa_free_exception(ptr %140) #20
   br label %237
 
 235:                                              ; preds = %159
@@ -653,7 +654,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
 238:                                              ; preds = %123, %118, %113, %107
   %239 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %109) #18
+  call void @__cxa_free_exception(ptr %109) #20
   br label %242
 
 240:                                              ; preds = %128
@@ -674,7 +675,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
   %245 = landingpad { ptr, i32 }
           catch ptr null
   %246 = extractvalue { ptr, i32 } %245, 0
-  call void @__clang_call_terminate(ptr %246) #20
+  call void @__clang_call_terminate(ptr %246) #22
   unreachable
 
 247:                                              ; preds = %217, %190, %159, %128
@@ -701,11 +702,11 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %"_ZN5mmu_t3amoImZ19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_Z21logged_rv32i_amoand_dP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %4 = tail call ptr @__cxa_allocate_exception(i64 32) #20
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
@@ -713,12 +714,12 @@ define noundef i64 @_Z21logged_rv32i_amoand_dP11processor_t6insn_tm(ptr nocaptur
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %1, ptr %7, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %4, align 8
-  tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z21logged_rv64i_amoand_dP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_Z21logged_rv64i_amoand_dP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 8
   %5 = alloca %"class.std::tuple.144", align 8
   %6 = alloca %class.target_endian, align 8
@@ -732,7 +733,7 @@ define noundef i64 @_Z21logged_rv64i_amoand_dP11processor_t6insn_tm(ptr noundef 
   br i1 %.0.i.i.not, label %12, label %17
 
 12:                                               ; preds = %3
-  %13 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %13 = tail call ptr @__cxa_allocate_exception(i64 32) #20
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 2, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 16
@@ -740,7 +741,7 @@ define noundef i64 @_Z21logged_rv64i_amoand_dP11processor_t6insn_tm(ptr noundef 
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   store i64 %1, ptr %16, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %13, align 8
-  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
 17:                                               ; preds = %3
@@ -904,13 +905,13 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           catch ptr @_ZTI26trap_load_guest_page_fault
   %103 = extractvalue { ptr, i32 } %102, 0
   %104 = extractvalue { ptr, i32 } %102, 1
-  %105 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI28trap_load_address_misaligned) #18
+  %105 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI28trap_load_address_misaligned) #20
   %106 = icmp eq i32 %104, %105
   br i1 %106, label %107, label %135
 
 107:                                              ; preds = %101
-  %108 = call ptr @__cxa_begin_catch(ptr %103) #18
-  %109 = call ptr @__cxa_allocate_exception(i64 48) #18
+  %108 = call ptr @__cxa_begin_catch(ptr %103) #20
+  %109 = call ptr @__cxa_allocate_exception(i64 48) #20
   %110 = load ptr, ptr %108, align 8
   %111 = load ptr, ptr %110, align 8
   %112 = invoke noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(48) %108)
@@ -950,17 +951,17 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
   %134 = getelementptr inbounds i8, ptr %109, i64 40
   store i64 %127, ptr %134, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %109, align 8
-  invoke void @__cxa_throw(ptr nonnull %109, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %109, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #21
           to label %246 unwind label %240
 
 135:                                              ; preds = %101
-  %136 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI20trap_load_page_fault) #18
+  %136 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI20trap_load_page_fault) #20
   %137 = icmp eq i32 %104, %136
   br i1 %137, label %138, label %166
 
 138:                                              ; preds = %135
-  %139 = call ptr @__cxa_begin_catch(ptr %103) #18
-  %140 = call ptr @__cxa_allocate_exception(i64 48) #18
+  %139 = call ptr @__cxa_begin_catch(ptr %103) #20
+  %140 = call ptr @__cxa_allocate_exception(i64 48) #20
   %141 = load ptr, ptr %139, align 8
   %142 = load ptr, ptr %141, align 8
   %143 = invoke noundef zeroext i1 %142(ptr noundef nonnull align 8 dereferenceable(48) %139)
@@ -1000,17 +1001,17 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
   %165 = getelementptr inbounds i8, ptr %140, i64 40
   store i64 %158, ptr %165, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %140, align 8
-  invoke void @__cxa_throw(ptr nonnull %140, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %140, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #21
           to label %246 unwind label %235
 
 166:                                              ; preds = %135
-  %167 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI22trap_load_access_fault) #18
+  %167 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI22trap_load_access_fault) #20
   %168 = icmp eq i32 %104, %167
   br i1 %168, label %169, label %197
 
 169:                                              ; preds = %166
-  %170 = call ptr @__cxa_begin_catch(ptr %103) #18
-  %171 = call ptr @__cxa_allocate_exception(i64 48) #18
+  %170 = call ptr @__cxa_begin_catch(ptr %103) #20
+  %171 = call ptr @__cxa_allocate_exception(i64 48) #20
   %172 = load ptr, ptr %170, align 8
   %173 = load ptr, ptr %172, align 8
   %174 = invoke noundef zeroext i1 %173(ptr noundef nonnull align 8 dereferenceable(48) %170)
@@ -1050,17 +1051,17 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
   %196 = getelementptr inbounds i8, ptr %171, i64 40
   store i64 %189, ptr %196, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %171, align 8
-  invoke void @__cxa_throw(ptr nonnull %171, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %171, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #21
           to label %246 unwind label %230
 
 197:                                              ; preds = %166
-  %198 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI26trap_load_guest_page_fault) #18
+  %198 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI26trap_load_guest_page_fault) #20
   %199 = icmp eq i32 %104, %198
   br i1 %199, label %200, label %common.resume
 
 200:                                              ; preds = %197
-  %201 = call ptr @__cxa_begin_catch(ptr %103) #18
-  %202 = call ptr @__cxa_allocate_exception(i64 48) #18
+  %201 = call ptr @__cxa_begin_catch(ptr %103) #20
+  %202 = call ptr @__cxa_allocate_exception(i64 48) #20
   %203 = load ptr, ptr %201, align 8
   %204 = getelementptr inbounds i8, ptr %203, i64 16
   %205 = load ptr, ptr %204, align 8
@@ -1093,13 +1094,13 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
   %222 = getelementptr inbounds i8, ptr %202, i64 40
   store i64 %216, ptr %222, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %202, align 8
-  invoke void @__cxa_throw(ptr nonnull %202, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %202, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #21
           to label %246 unwind label %225
 
 223:                                              ; preds = %212, %207, %200
   %224 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %202) #18
+  call void @__cxa_free_exception(ptr %202) #20
   br label %227
 
 225:                                              ; preds = %217
@@ -1115,7 +1116,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
 228:                                              ; preds = %185, %180, %175, %169
   %229 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %171) #18
+  call void @__cxa_free_exception(ptr %171) #20
   br label %232
 
 230:                                              ; preds = %190
@@ -1131,7 +1132,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
 233:                                              ; preds = %154, %149, %144, %138
   %234 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %140) #18
+  call void @__cxa_free_exception(ptr %140) #20
   br label %237
 
 235:                                              ; preds = %159
@@ -1147,7 +1148,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
 238:                                              ; preds = %123, %118, %113, %107
   %239 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %109) #18
+  call void @__cxa_free_exception(ptr %109) #20
   br label %242
 
 240:                                              ; preds = %128
@@ -1168,7 +1169,7 @@ common.resume:                                    ; preds = %197, %227, %232, %2
   %244 = landingpad { ptr, i32 }
           catch ptr null
   %245 = extractvalue { ptr, i32 } %244, 0
-  call void @__clang_call_terminate(ptr %245) #20
+  call void @__clang_call_terminate(ptr %245) #22
   unreachable
 
 246:                                              ; preds = %217, %190, %159, %128
@@ -1217,7 +1218,7 @@ common.resume:                                    ; preds = %197, %227, %232, %2
   br i1 %.not17.i.i.i.i, label %262, label %.loopexit.i.i, !llvm.loop !4
 
 .loopexit.i.i:                                    ; preds = %265, %.lr.ph.i.i.i.i, %"_ZN5mmu_t3amoImZ21logged_rv64i_amoand_dP11processor_t6insn_tmE3$_0EET_mT0_.exit"
-  %269 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
+  %269 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   store ptr null, ptr %269, align 8
   %270 = getelementptr inbounds i8, ptr %269, i64 8
   store i64 %250, ptr %270, align 8
@@ -1229,7 +1230,7 @@ common.resume:                                    ; preds = %197, %227, %232, %2
 _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit20.i.i: ; preds = %.loopexit.i.i
   %273 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %269) #22
+  call void @_ZdlPv(ptr noundef nonnull %269) #24
   br label %common.resume
 
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %262, %257, %.loopexit.i.i
@@ -1253,7 +1254,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_Z19fast_rv32e_amoand_dP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %4 = tail call ptr @__cxa_allocate_exception(i64 32) #20
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1261,12 +1262,12 @@ define noundef i64 @_Z19fast_rv32e_amoand_dP11processor_t6insn_tm(ptr nocapture 
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %1, ptr %7, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %4, align 8
-  tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19fast_rv64e_amoand_dP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_Z19fast_rv64e_amoand_dP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 8
   %5 = alloca %"class.std::tuple.144", align 8
   %6 = alloca %class.target_endian, align 8
@@ -1280,7 +1281,7 @@ define noundef i64 @_Z19fast_rv64e_amoand_dP11processor_t6insn_tm(ptr nocapture 
   br i1 %.0.i.i.not, label %12, label %17
 
 12:                                               ; preds = %3
-  %13 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %13 = tail call ptr @__cxa_allocate_exception(i64 32) #20
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 2, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 16
@@ -1288,7 +1289,7 @@ define noundef i64 @_Z19fast_rv64e_amoand_dP11processor_t6insn_tm(ptr nocapture 
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   store i64 %1, ptr %16, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %13, align 8
-  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
 17:                                               ; preds = %3
@@ -1300,7 +1301,7 @@ define noundef i64 @_Z19fast_rv64e_amoand_dP11processor_t6insn_tm(ptr nocapture 
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %17
-  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #20
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   store i64 2, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %24, i64 16
@@ -1308,7 +1309,7 @@ define noundef i64 @_Z19fast_rv64e_amoand_dP11processor_t6insn_tm(ptr nocapture 
   %27 = getelementptr inbounds i8, ptr %24, i64 24
   store i64 %1, ptr %27, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %24, align 8
-  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
 28:                                               ; preds = %17
@@ -1399,7 +1400,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   br i1 %72, label %73, label %78
 
 73:                                               ; preds = %69
-  %74 = call ptr @__cxa_allocate_exception(i64 32) #18
+  %74 = call ptr @__cxa_allocate_exception(i64 32) #20
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   store i64 2, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %74, i64 16
@@ -1407,7 +1408,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   %77 = getelementptr inbounds i8, ptr %74, i64 24
   store i64 %1, ptr %77, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %74, align 8
-  invoke void @__cxa_throw(ptr nonnull %74, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %74, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
           to label %.noexc77.i unwind label %115
 
 .noexc77.i:                                       ; preds = %73
@@ -1487,13 +1488,13 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           catch ptr @_ZTI26trap_load_guest_page_fault
   %117 = extractvalue { ptr, i32 } %116, 0
   %118 = extractvalue { ptr, i32 } %116, 1
-  %119 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI28trap_load_address_misaligned) #18
+  %119 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI28trap_load_address_misaligned) #20
   %120 = icmp eq i32 %118, %119
   br i1 %120, label %121, label %149
 
 121:                                              ; preds = %115
-  %122 = call ptr @__cxa_begin_catch(ptr %117) #18
-  %123 = call ptr @__cxa_allocate_exception(i64 48) #18
+  %122 = call ptr @__cxa_begin_catch(ptr %117) #20
+  %123 = call ptr @__cxa_allocate_exception(i64 48) #20
   %124 = load ptr, ptr %122, align 8
   %125 = load ptr, ptr %124, align 8
   %126 = invoke noundef zeroext i1 %125(ptr noundef nonnull align 8 dereferenceable(48) %122)
@@ -1533,17 +1534,17 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   %148 = getelementptr inbounds i8, ptr %123, i64 40
   store i64 %141, ptr %148, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %123, align 8
-  invoke void @__cxa_throw(ptr nonnull %123, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %123, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #21
           to label %261 unwind label %254
 
 149:                                              ; preds = %115
-  %150 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI20trap_load_page_fault) #18
+  %150 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI20trap_load_page_fault) #20
   %151 = icmp eq i32 %118, %150
   br i1 %151, label %152, label %180
 
 152:                                              ; preds = %149
-  %153 = call ptr @__cxa_begin_catch(ptr %117) #18
-  %154 = call ptr @__cxa_allocate_exception(i64 48) #18
+  %153 = call ptr @__cxa_begin_catch(ptr %117) #20
+  %154 = call ptr @__cxa_allocate_exception(i64 48) #20
   %155 = load ptr, ptr %153, align 8
   %156 = load ptr, ptr %155, align 8
   %157 = invoke noundef zeroext i1 %156(ptr noundef nonnull align 8 dereferenceable(48) %153)
@@ -1583,17 +1584,17 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   %179 = getelementptr inbounds i8, ptr %154, i64 40
   store i64 %172, ptr %179, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %154, align 8
-  invoke void @__cxa_throw(ptr nonnull %154, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %154, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #21
           to label %261 unwind label %249
 
 180:                                              ; preds = %149
-  %181 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI22trap_load_access_fault) #18
+  %181 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI22trap_load_access_fault) #20
   %182 = icmp eq i32 %118, %181
   br i1 %182, label %183, label %211
 
 183:                                              ; preds = %180
-  %184 = call ptr @__cxa_begin_catch(ptr %117) #18
-  %185 = call ptr @__cxa_allocate_exception(i64 48) #18
+  %184 = call ptr @__cxa_begin_catch(ptr %117) #20
+  %185 = call ptr @__cxa_allocate_exception(i64 48) #20
   %186 = load ptr, ptr %184, align 8
   %187 = load ptr, ptr %186, align 8
   %188 = invoke noundef zeroext i1 %187(ptr noundef nonnull align 8 dereferenceable(48) %184)
@@ -1633,17 +1634,17 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   %210 = getelementptr inbounds i8, ptr %185, i64 40
   store i64 %203, ptr %210, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %185, align 8
-  invoke void @__cxa_throw(ptr nonnull %185, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %185, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #21
           to label %261 unwind label %244
 
 211:                                              ; preds = %180
-  %212 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI26trap_load_guest_page_fault) #18
+  %212 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI26trap_load_guest_page_fault) #20
   %213 = icmp eq i32 %118, %212
   br i1 %213, label %214, label %257
 
 214:                                              ; preds = %211
-  %215 = call ptr @__cxa_begin_catch(ptr %117) #18
-  %216 = call ptr @__cxa_allocate_exception(i64 48) #18
+  %215 = call ptr @__cxa_begin_catch(ptr %117) #20
+  %216 = call ptr @__cxa_allocate_exception(i64 48) #20
   %217 = load ptr, ptr %215, align 8
   %218 = getelementptr inbounds i8, ptr %217, i64 16
   %219 = load ptr, ptr %218, align 8
@@ -1676,13 +1677,13 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   %236 = getelementptr inbounds i8, ptr %216, i64 40
   store i64 %230, ptr %236, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %216, align 8
-  invoke void @__cxa_throw(ptr nonnull %216, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %216, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #21
           to label %261 unwind label %239
 
 237:                                              ; preds = %226, %221, %214
   %238 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %216) #18
+  call void @__cxa_free_exception(ptr %216) #20
   br label %241
 
 239:                                              ; preds = %231
@@ -1698,7 +1699,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
 242:                                              ; preds = %199, %194, %189, %183
   %243 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %185) #18
+  call void @__cxa_free_exception(ptr %185) #20
   br label %246
 
 244:                                              ; preds = %204
@@ -1714,7 +1715,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
 247:                                              ; preds = %168, %163, %158, %152
   %248 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %154) #18
+  call void @__cxa_free_exception(ptr %154) #20
   br label %251
 
 249:                                              ; preds = %173
@@ -1730,7 +1731,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
 252:                                              ; preds = %137, %132, %127, %121
   %253 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %123) #18
+  call void @__cxa_free_exception(ptr %123) #20
   br label %256
 
 254:                                              ; preds = %142
@@ -1751,7 +1752,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   %259 = landingpad { ptr, i32 }
           catch ptr null
   %260 = extractvalue { ptr, i32 } %259, 0
-  call void @__clang_call_terminate(ptr %260) #20
+  call void @__clang_call_terminate(ptr %260) #22
   unreachable
 
 261:                                              ; preds = %231, %204, %173, %142
@@ -1768,7 +1769,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   br i1 %264, label %265, label %270
 
 265:                                              ; preds = %"_ZN5mmu_t3amoImZ19fast_rv64e_amoand_dP11processor_t6insn_tmE3$_0EET_mT0_.exit"
-  %266 = call ptr @__cxa_allocate_exception(i64 32) #18
+  %266 = call ptr @__cxa_allocate_exception(i64 32) #20
   %267 = getelementptr inbounds i8, ptr %266, i64 8
   store i64 2, ptr %267, align 8
   %268 = getelementptr inbounds i8, ptr %266, i64 16
@@ -1776,7 +1777,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   %269 = getelementptr inbounds i8, ptr %266, i64 24
   store i64 %1, ptr %269, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %266, align 8
-  call void @__cxa_throw(ptr nonnull %266, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #19
+  call void @__cxa_throw(ptr nonnull %266, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
 270:                                              ; preds = %"_ZN5mmu_t3amoImZ19fast_rv64e_amoand_dP11processor_t6insn_tmE3$_0EET_mT0_.exit"
@@ -1795,7 +1796,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %270, %271
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_Z21logged_rv32e_amoand_dP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %4 = tail call ptr @__cxa_allocate_exception(i64 32) #20
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1803,12 +1804,12 @@ define noundef i64 @_Z21logged_rv32e_amoand_dP11processor_t6insn_tm(ptr nocaptur
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %1, ptr %7, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %4, align 8
-  tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z21logged_rv64e_amoand_dP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_Z21logged_rv64e_amoand_dP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 8
   %5 = alloca %"class.std::tuple.144", align 8
   %6 = alloca %class.target_endian, align 8
@@ -1822,7 +1823,7 @@ define noundef i64 @_Z21logged_rv64e_amoand_dP11processor_t6insn_tm(ptr noundef 
   br i1 %.0.i.i.not, label %12, label %17
 
 12:                                               ; preds = %3
-  %13 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %13 = tail call ptr @__cxa_allocate_exception(i64 32) #20
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 2, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 16
@@ -1830,7 +1831,7 @@ define noundef i64 @_Z21logged_rv64e_amoand_dP11processor_t6insn_tm(ptr noundef 
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   store i64 %1, ptr %16, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %13, align 8
-  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
 17:                                               ; preds = %3
@@ -1842,7 +1843,7 @@ define noundef i64 @_Z21logged_rv64e_amoand_dP11processor_t6insn_tm(ptr noundef 
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %17
-  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #20
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   store i64 2, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %24, i64 16
@@ -1850,7 +1851,7 @@ define noundef i64 @_Z21logged_rv64e_amoand_dP11processor_t6insn_tm(ptr noundef 
   %27 = getelementptr inbounds i8, ptr %24, i64 24
   store i64 %1, ptr %27, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %24, align 8
-  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
 28:                                               ; preds = %17
@@ -1941,7 +1942,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   br i1 %72, label %73, label %78
 
 73:                                               ; preds = %69
-  %74 = call ptr @__cxa_allocate_exception(i64 32) #18
+  %74 = call ptr @__cxa_allocate_exception(i64 32) #20
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   store i64 2, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %74, i64 16
@@ -1949,7 +1950,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   %77 = getelementptr inbounds i8, ptr %74, i64 24
   store i64 %1, ptr %77, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %74, align 8
-  invoke void @__cxa_throw(ptr nonnull %74, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %74, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
           to label %.noexc77.i unwind label %115
 
 .noexc77.i:                                       ; preds = %73
@@ -2029,13 +2030,13 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           catch ptr @_ZTI26trap_load_guest_page_fault
   %117 = extractvalue { ptr, i32 } %116, 0
   %118 = extractvalue { ptr, i32 } %116, 1
-  %119 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI28trap_load_address_misaligned) #18
+  %119 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI28trap_load_address_misaligned) #20
   %120 = icmp eq i32 %118, %119
   br i1 %120, label %121, label %149
 
 121:                                              ; preds = %115
-  %122 = call ptr @__cxa_begin_catch(ptr %117) #18
-  %123 = call ptr @__cxa_allocate_exception(i64 48) #18
+  %122 = call ptr @__cxa_begin_catch(ptr %117) #20
+  %123 = call ptr @__cxa_allocate_exception(i64 48) #20
   %124 = load ptr, ptr %122, align 8
   %125 = load ptr, ptr %124, align 8
   %126 = invoke noundef zeroext i1 %125(ptr noundef nonnull align 8 dereferenceable(48) %122)
@@ -2075,17 +2076,17 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   %148 = getelementptr inbounds i8, ptr %123, i64 40
   store i64 %141, ptr %148, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %123, align 8
-  invoke void @__cxa_throw(ptr nonnull %123, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %123, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #21
           to label %260 unwind label %254
 
 149:                                              ; preds = %115
-  %150 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI20trap_load_page_fault) #18
+  %150 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI20trap_load_page_fault) #20
   %151 = icmp eq i32 %118, %150
   br i1 %151, label %152, label %180
 
 152:                                              ; preds = %149
-  %153 = call ptr @__cxa_begin_catch(ptr %117) #18
-  %154 = call ptr @__cxa_allocate_exception(i64 48) #18
+  %153 = call ptr @__cxa_begin_catch(ptr %117) #20
+  %154 = call ptr @__cxa_allocate_exception(i64 48) #20
   %155 = load ptr, ptr %153, align 8
   %156 = load ptr, ptr %155, align 8
   %157 = invoke noundef zeroext i1 %156(ptr noundef nonnull align 8 dereferenceable(48) %153)
@@ -2125,17 +2126,17 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   %179 = getelementptr inbounds i8, ptr %154, i64 40
   store i64 %172, ptr %179, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %154, align 8
-  invoke void @__cxa_throw(ptr nonnull %154, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %154, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #21
           to label %260 unwind label %249
 
 180:                                              ; preds = %149
-  %181 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI22trap_load_access_fault) #18
+  %181 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI22trap_load_access_fault) #20
   %182 = icmp eq i32 %118, %181
   br i1 %182, label %183, label %211
 
 183:                                              ; preds = %180
-  %184 = call ptr @__cxa_begin_catch(ptr %117) #18
-  %185 = call ptr @__cxa_allocate_exception(i64 48) #18
+  %184 = call ptr @__cxa_begin_catch(ptr %117) #20
+  %185 = call ptr @__cxa_allocate_exception(i64 48) #20
   %186 = load ptr, ptr %184, align 8
   %187 = load ptr, ptr %186, align 8
   %188 = invoke noundef zeroext i1 %187(ptr noundef nonnull align 8 dereferenceable(48) %184)
@@ -2175,17 +2176,17 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   %210 = getelementptr inbounds i8, ptr %185, i64 40
   store i64 %203, ptr %210, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %185, align 8
-  invoke void @__cxa_throw(ptr nonnull %185, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %185, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #21
           to label %260 unwind label %244
 
 211:                                              ; preds = %180
-  %212 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI26trap_load_guest_page_fault) #18
+  %212 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI26trap_load_guest_page_fault) #20
   %213 = icmp eq i32 %118, %212
   br i1 %213, label %214, label %common.resume
 
 214:                                              ; preds = %211
-  %215 = call ptr @__cxa_begin_catch(ptr %117) #18
-  %216 = call ptr @__cxa_allocate_exception(i64 48) #18
+  %215 = call ptr @__cxa_begin_catch(ptr %117) #20
+  %216 = call ptr @__cxa_allocate_exception(i64 48) #20
   %217 = load ptr, ptr %215, align 8
   %218 = getelementptr inbounds i8, ptr %217, i64 16
   %219 = load ptr, ptr %218, align 8
@@ -2218,13 +2219,13 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
   %236 = getelementptr inbounds i8, ptr %216, i64 40
   store i64 %230, ptr %236, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %216, align 8
-  invoke void @__cxa_throw(ptr nonnull %216, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #19
+  invoke void @__cxa_throw(ptr nonnull %216, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #21
           to label %260 unwind label %239
 
 237:                                              ; preds = %226, %221, %214
   %238 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %216) #18
+  call void @__cxa_free_exception(ptr %216) #20
   br label %241
 
 239:                                              ; preds = %231
@@ -2240,7 +2241,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
 242:                                              ; preds = %199, %194, %189, %183
   %243 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %185) #18
+  call void @__cxa_free_exception(ptr %185) #20
   br label %246
 
 244:                                              ; preds = %204
@@ -2256,7 +2257,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
 247:                                              ; preds = %168, %163, %158, %152
   %248 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %154) #18
+  call void @__cxa_free_exception(ptr %154) #20
   br label %251
 
 249:                                              ; preds = %173
@@ -2272,7 +2273,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
 252:                                              ; preds = %137, %132, %127, %121
   %253 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %123) #18
+  call void @__cxa_free_exception(ptr %123) #20
   br label %256
 
 254:                                              ; preds = %142
@@ -2293,7 +2294,7 @@ common.resume:                                    ; preds = %211, %241, %246, %2
   %258 = landingpad { ptr, i32 }
           catch ptr null
   %259 = extractvalue { ptr, i32 } %258, 0
-  call void @__clang_call_terminate(ptr %259) #20
+  call void @__clang_call_terminate(ptr %259) #22
   unreachable
 
 260:                                              ; preds = %231, %204, %173, %142
@@ -2342,7 +2343,7 @@ common.resume:                                    ; preds = %211, %241, %246, %2
   br i1 %.not17.i.i.i.i, label %276, label %.loopexit.i.i, !llvm.loop !4
 
 .loopexit.i.i:                                    ; preds = %279, %.lr.ph.i.i.i.i, %"_ZN5mmu_t3amoImZ21logged_rv64e_amoand_dP11processor_t6insn_tmE3$_0EET_mT0_.exit"
-  %283 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
+  %283 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   store ptr null, ptr %283, align 8
   %284 = getelementptr inbounds i8, ptr %283, i64 8
   store i64 %264, ptr %284, align 8
@@ -2354,7 +2355,7 @@ common.resume:                                    ; preds = %211, %241, %246, %2
 _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit20.i.i: ; preds = %.loopexit.i.i
   %287 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %283) #22
+  call void @_ZdlPv(ptr noundef nonnull %283) #24
   br label %common.resume
 
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %276, %271, %.loopexit.i.i
@@ -2367,7 +2368,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %288, label %289, label %294
 
 289:                                              ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
-  %290 = call ptr @__cxa_allocate_exception(i64 32) #18
+  %290 = call ptr @__cxa_allocate_exception(i64 32) #20
   %291 = getelementptr inbounds i8, ptr %290, i64 8
   store i64 2, ptr %291, align 8
   %292 = getelementptr inbounds i8, ptr %290, i64 16
@@ -2375,7 +2376,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %293 = getelementptr inbounds i8, ptr %290, i64 24
   store i64 %1, ptr %293, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %290, align 8
-  call void @__cxa_throw(ptr nonnull %290, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #19
+  call void @__cxa_throw(ptr nonnull %290, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
 294:                                              ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
@@ -2433,57 +2434,58 @@ define linkonce_odr noundef i64 @_ZN6trap_t9get_tinstEv(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN24trap_illegal_instruction4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN24trap_illegal_instruction4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.108", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %2
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   ret void
 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN24trap_illegal_instructionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
-  tail call void @_ZSt9terminatev() #20
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
+  tail call void @_ZSt9terminatev() #22
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #8
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #9
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #8
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -2495,21 +2497,21 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %2) #18
+  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %2) #20
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.7) #19
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.7) #21
           to label %7 unwind label %8
 
 7:                                                ; preds = %6
@@ -2518,11 +2520,11 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, %19, %15, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #20
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
-  %11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %13, label %._crit_edge.i
 
@@ -2531,7 +2533,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %13
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #19
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #21
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %15
@@ -2543,14 +2545,14 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
   br i1 %18, label %19, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i
 
 19:                                               ; preds = %16
-  invoke void @_ZSt17__throw_bad_allocv() #19
+  invoke void @_ZSt17__throw_bad_allocv() #21
           to label %.noexc8 unwind label %8
 
 .noexc8:                                          ; preds = %19
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; preds = %16
-  %20 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #21
+  %20 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #23
           to label %.noexc9 unwind label %8
 
 .noexc9:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i
@@ -2583,10 +2585,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #8
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr ptr @_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr ptr @_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
@@ -2608,9 +2610,9 @@ define linkonce_odr ptr @_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #18
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #20
   store i64 %8, ptr %7, align 8
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #21
           to label %28 unwind label %22
 
 22:                                               ; preds = %18
@@ -2626,7 +2628,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #20
+  tail call void @__clang_call_terminate(ptr %27) #22
   unreachable
 
 28:                                               ; preds = %18
@@ -2693,7 +2695,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq i64 %1, 1
   br i1 %3, label %4, label %6
 
@@ -2711,16 +2713,16 @@ define linkonce_odr void @_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8_
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #21
   unreachable
 
 11:                                               ; preds = %8
-  tail call void @_ZSt17__throw_bad_allocv() #19
+  tail call void @_ZSt17__throw_bad_allocv() #21
   unreachable
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKm10float128_tELb0EEEEE19_M_allocate_bucketsEm.exit.i: ; preds = %6
   %12 = shl nuw nsw i64 %1, 3
-  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #21
+  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %13, i8 0, i64 %12, i1 false)
   br label %_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -2781,7 +2783,7 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
   br i1 %33, label %_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %34
 
 34:                                               ; preds = %._crit_edge
-  tail call void @_ZdlPv(ptr noundef %31) #22
+  tail call void @_ZdlPv(ptr noundef %31) #24
   br label %_ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %._crit_edge, %34
@@ -2816,7 +2818,7 @@ define linkonce_odr void @_ZN29trap_store_address_misalignedD2Ev(ptr noundef non
 declare void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168), i64 noundef, i64 noundef, ptr noundef, i8) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
@@ -2827,7 +2829,7 @@ define linkonce_odr void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE17_M_realloc_inser
   br i1 %10, label %11, label %_ZNKSt6vectorISt5tupleIJmmhEESaIS1_EE12_M_check_lenEmPKc.exit
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #21
   unreachable
 
 _ZNKSt6vectorISt5tupleIJmmhEESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
@@ -2845,7 +2847,7 @@ _ZNKSt6vectorISt5tupleIJmmhEESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
 
 20:                                               ; preds = %_ZNKSt6vectorISt5tupleIJmmhEESaIS1_EE12_M_check_lenEmPKc.exit
   %21 = mul nuw nsw i64 %16, 24
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #21
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #23
   br label %_ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt5tupleIJmmhEESaIS1_EE12_M_check_lenEmPKc.exit, %20
@@ -2916,7 +2918,7 @@ _ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds
   br i1 %.not.i23, label %_ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE13_M_deallocateEPS1_m.exit, label %51
 
 51:                                               ; preds = %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
   br label %_ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %51
@@ -2973,149 +2975,151 @@ define linkonce_odr noundef i64 @_ZN10mem_trap_t9get_tinstEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN27trap_store_guest_page_fault4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN27trap_store_guest_page_fault4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.108", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %2
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   ret void
 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN27trap_store_guest_page_faultD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN23trap_store_access_fault4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN23trap_store_access_fault4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.108", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %2
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   ret void
 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN23trap_store_access_faultD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN21trap_store_page_fault4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN21trap_store_page_fault4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.108", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %2
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   ret void
 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN21trap_store_page_faultD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN29trap_store_address_misaligned4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN29trap_store_address_misaligned4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.108", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %2
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   ret void
 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN29trap_store_address_misalignedD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_amoand_d.cc() #13 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_amoand_d.cc() #15 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
   ret void
 }
 
 ; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for.p0(ptr) #14
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
+declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nosync nounwind memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn }
-attributes #20 = { noreturn nounwind }
-attributes #21 = { builtin allocsize(0) }
-attributes #22 = { builtin nounwind }
+attributes #5 = { cold noreturn }
+attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nosync nounwind memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nounwind }
+attributes #21 = { noreturn }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { builtin allocsize(0) }
+attributes #24 = { builtin nounwind }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -611,7 +611,7 @@ define internal void @_ZL23hb_font_paint_glyph_nilP9hb_font_tPvjP16hb_paint_func
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
 define hidden noundef ptr @hb_font_funcs_create() local_unnamed_addr #4 {
-  %1 = tail call noalias dereferenceable_or_null(184) ptr @calloc(i64 noundef 1, i64 noundef 184) #23
+  %1 = tail call noalias dereferenceable_or_null(184) ptr @calloc(i64 noundef 1, i64 noundef 184) #24
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %7, label %2
 
@@ -685,8 +685,8 @@ define hidden void @hb_font_funcs_destroy(ptr noundef %0) local_unnamed_addr #1 
   %11 = inttoptr i64 %9 to ptr
   %12 = getelementptr inbounds i8, ptr %11, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(40) %11)
-  %13 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %11) #24
-  tail call void @free(ptr noundef nonnull %11) #24
+  %13 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %11) #25
+  tail call void @free(ptr noundef nonnull %11) #25
   store atomic i64 0, ptr %8 monotonic, align 8
   br label %_ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit
 
@@ -1151,11 +1151,11 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
 
 241:                                              ; preds = %229, %239, %_ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit
   %242 = phi ptr [ %230, %229 ], [ %.pre175, %239 ], [ null, %_ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit ]
-  tail call void @free(ptr noundef %242) #24
+  tail call void @free(ptr noundef %242) #25
   %243 = getelementptr inbounds i8, ptr %0, i64 16
   %244 = load ptr, ptr %243, align 8
-  tail call void @free(ptr noundef %244) #24
-  tail call void @free(ptr noundef nonnull %0) #24
+  tail call void @free(ptr noundef %244) #25
+  tail call void @free(ptr noundef nonnull %0) #25
   br label %_ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit.thread
 
 _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit.thread: ; preds = %1, %5, %2, %241
@@ -1182,12 +1182,12 @@ define hidden range(i32 0, 2) i32 @hb_font_funcs_set_user_data(ptr noundef %0, p
   br i1 %.not1923.i, label %.lr.ph.i, label %.split.loop.exit21.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %17
-  %10 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 56, i64 noundef 1) #23
+  %10 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 56, i64 noundef 1) #24
   %.not20.i = icmp eq ptr %10, null
   br i1 %.not20.i, label %_ZL23hb_object_set_user_dataI15hb_font_funcs_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %11
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %10, ptr noundef null) #24
+  %12 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %10, ptr noundef null) #25
   %13 = getelementptr inbounds i8, ptr %10, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = ptrtoint ptr %10 to i64
@@ -1197,8 +1197,8 @@ define hidden range(i32 0, 2) i32 @hb_font_funcs_set_user_data(ptr noundef %0, p
 
 17:                                               ; preds = %11
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(40) %10)
-  %18 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %10) #24
-  tail call void @free(ptr noundef nonnull %10) #24
+  %18 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %10) #25
+  tail call void @free(ptr noundef nonnull %10) #25
   %19 = load atomic i64, ptr %8 acquire, align 8
   %.not19.i = icmp eq i64 %19, 0
   br i1 %.not19.i, label %.lr.ph.i, label %.split.loop.exit21.i
@@ -1237,7 +1237,7 @@ define hidden ptr @hb_font_funcs_get_user_data(ptr noundef readonly %0, ptr noun
   br i1 %.not9.i, label %_ZL23hb_object_get_user_dataIK15hb_font_funcs_tEPvPT_P18hb_user_data_key_t.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #24
+  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #25
   %11 = getelementptr inbounds i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %8, i64 44
@@ -1278,7 +1278,7 @@ define hidden ptr @hb_font_funcs_get_user_data(ptr noundef readonly %0, ptr noun
 
 _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %22, %._crit_edge.i.i.i.i.i, %9
   %24 = phi ptr [ %.sroa.2.0.copyload.i.i, %22 ], [ null, %9 ], [ null, %._crit_edge.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ]
-  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #24
+  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #25
   br label %_ZL23hb_object_get_user_dataIK15hb_font_funcs_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK15hb_font_funcs_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %2, %3, %5, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
@@ -1376,7 +1376,7 @@ define hidden void @hb_font_funcs_set_font_h_extents_func(ptr nocapture noundef 
   br i1 %.not13.i, label %28, label %30
 
 28:                                               ; preds = %25
-  %29 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %29 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %29, ptr %26, align 8
   %.not14.i = icmp eq ptr %29, null
   br i1 %.not14.i, label %35, label %30
@@ -1391,7 +1391,7 @@ define hidden void @hb_font_funcs_set_font_h_extents_func(ptr nocapture noundef 
   br i1 %.not16.i, label %33, label %36
 
 33:                                               ; preds = %31
-  %34 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %34 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %34, ptr %13, align 8
   %.not17.i = icmp eq ptr %34, null
   br i1 %.not17.i, label %.thread.i, label %36
@@ -1608,7 +1608,7 @@ define hidden void @hb_font_funcs_set_font_v_extents_func(ptr nocapture noundef 
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -1623,7 +1623,7 @@ define hidden void @hb_font_funcs_set_font_v_extents_func(ptr nocapture noundef 
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -1843,7 +1843,7 @@ define hidden void @hb_font_funcs_set_nominal_glyph_func(ptr nocapture noundef %
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -1858,7 +1858,7 @@ define hidden void @hb_font_funcs_set_nominal_glyph_func(ptr nocapture noundef %
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -2027,7 +2027,7 @@ define hidden void @hb_font_funcs_set_nominal_glyphs_func(ptr nocapture noundef 
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -2042,7 +2042,7 @@ define hidden void @hb_font_funcs_set_nominal_glyphs_func(ptr nocapture noundef 
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -2151,7 +2151,7 @@ define hidden void @hb_font_funcs_set_variation_glyph_func(ptr nocapture noundef
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -2166,7 +2166,7 @@ define hidden void @hb_font_funcs_set_variation_glyph_func(ptr nocapture noundef
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -2302,7 +2302,7 @@ define hidden void @hb_font_funcs_set_glyph_h_advance_func(ptr nocapture noundef
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -2317,7 +2317,7 @@ define hidden void @hb_font_funcs_set_glyph_h_advance_func(ptr nocapture noundef
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -2506,7 +2506,7 @@ define hidden void @hb_font_funcs_set_glyph_v_advance_func(ptr nocapture noundef
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -2521,7 +2521,7 @@ define hidden void @hb_font_funcs_set_glyph_v_advance_func(ptr nocapture noundef
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -2710,7 +2710,7 @@ define hidden void @hb_font_funcs_set_glyph_h_advances_func(ptr nocapture nounde
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -2725,7 +2725,7 @@ define hidden void @hb_font_funcs_set_glyph_h_advances_func(ptr nocapture nounde
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -2834,7 +2834,7 @@ define hidden void @hb_font_funcs_set_glyph_v_advances_func(ptr nocapture nounde
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -2849,7 +2849,7 @@ define hidden void @hb_font_funcs_set_glyph_v_advances_func(ptr nocapture nounde
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -2958,7 +2958,7 @@ define hidden void @hb_font_funcs_set_glyph_h_origin_func(ptr nocapture noundef 
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -2973,7 +2973,7 @@ define hidden void @hb_font_funcs_set_glyph_h_origin_func(ptr nocapture noundef 
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -3167,7 +3167,7 @@ define hidden void @hb_font_funcs_set_glyph_v_origin_func(ptr nocapture noundef 
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -3182,7 +3182,7 @@ define hidden void @hb_font_funcs_set_glyph_v_origin_func(ptr nocapture noundef 
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -3376,7 +3376,7 @@ define hidden void @hb_font_funcs_set_glyph_h_kerning_func(ptr nocapture noundef
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -3391,7 +3391,7 @@ define hidden void @hb_font_funcs_set_glyph_h_kerning_func(ptr nocapture noundef
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -3549,7 +3549,7 @@ define hidden void @hb_font_funcs_set_glyph_v_kerning_func(ptr nocapture noundef
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -3564,7 +3564,7 @@ define hidden void @hb_font_funcs_set_glyph_v_kerning_func(ptr nocapture noundef
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -3722,7 +3722,7 @@ define hidden void @hb_font_funcs_set_glyph_extents_func(ptr nocapture noundef %
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -3737,7 +3737,7 @@ define hidden void @hb_font_funcs_set_glyph_extents_func(ptr nocapture noundef %
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -3983,7 +3983,7 @@ define hidden void @hb_font_funcs_set_glyph_contour_point_func(ptr nocapture nou
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -3998,7 +3998,7 @@ define hidden void @hb_font_funcs_set_glyph_contour_point_func(ptr nocapture nou
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -4192,7 +4192,7 @@ define hidden void @hb_font_funcs_set_glyph_name_func(ptr nocapture noundef %0, 
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -4207,7 +4207,7 @@ define hidden void @hb_font_funcs_set_glyph_name_func(ptr nocapture noundef %0, 
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -4350,7 +4350,7 @@ define hidden void @hb_font_funcs_set_glyph_from_name_func(ptr nocapture noundef
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -4365,7 +4365,7 @@ define hidden void @hb_font_funcs_set_glyph_from_name_func(ptr nocapture noundef
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -4415,7 +4415,7 @@ define internal noundef i32 @_ZL35hb_font_get_glyph_from_name_defaultP9hb_font_t
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
   %12 = trunc i64 %11 to i32
   br label %13
 
@@ -4511,7 +4511,7 @@ define hidden void @hb_font_funcs_set_draw_glyph_func(ptr nocapture noundef %0, 
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -4526,7 +4526,7 @@ define hidden void @hb_font_funcs_set_draw_glyph_func(ptr nocapture noundef %0, 
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -4712,7 +4712,7 @@ define hidden void @hb_font_funcs_set_paint_glyph_func(ptr nocapture noundef %0,
   br i1 %.not13.i, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %31 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %31, ptr %28, align 8
   %.not14.i = icmp eq ptr %31, null
   br i1 %.not14.i, label %37, label %32
@@ -4727,7 +4727,7 @@ define hidden void @hb_font_funcs_set_paint_glyph_func(ptr nocapture noundef %0,
   br i1 %.not16.i, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %36 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %36, ptr %13, align 8
   %.not17.i = icmp eq ptr %36, null
   br i1 %.not17.i, label %.thread.i, label %38
@@ -5364,7 +5364,7 @@ define hidden noundef i32 @hb_font_get_glyph_from_name(ptr noundef %0, ptr nound
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %4
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
   %8 = trunc i64 %7 to i32
   br label %9
 
@@ -5933,7 +5933,7 @@ _ZN9hb_font_t14get_glyph_nameEjPcj.exit.i:        ; preds = %15, %6
 
 22:                                               ; preds = %_ZN9hb_font_t14get_glyph_nameEjPcj.exit.i
   %23 = zext i32 %3 to i64
-  %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef %23, ptr noundef nonnull @.str, i32 noundef %1) #24
+  %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef %23, ptr noundef nonnull @.str, i32 noundef %1) #25
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %_ZN9hb_font_t15glyph_to_stringEjPcj.exit
 
@@ -5964,7 +5964,7 @@ define linkonce_odr hidden noundef i32 @_ZN9hb_font_t17glyph_from_stringEPKciPj(
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %4
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
   %14 = trunc i64 %13 to i32
   br label %15
 
@@ -5996,7 +5996,7 @@ _ZN9hb_font_t19get_glyph_from_nameEPKciPj.exit:   ; preds = %15, %24
   br i1 %11, label %30, label %33
 
 30:                                               ; preds = %29
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
+  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
   %32 = trunc i64 %31 to i32
   br label %33
 
@@ -6181,7 +6181,7 @@ define internal fastcc noundef ptr @_ZL15_hb_font_createP9hb_face_t(ptr noundef 
 
 4:                                                ; preds = %2, %1
   %.019 = phi ptr [ %0, %1 ], [ %3, %2 ]
-  %5 = tail call noalias dereferenceable_or_null(192) ptr @calloc(i64 noundef 1, i64 noundef 192) #23
+  %5 = tail call noalias dereferenceable_or_null(192) ptr @calloc(i64 noundef 1, i64 noundef 192) #24
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %27, label %6
 
@@ -6335,8 +6335,8 @@ hb_font_reference.exit:                           ; preds = %7, %10
 
 43:                                               ; preds = %hb_font_reference.exit
   %44 = zext i32 %42 to i64
-  %45 = tail call noalias ptr @calloc(i64 noundef %44, i64 noundef 4) #23
-  %46 = tail call noalias ptr @calloc(i64 noundef %44, i64 noundef 4) #23
+  %45 = tail call noalias ptr @calloc(i64 noundef %44, i64 noundef 4) #24
+  %46 = tail call noalias ptr @calloc(i64 noundef %44, i64 noundef 4) #24
   %47 = icmp ne ptr %45, null
   %48 = icmp ne ptr %46, null
   %or.cond = and i1 %47, %48
@@ -6352,10 +6352,10 @@ hb_font_reference.exit:                           ; preds = %7, %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr readonly align 1 %54, i64 %52, i1 false), !alias.scope !17
   %55 = getelementptr inbounds i8, ptr %4, i64 128
   %56 = load ptr, ptr %55, align 8
-  tail call void @free(ptr noundef %56) #24
+  tail call void @free(ptr noundef %56) #25
   %57 = getelementptr inbounds i8, ptr %4, i64 136
   %58 = load ptr, ptr %57, align 8
-  tail call void @free(ptr noundef %58) #24
+  tail call void @free(ptr noundef %58) #25
   store ptr %45, ptr %55, align 8
   store ptr %46, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %4, i64 120
@@ -6364,8 +6364,8 @@ hb_font_reference.exit:                           ; preds = %7, %10
   br label %61
 
 60:                                               ; preds = %43
-  tail call void @free(ptr noundef %45) #24
-  tail call void @free(ptr noundef %46) #24
+  tail call void @free(ptr noundef %45) #25
+  tail call void @free(ptr noundef %46) #25
   br label %61
 
 61:                                               ; preds = %49, %60, %hb_font_reference.exit
@@ -6535,8 +6535,8 @@ define hidden void @hb_font_destroy(ptr noundef %0) local_unnamed_addr #1 {
   %11 = inttoptr i64 %9 to ptr
   %12 = getelementptr inbounds i8, ptr %11, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(40) %11)
-  %13 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %11) #24
-  tail call void @free(ptr noundef nonnull %11) #24
+  %13 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %11) #25
+  tail call void @free(ptr noundef nonnull %11) #25
   store atomic i64 0, ptr %8 monotonic, align 8
   br label %_ZL17hb_object_destroyI9hb_font_tEbPT_.exit
 
@@ -6591,11 +6591,11 @@ common.ret12:                                     ; preds = %1, %5, %2, %27
   tail call void @hb_font_funcs_destroy(ptr noundef %33)
   %34 = getelementptr inbounds i8, ptr %0, i64 128
   %35 = load ptr, ptr %34, align 8
-  tail call void @free(ptr noundef %35) #24
+  tail call void @free(ptr noundef %35) #25
   %36 = getelementptr inbounds i8, ptr %0, i64 136
   %37 = load ptr, ptr %36, align 8
-  tail call void @free(ptr noundef %37) #24
-  tail call void @free(ptr noundef nonnull %0) #24
+  tail call void @free(ptr noundef %37) #25
+  tail call void @free(ptr noundef nonnull %0) #25
   br label %common.ret12
 }
 
@@ -6627,12 +6627,12 @@ define hidden range(i32 0, 2) i32 @hb_font_set_user_data(ptr nocapture noundef %
   br i1 %.not1923.i, label %.lr.ph.i, label %.split.loop.exit21.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %23
-  %16 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 56, i64 noundef 1) #23
+  %16 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 56, i64 noundef 1) #24
   %.not20.i = icmp eq ptr %16, null
   br i1 %.not20.i, label %_ZL23hb_object_set_user_dataI9hb_font_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %17
 
 17:                                               ; preds = %.lr.ph.i
-  %18 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %16, ptr noundef null) #24
+  %18 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %16, ptr noundef null) #25
   %19 = getelementptr inbounds i8, ptr %16, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %20 = ptrtoint ptr %16 to i64
@@ -6642,8 +6642,8 @@ define hidden range(i32 0, 2) i32 @hb_font_set_user_data(ptr nocapture noundef %
 
 23:                                               ; preds = %17
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(40) %16)
-  %24 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %16) #24
-  tail call void @free(ptr noundef nonnull %16) #24
+  %24 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %16) #25
+  tail call void @free(ptr noundef nonnull %16) #25
   %25 = load atomic i64, ptr %14 acquire, align 8
   %.not19.i = icmp eq i64 %25, 0
   br i1 %.not19.i, label %.lr.ph.i, label %.split.loop.exit21.i
@@ -6682,7 +6682,7 @@ define hidden ptr @hb_font_get_user_data(ptr noundef readonly %0, ptr noundef re
   br i1 %.not9.i, label %_ZL23hb_object_get_user_dataIK9hb_font_tEPvPT_P18hb_user_data_key_t.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #24
+  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #25
   %11 = getelementptr inbounds i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %8, i64 44
@@ -6723,7 +6723,7 @@ define hidden ptr @hb_font_get_user_data(ptr noundef readonly %0, ptr noundef re
 
 _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %22, %._crit_edge.i.i.i.i.i, %9
   %24 = phi ptr [ %.sroa.2.0.copyload.i.i, %22 ], [ null, %9 ], [ null, %._crit_edge.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ]
-  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #24
+  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #25
   br label %_ZL23hb_object_get_user_dataIK9hb_font_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK9hb_font_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %2, %3, %5, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
@@ -7291,10 +7291,10 @@ define hidden void @hb_font_set_variations(ptr noundef %0, ptr nocapture noundef
   %23 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
   %24 = getelementptr inbounds i8, ptr %0, i64 128
   %25 = load ptr, ptr %24, align 8
-  tail call void @free(ptr noundef %25) #24
+  tail call void @free(ptr noundef %25) #25
   %26 = getelementptr inbounds i8, ptr %0, i64 136
   %27 = load ptr, ptr %26, align 8
-  tail call void @free(ptr noundef %27) #24
+  tail call void @free(ptr noundef %27) #25
   %28 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 0, ptr %28, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
@@ -7337,16 +7337,16 @@ define hidden void @hb_font_set_variations(ptr noundef %0, ptr nocapture noundef
 
 57:                                               ; preds = %29
   %58 = zext nneg i32 %.sroa.2.8.insert.ext.i.i to i64
-  %59 = tail call noalias ptr @calloc(i64 noundef %58, i64 noundef 4) #23
-  %60 = tail call noalias ptr @calloc(i64 noundef %58, i64 noundef 4) #23
+  %59 = tail call noalias ptr @calloc(i64 noundef %58, i64 noundef 4) #24
+  %60 = tail call noalias ptr @calloc(i64 noundef %58, i64 noundef 4) #24
   %61 = icmp ne ptr %59, null
   %62 = icmp ne ptr %60, null
   %or.cond = and i1 %61, %62
   br i1 %or.cond, label %.lr.ph.preheader, label %63
 
 63:                                               ; preds = %57
-  tail call void @free(ptr noundef %59) #24
-  tail call void @free(ptr noundef %60) #24
+  tail call void @free(ptr noundef %59) #25
+  tail call void @free(ptr noundef %60) #25
   br label %hb_font_set_var_coords_normalized.exit
 
 .lr.ph.preheader:                                 ; preds = %57
@@ -7456,10 +7456,10 @@ define hidden void @hb_font_set_variations(ptr noundef %0, ptr nocapture noundef
   call void @hb_ot_var_normalize_coords(ptr noundef %121, i32 noundef %.sroa.2.8.insert.ext.i.i, ptr noundef %87, ptr noundef %86)
   %122 = getelementptr inbounds i8, ptr %0, i64 128
   %123 = load ptr, ptr %122, align 8
-  call void @free(ptr noundef %123) #24
+  call void @free(ptr noundef %123) #25
   %124 = getelementptr inbounds i8, ptr %0, i64 136
   %125 = load ptr, ptr %124, align 8
-  call void @free(ptr noundef %125) #24
+  call void @free(ptr noundef %125) #25
   store ptr %86, ptr %122, align 8
   store ptr %87, ptr %124, align 8
   %126 = getelementptr inbounds i8, ptr %0, i64 120
@@ -7490,9 +7490,9 @@ define hidden void @hb_font_set_var_coords_normalized(ptr noundef %0, ptr nocapt
 
 11:                                               ; preds = %6
   %12 = zext i32 %2 to i64
-  %13 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #23
-  %14 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #23
-  %15 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #23
+  %13 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #24
+  %14 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #24
+  %15 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #24
   %16 = icmp ne ptr %13, null
   %17 = icmp ne ptr %14, null
   %or.cond = and i1 %16, %17
@@ -7501,9 +7501,9 @@ define hidden void @hb_font_set_var_coords_normalized(ptr noundef %0, ptr nocapt
   br i1 %or.cond3, label %.split43, label %19
 
 19:                                               ; preds = %11
-  tail call void @free(ptr noundef %13) #24
-  tail call void @free(ptr noundef %14) #24
-  tail call void @free(ptr noundef %15) #24
+  tail call void @free(ptr noundef %13) #25
+  tail call void @free(ptr noundef %14) #25
+  tail call void @free(ptr noundef %15) #25
   br label %75
 
 _ZNK2OT4avar12unmap_coordsEPij.exit.thread:       ; preds = %6
@@ -7597,13 +7597,13 @@ _ZNK2OT4avar12unmap_coordsEPij.exit:              ; preds = %.lr.ph.i
   %67 = phi ptr [ null, %_ZNK2OT4avar12unmap_coordsEPij.exit.thread ], [ %13, %_ZNK2OT4avar12unmap_coordsEPij.exit ], [ %13, %.lr.ph ]
   %68 = phi ptr [ null, %_ZNK2OT4avar12unmap_coordsEPij.exit.thread ], [ %14, %_ZNK2OT4avar12unmap_coordsEPij.exit ], [ %14, %.lr.ph ]
   %69 = phi ptr [ null, %_ZNK2OT4avar12unmap_coordsEPij.exit.thread ], [ %15, %_ZNK2OT4avar12unmap_coordsEPij.exit ], [ %15, %.lr.ph ]
-  tail call void @free(ptr noundef %68) #24
+  tail call void @free(ptr noundef %68) #25
   %70 = getelementptr inbounds i8, ptr %0, i64 128
   %71 = load ptr, ptr %70, align 8
-  tail call void @free(ptr noundef %71) #24
+  tail call void @free(ptr noundef %71) #25
   %72 = getelementptr inbounds i8, ptr %0, i64 136
   %73 = load ptr, ptr %72, align 8
-  tail call void @free(ptr noundef %73) #24
+  tail call void @free(ptr noundef %73) #25
   store ptr %67, ptr %70, align 8
   store ptr %69, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %0, i64 120
@@ -7669,16 +7669,16 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
 
 39:                                               ; preds = %7
   %40 = zext nneg i32 %.sroa.2.8.insert.ext.i.i to i64
-  %41 = tail call noalias ptr @calloc(i64 noundef %40, i64 noundef 4) #23
-  %42 = tail call noalias ptr @calloc(i64 noundef %40, i64 noundef 4) #23
+  %41 = tail call noalias ptr @calloc(i64 noundef %40, i64 noundef 4) #24
+  %42 = tail call noalias ptr @calloc(i64 noundef %40, i64 noundef 4) #24
   %43 = icmp ne ptr %41, null
   %44 = icmp ne ptr %42, null
   %or.cond = and i1 %43, %44
   br i1 %or.cond, label %.thread59.thread, label %45
 
 45:                                               ; preds = %39
-  tail call void @free(ptr noundef %41) #24
-  tail call void @free(ptr noundef %42) #24
+  tail call void @free(ptr noundef %41) #25
+  tail call void @free(ptr noundef %42) #25
   br label %113
 
 .thread59:                                        ; preds = %7
@@ -7796,9 +7796,9 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
   call void @hb_ot_var_normalize_coords(ptr noundef %108, i32 noundef %.sroa.2.8.insert.ext.i.i, ptr noundef %85, ptr noundef %84)
   %109 = getelementptr inbounds i8, ptr %0, i64 128
   %110 = load ptr, ptr %109, align 8
-  call void @free(ptr noundef %110) #24
+  call void @free(ptr noundef %110) #25
   %111 = load ptr, ptr %83, align 8
-  call void @free(ptr noundef %111) #24
+  call void @free(ptr noundef %111) #25
   store ptr %84, ptr %109, align 8
   store ptr %85, ptr %83, align 8
   %112 = getelementptr inbounds i8, ptr %0, i64 120
@@ -7829,16 +7829,16 @@ define hidden void @hb_font_set_var_coords_design(ptr noundef %0, ptr noundef %1
 
 11:                                               ; preds = %6
   %12 = zext i32 %2 to i64
-  %13 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #23
-  %14 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #23
+  %13 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #24
+  %14 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #24
   %15 = icmp ne ptr %13, null
   %16 = icmp ne ptr %14, null
   %or.cond = and i1 %15, %16
   br i1 %or.cond, label %18, label %17
 
 17:                                               ; preds = %11
-  tail call void @free(ptr noundef %13) #24
-  tail call void @free(ptr noundef %14) #24
+  tail call void @free(ptr noundef %13) #25
+  tail call void @free(ptr noundef %14) #25
   br label %29
 
 18:                                               ; preds = %11
@@ -7854,10 +7854,10 @@ define hidden void @hb_font_set_var_coords_design(ptr noundef %0, ptr noundef %1
   tail call void @hb_ot_var_normalize_coords(ptr noundef %23, i32 noundef %2, ptr noundef %1, ptr noundef %21)
   %24 = getelementptr inbounds i8, ptr %0, i64 128
   %25 = load ptr, ptr %24, align 8
-  tail call void @free(ptr noundef %25) #24
+  tail call void @free(ptr noundef %25) #25
   %26 = getelementptr inbounds i8, ptr %0, i64 136
   %27 = load ptr, ptr %26, align 8
-  tail call void @free(ptr noundef %27) #24
+  tail call void @free(ptr noundef %27) #25
   store ptr %21, ptr %24, align 8
   store ptr %20, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 120
@@ -8044,7 +8044,7 @@ define hidden void @hb_font_funcs_set_glyph_func(ptr nocapture noundef %0, ptr n
   br label %hb_font_funcs_set_variation_glyph_func.exit
 
 9:                                                ; preds = %4
-  %10 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #23
+  %10 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #24
   %.not.i19 = icmp eq ptr %10, null
   br i1 %.not.i19, label %11, label %13
 
@@ -8107,7 +8107,7 @@ define hidden void @hb_font_funcs_set_glyph_func(ptr nocapture noundef %0, ptr n
   br i1 %.not13.i.i, label %36, label %38
 
 36:                                               ; preds = %33
-  %37 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %37 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %37, ptr %34, align 8
   %.not14.i.i = icmp eq ptr %37, null
   br i1 %.not14.i.i, label %.thread.i.i, label %38
@@ -8119,7 +8119,7 @@ define hidden void @hb_font_funcs_set_glyph_func(ptr nocapture noundef %0, ptr n
   br i1 %.not16.i.i, label %41, label %50
 
 41:                                               ; preds = %38
-  %42 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %42 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %42, ptr %20, align 8
   %.not17.i.i = icmp eq ptr %42, null
   br i1 %.not17.i.i, label %.thread.i.i, label %50
@@ -8142,7 +8142,7 @@ define hidden void @hb_font_funcs_set_glyph_func(ptr nocapture noundef %0, ptr n
   br label %49
 
 49:                                               ; preds = %47, %45
-  tail call void @free(ptr noundef nonnull %10) #24
+  tail call void @free(ptr noundef nonnull %10) #25
   br label %hb_font_funcs_set_nominal_glyph_func.exit
 
 50:                                               ; preds = %41, %38
@@ -8182,7 +8182,7 @@ hb_font_funcs_set_nominal_glyph_func.exit:        ; preds = %18, %49, %.thread.i
   br label %63
 
 63:                                               ; preds = %61, %59
-  tail call void @free(ptr noundef nonnull %10) #24
+  tail call void @free(ptr noundef nonnull %10) #25
   br label %hb_font_funcs_set_variation_glyph_func.exit
 
 64:                                               ; preds = %hb_font_funcs_set_nominal_glyph_func.exit
@@ -8220,7 +8220,7 @@ hb_font_funcs_set_nominal_glyph_func.exit:        ; preds = %18, %49, %.thread.i
   br i1 %.not13.i.i25, label %81, label %83
 
 81:                                               ; preds = %78
-  %82 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %82 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %82, ptr %79, align 8
   %.not14.i.i31 = icmp eq ptr %82, null
   br i1 %.not14.i.i31, label %.thread.i.i30, label %83
@@ -8232,7 +8232,7 @@ hb_font_funcs_set_nominal_glyph_func.exit:        ; preds = %18, %49, %.thread.i
   br i1 %.not16.i.i26, label %86, label %95
 
 86:                                               ; preds = %83
-  %87 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #23
+  %87 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #24
   store ptr %87, ptr %65, align 8
   %.not17.i.i29 = icmp eq ptr %87, null
   br i1 %.not17.i.i29, label %.thread.i.i30, label %95
@@ -8255,7 +8255,7 @@ hb_font_funcs_set_nominal_glyph_func.exit:        ; preds = %18, %49, %.thread.i
   br label %94
 
 94:                                               ; preds = %92, %90
-  tail call void @free(ptr noundef nonnull %10) #24
+  tail call void @free(ptr noundef nonnull %10) #25
   br label %hb_font_funcs_set_variation_glyph_func.exit
 
 95:                                               ; preds = %86, %83
@@ -8306,7 +8306,7 @@ define internal void @_ZL18trampoline_destroyPv(ptr nocapture noundef %0) #1 {
   br label %10
 
 10:                                               ; preds = %8, %5
-  tail call void @free(ptr noundef nonnull %0) #24
+  tail call void @free(ptr noundef nonnull %0) #25
   br label %11
 
 11:                                               ; preds = %1, %10
@@ -8994,7 +8994,7 @@ define linkonce_odr hidden void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t1
   store i32 0, ptr %3, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call void @free(ptr noundef %9) #24
+  tail call void @free(ptr noundef %9) #25
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit: ; preds = %5, %7
@@ -9002,7 +9002,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit:
   br label %28
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #24
+  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #25
   %12 = load i32, ptr %3, align 4
   %.not510 = icmp eq i32 %12, 0
   br i1 %.not510, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph
@@ -9022,7 +9022,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0.i.i.sroa_idx, align 8
   store i32 %15, ptr %3, align 4, !noalias !42
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #24
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #25
   %.not.i7 = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not.i7, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %20
 
@@ -9031,7 +9031,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, %20
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #24
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #25
   %22 = load i32, ptr %3, align 4
   %.not5 = icmp eq i32 %22, 0
   br i1 %.not5, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !45
@@ -9045,12 +9045,12 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
   store i32 0, ptr %3, align 4
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
-  tail call void @free(ptr noundef %26) #24
+  tail call void @free(ptr noundef %26) #25
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9: ; preds = %._crit_edge, %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #24
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #25
   br label %28
 
 28:                                               ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
@@ -9083,7 +9083,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
   br i1 %or.cond, label %36, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #24
+  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #25
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 44
@@ -9139,7 +9139,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i: ; preds = %31, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i
-  %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #24
+  %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #25
   %.not.i7.i = icmp eq ptr %.sroa.2.0.copyload18.i, null
   br i1 %.not.i7.i, label %_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE6removeIP18hb_user_data_key_tEEvT_RS2_.exit, label %34
 
@@ -9148,7 +9148,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i
   br label %_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE6removeIP18hb_user_data_key_tEEvT_RS2_.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIP18hb_user_data_key_tEEPS1_RKT_S6_.exit.thread.i: ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i, %12
-  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #24
+  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #25
   br label %_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE6removeIP18hb_user_data_key_tEEvT_RS2_.exit
 
 36:                                               ; preds = %9, %7
@@ -9172,7 +9172,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE17replace_or_insertIS1_EEPS1_T_RS2_b(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef byval(%"struct.hb_user_data_array_t::hb_user_data_item_t") align 8 %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i1 noundef zeroext %3) local_unnamed_addr #1 comdat align 2 {
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #24
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #25
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 4
@@ -9216,7 +9216,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_E
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #24
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #25
   %.not.i = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not.i, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %20
 
@@ -9225,7 +9225,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_E
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 21:                                               ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_EEPS1_RKT_S4_.exit.thread12
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #24
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #25
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_EEPS1_RKT_S4_.exit.thread: ; preds = %.lr.ph.i.i, %._crit_edge.i.i, %4
@@ -9257,7 +9257,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_E
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i: ; preds = %.thread.i.i
   %33 = zext nneg i32 %30 to i64
   %34 = mul nuw nsw i64 %33, 24
-  %35 = tail call ptr @realloc(ptr noundef %7, i64 noundef %34) #26
+  %35 = tail call ptr @realloc(ptr noundef %7, i64 noundef %34) #27
   %.not43.i.i = icmp eq ptr %35, null
   br i1 %.not43.i.i, label %36, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.i
 
@@ -9297,7 +9297,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exi
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread6.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread.i
   %.0.i = phi ptr [ %42, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread.i ], [ @_hb_CrapPool, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread6.i ]
-  %43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #24
+  %43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #25
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %20, %18, %21, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
@@ -9366,13 +9366,13 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4fvarEEEP9hb_blob_tPK9hb_face_tj
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #27
+  call void @__clang_call_terminate(ptr %21) #28
   unreachable
 
 22:                                               ; preds = %.noexc2.i.i, %14
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %2) #24
+  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %2) #25
   resume { ptr, i32 } %23
 
 _ZNK17hb_data_wrapper_tI9hb_face_tLj18EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4fvarELj18ELb1EEEEPT_v.exit: ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT4fvarEEEP9hb_blob_tPK9hb_face_tj.exit.i.i, %18
@@ -9447,7 +9447,7 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit: ; preds = %4
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #27
+  tail call void @__clang_call_terminate(ptr %9) #28
   unreachable
 }
 
@@ -9739,14 +9739,15 @@ declare ptr @hb_blob_reference(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #20 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
-  tail call void @_ZSt9terminatev() #27
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #25
+  tail call void @_ZSt9terminatev() #28
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9800,13 +9801,13 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4avarEEEP9hb_blob_tPK9hb_face_tj
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #27
+  call void @__clang_call_terminate(ptr %21) #28
   unreachable
 
 22:                                               ; preds = %.noexc2.i.i, %14
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %2) #24
+  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %2) #25
   resume { ptr, i32 } %23
 
 _ZNK17hb_data_wrapper_tI9hb_face_tLj19EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4avarELj19ELb1EEEEPT_v.exit: ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT4avarEEEP9hb_blob_tPK9hb_face_tj.exit.i.i, %18
@@ -10647,16 +10648,16 @@ _ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_cont
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #21
+declare i32 @llvm.umax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #21
+declare i32 @llvm.umin.i32(i32, i32) #22
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -10679,13 +10680,14 @@ attributes #17 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #18 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nounwind allocsize(0,1) }
-attributes #24 = { nounwind }
-attributes #25 = { nounwind willreturn memory(read) }
-attributes #26 = { nounwind allocsize(1) }
-attributes #27 = { noreturn nounwind }
+attributes #21 = { cold nofree noreturn }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #24 = { nounwind allocsize(0,1) }
+attributes #25 = { nounwind }
+attributes #26 = { nounwind willreturn memory(read) }
+attributes #27 = { nounwind allocsize(1) }
+attributes #28 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

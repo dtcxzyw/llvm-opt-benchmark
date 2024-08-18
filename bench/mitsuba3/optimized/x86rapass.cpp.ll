@@ -98,7 +98,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #16
   %12 = getelementptr inbounds i8, ptr %1, i64 48
   %13 = load i32, ptr %12, align 4, !tbaa !3
   %14 = icmp ult i32 %13, 1663
@@ -112,7 +112,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %20 = getelementptr inbounds i8, ptr %0, i64 656
   %21 = load i8, ptr %20, align 8, !tbaa !12
   %22 = zext i8 %17 to i64
-  %23 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal11queryRWInfoENS0_4ArchERKNS0_8BaseInstEPKNS0_8Operand_EmPNS0_10InstRWInfoE(i8 noundef zeroext %21, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull %19, i64 noundef %22, ptr noundef nonnull %6) #15
+  %23 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal11queryRWInfoENS0_4ArchERKNS0_8BaseInstEPKNS0_8Operand_EmPNS0_10InstRWInfoE(i8 noundef zeroext %21, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull %19, i64 noundef %22, ptr noundef nonnull %6) #16
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %802
 
@@ -248,7 +248,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   br i1 %120, label %121, label %534
 
 121:                                              ; preds = %113
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
   %122 = load ptr, ptr %0, align 8, !tbaa !46
   %123 = getelementptr inbounds i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8, !tbaa !47
@@ -270,7 +270,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   br i1 %136, label %137, label %140
 
 137:                                              ; preds = %128
-  %138 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %122, ptr noundef nonnull %133, ptr noundef nonnull %7) #15
+  %138 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %122, ptr noundef nonnull %133, ptr noundef nonnull %7) #16
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %140, label %294
 
@@ -464,7 +464,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %279 = getelementptr inbounds i8, ptr %88, i64 5
   %280 = load i8, ptr %279, align 1, !tbaa !89
   %281 = zext i8 %280 to i32
-  %282 = call noundef i32 @_ZN6asmjit9_abi_1_1013RAInstBuilder3addEPNS0_9RAWorkRegENS0_11RATiedFlagsEjjjjjjjj(ptr noundef nonnull align 8 dereferenceable(4160) %3, ptr noundef nonnull %184, i32 noundef %273, i32 noundef %222, i32 noundef %277, i32 noundef %275, i32 noundef %221, i32 noundef %276, i32 noundef %274, i32 noundef %281, i32 noundef %86) #15
+  %282 = call noundef i32 @_ZN6asmjit9_abi_1_1013RAInstBuilder3addEPNS0_9RAWorkRegENS0_11RATiedFlagsEjjjjjjjj(ptr noundef nonnull align 8 dereferenceable(4160) %3, ptr noundef nonnull %184, i32 noundef %273, i32 noundef %222, i32 noundef %277, i32 noundef %275, i32 noundef %221, i32 noundef %276, i32 noundef %274, i32 noundef %281, i32 noundef %86) #16
   %283 = icmp eq i32 %282, 0
   br i1 %283, label %284, label %294
 
@@ -484,12 +484,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
 
 294:                                              ; preds = %272, %264, %262, %245, %243, %201, %199, %137, %121
   %295 = phi i32 [ 65, %264 ], [ 3, %262 ], [ 65, %245 ], [ 3, %243 ], [ 60, %201 ], [ 3, %199 ], [ %282, %272 ], [ %138, %137 ], [ 30, %121 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   br label %802
 
 296:                                              ; preds = %291, %284
   %297 = phi i32 [ %293, %291 ], [ %86, %284 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   br label %534
 
 298:                                              ; preds = %79
@@ -501,7 +501,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   br i1 %302, label %349, label %303
 
 303:                                              ; preds = %298
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   %304 = load ptr, ptr %0, align 8, !tbaa !46
   %305 = getelementptr inbounds i8, ptr %87, i64 4
   %306 = load i32, ptr %305, align 4, !tbaa !44
@@ -526,7 +526,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   br i1 %321, label %322, label %327
 
 322:                                              ; preds = %313
-  %323 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %304, ptr noundef nonnull %318, ptr noundef nonnull %8) #15
+  %323 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %304, ptr noundef nonnull %318, ptr noundef nonnull %8) #16
   %324 = icmp eq i32 %323, 0
   br i1 %324, label %325, label %529
 
@@ -553,7 +553,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %341 = getelementptr inbounds i8, ptr %338, i64 12
   %342 = load i8, ptr %341, align 4, !tbaa !93
   %343 = zext i8 %342 to i32
-  %344 = call noundef ptr @_ZN6asmjit9_abi_1_1016RAStackAllocator7newSlotEjjjj(ptr noundef nonnull align 8 dereferenceable(40) %334, i32 noundef %336, i32 noundef %340, i32 noundef %343, i32 noundef 1) #15
+  %344 = call noundef ptr @_ZN6asmjit9_abi_1_1016RAStackAllocator7newSlotEjjjj(ptr noundef nonnull align 8 dereferenceable(40) %334, i32 noundef %336, i32 noundef %340, i32 noundef %343, i32 noundef 1) #16
   store ptr %344, ptr %329, align 8, !tbaa !90
   %345 = getelementptr inbounds i8, ptr %328, i64 36
   %346 = load i32, ptr %345, align 4, !tbaa !94
@@ -562,7 +562,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   br label %348
 
 348:                                              ; preds = %332, %327
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
   br label %429
 
 349:                                              ; preds = %298
@@ -578,7 +578,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   br i1 %356, label %357, label %429
 
 357:                                              ; preds = %352
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
   %358 = load ptr, ptr %0, align 8, !tbaa !46
   %359 = getelementptr inbounds i8, ptr %358, i64 8
   %360 = load ptr, ptr %359, align 8, !tbaa !47
@@ -600,7 +600,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   br i1 %372, label %373, label %379
 
 373:                                              ; preds = %364
-  %374 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %358, ptr noundef nonnull %369, ptr noundef nonnull %9) #15
+  %374 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %358, ptr noundef nonnull %369, ptr noundef nonnull %9) #16
   %375 = icmp eq i32 %374, 0
   br i1 %375, label %376, label %426
 
@@ -664,17 +664,17 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %421 = phi i32 [ %403, %407 ], [ %403, %406 ], [ 0, %413 ], [ 0, %412 ]
   %422 = phi i32 [ 255, %407 ], [ 255, %406 ], [ %416, %413 ], [ 255, %412 ]
   %423 = phi i32 [ %410, %407 ], [ 255, %406 ], [ 255, %413 ], [ 255, %412 ]
-  %424 = call noundef i32 @_ZN6asmjit9_abi_1_1013RAInstBuilder3addEPNS0_9RAWorkRegENS0_11RATiedFlagsEjjjjjjjj(ptr noundef nonnull align 8 dereferenceable(4160) %3, ptr noundef nonnull %381, i32 noundef %419, i32 noundef %395, i32 noundef %423, i32 noundef %421, i32 noundef %395, i32 noundef %422, i32 noundef %420, i32 noundef 0, i32 noundef -1) #15
+  %424 = call noundef i32 @_ZN6asmjit9_abi_1_1013RAInstBuilder3addEPNS0_9RAWorkRegENS0_11RATiedFlagsEjjjjjjjj(ptr noundef nonnull align 8 dereferenceable(4160) %3, ptr noundef nonnull %381, i32 noundef %419, i32 noundef %395, i32 noundef %423, i32 noundef %421, i32 noundef %395, i32 noundef %422, i32 noundef %420, i32 noundef 0, i32 noundef -1) #16
   %425 = icmp eq i32 %424, 0
   br i1 %425, label %428, label %426, !prof !50
 
 426:                                              ; preds = %418, %373, %357
   %427 = phi i32 [ %374, %373 ], [ %424, %418 ], [ 30, %357 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
   br label %802
 
 428:                                              ; preds = %418
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
   br label %429
 
 429:                                              ; preds = %428, %352, %349, %348
@@ -691,7 +691,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   br i1 %437, label %438, label %534
 
 438:                                              ; preds = %433
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
   %439 = load ptr, ptr %0, align 8, !tbaa !46
   %440 = getelementptr inbounds i8, ptr %439, i64 8
   %441 = load ptr, ptr %440, align 8, !tbaa !47
@@ -713,7 +713,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   br i1 %453, label %454, label %460
 
 454:                                              ; preds = %445
-  %455 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %439, ptr noundef nonnull %450, ptr noundef nonnull %10) #15
+  %455 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %439, ptr noundef nonnull %450, ptr noundef nonnull %10) #16
   %456 = icmp eq i32 %455, 0
   br i1 %456, label %457, label %531
 
@@ -817,16 +817,16 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
 
 529:                                              ; preds = %322, %303
   %530 = phi i32 [ %323, %322 ], [ 30, %303 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
   br label %802
 
 531:                                              ; preds = %509, %454, %438
   %532 = phi i32 [ %455, %454 ], [ 30, %438 ], [ 3, %509 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
   br label %802
 
 533:                                              ; preds = %513, %494
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
   br label %534
 
 534:                                              ; preds = %533, %433, %429, %296, %113, %79
@@ -856,7 +856,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   br i1 %552, label %553, label %594
 
 553:                                              ; preds = %548
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
   %554 = load ptr, ptr %0, align 8, !tbaa !46
   %555 = getelementptr inbounds i8, ptr %554, i64 8
   %556 = load ptr, ptr %555, align 8, !tbaa !47
@@ -878,7 +878,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   br i1 %568, label %569, label %575
 
 569:                                              ; preds = %560
-  %570 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %554, ptr noundef nonnull %565, ptr noundef nonnull %11) #15
+  %570 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %554, ptr noundef nonnull %565, ptr noundef nonnull %11) #16
   %571 = icmp eq i32 %570, 0
   br i1 %571, label %572, label %600
 
@@ -903,12 +903,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   br i1 %587, label %588, label %591
 
 588:                                              ; preds = %575
-  %589 = call noundef i32 @_ZN6asmjit9_abi_1_1013RAInstBuilder3addEPNS0_9RAWorkRegENS0_11RATiedFlagsEjjjjjjjj(ptr noundef nonnull align 8 dereferenceable(4160) %3, ptr noundef nonnull %577, i32 noundef 5, i32 noundef %586, i32 noundef 255, i32 noundef 1, i32 noundef %586, i32 noundef 255, i32 noundef 0, i32 noundef 0, i32 noundef -1) #15
+  %589 = call noundef i32 @_ZN6asmjit9_abi_1_1013RAInstBuilder3addEPNS0_9RAWorkRegENS0_11RATiedFlagsEjjjjjjjj(ptr noundef nonnull align 8 dereferenceable(4160) %3, ptr noundef nonnull %577, i32 noundef 5, i32 noundef %586, i32 noundef 255, i32 noundef 1, i32 noundef %586, i32 noundef 255, i32 noundef 0, i32 noundef 0, i32 noundef -1) #16
   %590 = icmp eq i32 %589, 0
   br i1 %590, label %602, label %600
 
 591:                                              ; preds = %575
-  %592 = call noundef i32 @_ZN6asmjit9_abi_1_1013RAInstBuilder3addEPNS0_9RAWorkRegENS0_11RATiedFlagsEjjjjjjjj(ptr noundef nonnull align 8 dereferenceable(4160) %3, ptr noundef nonnull %577, i32 noundef 7, i32 noundef %586, i32 noundef 1, i32 noundef 1, i32 noundef %586, i32 noundef 255, i32 noundef 0, i32 noundef 0, i32 noundef -1) #15
+  %592 = call noundef i32 @_ZN6asmjit9_abi_1_1013RAInstBuilder3addEPNS0_9RAWorkRegENS0_11RATiedFlagsEjjjjjjjj(ptr noundef nonnull align 8 dereferenceable(4160) %3, ptr noundef nonnull %577, i32 noundef 7, i32 noundef %586, i32 noundef 1, i32 noundef 1, i32 noundef %586, i32 noundef 255, i32 noundef 0, i32 noundef 0, i32 noundef -1) #16
   %593 = icmp eq i32 %592, 0
   br i1 %593, label %602, label %600
 
@@ -924,12 +924,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
 
 600:                                              ; preds = %591, %588, %569, %553
   %601 = phi i32 [ %592, %591 ], [ %589, %588 ], [ %570, %569 ], [ 30, %553 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
   br label %802
 
 602:                                              ; preds = %591, %588
   %603 = phi i32 [ %543, %591 ], [ 0, %588 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
   br label %604
 
 604:                                              ; preds = %602, %597, %594, %.loopexit35
@@ -1231,7 +1231,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
 
 802:                                              ; preds = %793, %600, %531, %529, %426, %294, %15, %4
   %803 = phi i32 [ 0, %793 ], [ 0, %4 ], [ %23, %15 ], [ %601, %600 ], [ %532, %531 ], [ %295, %294 ], [ %427, %426 ], [ %530, %529 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #16
   ret i32 %803
 }
 
@@ -1476,7 +1476,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
   ]
 
 43:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   %44 = load ptr, ptr %0, align 8, !tbaa !46
   %45 = getelementptr inbounds i8, ptr %38, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !44
@@ -1501,7 +1501,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %53
-  %63 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %44, ptr noundef nonnull %58, ptr noundef nonnull %3) #15
+  %63 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %44, ptr noundef nonnull %58, ptr noundef nonnull %3) #16
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %133
 
@@ -1533,14 +1533,14 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
   br i1 %81, label %136, label %135
 
 82:                                               ; preds = %74
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
   store <4 x i32> <i32 1, i32 255, i32 0, i32 0>, ptr %4, align 16, !tbaa !85
-  %83 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS1_3VecEPNS0_7BaseRegE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(16) %38, ptr noundef nonnull %4) #15
+  %83 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS1_3VecEPNS0_7BaseRegE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(16) %38, ptr noundef nonnull %4) #16
   %84 = load ptr, ptr %25, align 8, !tbaa !139
   %85 = getelementptr inbounds %"struct.asmjit::_abi_1_10::InvokeNode::OperandPack", ptr %84, i64 %28
   %86 = getelementptr inbounds [4 x %"struct.asmjit::_abi_1_10::Operand_"], ptr %85, i64 0, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %86, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   br label %117
 
 87:                                               ; preds = %73
@@ -1572,26 +1572,26 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
   br i1 %106, label %107, label %133
 
 107:                                              ; preds = %103
-  %108 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStackArgEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS0_7BaseRegE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr nonnull poison, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(16) %38) #15
+  %108 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStackArgEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS0_7BaseRegE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr nonnull poison, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(16) %38) #16
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %132, label %133, !prof !50
 
 110:                                              ; preds = %99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   store <4 x i32> <i32 1, i32 255, i32 0, i32 0>, ptr %5, align 16, !tbaa !85
-  %111 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS1_3VecEPNS0_7BaseRegE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(16) %38, ptr noundef nonnull %5) #15
-  %112 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStackArgEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS0_7BaseRegE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr nonnull poison, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(16) %5) #15
+  %111 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS1_3VecEPNS0_7BaseRegE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(16) %38, ptr noundef nonnull %5) #16
+  %112 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStackArgEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS0_7BaseRegE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr nonnull poison, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(16) %5) #16
   %113 = icmp eq i32 %112, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   br i1 %113, label %117, label %133
 
 114:                                              ; preds = %98
-  %115 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStackArgEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS0_7BaseRegE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr nonnull poison, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(16) %38) #15
+  %115 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStackArgEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS0_7BaseRegE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr nonnull poison, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(16) %38) #16
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %117, label %133
 
 117:                                              ; preds = %114, %110, %87, %82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   br label %137
 
 118:                                              ; preds = %41
@@ -1600,9 +1600,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
   br i1 %120, label %128, label %121
 
 121:                                              ; preds = %118
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
   store <4 x i32> <i32 1, i32 255, i32 0, i32 0>, ptr %6, align 16, !tbaa !85
-  %122 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder15moveImmToRegArgEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS0_3ImmEPNS0_7BaseRegE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr nonnull poison, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(16) %38, ptr noundef nonnull %6) #15
+  %122 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder15moveImmToRegArgEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS0_3ImmEPNS0_7BaseRegE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr nonnull poison, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(16) %38, ptr noundef nonnull %6) #16
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %124, label %131
 
@@ -1611,33 +1611,33 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
   %126 = getelementptr inbounds %"struct.asmjit::_abi_1_10::InvokeNode::OperandPack", ptr %125, i64 %28
   %127 = getelementptr inbounds [4 x %"struct.asmjit::_abi_1_10::Operand_"], ptr %126, i64 0, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %127, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   br label %137
 
 128:                                              ; preds = %118
-  %129 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveImmToStackArgEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS0_3ImmE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr nonnull poison, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(16) %38) #15
+  %129 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveImmToStackArgEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS0_3ImmE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr nonnull poison, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(16) %38) #16
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %137, label %.loopexit26
 
 131:                                              ; preds = %121
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   br label %.loopexit26
 
 132:                                              ; preds = %107
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   br label %137
 
 133:                                              ; preds = %114, %110, %107, %103, %62, %43
   %134 = phi i32 [ %108, %107 ], [ %112, %110 ], [ %115, %114 ], [ %63, %62 ], [ 25, %103 ], [ 30, %43 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   br label %.loopexit26
 
 135:                                              ; preds = %87, %78
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   br label %.loopexit26
 
 136:                                              ; preds = %78
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   br label %137
 
 137:                                              ; preds = %136, %132, %128, %124, %117, %41, %35
@@ -1671,7 +1671,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
   br i1 %155, label %168, label %156
 
 156:                                              ; preds = %152
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !148)
   %157 = getelementptr inbounds i8, ptr %146, i64 80
   %158 = load i32, ptr %157, align 4, !tbaa !85, !noalias !148
@@ -1682,7 +1682,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
   store i32 0, ptr %160, align 4, !tbaa !85, !alias.scope !148
   %161 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 0, ptr %161, align 4, !tbaa !85, !alias.scope !148
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #16
   store i32 3, ptr %8, align 4, !tbaa !85
   %162 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 0, ptr %162, align 4, !tbaa !44
@@ -1694,8 +1694,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
           to label %166 unwind label %313
 
 166:                                              ; preds = %156
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
   %167 = icmp eq i32 %165, 0
   br i1 %167, label %168, label %.loopexit26
 
@@ -1728,7 +1728,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
   br i1 %187, label %188, label %290
 
 188:                                              ; preds = %183
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
   %189 = load ptr, ptr %0, align 8, !tbaa !46
   %190 = getelementptr inbounds i8, ptr %184, i64 4
   %191 = load i32, ptr %190, align 4, !tbaa !44
@@ -1753,7 +1753,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
   br i1 %206, label %207, label %212
 
 207:                                              ; preds = %198
-  %208 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %189, ptr noundef nonnull %203, ptr noundef nonnull %9) #15
+  %208 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %189, ptr noundef nonnull %203, ptr noundef nonnull %9) #16
   %209 = icmp eq i32 %208, 0
   br i1 %209, label %210, label %.loopexit25
 
@@ -1781,14 +1781,14 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
   br i1 %224, label %225, label %.loopexit25
 
 225:                                              ; preds = %222
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #16
   %226 = getelementptr inbounds i8, ptr %219, i64 4
   %227 = load i32, ptr %226, align 4, !tbaa !151
   store i32 %221, ptr %10, align 4, !tbaa !85
   store i32 %227, ptr %174, align 4, !tbaa !44
   store i32 0, ptr %175, align 4, !tbaa !85
   store i32 0, ptr %176, align 4, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #16
   store <4 x i32> <i32 2, i32 0, i32 0, i32 0>, ptr %11, align 16, !tbaa !85
   %228 = getelementptr inbounds i8, ptr %219, i64 8
   %229 = load ptr, ptr %228, align 8, !tbaa !91
@@ -1808,7 +1808,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
 
 239:                                              ; preds = %225
   %240 = load ptr, ptr %0, align 8, !tbaa !46
-  %241 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass15useTemporaryMemERNS0_7BaseMemEjj(ptr noundef nonnull align 8 dereferenceable(944) %240, ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 4, i32 noundef 4) #15
+  %241 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass15useTemporaryMemERNS0_7BaseMemEjj(ptr noundef nonnull align 8 dereferenceable(944) %240, ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 4, i32 noundef 4) #16
   %242 = icmp eq i32 %241, 0
   br i1 %242, label %243, label %279
 
@@ -1839,7 +1839,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
 
 259:                                              ; preds = %225
   %260 = load ptr, ptr %0, align 8, !tbaa !46
-  %261 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass15useTemporaryMemERNS0_7BaseMemEjj(ptr noundef nonnull align 8 dereferenceable(944) %260, ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 8, i32 noundef 4) #15
+  %261 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass15useTemporaryMemERNS0_7BaseMemEjj(ptr noundef nonnull align 8 dereferenceable(944) %260, ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 8, i32 noundef 4) #16
   %262 = icmp eq i32 %261, 0
   br i1 %262, label %263, label %279
 
@@ -1870,13 +1870,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
 
 279:                                              ; preds = %277, %269, %259, %257, %249, %239, %225
   %280 = phi i32 [ 25, %225 ], [ %241, %239 ], [ %248, %249 ], [ %256, %257 ], [ %261, %259 ], [ %268, %269 ], [ %276, %277 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #16
   br label %.loopexit25
 
 281:                                              ; preds = %277, %257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #16
   br label %289
 
 282:                                              ; preds = %216
@@ -1889,7 +1889,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
   br i1 %288, label %289, label %.loopexit25
 
 289:                                              ; preds = %282, %281, %212
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
   br label %290
 
 290:                                              ; preds = %289, %183
@@ -1899,7 +1899,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
 
 .loopexit25:                                      ; preds = %282, %222, %207, %188, %279
   %293 = phi i32 [ %280, %279 ], [ 25, %282 ], [ 25, %222 ], [ %208, %207 ], [ 30, %188 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
   br label %.loopexit26
 
 .loopexit:                                        ; preds = %290, %178, %168
@@ -1941,7 +1941,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
 315:                                              ; preds = %313, %311
   %316 = phi { ptr, i32 } [ %312, %311 ], [ %314, %313 ]
   %317 = extractvalue { ptr, i32 } %316, 0
-  call void @__clang_call_terminate(ptr %317) #16
+  call void @__clang_call_terminate(ptr %317) #17
   unreachable
 }
 
@@ -1949,14 +1949,15 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS1_3VecEPNS0_7BaseRegE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(659) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3, ptr noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1993,7 +1994,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrE
   store i8 %32, ptr %30, align 1, !tbaa !183
   %33 = add i32 %24, %18
   store i32 %33, ptr %19, align 4, !tbaa !147
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
   %34 = icmp ugt i8 %14, 63
   %35 = icmp ugt i8 %14, 31
   %36 = select i1 %35, i32 536871273, i32 268435809
@@ -2007,7 +2008,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrE
   store i32 0, ptr %41, align 4, !tbaa !85
   %42 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 0, ptr %42, align 4, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
   %43 = load ptr, ptr %0, align 8, !tbaa !46
   %44 = getelementptr inbounds i8, ptr %43, i64 472
   tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
@@ -2070,7 +2071,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrE
 
 89:                                               ; preds = %87
   %90 = load ptr, ptr %59, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !189)
   %91 = load i32, ptr %4, align 4, !tbaa !37, !noalias !189
   %92 = and i32 %91, 248
@@ -2087,7 +2088,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrE
           to label %99 unwind label %126
 
 99:                                               ; preds = %89
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
   %100 = icmp eq i32 %98, 0
   br i1 %100, label %101, label %122
 
@@ -2098,7 +2099,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrE
   br i1 %104, label %121, label %105
 
 105:                                              ; preds = %101
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #16
   %106 = load ptr, ptr %0, align 8, !tbaa !46
   %107 = getelementptr inbounds i8, ptr %106, i64 472
   %108 = ashr i32 %102, 12
@@ -2121,7 +2122,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrE
 
 119:                                              ; preds = %105
   %120 = icmp eq i32 %118, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #16
   br i1 %120, label %121, label %122
 
 121:                                              ; preds = %119, %101
@@ -2129,8 +2130,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrE
 
 122:                                              ; preds = %121, %119, %99, %87, %73
   %123 = phi i32 [ %72, %73 ], [ 0, %121 ], [ %118, %119 ], [ %98, %99 ], [ %86, %87 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   br label %124
 
 124:                                              ; preds = %122, %5
@@ -2141,12 +2142,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrE
   %127 = landingpad { ptr, i32 }
           catch ptr null
   %128 = extractvalue { ptr, i32 } %127, 0
-  call void @__clang_call_terminate(ptr %128) #16
+  call void @__clang_call_terminate(ptr %128) #17
   unreachable
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStackArgEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS0_7BaseRegE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(659) %0, ptr nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -2154,7 +2155,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStac
   %6 = alloca %"class.asmjit::_abi_1_10::x86::Mem", align 4
   %7 = alloca %"class.asmjit::_abi_1_10::x86::Reg", align 16
   %8 = alloca %"class.asmjit::_abi_1_10::x86::Reg", align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
   %9 = load ptr, ptr %0, align 8, !tbaa !46
   %10 = getelementptr inbounds i8, ptr %9, i64 472
   %11 = load i32, ptr %2, align 4, !tbaa !137
@@ -2172,10 +2173,10 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStac
   store i32 0, ptr %19, align 4, !tbaa !85, !alias.scope !195
   %20 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 %12, ptr %20, align 4, !tbaa !85, !alias.scope !195
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
   %21 = getelementptr inbounds i8, ptr %7, i64 4
   store <4 x i32> <i32 1, i32 255, i32 0, i32 0>, ptr %7, align 16, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #16
   %22 = getelementptr inbounds i8, ptr %8, i64 4
   store <4 x i32> <i32 1, i32 255, i32 0, i32 0>, ptr %8, align 16, !tbaa !85
   %23 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2469,13 +2470,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStac
   %169 = add i32 %168, 4
   store i32 %169, ptr %20, align 4, !tbaa !85
   %170 = load ptr, ptr %23, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   store <4 x i32> <i32 3, i32 0, i32 0, i32 0>, ptr %5, align 16, !tbaa !85, !alias.scope !198
   %171 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %170, i32 noundef 21, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %5)
           to label %172 unwind label %207
 
 172:                                              ; preds = %167
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   %173 = icmp eq i32 %171, 0
   br i1 %173, label %174, label %205
 
@@ -2549,23 +2550,23 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStac
 
 205:                                              ; preds = %174, %172, %165, %158, %153, %148, %139, %130, %125, %102, %99, %96, %93, %90, %80, %59
   %206 = phi i32 [ 0, %174 ], [ %152, %153 ], [ %147, %148 ], [ %171, %172 ], [ %164, %165 ], [ %157, %158 ], [ %138, %139 ], [ 25, %99 ], [ 25, %102 ], [ 25, %96 ], [ 25, %93 ], [ 25, %90 ], [ 25, %80 ], [ 25, %59 ], [ 25, %125 ], [ %133, %130 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   ret i32 %206
 
 207:                                              ; preds = %167, %162, %155, %150, %145, %134, %130
   %208 = landingpad { ptr, i32 }
           catch ptr null
   %209 = extractvalue { ptr, i32 } %208, 0
-  call void @__clang_call_terminate(ptr %209) #16
+  call void @__clang_call_terminate(ptr %209) #17
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder15moveImmToRegArgEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS0_3ImmEPNS0_7BaseRegE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(659) %0, ptr nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3, ptr noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.asmjit::_abi_1_10::Imm", align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
   %7 = load i32, ptr %2, align 4, !tbaa !137
   %8 = trunc i32 %7 to i8
@@ -2673,14 +2674,14 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder15moveImmToRegA
 
 70:                                               ; preds = %58, %56, %5
   %71 = phi i32 [ %55, %56 ], [ 25, %5 ], [ %69, %58 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   ret i32 %71
 
 72:                                               ; preds = %58, %51
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #16
+  call void @__clang_call_terminate(ptr %74) #17
   unreachable
 }
 
@@ -2688,7 +2689,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder15moveImmToRegA
 define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveImmToStackArgEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS0_3ImmE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(659) %0, ptr nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.asmjit::_abi_1_10::x86::Mem", align 4
   %6 = alloca [2 x %"class.asmjit::_abi_1_10::Imm"], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   %7 = load ptr, ptr %0, align 8, !tbaa !46
   %8 = getelementptr inbounds i8, ptr %7, i64 472
   %9 = load i32, ptr %2, align 4, !tbaa !137
@@ -2704,7 +2705,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveImmToStac
   store i32 0, ptr %16, align 4, !tbaa !85, !alias.scope !201
   %17 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 %10, ptr %17, align 4, !tbaa !85, !alias.scope !201
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #16
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   %19 = getelementptr inbounds i8, ptr %6, i64 12
   %20 = getelementptr inbounds i8, ptr %6, i64 16
@@ -2839,15 +2840,15 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveImmToStac
 
 .loopexit:                                        ; preds = %84, %82, %4
   %91 = phi i32 [ 25, %4 ], [ %81, %82 ], [ 0, %84 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   ret i32 %91
 
 92:                                               ; preds = %77
   %93 = landingpad { ptr, i32 }
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0
-  call void @__clang_call_terminate(ptr %94) #16
+  call void @__clang_call_terminate(ptr %94) #17
   unreachable
 }
 
@@ -2897,7 +2898,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_
   br i1 %33, label %34, label %193
 
 34:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   %35 = load ptr, ptr %0, align 8, !tbaa !46
   %36 = getelementptr inbounds i8, ptr %30, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !44
@@ -2922,7 +2923,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %44
-  %54 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %35, ptr noundef nonnull %49, ptr noundef nonnull %4) #15
+  %54 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %35, ptr noundef nonnull %49, ptr noundef nonnull %4) #16
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %191
 
@@ -3138,12 +3139,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_
   br label %190
 
 190:                                              ; preds = %182, %150, %121, %118, %110, %80
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   br label %193
 
 191:                                              ; preds = %62, %53, %34
   %192 = phi i32 [ %54, %53 ], [ 3, %62 ], [ 30, %34 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   br i1 %20, label %356, label %.loopexit
 
 193:                                              ; preds = %190, %27, %22
@@ -3187,7 +3188,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_
   br i1 %219, label %220, label %309
 
 220:                                              ; preds = %216
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   %221 = load ptr, ptr %0, align 8, !tbaa !46
   %222 = getelementptr inbounds i8, ptr %213, i64 4
   %223 = load i32, ptr %222, align 4, !tbaa !44
@@ -3212,7 +3213,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_
   br i1 %238, label %239, label %244
 
 239:                                              ; preds = %230
-  %240 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %221, ptr noundef nonnull %235, ptr noundef nonnull %5) #15
+  %240 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %221, ptr noundef nonnull %235, ptr noundef nonnull %5) #16
   %241 = icmp eq i32 %240, 0
   br i1 %241, label %242, label %312
 
@@ -3317,7 +3318,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_
   br label %308
 
 308:                                              ; preds = %300, %277, %248
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   br label %309
 
 309:                                              ; preds = %308, %216, %212
@@ -3327,7 +3328,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_
 
 312:                                              ; preds = %296, %244, %239, %220
   %313 = phi i32 [ 25, %244 ], [ %240, %239 ], [ 30, %220 ], [ 65, %296 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   br label %356
 
 314:                                              ; preds = %309, %207
@@ -3383,7 +3384,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_
   ret i32 %357
 }
 
-declare noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7BaseRegENS0_6TypeIdEPKc(ptr noundef nonnull align 8 dereferenceable(504), ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7BaseRegENS0_6TypeIdEPKc(ptr noundef nonnull align 8 dereferenceable(504), ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEPNS0_11FuncRetNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(659) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -3436,7 +3437,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEP
   br i1 %39, label %40, label %127
 
 40:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   %41 = load ptr, ptr %0, align 8, !tbaa !46
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !47
@@ -3458,7 +3459,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEP
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %47
-  %57 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %41, ptr noundef nonnull %52, ptr noundef nonnull %3) #15
+  %57 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %41, ptr noundef nonnull %52, ptr noundef nonnull %3) #16
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %122
 
@@ -3475,14 +3476,14 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEP
   br i1 %66, label %67, label %122
 
 67:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
   %68 = getelementptr inbounds i8, ptr %62, i64 4
   %69 = load i32, ptr %68, align 4, !tbaa !151
   store i32 %64, ptr %4, align 4, !tbaa !85
   store i32 %69, ptr %19, align 4, !tbaa !44
   store i32 0, ptr %20, align 4, !tbaa !85
   store i32 0, ptr %21, align 4, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   store <4 x i32> <i32 2, i32 0, i32 0, i32 0>, ptr %5, align 16, !tbaa !85
   %70 = getelementptr inbounds i8, ptr %62, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !91
@@ -3503,7 +3504,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEP
 
 82:                                               ; preds = %67
   %83 = load ptr, ptr %0, align 8, !tbaa !46
-  %84 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass15useTemporaryMemERNS0_7BaseMemEjj(ptr noundef nonnull align 8 dereferenceable(944) %83, ptr noundef nonnull align 4 dereferenceable(16) %5, i32 noundef 4, i32 noundef 4) #15
+  %84 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass15useTemporaryMemERNS0_7BaseMemEjj(ptr noundef nonnull align 8 dereferenceable(944) %83, ptr noundef nonnull align 4 dereferenceable(16) %5, i32 noundef 4, i32 noundef 4) #16
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %124
 
@@ -3534,7 +3535,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEP
 
 102:                                              ; preds = %67
   %103 = load ptr, ptr %0, align 8, !tbaa !46
-  %104 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass15useTemporaryMemERNS0_7BaseMemEjj(ptr noundef nonnull align 8 dereferenceable(944) %103, ptr noundef nonnull align 4 dereferenceable(16) %5, i32 noundef 8, i32 noundef 4) #15
+  %104 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass15useTemporaryMemERNS0_7BaseMemEjj(ptr noundef nonnull align 8 dereferenceable(944) %103, ptr noundef nonnull align 4 dereferenceable(16) %5, i32 noundef 8, i32 noundef 4) #16
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %106, label %124
 
@@ -3565,20 +3566,20 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEP
 
 122:                                              ; preds = %61, %56, %40
   %123 = phi i32 [ 25, %61 ], [ %57, %56 ], [ 30, %40 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   br label %.loopexit
 
 124:                                              ; preds = %120, %115, %102, %100, %95, %82, %67
   %125 = phi i32 [ 25, %67 ], [ %84, %82 ], [ %94, %95 ], [ %99, %100 ], [ %104, %102 ], [ %114, %115 ], [ %119, %120 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   br label %.loopexit
 
 126:                                              ; preds = %120, %100
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   br label %127
 
 127:                                              ; preds = %126, %35, %31, %24
@@ -3594,7 +3595,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEP
   %132 = landingpad { ptr, i32 }
           catch ptr null
   %133 = extractvalue { ptr, i32 } %132, 0
-  call void @__clang_call_terminate(ptr %133) #16
+  call void @__clang_call_terminate(ptr %133) #17
   unreachable
 }
 
@@ -3647,7 +3648,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder5onRetEPNS0_11F
   br i1 %35, label %36, label %78
 
 36:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   %37 = load ptr, ptr %0, align 8, !tbaa !46
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !47
@@ -3669,7 +3670,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder5onRetEPNS0_11F
   br i1 %51, label %52, label %59
 
 52:                                               ; preds = %43
-  %53 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %37, ptr noundef nonnull %48, ptr noundef nonnull %4) #15
+  %53 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %37, ptr noundef nonnull %48, ptr noundef nonnull %4) #16
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %75
 
@@ -3693,17 +3694,17 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder5onRetEPNS0_11F
   %70 = load i32, ptr %69, align 4, !tbaa !85
   %71 = lshr i32 %60, 16
   %72 = and i32 %71, 255
-  %73 = call noundef i32 @_ZN6asmjit9_abi_1_1013RAInstBuilder3addEPNS0_9RAWorkRegENS0_11RATiedFlagsEjjjjjjjj(ptr noundef nonnull align 8 dereferenceable(4160) %2, ptr noundef %62, i32 noundef 5, i32 noundef %70, i32 noundef %72, i32 noundef 0, i32 noundef %70, i32 noundef 255, i32 noundef 0, i32 noundef 0, i32 noundef -1) #15
+  %73 = call noundef i32 @_ZN6asmjit9_abi_1_1013RAInstBuilder3addEPNS0_9RAWorkRegENS0_11RATiedFlagsEjjjjjjjj(ptr noundef nonnull align 8 dereferenceable(4160) %2, ptr noundef %62, i32 noundef 5, i32 noundef %70, i32 noundef %72, i32 noundef 0, i32 noundef %70, i32 noundef 255, i32 noundef 0, i32 noundef 0, i32 noundef -1) #16
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %77, label %75, !prof !50
 
 75:                                               ; preds = %59, %52, %36
   %76 = phi i32 [ %53, %52 ], [ %73, %59 ], [ 30, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   br label %.loopexit
 
 77:                                               ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   br label %78
 
 78:                                               ; preds = %77, %31, %25, %15
@@ -3718,7 +3719,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder5onRetEPNS0_11F
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6asmjit9_abi_1_103x869X86RAPassC2Ev(ptr noundef nonnull align 8 dereferenceable(968) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN6asmjit9_abi_1_1010BaseRAPassC2Ev(ptr noundef nonnull align 8 dereferenceable(944) %0) #15
+  tail call void @_ZN6asmjit9_abi_1_1010BaseRAPassC2Ev(ptr noundef nonnull align 8 dereferenceable(944) %0) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6asmjit9_abi_1_103x869X86RAPassE, i64 16), ptr %0, align 8, !tbaa !211
   %2 = getelementptr inbounds i8, ptr %0, i64 944
   %3 = getelementptr inbounds i8, ptr %0, i64 952
@@ -3741,22 +3742,22 @@ declare void @_ZN6asmjit9_abi_1_1010BaseRAPassD2Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6asmjit9_abi_1_103x869X86RAPassD2Ev(ptr noundef nonnull align 8 dereferenceable(968) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN6asmjit9_abi_1_1010BaseRAPassD2Ev(ptr noundef nonnull align 8 dereferenceable(944) %0) #15
+  tail call void @_ZN6asmjit9_abi_1_1010BaseRAPassD2Ev(ptr noundef nonnull align 8 dereferenceable(944) %0) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6asmjit9_abi_1_103x869X86RAPassD0Ev(ptr noundef nonnull align 8 dereferenceable(968) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN6asmjit9_abi_1_1010BaseRAPassD2Ev(ptr noundef nonnull align 8 dereferenceable(944) %0) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN6asmjit9_abi_1_1010BaseRAPassD2Ev(ptr noundef nonnull align 8 dereferenceable(944) %0) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6asmjit9_abi_1_103x869X86RAPass6onInitEv(ptr nocapture noundef nonnull align 8 dereferenceable(968) %0) unnamed_addr #7 align 2 {
+define hidden void @_ZN6asmjit9_abi_1_103x869X86RAPass6onInitEv(ptr nocapture noundef nonnull align 8 dereferenceable(968) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !47
   %4 = getelementptr inbounds i8, ptr %3, i64 72
@@ -3866,14 +3867,14 @@ define hidden void @_ZN6asmjit9_abi_1_103x869X86RAPass6onInitEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6asmjit9_abi_1_103x869X86RAPass6onDoneEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN6asmjit9_abi_1_103x869X86RAPass6onDoneEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #9 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8buildCFGEv(ptr noundef nonnull align 8 dereferenceable(968) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.asmjit::_abi_1_10::x86::RACFGBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 664, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(i64 664, ptr nonnull %2) #16
   store ptr %0, ptr %2, align 8, !tbaa !46
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3932,9 +3933,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8buildCFGEv(ptr nou
   %37 = getelementptr inbounds i8, ptr %0, i64 960
   %38 = load i8, ptr %37, align 8, !tbaa !220, !range !42, !noundef !43
   store i8 %38, ptr %36, align 2, !tbaa !154
-  %39 = call noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE3runEv(ptr noundef nonnull align 8 dereferenceable(656) %2) #15
-  %40 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #15
-  call void @llvm.lifetime.end.p0(i64 664, ptr nonnull %2) #15
+  %39 = call noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE3runEv(ptr noundef nonnull align 8 dereferenceable(656) %2) #16
+  %40 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #16
+  call void @llvm.lifetime.end.p0(i64 664, ptr nonnull %2) #16
   ret i32 %39
 }
 
@@ -3952,11 +3953,11 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %1
-  %12 = tail call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull @.str.5) #15
+  %12 = tail call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull @.str.5) #16
   br label %13
 
 13:                                               ; preds = %11, %1
-  %14 = tail call noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE7prepareEv(ptr noundef nonnull align 8 dereferenceable(656) %0) #15
+  %14 = tail call noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE7prepareEv(ptr noundef nonnull align 8 dereferenceable(656) %0) #16
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %846
 
@@ -3973,13 +3974,13 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 22:                                               ; preds = %16
   %23 = load ptr, ptr %17, align 8, !tbaa !181
   %24 = getelementptr inbounds i8, ptr %0, i64 104
-  %25 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #15
-  %26 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String8_opCharsENS1_8ModifyOpEcm(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 1, i8 noundef signext 32, i64 noundef 2) #15
+  %25 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #16
+  %26 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String8_opCharsENS1_8ModifyOpEcm(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 1, i8 noundef signext 32, i64 noundef 2) #16
   %27 = getelementptr inbounds i8, ptr %0, i64 88
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !69
-  %30 = tail call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatNodeERNS0_6StringERKNS0_13FormatOptionsEPKNS0_11BaseBuilderEPKNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 4 dereferenceable(12) %27, ptr noundef %29, ptr noundef %23) #15
-  %31 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 1, i8 noundef signext 10) #15
+  %30 = tail call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatNodeERNS0_6StringERKNS0_13FormatOptionsEPKNS0_11BaseBuilderEPKNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 4 dereferenceable(12) %27, ptr noundef %29, ptr noundef %23) #16
+  %31 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 1, i8 noundef signext 10) #16
   %32 = load ptr, ptr %8, align 8, !tbaa !234
   %33 = load i8, ptr %24, align 8
   %34 = icmp ugt i8 %33, 30
@@ -3994,7 +3995,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %43 = load ptr, ptr %32, align 8, !tbaa !211
   %44 = getelementptr inbounds i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(20) %32, ptr noundef %38, i64 noundef %42) #15
+  %46 = tail call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(20) %32, ptr noundef %38, i64 noundef %42) #16
   %47 = load ptr, ptr %8, align 8, !tbaa !234
   %48 = getelementptr inbounds i8, ptr %0, i64 16
   %49 = icmp eq ptr %47, null
@@ -4002,11 +4003,11 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 
 50:                                               ; preds = %22
   %51 = load ptr, ptr %48, align 8, !tbaa !156
-  %52 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #15
-  %53 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String8_opCharsENS1_8ModifyOpEcm(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 1, i8 noundef signext 32, i64 noundef 2) #15
+  %52 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #16
+  %53 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String8_opCharsENS1_8ModifyOpEcm(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 1, i8 noundef signext 32, i64 noundef 2) #16
   %54 = getelementptr inbounds i8, ptr %51, i64 8
   %55 = load i32, ptr %54, align 8, !tbaa !237
-  %56 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 1, ptr noundef nonnull @.str.6, i32 noundef %55) #15
+  %56 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 1, ptr noundef nonnull @.str.6, i32 noundef %55) #16
   %57 = load ptr, ptr %8, align 8, !tbaa !234
   %58 = load i8, ptr %24, align 8
   %59 = icmp ugt i8 %58, 30
@@ -4018,7 +4019,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %65 = load ptr, ptr %57, align 8, !tbaa !211
   %66 = getelementptr inbounds i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call noundef i32 %67(ptr noundef nonnull align 8 dereferenceable(20) %57, ptr noundef %61, i64 noundef %64) #15
+  %68 = tail call noundef i32 %67(ptr noundef nonnull align 8 dereferenceable(20) %57, ptr noundef %61, i64 noundef %64) #16
   %69 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %51, ptr %69, align 8, !tbaa !239
   br label %70
@@ -4037,12 +4038,12 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   store ptr %73, ptr %78, align 8, !tbaa !240
   %79 = getelementptr inbounds i8, ptr %72, i64 24
   store ptr %73, ptr %79, align 8, !tbaa !241
-  call void @llvm.lifetime.start.p0(i64 4160, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 4160, ptr nonnull %3) #16
   %80 = getelementptr inbounds i8, ptr %3, i64 64
   %81 = getelementptr inbounds i8, ptr %3, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %3, i8 0, i64 52, i1 false)
   store ptr %80, ptr %81, align 8, !tbaa !97
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %82 = getelementptr inbounds i8, ptr %0, i64 64
   %83 = getelementptr inbounds i8, ptr %0, i64 104
@@ -4086,7 +4087,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   br i1 %116, label %117, label %118, !prof !209
 
 117:                                              ; preds = %114
-  call void @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE10removeNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef nonnull %107) #15
+  call void @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE10removeNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef nonnull %107) #16
   br label %821, !llvm.loop !242
 
 118:                                              ; preds = %114
@@ -4112,13 +4113,13 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 
 129:                                              ; preds = %121
   %130 = load ptr, ptr %107, align 8, !tbaa !11
-  %131 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvokeEPNS0_10InvokeNodeE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr noundef nonnull %107) #15
+  %131 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvokeEPNS0_10InvokeNodeE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr noundef nonnull %107) #16
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %137, label %.loopexit56
 
 133:                                              ; preds = %125
   %134 = load ptr, ptr %107, align 8, !tbaa !11
-  %135 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEPNS0_11FuncRetNodeE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr noundef nonnull %107) #15
+  %135 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEPNS0_11FuncRetNodeE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr noundef nonnull %107) #16
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %.loopexit56
 
@@ -4167,11 +4168,11 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   br i1 %163, label %182, label %164
 
 164:                                              ; preds = %159
-  %165 = call noundef i32 @_ZN6asmjit9_abi_1_106String5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #15
-  %166 = call noundef i32 @_ZN6asmjit9_abi_1_106String8_opCharsENS1_8ModifyOpEcm(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, i8 noundef signext 32, i64 noundef 4) #15
+  %165 = call noundef i32 @_ZN6asmjit9_abi_1_106String5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #16
+  %166 = call noundef i32 @_ZN6asmjit9_abi_1_106String8_opCharsENS1_8ModifyOpEcm(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, i8 noundef signext 32, i64 noundef 4) #16
   %167 = load ptr, ptr %85, align 8, !tbaa !69
-  %168 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatNodeERNS0_6StringERKNS0_13FormatOptionsEPKNS0_11BaseBuilderEPKNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 4 dereferenceable(12) %84, ptr noundef %167, ptr noundef nonnull %161) #15
-  %169 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, i8 noundef signext 10) #15
+  %168 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatNodeERNS0_6StringERKNS0_13FormatOptionsEPKNS0_11BaseBuilderEPKNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 4 dereferenceable(12) %84, ptr noundef %167, ptr noundef nonnull %161) #16
+  %169 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, i8 noundef signext 10) #16
   %170 = load ptr, ptr %8, align 8, !tbaa !234
   %171 = load i8, ptr %83, align 8
   %172 = icmp ugt i8 %171, 30
@@ -4183,15 +4184,15 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %178 = load ptr, ptr %170, align 8, !tbaa !211
   %179 = getelementptr inbounds i8, ptr %178, i64 16
   %180 = load ptr, ptr %179, align 8
-  %181 = call noundef i32 %180(ptr noundef nonnull align 8 dereferenceable(20) %170, ptr noundef %174, i64 noundef %177) #15
+  %181 = call noundef i32 %180(ptr noundef nonnull align 8 dereferenceable(20) %170, ptr noundef %174, i64 noundef %177) #16
   br label %182
 
 182:                                              ; preds = %164, %159
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
   store i32 0, ptr %5, align 4, !tbaa !118
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %3, i8 0, i64 52, i1 false)
   store ptr %80, ptr %81, align 8, !tbaa !97
-  %183 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8InstNodeERNS0_15InstControlFlowERNS0_13RAInstBuilderE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr noundef nonnull %161, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(4160) %3) #15
+  %183 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8InstNodeERNS0_15InstControlFlowERNS0_13RAInstBuilderE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr noundef nonnull %161, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(4160) %3) #16
   %184 = icmp eq i32 %183, 0
   br i1 %184, label %185, label %_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcrossSuccessorsEPNS0_7RABlockE.exit
 
@@ -4202,7 +4203,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   br i1 %188, label %189, label %194
 
 189:                                              ; preds = %185
-  %190 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_10InvokeNodeERNS0_13RAInstBuilderE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr noundef nonnull %161, ptr noundef nonnull align 8 dereferenceable(4160) %3) #15
+  %190 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_10InvokeNodeERNS0_13RAInstBuilderE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr noundef nonnull %161, ptr noundef nonnull align 8 dereferenceable(4160) %3) #16
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %192, label %_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcrossSuccessorsEPNS0_7RABlockE.exit
 
@@ -4216,7 +4217,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   br i1 %196, label %197, label %201
 
 197:                                              ; preds = %194
-  %198 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder5onRetEPNS0_11FuncRetNodeERNS0_13RAInstBuilderE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr noundef nonnull %161, ptr noundef nonnull align 8 dereferenceable(4160) %3) #15
+  %198 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder5onRetEPNS0_11FuncRetNodeERNS0_13RAInstBuilderE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr noundef nonnull %161, ptr noundef nonnull align 8 dereferenceable(4160) %3) #16
   %199 = icmp eq i32 %198, 0
   br i1 %199, label %200, label %_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcrossSuccessorsEPNS0_7RABlockE.exit
 
@@ -4310,7 +4311,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   br i1 %264, label %265, label %267, !prof !209
 
 265:                                              ; preds = %.loopexit55
-  %266 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone6_allocEmm(ptr noundef nonnull align 8 dereferenceable(32) %255, i64 noundef %257, i64 noundef 1) #15
+  %266 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone6_allocEmm(ptr noundef nonnull align 8 dereferenceable(32) %255, i64 noundef %257, i64 noundef 1) #16
   br label %269
 
 267:                                              ; preds = %.loopexit55
@@ -4333,7 +4334,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %276 = getelementptr inbounds i8, ptr %270, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %275, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %276, ptr noundef nonnull align 4 dereferenceable(16) %90, i64 16, i1 false), !tbaa.struct !252
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #16
   %277 = load i32, ptr %91, align 8, !tbaa !253
   %278 = xor i32 %277, -1
   %279 = load i8, ptr %92, align 4, !tbaa !11
@@ -4448,7 +4449,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 .loopexit:                                        ; preds = %356, %272
   %359 = getelementptr inbounds i8, ptr %161, i64 32
   store ptr %270, ptr %359, align 8, !tbaa !256
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #16
   %360 = load i32, ptr %97, align 8, !tbaa !96
   %361 = load i32, ptr %96, align 8, !tbaa !96
   %362 = or i32 %361, %360
@@ -4496,7 +4497,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   br i1 %391, label %392, label %414
 
 392:                                              ; preds = %383
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
   %393 = load ptr, ptr %85, align 8, !tbaa !69
   %394 = getelementptr inbounds i8, ptr %388, i64 4
   %395 = load i32, ptr %394, align 4, !tbaa !44
@@ -4510,7 +4511,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 399:                                              ; preds = %397
   %400 = load ptr, ptr %0, align 8, !tbaa !46
   %401 = load ptr, ptr %6, align 8, !tbaa !52
-  %402 = call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass20newBlockOrExistingAtEPNS0_9LabelNodeEPPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944) %400, ptr noundef %401, ptr noundef null) #15
+  %402 = call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass20newBlockOrExistingAtEPNS0_9LabelNodeEPPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944) %400, ptr noundef %401, ptr noundef null) #16
   %403 = icmp eq ptr %402, null
   br i1 %403, label %411, label %404, !prof !209
 
@@ -4520,17 +4521,17 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %407 = or i32 %406, 4
   store i32 %407, ptr %405, align 4, !tbaa !157
   %408 = load ptr, ptr %71, align 8, !tbaa !156
-  %409 = call noundef i32 @_ZN6asmjit9_abi_1_107RABlock15appendSuccessorEPS1_(ptr noundef nonnull align 8 dereferenceable(208) %408, ptr noundef nonnull %402) #15
+  %409 = call noundef i32 @_ZN6asmjit9_abi_1_107RABlock15appendSuccessorEPS1_(ptr noundef nonnull align 8 dereferenceable(208) %408, ptr noundef nonnull %402) #16
   %410 = icmp eq i32 %409, 0
   br i1 %410, label %413, label %411
 
 411:                                              ; preds = %404, %399, %397
   %412 = phi i32 [ 1, %399 ], [ %409, %404 ], [ %396, %397 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
   br label %_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcrossSuccessorsEPNS0_7RABlockE.exit
 
 413:                                              ; preds = %404
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
   br label %_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcrossSuccessorsEPNS0_7RABlockE.exit.thread
 
 414:                                              ; preds = %383
@@ -4564,7 +4565,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 .preheader54:                                     ; preds = %422, %456
   %434 = phi ptr [ %457, %456 ], [ %428, %422 ]
   %435 = load i32, ptr %434, align 4, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
   %436 = load ptr, ptr %85, align 8, !tbaa !69
   %437 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11labelNodeOfEPPNS0_9LabelNodeEj(ptr noundef nonnull align 8 dereferenceable(410) %436, ptr noundef nonnull %7, i32 noundef %435)
           to label %438 unwind label %848
@@ -4576,7 +4577,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 440:                                              ; preds = %438
   %441 = load ptr, ptr %0, align 8, !tbaa !46
   %442 = load ptr, ptr %7, align 8, !tbaa !52
-  %443 = call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass20newBlockOrExistingAtEPNS0_9LabelNodeEPPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944) %441, ptr noundef %442, ptr noundef null) #15
+  %443 = call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass20newBlockOrExistingAtEPNS0_9LabelNodeEPPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944) %441, ptr noundef %442, ptr noundef null) #16
   %444 = icmp eq ptr %443, null
   br i1 %444, label %459, label %445, !prof !209
 
@@ -4593,19 +4594,19 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %452 = or i32 %451, 4
   store i32 %452, ptr %450, align 4, !tbaa !157
   %453 = load ptr, ptr %71, align 8, !tbaa !156
-  %454 = call noundef i32 @_ZN6asmjit9_abi_1_107RABlock15appendSuccessorEPS1_(ptr noundef nonnull align 8 dereferenceable(208) %453, ptr noundef nonnull %443) #15
+  %454 = call noundef i32 @_ZN6asmjit9_abi_1_107RABlock15appendSuccessorEPS1_(ptr noundef nonnull align 8 dereferenceable(208) %453, ptr noundef nonnull %443) #16
   %455 = icmp eq i32 %454, 0
   br i1 %455, label %456, label %459
 
 456:                                              ; preds = %449, %445
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   %457 = getelementptr inbounds i8, ptr %434, i64 4
   %458 = icmp eq ptr %457, %432
   br i1 %458, label %461, label %.preheader54
 
 459:                                              ; preds = %449, %440, %438
   %460 = phi i32 [ 1, %440 ], [ %454, %449 ], [ %437, %438 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   br label %_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcrossSuccessorsEPNS0_7RABlockE.exit
 
 461:                                              ; preds = %456
@@ -4674,7 +4675,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 501:                                              ; preds = %497
   %502 = load ptr, ptr %0, align 8, !tbaa !46
   %503 = getelementptr inbounds i8, ptr %502, i64 24
-  %504 = call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull %503, i32 noundef 4, i32 noundef 1) #15
+  %504 = call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull %503, i32 noundef 4, i32 noundef 1) #16
   %505 = icmp eq i32 %504, 0
   br i1 %505, label %506, label %_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcrossSuccessorsEPNS0_7RABlockE.exit
 
@@ -4713,7 +4714,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 525:                                              ; preds = %521
   %526 = load ptr, ptr %0, align 8, !tbaa !46
   %527 = getelementptr inbounds i8, ptr %526, i64 24
-  %528 = call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %527, i32 noundef 8, i32 noundef 1) #15
+  %528 = call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %527, i32 noundef 8, i32 noundef 1) #16
   %529 = icmp eq i32 %528, 0
   br i1 %529, label %530, label %_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcrossSuccessorsEPNS0_7RABlockE.exit
 
@@ -4755,7 +4756,7 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcr
 
 551:                                              ; preds = %547
   %552 = load ptr, ptr %0, align 8, !tbaa !46
-  %553 = call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass8newBlockEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944) %552, ptr noundef nonnull %160) #15
+  %553 = call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass8newBlockEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944) %552, ptr noundef nonnull %160) #16
   %554 = icmp eq ptr %553, null
   br i1 %554, label %_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcrossSuccessorsEPNS0_7RABlockE.exit, label %555, !prof !209
 
@@ -4765,7 +4766,7 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcr
 
 556:                                              ; preds = %543
   %557 = load ptr, ptr %0, align 8, !tbaa !46
-  %558 = call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass8newBlockEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944) %557, ptr noundef nonnull %160) #15
+  %558 = call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass8newBlockEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944) %557, ptr noundef nonnull %160) #16
   %559 = icmp eq ptr %558, null
   br i1 %559, label %_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcrossSuccessorsEPNS0_7RABlockE.exit, label %560, !prof !209
 
@@ -4776,7 +4777,7 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcr
   %564 = load i32, ptr %563, align 4, !tbaa !157
   %565 = or i32 %564, 512
   store i32 %565, ptr %563, align 4, !tbaa !157
-  %566 = call noundef i32 @_ZN6asmjit9_abi_1_107RABlock16prependSuccessorEPS1_(ptr noundef nonnull align 8 dereferenceable(208) %562, ptr noundef nonnull %561) #15
+  %566 = call noundef i32 @_ZN6asmjit9_abi_1_107RABlock16prependSuccessorEPS1_(ptr noundef nonnull align 8 dereferenceable(208) %562, ptr noundef nonnull %561) #16
   %567 = icmp eq i32 %566, 0
   br i1 %567, label %568, label %_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcrossSuccessorsEPNS0_7RABlockE.exit
 
@@ -4792,7 +4793,7 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcr
 
 573:                                              ; preds = %568
   %574 = load ptr, ptr %0, align 8, !tbaa !46
-  %575 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass8addBlockEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944) %574, ptr noundef nonnull %561) #15
+  %575 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass8addBlockEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944) %574, ptr noundef nonnull %561) #16
   %576 = icmp eq i32 %575, 0
   br i1 %576, label %577, label %_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcrossSuccessorsEPNS0_7RABlockE.exit
 
@@ -4803,11 +4804,11 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcr
 
 580:                                              ; preds = %577
   %581 = load ptr, ptr %71, align 8, !tbaa !156
-  %582 = call noundef i32 @_ZN6asmjit9_abi_1_106String5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #15
-  %583 = call noundef i32 @_ZN6asmjit9_abi_1_106String8_opCharsENS1_8ModifyOpEcm(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, i8 noundef signext 32, i64 noundef 2) #15
+  %582 = call noundef i32 @_ZN6asmjit9_abi_1_106String5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #16
+  %583 = call noundef i32 @_ZN6asmjit9_abi_1_106String8_opCharsENS1_8ModifyOpEcm(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, i8 noundef signext 32, i64 noundef 2) #16
   %584 = getelementptr inbounds i8, ptr %581, i64 8
   %585 = load i32, ptr %584, align 8, !tbaa !237
-  %586 = call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, ptr noundef nonnull @.str.6, i32 noundef %585) #15
+  %586 = call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, ptr noundef nonnull @.str.6, i32 noundef %585) #16
   %587 = load ptr, ptr %8, align 8, !tbaa !234
   %588 = load i8, ptr %83, align 8
   %589 = icmp ugt i8 %588, 30
@@ -4819,12 +4820,12 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcr
   %595 = load ptr, ptr %587, align 8, !tbaa !211
   %596 = getelementptr inbounds i8, ptr %595, i64 16
   %597 = load ptr, ptr %596, align 8
-  %598 = call noundef i32 %597(ptr noundef nonnull align 8 dereferenceable(20) %587, ptr noundef %591, i64 noundef %594) #15
+  %598 = call noundef i32 %597(ptr noundef nonnull align 8 dereferenceable(20) %587, ptr noundef %591, i64 noundef %594) #16
   store ptr %581, ptr %101, align 8, !tbaa !239
   br label %_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABlockEj.exit
 
 _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABlockEj.exit: ; preds = %577, %580
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
   br label %821
 
 599:                                              ; preds = %364
@@ -4844,7 +4845,7 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   %609 = or i32 %608, %362
   store i32 %609, ptr %607, align 4, !tbaa !96
   %610 = load ptr, ptr %98, align 8, !tbaa !265
-  %611 = call noundef i32 @_ZN6asmjit9_abi_1_107RABlock15appendSuccessorEPS1_(ptr noundef nonnull align 8 dereferenceable(208) %602, ptr noundef %610) #15
+  %611 = call noundef i32 @_ZN6asmjit9_abi_1_107RABlock15appendSuccessorEPS1_(ptr noundef nonnull align 8 dereferenceable(208) %602, ptr noundef %610) #16
   %612 = icmp eq i32 %611, 0
   br i1 %612, label %613, label %_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcrossSuccessorsEPNS0_7RABlockE.exit
 
@@ -4853,7 +4854,7 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   br label %614
 
 614:                                              ; preds = %613, %599, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
   br label %816
 
 615:                                              ; preds = %106
@@ -4883,7 +4884,7 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
 
 631:                                              ; preds = %624
   %632 = load ptr, ptr %0, align 8, !tbaa !46
-  %633 = call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass8newBlockEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944) %632, ptr noundef nonnull %107) #15
+  %633 = call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass8newBlockEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944) %632, ptr noundef nonnull %107) #16
   store ptr %633, ptr %71, align 8, !tbaa !156
   %634 = icmp eq ptr %633, null
   br i1 %634, label %.loopexit56, label %635, !prof !209
@@ -4903,7 +4904,7 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   store i8 0, ptr %82, align 8, !tbaa !243
   store i32 0, ptr %96, align 8, !tbaa !96
   %643 = load ptr, ptr %0, align 8, !tbaa !46
-  %644 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass8addBlockEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944) %643, ptr noundef nonnull %640) #15
+  %644 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass8addBlockEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944) %643, ptr noundef nonnull %640) #16
   %645 = icmp eq i32 %644, 0
   br i1 %645, label %646, label %.loopexit56
 
@@ -4941,13 +4942,13 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   %666 = load i32, ptr %664, align 4, !tbaa !96
   %667 = or i32 %666, %665
   store i32 %667, ptr %664, align 4, !tbaa !96
-  %668 = call noundef i32 @_ZN6asmjit9_abi_1_107RABlock15appendSuccessorEPS1_(ptr noundef nonnull align 8 dereferenceable(208) %620, ptr noundef nonnull %623) #15
+  %668 = call noundef i32 @_ZN6asmjit9_abi_1_107RABlock15appendSuccessorEPS1_(ptr noundef nonnull align 8 dereferenceable(208) %620, ptr noundef nonnull %623) #16
   %669 = icmp eq i32 %668, 0
   br i1 %669, label %670, label %.loopexit56
 
 670:                                              ; preds = %658
   %671 = load ptr, ptr %0, align 8, !tbaa !46
-  %672 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass8addBlockEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944) %671, ptr noundef nonnull %623) #15
+  %672 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass8addBlockEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944) %671, ptr noundef nonnull %623) #16
   %673 = icmp eq i32 %672, 0
   br i1 %673, label %674, label %.loopexit56
 
@@ -4978,7 +4979,7 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   %689 = or i32 %688, %687
   store i32 %689, ptr %686, align 4, !tbaa !96
   %690 = load ptr, ptr %0, align 8, !tbaa !46
-  %691 = call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass8newBlockEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944) %690, ptr noundef nonnull %107) #15
+  %691 = call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass8newBlockEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944) %690, ptr noundef nonnull %107) #16
   %692 = icmp eq ptr %691, null
   br i1 %692, label %.loopexit56, label %693, !prof !209
 
@@ -4988,13 +4989,13 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   %696 = or i32 %695, 4
   store i32 %696, ptr %694, align 4, !tbaa !157
   %697 = load ptr, ptr %71, align 8, !tbaa !156
-  %698 = call noundef i32 @_ZN6asmjit9_abi_1_107RABlock15appendSuccessorEPS1_(ptr noundef nonnull align 8 dereferenceable(208) %697, ptr noundef nonnull %691) #15
+  %698 = call noundef i32 @_ZN6asmjit9_abi_1_107RABlock15appendSuccessorEPS1_(ptr noundef nonnull align 8 dereferenceable(208) %697, ptr noundef nonnull %691) #16
   %699 = icmp eq i32 %698, 0
   br i1 %699, label %700, label %.loopexit56
 
 700:                                              ; preds = %693
   %701 = load ptr, ptr %0, align 8, !tbaa !46
-  %702 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass8addBlockEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944) %701, ptr noundef nonnull %691) #15
+  %702 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass8addBlockEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944) %701, ptr noundef nonnull %691) #16
   %703 = icmp eq i32 %702, 0
   br i1 %703, label %704, label %.loopexit56
 
@@ -5023,11 +5024,11 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   br i1 %715, label %756, label %716
 
 716:                                              ; preds = %714
-  %717 = call noundef i32 @_ZN6asmjit9_abi_1_106String5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #15
-  %718 = call noundef i32 @_ZN6asmjit9_abi_1_106String8_opCharsENS1_8ModifyOpEcm(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, i8 noundef signext 32, i64 noundef 2) #15
+  %717 = call noundef i32 @_ZN6asmjit9_abi_1_106String5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #16
+  %718 = call noundef i32 @_ZN6asmjit9_abi_1_106String8_opCharsENS1_8ModifyOpEcm(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, i8 noundef signext 32, i64 noundef 2) #16
   %719 = getelementptr inbounds i8, ptr %708, i64 8
   %720 = load i32, ptr %719, align 8, !tbaa !237
-  %721 = call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, ptr noundef nonnull @.str.6, i32 noundef %720) #15
+  %721 = call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, ptr noundef nonnull @.str.6, i32 noundef %720) #16
   %722 = load ptr, ptr %8, align 8, !tbaa !234
   %723 = load i8, ptr %83, align 8
   %724 = icmp ugt i8 %723, 30
@@ -5039,7 +5040,7 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   %730 = load ptr, ptr %722, align 8, !tbaa !211
   %731 = getelementptr inbounds i8, ptr %730, i64 16
   %732 = load ptr, ptr %731, align 8
-  %733 = call noundef i32 %732(ptr noundef nonnull align 8 dereferenceable(20) %722, ptr noundef %726, i64 noundef %729) #15
+  %733 = call noundef i32 %732(ptr noundef nonnull align 8 dereferenceable(20) %722, ptr noundef %726, i64 noundef %729) #16
   store ptr %708, ptr %101, align 8, !tbaa !239
   %734 = load ptr, ptr %8, align 8, !tbaa !234
   br label %735
@@ -5050,11 +5051,11 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   br i1 %737, label %756, label %738
 
 738:                                              ; preds = %735
-  %739 = call noundef i32 @_ZN6asmjit9_abi_1_106String5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #15
-  %740 = call noundef i32 @_ZN6asmjit9_abi_1_106String8_opCharsENS1_8ModifyOpEcm(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, i8 noundef signext 32, i64 noundef 2) #15
+  %739 = call noundef i32 @_ZN6asmjit9_abi_1_106String5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #16
+  %740 = call noundef i32 @_ZN6asmjit9_abi_1_106String8_opCharsENS1_8ModifyOpEcm(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, i8 noundef signext 32, i64 noundef 2) #16
   %741 = load ptr, ptr %85, align 8, !tbaa !69
-  %742 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatNodeERNS0_6StringERKNS0_13FormatOptionsEPKNS0_11BaseBuilderEPKNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 4 dereferenceable(12) %84, ptr noundef %741, ptr noundef nonnull %107) #15
-  %743 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, i8 noundef signext 10) #15
+  %742 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatNodeERNS0_6StringERKNS0_13FormatOptionsEPKNS0_11BaseBuilderEPKNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 4 dereferenceable(12) %84, ptr noundef %741, ptr noundef nonnull %107) #16
+  %743 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, i8 noundef signext 10) #16
   %744 = load ptr, ptr %8, align 8, !tbaa !234
   %745 = load i8, ptr %83, align 8
   %746 = icmp ugt i8 %745, 30
@@ -5066,7 +5067,7 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   %752 = load ptr, ptr %744, align 8, !tbaa !211
   %753 = getelementptr inbounds i8, ptr %752, i64 16
   %754 = load ptr, ptr %753, align 8
-  %755 = call noundef i32 %754(ptr noundef nonnull align 8 dereferenceable(20) %744, ptr noundef %748, i64 noundef %751) #15
+  %755 = call noundef i32 %754(ptr noundef nonnull align 8 dereferenceable(20) %744, ptr noundef %748, i64 noundef %751) #16
   br label %756
 
 756:                                              ; preds = %738, %735, %714
@@ -5090,7 +5091,7 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   %770 = or i32 %769, %768
   store i32 %770, ptr %767, align 4, !tbaa !96
   %771 = load ptr, ptr %0, align 8, !tbaa !46
-  %772 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass12addExitBlockEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944) %771, ptr noundef %762) #15
+  %772 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass12addExitBlockEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944) %771, ptr noundef %762) #16
   %773 = icmp eq i32 %772, 0
   br i1 %773, label %774, label %.loopexit56
 
@@ -5104,11 +5105,11 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   br i1 %777, label %797, label %778
 
 778:                                              ; preds = %775
-  %779 = call noundef i32 @_ZN6asmjit9_abi_1_106String5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #15
-  %780 = call noundef i32 @_ZN6asmjit9_abi_1_106String8_opCharsENS1_8ModifyOpEcm(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, i8 noundef signext 32, i64 noundef 4) #15
+  %779 = call noundef i32 @_ZN6asmjit9_abi_1_106String5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #16
+  %780 = call noundef i32 @_ZN6asmjit9_abi_1_106String8_opCharsENS1_8ModifyOpEcm(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, i8 noundef signext 32, i64 noundef 4) #16
   %781 = load ptr, ptr %85, align 8, !tbaa !69
-  %782 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatNodeERNS0_6StringERKNS0_13FormatOptionsEPKNS0_11BaseBuilderEPKNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 4 dereferenceable(12) %84, ptr noundef %781, ptr noundef nonnull %107) #15
-  %783 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, i8 noundef signext 10) #15
+  %782 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatNodeERNS0_6StringERKNS0_13FormatOptionsEPKNS0_11BaseBuilderEPKNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 4 dereferenceable(12) %84, ptr noundef %781, ptr noundef nonnull %107) #16
+  %783 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 1, i8 noundef signext 10) #16
   %784 = load ptr, ptr %8, align 8, !tbaa !234
   %785 = load i8, ptr %83, align 8
   %786 = icmp ugt i8 %785, 30
@@ -5120,7 +5121,7 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
   %792 = load ptr, ptr %784, align 8, !tbaa !211
   %793 = getelementptr inbounds i8, ptr %792, i64 16
   %794 = load ptr, ptr %793, align 8
-  %795 = call noundef i32 %794(ptr noundef nonnull align 8 dereferenceable(20) %784, ptr noundef %788, i64 noundef %791) #15
+  %795 = call noundef i32 %794(ptr noundef nonnull align 8 dereferenceable(20) %784, ptr noundef %788, i64 noundef %791) #16
   %796 = load i8, ptr %616, align 8, !tbaa !11
   br label %797
 
@@ -5158,11 +5159,11 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABl
 
 _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcrossSuccessorsEPNS0_7RABlockE.exit: ; preds = %601, %573, %560, %556, %551, %541, %525, %379, %269, %197, %189, %182, %501, %459, %411
   %819 = phi i32 [ %460, %459 ], [ %412, %411 ], [ %504, %501 ], [ %528, %525 ], [ 1, %269 ], [ 3, %379 ], [ %611, %601 ], [ %198, %197 ], [ %190, %189 ], [ %183, %182 ], [ %575, %573 ], [ %566, %560 ], [ 3, %541 ], [ 1, %551 ], [ 1, %556 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
   br label %.loopexit56
 
 820:                                              ; preds = %568
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
   br label %.loopexit59
 
 821:                                              ; preds = %816, %_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE8logBlockEPNS0_7RABlockEj.exit, %117
@@ -5192,21 +5193,21 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcr
 
 837:                                              ; preds = %835, %829
   %838 = phi ptr [ %836, %835 ], [ %823, %829 ]
-  %839 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass21initSharedAssignmentsERKNS0_10ZoneVectorIjEE(ptr noundef nonnull align 8 dereferenceable(944) %838, ptr noundef nonnull align 8 dereferenceable(16) %103) #15
+  %839 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass21initSharedAssignmentsERKNS0_10ZoneVectorIjEE(ptr noundef nonnull align 8 dereferenceable(944) %838, ptr noundef nonnull align 8 dereferenceable(16) %103) #16
   br label %.loopexit56
 
 .preheader:                                       ; preds = %829, %.preheader
   %840 = phi ptr [ %843, %.preheader ], [ %830, %829 ]
   %841 = load ptr, ptr %840, align 8, !tbaa !52
-  %842 = call noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE26handleBlockWithUnknownJumpEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef %841) #15
+  %842 = call noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE26handleBlockWithUnknownJumpEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef %841) #16
   %843 = getelementptr inbounds i8, ptr %840, i64 8
   %844 = icmp eq ptr %843, %833
   br i1 %844, label %835, label %.preheader
 
 .loopexit56:                                      ; preds = %816, %811, %761, %700, %693, %680, %670, %658, %655, %638, %631, %133, %129, %837, %.loopexit59, %_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcrossSuccessorsEPNS0_7RABlockE.exit, %805
   %845 = phi i32 [ %839, %837 ], [ 3, %.loopexit59 ], [ 3, %805 ], [ %819, %_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcrossSuccessorsEPNS0_7RABlockE.exit ], [ 3, %811 ], [ 1, %631 ], [ %644, %638 ], [ %772, %761 ], [ %135, %133 ], [ %131, %129 ], [ %668, %658 ], [ %672, %670 ], [ 3, %655 ], [ 1, %680 ], [ %698, %693 ], [ %702, %700 ], [ 3, %816 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 4160, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 4160, ptr nonnull %3) #16
   br label %846
 
 846:                                              ; preds = %.loopexit56, %70, %13
@@ -5226,7 +5227,7 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcr
 852:                                              ; preds = %850, %848
   %853 = phi { ptr, i32 } [ %849, %848 ], [ %851, %850 ]
   %854 = extractvalue { ptr, i32 } %853, 0
-  call void @__clang_call_terminate(ptr %854) #16
+  call void @__clang_call_terminate(ptr %854) #17
   unreachable
 }
 
@@ -5443,7 +5444,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8_rewriteEPNS0_8Bas
 
 122:                                              ; preds = %115
   %123 = load ptr, ptr %5, align 8, !tbaa !47
-  %124 = call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder10removeNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %123, ptr noundef nonnull %17) #15
+  %124 = call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder10removeNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %123, ptr noundef nonnull %17) #16
   br label %.loopexit15
 
 125:                                              ; preds = %115, %109, %104
@@ -5457,7 +5458,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8_rewriteEPNS0_8Bas
   %131 = load ptr, ptr %11, align 8, !tbaa !159
   %132 = getelementptr inbounds i8, ptr %131, i64 568
   %133 = load ptr, ptr %132, align 8, !tbaa !278
-  %134 = call noundef zeroext i1 @_ZN6asmjit9_abi_1_1010BaseRAPass8isNextToEPNS0_8BaseNodeES3_(ptr noundef nonnull align 8 dereferenceable(944) %0, ptr noundef nonnull %17, ptr noundef %133) #15
+  %134 = call noundef zeroext i1 @_ZN6asmjit9_abi_1_1010BaseRAPass8isNextToEPNS0_8BaseNodeES3_(ptr noundef nonnull align 8 dereferenceable(944) %0, ptr noundef nonnull %17, ptr noundef %133) #16
   br i1 %134, label %149, label %135
 
 135:                                              ; preds = %129
@@ -5465,7 +5466,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8_rewriteEPNS0_8Bas
   %137 = load ptr, ptr %17, align 8, !tbaa !11
   %138 = getelementptr inbounds i8, ptr %136, i64 384
   store ptr %137, ptr %138, align 8, !tbaa !129
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
   %139 = load ptr, ptr %11, align 8, !tbaa !159
   %140 = getelementptr inbounds i8, ptr %139, i64 568
   %141 = load ptr, ptr %140, align 8, !tbaa !278
@@ -5479,15 +5480,15 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8_rewriteEPNS0_8Bas
   %144 = load ptr, ptr %0, align 8, !tbaa !211
   %145 = getelementptr inbounds i8, ptr %144, i64 104
   %146 = load ptr, ptr %145, align 8
-  %147 = call noundef i32 %146(ptr noundef nonnull align 8 dereferenceable(968) %0, ptr noundef nonnull align 4 dereferenceable(16) %4) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  %147 = call noundef i32 %146(ptr noundef nonnull align 8 dereferenceable(968) %0, ptr noundef nonnull align 4 dereferenceable(16) %4) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %149, label %.loopexit14
 
 149:                                              ; preds = %135, %129
   %150 = load ptr, ptr %17, align 8, !tbaa !11
   %151 = load ptr, ptr %5, align 8, !tbaa !47
-  %152 = call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder10removeNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %151, ptr noundef nonnull %17) #15
+  %152 = call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder10removeNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %151, ptr noundef nonnull %17) #16
   %153 = getelementptr inbounds i8, ptr %130, i64 24
   store ptr %150, ptr %153, align 8, !tbaa !241
   br label %154
@@ -5571,7 +5572,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitMoveEjjj(ptr n
   %9 = load ptr, ptr %7, align 8, !tbaa !51
   %10 = getelementptr inbounds ptr, ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   %12 = getelementptr inbounds i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8, !tbaa !85
   store i32 %13, ptr %5, align 4, !tbaa !85
@@ -5581,7 +5582,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitMoveEjjj(ptr n
   store i32 0, ptr %15, align 4, !tbaa !85
   %16 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %16, align 4, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
   store i32 %13, ptr %6, align 4, !tbaa !85
   %17 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %3, ptr %17, align 4, !tbaa !44
@@ -5606,7 +5607,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitMoveEjjj(ptr n
   %32 = getelementptr inbounds i8, ptr %27, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = select i1 %30, ptr %31, ptr %33
-  %35 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %34) #15
+  %35 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %34) #16
   %36 = load i8, ptr %25, align 8, !tbaa !11
   %37 = icmp ugt i8 %36, 30
   %38 = getelementptr inbounds i8, ptr %0, i64 848
@@ -5626,19 +5627,19 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitMoveEjjj(ptr n
           to label %50 unwind label %51
 
 50:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   ret i32 %49
 
 51:                                               ; preds = %42
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #16
+  call void @__clang_call_terminate(ptr %53) #17
   unreachable
 }
 
-declare noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper11emitRegMoveERKNS0_8Operand_ES5_NS0_6TypeIdEPKc(ptr noundef nonnull align 8 dereferenceable(18), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16), i8 noundef zeroext, ptr noundef) unnamed_addr #5
+declare noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper11emitRegMoveERKNS0_8Operand_ES5_NS0_6TypeIdEPKc(ptr noundef nonnull align 8 dereferenceable(18), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16), i8 noundef zeroext, ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitSwapEjjjj(ptr noundef nonnull align 8 dereferenceable(968) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -5690,7 +5691,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitSwapEjjjj(ptr 
   %47 = getelementptr inbounds i8, ptr %21, i64 32
   %48 = load ptr, ptr %47, align 8
   %49 = select i1 %45, ptr %46, ptr %48
-  %50 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %42, ptr noundef %49) #15
+  %50 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %42, ptr noundef %49) #16
   %51 = getelementptr inbounds i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !47
   %53 = load i8, ptr %35, align 8, !tbaa !11
@@ -5705,7 +5706,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitSwapEjjjj(ptr 
 
 60:                                               ; preds = %34, %31
   %61 = phi ptr [ %33, %31 ], [ %52, %34 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
   store i32 %26, ptr %6, align 4, !tbaa !85
   %62 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %2, ptr %62, align 4, !tbaa !44
@@ -5713,7 +5714,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitSwapEjjjj(ptr 
   store i32 0, ptr %63, align 4, !tbaa !85
   %64 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 0, ptr %64, align 4, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
   store i32 %26, ptr %7, align 4, !tbaa !85
   %65 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %4, ptr %65, align 4, !tbaa !44
@@ -5725,15 +5726,15 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitSwapEjjjj(ptr 
           to label %69 unwind label %70
 
 69:                                               ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   ret i32 %68
 
 70:                                               ; preds = %60
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #16
+  call void @__clang_call_terminate(ptr %72) #17
   unreachable
 }
 
@@ -5746,7 +5747,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitLoadEjj(ptr no
   %8 = load ptr, ptr %6, align 8, !tbaa !51
   %9 = getelementptr inbounds ptr, ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
   %11 = getelementptr inbounds i8, ptr %10, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !85
   store i32 %12, ptr %4, align 4, !tbaa !85
@@ -5756,7 +5757,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitLoadEjj(ptr no
   store i32 0, ptr %14, align 4, !tbaa !85
   %15 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 0, ptr %15, align 4, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !288)
   %16 = getelementptr inbounds i8, ptr %10, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !90, !noalias !288
@@ -5774,7 +5775,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitLoadEjj(ptr no
   %27 = getelementptr inbounds i8, ptr %24, i64 12
   %28 = load i8, ptr %27, align 4, !tbaa !93, !noalias !288
   %29 = zext i8 %28 to i32
-  %30 = tail call noundef ptr @_ZN6asmjit9_abi_1_1016RAStackAllocator7newSlotEjjjj(ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef %22, i32 noundef %26, i32 noundef %29, i32 noundef 1) #15, !noalias !288
+  %30 = tail call noundef ptr @_ZN6asmjit9_abi_1_1016RAStackAllocator7newSlotEjjjj(ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef %22, i32 noundef %26, i32 noundef %29, i32 noundef 1) #16, !noalias !288
   store ptr %30, ptr %16, align 8, !tbaa !90, !noalias !288
   %31 = getelementptr inbounds i8, ptr %10, i64 36
   %32 = load i32, ptr %31, align 4, !tbaa !94, !noalias !288
@@ -5816,7 +5817,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitLoadEjj(ptr no
   %59 = getelementptr inbounds i8, ptr %54, i64 32
   %60 = load ptr, ptr %59, align 8
   %61 = select i1 %57, ptr %58, ptr %60
-  %62 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %61) #15
+  %62 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %61) #16
   %63 = load i8, ptr %49, align 8, !tbaa !11
   %64 = icmp ugt i8 %63, 30
   %65 = getelementptr inbounds i8, ptr %0, i64 848
@@ -5836,15 +5837,15 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitLoadEjj(ptr no
           to label %77 unwind label %78
 
 77:                                               ; preds = %69
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   ret i32 %76
 
 78:                                               ; preds = %69
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #16
+  call void @__clang_call_terminate(ptr %80) #17
   unreachable
 }
 
@@ -5857,7 +5858,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitSaveEjj(ptr no
   %8 = load ptr, ptr %6, align 8, !tbaa !51
   %9 = getelementptr inbounds ptr, ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !291)
   %11 = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !90, !noalias !291
@@ -5875,7 +5876,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitSaveEjj(ptr no
   %22 = getelementptr inbounds i8, ptr %19, i64 12
   %23 = load i8, ptr %22, align 4, !tbaa !93, !noalias !291
   %24 = zext i8 %23 to i32
-  %25 = tail call noundef ptr @_ZN6asmjit9_abi_1_1016RAStackAllocator7newSlotEjjjj(ptr noundef nonnull align 8 dereferenceable(40) %15, i32 noundef %17, i32 noundef %21, i32 noundef %24, i32 noundef 1) #15, !noalias !291
+  %25 = tail call noundef ptr @_ZN6asmjit9_abi_1_1016RAStackAllocator7newSlotEjjjj(ptr noundef nonnull align 8 dereferenceable(40) %15, i32 noundef %17, i32 noundef %21, i32 noundef %24, i32 noundef 1) #16, !noalias !291
   store ptr %25, ptr %11, align 8, !tbaa !90, !noalias !291
   %26 = getelementptr inbounds i8, ptr %10, i64 36
   %27 = load i32, ptr %26, align 4, !tbaa !94, !noalias !291
@@ -5897,7 +5898,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitSaveEjj(ptr no
   store i32 0, ptr %37, align 4, !tbaa !85, !alias.scope !291
   %38 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 0, ptr %38, align 4, !tbaa !85, !alias.scope !291
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   %39 = getelementptr inbounds i8, ptr %10, i64 32
   %40 = load i32, ptr %39, align 8, !tbaa !85
   store i32 %40, ptr %5, align 4, !tbaa !85
@@ -5927,7 +5928,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitSaveEjj(ptr no
   %59 = getelementptr inbounds i8, ptr %54, i64 32
   %60 = load ptr, ptr %59, align 8
   %61 = select i1 %57, ptr %58, ptr %60
-  %62 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %61) #15
+  %62 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %61) #16
   %63 = load i8, ptr %49, align 8, !tbaa !11
   %64 = icmp ugt i8 %63, 30
   %65 = getelementptr inbounds i8, ptr %0, i64 848
@@ -5947,15 +5948,15 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitSaveEjj(ptr no
           to label %77 unwind label %78
 
 77:                                               ; preds = %69
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   ret i32 %76
 
 78:                                               ; preds = %69
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #16
+  call void @__clang_call_terminate(ptr %80) #17
   unreachable
 }
 
@@ -5973,7 +5974,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitJumpERKNS0_5La
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #16
+  tail call void @__clang_call_terminate(ptr %9) #17
   unreachable
 }
 
@@ -6140,7 +6141,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
   br i1 %115, label %.loopexit16, label %.loopexit
 
 116:                                              ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
   store i32 3, ptr %3, align 4, !tbaa !85
   %117 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %117, align 4, !tbaa !44
@@ -6152,7 +6153,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
           to label %121 unwind label %233
 
 121:                                              ; preds = %116
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
   %122 = icmp eq i32 %120, 0
   br i1 %122, label %.loopexit16, label %.loopexit
 
@@ -6179,14 +6180,14 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
   br i1 %138, label %139, label %151
 
 139:                                              ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
   %140 = load i8, ptr %126, align 1, !tbaa !11
   %141 = zext i8 %140 to i32
   store i32 134217785, ptr %4, align 4
   store i32 %141, ptr %26, align 4
   store i32 0, ptr %27, align 4
   store i32 0, ptr %28, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   %142 = lshr i32 %127, 16
   %143 = and i32 %142, 255
   store i32 268435809, ptr %5, align 4, !tbaa !85, !alias.scope !297
@@ -6202,8 +6203,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
 
 149:                                              ; preds = %139
   %150 = icmp eq i32 %148, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   br i1 %150, label %151, label %.loopexit
 
 151:                                              ; preds = %149, %132, %129
@@ -6227,14 +6228,14 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
   br i1 %164, label %165, label %177
 
 165:                                              ; preds = %158
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
   %166 = load i8, ptr %126, align 1, !tbaa !11
   %167 = zext i8 %166 to i32
   store i32 134217785, ptr %4, align 4
   store i32 %167, ptr %26, align 4
   store i32 0, ptr %27, align 4
   store i32 0, ptr %28, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   %168 = lshr i32 %153, 16
   %169 = and i32 %168, 255
   store i32 268435809, ptr %5, align 4, !tbaa !85, !alias.scope !297
@@ -6250,8 +6251,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
 
 175:                                              ; preds = %165
   %176 = icmp eq i32 %174, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   br i1 %176, label %177, label %.loopexit
 
 177:                                              ; preds = %175, %158, %155
@@ -6275,14 +6276,14 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
   br i1 %190, label %191, label %203
 
 191:                                              ; preds = %184
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
   %192 = load i8, ptr %126, align 1, !tbaa !11
   %193 = zext i8 %192 to i32
   store i32 134217785, ptr %4, align 4
   store i32 %193, ptr %26, align 4
   store i32 0, ptr %27, align 4
   store i32 0, ptr %28, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   %194 = lshr i32 %179, 16
   %195 = and i32 %194, 255
   store i32 268435809, ptr %5, align 4, !tbaa !85, !alias.scope !297
@@ -6298,8 +6299,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
 
 201:                                              ; preds = %191
   %202 = icmp eq i32 %200, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   br i1 %202, label %203, label %.loopexit
 
 203:                                              ; preds = %201, %184, %181
@@ -6319,14 +6320,14 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
   br i1 %214, label %215, label %227
 
 215:                                              ; preds = %208
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
   %216 = load i8, ptr %126, align 1, !tbaa !11
   %217 = zext i8 %216 to i32
   store i32 134217785, ptr %4, align 4
   store i32 %217, ptr %26, align 4
   store i32 0, ptr %27, align 4
   store i32 0, ptr %28, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   %218 = lshr i32 %205, 16
   %219 = and i32 %218, 255
   store i32 268435809, ptr %5, align 4, !tbaa !85, !alias.scope !297
@@ -6342,8 +6343,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
 
 225:                                              ; preds = %215
   %226 = icmp eq i32 %224, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   br i1 %226, label %227, label %.loopexit
 
 227:                                              ; preds = %225, %208, %203, %177, %151, %123
@@ -6371,13 +6372,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
 235:                                              ; preds = %233, %231
   %236 = phi { ptr, i32 } [ %232, %231 ], [ %234, %233 ]
   %237 = extractvalue { ptr, i32 } %236, 0
-  call void @__clang_call_terminate(ptr %237) #16
+  call void @__clang_call_terminate(ptr %237) #17
   unreachable
 }
 
-declare noundef i32 @_ZN6asmjit9_abi_1_108FuncPass3runEPNS0_4ZoneEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef) unnamed_addr #5
+declare noundef i32 @_ZN6asmjit9_abi_1_108FuncPass3runEPNS0_4ZoneEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef) unnamed_addr #6
 
-declare noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13runOnFunctionEPNS0_4ZoneEPNS0_6LoggerEPNS0_8FuncNodeE(ptr noundef nonnull align 8 dereferenceable(944), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #5
+declare noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13runOnFunctionEPNS0_4ZoneEPNS0_6LoggerEPNS0_8FuncNodeE(ptr noundef nonnull align 8 dereferenceable(944), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass16updateStackFrameEv(ptr noundef nonnull align 8 dereferenceable(944)) unnamed_addr #2
@@ -6389,17 +6390,17 @@ declare noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegE
 declare noundef ptr @_ZN6asmjit9_abi_1_1016RAStackAllocator7newSlotEjjjj(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind
 declare noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
-declare noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144), i32 noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #5
+declare noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144), i32 noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #6
 
-declare noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_E(ptr noundef nonnull align 8 dereferenceable(144), i32 noundef, ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #5
+declare noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_E(ptr noundef nonnull align 8 dereferenceable(144), i32 noundef, ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE7prepareEv(ptr noundef nonnull align 8 dereferenceable(656) %0) local_unnamed_addr #0 comdat align 2 {
@@ -6407,13 +6408,13 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %3 = load ptr, ptr %0, align 8, !tbaa !46
   %4 = getelementptr inbounds i8, ptr %3, i64 152
   %5 = load ptr, ptr %4, align 8, !tbaa !159
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
   store ptr null, ptr %2, align 8, !tbaa !52
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %5, ptr %6, align 8, !tbaa !181
   %7 = getelementptr inbounds i8, ptr %5, i64 568
   %8 = load ptr, ptr %7, align 8, !tbaa !278
-  %9 = call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass20newBlockOrExistingAtEPNS0_9LabelNodeEPPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944) %3, ptr noundef %8, ptr noundef nonnull %2) #15
+  %9 = call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass20newBlockOrExistingAtEPNS0_9LabelNodeEPPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944) %3, ptr noundef %8, ptr noundef nonnull %2) #16
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %9, ptr %10, align 8, !tbaa !265
   %11 = icmp eq ptr %9, null
@@ -6435,7 +6436,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds i8, ptr %15, i64 24
-  %25 = call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %24, i32 noundef 8, i32 noundef 1) #15
+  %25 = call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %24, i32 noundef 8, i32 noundef 1) #16
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %57
 
@@ -6459,7 +6460,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 
 39:                                               ; preds = %29
   %40 = load ptr, ptr %0, align 8, !tbaa !46
-  %41 = call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass8newBlockEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944) %40, ptr noundef null) #15
+  %41 = call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass8newBlockEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944) %40, ptr noundef null) #16
   %42 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %41, ptr %42, align 8, !tbaa !156
   %43 = icmp eq ptr %41, null
@@ -6483,12 +6484,12 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %54 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 0, ptr %54, align 8, !tbaa !243
   %55 = load ptr, ptr %0, align 8, !tbaa !46
-  %56 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass8addBlockEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944) %55, ptr noundef %48) #15
+  %56 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass8addBlockEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944) %55, ptr noundef %48) #16
   br label %57
 
 57:                                               ; preds = %47, %39, %23, %1
   %58 = phi i32 [ %56, %47 ], [ 1, %1 ], [ %25, %23 ], [ 1, %39 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
   ret i32 %58
 }
 
@@ -6501,15 +6502,15 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612R
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 104
-  %8 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
-  %9 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String8_opCharsENS1_8ModifyOpEcm(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 1, i8 noundef signext 32, i64 noundef 2) #15
-  %10 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String9_opStringENS1_8ModifyOpEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 1, ptr noundef nonnull @.str.7, i64 noundef -1) #15
-  %11 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 1, i8 noundef signext 32) #15
+  %8 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
+  %9 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String8_opCharsENS1_8ModifyOpEcm(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 1, i8 noundef signext 32, i64 noundef 2) #16
+  %10 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String9_opStringENS1_8ModifyOpEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 1, ptr noundef nonnull @.str.7, i64 noundef -1) #16
+  %11 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 1, i8 noundef signext 32) #16
   %12 = getelementptr inbounds i8, ptr %0, i64 88
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !69
-  %15 = tail call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatNodeERNS0_6StringERKNS0_13FormatOptionsEPKNS0_11BaseBuilderEPKNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef %14, ptr noundef %1) #15
-  %16 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 1, i8 noundef signext 10) #15
+  %15 = tail call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatNodeERNS0_6StringERKNS0_13FormatOptionsEPKNS0_11BaseBuilderEPKNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef %14, ptr noundef %1) #16
+  %16 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 1, i8 noundef signext 10) #16
   %17 = load ptr, ptr %3, align 8, !tbaa !234
   %18 = load i8, ptr %7, align 8
   %19 = icmp ugt i8 %18, 30
@@ -6524,13 +6525,13 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612R
   %28 = load ptr, ptr %17, align 8, !tbaa !211
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(20) %17, ptr noundef %23, i64 noundef %27) #15
+  %31 = tail call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(20) %17, ptr noundef %23, i64 noundef %27) #16
   br label %32
 
 32:                                               ; preds = %6, %2
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !69
-  %35 = tail call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder10removeNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %34, ptr noundef %1) #15
+  %35 = tail call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder10removeNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %34, ptr noundef %1) #16
   ret void
 }
 
@@ -6540,7 +6541,7 @@ declare noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass20newBlockOrExistingAtEPNS0
 ; Function Attrs: nounwind
 declare noundef i32 @_ZN6asmjit9_abi_1_107RABlock15appendSuccessorEPS1_(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef) local_unnamed_addr #2
 
-declare noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11labelNodeOfEPPNS0_9LabelNodeEj(ptr noundef nonnull align 8 dereferenceable(410), ptr noundef, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11labelNodeOfEPPNS0_9LabelNodeEj(ptr noundef nonnull align 8 dereferenceable(410), ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass8newBlockEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(944), ptr noundef) local_unnamed_addr #2
@@ -6552,7 +6553,7 @@ declare noundef i32 @_ZN6asmjit9_abi_1_107RABlock16prependSuccessorEPS1_(ptr nou
 declare noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass8addBlockEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass12addExitBlockEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944) %0, ptr noundef %1) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass12addExitBlockEPNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944) %0, ptr noundef %1) local_unnamed_addr #12 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !157
   %5 = or i32 %4, 16
@@ -6567,7 +6568,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass12addExi
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = tail call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %13, i32 noundef 8, i32 noundef 1) #15
+  %14 = tail call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %13, i32 noundef 8, i32 noundef 1) #16
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %26
 
@@ -6679,7 +6680,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 57:                                               ; preds = %53
   %58 = load ptr, ptr %0, align 8, !tbaa !46
   %59 = getelementptr inbounds i8, ptr %58, i64 24
-  %60 = tail call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %59, i32 noundef 4, i32 noundef 1) #15
+  %60 = tail call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %59, i32 noundef 4, i32 noundef 1) #16
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %.loopexit
 
@@ -6729,7 +6730,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   br i1 %87, label %90, label %88
 
 88:                                               ; preds = %83
-  %89 = tail call noundef i32 @_ZN6asmjit9_abi_1_107RABlock15appendSuccessorEPS1_(ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull %81) #15
+  %89 = tail call noundef i32 @_ZN6asmjit9_abi_1_107RABlock15appendSuccessorEPS1_(ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull %81) #16
   br label %90
 
 90:                                               ; preds = %88, %83, %.preheader
@@ -6769,38 +6770,39 @@ declare noundef ptr @_ZN6asmjit9_abi_1_104Zone6_allocEmm(ptr noundef nonnull ali
 declare noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
+declare i32 @llvm.umax.i32(i32, i32) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #9
+declare i8 @llvm.umax.i8(i8, i8) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #12
+declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr>, i32 immarg, <8 x i1>, <8 x i32>) #13
+declare <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr>, i32 immarg, <8 x i1>, <8 x i32>) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(write)
-declare void @llvm.masked.scatter.v8i32.v8p0(<8 x i32>, <8 x ptr>, i32 immarg, <8 x i1>) #14
+declare void @llvm.masked.scatter.v8i32.v8p0(<8 x i32>, <8 x ptr>, i32 immarg, <8 x i1>) #15
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #3 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(write) }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { builtin nounwind }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(write) }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

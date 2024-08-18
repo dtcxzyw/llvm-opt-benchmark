@@ -231,11 +231,11 @@ define hidden void @_ZN15ImageModuleDataD2Ev(ptr nocapture nonnull readnone alig
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN15ImageModuleData17package_to_moduleEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.ImageLocation, align 8
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   %5 = shl i64 %4, 32
   %sext = add i64 %5, 4294967296
   %6 = ashr exact i64 %sext, 32
-  %7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #22
+  %7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #23
   br label %8
 
 8:                                                ; preds = %12, %2
@@ -262,14 +262,14 @@ define hidden noundef ptr @_ZN15ImageModuleData17package_to_moduleEPKc(ptr nocap
   store i8 0, ptr %16, align 1
   %sext40 = add i64 %5, 47244640256
   %17 = ashr exact i64 %sext40, 32
-  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %18, ptr noundef nonnull align 1 dereferenceable(11) @.str, i64 11, i1 false) #23
-  %19 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %7) #23
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #24
+  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %18, ptr noundef nonnull align 1 dereferenceable(11) @.str, i64 11, i1 false) #24
+  %19 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %7) #24
+  tail call void @_ZdaPv(ptr noundef nonnull %7) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   %20 = load ptr, ptr %0, align 8
   %21 = call noundef zeroext i1 @_ZNK15ImageFileReader13find_locationEPKcR13ImageLocation(ptr noundef nonnull align 8 dereferenceable(120) %20, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(64) %3)
-  tail call void @_ZdaPv(ptr noundef nonnull %18) #24
+  tail call void @_ZdaPv(ptr noundef nonnull %18) #25
   br i1 %21, label %22, label %63
 
 22:                                               ; preds = %15
@@ -278,7 +278,7 @@ define hidden noundef ptr @_ZN15ImageModuleData17package_to_moduleEPKc(ptr nocap
   %25 = trunc i64 %24 to i32
   %sext41 = shl i64 %24, 32
   %26 = ashr exact i64 %sext41, 32
-  %27 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %26) #22
+  %27 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %26) #23
   %28 = load ptr, ptr %0, align 8
   call void @_ZNK15ImageFileReader12get_resourceER13ImageLocationPh(ptr noundef nonnull align 8 dereferenceable(120) %28, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull %27)
   %29 = icmp sgt i32 %25, 0
@@ -319,7 +319,7 @@ define hidden noundef ptr @_ZN15ImageModuleData17package_to_moduleEPKc(ptr nocap
 
 .loopexit:                                        ; preds = %47, %22, %38
   %.036 = phi i64 [ %46, %38 ], [ 0, %22 ], [ 0, %47 ]
-  tail call void @_ZdaPv(ptr noundef nonnull %27) #24
+  tail call void @_ZdaPv(ptr noundef nonnull %27) #25
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 104
   %53 = load ptr, ptr %52, align 8
@@ -519,7 +519,7 @@ define hidden void @_ZNK15ImageFileReader12get_resourceER13ImageLocationPh(ptr n
   br i1 %13, label %22, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #22
+  %15 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #23
   %16 = getelementptr inbounds i8, ptr %0, i64 64
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %6
@@ -561,7 +561,7 @@ define hidden void @_ZNK15ImageFileReader12get_resourceER13ImageLocationPh(ptr n
   br i1 %or.cond, label %53, label %45
 
 45:                                               ; preds = %29
-  call void @_ZdaPv(ptr noundef nonnull %.0) #24
+  call void @_ZdaPv(ptr noundef nonnull %.0) #25
   br label %53
 
 46:                                               ; preds = %3
@@ -582,7 +582,7 @@ define hidden void @_ZN20ImageFileReaderTableC2Ev(ptr nocapture noundef nonnull 
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 8, ptr %2, align 4
-  %3 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #25
+  %3 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #26
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   ret void
@@ -611,7 +611,7 @@ define hidden void @_ZN20ImageFileReaderTable3addEP15ImageFileReader(ptr nocaptu
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %8 to i64
   %12 = shl nuw nsw i64 %11, 3
-  %13 = tail call ptr @realloc(ptr noundef %10, i64 noundef %12) #26
+  %13 = tail call ptr @realloc(ptr noundef %10, i64 noundef %12) #27
   store ptr %13, ptr %9, align 8
   %.pre2 = load i32, ptr %0, align 8
   br label %14
@@ -683,7 +683,7 @@ define hidden void @_ZN20ImageFileReaderTable6removeEP15ImageFileReader(ptr noca
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %17 to i64
   %27 = shl nuw nsw i64 %26, 3
-  %28 = tail call ptr @realloc(ptr noundef %25, i64 noundef %27) #26
+  %28 = tail call ptr @realloc(ptr noundef %25, i64 noundef %27) #27
   store ptr %28, ptr %24, align 8
   br label %.loopexit.thread
 
@@ -750,7 +750,7 @@ define hidden noundef ptr @_ZN15ImageFileReader10find_imageEPKc(ptr nocapture no
   %6 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %0) #21
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %0) #22
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %4
 
@@ -770,7 +770,7 @@ define hidden noundef ptr @_ZN15ImageFileReader10find_imageEPKc(ptr nocapture no
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #27
+  tail call void @__clang_call_terminate(ptr %17) #28
   unreachable
 
 _ZN25SimpleCriticalSectionLockD2Ev.exit:          ; preds = %.loopexit
@@ -804,7 +804,7 @@ define hidden noundef ptr @_ZN15ImageFileReader4openEPKcb(ptr nocapture noundef 
   %7 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %0) #21
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %0) #22
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %5
 
@@ -824,7 +824,7 @@ define hidden noundef ptr @_ZN15ImageFileReader4openEPKcb(ptr nocapture noundef 
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #27
+  tail call void @__clang_call_terminate(ptr %18) #28
   unreachable
 
 _ZN15ImageFileReader10find_imageEPKc.exit:        ; preds = %.loopexit.i
@@ -832,19 +832,19 @@ _ZN15ImageFileReader10find_imageEPKc.exit:        ; preds = %.loopexit.i
   br i1 %.not, label %19, label %_ZN25SimpleCriticalSectionLockD2Ev.exit31
 
 19:                                               ; preds = %_ZN15ImageFileReader10find_imageEPKc.exit
-  %20 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #22
+  %20 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #23
   %21 = getelementptr inbounds i8, ptr %20, i64 112
   store ptr null, ptr %21, align 8
-  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #21
+  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #22
   %23 = shl i64 %22, 32
   %sext.i = add i64 %23, 4294967296
   %24 = ashr exact i64 %sext.i, 32
-  %25 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %24) #22
+  %25 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %24) #23
           to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %19
   store ptr %25, ptr %20, align 8
-  %26 = tail call ptr @strncpy(ptr noundef nonnull %25, ptr noundef readonly %0, i64 noundef %24) #23
+  %26 = tail call ptr @strncpy(ptr noundef nonnull %25, ptr noundef readonly %0, i64 noundef %24) #24
   %27 = getelementptr inbounds i8, ptr %20, i64 12
   store i32 -1, ptr %27, align 4
   %28 = invoke noundef ptr @_ZN6Endian11get_handlerEb(i1 noundef zeroext %1)
@@ -859,14 +859,14 @@ _ZN15ImageFileReader10find_imageEPKc.exit:        ; preds = %.loopexit.i
   br i1 %32, label %36, label %33
 
 33:                                               ; preds = %29
-  tail call void @_ZN15ImageFileReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %20) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 120) #24
+  tail call void @_ZN15ImageFileReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %20) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 120) #25
   br label %_ZN25SimpleCriticalSectionLockD2Ev.exit31
 
 34:                                               ; preds = %.noexc, %19
   %35 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 120) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 120) #25
   br label %_ZN25SimpleCriticalSectionLockD2Ev.exit
 
 36:                                               ; preds = %29
@@ -890,7 +890,7 @@ _ZN15ImageFileReader10find_imageEPKc.exit:        ; preds = %.loopexit.i
   %41 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %0) #21
+  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %0) #22
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %39
 
@@ -935,13 +935,13 @@ _ZN15ImageFileReader10find_imageEPKc.exit:        ; preds = %.loopexit.i
   br i1 %.not4.i, label %_ZN15ImageFileReader5closeEv.exit, label %62
 
 62:                                               ; preds = %60
-  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef 16) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef 16) #25
   store ptr null, ptr %21, align 8
   br label %_ZN15ImageFileReader5closeEv.exit
 
 _ZN15ImageFileReader5closeEv.exit:                ; preds = %62, %60
-  tail call void @_ZN15ImageFileReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %20) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 120) #24
+  tail call void @_ZN15ImageFileReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %20) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 120) #25
   br label %84
 
 63:                                               ; preds = %58, %51
@@ -954,7 +954,7 @@ _ZN15ImageFileReader5closeEv.exit:                ; preds = %62, %60
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  tail call void @__clang_call_terminate(ptr %67) #27
+  tail call void @__clang_call_terminate(ptr %67) #28
   unreachable
 
 ._crit_edge:                                      ; preds = %39, %36
@@ -976,7 +976,7 @@ _ZN15ImageFileReader5closeEv.exit:                ; preds = %62, %60
   %75 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN15ImageFileReader13_reader_tableE, i64 8), align 8
   %76 = zext i32 %74 to i64
   %77 = shl nuw nsw i64 %76, 3
-  %78 = tail call ptr @realloc(ptr noundef %75, i64 noundef %77) #26
+  %78 = tail call ptr @realloc(ptr noundef %75, i64 noundef %77) #27
   store ptr %78, ptr getelementptr inbounds (i8, ptr @_ZN15ImageFileReader13_reader_tableE, i64 8), align 8
   %.pre2.i = load i32, ptr @_ZN15ImageFileReader13_reader_tableE, align 8
   br label %_ZN20ImageFileReaderTable3addEP15ImageFileReader.exit
@@ -1000,7 +1000,7 @@ _ZN20ImageFileReaderTable3addEP15ImageFileReader.exit: ; preds = %._crit_edge.i,
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  tail call void @__clang_call_terminate(ptr %87) #27
+  tail call void @__clang_call_terminate(ptr %87) #28
   unreachable
 
 _ZN25SimpleCriticalSectionLockD2Ev.exit31:        ; preds = %84, %_ZN15ImageFileReader10find_imageEPKc.exit, %33
@@ -1109,7 +1109,7 @@ define hidden noundef zeroext i1 @_ZN15ImageFileReader4openEv(ptr noundef nonnul
   br i1 %.not4.i, label %_ZN15ImageFileReader5closeEv.exit, label %55
 
 55:                                               ; preds = %52
-  tail call void @_ZdlPvm(ptr noundef nonnull %54, i64 noundef 16) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %54, i64 noundef 16) #25
   store ptr null, ptr %53, align 8
   br label %_ZN15ImageFileReader5closeEv.exit
 
@@ -1166,7 +1166,7 @@ define hidden noundef zeroext i1 @_ZN15ImageFileReader4openEv(ptr noundef nonnul
   %97 = getelementptr inbounds i8, ptr %87, i64 %96
   %98 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %97, ptr %98, align 8
-  %99 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
+  %99 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   store ptr %0, ptr %99, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 8
   %101 = load ptr, ptr %17, align 8
@@ -1215,7 +1215,7 @@ define hidden void @_ZN15ImageFileReader5closeEv(ptr nocapture noundef nonnull a
   br i1 %.not4, label %18, label %17
 
 17:                                               ; preds = %14
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 16) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 16) #25
   store ptr null, ptr %15, align 8
   br label %18
 
@@ -1282,13 +1282,13 @@ define hidden void @_ZN15ImageFileReader5closeEPS_(ptr noundef %0) local_unnamed
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN15ImageFileReader13_reader_tableE, i64 8), align 8
   %27 = zext i32 %20 to i64
   %28 = shl nuw nsw i64 %27, 3
-  %29 = tail call ptr @realloc(ptr noundef %26, i64 noundef %28) #26
+  %29 = tail call ptr @realloc(ptr noundef %26, i64 noundef %28) #27
   store ptr %29, ptr getelementptr inbounds (i8, ptr @_ZN15ImageFileReader13_reader_tableE, i64 8), align 8
   br label %_ZN20ImageFileReaderTable6removeEP15ImageFileReader.exit
 
 _ZN20ImageFileReaderTable6removeEP15ImageFileReader.exit: ; preds = %6, %.loopexit.i, %21, %25
-  tail call void @_ZN15ImageFileReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
-  tail call void @_ZdlPvm(ptr noundef %0, i64 noundef 120) #24
+  tail call void @_ZN15ImageFileReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #24
+  tail call void @_ZdlPvm(ptr noundef %0, i64 noundef 120) #25
   br label %30
 
 30:                                               ; preds = %_ZN20ImageFileReaderTable6removeEP15ImageFileReader.exit, %1
@@ -1299,7 +1299,7 @@ _ZN20ImageFileReaderTable6removeEP15ImageFileReader.exit: ; preds = %6, %.loopex
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #27
+  tail call void @__clang_call_terminate(ptr %33) #28
   unreachable
 
 _ZN25SimpleCriticalSectionLockD2Ev.exit:          ; preds = %30
@@ -1352,7 +1352,7 @@ _ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit: ; preds = %_ZN20Imag
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #27
+  tail call void @__clang_call_terminate(ptr %15) #28
   unreachable
 
 _ZN25SimpleCriticalSectionLockD2Ev.exit:          ; preds = %_ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit
@@ -1369,13 +1369,13 @@ define hidden noundef ptr @_ZN15ImageFileReader12id_to_readerEy(i64 noundef %0) 
 define hidden void @_ZN15ImageFileReaderC2EPKcb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr null, ptr %4, align 8
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   %6 = shl i64 %5, 32
   %sext = add i64 %6, 4294967296
   %7 = ashr exact i64 %sext, 32
-  %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #22
+  %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #23
   store ptr %8, ptr %0, align 8
-  %9 = tail call ptr @strncpy(ptr noundef nonnull %8, ptr noundef %1, i64 noundef %7) #23
+  %9 = tail call ptr @strncpy(ptr noundef nonnull %8, ptr noundef %1, i64 noundef %7) #24
   %10 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 -1, ptr %10, align 4
   %11 = tail call noundef ptr @_ZN6Endian11get_handlerEb(i1 noundef zeroext %2)
@@ -1432,7 +1432,7 @@ define hidden void @_ZN15ImageFileReaderD2Ev(ptr nocapture noundef nonnull align
   br i1 %.not4.i, label %_ZN15ImageFileReader5closeEv.exit, label %17
 
 17:                                               ; preds = %14
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 16) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 16) #25
   store ptr null, ptr %15, align 8
   br label %_ZN15ImageFileReader5closeEv.exit
 
@@ -1442,14 +1442,14 @@ _ZN15ImageFileReader5closeEv.exit:                ; preds = %17, %14
   br i1 %.not, label %.thread, label %19
 
 19:                                               ; preds = %_ZN15ImageFileReader5closeEv.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %18) #24
+  tail call void @_ZdaPv(ptr noundef nonnull %18) #25
   store ptr null, ptr %0, align 8
   %.pre = load ptr, ptr %15, align 8
   %.not2 = icmp eq ptr %.pre, null
   br i1 %.not2, label %.thread, label %20
 
 20:                                               ; preds = %19
-  tail call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef 16) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef 16) #25
   br label %.thread
 
 .thread:                                          ; preds = %_ZN15ImageFileReader5closeEv.exit, %20, %19
@@ -1459,20 +1459,21 @@ _ZN15ImageFileReader5closeEv.exit:                ; preds = %17, %14
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #27
+  tail call void @__clang_call_terminate(ptr %23) #28
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #18 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
-  tail call void @_ZSt9terminatev() #27
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
+  tail call void @_ZSt9terminatev() #28
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #19
 
 declare noundef i32 @_ZN9osSupport12openReadOnlyEPKc(ptr noundef) local_unnamed_addr #17
 
@@ -1937,17 +1938,17 @@ declare void @_ZN21SimpleCriticalSection5enterEv(ptr noundef nonnull align 8 der
 declare void @_ZN21SimpleCriticalSection4exitEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #17
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_imageFile.cpp() #19 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_imageFile.cpp() #20 section ".text.startup" {
   store i32 0, ptr @_ZN15ImageFileReader13_reader_tableE, align 8
   store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN15ImageFileReader13_reader_tableE, i64 4), align 4
-  %1 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #25
+  %1 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #26
   store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZN15ImageFileReader13_reader_tableE, i64 8), align 8
   tail call void @_ZN21SimpleCriticalSectionC1Ev(ptr noundef nonnull align 8 dereferenceable(40) @_reader_table_lock)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #20
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #21
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1968,15 +1969,16 @@ attributes #15 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-lega
 attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nounwind willreturn memory(read) }
-attributes #22 = { builtin allocsize(0) }
-attributes #23 = { nounwind }
-attributes #24 = { builtin nounwind }
-attributes #25 = { nounwind allocsize(0,1) }
-attributes #26 = { nounwind allocsize(1) }
-attributes #27 = { noreturn nounwind }
+attributes #19 = { cold nofree noreturn }
+attributes #20 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #22 = { nounwind willreturn memory(read) }
+attributes #23 = { builtin allocsize(0) }
+attributes #24 = { nounwind }
+attributes #25 = { builtin nounwind }
+attributes #26 = { nounwind allocsize(0,1) }
+attributes #27 = { nounwind allocsize(1) }
+attributes #28 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -35,8 +35,8 @@ $_ZTIN3vcg23NotThreadSafeMemoryInfoE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN22MLThreadSafeMemoryInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN22MLThreadSafeMemoryInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #6
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #7
+  tail call void @_ZN22MLThreadSafeMemoryInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #7
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #8
   ret void
 }
 
@@ -55,7 +55,7 @@ define void @_ZN22MLThreadSafeMemoryInfo14acquiredMemoryEl(ptr noundef nonnull a
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #8
+  tail call void @__clang_call_terminate(ptr %9) #9
   unreachable
 
 _ZN12QWriteLockerD2Ev.exit:                       ; preds = %2
@@ -77,7 +77,7 @@ define noundef i64 @_ZNK22MLThreadSafeMemoryInfo10usedMemoryEv(ptr noundef nonnu
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #8
+  tail call void @__clang_call_terminate(ptr %9) #9
   unreachable
 
 _ZN11QReadLockerD2Ev.exit:                        ; preds = %1
@@ -98,7 +98,7 @@ define noundef i64 @_ZNK22MLThreadSafeMemoryInfo17currentFreeMemoryEv(ptr nounde
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #8
+  tail call void @__clang_call_terminate(ptr %7) #9
   unreachable
 
 _ZN11QReadLockerD2Ev.exit:                        ; preds = %1
@@ -120,7 +120,7 @@ define void @_ZN22MLThreadSafeMemoryInfo14releasedMemoryEl(ptr noundef nonnull a
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #8
+  tail call void @__clang_call_terminate(ptr %9) #9
   unreachable
 
 _ZN12QWriteLockerD2Ev.exit:                       ; preds = %2
@@ -140,7 +140,7 @@ define noundef zeroext i1 @_ZN22MLThreadSafeMemoryInfo27isAdditionalMemoryAvaila
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #8
+  tail call void @__clang_call_terminate(ptr %8) #9
   unreachable
 
 _ZN11QReadLockerD2Ev.exit:                        ; preds = %2
@@ -171,7 +171,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 define void @_ZN22MLThreadSafeMemoryInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV22MLThreadSafeMemoryInfo, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN14QReadWriteLockD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #6
+  tail call void @_ZN14QReadWriteLockD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #7
   ret void
 }
 
@@ -182,14 +182,15 @@ declare void @_ZN14QReadWriteLock12lockForWriteEv(ptr noundef nonnull align 8 de
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #6
-  tail call void @_ZSt9terminatev() #8
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
+  tail call void @_ZSt9terminatev() #9
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 declare void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
@@ -201,9 +202,10 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { builtin nounwind }
-attributes #8 = { noreturn nounwind }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { nounwind }
+attributes #8 = { builtin nounwind }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

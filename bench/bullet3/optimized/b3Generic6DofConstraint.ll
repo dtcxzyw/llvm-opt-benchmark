@@ -328,21 +328,21 @@ if.then2:                                         ; preds = %if.then
   %fneg = fneg float %1
   %arrayidx.i21 = getelementptr inbounds i8, ptr %mat, i64 40
   %2 = load float, ptr %arrayidx.i21, align 8
-  %call.i = tail call noundef float @atan2f(float noundef %fneg, float noundef %2) #23
+  %call.i = tail call noundef float @atan2f(float noundef %fneg, float noundef %2) #24
   store float %call.i, ptr %xyz, align 16
   %3 = load float, ptr %arrayidx.i.i, align 16
   %cmp.i = fcmp olt float %3, -1.000000e+00
   %x.addr.0.i = select i1 %cmp.i, float -1.000000e+00, float %3
   %cmp1.i = fcmp ogt float %x.addr.0.i, 1.000000e+00
   %x.addr.1.i = select i1 %cmp1.i, float 1.000000e+00, float %x.addr.0.i
-  %call.i24 = tail call noundef float @asinf(float noundef %x.addr.1.i) #23
+  %call.i24 = tail call noundef float @asinf(float noundef %x.addr.1.i) #24
   %arrayidx10 = getelementptr inbounds i8, ptr %xyz, i64 4
   store float %call.i24, ptr %arrayidx10, align 4
   %arrayidx.i.i25 = getelementptr inbounds i8, ptr %mat, i64 16
   %4 = load float, ptr %arrayidx.i.i25, align 16
   %fneg12 = fneg float %4
   %5 = load float, ptr %mat, align 16
-  %call.i29 = tail call noundef float @atan2f(float noundef %fneg12, float noundef %5) #23
+  %call.i29 = tail call noundef float @atan2f(float noundef %fneg12, float noundef %5) #24
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -350,7 +350,7 @@ if.else:                                          ; preds = %if.then
   %6 = load float, ptr %arrayidx.i31, align 4
   %arrayidx.i33 = getelementptr inbounds i8, ptr %mat, i64 20
   %7 = load float, ptr %arrayidx.i33, align 4
-  %call.i34 = tail call noundef float @atan2f(float noundef %6, float noundef %7) #23
+  %call.i34 = tail call noundef float @atan2f(float noundef %6, float noundef %7) #24
   %fneg20 = fneg float %call.i34
   store float %fneg20, ptr %xyz, align 16
   %arrayidx24 = getelementptr inbounds i8, ptr %xyz, i64 4
@@ -362,7 +362,7 @@ if.else27:                                        ; preds = %entry
   %8 = load float, ptr %arrayidx.i36, align 4
   %arrayidx.i38 = getelementptr inbounds i8, ptr %mat, i64 20
   %9 = load float, ptr %arrayidx.i38, align 4
-  %call.i39 = tail call noundef float @atan2f(float noundef %8, float noundef %9) #23
+  %call.i39 = tail call noundef float @atan2f(float noundef %8, float noundef %9) #24
   store float %call.i39, ptr %xyz, align 16
   %arrayidx34 = getelementptr inbounds i8, ptr %xyz, i64 4
   store float 0x3FF921FB60000000, ptr %arrayidx34, align 4
@@ -613,21 +613,21 @@ if.then.i:                                        ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.then.i
   %fneg.i = fneg float %46
-  %call.i.i = tail call noundef float @atan2f(float noundef %fneg.i, float noundef %48) #23
+  %call.i.i = tail call noundef float @atan2f(float noundef %fneg.i, float noundef %48) #24
   store float %call.i.i, ptr %m_calculatedAxisAngleDiff, align 16
   %cmp.i.i = fcmp olt float %44, -1.000000e+00
   %x.addr.0.i.i = select i1 %cmp.i.i, float -1.000000e+00, float %44
   %cmp1.i.i = fcmp ogt float %x.addr.0.i.i, 1.000000e+00
   %x.addr.1.i.i = select i1 %cmp1.i.i, float 1.000000e+00, float %x.addr.0.i.i
-  %call.i24.i = tail call noundef float @asinf(float noundef %x.addr.1.i.i) #23
+  %call.i24.i = tail call noundef float @asinf(float noundef %x.addr.1.i.i) #24
   %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 708
   store float %call.i24.i, ptr %arrayidx10.i, align 4
   %fneg12.i = fneg float %40
-  %call.i29.i = tail call noundef float @atan2f(float noundef %fneg12.i, float noundef %30) #23
+  %call.i29.i = tail call noundef float @atan2f(float noundef %fneg12.i, float noundef %30) #24
   br label %_Z16matrixToEulerXYZRK11b3Matrix3x3R9b3Vector3.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i34.i = tail call noundef float @atan2f(float noundef %35, float noundef %42) #23
+  %call.i34.i = tail call noundef float @atan2f(float noundef %35, float noundef %42) #24
   %fneg20.i = fneg float %call.i34.i
   store float %fneg20.i, ptr %m_calculatedAxisAngleDiff, align 16
   %arrayidx24.i = getelementptr inbounds i8, ptr %this, i64 708
@@ -635,7 +635,7 @@ if.else.i:                                        ; preds = %if.then.i
   br label %_Z16matrixToEulerXYZRK11b3Matrix3x3R9b3Vector3.exit
 
 if.else27.i:                                      ; preds = %entry
-  %call.i39.i = tail call noundef float @atan2f(float noundef %35, float noundef %42) #23
+  %call.i39.i = tail call noundef float @atan2f(float noundef %35, float noundef %42) #24
   store float %call.i39.i, ptr %m_calculatedAxisAngleDiff, align 16
   %arrayidx34.i = getelementptr inbounds i8, ptr %this, i64 708
   store float 0x3FF921FB60000000, ptr %arrayidx34.i, align 4
@@ -1265,7 +1265,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %sub = fsub float %angleLowerLimitInRadians, %angleInRadians
-  %call.i.i = tail call noundef float @fmodf(float noundef %sub, float noundef 0x401921FB60000000) #23
+  %call.i.i = tail call noundef float @fmodf(float noundef %sub, float noundef 0x401921FB60000000) #24
   %cmp.i = fcmp olt float %call.i.i, 0xC00921FB60000000
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -1285,7 +1285,7 @@ _Z16b3NormalizeAnglef.exit:                       ; preds = %if.then.i, %if.else
   %retval.0.i = phi float [ %add.i, %if.then.i ], [ %sub.i, %if.then2.i ], [ %call.i.i, %if.else.i ]
   %0 = tail call noundef float @llvm.fabs.f32(float %retval.0.i)
   %sub4 = fsub float %angleUpperLimitInRadians, %angleInRadians
-  %call.i.i18 = tail call noundef float @fmodf(float noundef %sub4, float noundef 0x401921FB60000000) #23
+  %call.i.i18 = tail call noundef float @fmodf(float noundef %sub4, float noundef 0x401921FB60000000) #24
   %cmp.i19 = fcmp olt float %call.i.i18, 0xC00921FB60000000
   br i1 %cmp.i19, label %if.then.i25, label %if.else.i20
 
@@ -1315,7 +1315,7 @@ if.else8:                                         ; preds = %if.else
 
 if.then10:                                        ; preds = %if.else8
   %sub12 = fsub float %angleInRadians, %angleUpperLimitInRadians
-  %call.i.i28 = tail call noundef float @fmodf(float noundef %sub12, float noundef 0x401921FB60000000) #23
+  %call.i.i28 = tail call noundef float @fmodf(float noundef %sub12, float noundef 0x401921FB60000000) #24
   %cmp.i29 = fcmp olt float %call.i.i28, 0xC00921FB60000000
   br i1 %cmp.i29, label %if.then.i35, label %if.else.i30
 
@@ -1335,7 +1335,7 @@ _Z16b3NormalizeAnglef.exit37:                     ; preds = %if.then.i35, %if.el
   %retval.0.i32 = phi float [ %add.i36, %if.then.i35 ], [ %sub.i34, %if.then2.i33 ], [ %call.i.i28, %if.else.i30 ]
   %2 = tail call noundef float @llvm.fabs.f32(float %retval.0.i32)
   %sub16 = fsub float %angleInRadians, %angleLowerLimitInRadians
-  %call.i.i38 = tail call noundef float @fmodf(float noundef %sub16, float noundef 0x401921FB60000000) #23
+  %call.i.i38 = tail call noundef float @fmodf(float noundef %sub16, float noundef 0x401921FB60000000) #24
   %cmp.i39 = fcmp olt float %call.i.i38, 0xC00921FB60000000
   br i1 %cmp.i39, label %if.then.i45, label %if.else.i40
 
@@ -3652,7 +3652,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #24
+  tail call void @__clang_call_terminate(ptr %1) #25
   unreachable
 
 _ZN23b3Generic6DofConstraintdlEPv.exit:           ; preds = %entry
@@ -3681,7 +3681,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17b3TypedConstraintD0Ev(ptr noundef nonnull align 16 dereferenceable(64) %this) unnamed_addr #15 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #24
+  tail call void @llvm.trap() #25
   unreachable
 }
 
@@ -3706,29 +3706,30 @@ declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #18 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
-  tail call void @_ZSt9terminatev() #24
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
+  tail call void @_ZSt9terminatev() #25
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #20
+declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #21
+declare float @llvm.sqrt.f32(float) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3749,12 +3750,13 @@ attributes #15 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-lega
 attributes #16 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nounwind }
-attributes #24 = { noreturn nounwind }
+attributes #19 = { cold nofree noreturn }
+attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #24 = { nounwind }
+attributes #25 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

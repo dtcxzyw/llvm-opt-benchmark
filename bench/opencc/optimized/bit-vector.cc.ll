@@ -573,7 +573,7 @@ define void @_ZN6marisa8grimoire6vector9BitVector11build_indexERKS2_bb(ptr nound
   %18 = shl nuw nsw i64 %14, 1
   %.0.i.i = select i1 %17, i64 %18, i64 %12
   %19 = mul nuw nsw i64 %.0.i.i, 12
-  %20 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %19, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
+  %20 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %19, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #12
   %21 = getelementptr inbounds i8, ptr %0, i64 88
   %22 = load i64, ptr %21, align 8
   %.not.i.i.i = icmp eq i64 %22, 0
@@ -605,7 +605,7 @@ define void @_ZN6marisa8grimoire6vector9BitVector11build_indexERKS2_bb(ptr nound
   br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %29, !llvm.loop !9
 
 33:                                               ; preds = %.preheader.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %25) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %25) #13
   br label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE7reserveEm.exit.i
 
 _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE7reserveEm.exit.i: ; preds = %33, %.preheader.i.i.i, %4
@@ -812,7 +812,7 @@ default.unreachable161:                           ; preds = %202
   %spec.select.i.i85 = select i1 %146, i64 4611686018427387903, i64 %147
   %.0.i.i86 = select i1 %145, i64 %spec.select.i.i85, i64 %141
   %148 = shl i64 %.0.i.i86, 2
-  %149 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %148, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
+  %149 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %148, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #12
   %.not.i.i.i87 = icmp eq i64 %140, 0
   br i1 %.not.i.i.i87, label %.preheader.i.i.i91, label %.lr.ph.i.i.i88
 
@@ -840,7 +840,7 @@ default.unreachable161:                           ; preds = %202
   br i1 %exitcond.not.i.i.i90, label %.preheader.i.i.i91, label %153, !llvm.loop !11
 
 158:                                              ; preds = %.preheader.i.i.i91
-  tail call void @_ZdaPv(ptr noundef nonnull %151) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %151) #13
   %.pre.i = load i64, ptr %47, align 8
   br label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit
 
@@ -880,7 +880,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit: ; preds = %138, %.prehe
   %spec.select.i.i93 = select i1 %177, i64 4611686018427387903, i64 %178
   %.0.i.i94 = select i1 %176, i64 %spec.select.i.i93, i64 %172
   %179 = shl i64 %.0.i.i94, 2
-  %180 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %179, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
+  %180 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %179, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #12
   %.not.i.i.i95 = icmp eq i64 %171, 0
   br i1 %.not.i.i.i95, label %.preheader.i.i.i99, label %.lr.ph.i.i.i96
 
@@ -908,7 +908,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit: ; preds = %138, %.prehe
   br i1 %exitcond.not.i.i.i98, label %.preheader.i.i.i99, label %184, !llvm.loop !11
 
 189:                                              ; preds = %.preheader.i.i.i99
-  tail call void @_ZdaPv(ptr noundef nonnull %182) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %182) #13
   %.pre.i100 = load i64, ptr %52, align 8
   br label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit101
 
@@ -1128,7 +1128,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit101: ; preds = %169, %.pr
   %spec.select.i.i108 = select i1 %308, i64 4611686018427387903, i64 %309
   %.0.i.i109 = select i1 %307, i64 %spec.select.i.i108, i64 %302
   %310 = shl i64 %.0.i.i109, 2
-  %311 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %310, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
+  %311 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %310, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #12
   %.not.i.i.i110 = icmp eq i64 %301, 0
   br i1 %.not.i.i.i110, label %.preheader.i.i.i114, label %.lr.ph.i.i.i111
 
@@ -1159,7 +1159,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit101: ; preds = %169, %.pr
   br i1 %exitcond.not.i.i.i113, label %.preheader.i.i.i114, label %318, !llvm.loop !11
 
 323:                                              ; preds = %.preheader.i.i.i114
-  tail call void @_ZdaPv(ptr noundef nonnull %314) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %314) #13
   %.pre.i115 = load i64, ptr %300, align 8
   br label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit116
 
@@ -1198,7 +1198,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit116: ; preds = %296, %.pr
   %spec.select.i.i118 = select i1 %343, i64 4611686018427387903, i64 %344
   %.0.i.i119 = select i1 %342, i64 %spec.select.i.i118, i64 %337
   %345 = shl i64 %.0.i.i119, 2
-  %346 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %345, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
+  %346 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %345, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #12
   %.not.i.i.i120 = icmp eq i64 %336, 0
   br i1 %.not.i.i.i120, label %.preheader.i.i.i124, label %.lr.ph.i.i.i121
 
@@ -1229,7 +1229,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit116: ; preds = %296, %.pr
   br i1 %exitcond.not.i.i.i123, label %.preheader.i.i.i124, label %353, !llvm.loop !11
 
 358:                                              ; preds = %.preheader.i.i.i124
-  tail call void @_ZdaPv(ptr noundef nonnull %349) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %349) #13
   %.pre.i125 = load i64, ptr %335, align 8
   br label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit126
 
@@ -1257,7 +1257,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE6shrinkEv(ptr noun
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @__cxa_allocate_exception(i64 32) #13
+  %6 = tail call ptr @__cxa_allocate_exception(i64 32) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @.str, ptr %7, align 8
@@ -1267,7 +1267,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE6shrinkEv(ptr noun
   store i32 1, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr @.str.1, ptr %10, align 8
-  tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #14
+  tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #15
   unreachable
 
 11:                                               ; preds = %1
@@ -1280,7 +1280,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE6shrinkEv(ptr noun
 
 16:                                               ; preds = %11
   %17 = shl i64 %13, 2
-  %18 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %17, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
+  %18 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %17, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #12
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.i
 
@@ -1311,7 +1311,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE6shrinkEv(ptr noun
   br i1 %exitcond.not.i, label %.preheader.i, label %25, !llvm.loop !11
 
 30:                                               ; preds = %.preheader.i
-  tail call void @_ZdaPv(ptr noundef nonnull %21) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %21) #13
   br label %_ZN6marisa8grimoire6vector6VectorIjE7reallocEm.exit
 
 _ZN6marisa8grimoire6vector6VectorIjE7reallocEm.exit: ; preds = %30, %.preheader.i, %11
@@ -1336,16 +1336,17 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   ret void
 }
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa9ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #12
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -1363,9 +1364,9 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_bit_vector.cc() #10 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_bit_vector.cc() #11 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   ret void
 }
 
@@ -1379,11 +1380,12 @@ attributes #6 = { nobuiltin nounwind allocsize(0) "frame-pointer"="all" "no-trap
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { builtin nounwind allocsize(0) }
-attributes #12 = { builtin nounwind }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn }
+attributes #10 = { cold noreturn }
+attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { builtin nounwind allocsize(0) }
+attributes #13 = { builtin nounwind }
+attributes #14 = { nounwind }
+attributes #15 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -52,27 +52,27 @@ define hidden noundef i32 @_Z20luaD_rawrunprotectedP9lua_StatePFvS0_PvES1_(ptr n
           catch ptr @_ZTISt9exception
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = extractvalue { ptr, i32 } %5, 1
-  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI13lua_exception) #12
+  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI13lua_exception) #14
   %9 = icmp eq i32 %7, %8
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %4
-  %11 = tail call ptr @__cxa_begin_catch(ptr %6) #12
+  %11 = tail call ptr @__cxa_begin_catch(ptr %6) #14
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8
   br label %.sink.split
 
 14:                                               ; preds = %4
-  %15 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #12
+  %15 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #14
   %16 = icmp eq i32 %7, %15
   br i1 %16, label %17, label %36
 
 17:                                               ; preds = %14
-  %18 = tail call ptr @__cxa_begin_catch(ptr %6) #12
+  %18 = tail call ptr @__cxa_begin_catch(ptr %6) #14
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %18) #12
+  %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %18) #14
   invoke void @_Z14luaG_pusherrorP9lua_StatePKc(ptr noundef %0, ptr noundef %22)
           to label %.sink.split unwind label %23
 
@@ -86,7 +86,7 @@ define hidden noundef i32 @_Z20luaD_rawrunprotectedP9lua_StatePFvS0_PvES1_(ptr n
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %23
-  %29 = tail call ptr @__cxa_begin_catch(ptr %25) #12
+  %29 = tail call ptr @__cxa_begin_catch(ptr %25) #14
   invoke void @__cxa_end_catch()
           to label %.sink.split unwind label %30
 
@@ -123,7 +123,7 @@ define hidden noundef i32 @_Z20luaD_rawrunprotectedP9lua_StatePFvS0_PvES1_(ptr n
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #13
+  tail call void @__clang_call_terminate(ptr %41) #15
   unreachable
 }
 
@@ -140,34 +140,36 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #15
   unreachable
 }
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_Z10luaD_throwP9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
-  %3 = tail call ptr @__cxa_allocate_exception(i64 24) #12
+define hidden void @_Z10luaD_throwP9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+  %3 = tail call ptr @__cxa_allocate_exception(i64 24) #14
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13lua_exception, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 %1, ptr %5, align 8
-  tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTI13lua_exception, ptr nonnull @_ZN13lua_exceptionD2Ev) #14
+  tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTI13lua_exception, ptr nonnull @_ZN13lua_exceptionD2Ev) #16
   unreachable
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN13lua_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+define linkonce_odr dso_local void @_ZN13lua_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #6 comdat align 2 {
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   ret void
 }
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z17luaD_reallocstackP9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -198,7 +200,7 @@ define hidden void @_Z17luaD_reallocstackP9lua_Statei(ptr noundef %0, i32 nounde
   br label %.lr.ph
 
 20:                                               ; preds = %2
-  tail call void @_Z11luaM_toobigP9lua_State(ptr noundef nonnull %0) #14
+  tail call void @_Z11luaM_toobigP9lua_State(ptr noundef nonnull %0) #16
   unreachable
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -295,7 +297,7 @@ _ZL12correctstackP9lua_StateP10lua_TValue.exit:   ; preds = %.lr.ph39.i, %._crit
 declare hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare hidden void @_Z11luaM_toobigP9lua_State(ptr noundef) local_unnamed_addr #6
+declare hidden void @_Z11luaM_toobigP9lua_State(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z14luaD_reallocCIP9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -330,7 +332,7 @@ define hidden void @_Z14luaD_reallocCIP9lua_Statei(ptr noundef %0, i32 noundef %
   ret void
 
 25:                                               ; preds = %2
-  tail call void @_Z11luaM_toobigP9lua_State(ptr noundef %0) #14
+  tail call void @_Z11luaM_toobigP9lua_State(ptr noundef %0) #16
   unreachable
 }
 
@@ -354,7 +356,7 @@ define hidden noundef nonnull ptr @_Z11luaD_growCIP9lua_State(ptr noundef %0) lo
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  tail call void @_Z10luaD_throwP9lua_Statei(ptr noundef nonnull %0, i32 noundef 5) #14
+  tail call void @_Z10luaD_throwP9lua_Statei(ptr noundef nonnull %0, i32 noundef 5) #16
   unreachable
 
 6:                                                ; preds = %1
@@ -366,7 +368,7 @@ define hidden noundef nonnull ptr @_Z11luaD_growCIP9lua_State(ptr noundef %0) lo
   br i1 %11, label %_Z14luaD_reallocCIP9lua_Statei.exit, label %12
 
 12:                                               ; preds = %6
-  tail call void @_Z11luaM_toobigP9lua_State(ptr noundef nonnull %0) #14
+  tail call void @_Z11luaM_toobigP9lua_State(ptr noundef nonnull %0) #16
   unreachable
 
 _Z14luaD_reallocCIP9lua_Statei.exit:              ; preds = %6
@@ -395,7 +397,7 @@ _Z14luaD_reallocCIP9lua_Statei.exit:              ; preds = %6
   br i1 %8, label %31, label %32
 
 31:                                               ; preds = %_Z14luaD_reallocCIP9lua_Statei.exit
-  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str) #14
+  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str) #16
   unreachable
 
 32:                                               ; preds = %_Z14luaD_reallocCIP9lua_Statei.exit
@@ -405,7 +407,7 @@ _Z14luaD_reallocCIP9lua_Statei.exit:              ; preds = %6
 }
 
 ; Function Attrs: noreturn
-declare hidden void @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
+declare hidden void @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z16luaD_checkCstackP9lua_State(ptr noundef %0) local_unnamed_addr #0 {
@@ -415,7 +417,7 @@ define hidden void @_Z16luaD_checkCstackP9lua_State(ptr noundef %0) local_unname
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #14
+  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #16
   unreachable
 
 6:                                                ; preds = %1
@@ -423,7 +425,7 @@ define hidden void @_Z16luaD_checkCstackP9lua_State(ptr noundef %0) local_unname
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %6
-  tail call void @_Z10luaD_throwP9lua_Statei(ptr noundef nonnull %0, i32 noundef 5) #14
+  tail call void @_Z10luaD_throwP9lua_Statei(ptr noundef nonnull %0, i32 noundef 5) #16
   unreachable
 
 9:                                                ; preds = %6
@@ -444,7 +446,7 @@ define hidden void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef %0, ptr no
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
-  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #14
+  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #16
   unreachable
 
 11:                                               ; preds = %8
@@ -452,7 +454,7 @@ define hidden void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef %0, ptr no
   br i1 %12, label %13, label %_Z16luaD_checkCstackP9lua_State.exit
 
 13:                                               ; preds = %11
-  tail call void @_Z10luaD_throwP9lua_Statei(ptr noundef nonnull %0, i32 noundef 5) #14
+  tail call void @_Z10luaD_throwP9lua_Statei(ptr noundef nonnull %0, i32 noundef 5) #16
   unreachable
 
 _Z16luaD_checkCstackP9lua_State.exit:             ; preds = %11, %3
@@ -798,7 +800,7 @@ define internal void @_ZL6resumeP9lua_StatePv(ptr noundef %0, ptr noundef %1) #0
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #14
+  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #16
   unreachable
 
 11:                                               ; preds = %6
@@ -1272,7 +1274,7 @@ define dso_local noundef i32 @_Z9lua_yieldP9lua_Statei(ptr noundef %0, i32 nound
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #14
+  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #16
   unreachable
 
 9:                                                ; preds = %2
@@ -1298,7 +1300,7 @@ define dso_local noundef i32 @_Z9lua_breakP9lua_State(ptr noundef %0) local_unna
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #14
+  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #16
   unreachable
 
 8:                                                ; preds = %1
@@ -1308,7 +1310,7 @@ define dso_local noundef i32 @_Z9lua_breakP9lua_State(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 2) i32 @_Z15lua_isyieldableP9lua_State(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local noundef range(i32 0, 2) i32 @_Z15lua_isyieldableP9lua_State(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load i16, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 82
@@ -1541,14 +1543,14 @@ define internal void @_ZL11callerrfuncP9lua_StatePv(ptr noundef %0, ptr nocaptur
 declare hidden void @_Z10luaF_closeP9lua_StateP10lua_TValue(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN13lua_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #15
+define linkonce_odr dso_local void @_ZN13lua_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #6 comdat align 2 {
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK13lua_exception4whatEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef ptr @_ZNK13lua_exception4whatEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 2
@@ -1588,44 +1590,46 @@ switch.lookup:                                    ; preds = %10
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #13
+  tail call void @__clang_call_terminate(ptr %17) #15
   unreachable
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 declare noundef ptr @_Z13lua_tolstringP9lua_StateiPm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #11
 
 declare hidden noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 declare hidden void @_Z12luau_poscallP9lua_StateP10lua_TValue(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nosync nounwind memory(none) }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { noreturn }
-attributes #15 = { builtin nounwind }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold noreturn }
+attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { noreturn }
+attributes #17 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -52,7 +52,7 @@ define hidden noundef ptr @hb_blob_create_or_fail(ptr noundef %0, i32 noundef %1
   br i1 %6, label %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #18
+  %8 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #19
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread, label %10
 
@@ -95,7 +95,7 @@ _ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread: ; preds = %7, %5
 
 21:                                               ; preds = %20
   %22 = zext nneg i32 %1 to i64
-  %23 = tail call noalias ptr @malloc(i64 noundef %22) #19
+  %23 = tail call noalias ptr @malloc(i64 noundef %22) #20
   %.not8.i = icmp eq ptr %23, null
   br i1 %.not8.i, label %_ZN9hb_blob_t17try_make_writableEv.exit, label %_ZL9hb_memcpyPvPKvm.exit.i
 
@@ -136,8 +136,8 @@ _ZN9hb_blob_t17try_make_writableEv.exit:          ; preds = %21
   %32 = inttoptr i64 %30 to ptr
   %33 = getelementptr inbounds i8, ptr %32, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(40) %32)
-  %34 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %32) #20
-  tail call void @free(ptr noundef nonnull %32) #20
+  %34 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %32) #21
+  tail call void @free(ptr noundef nonnull %32) #21
   store atomic i64 0, ptr %12 monotonic, align 8
   br label %_ZL14hb_object_finiI9hb_blob_tEvPT_.exit.i.i
 
@@ -155,11 +155,11 @@ _ZL14hb_object_finiI9hb_blob_tEvPT_.exit.i.i:     ; preds = %31, %29
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #21
+  tail call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 _ZL17hb_object_destroyI9hb_blob_tEbPT_.exit.i:    ; preds = %36, %_ZL14hb_object_finiI9hb_blob_tEvPT_.exit.i.i
-  tail call void @free(ptr noundef nonnull %8) #20
+  tail call void @free(ptr noundef nonnull %8) #21
   br label %hb_blob_destroy.exit
 
 hb_blob_destroy.exit:                             ; preds = %.thread.i, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i, %_ZL17hb_object_destroyI9hb_blob_tEbPT_.exit.i, %27, %_ZN9hb_blob_t17try_make_writableEv.exit, %10, %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread, %9
@@ -200,7 +200,7 @@ _ZN9hb_blob_t25try_make_writable_inplaceEv.exit:  ; preds = %7
   %10 = phi i32 [ %.pre12, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit ], [ %3, %5 ]
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = zext i32 %10 to i64
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #19
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #20
   %.not8 = icmp eq ptr %13, null
   br i1 %.not8, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.thread, label %14
 
@@ -265,8 +265,8 @@ define hidden void @hb_blob_destroy(ptr noundef %0) local_unnamed_addr #0 person
   %11 = inttoptr i64 %9 to ptr
   %12 = getelementptr inbounds i8, ptr %11, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(40) %11)
-  %13 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %11) #20
-  tail call void @free(ptr noundef nonnull %11) #20
+  %13 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %11) #21
+  tail call void @free(ptr noundef nonnull %11) #21
   store atomic i64 0, ptr %8 monotonic, align 8
   br label %_ZL14hb_object_finiI9hb_blob_tEvPT_.exit.i
 
@@ -286,11 +286,11 @@ _ZL14hb_object_finiI9hb_blob_tEvPT_.exit.i:       ; preds = %10, %7
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #21
+  tail call void @__clang_call_terminate(ptr %21) #22
   unreachable
 
 _ZL17hb_object_destroyI9hb_blob_tEbPT_.exit:      ; preds = %16, %_ZL14hb_object_finiI9hb_blob_tEvPT_.exit.i
-  tail call void @free(ptr noundef nonnull %0) #20
+  tail call void @free(ptr noundef nonnull %0) #21
   br label %_ZL17hb_object_destroyI9hb_blob_tEbPT_.exit.thread
 
 _ZL17hb_object_destroyI9hb_blob_tEbPT_.exit.thread: ; preds = %1, %5, %2, %_ZL17hb_object_destroyI9hb_blob_tEbPT_.exit
@@ -349,7 +349,7 @@ hb_blob_reference.exit:                           ; preds = %13, %21
   br i1 %25, label %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i, label %26
 
 26:                                               ; preds = %24
-  %27 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #18
+  %27 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #19
   %.not.i.i14 = icmp eq ptr %27, null
   br i1 %.not.i.i14, label %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i, label %28
 
@@ -469,12 +469,12 @@ define hidden range(i32 0, 2) i32 @hb_blob_set_user_data(ptr noundef %0, ptr nou
   br i1 %.not1923.i, label %.lr.ph.i, label %.split.loop.exit21.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %17
-  %10 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 56, i64 noundef 1) #18
+  %10 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 56, i64 noundef 1) #19
   %.not20.i = icmp eq ptr %10, null
   br i1 %.not20.i, label %_ZL23hb_object_set_user_dataI9hb_blob_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %11
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %10, ptr noundef null) #20
+  %12 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %10, ptr noundef null) #21
   %13 = getelementptr inbounds i8, ptr %10, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = ptrtoint ptr %10 to i64
@@ -484,8 +484,8 @@ define hidden range(i32 0, 2) i32 @hb_blob_set_user_data(ptr noundef %0, ptr nou
 
 17:                                               ; preds = %11
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(40) %10)
-  %18 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %10) #20
-  tail call void @free(ptr noundef nonnull %10) #20
+  %18 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %10) #21
+  tail call void @free(ptr noundef nonnull %10) #21
   %19 = load atomic i64, ptr %8 acquire, align 8
   %.not19.i = icmp eq i64 %19, 0
   br i1 %.not19.i, label %.lr.ph.i, label %.split.loop.exit21.i
@@ -524,7 +524,7 @@ define hidden ptr @hb_blob_get_user_data(ptr noundef readonly %0, ptr noundef re
   br i1 %.not9.i, label %_ZL23hb_object_get_user_dataIK9hb_blob_tEPvPT_P18hb_user_data_key_t.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #20
+  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #21
   %11 = getelementptr inbounds i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %8, i64 44
@@ -565,7 +565,7 @@ define hidden ptr @hb_blob_get_user_data(ptr noundef readonly %0, ptr noundef re
 
 _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %22, %._crit_edge.i.i.i.i.i, %9
   %24 = phi ptr [ %.sroa.2.0.copyload.i.i, %22 ], [ null, %9 ], [ null, %._crit_edge.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ]
-  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #20
+  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #21
   br label %_ZL23hb_object_get_user_dataIK9hb_blob_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK9hb_blob_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %2, %3, %5, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
@@ -644,7 +644,7 @@ _ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i: ; preds = %10
   %13 = phi i32 [ %.pre12.i, %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i ], [ %7, %9 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = zext i32 %13 to i64
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #19
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #20
   %.not8.i = icmp eq ptr %16, null
   br i1 %.not8.i, label %_ZN9hb_blob_t17try_make_writableEv.exit, label %17
 
@@ -706,14 +706,14 @@ _ZN9hb_blob_t17try_make_writableEv.exit:          ; preds = %12, %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #4 align 2 {
-  %2 = tail call i64 @sysconf(i32 noundef 30) #20
+  %2 = tail call i64 @sysconf(i32 noundef 30) #21
   %3 = icmp eq i64 %2, -1
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @__errno_location() #22
+  %5 = tail call ptr @__errno_location() #23
   %6 = load i32, ptr %5, align 4
-  %7 = tail call ptr @strerror(i32 noundef %6) #20
+  %7 = tail call ptr @strerror(i32 noundef %6) #21
   br label %31
 
 8:                                                ; preds = %1
@@ -731,14 +731,14 @@ define hidden noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixE
   %20 = add i64 %19, %17
   %21 = and i64 %20, %9
   %22 = sub i64 %21, %13
-  %23 = tail call i32 @mprotect(ptr noundef %14, i64 noundef %22, i32 noundef 3) #20
+  %23 = tail call i32 @mprotect(ptr noundef %14, i64 noundef %22, i32 noundef 3) #21
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %8
-  %26 = tail call ptr @__errno_location() #22
+  %26 = tail call ptr @__errno_location() #23
   %27 = load i32, ptr %26, align 4
-  %28 = tail call ptr @strerror(i32 noundef %27) #20
+  %28 = tail call ptr @strerror(i32 noundef %27) #21
   br label %31
 
 29:                                               ; preds = %8
@@ -790,7 +790,7 @@ define hidden noundef nonnull ptr @hb_blob_create_from_file(ptr nocapture nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noalias noundef ptr @hb_blob_create_from_file_or_fail(ptr nocapture noundef readonly %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #19
+  %2 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #20
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %hb_blob_create_or_fail.exit, label %3
 
@@ -808,7 +808,7 @@ define hidden noalias noundef ptr @hb_blob_create_from_file_or_fail(ptr nocaptur
 5:                                                ; preds = %.outer, %15
   %.132 = phi ptr [ %.2, %15 ], [ %.132.ph, %.outer ]
   %.030 = phi i64 [ %.1, %15 ], [ %.030.ph, %.outer ]
-  %6 = tail call i32 @feof(ptr noundef nonnull %4) #20
+  %6 = tail call i32 @feof(ptr noundef nonnull %4) #21
   %.not38 = icmp eq i32 %6, 0
   br i1 %.not38, label %7, label %21
 
@@ -823,7 +823,7 @@ define hidden noalias noundef ptr @hb_blob_create_from_file_or_fail(ptr nocaptur
   br i1 %12, label %36, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @realloc(ptr noundef %.132, i64 noundef %11) #23
+  %14 = tail call ptr @realloc(ptr noundef %.132, i64 noundef %11) #24
   %.not39 = icmp eq ptr %14, null
   br i1 %.not39, label %36, label %._crit_edge
 
@@ -837,7 +837,7 @@ define hidden noalias noundef ptr @hb_blob_create_from_file_or_fail(ptr nocaptur
   %.1 = phi i64 [ %11, %._crit_edge ], [ %.030, %7 ]
   %16 = getelementptr inbounds i8, ptr %.2, i64 %.029.ph
   %17 = tail call i64 @fread(ptr noundef %16, i64 noundef 1, i64 noundef %.pre-phi, ptr noundef nonnull %4)
-  %18 = tail call i32 @ferror(ptr noundef nonnull %4) #20
+  %18 = tail call i32 @ferror(ptr noundef nonnull %4) #21
   switch i32 %18, label %36 [
     i32 4, label %5
     i32 0, label %19
@@ -854,7 +854,7 @@ define hidden noalias noundef ptr @hb_blob_create_from_file_or_fail(ptr nocaptur
   br i1 %24, label %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i, label %25
 
 25:                                               ; preds = %21
-  %26 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #18
+  %26 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #19
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i, label %27
 
@@ -888,7 +888,7 @@ _ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i: ; preds = %25, %21
 
 38:                                               ; preds = %3, %36
   %.031 = phi ptr [ %.3, %36 ], [ %2, %3 ]
-  tail call void @free(ptr noundef %.031) #20
+  tail call void @free(ptr noundef %.031) #21
   br label %hb_blob_create_or_fail.exit
 
 hb_blob_create_or_fail.exit:                      ; preds = %27, %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i, %1, %38
@@ -939,7 +939,7 @@ define linkonce_odr hidden void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t1
   store i32 0, ptr %3, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call void @free(ptr noundef %9) #20
+  tail call void @free(ptr noundef %9) #21
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit: ; preds = %5, %7
@@ -947,7 +947,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit:
   br label %28
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #20
+  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #21
   %12 = load i32, ptr %3, align 4
   %.not510 = icmp eq i32 %12, 0
   br i1 %.not510, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph
@@ -967,7 +967,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0.i.i.sroa_idx, align 8
   store i32 %15, ptr %3, align 4, !noalias !21
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #20
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #21
   %.not.i7 = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not.i7, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %20
 
@@ -976,7 +976,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, %20
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #20
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #21
   %22 = load i32, ptr %3, align 4
   %.not5 = icmp eq i32 %22, 0
   br i1 %.not5, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !24
@@ -990,12 +990,12 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
   store i32 0, ptr %3, align 4
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
-  tail call void @free(ptr noundef %26) #20
+  tail call void @free(ptr noundef %26) #21
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9: ; preds = %._crit_edge, %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #20
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #21
   br label %28
 
 28:                                               ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
@@ -1015,14 +1015,15 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #16 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
-  tail call void @_ZSt9terminatev() #21
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
+  tail call void @_ZSt9terminatev() #22
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18hb_user_data_key_tPvPFvS2_Ei(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 comdat align 2 {
@@ -1041,7 +1042,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
   br i1 %or.cond, label %36, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #20
+  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #21
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 44
@@ -1097,7 +1098,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i: ; preds = %31, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i
-  %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+  %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #21
   %.not.i7.i = icmp eq ptr %.sroa.2.0.copyload18.i, null
   br i1 %.not.i7.i, label %_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE6removeIP18hb_user_data_key_tEEvT_RS2_.exit, label %34
 
@@ -1106,7 +1107,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i
   br label %_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE6removeIP18hb_user_data_key_tEEvT_RS2_.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIP18hb_user_data_key_tEEPS1_RKT_S6_.exit.thread.i: ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i, %12
-  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #21
   br label %_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE6removeIP18hb_user_data_key_tEEvT_RS2_.exit
 
 36:                                               ; preds = %9, %7
@@ -1130,7 +1131,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE17replace_or_insertIS1_EEPS1_T_RS2_b(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef byval(%"struct.hb_user_data_array_t::hb_user_data_item_t") align 8 %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i1 noundef zeroext %3) local_unnamed_addr #0 comdat align 2 {
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #20
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #21
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1174,7 +1175,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_E
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #20
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #21
   %.not.i = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not.i, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %20
 
@@ -1183,7 +1184,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_E
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 21:                                               ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_EEPS1_RKT_S4_.exit.thread12
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #20
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #21
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_EEPS1_RKT_S4_.exit.thread: ; preds = %.lr.ph.i.i, %._crit_edge.i.i, %4
@@ -1215,7 +1216,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_E
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i: ; preds = %.thread.i.i
   %33 = zext nneg i32 %30 to i64
   %34 = mul nuw nsw i64 %33, 24
-  %35 = tail call ptr @realloc(ptr noundef %7, i64 noundef %34) #23
+  %35 = tail call ptr @realloc(ptr noundef %7, i64 noundef %34) #24
   %.not43.i.i = icmp eq ptr %35, null
   br i1 %.not43.i.i, label %36, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.i
 
@@ -1255,7 +1256,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exi
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread6.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread.i
   %.0.i = phi ptr [ %42, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread.i ], [ @_hb_CrapPool, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread6.i ]
-  %43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #20
+  %43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #21
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %20, %18, %21, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
@@ -1267,7 +1268,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %20, %18, 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #17
+declare i32 @llvm.umin.i32(i32, i32) #18
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1286,13 +1287,14 @@ attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #16 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nounwind allocsize(0,1) }
-attributes #19 = { nounwind allocsize(0) }
-attributes #20 = { nounwind }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { nounwind willreturn memory(none) }
-attributes #23 = { nounwind allocsize(1) }
+attributes #17 = { cold nofree noreturn }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nounwind allocsize(0,1) }
+attributes #20 = { nounwind allocsize(0) }
+attributes #21 = { nounwind }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { nounwind willreturn memory(none) }
+attributes #24 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

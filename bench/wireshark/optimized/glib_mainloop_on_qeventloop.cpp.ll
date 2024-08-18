@@ -52,7 +52,7 @@ define void @_ZN10GLibPollerC2EP13_GMainContext(ptr noundef nonnull align 8 dere
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %7, align 8
-  %8 = invoke noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #11
+  %8 = invoke noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #12
           to label %9 unwind label %18
 
 9:                                                ; preds = %5
@@ -77,13 +77,13 @@ define void @_ZN10GLibPollerC2EP13_GMainContext(ptr noundef nonnull align 8 dere
 18:                                               ; preds = %9, %5
   %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN14QWaitConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  tail call void @_ZN14QWaitConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   br label %20
 
 20:                                               ; preds = %18, %16
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
-  tail call void @_ZN6QMutexD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  tail call void @_ZN7QThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
+  tail call void @_ZN6QMutexD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
+  tail call void @_ZN7QThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   resume { ptr, i32 } %.pn
 }
 
@@ -122,7 +122,7 @@ define linkonce_odr void @_ZN6QMutexD2Ev(ptr noundef nonnull align 8 dereference
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #13
+  tail call void @__clang_call_terminate(ptr %7) #14
   unreachable
 }
 
@@ -145,7 +145,7 @@ define void @_ZN10GLibPollerD2Ev(ptr noundef nonnull align 8 dereferenceable(64)
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN14QWaitConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  tail call void @_ZN14QWaitConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load atomic i64, ptr %9 monotonic, align 8
   %.not.i = icmp eq i64 %10, 0
@@ -160,18 +160,18 @@ define void @_ZN10GLibPollerD2Ev(ptr noundef nonnull align 8 dereferenceable(64)
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #13
+  tail call void @__clang_call_terminate(ptr %14) #14
   unreachable
 
 _ZN6QMutexD2Ev.exit:                              ; preds = %7, %11
-  tail call void @_ZN7QThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
+  tail call void @_ZN7QThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   ret void
 
 15:                                               ; preds = %4, %1
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #13
+  tail call void @__clang_call_terminate(ptr %17) #14
   unreachable
 }
 
@@ -179,26 +179,27 @@ declare void @g_main_context_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN10GLibPollerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZN10GLibPollerD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
+  tail call void @_ZN10GLibPollerD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10GLibPoller3runEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -209,7 +210,7 @@ define void @_ZN10GLibPoller3runEv(ptr noundef nonnull align 8 dereferenceable(6
   br i1 %5, label %_ZN11QBasicMutex4lockEv.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZN11QBasicMutex12lockInternalEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  tail call void @_ZN11QBasicMutex12lockInternalEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   br label %_ZN11QBasicMutex4lockEv.exit
 
 _ZN11QBasicMutex4lockEv.exit:                     ; preds = %1, %6
@@ -252,7 +253,7 @@ _ZN11QBasicMutex4lockEv.exit:                     ; preds = %1, %6
   call void @g_free(ptr noundef %26)
   %27 = load i32, ptr %12, align 4
   %28 = sext i32 %27 to i64
-  %29 = call noalias ptr @g_malloc_n(i64 noundef %28, i64 noundef 8) #11
+  %29 = call noalias ptr @g_malloc_n(i64 noundef %28, i64 noundef 8) #12
   store ptr %29, ptr %10, align 8
   %30 = load i32, ptr %12, align 4
   store i32 %30, ptr %11, align 8
@@ -282,7 +283,7 @@ _ZN11QBasicMutex4lockEv.exit:                     ; preds = %1, %6
   br i1 %43, label %_ZN11QBasicMutex6unlockEv.exit, label %44
 
 44:                                               ; preds = %._crit_edge4
-  call void @_ZN11QBasicMutex14unlockInternalEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  call void @_ZN11QBasicMutex14unlockInternalEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   br label %_ZN11QBasicMutex6unlockEv.exit
 
 _ZN11QBasicMutex6unlockEv.exit:                   ; preds = %._crit_edge4, %44
@@ -331,7 +332,7 @@ define void @_ZN24GLibMainloopOnQEventLoopC2EP7QObject(ptr noundef nonnull align
   store i64 ptrtoint (ptr @_ZN24GLibMainloopOnQEventLoop16checkAndDispatchEv to i64), ptr %5, align 8, !noalias !7
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %5, i64 8
   store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !7
-  %12 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
+  %12 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %11
@@ -348,7 +349,7 @@ define void @_ZN24GLibMainloopOnQEventLoopC2EP7QObject(ptr noundef nonnull align
 15:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, i64 10, ptr nonnull @.str)
           to label %16 unwind label %32
@@ -380,7 +381,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %24
 
 27:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
   %28 = load ptr, ptr %7, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %28, i64 noundef 2, i64 noundef 8) #12
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %28, i64 noundef 2, i64 noundef 8) #13
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %24, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %27
@@ -414,17 +415,17 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i12:    ; preds = %34
 
 38:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i12
   %39 = load ptr, ptr %7, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %39, i64 noundef 2, i64 noundef 8) #12
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %39, i64 noundef 2, i64 noundef 8) #13
   br label %_ZN7QStringD2Ev.exit14
 
 _ZN7QStringD2Ev.exit14:                           ; preds = %38, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i12, %34, %32
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ], [ %35, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i12 ], [ %35, %38 ]
-  call void @_ZN10GLibPollerD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #12
+  call void @_ZN10GLibPollerD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #13
   br label %40
 
 40:                                               ; preds = %_ZN7QStringD2Ev.exit14, %30
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7QStringD2Ev.exit14 ], [ %31, %30 ]
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -441,7 +442,7 @@ define void @_ZN24GLibMainloopOnQEventLoop16checkAndDispatchEv(ptr noundef nonnu
   br i1 %5, label %_ZN11QBasicMutex4lockEv.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZN11QBasicMutex12lockInternalEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  tail call void @_ZN11QBasicMutex12lockInternalEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   br label %_ZN11QBasicMutex4lockEv.exit
 
 _ZN11QBasicMutex4lockEv.exit:                     ; preds = %1, %6
@@ -465,7 +466,7 @@ _ZN11QBasicMutex4lockEv.exit:                     ; preds = %1, %6
   %16 = getelementptr inbounds i8, ptr %2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 20, i1 false)
   store ptr @.str.2, ptr %16, align 8
-  call void (ptr, ptr, ...) @_ZNK14QMessageLogger7warningEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1) #16
+  call void (ptr, ptr, ...) @_ZNK14QMessageLogger7warningEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1) #17
   br label %17
 
 17:                                               ; preds = %14, %11
@@ -495,7 +496,7 @@ _ZN11QBasicMutex4lockEv.exit:                     ; preds = %1, %6
   br i1 %32, label %_ZN11QBasicMutex6unlockEv.exit, label %33
 
 33:                                               ; preds = %28
-  call void @_ZN11QBasicMutex14unlockInternalEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  call void @_ZN11QBasicMutex14unlockInternalEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   br label %_ZN11QBasicMutex6unlockEv.exit
 
 _ZN11QBasicMutex6unlockEv.exit:                   ; preds = %28, %33
@@ -532,7 +533,7 @@ define void @_ZN24GLibMainloopOnQEventLoopD2Ev(ptr noundef nonnull align 8 deref
   br i1 %9, label %_ZN11QBasicMutex4lockEv.exit, label %10
 
 10:                                               ; preds = %6
-  tail call void @_ZN11QBasicMutex12lockInternalEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  tail call void @_ZN11QBasicMutex12lockInternalEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
   br label %_ZN11QBasicMutex4lockEv.exit
 
 _ZN11QBasicMutex4lockEv.exit:                     ; preds = %6, %10
@@ -546,7 +547,7 @@ _ZN11QBasicMutex4lockEv.exit:                     ; preds = %6, %10
   br i1 %14, label %_ZN11QBasicMutex6unlockEv.exit, label %15
 
 15:                                               ; preds = %12
-  tail call void @_ZN11QBasicMutex14unlockInternalEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  tail call void @_ZN11QBasicMutex14unlockInternalEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
   br label %_ZN11QBasicMutex6unlockEv.exit
 
 _ZN11QBasicMutex6unlockEv.exit:                   ; preds = %12, %15
@@ -554,15 +555,15 @@ _ZN11QBasicMutex6unlockEv.exit:                   ; preds = %12, %15
           to label %17 unwind label %18
 
 17:                                               ; preds = %_ZN11QBasicMutex6unlockEv.exit
-  tail call void @_ZN10GLibPollerD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #12
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
+  tail call void @_ZN10GLibPollerD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #13
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   ret void
 
 18:                                               ; preds = %_ZN11QBasicMutex6unlockEv.exit, %_ZN11QBasicMutex4lockEv.exit, %3, %1
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #13
+  tail call void @__clang_call_terminate(ptr %20) #14
   unreachable
 }
 
@@ -576,15 +577,15 @@ declare noundef zeroext i1 @_ZN7QThread4waitE14QDeadlineTimer(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN24GLibMainloopOnQEventLoopD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZN24GLibMainloopOnQEventLoopD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
+  tail call void @_ZN24GLibMainloopOnQEventLoopD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
 
 declare i32 @g_main_depth() local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare void @_ZNK14QMessageLogger7warningEPKcz(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ...) local_unnamed_addr #8
+declare void @_ZNK14QMessageLogger7warningEPKcz(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ...) local_unnamed_addr #9
 
 declare i32 @g_main_context_check(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -592,7 +593,7 @@ declare void @g_main_context_dispatch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN24GLibMainloopOnQEventLoop5setupEP7QObject(ptr noundef %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
+  %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16
   store i32 1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr @"_ZN9QtPrivate18QFunctorSlotObjectIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseES3_PPvPb", ptr %3, align 8
@@ -618,7 +619,7 @@ declare void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef, i64 noundef, i64 no
 declare void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM24GLibMainloopOnQEventLoopFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 comdat align 2 {
@@ -633,7 +634,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM24GLibMainloopOnQEventLoop
   br i1 %7, label %29, label %8
 
 8:                                                ; preds = %6
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
   br label %29
 
 9:                                                ; preds = %5
@@ -697,7 +698,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN24GLibMainloopOnQEven
   br i1 %7, label %"_ZN9QtPrivate7FunctorIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit", label %8
 
 8:                                                ; preds = %6
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
   br label %"_ZN9QtPrivate7FunctorIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit"
 
 9:                                                ; preds = %5
@@ -707,7 +708,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN24GLibMainloopOnQEven
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %1, i64 16
-  %14 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
+  %14 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
   %15 = load ptr, ptr %13, align 8
   invoke void @_ZN24GLibMainloopOnQEventLoopC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef %15)
           to label %"_ZN9QtPrivate7FunctorIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit" unwind label %16
@@ -715,7 +716,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN24GLibMainloopOnQEven
 16:                                               ; preds = %12
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #15
   resume { ptr, i32 } %17
 
 "_ZN9QtPrivate7FunctorIZN24GLibMainloopOnQEventLoop5setupEP7QObjectE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit": ; preds = %12, %9, %6, %8, %5
@@ -723,10 +724,10 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN24GLibMainloopOnQEven
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -735,16 +736,17 @@ attributes #3 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true"
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { allocsize(0,1) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { builtin nounwind }
-attributes #15 = { builtin allocsize(0) }
-attributes #16 = { cold }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { allocsize(0,1) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { builtin nounwind }
+attributes #16 = { builtin allocsize(0) }
+attributes #17 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

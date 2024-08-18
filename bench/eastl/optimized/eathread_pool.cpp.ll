@@ -126,7 +126,7 @@ if.then.i.i:                                      ; preds = %call.i.i.noexc
           to label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listIPNS0_10ThreadPool10ThreadInfoENS2_IS6_EEE9list_nodeEE9constructEv.exit.i unwind label %lpad2
 
 if.else.i.i:                                      ; preds = %call.i.i.noexc
-  %call3.i.i7 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
+  %call3.i.i7 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
           to label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listIPNS0_10ThreadPool10ThreadInfoENS2_IS6_EEE9list_nodeEE9constructEv.exit.i unwind label %lpad2
 
 _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listIPNS0_10ThreadPool10ThreadInfoENS2_IS6_EEE9list_nodeEE9constructEv.exit.i: ; preds = %if.else.i.i, %if.then.i.i
@@ -148,7 +148,7 @@ if.then.i3.i:                                     ; preds = %call.i1.i.noexc
           to label %invoke.cont3 unwind label %lpad2
 
 if.else.i8.i:                                     ; preds = %call.i1.i.noexc
-  %call3.i9.i10 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
+  %call3.i9.i10 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %if.then.i3.i, %if.else.i8.i
@@ -215,7 +215,7 @@ lpad4:                                            ; preds = %invoke.cont3
 lpad7:                                            ; preds = %if.then, %if.else, %invoke.cont8
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mJobList) #14
+  call void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mJobList) #15
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont5
@@ -227,17 +227,17 @@ if.end:                                           ; preds = %if.else, %invoke.co
 
 ehcleanup:                                        ; preds = %lpad7, %lpad4
   %.pn = phi { ptr, i32 } [ %14, %lpad7 ], [ %13, %lpad4 ]
-  call void @_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mThreadInfoList) #14
+  call void @_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mThreadInfoList) #15
   br label %ehcleanup12
 
 ehcleanup12:                                      ; preds = %ehcleanup, %lpad2
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %12, %lpad2 ]
-  call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex) #14
+  call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex) #15
   br label %ehcleanup13
 
 ehcleanup13:                                      ; preds = %ehcleanup12, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup12 ], [ %11, %lpad ]
-  call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition) #14
+  call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition) #15
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -264,7 +264,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE9constructEv.exit
 
 if.else.i:                                        ; preds = %entry
-  %call3.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #13
+  %call3.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #14
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE9constructEv.exit
 
 _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE9constructEv.exit: ; preds = %if.then.i, %if.else.i
@@ -285,7 +285,7 @@ if.then.i3:                                       ; preds = %_ZN2EA6Thread7detai
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE9constructEv.exit11
 
 if.else.i9:                                       ; preds = %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE9constructEv.exit
-  %call3.i10 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #13
+  %call3.i10 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #14
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE9constructEv.exit11
 
 _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE9constructEv.exit11: ; preds = %if.then.i3, %if.else.i9
@@ -460,7 +460,7 @@ if.then.i.i:                                      ; preds = %call.i.i.noexc
           to label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i unwind label %terminate.lpad.loopexit
 
 delete.notnull.i.i:                               ; preds = %call.i.i.noexc
-  tail call void @_ZdlPv(ptr noundef nonnull %pNode.08.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %pNode.08.i) #16
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
 
 _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i: ; preds = %if.then.i.i, %delete.notnull.i.i
@@ -495,7 +495,7 @@ if.else.i:                                        ; preds = %call.i.noexc
   br i1 %isnull.i, label %invoke.cont2, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.else.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #16
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i, %if.else.i, %if.then.i
@@ -519,7 +519,7 @@ if.else.i8:                                       ; preds = %call.i.noexc11
   br i1 %isnull.i9, label %invoke.cont4, label %delete.notnull.i10
 
 delete.notnull.i10:                               ; preds = %if.else.i8
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #16
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %delete.notnull.i10, %if.else.i8, %if.then.i5
@@ -538,7 +538,7 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %invoke.cont, %if.th
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %11 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %11) #16
+  tail call void @__clang_call_terminate(ptr %11) #17
   unreachable
 }
 
@@ -579,7 +579,7 @@ if.then.i.i:                                      ; preds = %call.i.i.noexc
           to label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listIPNS0_10ThreadPool10ThreadInfoENS2_IS6_EEE9list_nodeEE7destroyEPS9_.exit.i unwind label %terminate.lpad.loopexit
 
 delete.notnull.i.i:                               ; preds = %call.i.i.noexc
-  tail call void @_ZdlPv(ptr noundef nonnull %pNode.08.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %pNode.08.i) #16
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listIPNS0_10ThreadPool10ThreadInfoENS2_IS6_EEE9list_nodeEE7destroyEPS9_.exit.i
 
 _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listIPNS0_10ThreadPool10ThreadInfoENS2_IS6_EEE9list_nodeEE7destroyEPS9_.exit.i: ; preds = %if.then.i.i, %delete.notnull.i.i
@@ -614,7 +614,7 @@ if.else.i:                                        ; preds = %call.i.noexc
   br i1 %isnull.i, label %invoke.cont2, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.else.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #16
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %delete.notnull.i, %if.else.i, %if.then.i
@@ -638,7 +638,7 @@ if.else.i8:                                       ; preds = %call.i.noexc11
   br i1 %isnull.i9, label %invoke.cont4, label %delete.notnull.i10
 
 delete.notnull.i10:                               ; preds = %if.else.i8
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #16
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %delete.notnull.i10, %if.else.i8, %if.then.i5
@@ -657,7 +657,7 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %invoke.cont, %if.th
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %11 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %11) #16
+  tail call void @__clang_call_terminate(ptr %11) #17
   unreachable
 }
 
@@ -675,20 +675,20 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %mJobList = getelementptr inbounds i8, ptr %this, i64 240
-  tail call void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mJobList) #14
+  tail call void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mJobList) #15
   %mThreadInfoList = getelementptr inbounds i8, ptr %this, i64 208
-  tail call void @_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mThreadInfoList) #14
+  tail call void @_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mThreadInfoList) #15
   %mThreadMutex = getelementptr inbounds i8, ptr %this, i64 160
-  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex) #14
+  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex) #15
   %mThreadCondition = getelementptr inbounds i8, ptr %this, i64 112
-  tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition) #14
+  tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition) #15
   ret void
 
 terminate.lpad:                                   ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #16
+  tail call void @__clang_call_terminate(ptr %1) #17
   unreachable
 }
 
@@ -740,7 +740,7 @@ if.then.i.i:                                      ; preds = %while.body.i
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
 
 delete.notnull.i.i:                               ; preds = %while.body.i
-  tail call void @_ZdlPv(ptr noundef nonnull %pNode.08.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %pNode.08.i) #16
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
 
 _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i: ; preds = %delete.notnull.i.i, %if.then.i.i
@@ -811,7 +811,7 @@ if.then.i.i12:                                    ; preds = %if.then.i
   br label %if.end16
 
 delete.notnull.i.i15:                             ; preds = %if.then.i
-  tail call void @_ZdlPv(ptr noundef nonnull %it.sroa.0.028) #15, !noalias !14
+  tail call void @_ZdlPv(ptr noundef nonnull %it.sroa.0.028) #16, !noalias !14
   br label %if.end16
 
 if.else:                                          ; preds = %for.body
@@ -866,17 +866,18 @@ if.end30:                                         ; preds = %entry, %while.end
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 declare noundef i32 @_ZN2EA6Thread17GetProcessorCountEv() local_unnamed_addr #1
 
@@ -934,7 +935,7 @@ if.then.i.i.i:                                    ; preds = %while.body
   br label %_ZN2EA6Thread10ThreadPool9AddThreadEPNS1_10ThreadInfoE.exit
 
 if.else.i.i.i:                                    ; preds = %while.body
-  %call3.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
+  %call3.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   br label %_ZN2EA6Thread10ThreadPool9AddThreadEPNS1_10ThreadInfoE.exit
 
 _ZN2EA6Thread10ThreadPool9AddThreadEPNS1_10ThreadInfoE.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
@@ -1336,7 +1337,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
 
 delete.notnull.i.i:                               ; preds = %if.then.i
-  call void @_ZdlPv(ptr noundef nonnull %7) #15
+  call void @_ZdlPv(ptr noundef nonnull %7) #16
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
 
 _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i: ; preds = %delete.notnull.i.i, %if.then.i.i
@@ -1489,7 +1490,7 @@ if.then:                                          ; preds = %land.rhs.i
   br i1 %tobool.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  tail call void @_ZN2EA6Thread6ThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  tail call void @_ZN2EA6Thread6ThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   %5 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
   %6 = load ptr, ptr %mpThread5, align 8
   %vtable = load ptr, ptr %5, align 8
@@ -1503,8 +1504,8 @@ if.else:                                          ; preds = %if.then
   br i1 %isnull, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.else
-  tail call void @_ZN2EA6Thread6ThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #15
+  tail call void @_ZN2EA6Thread6ThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #16
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %delete.notnull, %if.then3
@@ -1543,7 +1544,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE.exit
 
 delete.notnull.i.i:                               ; preds = %if.then.i
-  tail call void @_ZdlPv(ptr noundef nonnull %storemerge.i) #15, !noalias !54
+  tail call void @_ZdlPv(ptr noundef nonnull %storemerge.i) #16, !noalias !54
   br label %_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE.exit
 
 _ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE.exit: ; preds = %if.end, %if.then.i.i, %delete.notnull.i.i
@@ -1559,7 +1560,7 @@ if.then9:                                         ; preds = %_ZN2EA6Thread11simp
   br label %if.end16
 
 delete.notnull14:                                 ; preds = %_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %pThreadInfo) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %pThreadInfo) #16
   br label %if.end16
 
 if.end16:                                         ; preds = %delete.notnull14, %if.then9
@@ -1624,7 +1625,7 @@ if.then.i.i:                                      ; preds = %if.end
   br label %_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9push_backERKS3_.exit
 
 if.else.i.i:                                      ; preds = %if.end
-  %call3.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #13
+  %call3.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #14
   br label %_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9push_backERKS3_.exit
 
 _ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9push_backERKS3_.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -1849,7 +1850,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2EA6Thread10ThreadPool21SetupThreadParametersERNS0_16ThreadParametersE(ptr nocapture noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull align 8 dereferenceable(41) %tp) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN2EA6Thread10ThreadPool21SetupThreadParametersERNS0_16ThreadParametersE(ptr nocapture noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull align 8 dereferenceable(41) %tp) local_unnamed_addr #9 align 2 {
 entry:
   %mnProcessor = getelementptr inbounds i8, ptr %tp, i64 20
   %0 = load i32, ptr %mnProcessor, align 4
@@ -1913,7 +1914,7 @@ if.then.i.i.i:                                    ; preds = %if.then
   br label %_ZN2EA6Thread10ThreadPool9AddThreadEPNS1_10ThreadInfoE.exit
 
 if.else.i.i.i:                                    ; preds = %if.then
-  %call3.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
+  %call3.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   br label %_ZN2EA6Thread10ThreadPool9AddThreadEPNS1_10ThreadInfoE.exit
 
 _ZN2EA6Thread10ThreadPool9AddThreadEPNS1_10ThreadInfoE.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
@@ -2006,7 +2007,7 @@ cond.true:                                        ; preds = %entry
   br label %if.then
 
 cond.false:                                       ; preds = %entry
-  %call2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
+  %call2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   br label %if.then
 
 if.then:                                          ; preds = %cond.false, %cond.true
@@ -2036,7 +2037,7 @@ cond.true5:                                       ; preds = %if.then
   br label %cond.end18
 
 cond.false9:                                      ; preds = %if.then
-  %call10 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
+  %call10 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
   invoke void @_ZN2EA6Thread6ThreadC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call10)
           to label %cond.end18 unwind label %lpad13
 
@@ -2049,7 +2050,7 @@ cond.end18:                                       ; preds = %cond.false9, %cond.
 lpad13:                                           ; preds = %cond.false9
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call10) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %call10) #16
   resume { ptr, i32 } %4
 }
 
@@ -2068,7 +2069,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE9push_backERKS4_.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %call3.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
+  %call3.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   br label %_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE9push_backERKS4_.exit
 
 _ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE9push_backERKS4_.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -2141,7 +2142,7 @@ terminate.lpad.i4:                                ; preds = %cleanup
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #16
+  tail call void @__clang_call_terminate(ptr %4) #17
   unreachable
 
 _ZN2EA6Thread9AutoMutexD2Ev.exit5:                ; preds = %cleanup
@@ -2162,7 +2163,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #16
+  tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
 
 _ZN2EA6Thread9AutoMutexD2Ev.exit:                 ; preds = %entry
@@ -2171,10 +2172,10 @@ _ZN2EA6Thread9AutoMutexD2Ev.exit:                 ; preds = %entry
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 declare void @_ZN2EA6Thread6ThreadC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
@@ -2197,14 +2198,14 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call1 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #13
+  %call1 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #14
   invoke void @_ZN2EA6Thread10ThreadPoolC2EPKNS0_20ThreadPoolParametersEb(ptr noundef nonnull align 8 dereferenceable(272) %call1, ptr noundef null, i1 noundef zeroext true)
           to label %return unwind label %lpad
 
 lpad:                                             ; preds = %if.else
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %call1) #16
   resume { ptr, i32 } %2
 
 return:                                           ; preds = %if.else, %if.then
@@ -2227,18 +2228,18 @@ terminate.lpad.i:                                 ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #16
+  tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
 
 _ZN2EA6Thread10ThreadPoolD2Ev.exit:               ; preds = %if.then
   %mJobList.i = getelementptr inbounds i8, ptr %pThreadPool, i64 240
-  tail call void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mJobList.i) #14
+  tail call void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mJobList.i) #15
   %mThreadInfoList.i = getelementptr inbounds i8, ptr %pThreadPool, i64 208
-  tail call void @_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mThreadInfoList.i) #14
+  tail call void @_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mThreadInfoList.i) #15
   %mThreadMutex.i = getelementptr inbounds i8, ptr %pThreadPool, i64 160
-  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex.i) #14
+  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex.i) #15
   %mThreadCondition.i = getelementptr inbounds i8, ptr %pThreadPool, i64 112
-  tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition.i) #14
+  tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition.i) #15
   %3 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
   %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
@@ -2258,19 +2259,19 @@ terminate.lpad.i4:                                ; preds = %delete.notnull
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #16
+  tail call void @__clang_call_terminate(ptr %6) #17
   unreachable
 
 _ZN2EA6Thread10ThreadPoolD2Ev.exit9:              ; preds = %delete.notnull
   %mJobList.i5 = getelementptr inbounds i8, ptr %pThreadPool, i64 240
-  tail call void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mJobList.i5) #14
+  tail call void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mJobList.i5) #15
   %mThreadInfoList.i6 = getelementptr inbounds i8, ptr %pThreadPool, i64 208
-  tail call void @_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mThreadInfoList.i6) #14
+  tail call void @_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mThreadInfoList.i6) #15
   %mThreadMutex.i7 = getelementptr inbounds i8, ptr %pThreadPool, i64 160
-  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex.i7) #14
+  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex.i7) #15
   %mThreadCondition.i8 = getelementptr inbounds i8, ptr %pThreadPool, i64 112
-  tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition.i8) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %pThreadPool) #15
+  tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition.i8) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %pThreadPool) #16
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %_ZN2EA6Thread10ThreadPoolD2Ev.exit9, %_ZN2EA6Thread10ThreadPoolD2Ev.exit
@@ -2278,7 +2279,7 @@ if.end:                                           ; preds = %if.else, %_ZN2EA6Th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN2EA6Thread17ThreadPoolFactory17GetThreadPoolSizeEv() local_unnamed_addr #11 align 2 {
+define dso_local noundef i64 @_ZN2EA6Thread17ThreadPoolFactory17GetThreadPoolSizeEv() local_unnamed_addr #12 align 2 {
 entry:
   ret i64 272
 }
@@ -2300,25 +2301,25 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #16
+  tail call void @__clang_call_terminate(ptr %1) #17
   unreachable
 
 _ZN2EA6Thread10ThreadPoolD2Ev.exit:               ; preds = %entry
   %mJobList.i = getelementptr inbounds i8, ptr %pThreadPool, i64 240
-  tail call void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mJobList.i) #14
+  tail call void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mJobList.i) #15
   %mThreadInfoList.i = getelementptr inbounds i8, ptr %pThreadPool, i64 208
-  tail call void @_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mThreadInfoList.i) #14
+  tail call void @_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mThreadInfoList.i) #15
   %mThreadMutex.i = getelementptr inbounds i8, ptr %pThreadPool, i64 160
-  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex.i) #14
+  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex.i) #15
   %mThreadCondition.i = getelementptr inbounds i8, ptr %pThreadPool, i64 112
-  tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition.i) #14
+  tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition.i) #15
   ret void
 }
 
 declare noundef ptr @_ZN2EA6Thread12GetAllocatorEv() local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2327,16 +2328,17 @@ attributes #3 = { mustprogress nofree norecurse nounwind memory(argmem: readwrit
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { builtin allocsize(0) }
-attributes #14 = { nounwind }
-attributes #15 = { builtin nounwind }
-attributes #16 = { noreturn nounwind }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { nounwind }
+attributes #16 = { builtin nounwind }
+attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

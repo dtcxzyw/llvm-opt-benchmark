@@ -89,7 +89,7 @@ terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #16
+  tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
 }
 
@@ -97,14 +97,15 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN13b2DynamicTree12AllocateNodeEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
@@ -207,10 +208,10 @@ if.end:                                           ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN13b2DynamicTree8FreeNodeEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %nodeId) local_unnamed_addr #5 align 2 {
+define void @_ZN13b2DynamicTree8FreeNodeEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %nodeId) local_unnamed_addr #6 align 2 {
 entry:
   %m_freeList = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %m_freeList, align 8
@@ -231,7 +232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN13b2DynamicTree11CreateProxyERK6b2AABBPv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabb, ptr noundef %userData) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN13b2DynamicTree11CreateProxyERK6b2AABBPv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabb, ptr noundef %userData) local_unnamed_addr #7 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN13b2DynamicTree12AllocateNodeEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %0 = load float, ptr %aabb, align 4
@@ -271,7 +272,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13b2DynamicTree10InsertLeafEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %leaf) local_unnamed_addr #6 align 2 {
+define void @_ZN13b2DynamicTree10InsertLeafEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %leaf) local_unnamed_addr #7 align 2 {
 entry:
   %m_insertionCount = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_insertionCount, align 4
@@ -611,7 +612,7 @@ while.end214:                                     ; preds = %while.body173, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN13b2DynamicTree12DestroyProxyEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %proxyId) local_unnamed_addr #7 align 2 {
+define void @_ZN13b2DynamicTree12DestroyProxyEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %proxyId) local_unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN13b2DynamicTree10RemoveLeafEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %proxyId)
   %m_freeList.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -633,7 +634,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN13b2DynamicTree10RemoveLeafEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %leaf) local_unnamed_addr #8 align 2 {
+define void @_ZN13b2DynamicTree10RemoveLeafEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %leaf) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, %leaf
@@ -788,7 +789,7 @@ if.end82:                                         ; preds = %while.body, %if.els
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13b2DynamicTree9MoveProxyEiRK6b2AABBRK6b2Vec2(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %proxyId, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %displacement) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN13b2DynamicTree9MoveProxyEiRK6b2AABBRK6b2Vec2(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %proxyId, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %displacement) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load float, ptr %aabb, align 4
   %sub.i = fadd float %0, 0xBFB99999A0000000
@@ -905,7 +906,7 @@ return:                                           ; preds = %if.then28, %if.end4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN13b2DynamicTree7BalanceEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %iA) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZN13b2DynamicTree7BalanceEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %iA) local_unnamed_addr #10 align 2 {
 entry:
   %m_nodes = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_nodes, align 8
@@ -1134,7 +1135,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK13b2DynamicTree9GetHeightEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK13b2DynamicTree9GetHeightEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, -1
@@ -1154,7 +1155,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef float @_ZNK13b2DynamicTree12GetAreaRatioEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #10 align 2 {
+define noundef float @_ZNK13b2DynamicTree12GetAreaRatioEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, -1
@@ -1226,7 +1227,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK13b2DynamicTree13ComputeHeightEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %nodeId) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK13b2DynamicTree13ComputeHeightEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %nodeId) local_unnamed_addr #12 align 2 {
 entry:
   %m_nodes = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_nodes, align 8
@@ -1252,7 +1253,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK13b2DynamicTree13ComputeHeightEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK13b2DynamicTree13ComputeHeightEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %call = tail call noundef i32 @_ZNK13b2DynamicTree13ComputeHeightEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %0)
@@ -1260,25 +1261,25 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZNK13b2DynamicTree17ValidateStructureEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %index) local_unnamed_addr #12 align 2 {
+define void @_ZNK13b2DynamicTree17ValidateStructureEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %index) local_unnamed_addr #13 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZNK13b2DynamicTree15ValidateMetricsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %index) local_unnamed_addr #13 align 2 {
+define void @_ZNK13b2DynamicTree15ValidateMetricsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %index) local_unnamed_addr #14 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZNK13b2DynamicTree8ValidateEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this) local_unnamed_addr #12 align 2 {
+define void @_ZNK13b2DynamicTree8ValidateEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this) local_unnamed_addr #13 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK13b2DynamicTree13GetMaxBalanceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK13b2DynamicTree13GetMaxBalanceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #11 align 2 {
 entry:
   %m_nodeCapacity = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %m_nodeCapacity, align 4
@@ -1328,7 +1329,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13b2DynamicTree15RebuildBottomUpEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN13b2DynamicTree15RebuildBottomUpEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_nodeCount = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %m_nodeCount, align 8
@@ -1557,7 +1558,7 @@ while.end:                                        ; preds = %for.end44, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN13b2DynamicTree11ShiftOriginERK6b2Vec2(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %newOrigin) local_unnamed_addr #7 align 2 {
+define void @_ZN13b2DynamicTree11ShiftOriginERK6b2Vec2(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %newOrigin) local_unnamed_addr #8 align 2 {
 entry:
   %m_nodeCapacity = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %m_nodeCapacity, align 4
@@ -1603,37 +1604,38 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-declare noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef) local_unnamed_addr #14
+declare noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef) local_unnamed_addr #15
 
-declare void @_Z14b2Free_DefaultPv(ptr noundef) local_unnamed_addr #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
+declare void @_Z14b2Free_DefaultPv(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #15
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
+declare i32 @llvm.abs.i32(i32, i1 immarg) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { nounwind }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

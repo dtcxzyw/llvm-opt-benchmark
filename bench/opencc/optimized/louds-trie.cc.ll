@@ -310,7 +310,7 @@ define void @_ZN6marisa8grimoire4trie9LoudsTrieC2Ev(ptr noundef nonnull align 8 
   br i1 %34, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEED2Ev.exit, label %35
 
 35:                                               ; preds = %30
-  tail call void @_ZdaPv(ptr noundef nonnull %33) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %33) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEED2Ev.exit
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEED2Ev.exit: ; preds = %35, %30
@@ -319,12 +319,12 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEED2Ev.exit: ; preds = %35, %30
   br i1 %37, label %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEED2Ev.exit, label %38
 
 38:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEED2Ev.exit
-  tail call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %36) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %36) #19
+  tail call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %36) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %36) #21
   br label %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEED2Ev.exit
 
 _ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEED2Ev.exit: ; preds = %_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEED2Ev.exit, %38
-  tail call void @_ZN6marisa8grimoire4trie4TailD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %18) #20
+  tail call void @_ZN6marisa8grimoire4trie4TailD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %18) #22
   br label %39
 
 39:                                               ; preds = %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEED2Ev.exit, %28
@@ -334,7 +334,7 @@ _ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEED2Ev.exit: ; preds = %_ZN6ma
   br i1 %41, label %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit, label %42
 
 42:                                               ; preds = %39
-  tail call void @_ZdaPv(ptr noundef nonnull %40) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %40) #21
   br label %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit
 
 _ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit:  ; preds = %42, %39
@@ -343,13 +343,13 @@ _ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit:  ; preds = %42, %39
   br i1 %44, label %_ZN6marisa8grimoire6vector6VectorIhED2Ev.exit, label %45
 
 45:                                               ; preds = %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %43) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %43) #21
   br label %_ZN6marisa8grimoire6vector6VectorIhED2Ev.exit
 
 _ZN6marisa8grimoire6vector6VectorIhED2Ev.exit:    ; preds = %45, %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit
-  tail call void @_ZN6marisa8grimoire6vector9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %9) #20
-  tail call void @_ZN6marisa8grimoire6vector9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %5) #20
-  tail call void @_ZN6marisa8grimoire6vector9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #20
+  tail call void @_ZN6marisa8grimoire6vector9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %9) #22
+  tail call void @_ZN6marisa8grimoire6vector9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %5) #22
+  tail call void @_ZN6marisa8grimoire6vector9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #22
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -368,7 +368,7 @@ define linkonce_odr void @_ZN6marisa8grimoire4trie4TailD2Ev(ptr noundef nonnull 
   br i1 %5, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i, label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i:  ; preds = %6, %1
@@ -378,7 +378,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i:  ; preds = %6, %1
   br i1 %9, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i, label %10
 
 10:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i: ; preds = %10, %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i
@@ -388,7 +388,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i: ; preds = %10, %_ZN6marisa8gri
   br i1 %13, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i, label %14
 
 14:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i
 
 _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i: ; preds = %14, %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i
@@ -397,7 +397,7 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i: ; preds = %14, %_
   br i1 %16, label %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit, label %17
 
 17:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %15) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %15) #21
   br label %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit
 
 _ZN6marisa8grimoire6vector9BitVectorD2Ev.exit:    ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i, %17
@@ -406,7 +406,7 @@ _ZN6marisa8grimoire6vector9BitVectorD2Ev.exit:    ; preds = %_ZN6marisa8grimoire
   br i1 %19, label %_ZN6marisa8grimoire6vector6VectorIcED2Ev.exit, label %20
 
 20:                                               ; preds = %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %18) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %18) #21
   br label %_ZN6marisa8grimoire6vector6VectorIcED2Ev.exit
 
 _ZN6marisa8grimoire6vector6VectorIcED2Ev.exit:    ; preds = %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit, %20
@@ -421,7 +421,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector9BitVectorD2Ev(ptr noundef n
   br i1 %4, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit:    ; preds = %1, %5
@@ -431,7 +431,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit:    ; preds = %1, %5
   br i1 %8, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1, label %9
 
 9:                                                ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %7) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1:   ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit, %9
@@ -441,7 +441,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1:   ; preds = %_ZN6marisa8grimoire
   br i1 %12, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1
-  tail call void @_ZdaPv(ptr noundef nonnull %11) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %11) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit
 
 _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit: ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1, %13
@@ -450,7 +450,7 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit: ; preds = %_ZN6mari
   br i1 %15, label %_ZN6marisa8grimoire6vector6VectorImED2Ev.exit, label %16
 
 16:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #21
   br label %_ZN6marisa8grimoire6vector6VectorImED2Ev.exit
 
 _ZN6marisa8grimoire6vector6VectorImED2Ev.exit:    ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit, %16
@@ -460,14 +460,14 @@ _ZN6marisa8grimoire6vector6VectorImED2Ev.exit:    ; preds = %_ZN6marisa8grimoire
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6marisa8grimoire4trie9LoudsTrieD2Ev(ptr noundef nonnull align 8 dereferenceable(1136) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1096
-  tail call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %2) #20
+  tail call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %2) #22
   %3 = getelementptr inbounds i8, ptr %0, i64 1008
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEED2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEED2Ev.exit
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEED2Ev.exit: ; preds = %1, %6
@@ -477,8 +477,8 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEED2Ev.exit: ; preds = %1, %6
   br i1 %9, label %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEED2Ev.exit, label %10
 
 10:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEED2Ev.exit
-  tail call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %8) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #19
+  tail call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %8) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #21
   br label %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEED2Ev.exit
 
 _ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEED2Ev.exit: ; preds = %_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEED2Ev.exit, %10
@@ -490,7 +490,7 @@ _ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEED2Ev.exit: ; preds = %_ZN6ma
   br i1 %15, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i.i, label %16
 
 16:                                               ; preds = %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i.i
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i.i: ; preds = %16, %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEED2Ev.exit
@@ -500,7 +500,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i.i: ; preds = %16, %_ZN6marisa10s
   br i1 %19, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i.i, label %20
 
 20:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %18) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %18) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i.i
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i.i: ; preds = %20, %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i.i
@@ -510,7 +510,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i.i: ; preds = %20, %_ZN6marisa8g
   br i1 %23, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i.i, label %24
 
 24:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %22) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %22) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i.i
 
 _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i.i: ; preds = %24, %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i.i
@@ -519,7 +519,7 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i.i: ; preds = %24, 
   br i1 %26, label %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit.i, label %27
 
 27:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %25) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %25) #21
   br label %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit.i
 
 _ZN6marisa8grimoire6vector9BitVectorD2Ev.exit.i:  ; preds = %27, %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i.i
@@ -528,7 +528,7 @@ _ZN6marisa8grimoire6vector9BitVectorD2Ev.exit.i:  ; preds = %27, %_ZN6marisa8gri
   br i1 %29, label %_ZN6marisa8grimoire4trie4TailD2Ev.exit, label %30
 
 30:                                               ; preds = %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %28) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %28) #21
   br label %_ZN6marisa8grimoire4trie4TailD2Ev.exit
 
 _ZN6marisa8grimoire4trie4TailD2Ev.exit:           ; preds = %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit.i, %30
@@ -538,7 +538,7 @@ _ZN6marisa8grimoire4trie4TailD2Ev.exit:           ; preds = %_ZN6marisa8grimoire
   br i1 %33, label %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit, label %34
 
 34:                                               ; preds = %_ZN6marisa8grimoire4trie4TailD2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %32) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %32) #21
   br label %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit
 
 _ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit:  ; preds = %_ZN6marisa8grimoire4trie4TailD2Ev.exit, %34
@@ -548,7 +548,7 @@ _ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit:  ; preds = %_ZN6marisa8grimoire
   br i1 %37, label %_ZN6marisa8grimoire6vector6VectorIhED2Ev.exit, label %38
 
 38:                                               ; preds = %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %36) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %36) #21
   br label %_ZN6marisa8grimoire6vector6VectorIhED2Ev.exit
 
 _ZN6marisa8grimoire6vector6VectorIhED2Ev.exit:    ; preds = %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit, %38
@@ -559,7 +559,7 @@ _ZN6marisa8grimoire6vector6VectorIhED2Ev.exit:    ; preds = %_ZN6marisa8grimoire
   br i1 %42, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i, label %43
 
 43:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIhED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %41) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %41) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i:  ; preds = %43, %_ZN6marisa8grimoire6vector6VectorIhED2Ev.exit
@@ -569,7 +569,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i:  ; preds = %43, %_ZN6marisa8gri
   br i1 %46, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i, label %47
 
 47:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %45) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %45) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i: ; preds = %47, %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i
@@ -579,7 +579,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i: ; preds = %47, %_ZN6marisa8gri
   br i1 %50, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i, label %51
 
 51:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i
-  tail call void @_ZdaPv(ptr noundef nonnull %49) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %49) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i
 
 _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i: ; preds = %51, %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i
@@ -588,7 +588,7 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i: ; preds = %51, %_
   br i1 %53, label %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit, label %54
 
 54:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %52) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %52) #21
   br label %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit
 
 _ZN6marisa8grimoire6vector9BitVectorD2Ev.exit:    ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i, %54
@@ -599,7 +599,7 @@ _ZN6marisa8grimoire6vector9BitVectorD2Ev.exit:    ; preds = %_ZN6marisa8grimoire
   br i1 %58, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i1, label %59
 
 59:                                               ; preds = %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %57) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %57) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i1
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i1: ; preds = %59, %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit
@@ -609,7 +609,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i1: ; preds = %59, %_ZN6marisa8gri
   br i1 %62, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i2, label %63
 
 63:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i1
-  tail call void @_ZdaPv(ptr noundef nonnull %61) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %61) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i2
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i2: ; preds = %63, %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i1
@@ -619,7 +619,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i2: ; preds = %63, %_ZN6marisa8gr
   br i1 %66, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i3, label %67
 
 67:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i2
-  tail call void @_ZdaPv(ptr noundef nonnull %65) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %65) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i3
 
 _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i3: ; preds = %67, %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i2
@@ -628,7 +628,7 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i3: ; preds = %67, %
   br i1 %69, label %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit4, label %70
 
 70:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i3
-  tail call void @_ZdaPv(ptr noundef nonnull %68) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %68) #21
   br label %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit4
 
 _ZN6marisa8grimoire6vector9BitVectorD2Ev.exit4:   ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i3, %70
@@ -638,7 +638,7 @@ _ZN6marisa8grimoire6vector9BitVectorD2Ev.exit4:   ; preds = %_ZN6marisa8grimoire
   br i1 %73, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i5, label %74
 
 74:                                               ; preds = %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit4
-  tail call void @_ZdaPv(ptr noundef nonnull %72) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %72) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i5
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i5: ; preds = %74, %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit4
@@ -648,7 +648,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i5: ; preds = %74, %_ZN6marisa8gri
   br i1 %77, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i6, label %78
 
 78:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i5
-  tail call void @_ZdaPv(ptr noundef nonnull %76) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %76) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i6
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i6: ; preds = %78, %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i5
@@ -658,7 +658,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i6: ; preds = %78, %_ZN6marisa8gr
   br i1 %81, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i7, label %82
 
 82:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i6
-  tail call void @_ZdaPv(ptr noundef nonnull %80) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %80) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i7
 
 _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i7: ; preds = %82, %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i6
@@ -667,7 +667,7 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i7: ; preds = %82, %
   br i1 %84, label %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit8, label %85
 
 85:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i7
-  tail call void @_ZdaPv(ptr noundef nonnull %83) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %83) #21
   br label %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit8
 
 _ZN6marisa8grimoire6vector9BitVectorD2Ev.exit8:   ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i7, %85
@@ -712,13 +712,13 @@ define void @_ZN6marisa8grimoire4trie9LoudsTrie5buildERNS_6KeysetEi(ptr noundef 
           to label %18 unwind label %19
 
 18:                                               ; preds = %17
-  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %6) #20
+  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %6) #22
   ret void
 
 19:                                               ; preds = %17, %3
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %6) #20
+  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %6) #22
   resume { ptr, i32 } %20
 }
 
@@ -740,7 +740,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE6resizeEm.exit.thread: ; preds 
 .lr.ph.i:                                         ; preds = %3
   %9 = getelementptr inbounds i8, ptr %4, i64 32
   %10 = mul i64 %7, 24
-  %11 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %10, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %11 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %10, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   store ptr %11, ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %11, ptr %12, align 8
@@ -806,7 +806,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE6resizeEm.exit.thread: ; preds 
 
 .lr.ph104:                                        ; preds = %43
   %46 = shl i64 %45, 3
-  %47 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %46, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %47 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %46, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   call void @llvm.memset.p0.i64(ptr align 4 %47, i8 0, i64 %46, i1 false)
   %48 = getelementptr inbounds i8, ptr %5, i64 8
   %49 = load ptr, ptr %48, align 8
@@ -857,7 +857,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE6resizeEm.exit.thread: ; preds 
 
 60:                                               ; preds = %.loopexit.split-lp.thread, %.loopexit.split-lp
   %lpad.phi130 = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit.split-lp.thread ], [ %lpad.phi, %.loopexit.split-lp ]
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0.089128) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0.089128) #21
   br label %_ZN6marisa8grimoire6vector6VectorISt4pairIjjEED2Ev.exit
 
 ._crit_edge105:                                   ; preds = %50, %43
@@ -868,7 +868,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE6resizeEm.exit.thread: ; preds 
   br i1 %62, label %_ZN6marisa8grimoire6vector6VectorIjE5clearEv.exit, label %63
 
 63:                                               ; preds = %._crit_edge105
-  call void @_ZdaPv(ptr noundef nonnull %61) #19
+  call void @_ZdaPv(ptr noundef nonnull %61) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjE5clearEv.exit
 
 _ZN6marisa8grimoire6vector6VectorIjE5clearEv.exit: ; preds = %63, %._crit_edge105
@@ -927,7 +927,7 @@ _ZN6marisa8grimoire6vector6VectorIjE5clearEv.exit: ; preds = %63, %._crit_edge10
   br i1 %85, label %86, label %92
 
 86:                                               ; preds = %.lr.ph107
-  %87 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %87 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %87, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 8
   store ptr @.str.23, ptr %88, align 8
@@ -937,7 +937,7 @@ _ZN6marisa8grimoire6vector6VectorIjE5clearEv.exit: ; preds = %63, %._crit_edge10
   store i32 7, ptr %90, align 4
   %91 = getelementptr inbounds i8, ptr %87, i64 24
   store ptr @.str.24, ptr %91, align 8
-  invoke void @__cxa_throw(ptr nonnull %87, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  invoke void @__cxa_throw(ptr nonnull %87, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
           to label %.noexc62 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc62:                                         ; preds = %86
@@ -963,7 +963,7 @@ _ZN6marisa8grimoire6vector6VectorIjE5clearEv.exit: ; preds = %63, %._crit_edge10
   %spec.select.i.i.i = select i1 %102, i64 2305843009213693951, i64 %103
   %.0.i.i.i = select i1 %101, i64 %spec.select.i.i.i, i64 %97
   %104 = shl i64 %.0.i.i.i, 3
-  %105 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %104, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %105 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %104, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq i64 %93, 0
   br i1 %.not.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -991,7 +991,7 @@ _ZN6marisa8grimoire6vector6VectorIjE5clearEv.exit: ; preds = %63, %._crit_edge10
   br i1 %exitcond.not.i.i.i.i, label %.preheader.i.i.i.i, label %109, !llvm.loop !8
 
 114:                                              ; preds = %.preheader.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %107) #19
+  call void @_ZdaPv(ptr noundef nonnull %107) #21
   %.pre.i = load i64, ptr %71, align 8
   br label %_ZN6marisa8grimoire6vector6VectorImE7reserveEm.exit.i.i
 
@@ -1104,7 +1104,7 @@ _ZN6marisa8grimoire6vector6VectorImE6resizeEmRKm.exit.i: ; preds = %.lr.ph.i.i, 
   br i1 %160, label %_ZN6marisa8grimoire6vector6VectorISt4pairIjjEED2Ev.exit63, label %._crit_edge118.thread
 
 ._crit_edge118.thread:                            ; preds = %153, %._crit_edge118
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0.089128) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0.089128) #21
   br label %_ZN6marisa8grimoire6vector6VectorISt4pairIjjEED2Ev.exit63
 
 _ZN6marisa8grimoire6vector6VectorISt4pairIjjEED2Ev.exit63: ; preds = %._crit_edge118, %._crit_edge118.thread
@@ -1113,7 +1113,7 @@ _ZN6marisa8grimoire6vector6VectorISt4pairIjjEED2Ev.exit63: ; preds = %._crit_edg
   br i1 %162, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit, label %163
 
 163:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorISt4pairIjjEED2Ev.exit63
-  call void @_ZdaPv(ptr noundef nonnull %161) #19
+  call void @_ZdaPv(ptr noundef nonnull %161) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit:    ; preds = %_ZN6marisa8grimoire6vector6VectorISt4pairIjjEED2Ev.exit63, %163
@@ -1122,7 +1122,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit:    ; preds = %_ZN6marisa8grimoire
   br i1 %165, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit, label %166
 
 166:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %164) #19
+  call void @_ZdaPv(ptr noundef nonnull %164) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit: ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit, %166
@@ -1135,7 +1135,7 @@ _ZN6marisa8grimoire6vector6VectorISt4pairIjjEED2Ev.exit: ; preds = %60, %.loopex
   br i1 %168, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit64, label %169
 
 169:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorISt4pairIjjEED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %167) #19
+  call void @_ZdaPv(ptr noundef nonnull %167) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit64
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit64:  ; preds = %169, %_ZN6marisa8grimoire6vector6VectorISt4pairIjjEED2Ev.exit
@@ -1144,7 +1144,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit64:  ; preds = %169, %_ZN6marisa8gr
   br i1 %171, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit65, label %172
 
 172:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit64
-  call void @_ZdaPv(ptr noundef nonnull %170) #19
+  call void @_ZdaPv(ptr noundef nonnull %170) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit65
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit65: ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit64, %172
@@ -1370,7 +1370,7 @@ _ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i: ; preds = %7
   br i1 %12, label %_ZN6marisa8grimoire4trie6Header3mapERNS0_2io6MapperE.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i, %2
-  %13 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %13 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @.str.11, ptr %14, align 8
@@ -1380,7 +1380,7 @@ _ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i: ; preds = %7
   store i32 10, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr @.str.12, ptr %17, align 8
-  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire4trie6Header3mapERNS0_2io6MapperE.exit: ; preds = %.lr.ph.i, %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i
@@ -1398,13 +1398,13 @@ _ZN6marisa8grimoire4trie6Header3mapERNS0_2io6MapperE.exit: ; preds = %.lr.ph.i, 
           to label %21 unwind label %22
 
 21:                                               ; preds = %20
-  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %3) #20
+  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %3) #22
   ret void
 
 22:                                               ; preds = %20, %18, %_ZN6marisa8grimoire4trie6Header3mapERNS0_2io6MapperE.exit
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %3) #20
+  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %3) #22
   resume { ptr, i32 } %23
 }
 
@@ -1438,7 +1438,7 @@ define void @_ZN6marisa8grimoire4trie9LoudsTrie4map_ERNS0_2io6MapperE(ptr nounde
   br i1 %18, label %_ZN6marisa8grimoire6vector6VectorIhE3mapERNS0_2io6MapperE.exit, label %19
 
 19:                                               ; preds = %2
-  tail call void @_ZdaPv(ptr noundef nonnull %13) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %13) #21
   br label %_ZN6marisa8grimoire6vector6VectorIhE3mapERNS0_2io6MapperE.exit
 
 _ZN6marisa8grimoire6vector6VectorIhE3mapERNS0_2io6MapperE.exit: ; preds = %2, %19
@@ -1457,7 +1457,7 @@ _ZN6marisa8grimoire6vector6VectorIhE3mapERNS0_2io6MapperE.exit: ; preds = %2, %1
 
 27:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIhE3mapERNS0_2io6MapperE.exit
   %28 = getelementptr inbounds i8, ptr %0, i64 1000
-  %29 = tail call noalias noundef dereferenceable_or_null(1136) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1136, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %29 = tail call noalias noundef dereferenceable_or_null(1136) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1136, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.thread, label %31
 
@@ -1475,7 +1475,7 @@ _ZN6marisa8grimoire6vector6VectorIhE3mapERNS0_2io6MapperE.exit: ; preds = %2, %1
   br i1 %33, label %34, label %.split.i
 
 34:                                               ; preds = %32
-  %35 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %35 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr @.str.43, ptr %36, align 8
@@ -1485,7 +1485,7 @@ _ZN6marisa8grimoire6vector6VectorIhE3mapERNS0_2io6MapperE.exit: ; preds = %2, %1
   store i32 6, ptr %38, align 4
   %39 = getelementptr inbounds i8, ptr %35, i64 24
   store ptr @.str.44, ptr %39, align 8
-  tail call void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 .split.i:                                         ; preds = %.thread, %32
@@ -1495,8 +1495,8 @@ _ZN6marisa8grimoire6vector6VectorIhE3mapERNS0_2io6MapperE.exit: ; preds = %2, %1
   br i1 %40, label %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit, label %41
 
 41:                                               ; preds = %.split.i
-  tail call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %.pr.i18) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %.pr.i18) #19
+  tail call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %.pr.i18) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.pr.i18) #21
   %.pr = load ptr, ptr %28, align 8
   br label %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit
 
@@ -1506,7 +1506,7 @@ _ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit: ; preds = 
   br i1 %43, label %44, label %50
 
 44:                                               ; preds = %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit
-  %45 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %45 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 8
   store ptr @.str, ptr %46, align 8
@@ -1516,7 +1516,7 @@ _ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit: ; preds = 
   store i32 8, ptr %48, align 4
   %49 = getelementptr inbounds i8, ptr %45, i64 24
   store ptr @.str.4, ptr %49, align 8
-  tail call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 50:                                               ; preds = %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit
@@ -1530,7 +1530,7 @@ common.resume:                                    ; preds = %82, %86, %51
 51:                                               ; preds = %31
   %52 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %29, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #19
+  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %29, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
   br label %common.resume
 
 53:                                               ; preds = %50, %_ZN6marisa8grimoire6vector6VectorIhE3mapERNS0_2io6MapperE.exit
@@ -1581,7 +1581,7 @@ common.resume:                                    ; preds = %82, %86, %51
   br i1 %80, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE3mapERNS0_2io6MapperE.exit, label %81
 
 81:                                               ; preds = %54
-  call void @_ZdaPv(ptr noundef nonnull %56) #19
+  call void @_ZdaPv(ptr noundef nonnull %56) #21
   %.pre = load i64, ptr %66, align 8
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE3mapERNS0_2io6MapperE.exit
 
@@ -1593,7 +1593,7 @@ common.resume:                                    ; preds = %82, %86, %51
   br i1 %85, label %common.resume, label %86
 
 86:                                               ; preds = %82
-  call void @_ZdaPv(ptr noundef nonnull %84) #19
+  call void @_ZdaPv(ptr noundef nonnull %84) #21
   br label %common.resume
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE3mapERNS0_2io6MapperE.exit: ; preds = %54, %81
@@ -1665,7 +1665,7 @@ _ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i: ; preds = %7
   br i1 %12, label %_ZN6marisa8grimoire4trie6Header4readERNS0_2io6ReaderE.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i, %2
-  %13 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %13 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @.str.11, ptr %14, align 8
@@ -1675,7 +1675,7 @@ _ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i: ; preds = %7
   store i32 10, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr @.str.16, ptr %17, align 8
-  call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire4trie6Header4readERNS0_2io6ReaderE.exit: ; preds = %.lr.ph.i, %_ZN6marisa8grimoire4trie6Header11test_headerEPKc.exit.i
@@ -1689,13 +1689,13 @@ _ZN6marisa8grimoire4trie6Header4readERNS0_2io6ReaderE.exit: ; preds = %.lr.ph.i,
           to label %19 unwind label %20
 
 19:                                               ; preds = %18
-  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %4) #20
+  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %4) #22
   ret void
 
 20:                                               ; preds = %18, %_ZN6marisa8grimoire4trie6Header4readERNS0_2io6ReaderE.exit
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %4) #20
+  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %4) #22
   resume { ptr, i32 } %21
 }
 
@@ -1758,7 +1758,7 @@ define void @_ZN6marisa8grimoire4trie9LoudsTrie5read_ERNS0_2io6ReaderE(ptr nound
   br i1 %36, label %_ZN6marisa8grimoire6vector6VectorIhE4readERNS0_2io6ReaderE.exit, label %37
 
 37:                                               ; preds = %10
-  call void @_ZdaPv(ptr noundef nonnull %12) #19
+  call void @_ZdaPv(ptr noundef nonnull %12) #21
   br label %_ZN6marisa8grimoire6vector6VectorIhE4readERNS0_2io6ReaderE.exit
 
 38:                                               ; preds = %2
@@ -1769,7 +1769,7 @@ define void @_ZN6marisa8grimoire4trie9LoudsTrie5read_ERNS0_2io6ReaderE(ptr nound
   br i1 %41, label %common.resume, label %42
 
 42:                                               ; preds = %38
-  call void @_ZdaPv(ptr noundef nonnull %40) #19
+  call void @_ZdaPv(ptr noundef nonnull %40) #21
   br label %common.resume
 
 common.resume:                                    ; preds = %105, %109, %38, %42, %74
@@ -1793,7 +1793,7 @@ _ZN6marisa8grimoire6vector6VectorIhE4readERNS0_2io6ReaderE.exit: ; preds = %10, 
 
 50:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIhE4readERNS0_2io6ReaderE.exit
   %51 = getelementptr inbounds i8, ptr %0, i64 1000
-  %52 = call noalias noundef dereferenceable_or_null(1136) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1136, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %52 = call noalias noundef dereferenceable_or_null(1136) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1136, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %53 = icmp eq ptr %52, null
   br i1 %53, label %.thread, label %54
 
@@ -1811,7 +1811,7 @@ _ZN6marisa8grimoire6vector6VectorIhE4readERNS0_2io6ReaderE.exit: ; preds = %10, 
   br i1 %56, label %57, label %.split.i
 
 57:                                               ; preds = %55
-  %58 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %58 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 8
   store ptr @.str.43, ptr %59, align 8
@@ -1821,7 +1821,7 @@ _ZN6marisa8grimoire6vector6VectorIhE4readERNS0_2io6ReaderE.exit: ; preds = %10, 
   store i32 6, ptr %61, align 4
   %62 = getelementptr inbounds i8, ptr %58, i64 24
   store ptr @.str.44, ptr %62, align 8
-  call void @__cxa_throw(ptr nonnull %58, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %58, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 .split.i:                                         ; preds = %.thread, %55
@@ -1831,8 +1831,8 @@ _ZN6marisa8grimoire6vector6VectorIhE4readERNS0_2io6ReaderE.exit: ; preds = %10, 
   br i1 %63, label %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit, label %64
 
 64:                                               ; preds = %.split.i
-  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %.pr.i17) #20
-  call void @_ZdlPv(ptr noundef nonnull %.pr.i17) #19
+  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %.pr.i17) #22
+  call void @_ZdlPv(ptr noundef nonnull %.pr.i17) #21
   %.pr = load ptr, ptr %51, align 8
   br label %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit
 
@@ -1842,7 +1842,7 @@ _ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit: ; preds = 
   br i1 %66, label %67, label %73
 
 67:                                               ; preds = %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit
-  %68 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %68 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 8
   store ptr @.str, ptr %69, align 8
@@ -1852,7 +1852,7 @@ _ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit: ; preds = 
   store i32 8, ptr %71, align 4
   %72 = getelementptr inbounds i8, ptr %68, i64 24
   store ptr @.str.5, ptr %72, align 8
-  call void @__cxa_throw(ptr nonnull %68, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %68, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 73:                                               ; preds = %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit
@@ -1862,7 +1862,7 @@ _ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit: ; preds = 
 74:                                               ; preds = %54
   %75 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %52, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #19
+  call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %52, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
   br label %common.resume
 
 76:                                               ; preds = %73, %_ZN6marisa8grimoire6vector6VectorIhE4readERNS0_2io6ReaderE.exit
@@ -1913,7 +1913,7 @@ _ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit: ; preds = 
   br i1 %103, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE4readERNS0_2io6ReaderE.exit, label %104
 
 104:                                              ; preds = %77
-  call void @_ZdaPv(ptr noundef nonnull %79) #19
+  call void @_ZdaPv(ptr noundef nonnull %79) #21
   %.pre = load i64, ptr %89, align 8
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE4readERNS0_2io6ReaderE.exit
 
@@ -1925,7 +1925,7 @@ _ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit: ; preds = 
   br i1 %108, label %common.resume, label %109
 
 109:                                              ; preds = %105
-  call void @_ZdaPv(ptr noundef nonnull %107) #19
+  call void @_ZdaPv(ptr noundef nonnull %107) #21
   br label %common.resume
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE4readERNS0_2io6ReaderE.exit: ; preds = %77, %104
@@ -2393,7 +2393,7 @@ define void @_ZNK6marisa8grimoire4trie9LoudsTrie14reverse_lookupERNS_5AgentE(ptr
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %8 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @.str, ptr %9, align 8
@@ -2403,7 +2403,7 @@ define void @_ZNK6marisa8grimoire4trie9LoudsTrie14reverse_lookupERNS_5AgentE(ptr
   store i32 3, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr @.str.1, ptr %12, align 8
-  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 13:                                               ; preds = %2
@@ -2420,7 +2420,7 @@ define void @_ZNK6marisa8grimoire4trie9LoudsTrie14reverse_lookupERNS_5AgentE(ptr
   %19 = icmp ugt i64 %18, 16
   %20 = shl nuw nsw i64 %18, 1
   %.0.i.i = select i1 %19, i64 %20, i64 32
-  %21 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %21 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %22 = load ptr, ptr %15, align 8
   store ptr %21, ptr %15, align 8
   %23 = getelementptr inbounds i8, ptr %15, i64 8
@@ -2432,7 +2432,7 @@ define void @_ZNK6marisa8grimoire4trie9LoudsTrie14reverse_lookupERNS_5AgentE(ptr
   br i1 %25, label %_ZN6marisa8grimoire4trie5State19reverse_lookup_initEv.exit, label %26
 
 26:                                               ; preds = %.preheader.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %22) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %22) #21
   br label %_ZN6marisa8grimoire4trie5State19reverse_lookup_initEv.exit
 
 _ZN6marisa8grimoire4trie5State19reverse_lookup_initEv.exit: ; preds = %13, %.preheader.i.i.i, %26
@@ -2567,7 +2567,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie7restoreERNS_5AgentEm.exit: ; preds = %87, %8
   %.inv.i.i = icmp sgt i64 %105, -1
   %spec.select.i.i = select i1 %.inv.i.i, i64 %109, i64 -1
   %.0.i.i34 = select i1 %108, i64 %spec.select.i.i, i64 %104
-  %110 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i34, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %110 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i34, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i = icmp eq i64 %103, 0
   br i1 %.not.i.i.i, label %.preheader.i.i.i35, label %.lr.ph.i.i.i
 
@@ -2595,7 +2595,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie7restoreERNS_5AgentEm.exit: ; preds = %87, %8
   br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i35, label %114, !llvm.loop !18
 
 119:                                              ; preds = %.preheader.i.i.i35
-  tail call void @_ZdaPv(ptr noundef nonnull %112) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %112) #21
   %.pre.i = load i64, ptr %17, align 8
   br label %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit
 
@@ -2673,11 +2673,12 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
   ret void
 }
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 
 declare noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr noundef nonnull align 8 dereferenceable(208), i64 noundef) local_unnamed_addr #0
 
@@ -2835,7 +2836,7 @@ define noundef zeroext i1 @_ZNK6marisa8grimoire4trie9LoudsTrie17predictive_searc
   %spec.select.i.i = select i1 %33, i64 922337203685477580, i64 %34
   %.0.i.i = select i1 %32, i64 %spec.select.i.i, i64 %27
   %35 = mul i64 %.0.i.i, 20
-  %36 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %35, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %36 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %35, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i = icmp eq i64 %26, 0
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -2865,7 +2866,7 @@ define noundef zeroext i1 @_ZNK6marisa8grimoire4trie9LoudsTrie17predictive_searc
   br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %43, !llvm.loop !22
 
 47:                                               ; preds = %.preheader.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %39) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %39) #21
   %.pre.i = load i64, ptr %25, align 8
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie7HistoryEE9push_backERKS4_.exit
 
@@ -2974,7 +2975,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie7HistoryEE9push_backERKS4_.exit: ; pr
   %spec.select.i.i69 = select i1 %120, i64 922337203685477580, i64 %121
   %.0.i.i70 = select i1 %119, i64 %spec.select.i.i69, i64 %115
   %122 = mul i64 %.0.i.i70, 20
-  %123 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %122, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %123 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %122, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i71 = icmp eq i64 %114, 0
   br i1 %.not.i.i.i71, label %.preheader.i.i.i75, label %.lr.ph.i.i.i72
 
@@ -3001,7 +3002,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie7HistoryEE9push_backERKS4_.exit: ; pr
   br i1 %exitcond.not.i.i.i74, label %.preheader.i.i.i75, label %127, !llvm.loop !22
 
 131:                                              ; preds = %.preheader.i.i.i75
-  tail call void @_ZdaPv(ptr noundef nonnull %125) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %125) #21
   %.pre.i76 = load i64, ptr %81, align 8
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie7HistoryEE9push_backERKS4_.exit77
 
@@ -3146,7 +3147,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEmm.exit: ; preds = %187, %189
   %.inv.i.i = icmp sgt i64 %209, -1
   %spec.select.i.i79 = select i1 %.inv.i.i, i64 %213, i64 -1
   %.0.i.i80 = select i1 %212, i64 %spec.select.i.i79, i64 %208
-  %214 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i80, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %214 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i80, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i81 = icmp eq i64 %207, 0
   br i1 %.not.i.i.i81, label %.preheader.i.i.i85, label %.lr.ph.i.i.i82
 
@@ -3174,7 +3175,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEmm.exit: ; preds = %187, %189
   br i1 %exitcond.not.i.i.i84, label %.preheader.i.i.i85, label %218, !llvm.loop !18
 
 223:                                              ; preds = %.preheader.i.i.i85
-  tail call void @_ZdaPv(ptr noundef nonnull %216) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %216) #21
   %.pre.i86 = load i64, ptr %94, align 8
   br label %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit
 
@@ -3267,7 +3268,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie7restoreERNS_5AgentEm.exit: ; preds = %202, %
   %277 = icmp ugt i64 %274, %276
   %278 = shl nuw nsw i64 %274, 1
   %.0.i.i90 = select i1 %277, i64 %278, i64 %273
-  %279 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i90, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %279 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i90, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %280 = load i64, ptr %94, align 8
   %.not.i.i.i91 = icmp eq i64 %280, 0
   br i1 %.not.i.i.i91, label %.preheader.i.i.i95, label %.lr.ph.i.i.i92
@@ -3296,7 +3297,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie7restoreERNS_5AgentEm.exit: ; preds = %202, %
   br i1 %exitcond.not.i.i.i94, label %.preheader.i.i.i95, label %284, !llvm.loop !18
 
 289:                                              ; preds = %.preheader.i.i.i95
-  tail call void @_ZdaPv(ptr noundef nonnull %282) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %282) #21
   %.pre112 = load i32, ptr %79, align 8
   br label %_ZN6marisa8grimoire6vector6VectorIcE6resizeEm.exit
 
@@ -3329,7 +3330,7 @@ define linkonce_odr void @_ZN6marisa8grimoire4trie5State22predictive_search_init
   %5 = icmp ugt i64 %4, 32
   %6 = shl nuw nsw i64 %4, 1
   %.0.i = select i1 %5, i64 %6, i64 64
-  %7 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %7 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %8 = load ptr, ptr %0, align 8
   store ptr %7, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3341,7 +3342,7 @@ define linkonce_odr void @_ZN6marisa8grimoire4trie5State22predictive_search_init
   br i1 %11, label %_ZN6marisa8grimoire6vector6VectorIcE7reserveEm.exit, label %12
 
 12:                                               ; preds = %.preheader.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #21
   br label %_ZN6marisa8grimoire6vector6VectorIcE7reserveEm.exit
 
 _ZN6marisa8grimoire6vector6VectorIcE7reserveEm.exit: ; preds = %1, %.preheader.i.i, %12
@@ -3357,7 +3358,7 @@ _ZN6marisa8grimoire6vector6VectorIcE7reserveEm.exit: ; preds = %1, %.preheader.i
   %17 = icmp eq i64 %15, 3
   %.0.i3 = select i1 %17, i64 6, i64 4
   %18 = mul nuw nsw i64 %.0.i3, 20
-  %19 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %18, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %19 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %18, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %20 = load ptr, ptr %16, align 8
   store ptr %19, ptr %16, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 56
@@ -3369,7 +3370,7 @@ _ZN6marisa8grimoire6vector6VectorIcE7reserveEm.exit: ; preds = %1, %.preheader.i
   br i1 %23, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie7HistoryEE7reserveEm.exit, label %24
 
 24:                                               ; preds = %.preheader.i.i8
-  tail call void @_ZdaPv(ptr noundef nonnull %20) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %20) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie7HistoryEE7reserveEm.exit
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie7HistoryEE7reserveEm.exit: ; preds = %_ZN6marisa8grimoire6vector6VectorIcE7reserveEm.exit, %.preheader.i.i8, %24
@@ -3450,7 +3451,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie12prefix_matchERNS_5AgentEm.exit: ; preds = %
   %.inv.i.i = icmp sgt i64 %43, -1
   %spec.select.i.i = select i1 %.inv.i.i, i64 %47, i64 -1
   %.0.i.i = select i1 %46, i64 %spec.select.i.i, i64 %41
-  %48 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %48 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i = icmp eq i64 %40, 0
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -3481,7 +3482,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie12prefix_matchERNS_5AgentEm.exit: ; preds = %
   br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %55, !llvm.loop !18
 
 60:                                               ; preds = %.preheader.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %51) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %51) #21
   %.pre.i = load i64, ptr %39, align 8
   br label %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit
 
@@ -3650,7 +3651,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie12prefix_matchERNS_5AgentEm.exit46: ; preds =
   %.inv.i.i48 = icmp sgt i64 %160, -1
   %spec.select.i.i49 = select i1 %.inv.i.i48, i64 %164, i64 -1
   %.0.i.i50 = select i1 %163, i64 %spec.select.i.i49, i64 %158
-  %165 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i50, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %165 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i50, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i51 = icmp eq i64 %157, 0
   br i1 %.not.i.i.i51, label %.preheader.i.i.i55, label %.lr.ph.i.i.i52
 
@@ -3681,7 +3682,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie12prefix_matchERNS_5AgentEm.exit46: ; preds =
   br i1 %exitcond.not.i.i.i54, label %.preheader.i.i.i55, label %172, !llvm.loop !18
 
 177:                                              ; preds = %.preheader.i.i.i55
-  tail call void @_ZdaPv(ptr noundef nonnull %168) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %168) #21
   %.pre.i56 = load i64, ptr %156, align 8
   br label %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit57
 
@@ -3723,7 +3724,7 @@ _ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit57: ; preds = %155, %.pre
 declare noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select0Em(ptr noundef nonnull align 8 dereferenceable(208), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK6marisa8grimoire4trie9LoudsTrie10total_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1136) %0) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZNK6marisa8grimoire4trie9LoudsTrie10total_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1136) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3802,7 +3803,7 @@ define noundef i64 @_ZNK6marisa8grimoire4trie9LoudsTrie10total_sizeEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK6marisa8grimoire4trie9LoudsTrie7io_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1136) %0) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZNK6marisa8grimoire4trie9LoudsTrie7io_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1136) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3931,13 +3932,13 @@ define void @_ZN6marisa8grimoire4trie9LoudsTrie5clearEv(ptr noundef nonnull alig
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %2) #20
+  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %2) #22
   ret void
 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %2) #20
+  call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %2) #22
   resume { ptr, i32 } %5
 }
 
@@ -4134,7 +4135,7 @@ define linkonce_odr void @_ZN6marisa8grimoire4trie9LoudsTrie10build_trieINS1_3Ke
   br i1 %16, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit, label %17
 
 17:                                               ; preds = %13
-  call void @_ZdaPv(ptr noundef nonnull %15) #19
+  call void @_ZdaPv(ptr noundef nonnull %15) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit:    ; preds = %13, %17
@@ -4291,7 +4292,7 @@ _ZN6marisa8grimoire4trie6Config5parseEi.exit21:   ; preds = %43
   br i1 %100, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit22, label %101
 
 101:                                              ; preds = %98
-  call void @_ZdaPv(ptr noundef nonnull %99) #19
+  call void @_ZdaPv(ptr noundef nonnull %99) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit22
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit22:  ; preds = %98, %101
@@ -4306,7 +4307,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector9BitVector9push_backEb(ptr n
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %7 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str.23, ptr %8, align 8
@@ -4316,7 +4317,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector9BitVector9push_backEb(ptr n
   store i32 7, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr @.str.24, ptr %11, align 8
-  tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 12:                                               ; preds = %2
@@ -4341,7 +4342,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector9BitVector9push_backEb(ptr n
   %spec.select.i.i = select i1 %24, i64 2305843009213693951, i64 %25
   %.0.i.i = select i1 %23, i64 %spec.select.i.i, i64 %18
   %26 = shl i64 %.0.i.i, 3
-  %27 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %26, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %27 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %26, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i = icmp eq i64 %14, 0
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -4372,7 +4373,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector9BitVector9push_backEb(ptr n
   br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %34, !llvm.loop !8
 
 39:                                               ; preds = %.preheader.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %30) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %30) #21
   %.pre = load i64, ptr %13, align 8
   br label %_ZN6marisa8grimoire6vector6VectorImE7reserveEm.exit.i
 
@@ -4580,7 +4581,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector9BitVector5buildEbb(ptr noun
   br i1 %99, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i, label %100
 
 100:                                              ; preds = %9
-  call void @_ZdaPv(ptr noundef nonnull %75) #19
+  call void @_ZdaPv(ptr noundef nonnull %75) #21
   %.pre = load ptr, ptr %6, align 8
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i
 
@@ -4590,7 +4591,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i:  ; preds = %100, %9
   br i1 %102, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i, label %103
 
 103:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %101) #19
+  call void @_ZdaPv(ptr noundef nonnull %101) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i: ; preds = %103, %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i
@@ -4599,7 +4600,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i: ; preds = %103, %_ZN6marisa8gr
   br i1 %105, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i, label %106
 
 106:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i
-  call void @_ZdaPv(ptr noundef nonnull %104) #19
+  call void @_ZdaPv(ptr noundef nonnull %104) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i
 
 _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i: ; preds = %106, %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i
@@ -4608,7 +4609,7 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i: ; preds = %106, %
   br i1 %108, label %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit, label %109
 
 109:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %107) #19
+  call void @_ZdaPv(ptr noundef nonnull %107) #21
   br label %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit
 
 _ZN6marisa8grimoire6vector9BitVectorD2Ev.exit:    ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i, %109
@@ -4617,7 +4618,7 @@ _ZN6marisa8grimoire6vector9BitVectorD2Ev.exit:    ; preds = %_ZN6marisa8grimoire
 110:                                              ; preds = %8, %3
   %111 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6marisa8grimoire6vector9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %4) #20
+  call void @_ZN6marisa8grimoire6vector9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %4) #22
   resume { ptr, i32 } %111
 }
 
@@ -4644,7 +4645,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEE6resizeEm.exit.thread: ; pred
 .lr.ph61:                                         ; preds = %11
   %14 = getelementptr inbounds i8, ptr %6, i64 32
   %15 = shl i64 %12, 4
-  %16 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %15, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %16 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %15, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   store ptr %16, ptr %6, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %16, ptr %17, align 8
@@ -4709,7 +4710,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEE6resizeEm.exit.thread: 
 .lr.ph.i44:                                       ; preds = %44
   %47 = getelementptr inbounds i8, ptr %7, i64 32
   %48 = mul i64 %45, 24
-  %49 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %48, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %49 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %48, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   store ptr %49, ptr %7, align 8
   %50 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %49, ptr %50, align 8
@@ -4770,12 +4771,12 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEE6resizeEm.exit.thread: 
   br i1 %80, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE5clearEv.exit, label %81
 
 81:                                               ; preds = %._crit_edge
-  tail call void @_ZdaPv(ptr noundef nonnull %79) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %79) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE5clearEv.exit
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE5clearEv.exit: ; preds = %81, %._crit_edge
   %82 = getelementptr inbounds i8, ptr %0, i64 1000
-  %83 = tail call noalias noundef dereferenceable_or_null(1136) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1136, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %83 = tail call noalias noundef dereferenceable_or_null(1136) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1136, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %84 = icmp eq ptr %83, null
   br i1 %84, label %.thread, label %85
 
@@ -4797,7 +4798,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE5clearEv.exit: ; preds = %81, %
   %.sink69 = phi i32 [ 453, %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit ], [ 19, %86 ]
   %.sink = phi i32 [ 8, %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit ], [ 6, %86 ]
   %.str.2.sink = phi ptr [ @.str.2, %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit ], [ @.str.44, %86 ]
-  %88 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %88 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 8
   store ptr %.str.sink, ptr %89, align 8
@@ -4807,7 +4808,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE5clearEv.exit: ; preds = %81, %
   store i32 %.sink, ptr %91, align 4
   %92 = getelementptr inbounds i8, ptr %88, i64 24
   store ptr %.str.2.sink, ptr %92, align 8
-  invoke void @__cxa_throw(ptr nonnull %88, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  invoke void @__cxa_throw(ptr nonnull %88, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
           to label %.cont unwind label %77
 
 .cont:                                            ; preds = %.invoke
@@ -4820,8 +4821,8 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE5clearEv.exit: ; preds = %81, %
   br i1 %93, label %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit, label %94
 
 94:                                               ; preds = %.split.i
-  tail call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %.pr.i58) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %.pr.i58) #19
+  tail call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %.pr.i58) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.pr.i58) #21
   %.pr = load ptr, ptr %82, align 8
   br label %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit
 
@@ -4842,7 +4843,7 @@ _ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit: ; preds = 
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit42.sink.split: ; preds = %99, %41
   %.sink75 = phi ptr [ %42, %41 ], [ %100, %99 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink75) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sink75) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit42
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit42: ; preds = %_ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit42.sink.split, %99, %41
@@ -4851,7 +4852,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit42: ; preds = %_ZN6m
 102:                                              ; preds = %85
   %103 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %83, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #19
+  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %83, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
   br label %104
 
 104:                                              ; preds = %102, %77
@@ -4863,7 +4864,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit42: ; preds = %_ZN6m
 _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit.sink.split: ; preds = %104, %34
   %.sink76 = phi ptr [ %36, %34 ], [ %105, %104 ]
   %.pn40.ph = phi { ptr, i32 } [ %35, %34 ], [ %.pn, %104 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink76) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sink76) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit: ; preds = %_ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit.sink.split, %104, %34
@@ -4874,10 +4875,10 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit: ; preds = %_ZN6mar
 declare void @_ZN6marisa8grimoire4trie4Tail5buildERNS0_6vector6VectorINS1_5EntryEEEPNS4_IjEE17marisa_tail_mode_(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef nonnull align 8 dereferenceable(41), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nobuiltin nounwind allocsize(0)
-declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #6
+declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvRKSt9nothrow_t(ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #7
+declare void @_ZdlPvRKSt9nothrow_t(ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6marisa8grimoire4trie9LoudsTrie10build_trieINS1_10ReverseKeyEEEvRNS0_6vector6VectorIT_EEPNS6_IjEERKNS1_6ConfigEm(ptr noundef nonnull align 8 dereferenceable(1136) %0, ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(20) %3, i64 noundef %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4903,7 +4904,7 @@ define linkonce_odr void @_ZN6marisa8grimoire4trie9LoudsTrie10build_trieINS1_10R
   br i1 %16, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit, label %17
 
 17:                                               ; preds = %13
-  call void @_ZdaPv(ptr noundef nonnull %15) #19
+  call void @_ZdaPv(ptr noundef nonnull %15) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit:    ; preds = %13, %17
@@ -5060,7 +5061,7 @@ _ZN6marisa8grimoire4trie6Config5parseEi.exit21:   ; preds = %43
   br i1 %100, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit22, label %101
 
 101:                                              ; preds = %98
-  call void @_ZdaPv(ptr noundef nonnull %99) #19
+  call void @_ZdaPv(ptr noundef nonnull %99) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit22
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit22:  ; preds = %98, %101
@@ -5089,7 +5090,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEE6resizeEm.exit.thread: ; pred
 .lr.ph:                                           ; preds = %9
   %13 = getelementptr inbounds i8, ptr %6, i64 32
   %14 = shl i64 %11, 4
-  %15 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %14, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %15 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %14, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   store ptr %15, ptr %6, align 8
   %16 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %15, ptr %16, align 8
@@ -5127,7 +5128,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEE6resizeEm.exit.thread: ; pred
   br i1 %34, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit, label %35
 
 35:                                               ; preds = %31
-  call void @_ZdaPv(ptr noundef nonnull %33) #19
+  call void @_ZdaPv(ptr noundef nonnull %33) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit
 
 ._crit_edge:                                      ; preds = %21, %_ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEE6resizeEm.exit.thread
@@ -5143,12 +5144,12 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEE6resizeEm.exit.thread: ; pred
   br i1 %41, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit26, label %42
 
 42:                                               ; preds = %39
-  call void @_ZdaPv(ptr noundef nonnull %40) #19
+  call void @_ZdaPv(ptr noundef nonnull %40) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit26
 
 43:                                               ; preds = %5
   %44 = getelementptr inbounds i8, ptr %0, i64 1000
-  %45 = tail call noalias noundef dereferenceable_or_null(1136) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1136, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %45 = tail call noalias noundef dereferenceable_or_null(1136) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1136, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread, label %47
 
@@ -5166,7 +5167,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEE6resizeEm.exit.thread: ; pred
   br i1 %49, label %50, label %.split.i
 
 50:                                               ; preds = %48
-  %51 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %51 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   store ptr @.str.43, ptr %52, align 8
@@ -5176,7 +5177,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEE6resizeEm.exit.thread: ; pred
   store i32 6, ptr %54, align 4
   %55 = getelementptr inbounds i8, ptr %51, i64 24
   store ptr @.str.44, ptr %55, align 8
-  tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 .split.i:                                         ; preds = %.thread, %48
@@ -5186,8 +5187,8 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEE6resizeEm.exit.thread: ; pred
   br i1 %56, label %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit, label %57
 
 57:                                               ; preds = %.split.i
-  tail call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %.pr.i30) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %.pr.i30) #19
+  tail call void @_ZN6marisa8grimoire4trie9LoudsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(1136) %.pr.i30) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.pr.i30) #21
   %.pr = load ptr, ptr %44, align 8
   br label %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit
 
@@ -5197,7 +5198,7 @@ _ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit: ; preds = 
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit
-  %61 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %61 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 8
   store ptr @.str, ptr %62, align 8
@@ -5207,7 +5208,7 @@ _ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit: ; preds = 
   store i32 8, ptr %64, align 4
   %65 = getelementptr inbounds i8, ptr %61, i64 24
   store ptr @.str.3, ptr %65, align 8
-  tail call void @__cxa_throw(ptr nonnull %61, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %61, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 66:                                               ; preds = %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit
@@ -5221,7 +5222,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit26: ; preds = %42, %
 68:                                               ; preds = %47
   %69 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %45, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #19
+  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %45, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit: ; preds = %35, %31, %68
@@ -5230,7 +5231,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie5EntryEED2Ev.exit: ; preds = %35, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6marisa8grimoire4trie9LoudsTrie5cacheINS1_3KeyEEEvmmfc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1136) %0, i64 noundef %1, i64 noundef %2, float noundef %3, i8 noundef signext %4) local_unnamed_addr #8 align 2 {
+define void @_ZN6marisa8grimoire4trie9LoudsTrie5cacheINS1_3KeyEEEvmmfc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1136) %0, i64 noundef %1, i64 noundef %2, float noundef %3, i8 noundef signext %4) local_unnamed_addr #9 align 2 {
   %6 = shl i64 %1, 5
   %7 = zext i8 %4 to i64
   %8 = xor i64 %6, %7
@@ -5302,7 +5303,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE6re
   %spec.select.i = select i1 %8, i64 1537228672809129301, i64 %9
   %.0.i = select i1 %7, i64 %spec.select.i, i64 %1
   %10 = mul i64 %.0.i, 12
-  %11 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %10, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %11 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %10, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8
   %.not.i.i = icmp eq i64 %13, 0
@@ -5343,7 +5344,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE6re
   br i1 %exitcond.not.i.i, label %.preheader.i.i, label %20, !llvm.loop !34
 
 31:                                               ; preds = %.preheader.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %16) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %16) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE7reserveEm.exit
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE7reserveEm.exit: ; preds = %2, %.preheader.i.i, %31
@@ -5375,7 +5376,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE7reserveEm.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6marisa8grimoire4trie9LoudsTrie5cacheINS1_10ReverseKeyEEEvmmfc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1136) %0, i64 noundef %1, i64 noundef %2, float noundef %3, i8 noundef signext %4) local_unnamed_addr #8 align 2 {
+define void @_ZN6marisa8grimoire4trie9LoudsTrie5cacheINS1_10ReverseKeyEEEvmmfc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1136) %0, i64 noundef %1, i64 noundef %2, float noundef %3, i8 noundef signext %4) local_unnamed_addr #9 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 1056
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, %2
@@ -5685,7 +5686,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector9BitVector3mapERNS0_2io6Mapp
   br i1 %115, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i, label %116
 
 116:                                              ; preds = %7
-  call void @_ZdaPv(ptr noundef nonnull %91) #19
+  call void @_ZdaPv(ptr noundef nonnull %91) #21
   %.pre = load ptr, ptr %5, align 8
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i
 
@@ -5695,7 +5696,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i:  ; preds = %116, %7
   br i1 %118, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i, label %119
 
 119:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %117) #19
+  call void @_ZdaPv(ptr noundef nonnull %117) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i: ; preds = %119, %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i
@@ -5704,7 +5705,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i: ; preds = %119, %_ZN6marisa8gr
   br i1 %121, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i, label %122
 
 122:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i
-  call void @_ZdaPv(ptr noundef nonnull %120) #19
+  call void @_ZdaPv(ptr noundef nonnull %120) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i
 
 _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i: ; preds = %122, %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i
@@ -5713,7 +5714,7 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i: ; preds = %122, %
   br i1 %124, label %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit, label %125
 
 125:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %123) #19
+  call void @_ZdaPv(ptr noundef nonnull %123) #21
   br label %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit
 
 _ZN6marisa8grimoire6vector9BitVectorD2Ev.exit:    ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i, %125
@@ -5722,7 +5723,7 @@ _ZN6marisa8grimoire6vector9BitVectorD2Ev.exit:    ; preds = %_ZN6marisa8grimoire
 126:                                              ; preds = %2
   %127 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6marisa8grimoire6vector9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %3) #20
+  call void @_ZN6marisa8grimoire6vector9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %3) #22
   resume { ptr, i32 } %127
 }
 
@@ -5795,7 +5796,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector10FlatVector3mapERNS0_2io6Ma
   br i1 %41, label %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit, label %42
 
 42:                                               ; preds = %7
-  call void @_ZdaPv(ptr noundef nonnull %8) #19
+  call void @_ZdaPv(ptr noundef nonnull %8) #21
   br label %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit
 
 _ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit:  ; preds = %7, %42
@@ -5809,7 +5810,7 @@ _ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit:  ; preds = %7, %42
   br i1 %46, label %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit3, label %47
 
 47:                                               ; preds = %43
-  call void @_ZdaPv(ptr noundef nonnull %45) #19
+  call void @_ZdaPv(ptr noundef nonnull %45) #21
   br label %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit3
 
 _ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit3: ; preds = %43, %47
@@ -5995,7 +5996,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector9BitVector4readERNS0_2io6Rea
   br i1 %115, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i, label %116
 
 116:                                              ; preds = %7
-  call void @_ZdaPv(ptr noundef nonnull %91) #19
+  call void @_ZdaPv(ptr noundef nonnull %91) #21
   %.pre = load ptr, ptr %5, align 8
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i
 
@@ -6005,7 +6006,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i:  ; preds = %116, %7
   br i1 %118, label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i, label %119
 
 119:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %117) #19
+  call void @_ZdaPv(ptr noundef nonnull %117) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i
 
 _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i: ; preds = %119, %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit.i
@@ -6014,7 +6015,7 @@ _ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i: ; preds = %119, %_ZN6marisa8gr
   br i1 %121, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i, label %122
 
 122:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i
-  call void @_ZdaPv(ptr noundef nonnull %120) #19
+  call void @_ZdaPv(ptr noundef nonnull %120) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i
 
 _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i: ; preds = %122, %_ZN6marisa8grimoire6vector6VectorIjED2Ev.exit1.i
@@ -6023,7 +6024,7 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i: ; preds = %122, %
   br i1 %124, label %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit, label %125
 
 125:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %123) #19
+  call void @_ZdaPv(ptr noundef nonnull %123) #21
   br label %_ZN6marisa8grimoire6vector9BitVectorD2Ev.exit
 
 _ZN6marisa8grimoire6vector9BitVectorD2Ev.exit:    ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEED2Ev.exit.i, %125
@@ -6032,7 +6033,7 @@ _ZN6marisa8grimoire6vector9BitVectorD2Ev.exit:    ; preds = %_ZN6marisa8grimoire
 126:                                              ; preds = %2
   %127 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6marisa8grimoire6vector9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %3) #20
+  call void @_ZN6marisa8grimoire6vector9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %3) #22
   resume { ptr, i32 } %127
 }
 
@@ -6105,7 +6106,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector10FlatVector4readERNS0_2io6R
   br i1 %41, label %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit, label %42
 
 42:                                               ; preds = %7
-  call void @_ZdaPv(ptr noundef nonnull %8) #19
+  call void @_ZdaPv(ptr noundef nonnull %8) #21
   br label %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit
 
 _ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit:  ; preds = %7, %42
@@ -6119,7 +6120,7 @@ _ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit:  ; preds = %7, %42
   br i1 %46, label %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit3, label %47
 
 47:                                               ; preds = %43
-  call void @_ZdaPv(ptr noundef nonnull %45) #19
+  call void @_ZdaPv(ptr noundef nonnull %45) #21
   br label %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit3
 
 _ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit3: ; preds = %43, %47
@@ -6198,7 +6199,7 @@ define void @_ZNK6marisa8grimoire4trie9LoudsTrie8restore_ERNS_5AgentEm(ptr nound
   %.inv.i.i = icmp sgt i64 %41, -1
   %spec.select.i.i = select i1 %.inv.i.i, i64 %45, i64 -1
   %.0.i.i = select i1 %44, i64 %spec.select.i.i, i64 %40
-  %46 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %46 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i = icmp eq i64 %39, 0
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -6226,7 +6227,7 @@ define void @_ZNK6marisa8grimoire4trie9LoudsTrie8restore_ERNS_5AgentEm(ptr nound
   br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %50, !llvm.loop !18
 
 55:                                               ; preds = %.preheader.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %48) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %48) #21
   %.pre.i = load i64, ptr %16, align 8
   br label %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit
 
@@ -6320,7 +6321,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEm.exit: ; preds = %88, %90
   %.inv.i.i24 = icmp sgt i64 %107, -1
   %spec.select.i.i25 = select i1 %.inv.i.i24, i64 %111, i64 -1
   %.0.i.i26 = select i1 %110, i64 %spec.select.i.i25, i64 %106
-  %112 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i26, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %112 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i26, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i27 = icmp eq i64 %105, 0
   br i1 %.not.i.i.i27, label %.preheader.i.i.i31, label %.lr.ph.i.i.i28
 
@@ -6348,7 +6349,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEm.exit: ; preds = %88, %90
   br i1 %exitcond.not.i.i.i30, label %.preheader.i.i.i31, label %116, !llvm.loop !18
 
 121:                                              ; preds = %.preheader.i.i.i31
-  tail call void @_ZdaPv(ptr noundef nonnull %114) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %114) #21
   %.pre.i32 = load i64, ptr %16, align 8
   br label %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit33
 
@@ -6675,7 +6676,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie12prefix_matchERNS_5AgentEm.exit: ; preds = %
   %.inv.i.i = icmp sgt i64 %52, -1
   %spec.select.i.i = select i1 %.inv.i.i, i64 %56, i64 -1
   %.0.i.i = select i1 %55, i64 %spec.select.i.i, i64 %51
-  %57 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %57 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i = icmp eq i64 %50, 0
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -6703,7 +6704,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie12prefix_matchERNS_5AgentEm.exit: ; preds = %
   br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %61, !llvm.loop !18
 
 66:                                               ; preds = %.preheader.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %59) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %59) #21
   %.pre.i = load i64, ptr %17, align 8
   br label %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit
 
@@ -6809,7 +6810,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie12prefix_matchERNS_5AgentEm.exit40: ; preds =
   %.inv.i.i42 = icmp sgt i64 %129, -1
   %spec.select.i.i43 = select i1 %.inv.i.i42, i64 %133, i64 -1
   %.0.i.i44 = select i1 %132, i64 %spec.select.i.i43, i64 %128
-  %134 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i44, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %134 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i44, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i45 = icmp eq i64 %127, 0
   br i1 %.not.i.i.i45, label %.preheader.i.i.i49, label %.lr.ph.i.i.i46
 
@@ -6837,7 +6838,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie12prefix_matchERNS_5AgentEm.exit40: ; preds =
   br i1 %exitcond.not.i.i.i48, label %.preheader.i.i.i49, label %138, !llvm.loop !18
 
 143:                                              ; preds = %.preheader.i.i.i49
-  tail call void @_ZdaPv(ptr noundef nonnull %136) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %136) #21
   %.pre.i50 = load i64, ptr %17, align 8
   br label %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit51
 
@@ -6883,7 +6884,7 @@ _ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit51: ; preds = %126, %.pre
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6marisa8grimoire4trie6Config6parse_Ei(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6891,7 +6892,7 @@ define linkonce_odr void @_ZN6marisa8grimoire4trie6Config6parse_Ei(ptr noundef n
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %4 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @.str.6, ptr %5, align 8
@@ -6901,7 +6902,7 @@ define linkonce_odr void @_ZN6marisa8grimoire4trie6Config6parse_Ei(ptr noundef n
   store i32 5, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr @.str.7, ptr %8, align 8
-  tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 9:                                                ; preds = %2
@@ -6938,7 +6939,7 @@ _ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit: ; preds = %9, %11
   br label %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit
 
 18:                                               ; preds = %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit
-  %19 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %19 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr @.str.6, ptr %20, align 8
@@ -6948,7 +6949,7 @@ _ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit: ; preds = %9, %11
   store i32 5, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %19, i64 24
   store ptr @.str.8, ptr %23, align 8
-  tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit: ; preds = %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit, %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit, %14, %15, %16, %17
@@ -6967,7 +6968,7 @@ _ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit: ; preds = %_ZN6marisa
   br label %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit
 
 27:                                               ; preds = %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit
-  %28 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %28 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr @.str.6, ptr %29, align 8
@@ -6977,7 +6978,7 @@ _ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit: ; preds = %_ZN6marisa
   store i32 5, ptr %31, align 4
   %32 = getelementptr inbounds i8, ptr %28, i64 24
   store ptr @.str.9, ptr %32, align 8
-  tail call void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit: ; preds = %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit, %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit, %26
@@ -6995,7 +6996,7 @@ _ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit: ; preds = %_ZN6marisa8g
   br label %_ZN6marisa8grimoire4trie6Config16parse_node_orderEi.exit
 
 36:                                               ; preds = %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit
-  %37 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %37 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   store ptr @.str.6, ptr %38, align 8
@@ -7005,7 +7006,7 @@ _ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit: ; preds = %_ZN6marisa8g
   store i32 5, ptr %40, align 4
   %41 = getelementptr inbounds i8, ptr %37, i64 24
   store ptr @.str.10, ptr %41, align 8
-  tail call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire4trie6Config16parse_node_orderEi.exit: ; preds = %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit, %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit, %35
@@ -7023,8 +7024,8 @@ declare void @_ZN6marisa8grimoire2io6Writer10write_dataEPKvm(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa9ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #19
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
 
@@ -7036,16 +7037,16 @@ define linkonce_odr noundef ptr @_ZNK6marisa9Exception4whatEv(ptr noundef nonnul
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind allocsize(0)
-declare noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #6
+declare noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 declare void @_ZN6marisa8grimoire6vector9BitVector11build_indexERKS2_bb(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef nonnull align 8 dereferenceable(208), i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
@@ -7057,7 +7058,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE6shrinkEv(ptr noun
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %6 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @.str.25, ptr %7, align 8
@@ -7067,7 +7068,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE6shrinkEv(ptr noun
   store i32 1, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr @.str.26, ptr %10, align 8
-  tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 11:                                               ; preds = %1
@@ -7080,7 +7081,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE6shrinkEv(ptr noun
 
 16:                                               ; preds = %11
   %17 = shl i64 %13, 3
-  %18 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %17, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %18 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %17, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.i
 
@@ -7111,7 +7112,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE6shrinkEv(ptr noun
   br i1 %exitcond.not.i, label %.preheader.i, label %25, !llvm.loop !8
 
 30:                                               ; preds = %.preheader.i
-  tail call void @_ZdaPv(ptr noundef nonnull %21) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %21) #21
   br label %_ZN6marisa8grimoire6vector6VectorImE7reallocEm.exit
 
 _ZN6marisa8grimoire6vector6VectorImE7reallocEm.exit: ; preds = %30, %.preheader.i, %11
@@ -7170,7 +7171,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector9BitVector4map_ERNS0_2io6Map
   br i1 %32, label %_ZN6marisa8grimoire6vector6VectorImE3mapERNS0_2io6MapperE.exit, label %33
 
 33:                                               ; preds = %7
-  call void @_ZdaPv(ptr noundef nonnull %8) #19
+  call void @_ZdaPv(ptr noundef nonnull %8) #21
   br label %_ZN6marisa8grimoire6vector6VectorImE3mapERNS0_2io6MapperE.exit
 
 34:                                               ; preds = %2
@@ -7183,7 +7184,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector9BitVector4map_ERNS0_2io6Map
 common.resume.sink.split:                         ; preds = %34, %147, %115, %83
   %.sink = phi ptr [ %85, %83 ], [ %117, %115 ], [ %149, %147 ], [ %36, %34 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %84, %83 ], [ %116, %115 ], [ %148, %147 ], [ %35, %34 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sink) #21
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %147, %115, %83, %34
@@ -7205,7 +7206,7 @@ _ZN6marisa8grimoire6vector6VectorImE3mapERNS0_2io6MapperE.exit: ; preds = %7, %3
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorImE3mapERNS0_2io6MapperE.exit
-  %48 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %48 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   store ptr @.str.23, ptr %49, align 8
@@ -7215,7 +7216,7 @@ _ZN6marisa8grimoire6vector6VectorImE3mapERNS0_2io6MapperE.exit: ; preds = %7, %3
   store i32 10, ptr %51, align 4
   %52 = getelementptr inbounds i8, ptr %48, i64 24
   store ptr @.str.27, ptr %52, align 8
-  call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 53:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorImE3mapERNS0_2io6MapperE.exit
@@ -7268,7 +7269,7 @@ _ZN6marisa8grimoire6vector6VectorImE3mapERNS0_2io6MapperE.exit: ; preds = %7, %3
   br i1 %81, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE3mapERNS0_2io6MapperE.exit, label %82
 
 82:                                               ; preds = %55
-  call void @_ZdaPv(ptr noundef nonnull %57) #19
+  call void @_ZdaPv(ptr noundef nonnull %57) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE3mapERNS0_2io6MapperE.exit
 
 83:                                               ; preds = %53
@@ -7327,7 +7328,7 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE3mapERNS0_2io6MapperE.exit: ; 
   br i1 %113, label %_ZN6marisa8grimoire6vector6VectorIjE3mapERNS0_2io6MapperE.exit, label %114
 
 114:                                              ; preds = %87
-  call void @_ZdaPv(ptr noundef nonnull %89) #19
+  call void @_ZdaPv(ptr noundef nonnull %89) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjE3mapERNS0_2io6MapperE.exit
 
 115:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE3mapERNS0_2io6MapperE.exit
@@ -7386,7 +7387,7 @@ _ZN6marisa8grimoire6vector6VectorIjE3mapERNS0_2io6MapperE.exit: ; preds = %87, %
   br i1 %145, label %_ZN6marisa8grimoire6vector6VectorIjE3mapERNS0_2io6MapperE.exit8, label %146
 
 146:                                              ; preds = %119
-  call void @_ZdaPv(ptr noundef nonnull %121) #19
+  call void @_ZdaPv(ptr noundef nonnull %121) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjE3mapERNS0_2io6MapperE.exit8
 
 147:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorIjE3mapERNS0_2io6MapperE.exit
@@ -7410,7 +7411,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE4map_ERNS0_2io6Map
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %7 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str.25, ptr %8, align 8
@@ -7420,7 +7421,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE4map_ERNS0_2io6Map
   store i32 10, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr @.str.29, ptr %11, align 8
-  tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 12:                                               ; preds = %2
@@ -7437,7 +7438,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE4map_ERNS0_2io6Map
   br i1 %19, label %20, label %_ZN6marisa8grimoire6vector6VectorImE3fixEv.exit
 
 20:                                               ; preds = %12
-  %21 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %21 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr @.str.25, ptr %22, align 8
@@ -7447,7 +7448,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE4map_ERNS0_2io6Map
   store i32 1, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %21, i64 24
   store ptr @.str.31, ptr %25, align 8
-  tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire6vector6VectorImE3fixEv.exit:  ; preds = %12
@@ -7467,7 +7468,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE4map
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %8 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @.str.25, ptr %9, align 8
@@ -7477,7 +7478,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE4map
   store i32 10, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr @.str.29, ptr %12, align 8
-  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 13:                                               ; preds = %2
@@ -7496,7 +7497,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE4map
   br i1 %22, label %23, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE3fixEv.exit
 
 23:                                               ; preds = %13
-  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr @.str.25, ptr %25, align 8
@@ -7506,7 +7507,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE4map
   store i32 1, ptr %27, align 4
   %28 = getelementptr inbounds i8, ptr %24, i64 24
   store ptr @.str.31, ptr %28, align 8
-  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE3fixEv.exit: ; preds = %13
@@ -7523,7 +7524,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE4map_ERNS0_2io6Map
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %7 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str.25, ptr %8, align 8
@@ -7533,7 +7534,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE4map_ERNS0_2io6Map
   store i32 10, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr @.str.29, ptr %11, align 8
-  tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 12:                                               ; preds = %2
@@ -7552,7 +7553,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE4map_ERNS0_2io6Map
   br i1 %21, label %22, label %_ZN6marisa8grimoire6vector6VectorIjE3fixEv.exit
 
 22:                                               ; preds = %12
-  %23 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %23 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr @.str.25, ptr %24, align 8
@@ -7562,7 +7563,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE4map_ERNS0_2io6Map
   store i32 1, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %23, i64 24
   store ptr @.str.31, ptr %27, align 8
-  tail call void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire6vector6VectorIjE3fixEv.exit:  ; preds = %12
@@ -7619,7 +7620,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector10FlatVector4map_ERNS0_2io6M
   br i1 %29, label %_ZN6marisa8grimoire6vector6VectorImE3mapERNS0_2io6MapperE.exit, label %30
 
 30:                                               ; preds = %4
-  call void @_ZdaPv(ptr noundef nonnull %5) #19
+  call void @_ZdaPv(ptr noundef nonnull %5) #21
   br label %_ZN6marisa8grimoire6vector6VectorImE3mapERNS0_2io6MapperE.exit
 
 31:                                               ; preds = %2
@@ -7630,7 +7631,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector10FlatVector4map_ERNS0_2io6M
   br i1 %34, label %_ZN6marisa8grimoire6vector6VectorImED2Ev.exit3.i, label %35
 
 35:                                               ; preds = %31
-  call void @_ZdaPv(ptr noundef nonnull %33) #19
+  call void @_ZdaPv(ptr noundef nonnull %33) #21
   br label %_ZN6marisa8grimoire6vector6VectorImED2Ev.exit3.i
 
 _ZN6marisa8grimoire6vector6VectorImED2Ev.exit3.i: ; preds = %35, %31
@@ -7644,7 +7645,7 @@ _ZN6marisa8grimoire6vector6VectorImE3mapERNS0_2io6MapperE.exit: ; preds = %4, %3
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorImE3mapERNS0_2io6MapperE.exit
-  %40 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %40 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   store ptr @.str.32, ptr %41, align 8
@@ -7654,7 +7655,7 @@ _ZN6marisa8grimoire6vector6VectorImE3mapERNS0_2io6MapperE.exit: ; preds = %4, %3
   store i32 10, ptr %43, align 4
   %44 = getelementptr inbounds i8, ptr %40, i64 24
   store ptr @.str.33, ptr %44, align 8
-  call void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 45:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorImE3mapERNS0_2io6MapperE.exit
@@ -7726,7 +7727,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector9BitVector5read_ERNS0_2io6Re
   br i1 %34, label %_ZN6marisa8grimoire6vector6VectorImE4readERNS0_2io6ReaderE.exit, label %35
 
 35:                                               ; preds = %9
-  call void @_ZdaPv(ptr noundef nonnull %10) #19
+  call void @_ZdaPv(ptr noundef nonnull %10) #21
   br label %_ZN6marisa8grimoire6vector6VectorImE4readERNS0_2io6ReaderE.exit
 
 36:                                               ; preds = %2
@@ -7739,7 +7740,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector9BitVector5read_ERNS0_2io6Re
 common.resume.sink.split:                         ; preds = %36, %147, %115, %83
   %.sink = phi ptr [ %85, %83 ], [ %117, %115 ], [ %149, %147 ], [ %38, %36 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %84, %83 ], [ %116, %115 ], [ %148, %147 ], [ %37, %36 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sink) #21
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %147, %115, %83, %36
@@ -7761,7 +7762,7 @@ _ZN6marisa8grimoire6vector6VectorImE4readERNS0_2io6ReaderE.exit: ; preds = %9, %
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorImE4readERNS0_2io6ReaderE.exit
-  %48 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %48 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   store ptr @.str.23, ptr %49, align 8
@@ -7771,7 +7772,7 @@ _ZN6marisa8grimoire6vector6VectorImE4readERNS0_2io6ReaderE.exit: ; preds = %9, %
   store i32 10, ptr %51, align 4
   %52 = getelementptr inbounds i8, ptr %48, i64 24
   store ptr @.str.35, ptr %52, align 8
-  call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 53:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorImE4readERNS0_2io6ReaderE.exit
@@ -7824,7 +7825,7 @@ _ZN6marisa8grimoire6vector6VectorImE4readERNS0_2io6ReaderE.exit: ; preds = %9, %
   br i1 %81, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE4readERNS0_2io6ReaderE.exit, label %82
 
 82:                                               ; preds = %55
-  call void @_ZdaPv(ptr noundef nonnull %57) #19
+  call void @_ZdaPv(ptr noundef nonnull %57) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE4readERNS0_2io6ReaderE.exit
 
 83:                                               ; preds = %53
@@ -7883,7 +7884,7 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE4readERNS0_2io6ReaderE.exit: ;
   br i1 %113, label %_ZN6marisa8grimoire6vector6VectorIjE4readERNS0_2io6ReaderE.exit, label %114
 
 114:                                              ; preds = %87
-  call void @_ZdaPv(ptr noundef nonnull %89) #19
+  call void @_ZdaPv(ptr noundef nonnull %89) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjE4readERNS0_2io6ReaderE.exit
 
 115:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE4readERNS0_2io6ReaderE.exit
@@ -7942,7 +7943,7 @@ _ZN6marisa8grimoire6vector6VectorIjE4readERNS0_2io6ReaderE.exit: ; preds = %87, 
   br i1 %145, label %_ZN6marisa8grimoire6vector6VectorIjE4readERNS0_2io6ReaderE.exit8, label %146
 
 146:                                              ; preds = %119
-  call void @_ZdaPv(ptr noundef nonnull %121) #19
+  call void @_ZdaPv(ptr noundef nonnull %121) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjE4readERNS0_2io6ReaderE.exit8
 
 147:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorIjE4readERNS0_2io6ReaderE.exit
@@ -7967,7 +7968,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE5read_ERNS0_2io6Re
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %2
-  %7 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %7 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str.25, ptr %8, align 8
@@ -7977,7 +7978,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE5read_ERNS0_2io6Re
   store i32 10, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr @.str.37, ptr %11, align 8
-  call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 12:                                               ; preds = %2
@@ -7995,7 +7996,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE5read_ERNS0_2io6Re
   %spec.select.i.i = select i1 %19, i64 2305843009213693951, i64 %20
   %.0.i.i = select i1 %18, i64 %spec.select.i.i, i64 %13
   %21 = shl i64 %.0.i.i, 3
-  %22 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %22 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = load i64, ptr %23, align 8
   %.not.i.i.i = icmp eq i64 %24, 0
@@ -8028,7 +8029,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE5read_ERNS0_2io6Re
   br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %31, !llvm.loop !8
 
 36:                                               ; preds = %.preheader.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %27) #19
+  call void @_ZdaPv(ptr noundef nonnull %27) #21
   br label %_ZN6marisa8grimoire6vector6VectorImE6resizeEm.exit
 
 _ZN6marisa8grimoire6vector6VectorImE6resizeEm.exit: ; preds = %12, %.preheader.i.i.i, %36
@@ -8042,7 +8043,7 @@ _ZN6marisa8grimoire6vector6VectorImE6resizeEm.exit: ; preds = %12, %.preheader.i
   br i1 %or.cond.i, label %42, label %_ZN6marisa8grimoire2io6Reader4readImEEvPT_m.exit
 
 42:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorImE6resizeEm.exit
-  %43 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %43 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   store ptr @.str.17, ptr %44, align 8
@@ -8052,7 +8053,7 @@ _ZN6marisa8grimoire6vector6VectorImE6resizeEm.exit: ; preds = %12, %.preheader.i
   store i32 2, ptr %46, align 4
   %47 = getelementptr inbounds i8, ptr %43, i64 24
   store ptr @.str.18, ptr %47, align 8
-  call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire2io6Reader4readImEEvPT_m.exit: ; preds = %_ZN6marisa8grimoire6vector6VectorImE6resizeEm.exit
@@ -8077,7 +8078,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE5rea
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %2
-  %8 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %8 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @.str.25, ptr %9, align 8
@@ -8087,7 +8088,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE5rea
   store i32 10, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr @.str.37, ptr %12, align 8
-  call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 13:                                               ; preds = %2
@@ -8104,7 +8105,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE5rea
   %spec.select.i.i = select i1 %19, i64 1537228672809129301, i64 %20
   %.0.i.i = select i1 %18, i64 %spec.select.i.i, i64 %6
   %21 = mul i64 %.0.i.i, 12
-  %22 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %22 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = load i64, ptr %23, align 8
   %.not.i.i.i = icmp eq i64 %24, 0
@@ -8136,7 +8137,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE5rea
   br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %31, !llvm.loop !40
 
 35:                                               ; preds = %.preheader.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %27) #19
+  call void @_ZdaPv(ptr noundef nonnull %27) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE7reserveEm.exit.i
 
 _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE7reserveEm.exit.i: ; preds = %35, %.preheader.i.i.i, %13
@@ -8172,7 +8173,7 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit: ; preds = %40,
   br i1 %or.cond.i, label %50, label %_ZN6marisa8grimoire2io6Reader4readINS0_6vector9RankIndexEEEvPT_m.exit
 
 50:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit
-  %51 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %51 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   store ptr @.str.17, ptr %52, align 8
@@ -8182,7 +8183,7 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit: ; preds = %40,
   store i32 2, ptr %54, align 4
   %55 = getelementptr inbounds i8, ptr %51, i64 24
   store ptr @.str.18, ptr %55, align 8
-  call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire2io6Reader4readINS0_6vector9RankIndexEEEvPT_m.exit: ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit
@@ -8205,7 +8206,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE5read_ERNS0_2io6Re
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %2
-  %7 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %7 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @.str.25, ptr %8, align 8
@@ -8215,7 +8216,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE5read_ERNS0_2io6Re
   store i32 10, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr @.str.37, ptr %11, align 8
-  call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 12:                                               ; preds = %2
@@ -8233,7 +8234,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE5read_ERNS0_2io6Re
   %spec.select.i.i = select i1 %19, i64 4611686018427387903, i64 %20
   %.0.i.i = select i1 %18, i64 %spec.select.i.i, i64 %13
   %21 = shl i64 %.0.i.i, 2
-  %22 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %22 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = load i64, ptr %23, align 8
   %.not.i.i.i = icmp eq i64 %24, 0
@@ -8266,7 +8267,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE5read_ERNS0_2io6Re
   br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %31, !llvm.loop !42
 
 36:                                               ; preds = %.preheader.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %27) #19
+  call void @_ZdaPv(ptr noundef nonnull %27) #21
   br label %_ZN6marisa8grimoire6vector6VectorIjE6resizeEm.exit
 
 _ZN6marisa8grimoire6vector6VectorIjE6resizeEm.exit: ; preds = %12, %.preheader.i.i.i, %36
@@ -8280,7 +8281,7 @@ _ZN6marisa8grimoire6vector6VectorIjE6resizeEm.exit: ; preds = %12, %.preheader.i
   br i1 %or.cond.i, label %42, label %_ZN6marisa8grimoire2io6Reader4readIjEEvPT_m.exit
 
 42:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIjE6resizeEm.exit
-  %43 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %43 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   store ptr @.str.17, ptr %44, align 8
@@ -8290,7 +8291,7 @@ _ZN6marisa8grimoire6vector6VectorIjE6resizeEm.exit: ; preds = %12, %.preheader.i
   store i32 2, ptr %46, align 4
   %47 = getelementptr inbounds i8, ptr %43, i64 24
   store ptr @.str.18, ptr %47, align 8
-  call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire2io6Reader4readIjEEvPT_m.exit: ; preds = %_ZN6marisa8grimoire6vector6VectorIjE6resizeEm.exit
@@ -8354,7 +8355,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector10FlatVector5read_ERNS0_2io6
   br i1 %32, label %_ZN6marisa8grimoire6vector6VectorImE4readERNS0_2io6ReaderE.exit, label %33
 
 33:                                               ; preds = %7
-  call void @_ZdaPv(ptr noundef nonnull %8) #19
+  call void @_ZdaPv(ptr noundef nonnull %8) #21
   br label %_ZN6marisa8grimoire6vector6VectorImE4readERNS0_2io6ReaderE.exit
 
 34:                                               ; preds = %2
@@ -8365,7 +8366,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector10FlatVector5read_ERNS0_2io6
   br i1 %37, label %_ZN6marisa8grimoire6vector6VectorImED2Ev.exit3.i, label %38
 
 38:                                               ; preds = %34
-  call void @_ZdaPv(ptr noundef nonnull %36) #19
+  call void @_ZdaPv(ptr noundef nonnull %36) #21
   br label %_ZN6marisa8grimoire6vector6VectorImED2Ev.exit3.i
 
 _ZN6marisa8grimoire6vector6VectorImED2Ev.exit3.i: ; preds = %38, %34
@@ -8379,7 +8380,7 @@ _ZN6marisa8grimoire6vector6VectorImE4readERNS0_2io6ReaderE.exit: ; preds = %7, %
   br i1 %40, label %41, label %47
 
 41:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorImE4readERNS0_2io6ReaderE.exit
-  %42 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %42 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   store ptr @.str.32, ptr %43, align 8
@@ -8389,7 +8390,7 @@ _ZN6marisa8grimoire6vector6VectorImE4readERNS0_2io6ReaderE.exit: ; preds = %7, %
   store i32 10, ptr %45, align 4
   %46 = getelementptr inbounds i8, ptr %42, i64 24
   store ptr @.str.39, ptr %46, align 8
-  call void @__cxa_throw(ptr nonnull %42, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %42, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 47:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorImE4readERNS0_2io6ReaderE.exit
@@ -8424,7 +8425,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorImE6write_ERNS0_2io6
   br i1 %or.cond.i, label %12, label %18
 
 12:                                               ; preds = %2
-  %13 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %13 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @.str.20, ptr %14, align 8
@@ -8434,7 +8435,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorImE6write_ERNS0_2io6
   store i32 2, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr @.str.21, ptr %17, align 8
-  call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 18:                                               ; preds = %2
@@ -8442,7 +8443,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorImE6write_ERNS0_2io6
   br i1 %19, label %20, label %_ZN6marisa8grimoire2io6Writer5writeImEEvPKT_m.exit
 
 20:                                               ; preds = %18
-  %21 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %21 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr @.str.20, ptr %22, align 8
@@ -8452,7 +8453,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorImE6write_ERNS0_2io6
   store i32 7, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %21, i64 24
   store ptr @.str.22, ptr %25, align 8
-  call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire2io6Writer5writeImEEvPKT_m.exit: ; preds = %18
@@ -8481,7 +8482,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorINS1_9RankIndexEE6wr
   br i1 %or.cond.i, label %12, label %18
 
 12:                                               ; preds = %2
-  %13 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %13 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @.str.20, ptr %14, align 8
@@ -8491,7 +8492,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorINS1_9RankIndexEE6wr
   store i32 2, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr @.str.21, ptr %17, align 8
-  call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 18:                                               ; preds = %2
@@ -8499,7 +8500,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorINS1_9RankIndexEE6wr
   br i1 %19, label %20, label %_ZN6marisa8grimoire2io6Writer5writeINS0_6vector9RankIndexEEEvPKT_m.exit
 
 20:                                               ; preds = %18
-  %21 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %21 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr @.str.20, ptr %22, align 8
@@ -8509,7 +8510,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorINS1_9RankIndexEE6wr
   store i32 7, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %21, i64 24
   store ptr @.str.22, ptr %25, align 8
-  call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire2io6Writer5writeINS0_6vector9RankIndexEEEvPKT_m.exit: ; preds = %18
@@ -8539,7 +8540,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorIjE6write_ERNS0_2io6
   br i1 %or.cond.i, label %12, label %18
 
 12:                                               ; preds = %2
-  %13 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %13 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @.str.20, ptr %14, align 8
@@ -8549,7 +8550,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorIjE6write_ERNS0_2io6
   store i32 2, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr @.str.21, ptr %17, align 8
-  call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 18:                                               ; preds = %2
@@ -8557,7 +8558,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorIjE6write_ERNS0_2io6
   br i1 %19, label %20, label %_ZN6marisa8grimoire2io6Writer5writeIjEEvPKT_m.exit
 
 20:                                               ; preds = %18
-  %21 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %21 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr @.str.20, ptr %22, align 8
@@ -8567,7 +8568,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorIjE6write_ERNS0_2io6
   store i32 7, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %21, i64 24
   store ptr @.str.22, ptr %25, align 8
-  call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire2io6Writer5writeIjEEvPKT_m.exit: ; preds = %18
@@ -8585,7 +8586,7 @@ declare void @_ZNK6marisa8grimoire4trie4Tail7restoreERNS_5AgentEm(ptr noundef no
 declare noundef zeroext i1 @_ZNK6marisa8grimoire4trie4Tail12prefix_matchERNS_5AgentEm(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6marisa8grimoire4trie9LoudsTrie18build_current_trieINS1_3KeyEEEvRNS0_6vector6VectorIT_EEPNS6_IjEERKNS1_6ConfigEm(ptr noundef nonnull align 8 dereferenceable(1136) %0, ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(20) %3, i64 noundef %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8672,7 +8673,7 @@ _ZNK6marisa8grimoire9Algorithm4sortIPNS0_4trie3KeyEEEmT_S6_.exit: ; preds = %._c
   %.inv.i.i = icmp sgt i64 %45, -1
   %spec.select.i.i = select i1 %.inv.i.i, i64 %49, i64 -1
   %.0.i.i = select i1 %48, i64 %spec.select.i.i, i64 %43
-  %50 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %50 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i = icmp eq i64 %42, 0
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -8703,7 +8704,7 @@ _ZNK6marisa8grimoire9Algorithm4sortIPNS0_4trie3KeyEEEmT_S6_.exit: ; preds = %._c
   br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !44
 
 62:                                               ; preds = %.preheader.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %53) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %53) #21
   %.pre.i = load i64, ptr %41, align 8
   br label %63
 
@@ -8754,7 +8755,7 @@ _ZNK6marisa8grimoire9Algorithm4sortIPNS0_4trie3KeyEEEmT_S6_.exit: ; preds = %._c
   %83 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9bad_alloc
-  call void @_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #20
+  call void @_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #22
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit204
 
 _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit: ; preds = %82, %79
@@ -8838,7 +8839,7 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit: ;
 
 138:                                              ; preds = %111
   %139 = load ptr, ptr %90, align 8
-  call void @_ZdlPv(ptr noundef %139) #19
+  call void @_ZdlPv(ptr noundef %139) #21
   %140 = load ptr, ptr %87, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 8
   store ptr %141, ptr %87, align 8
@@ -8918,7 +8919,7 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE3popEv.exit: ; pre
   br i1 %159, label %638, label %160
 
 160:                                              ; preds = %.loopexit.split-lp
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.0) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.0) #21
   br label %638
 
 .critedge:                                        ; preds = %147, %_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE3popEv.exit
@@ -8937,7 +8938,7 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE3popEv.exit: ; pre
   br i1 %164, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEE5clearEv.exit, label %165
 
 165:                                              ; preds = %162
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.1.ph) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.1.ph) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEE5clearEv.exit
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEE5clearEv.exit: ; preds = %165, %162
@@ -8992,7 +8993,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEE5clearEv.exit: ; pre
   %spec.select.i.i100 = select i1 %189, i64 1152921504606846975, i64 %190
   %.0.i.i101 = select i1 %188, i64 %spec.select.i.i100, i64 %185
   %191 = shl i64 %.0.i.i101, 4
-  %192 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %191, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %192 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %191, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i102 = icmp eq i64 %.sroa.20.1457, 0
   br i1 %.not.i.i.i102, label %.preheader.i.i.i106, label %.lr.ph.i.i.i103
 
@@ -9010,7 +9011,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEE5clearEv.exit: ; pre
   br i1 %exitcond.not.i.i.i105, label %.preheader.i.i.i106, label %.lr.ph.i.i.i103, !llvm.loop !47
 
 197:                                              ; preds = %.preheader.i.i.i106
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.2462) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.2462) #21
   br label %198
 
 198:                                              ; preds = %197, %.preheader.i.i.i106, %181
@@ -9068,7 +9069,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEE5clearEv.exit: ; pre
   %spec.select.i.i118 = select i1 %214, i64 1152921504606846975, i64 %215
   %.0.i.i119 = select i1 %213, i64 %spec.select.i.i118, i64 %210
   %216 = shl i64 %.0.i.i119, 4
-  %217 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %216, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %217 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %216, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i120 = icmp eq i64 %.sroa.20.1.lcssa, 0
   br i1 %.not.i.i.i120, label %.preheader.i.i.i124, label %.lr.ph.i.i.i121
 
@@ -9086,7 +9087,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEE5clearEv.exit: ; pre
   br i1 %exitcond.not.i.i.i123, label %.preheader.i.i.i124, label %.lr.ph.i.i.i121, !llvm.loop !47
 
 222:                                              ; preds = %.preheader.i.i.i124
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.2.lcssa) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.2.lcssa) #21
   br label %223
 
 223:                                              ; preds = %222, %.preheader.i.i.i124, %._crit_edge467
@@ -9239,7 +9240,7 @@ _ZN6marisa8grimoire4trie9LoudsTrie5cacheINS1_3KeyEEEvmmfc.exit: ; preds = %277, 
   %.inv.i.i129 = icmp sgt i64 %295, -1
   %spec.select.i.i130 = select i1 %.inv.i.i129, i64 %299, i64 -1
   %.0.i.i131 = select i1 %298, i64 %spec.select.i.i130, i64 %294
-  %300 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i131, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %300 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i131, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i132 = icmp eq i64 %293, 0
   br i1 %.not.i.i.i132, label %.preheader.i.i.i136, label %.lr.ph.i.i.i133
 
@@ -9267,7 +9268,7 @@ _ZN6marisa8grimoire4trie9LoudsTrie5cacheINS1_3KeyEEEvmmfc.exit: ; preds = %277, 
   br i1 %exitcond.not.i.i.i135, label %.preheader.i.i.i136, label %304, !llvm.loop !44
 
 309:                                              ; preds = %.preheader.i.i.i136
-  call void @_ZdaPv(ptr noundef nonnull %302) #19
+  call void @_ZdaPv(ptr noundef nonnull %302) #21
   %.pre.i137 = load i64, ptr %41, align 8
   br label %310
 
@@ -9303,7 +9304,7 @@ _ZN6marisa8grimoire4trie9LoudsTrie5cacheINS1_3KeyEEEvmmfc.exit: ; preds = %277, 
   %spec.select.i.i.i = select i1 %328, i64 2305843009213693951, i64 %329
   %.0.i.i.i = select i1 %327, i64 %spec.select.i.i.i, i64 %323
   %330 = shl i64 %.0.i.i.i, 3
-  %331 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %330, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %331 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %330, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq i64 %319, 0
   br i1 %.not.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -9331,7 +9332,7 @@ _ZN6marisa8grimoire4trie9LoudsTrie5cacheINS1_3KeyEEEvmmfc.exit: ; preds = %277, 
   br i1 %exitcond.not.i.i.i.i, label %.preheader.i.i.i.i, label %335, !llvm.loop !8
 
 340:                                              ; preds = %.preheader.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %333) #19
+  call void @_ZdaPv(ptr noundef nonnull %333) #21
   %.pre.i140 = load i64, ptr %95, align 8
   br label %_ZN6marisa8grimoire6vector6VectorImE7reserveEm.exit.i.i
 
@@ -9375,7 +9376,7 @@ _ZN6marisa8grimoire6vector9BitVector9push_backEb.exit: ; preds = %318, %_ZN6mari
   %.inv.i.i143 = icmp sgt i64 %350, -1
   %spec.select.i.i144 = select i1 %.inv.i.i143, i64 %354, i64 -1
   %.0.i.i145 = select i1 %353, i64 %spec.select.i.i144, i64 %349
-  %355 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i145, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %355 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i145, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i146 = icmp eq i64 %348, 0
   br i1 %.not.i.i.i146, label %.preheader.i.i.i150, label %.lr.ph.i.i.i147
 
@@ -9403,7 +9404,7 @@ _ZN6marisa8grimoire6vector9BitVector9push_backEb.exit: ; preds = %318, %_ZN6mari
   br i1 %exitcond.not.i.i.i149, label %.preheader.i.i.i150, label %359, !llvm.loop !44
 
 364:                                              ; preds = %.preheader.i.i.i150
-  call void @_ZdaPv(ptr noundef nonnull %357) #19
+  call void @_ZdaPv(ptr noundef nonnull %357) #21
   %.pre.i151 = load i64, ptr %41, align 8
   br label %365
 
@@ -9420,7 +9421,7 @@ _ZN6marisa8grimoire6vector9BitVector9push_backEb.exit: ; preds = %318, %_ZN6mari
   br i1 %372, label %.invoke, label %378
 
 .invoke:                                          ; preds = %365, %310
-  %373 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %373 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %373, align 8
   %374 = getelementptr inbounds i8, ptr %373, i64 8
   store ptr @.str.23, ptr %374, align 8
@@ -9430,7 +9431,7 @@ _ZN6marisa8grimoire6vector9BitVector9push_backEb.exit: ; preds = %318, %_ZN6mari
   store i32 7, ptr %376, align 4
   %377 = getelementptr inbounds i8, ptr %373, i64 24
   store ptr @.str.24, ptr %377, align 8
-  invoke void @__cxa_throw(ptr nonnull %373, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  invoke void @__cxa_throw(ptr nonnull %373, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -9456,7 +9457,7 @@ _ZN6marisa8grimoire6vector9BitVector9push_backEb.exit: ; preds = %318, %_ZN6mari
   %spec.select.i.i.i161 = select i1 %388, i64 2305843009213693951, i64 %389
   %.0.i.i.i162 = select i1 %387, i64 %spec.select.i.i.i161, i64 %383
   %390 = shl i64 %.0.i.i.i162, 3
-  %391 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %390, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %391 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %390, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i163 = icmp eq i64 %379, 0
   br i1 %.not.i.i.i.i163, label %.preheader.i.i.i.i167, label %.lr.ph.i.i.i.i164
 
@@ -9484,7 +9485,7 @@ _ZN6marisa8grimoire6vector9BitVector9push_backEb.exit: ; preds = %318, %_ZN6mari
   br i1 %exitcond.not.i.i.i.i166, label %.preheader.i.i.i.i167, label %395, !llvm.loop !8
 
 400:                                              ; preds = %.preheader.i.i.i.i167
-  call void @_ZdaPv(ptr noundef nonnull %393) #19
+  call void @_ZdaPv(ptr noundef nonnull %393) #21
   %.pre.i168 = load i64, ptr %95, align 8
   br label %_ZN6marisa8grimoire6vector6VectorImE7reserveEm.exit.i.i155
 
@@ -9546,7 +9547,7 @@ _ZN6marisa8grimoire6vector6VectorImE6resizeEmRKm.exit.i156: ; preds = %.lr.ph.i.
   %spec.select.i.i172 = select i1 %432, i64 768614336404564650, i64 %433
   %.0.i.i173 = select i1 %431, i64 %spec.select.i.i172, i64 %428
   %434 = mul i64 %.0.i.i173, 24
-  %435 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %434, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %435 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %434, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i174 = icmp eq i64 %.sroa.15.1481, 0
   br i1 %.not.i.i.i174, label %.preheader.i.i.i178, label %.lr.ph.i.i.i175
 
@@ -9577,7 +9578,7 @@ _ZN6marisa8grimoire6vector6VectorImE6resizeEmRKm.exit.i156: ; preds = %.lr.ph.i.
   br i1 %exitcond.not.i.i.i177, label %.preheader.i.i.i178, label %.lr.ph.i.i.i175, !llvm.loop !50
 
 450:                                              ; preds = %.preheader.i.i.i178
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0269.3487) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0269.3487) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE9push_backERKS4_.exit
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE9push_backERKS4_.exit: ; preds = %406, %.preheader.i.i.i178, %450
@@ -9643,7 +9644,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE9push_backERKS4_.exit: ; preds 
   br i1 %485, label %486, label %487
 
 486:                                              ; preds = %462
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.42) #22
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.42) #24
           to label %.noexc207 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc207:                                        ; preds = %486
@@ -9709,14 +9710,14 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE9push_backERKS4_.exit: ; preds 
   br i1 %522, label %.noexc.i.i, label %.noexc3.i.i
 
 .noexc.i.i:                                       ; preds = %521
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #22
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
           to label %.noexc211 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc211:                                        ; preds = %.noexc.i.i
   unreachable
 
 .noexc3.i.i:                                      ; preds = %521
-  invoke void @_ZSt17__throw_bad_allocv() #22
+  invoke void @_ZSt17__throw_bad_allocv() #24
           to label %.noexc212 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc212:                                        ; preds = %.noexc3.i.i
@@ -9724,7 +9725,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE9push_backERKS4_.exit: ; preds 
 
 _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE15_M_allocate_mapEm.exit.i: ; preds = %517
   %523 = shl nuw nsw i64 %519, 3
-  %524 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %523) #23
+  %524 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %523) #25
           to label %.noexc213 unwind label %.loopexit302
 
 .noexc213:                                        ; preds = %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE15_M_allocate_mapEm.exit.i
@@ -9742,7 +9743,7 @@ _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE15_M_allocate_mapEm.exit
   br label %_ZSt4copyIPPN6marisa8grimoire4trie5RangeES5_ET0_T_S7_S6_.exit26.i
 
 _ZSt4copyIPPN6marisa8grimoire4trie5RangeES5_ET0_T_S7_S6_.exit26.i: ; preds = %529, %.noexc213
-  call void @_ZdlPv(ptr noundef %489) #19
+  call void @_ZdlPv(ptr noundef %489) #21
   store ptr %524, ptr %6, align 8
   store i64 %519, ptr %100, align 8
   br label %.noexc208
@@ -9765,7 +9766,7 @@ _ZSt4copyIPPN6marisa8grimoire4trie5RangeES5_ET0_T_S7_S6_.exit26.i: ; preds = %52
 
 _ZNSt5dequeIN6marisa8grimoire4trie5RangeESaIS3_EE22_M_reserve_map_at_backEm.exit.i: ; preds = %.noexc208, %487
   %538 = phi ptr [ %463, %487 ], [ %535, %.noexc208 ]
-  %539 = invoke noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #23
+  %539 = invoke noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #25
           to label %.noexc181 unwind label %.loopexit302
 
 .noexc181:                                        ; preds = %_ZNSt5dequeIN6marisa8grimoire4trie5RangeESaIS3_EE22_M_reserve_map_at_backEm.exit.i
@@ -9790,7 +9791,7 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit: 
   br i1 %547, label %548, label %554
 
 548:                                              ; preds = %_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
-  %549 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %549 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %549, align 8
   %550 = getelementptr inbounds i8, ptr %549, i64 8
   store ptr @.str.23, ptr %550, align 8
@@ -9800,7 +9801,7 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit: 
   store i32 7, ptr %552, align 4
   %553 = getelementptr inbounds i8, ptr %549, i64 24
   store ptr @.str.24, ptr %553, align 8
-  invoke void @__cxa_throw(ptr nonnull %549, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  invoke void @__cxa_throw(ptr nonnull %549, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
           to label %.noexc199 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc199:                                        ; preds = %548
@@ -9826,7 +9827,7 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit: 
   %spec.select.i.i.i191 = select i1 %564, i64 2305843009213693951, i64 %565
   %.0.i.i.i192 = select i1 %563, i64 %spec.select.i.i.i191, i64 %559
   %566 = shl i64 %.0.i.i.i192, 3
-  %567 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %566, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %567 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %566, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i193 = icmp eq i64 %555, 0
   br i1 %.not.i.i.i.i193, label %.preheader.i.i.i.i197, label %.lr.ph.i.i.i.i194
 
@@ -9854,7 +9855,7 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit: 
   br i1 %exitcond.not.i.i.i.i196, label %.preheader.i.i.i.i197, label %571, !llvm.loop !8
 
 576:                                              ; preds = %.preheader.i.i.i.i197
-  call void @_ZdaPv(ptr noundef nonnull %569) #19
+  call void @_ZdaPv(ptr noundef nonnull %569) #21
   %.pre.i198 = load i64, ptr %102, align 8
   br label %_ZN6marisa8grimoire6vector6VectorImE7reserveEm.exit.i.i185
 
@@ -9925,7 +9926,7 @@ _ZN6marisa8grimoire6vector6VectorImE6resizeEmRKm.exit.i186: ; preds = %.lr.ph.i.
 
 .lr.ph.i:                                         ; preds = %597
   %599 = shl i64 %598, 2
-  %600 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %599, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %600 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %599, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %601 = getelementptr inbounds i8, ptr %1, i64 16
   %602 = load ptr, ptr %601, align 8
   br label %603
@@ -9962,7 +9963,7 @@ _ZN6marisa8grimoire6vector6VectorImE6resizeEmRKm.exit.i186: ; preds = %.lr.ph.i.
   br i1 %618, label %_ZNK6marisa8grimoire4trie9LoudsTrie15build_terminalsINS1_3KeyEEEvRKNS0_6vector6VectorIT_EEPNS6_IjEE.exit, label %619
 
 619:                                              ; preds = %._crit_edge.i
-  call void @_ZdaPv(ptr noundef nonnull %612) #19
+  call void @_ZdaPv(ptr noundef nonnull %612) #21
   br label %_ZNK6marisa8grimoire4trie9LoudsTrie15build_terminalsINS1_3KeyEEEvRKNS0_6vector6VectorIT_EEPNS6_IjEE.exit
 
 _ZNK6marisa8grimoire4trie9LoudsTrie15build_terminalsINS1_3KeyEEEvRKNS0_6vector6VectorIT_EEPNS6_IjEE.exit: ; preds = %619, %._crit_edge.i
@@ -9980,7 +9981,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie15build_terminalsINS1_3KeyEEEvRKNS0_6vector6V
   br i1 %624, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEED2Ev.exit201, label %625
 
 625:                                              ; preds = %_ZNK6marisa8grimoire4trie9LoudsTrie15build_terminalsINS1_3KeyEEEvRKNS0_6vector6VectorIT_EEPNS6_IjEE.exit
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.1.ph) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.1.ph) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEED2Ev.exit201
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEED2Ev.exit201: ; preds = %_ZNK6marisa8grimoire4trie9LoudsTrie15build_terminalsINS1_3KeyEEEvRKNS0_6vector6VectorIT_EEPNS6_IjEE.exit, %625
@@ -9998,7 +9999,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEED2Ev.exit201: ; pred
 .lr.ph.i.i.i.i203:                                ; preds = %627, %.lr.ph.i.i.i.i203
   %.06.i.i.i.i = phi ptr [ %633, %.lr.ph.i.i.i.i203 ], [ %628, %627 ]
   %632 = load ptr, ptr %.06.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %632) #19
+  call void @_ZdlPv(ptr noundef %632) #21
   %633 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
   %634 = icmp ult ptr %.06.i.i.i.i, %629
   br i1 %634, label %.lr.ph.i.i.i.i203, label %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i, !llvm.loop !53
@@ -10009,7 +10010,7 @@ _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_
 
 _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i, %627
   %635 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i ], [ %626, %627 ]
-  call void @_ZdlPv(ptr noundef %635) #19
+  call void @_ZdlPv(ptr noundef %635) #21
   br label %_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev.exit
 
 _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev.exit: ; preds = %_ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEED2Ev.exit201, %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i
@@ -10017,32 +10018,32 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev.exit: ; preds
   br i1 %636, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit, label %637
 
 637:                                              ; preds = %_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %620) #19
+  call void @_ZdaPv(ptr noundef nonnull %620) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit: ; preds = %_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev.exit, %637
   ret void
 
 638:                                              ; preds = %.loopexit.split-lp, %160
-  call void @_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #20
+  call void @_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #22
   %639 = icmp eq ptr %.sroa.0269.0, null
   br i1 %639, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit204, label %640
 
 640:                                              ; preds = %638
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0269.0) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0269.0) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit204
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit204: ; preds = %640, %638, %.thread289, %.thread293, %18
   %.pn.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %158, %.thread289 ], [ %lpad.phi, %638 ], [ %lpad.phi, %640 ], [ %83, %.thread293 ]
   %.087 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
-  %641 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #20
+  %641 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #22
   %642 = icmp eq i32 %.087, %641
   br i1 %642, label %643, label %652
 
 643:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit204
   %.082 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %644 = call ptr @__cxa_begin_catch(ptr %.082) #20
-  %645 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %644 = call ptr @__cxa_begin_catch(ptr %.082) #22
+  %645 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %645, align 8
   %646 = getelementptr inbounds i8, ptr %645, i64 8
   store ptr @.str, ptr %646, align 8
@@ -10052,7 +10053,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit204: ; preds = %640, %
   store i32 8, ptr %648, align 4
   %649 = getelementptr inbounds i8, ptr %645, i64 24
   store ptr @.str.41, ptr %649, align 8
-  invoke void @__cxa_throw(ptr nonnull %645, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  invoke void @__cxa_throw(ptr nonnull %645, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
           to label %656 unwind label %650
 
 650:                                              ; preds = %643
@@ -10069,7 +10070,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEED2Ev.exit204: ; preds = %640, %
   %654 = landingpad { ptr, i32 }
           catch ptr null
   %655 = extractvalue { ptr, i32 } %654, 0
-  call void @__clang_call_terminate(ptr %655) #24
+  call void @__clang_call_terminate(ptr %655) #26
   unreachable
 
 656:                                              ; preds = %643
@@ -10145,7 +10146,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector10FlatVector5buildERKNS1_6Ve
   br i1 %41, label %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit, label %42
 
 42:                                               ; preds = %7
-  call void @_ZdaPv(ptr noundef nonnull %8) #19
+  call void @_ZdaPv(ptr noundef nonnull %8) #21
   br label %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit
 
 _ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit:  ; preds = %7, %42
@@ -10159,7 +10160,7 @@ _ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit:  ; preds = %7, %42
   br i1 %46, label %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit3, label %47
 
 47:                                               ; preds = %43
-  call void @_ZdaPv(ptr noundef nonnull %45) #19
+  call void @_ZdaPv(ptr noundef nonnull %45) #21
   br label %_ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit3
 
 _ZN6marisa8grimoire6vector10FlatVectorD2Ev.exit3: ; preds = %43, %47
@@ -10174,7 +10175,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIhE6shrinkEv(ptr noun
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %6 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @.str.25, ptr %7, align 8
@@ -10184,7 +10185,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIhE6shrinkEv(ptr noun
   store i32 1, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr @.str.26, ptr %10, align 8
-  tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 11:                                               ; preds = %1
@@ -10196,7 +10197,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIhE6shrinkEv(ptr noun
   br i1 %.not, label %_ZN6marisa8grimoire6vector6VectorIhE7reallocEm.exit, label %16
 
 16:                                               ; preds = %11
-  %17 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %13, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %17 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %13, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.i
 
@@ -10227,7 +10228,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIhE6shrinkEv(ptr noun
   br i1 %exitcond.not.i, label %.preheader.i, label %24, !llvm.loop !44
 
 29:                                               ; preds = %.preheader.i
-  tail call void @_ZdaPv(ptr noundef nonnull %20) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %20) #21
   br label %_ZN6marisa8grimoire6vector6VectorIhE7reallocEm.exit
 
 _ZN6marisa8grimoire6vector6VectorIhE7reallocEm.exit: ; preds = %29, %.preheader.i, %11
@@ -10252,7 +10253,7 @@ define linkonce_odr void @_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_S
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i ], [ %6, %3 ]
   %10 = load ptr, ptr %.06.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %10) #19
+  tail call void @_ZdlPv(ptr noundef %10) #21
   %11 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 8
   %12 = icmp ult ptr %.06.i.i.i, %7
   br i1 %12, label %.lr.ph.i.i.i, label %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, !llvm.loop !53
@@ -10263,7 +10264,7 @@ _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_
 
 _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i: ; preds = %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, %3
   %13 = phi ptr [ %.pre.i.i, %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i ], [ %2, %3 ]
-  tail call void @_ZdlPv(ptr noundef %13) #19
+  tail call void @_ZdlPv(ptr noundef %13) #21
   br label %_ZNSt5dequeIN6marisa8grimoire4trie5RangeESaIS3_EED2Ev.exit
 
 _ZNSt5dequeIN6marisa8grimoire4trie5RangeESaIS3_EED2Ev.exit: ; preds = %1, %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i
@@ -10275,13 +10276,14 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
-  tail call void @_ZSt9terminatev() #24
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
+  tail call void @_ZSt9terminatev() #26
   unreachable
 }
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZN6marisa8grimoire9algorithm7details4sortIPNS0_4trie3KeyEEEmT_S7_m(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 comdat {
@@ -10885,7 +10887,7 @@ _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE15_M_allocate_mapEm.exit
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.speculated, ptr %6, align 8
   %7 = shl nuw nsw i64 %.sroa.speculated, 3
-  %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #23
+  %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #25
   store ptr %8, ptr %0, align 8
   %9 = sub nsw i64 %.sroa.speculated, %4
   %10 = lshr i64 %9, 1
@@ -10895,7 +10897,7 @@ _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE15_M_allocate_mapEm.exit
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_allocate_nodeEv.exit.i
   %.011.i = phi ptr [ %14, %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_allocate_nodeEv.exit.i ], [ %11, %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE15_M_allocate_mapEm.exit ]
-  %13 = invoke noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #23
+  %13 = invoke noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #25
           to label %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_allocate_nodeEv.exit.i unwind label %16
 
 _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_allocate_nodeEv.exit.i: ; preds = %.lr.ph.i
@@ -10908,20 +10910,20 @@ _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_allocate_nodeEv.exi
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #20
+  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #22
   %20 = icmp ugt ptr %.011.i, %11
   br i1 %20, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
   %.06.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %11, %16 ]
   %21 = load ptr, ptr %.06.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %21) #19
+  tail call void @_ZdlPv(ptr noundef %21) #21
   %22 = getelementptr inbounds i8, ptr %.06.i.i, i64 8
   %23 = icmp ult ptr %22, %.011.i
   br i1 %23, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i, !llvm.loop !53
 
 _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i: ; preds = %.lr.ph.i.i, %16
-  invoke void @__cxa_rethrow() #22
+  invoke void @__cxa_rethrow() #24
           to label %29 unwind label %24
 
 24:                                               ; preds = %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
@@ -10934,7 +10936,7 @@ _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #24
+  tail call void @__clang_call_terminate(ptr %28) #26
   unreachable
 
 29:                                               ; preds = %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
@@ -10942,11 +10944,11 @@ _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_
 
 .body:                                            ; preds = %24
   %30 = extractvalue { ptr, i32 } %25, 0
-  %31 = tail call ptr @__cxa_begin_catch(ptr %30) #20
+  %31 = tail call ptr @__cxa_begin_catch(ptr %30) #22
   %32 = load ptr, ptr %0, align 8
-  tail call void @_ZdlPv(ptr noundef %32) #19
+  tail call void @_ZdlPv(ptr noundef %32) #21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  invoke void @__cxa_rethrow() #22
+  invoke void @__cxa_rethrow() #24
           to label %53 unwind label %33
 
 33:                                               ; preds = %.body
@@ -10987,7 +10989,7 @@ _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE15_M_create_nodesEPPS3_S
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  tail call void @__clang_call_terminate(ptr %52) #24
+  tail call void @__clang_call_terminate(ptr %52) #26
   unreachable
 
 53:                                               ; preds = %.body
@@ -10997,13 +10999,13 @@ _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE15_M_create_nodesEPPS3_S
 declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #12
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #14
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #12
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #14
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_push_back_auxIJS3_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11041,7 +11043,7 @@ define linkonce_odr void @_ZNSt5dequeIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.42) #22
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.42) #24
   unreachable
 
 34:                                               ; preds = %2
@@ -11062,7 +11064,7 @@ define linkonce_odr void @_ZNSt5dequeIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_
 
 _ZNSt5dequeIN6marisa8grimoire4trie5RangeESaIS3_EE22_M_reserve_map_at_backEm.exit: ; preds = %34, %43
   %44 = phi ptr [ %6, %34 ], [ %.pre, %43 ]
-  %45 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #23
+  %45 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #25
   %46 = getelementptr inbounds i8, ptr %44, i64 8
   store ptr %45, ptr %46, align 8
   %47 = load ptr, ptr %3, align 8
@@ -11080,7 +11082,7 @@ _ZNSt5dequeIN6marisa8grimoire4trie5RangeESaIS3_EE22_M_reserve_map_at_backEm.exit
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN6marisa8grimoire4trie5RangeESaIS3_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11146,16 +11148,16 @@ define linkonce_odr void @_ZNSt5dequeIN6marisa8grimoire4trie5RangeESaIS3_EE17_M_
   br i1 %43, label %.noexc.i, label %.noexc3.i
 
 .noexc.i:                                         ; preds = %42
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #22
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #24
   unreachable
 
 .noexc3.i:                                        ; preds = %42
-  tail call void @_ZSt17__throw_bad_allocv() #22
+  tail call void @_ZSt17__throw_bad_allocv() #24
   unreachable
 
 _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE15_M_allocate_mapEm.exit: ; preds = %38
   %44 = shl nuw nsw i64 %40, 3
-  %45 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #23
+  %45 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #25
   %46 = sub i64 %40, %13
   %47 = lshr i64 %46, 1
   %48 = getelementptr inbounds ptr, ptr %45, i64 %47
@@ -11173,7 +11175,7 @@ _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE15_M_allocate_mapEm.exit
 
 _ZSt4copyIPPN6marisa8grimoire4trie5RangeES5_ET0_T_S7_S6_.exit26: ; preds = %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE15_M_allocate_mapEm.exit, %52
   %55 = load ptr, ptr %0, align 8
-  tail call void @_ZdlPv(ptr noundef %55) #19
+  tail call void @_ZdlPv(ptr noundef %55) #21
   store ptr %45, ptr %0, align 8
   store i64 %40, ptr %14, align 8
   br label %_ZSt4copyIPPN6marisa8grimoire4trie5RangeES5_ET0_T_S7_S6_.exit
@@ -11200,7 +11202,7 @@ _ZSt4copyIPPN6marisa8grimoire4trie5RangeES5_ET0_T_S7_S6_.exit: ; preds = %32, %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt13__stable_sortIPN6marisa8grimoire4trie13WeightedRangeEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SB_T0_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -11220,7 +11222,7 @@ define linkonce_odr void @_ZSt13__stable_sortIPN6marisa8grimoire4trie13WeightedR
   %storemerge26.i.i.in = add nuw nsw i64 %storemerge26.i.i.in.in, 1
   %storemerge26.i.i = lshr i64 %storemerge26.i.i.in, 1
   %10 = shl nuw nsw i64 %storemerge26.i.i, 4
-  %11 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %10, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #25
+  %11 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %10, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #27
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %select.unfold.i.i, label %12
 
@@ -11259,7 +11261,7 @@ _ZNSt17_Temporary_bufferIPN6marisa8grimoire4trie13WeightedRangeES3_EC2ES4_l.exit
   %.sroa.4.021 = phi ptr [ %11, %_ZNSt17_Temporary_bufferIPN6marisa8grimoire4trie13WeightedRangeES3_EC2ES4_l.exit.thread22 ], [ null, %_ZNSt17_Temporary_bufferIPN6marisa8grimoire4trie13WeightedRangeES3_EC2ES4_l.exit.thread ]
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef %.sroa.4.021) #20
+  tail call void @_ZdlPv(ptr noundef %.sroa.4.021) #22
   resume { ptr, i32 } %16
 
 _ZNSt17_Temporary_bufferIPN6marisa8grimoire4trie13WeightedRangeES3_EC2ES4_l.exit.thread22: ; preds = %12, %_ZNSt17_Temporary_bufferIPN6marisa8grimoire4trie13WeightedRangeES3_EC2ES4_l.exit
@@ -11268,7 +11270,7 @@ _ZNSt17_Temporary_bufferIPN6marisa8grimoire4trie13WeightedRangeES3_EC2ES4_l.exit
 
 17:                                               ; preds = %_ZNSt17_Temporary_bufferIPN6marisa8grimoire4trie13WeightedRangeES3_EC2ES4_l.exit.thread22, %_ZNSt17_Temporary_bufferIPN6marisa8grimoire4trie13WeightedRangeES3_EC2ES4_l.exit.thread
   %.sroa.4.019 = phi ptr [ %11, %_ZNSt17_Temporary_bufferIPN6marisa8grimoire4trie13WeightedRangeES3_EC2ES4_l.exit.thread22 ], [ null, %_ZNSt17_Temporary_bufferIPN6marisa8grimoire4trie13WeightedRangeES3_EC2ES4_l.exit.thread ]
-  tail call void @_ZdlPv(ptr noundef %.sroa.4.019) #20
+  tail call void @_ZdlPv(ptr noundef %.sroa.4.019) #22
   br label %18
 
 18:                                               ; preds = %2, %17
@@ -12641,7 +12643,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector10FlatVector6build_ERKNS1_6V
   %24 = shl nuw nsw i64 %20, 1
   %.0.i.i = select i1 %23, i64 %24, i64 %.029
   %25 = shl nuw nsw i64 %.0.i.i, 3
-  %26 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %25, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %26 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %25, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %27 = getelementptr inbounds i8, ptr %0, i64 24
   %28 = load i64, ptr %27, align 8
   %.not.i.i.i = icmp eq i64 %28, 0
@@ -12674,7 +12676,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector10FlatVector6build_ERKNS1_6V
   br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %35, !llvm.loop !8
 
 40:                                               ; preds = %.preheader.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %31) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %31) #21
   br label %_ZN6marisa8grimoire6vector6VectorImE6resizeEm.exit
 
 _ZN6marisa8grimoire6vector6VectorImE6resizeEm.exit: ; preds = %._crit_edge, %.preheader.i.i.i, %40
@@ -13681,7 +13683,7 @@ _ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6marisa8grimoire4trie9LoudsTrie18build_current_trieINS1_10ReverseKeyEEEvRNS0_6vector6VectorIT_EEPNS6_IjEERKNS1_6ConfigEm(ptr noundef nonnull align 8 dereferenceable(1136) %0, ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(20) %3, i64 noundef %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13768,7 +13770,7 @@ _ZNK6marisa8grimoire9Algorithm4sortIPNS0_4trie10ReverseKeyEEEmT_S6_.exit: ; pred
   %.inv.i.i = icmp sgt i64 %45, -1
   %spec.select.i.i = select i1 %.inv.i.i, i64 %49, i64 -1
   %.0.i.i = select i1 %48, i64 %spec.select.i.i, i64 %43
-  %50 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %50 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i = icmp eq i64 %42, 0
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -13799,7 +13801,7 @@ _ZNK6marisa8grimoire9Algorithm4sortIPNS0_4trie10ReverseKeyEEEmT_S6_.exit: ; pred
   br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !44
 
 62:                                               ; preds = %.preheader.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %53) #19
+  tail call void @_ZdaPv(ptr noundef nonnull %53) #21
   %.pre.i = load i64, ptr %41, align 8
   br label %63
 
@@ -13850,7 +13852,7 @@ _ZNK6marisa8grimoire9Algorithm4sortIPNS0_4trie10ReverseKeyEEEmT_S6_.exit: ; pred
   %83 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9bad_alloc
-  call void @_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #20
+  call void @_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #22
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEED2Ev.exit204
 
 _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit: ; preds = %82, %79
@@ -13934,7 +13936,7 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit: ;
 
 138:                                              ; preds = %111
   %139 = load ptr, ptr %90, align 8
-  call void @_ZdlPv(ptr noundef %139) #19
+  call void @_ZdlPv(ptr noundef %139) #21
   %140 = load ptr, ptr %87, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 8
   store ptr %141, ptr %87, align 8
@@ -14014,7 +14016,7 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE3popEv.exit: ; pre
   br i1 %159, label %640, label %160
 
 160:                                              ; preds = %.loopexit.split-lp
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.0) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.0) #21
   br label %640
 
 .critedge:                                        ; preds = %147, %_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE3popEv.exit
@@ -14033,7 +14035,7 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE3popEv.exit: ; pre
   br i1 %164, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEE5clearEv.exit, label %165
 
 165:                                              ; preds = %162
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.1.ph) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.1.ph) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEE5clearEv.exit
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEE5clearEv.exit: ; preds = %165, %162
@@ -14094,7 +14096,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEE5clearEv.exit: ; pre
   %spec.select.i.i100 = select i1 %193, i64 1152921504606846975, i64 %194
   %.0.i.i101 = select i1 %192, i64 %spec.select.i.i100, i64 %189
   %195 = shl i64 %.0.i.i101, 4
-  %196 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %195, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %196 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %195, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i102 = icmp eq i64 %.sroa.20.1455, 0
   br i1 %.not.i.i.i102, label %.preheader.i.i.i106, label %.lr.ph.i.i.i103
 
@@ -14112,7 +14114,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEE5clearEv.exit: ; pre
   br i1 %exitcond.not.i.i.i105, label %.preheader.i.i.i106, label %.lr.ph.i.i.i103, !llvm.loop !47
 
 201:                                              ; preds = %.preheader.i.i.i106
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.2460) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.2460) #21
   br label %202
 
 202:                                              ; preds = %201, %.preheader.i.i.i106, %185
@@ -14170,7 +14172,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEE5clearEv.exit: ; pre
   %spec.select.i.i118 = select i1 %218, i64 1152921504606846975, i64 %219
   %.0.i.i119 = select i1 %217, i64 %spec.select.i.i118, i64 %214
   %220 = shl i64 %.0.i.i119, 4
-  %221 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %220, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %221 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %220, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i120 = icmp eq i64 %.sroa.20.1.lcssa, 0
   br i1 %.not.i.i.i120, label %.preheader.i.i.i124, label %.lr.ph.i.i.i121
 
@@ -14188,7 +14190,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEE5clearEv.exit: ; pre
   br i1 %exitcond.not.i.i.i123, label %.preheader.i.i.i124, label %.lr.ph.i.i.i121, !llvm.loop !47
 
 226:                                              ; preds = %.preheader.i.i.i124
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.2.lcssa) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.2.lcssa) #21
   br label %227
 
 227:                                              ; preds = %226, %.preheader.i.i.i124, %._crit_edge465
@@ -14338,7 +14340,7 @@ _ZN6marisa8grimoire4trie9LoudsTrie5cacheINS1_10ReverseKeyEEEvmmfc.exit: ; preds 
   %.inv.i.i129 = icmp sgt i64 %296, -1
   %spec.select.i.i130 = select i1 %.inv.i.i129, i64 %300, i64 -1
   %.0.i.i131 = select i1 %299, i64 %spec.select.i.i130, i64 %295
-  %301 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i131, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %301 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i131, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i132 = icmp eq i64 %294, 0
   br i1 %.not.i.i.i132, label %.preheader.i.i.i136, label %.lr.ph.i.i.i133
 
@@ -14366,7 +14368,7 @@ _ZN6marisa8grimoire4trie9LoudsTrie5cacheINS1_10ReverseKeyEEEvmmfc.exit: ; preds 
   br i1 %exitcond.not.i.i.i135, label %.preheader.i.i.i136, label %305, !llvm.loop !44
 
 310:                                              ; preds = %.preheader.i.i.i136
-  call void @_ZdaPv(ptr noundef nonnull %303) #19
+  call void @_ZdaPv(ptr noundef nonnull %303) #21
   %.pre.i137 = load i64, ptr %41, align 8
   br label %311
 
@@ -14402,7 +14404,7 @@ _ZN6marisa8grimoire4trie9LoudsTrie5cacheINS1_10ReverseKeyEEEvmmfc.exit: ; preds 
   %spec.select.i.i.i = select i1 %329, i64 2305843009213693951, i64 %330
   %.0.i.i.i = select i1 %328, i64 %spec.select.i.i.i, i64 %324
   %331 = shl i64 %.0.i.i.i, 3
-  %332 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %331, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %332 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %331, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i = icmp eq i64 %320, 0
   br i1 %.not.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -14430,7 +14432,7 @@ _ZN6marisa8grimoire4trie9LoudsTrie5cacheINS1_10ReverseKeyEEEvmmfc.exit: ; preds 
   br i1 %exitcond.not.i.i.i.i, label %.preheader.i.i.i.i, label %336, !llvm.loop !8
 
 341:                                              ; preds = %.preheader.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %334) #19
+  call void @_ZdaPv(ptr noundef nonnull %334) #21
   %.pre.i140 = load i64, ptr %95, align 8
   br label %_ZN6marisa8grimoire6vector6VectorImE7reserveEm.exit.i.i
 
@@ -14474,7 +14476,7 @@ _ZN6marisa8grimoire6vector9BitVector9push_backEb.exit: ; preds = %319, %_ZN6mari
   %.inv.i.i143 = icmp sgt i64 %351, -1
   %spec.select.i.i144 = select i1 %.inv.i.i143, i64 %355, i64 -1
   %.0.i.i145 = select i1 %354, i64 %spec.select.i.i144, i64 %350
-  %356 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i145, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %356 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i145, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i146 = icmp eq i64 %349, 0
   br i1 %.not.i.i.i146, label %.preheader.i.i.i150, label %.lr.ph.i.i.i147
 
@@ -14502,7 +14504,7 @@ _ZN6marisa8grimoire6vector9BitVector9push_backEb.exit: ; preds = %319, %_ZN6mari
   br i1 %exitcond.not.i.i.i149, label %.preheader.i.i.i150, label %360, !llvm.loop !44
 
 365:                                              ; preds = %.preheader.i.i.i150
-  call void @_ZdaPv(ptr noundef nonnull %358) #19
+  call void @_ZdaPv(ptr noundef nonnull %358) #21
   %.pre.i151 = load i64, ptr %41, align 8
   br label %366
 
@@ -14519,7 +14521,7 @@ _ZN6marisa8grimoire6vector9BitVector9push_backEb.exit: ; preds = %319, %_ZN6mari
   br i1 %373, label %.invoke, label %379
 
 .invoke:                                          ; preds = %366, %311
-  %374 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %374 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %374, align 8
   %375 = getelementptr inbounds i8, ptr %374, i64 8
   store ptr @.str.23, ptr %375, align 8
@@ -14529,7 +14531,7 @@ _ZN6marisa8grimoire6vector9BitVector9push_backEb.exit: ; preds = %319, %_ZN6mari
   store i32 7, ptr %377, align 4
   %378 = getelementptr inbounds i8, ptr %374, i64 24
   store ptr @.str.24, ptr %378, align 8
-  invoke void @__cxa_throw(ptr nonnull %374, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  invoke void @__cxa_throw(ptr nonnull %374, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -14555,7 +14557,7 @@ _ZN6marisa8grimoire6vector9BitVector9push_backEb.exit: ; preds = %319, %_ZN6mari
   %spec.select.i.i.i161 = select i1 %389, i64 2305843009213693951, i64 %390
   %.0.i.i.i162 = select i1 %388, i64 %spec.select.i.i.i161, i64 %384
   %391 = shl i64 %.0.i.i.i162, 3
-  %392 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %391, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %392 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %391, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i163 = icmp eq i64 %380, 0
   br i1 %.not.i.i.i.i163, label %.preheader.i.i.i.i167, label %.lr.ph.i.i.i.i164
 
@@ -14583,7 +14585,7 @@ _ZN6marisa8grimoire6vector9BitVector9push_backEb.exit: ; preds = %319, %_ZN6mari
   br i1 %exitcond.not.i.i.i.i166, label %.preheader.i.i.i.i167, label %396, !llvm.loop !8
 
 401:                                              ; preds = %.preheader.i.i.i.i167
-  call void @_ZdaPv(ptr noundef nonnull %394) #19
+  call void @_ZdaPv(ptr noundef nonnull %394) #21
   %.pre.i168 = load i64, ptr %95, align 8
   br label %_ZN6marisa8grimoire6vector6VectorImE7reserveEm.exit.i.i155
 
@@ -14646,7 +14648,7 @@ _ZN6marisa8grimoire6vector6VectorImE6resizeEmRKm.exit.i156: ; preds = %.lr.ph.i.
   %spec.select.i.i172 = select i1 %434, i64 768614336404564650, i64 %435
   %.0.i.i173 = select i1 %433, i64 %spec.select.i.i172, i64 %430
   %436 = mul i64 %.0.i.i173, 24
-  %437 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %436, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %437 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %436, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i174 = icmp eq i64 %.sroa.15.1478, 0
   br i1 %.not.i.i.i174, label %.preheader.i.i.i178, label %.lr.ph.i.i.i175
 
@@ -14677,7 +14679,7 @@ _ZN6marisa8grimoire6vector6VectorImE6resizeEmRKm.exit.i156: ; preds = %.lr.ph.i.
   br i1 %exitcond.not.i.i.i177, label %.preheader.i.i.i178, label %.lr.ph.i.i.i175, !llvm.loop !99
 
 452:                                              ; preds = %.preheader.i.i.i178
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0269.3484) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0269.3484) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEE9push_backERKS4_.exit
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEE9push_backERKS4_.exit: ; preds = %407, %.preheader.i.i.i178, %452
@@ -14743,7 +14745,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEE9push_backERKS4_.exit: 
   br i1 %487, label %488, label %489
 
 488:                                              ; preds = %464
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.42) #22
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.42) #24
           to label %.noexc207 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc207:                                        ; preds = %488
@@ -14809,14 +14811,14 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEE9push_backERKS4_.exit: 
   br i1 %524, label %.noexc.i.i, label %.noexc3.i.i
 
 .noexc.i.i:                                       ; preds = %523
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #22
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
           to label %.noexc211 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc211:                                        ; preds = %.noexc.i.i
   unreachable
 
 .noexc3.i.i:                                      ; preds = %523
-  invoke void @_ZSt17__throw_bad_allocv() #22
+  invoke void @_ZSt17__throw_bad_allocv() #24
           to label %.noexc212 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc212:                                        ; preds = %.noexc3.i.i
@@ -14824,7 +14826,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEE9push_backERKS4_.exit: 
 
 _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE15_M_allocate_mapEm.exit.i: ; preds = %519
   %525 = shl nuw nsw i64 %521, 3
-  %526 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %525) #23
+  %526 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %525) #25
           to label %.noexc213 unwind label %.loopexit302
 
 .noexc213:                                        ; preds = %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE15_M_allocate_mapEm.exit.i
@@ -14842,7 +14844,7 @@ _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE15_M_allocate_mapEm.exit
   br label %_ZSt4copyIPPN6marisa8grimoire4trie5RangeES5_ET0_T_S7_S6_.exit26.i
 
 _ZSt4copyIPPN6marisa8grimoire4trie5RangeES5_ET0_T_S7_S6_.exit26.i: ; preds = %531, %.noexc213
-  call void @_ZdlPv(ptr noundef %491) #19
+  call void @_ZdlPv(ptr noundef %491) #21
   store ptr %526, ptr %6, align 8
   store i64 %521, ptr %100, align 8
   br label %.noexc208
@@ -14865,7 +14867,7 @@ _ZSt4copyIPPN6marisa8grimoire4trie5RangeES5_ET0_T_S7_S6_.exit26.i: ; preds = %53
 
 _ZNSt5dequeIN6marisa8grimoire4trie5RangeESaIS3_EE22_M_reserve_map_at_backEm.exit.i: ; preds = %.noexc208, %489
   %540 = phi ptr [ %465, %489 ], [ %537, %.noexc208 ]
-  %541 = invoke noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #23
+  %541 = invoke noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #25
           to label %.noexc181 unwind label %.loopexit302
 
 .noexc181:                                        ; preds = %_ZNSt5dequeIN6marisa8grimoire4trie5RangeESaIS3_EE22_M_reserve_map_at_backEm.exit.i
@@ -14890,7 +14892,7 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit: 
   br i1 %549, label %550, label %556
 
 550:                                              ; preds = %_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
-  %551 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %551 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %551, align 8
   %552 = getelementptr inbounds i8, ptr %551, i64 8
   store ptr @.str.23, ptr %552, align 8
@@ -14900,7 +14902,7 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit: 
   store i32 7, ptr %554, align 4
   %555 = getelementptr inbounds i8, ptr %551, i64 24
   store ptr @.str.24, ptr %555, align 8
-  invoke void @__cxa_throw(ptr nonnull %551, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  invoke void @__cxa_throw(ptr nonnull %551, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
           to label %.noexc199 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc199:                                        ; preds = %550
@@ -14926,7 +14928,7 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit: 
   %spec.select.i.i.i191 = select i1 %566, i64 2305843009213693951, i64 %567
   %.0.i.i.i192 = select i1 %565, i64 %spec.select.i.i.i191, i64 %561
   %568 = shl i64 %.0.i.i.i192, 3
-  %569 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %568, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %569 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %568, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i193 = icmp eq i64 %557, 0
   br i1 %.not.i.i.i.i193, label %.preheader.i.i.i.i197, label %.lr.ph.i.i.i.i194
 
@@ -14954,7 +14956,7 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit: 
   br i1 %exitcond.not.i.i.i.i196, label %.preheader.i.i.i.i197, label %573, !llvm.loop !8
 
 578:                                              ; preds = %.preheader.i.i.i.i197
-  call void @_ZdaPv(ptr noundef nonnull %571) #19
+  call void @_ZdaPv(ptr noundef nonnull %571) #21
   %.pre.i198 = load i64, ptr %102, align 8
   br label %_ZN6marisa8grimoire6vector6VectorImE7reserveEm.exit.i.i185
 
@@ -15025,7 +15027,7 @@ _ZN6marisa8grimoire6vector6VectorImE6resizeEmRKm.exit.i186: ; preds = %.lr.ph.i.
 
 .lr.ph.i:                                         ; preds = %599
   %601 = shl i64 %600, 2
-  %602 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %601, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %602 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %601, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %603 = getelementptr inbounds i8, ptr %1, i64 16
   %604 = load ptr, ptr %603, align 8
   br label %605
@@ -15062,7 +15064,7 @@ _ZN6marisa8grimoire6vector6VectorImE6resizeEmRKm.exit.i186: ; preds = %.lr.ph.i.
   br i1 %620, label %_ZNK6marisa8grimoire4trie9LoudsTrie15build_terminalsINS1_10ReverseKeyEEEvRKNS0_6vector6VectorIT_EEPNS6_IjEE.exit, label %621
 
 621:                                              ; preds = %._crit_edge.i
-  call void @_ZdaPv(ptr noundef nonnull %614) #19
+  call void @_ZdaPv(ptr noundef nonnull %614) #21
   br label %_ZNK6marisa8grimoire4trie9LoudsTrie15build_terminalsINS1_10ReverseKeyEEEvRKNS0_6vector6VectorIT_EEPNS6_IjEE.exit
 
 _ZNK6marisa8grimoire4trie9LoudsTrie15build_terminalsINS1_10ReverseKeyEEEvRKNS0_6vector6VectorIT_EEPNS6_IjEE.exit: ; preds = %621, %._crit_edge.i
@@ -15080,7 +15082,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie15build_terminalsINS1_10ReverseKeyEEEvRKNS0_6
   br i1 %626, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEED2Ev.exit201, label %627
 
 627:                                              ; preds = %_ZNK6marisa8grimoire4trie9LoudsTrie15build_terminalsINS1_10ReverseKeyEEEvRKNS0_6vector6VectorIT_EEPNS6_IjEE.exit
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.1.ph) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0236.1.ph) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEED2Ev.exit201
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEED2Ev.exit201: ; preds = %_ZNK6marisa8grimoire4trie9LoudsTrie15build_terminalsINS1_10ReverseKeyEEEvRKNS0_6vector6VectorIT_EEPNS6_IjEE.exit, %627
@@ -15098,7 +15100,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEED2Ev.exit201: ; pred
 .lr.ph.i.i.i.i203:                                ; preds = %629, %.lr.ph.i.i.i.i203
   %.06.i.i.i.i = phi ptr [ %635, %.lr.ph.i.i.i.i203 ], [ %630, %629 ]
   %634 = load ptr, ptr %.06.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %634) #19
+  call void @_ZdlPv(ptr noundef %634) #21
   %635 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
   %636 = icmp ult ptr %.06.i.i.i.i, %631
   br i1 %636, label %.lr.ph.i.i.i.i203, label %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i, !llvm.loop !53
@@ -15109,7 +15111,7 @@ _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_
 
 _ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i, %629
   %637 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i ], [ %628, %629 ]
-  call void @_ZdlPv(ptr noundef %637) #19
+  call void @_ZdlPv(ptr noundef %637) #21
   br label %_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev.exit
 
 _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev.exit: ; preds = %_ZN6marisa8grimoire6vector6VectorINS0_4trie13WeightedRangeEED2Ev.exit201, %_ZNSt11_Deque_baseIN6marisa8grimoire4trie5RangeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i.i
@@ -15117,32 +15119,32 @@ _ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev.exit: ; preds
   br i1 %638, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEED2Ev.exit, label %639
 
 639:                                              ; preds = %_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %622) #19
+  call void @_ZdaPv(ptr noundef nonnull %622) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEED2Ev.exit
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEED2Ev.exit: ; preds = %_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev.exit, %639
   ret void
 
 640:                                              ; preds = %.loopexit.split-lp, %160
-  call void @_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #20
+  call void @_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #22
   %641 = icmp eq ptr %.sroa.0269.0, null
   br i1 %641, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEED2Ev.exit204, label %642
 
 642:                                              ; preds = %640
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0269.0) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0269.0) #21
   br label %_ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEED2Ev.exit204
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEED2Ev.exit204: ; preds = %642, %640, %.thread289, %.thread293, %18
   %.pn.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %158, %.thread289 ], [ %lpad.phi, %640 ], [ %lpad.phi, %642 ], [ %83, %.thread293 ]
   %.087 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
-  %643 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #20
+  %643 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #22
   %644 = icmp eq i32 %.087, %643
   br i1 %644, label %645, label %654
 
 645:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEED2Ev.exit204
   %.082 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %646 = call ptr @__cxa_begin_catch(ptr %.082) #20
-  %647 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %646 = call ptr @__cxa_begin_catch(ptr %.082) #22
+  %647 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %647, align 8
   %648 = getelementptr inbounds i8, ptr %647, i64 8
   store ptr @.str, ptr %648, align 8
@@ -15152,7 +15154,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEED2Ev.exit204: ; preds =
   store i32 8, ptr %650, align 4
   %651 = getelementptr inbounds i8, ptr %647, i64 24
   store ptr @.str.41, ptr %651, align 8
-  invoke void @__cxa_throw(ptr nonnull %647, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  invoke void @__cxa_throw(ptr nonnull %647, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
           to label %658 unwind label %652
 
 652:                                              ; preds = %645
@@ -15169,7 +15171,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEED2Ev.exit204: ; preds =
   %656 = landingpad { ptr, i32 }
           catch ptr null
   %657 = extractvalue { ptr, i32 } %656, 0
-  call void @__clang_call_terminate(ptr %657) #24
+  call void @__clang_call_terminate(ptr %657) #26
   unreachable
 
 658:                                              ; preds = %645
@@ -15789,7 +15791,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE4ma
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %8 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @.str.25, ptr %9, align 8
@@ -15799,7 +15801,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE4ma
   store i32 10, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr @.str.29, ptr %12, align 8
-  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 13:                                               ; preds = %2
@@ -15818,7 +15820,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE4ma
   br i1 %22, label %23, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE3fixEv.exit
 
 23:                                               ; preds = %13
-  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #20
+  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr @.str.25, ptr %25, align 8
@@ -15828,7 +15830,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE4ma
   store i32 1, ptr %27, align 4
   %28 = getelementptr inbounds i8, ptr %24, i64 24
   store ptr @.str.31, ptr %28, align 8
-  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE3fixEv.exit: ; preds = %13
@@ -15853,7 +15855,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIhE5read_ERNS0_2io6Re
   %.inv.i.i = icmp sgt i64 %6, -1
   %spec.select.i.i = select i1 %.inv.i.i, i64 %10, i64 -1
   %.0.i.i = select i1 %9, i64 %spec.select.i.i, i64 %4
-  %11 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %11 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8
   %.not.i.i.i = icmp eq i64 %13, 0
@@ -15886,7 +15888,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIhE5read_ERNS0_2io6Re
   br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %20, !llvm.loop !44
 
 25:                                               ; preds = %.preheader.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %16) #19
+  call void @_ZdaPv(ptr noundef nonnull %16) #21
   br label %_ZN6marisa8grimoire6vector6VectorIhE6resizeEm.exit
 
 _ZN6marisa8grimoire6vector6VectorIhE6resizeEm.exit: ; preds = %2, %.preheader.i.i.i, %25
@@ -15900,7 +15902,7 @@ _ZN6marisa8grimoire6vector6VectorIhE6resizeEm.exit: ; preds = %2, %.preheader.i.
   br i1 %or.cond.i, label %31, label %_ZN6marisa8grimoire2io6Reader4readIhEEvPT_m.exit
 
 31:                                               ; preds = %_ZN6marisa8grimoire6vector6VectorIhE6resizeEm.exit
-  %32 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %32 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr @.str.17, ptr %33, align 8
@@ -15910,7 +15912,7 @@ _ZN6marisa8grimoire6vector6VectorIhE6resizeEm.exit: ; preds = %2, %.preheader.i.
   store i32 2, ptr %35, align 4
   %36 = getelementptr inbounds i8, ptr %32, i64 24
   store ptr @.str.18, ptr %36, align 8
-  call void @__cxa_throw(ptr nonnull %32, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %32, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire2io6Reader4readIhEEvPT_m.exit: ; preds = %_ZN6marisa8grimoire6vector6VectorIhE6resizeEm.exit
@@ -15933,7 +15935,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE5re
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %2
-  %8 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %8 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @.str.25, ptr %9, align 8
@@ -15943,7 +15945,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE5re
   store i32 10, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr @.str.37, ptr %12, align 8
-  call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 13:                                               ; preds = %2
@@ -15956,7 +15958,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE5re
   br i1 %or.cond.i, label %18, label %_ZN6marisa8grimoire2io6Reader4readINS0_4trie5CacheEEEvPT_m.exit
 
 18:                                               ; preds = %13
-  %19 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %19 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr @.str.17, ptr %20, align 8
@@ -15966,7 +15968,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE5re
   store i32 2, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %19, i64 24
   store ptr @.str.18, ptr %23, align 8
-  call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire2io6Reader4readINS0_4trie5CacheEEEvPT_m.exit: ; preds = %13
@@ -15995,7 +15997,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorIhE6write_ERNS0_2io6
   br i1 %or.cond.i, label %11, label %_ZN6marisa8grimoire2io6Writer5writeIhEEvPKT_m.exit
 
 11:                                               ; preds = %2
-  %12 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %12 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr @.str.20, ptr %13, align 8
@@ -16005,7 +16007,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorIhE6write_ERNS0_2io6
   store i32 2, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %12, i64 24
   store ptr @.str.21, ptr %16, align 8
-  call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire2io6Writer5writeIhEEvPKT_m.exit: ; preds = %2
@@ -16034,7 +16036,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorINS0_4trie5CacheEE6w
   br i1 %or.cond.i, label %12, label %18
 
 12:                                               ; preds = %2
-  %13 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %13 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @.str.20, ptr %14, align 8
@@ -16044,7 +16046,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorINS0_4trie5CacheEE6w
   store i32 2, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr @.str.21, ptr %17, align 8
-  call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 18:                                               ; preds = %2
@@ -16052,7 +16054,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorINS0_4trie5CacheEE6w
   br i1 %19, label %20, label %_ZN6marisa8grimoire2io6Writer5writeINS0_4trie5CacheEEEvPKT_m.exit
 
 20:                                               ; preds = %18
-  %21 = call ptr @__cxa_allocate_exception(i64 32) #20
+  %21 = call ptr @__cxa_allocate_exception(i64 32) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr @.str.20, ptr %22, align 8
@@ -16062,7 +16064,7 @@ define linkonce_odr void @_ZNK6marisa8grimoire6vector6VectorINS0_4trie5CacheEE6w
   store i32 7, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %21, i64 24
   store ptr @.str.22, ptr %25, align 8
-  call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #22
+  call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire2io6Writer5writeINS0_4trie5CacheEEEvPKT_m.exit: ; preds = %18
@@ -16076,65 +16078,67 @@ _ZN6marisa8grimoire2io6Writer5writeINS0_4trie5CacheEEEvPKT_m.exit: ; preds = %18
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_louds_trie.cc() #15 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_louds_trie.cc() #17 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
   ret void
 }
 
 ; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for.p0(ptr) #16
+declare i32 @llvm.eh.typeid.for.p0(ptr) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshr.i64(i64, i64, i64) #17
+declare i64 @llvm.fshr.i64(i64, i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
+declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #17
+declare i64 @llvm.smin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+declare i32 @llvm.umax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #17
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nosync nounwind memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { builtin nounwind }
-attributes #20 = { nounwind }
-attributes #21 = { builtin nounwind allocsize(0) }
-attributes #22 = { noreturn }
-attributes #23 = { builtin allocsize(0) }
-attributes #24 = { noreturn nounwind }
-attributes #25 = { nounwind allocsize(0) }
+attributes #5 = { cold noreturn }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold nofree noreturn }
+attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree nosync nounwind memory(none) }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { builtin nounwind }
+attributes #22 = { nounwind }
+attributes #23 = { builtin nounwind allocsize(0) }
+attributes #24 = { noreturn }
+attributes #25 = { builtin allocsize(0) }
+attributes #26 = { noreturn nounwind }
+attributes #27 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

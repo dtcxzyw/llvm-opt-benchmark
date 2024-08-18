@@ -174,7 +174,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #18
+  tail call void @_ZdlPv(ptr noundef %0) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -215,7 +215,7 @@ entry:
   %ref.tmp111 = alloca %"class.std::function", align 8
   %ref.tmp115 = alloca %"class.std::function", align 8
   %ref.tmp119 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #20
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -240,12 +240,12 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #20
+  call void @__clang_call_terminate(ptr %4) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %if.then.i, %invoke.cont
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3) #20
   %_M_manager.i.i125 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   %_M_invoker.i126 = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
   %5 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
@@ -269,12 +269,12 @@ terminate.lpad.i132:                              ; preds = %if.then.i130
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #20
+  call void @__clang_call_terminate(ptr %8) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit133:                ; preds = %if.then.i130, %invoke.cont6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp7) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp7) #20
   %_M_manager.i.i134 = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
   %_M_invoker.i135 = getelementptr inbounds i8, ptr %ref.tmp7, i64 24
   %9 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
@@ -298,12 +298,12 @@ terminate.lpad.i141:                              ; preds = %if.then.i139
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #20
+  call void @__clang_call_terminate(ptr %12) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit142:                ; preds = %if.then.i139, %invoke.cont10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11) #20
   %_M_manager.i.i143 = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
   %_M_invoker.i144 = getelementptr inbounds i8, ptr %ref.tmp11, i64 24
   %13 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
@@ -327,12 +327,12 @@ terminate.lpad.i150:                              ; preds = %if.then.i148
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #20
+  call void @__clang_call_terminate(ptr %16) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit151:                ; preds = %if.then.i148, %invoke.cont14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp15) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp15) #20
   %_M_manager.i.i152 = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
   %_M_invoker.i153 = getelementptr inbounds i8, ptr %ref.tmp15, i64 24
   %17 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
@@ -356,12 +356,12 @@ terminate.lpad.i159:                              ; preds = %if.then.i157
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #20
+  call void @__clang_call_terminate(ptr %20) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit160:                ; preds = %if.then.i157, %invoke.cont18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp15) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp19) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp15) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp19) #20
   %_M_manager.i.i161 = getelementptr inbounds i8, ptr %ref.tmp19, i64 16
   %_M_invoker.i162 = getelementptr inbounds i8, ptr %ref.tmp19, i64 24
   %21 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
@@ -385,12 +385,12 @@ terminate.lpad.i168:                              ; preds = %if.then.i166
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #20
+  call void @__clang_call_terminate(ptr %24) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit169:                ; preds = %if.then.i166, %invoke.cont22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp19) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp23) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp19) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp23) #20
   %_M_manager.i.i170 = getelementptr inbounds i8, ptr %ref.tmp23, i64 16
   %_M_invoker.i171 = getelementptr inbounds i8, ptr %ref.tmp23, i64 24
   %25 = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
@@ -414,12 +414,12 @@ terminate.lpad.i177:                              ; preds = %if.then.i175
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #20
+  call void @__clang_call_terminate(ptr %28) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit178:                ; preds = %if.then.i175, %invoke.cont26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp23) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp27) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp23) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp27) #20
   %_M_manager.i.i179 = getelementptr inbounds i8, ptr %ref.tmp27, i64 16
   %_M_invoker.i180 = getelementptr inbounds i8, ptr %ref.tmp27, i64 24
   %29 = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
@@ -443,12 +443,12 @@ terminate.lpad.i186:                              ; preds = %if.then.i184
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #20
+  call void @__clang_call_terminate(ptr %32) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit187:                ; preds = %if.then.i184, %invoke.cont30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp27) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp31) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp27) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp31) #20
   %_M_manager.i.i188 = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
   %_M_invoker.i189 = getelementptr inbounds i8, ptr %ref.tmp31, i64 24
   %33 = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
@@ -472,12 +472,12 @@ terminate.lpad.i195:                              ; preds = %if.then.i193
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #20
+  call void @__clang_call_terminate(ptr %36) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit196:                ; preds = %if.then.i193, %invoke.cont34
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp31) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp35) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp31) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp35) #20
   %_M_manager.i.i197 = getelementptr inbounds i8, ptr %ref.tmp35, i64 16
   %_M_invoker.i198 = getelementptr inbounds i8, ptr %ref.tmp35, i64 24
   %37 = getelementptr inbounds i8, ptr %ref.tmp35, i64 8
@@ -501,12 +501,12 @@ terminate.lpad.i204:                              ; preds = %if.then.i202
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #20
+  call void @__clang_call_terminate(ptr %40) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit205:                ; preds = %if.then.i202, %invoke.cont38
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp35) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp39) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp35) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp39) #20
   %_M_manager.i.i206 = getelementptr inbounds i8, ptr %ref.tmp39, i64 16
   %_M_invoker.i207 = getelementptr inbounds i8, ptr %ref.tmp39, i64 24
   %41 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
@@ -530,12 +530,12 @@ terminate.lpad.i213:                              ; preds = %if.then.i211
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #20
+  call void @__clang_call_terminate(ptr %44) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit214:                ; preds = %if.then.i211, %invoke.cont42
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp39) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp43) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp39) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp43) #20
   %_M_manager.i.i215 = getelementptr inbounds i8, ptr %ref.tmp43, i64 16
   %_M_invoker.i216 = getelementptr inbounds i8, ptr %ref.tmp43, i64 24
   %45 = getelementptr inbounds i8, ptr %ref.tmp43, i64 8
@@ -559,12 +559,12 @@ terminate.lpad.i222:                              ; preds = %if.then.i220
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #20
+  call void @__clang_call_terminate(ptr %48) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit223:                ; preds = %if.then.i220, %invoke.cont46
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp47) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp47) #20
   %_M_manager.i.i224 = getelementptr inbounds i8, ptr %ref.tmp47, i64 16
   %_M_invoker.i225 = getelementptr inbounds i8, ptr %ref.tmp47, i64 24
   %49 = getelementptr inbounds i8, ptr %ref.tmp47, i64 8
@@ -588,12 +588,12 @@ terminate.lpad.i231:                              ; preds = %if.then.i229
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #20
+  call void @__clang_call_terminate(ptr %52) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit232:                ; preds = %if.then.i229, %invoke.cont50
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp47) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp51) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp47) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp51) #20
   %_M_manager.i.i233 = getelementptr inbounds i8, ptr %ref.tmp51, i64 16
   %_M_invoker.i234 = getelementptr inbounds i8, ptr %ref.tmp51, i64 24
   %53 = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
@@ -617,12 +617,12 @@ terminate.lpad.i240:                              ; preds = %if.then.i238
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #20
+  call void @__clang_call_terminate(ptr %56) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit241:                ; preds = %if.then.i238, %invoke.cont54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp51) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp55) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp51) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp55) #20
   %_M_manager.i.i242 = getelementptr inbounds i8, ptr %ref.tmp55, i64 16
   %_M_invoker.i243 = getelementptr inbounds i8, ptr %ref.tmp55, i64 24
   %57 = getelementptr inbounds i8, ptr %ref.tmp55, i64 8
@@ -646,12 +646,12 @@ terminate.lpad.i249:                              ; preds = %if.then.i247
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #20
+  call void @__clang_call_terminate(ptr %60) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit250:                ; preds = %if.then.i247, %invoke.cont58
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp55) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp59) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp55) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp59) #20
   %_M_manager.i.i251 = getelementptr inbounds i8, ptr %ref.tmp59, i64 16
   %_M_invoker.i252 = getelementptr inbounds i8, ptr %ref.tmp59, i64 24
   %61 = getelementptr inbounds i8, ptr %ref.tmp59, i64 8
@@ -675,12 +675,12 @@ terminate.lpad.i258:                              ; preds = %if.then.i256
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #20
+  call void @__clang_call_terminate(ptr %64) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit259:                ; preds = %if.then.i256, %invoke.cont62
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp59) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp63) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp59) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp63) #20
   %_M_manager.i.i260 = getelementptr inbounds i8, ptr %ref.tmp63, i64 16
   %_M_invoker.i261 = getelementptr inbounds i8, ptr %ref.tmp63, i64 24
   %65 = getelementptr inbounds i8, ptr %ref.tmp63, i64 8
@@ -704,12 +704,12 @@ terminate.lpad.i267:                              ; preds = %if.then.i265
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #20
+  call void @__clang_call_terminate(ptr %68) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit268:                ; preds = %if.then.i265, %invoke.cont66
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp63) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp67) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp63) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp67) #20
   %_M_manager.i.i269 = getelementptr inbounds i8, ptr %ref.tmp67, i64 16
   %_M_invoker.i270 = getelementptr inbounds i8, ptr %ref.tmp67, i64 24
   %69 = getelementptr inbounds i8, ptr %ref.tmp67, i64 8
@@ -733,12 +733,12 @@ terminate.lpad.i276:                              ; preds = %if.then.i274
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #20
+  call void @__clang_call_terminate(ptr %72) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit277:                ; preds = %if.then.i274, %invoke.cont70
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp67) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp71) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp67) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp71) #20
   %_M_manager.i.i278 = getelementptr inbounds i8, ptr %ref.tmp71, i64 16
   %_M_invoker.i279 = getelementptr inbounds i8, ptr %ref.tmp71, i64 24
   %73 = getelementptr inbounds i8, ptr %ref.tmp71, i64 8
@@ -762,12 +762,12 @@ terminate.lpad.i285:                              ; preds = %if.then.i283
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #20
+  call void @__clang_call_terminate(ptr %76) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit286:                ; preds = %if.then.i283, %invoke.cont74
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp71) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp75) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp71) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp75) #20
   %_M_manager.i.i287 = getelementptr inbounds i8, ptr %ref.tmp75, i64 16
   %_M_invoker.i288 = getelementptr inbounds i8, ptr %ref.tmp75, i64 24
   %77 = getelementptr inbounds i8, ptr %ref.tmp75, i64 8
@@ -791,12 +791,12 @@ terminate.lpad.i294:                              ; preds = %if.then.i292
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #20
+  call void @__clang_call_terminate(ptr %80) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit295:                ; preds = %if.then.i292, %invoke.cont78
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp75) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp79) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp75) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp79) #20
   %_M_manager.i.i296 = getelementptr inbounds i8, ptr %ref.tmp79, i64 16
   %_M_invoker.i297 = getelementptr inbounds i8, ptr %ref.tmp79, i64 24
   %81 = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
@@ -820,12 +820,12 @@ terminate.lpad.i303:                              ; preds = %if.then.i301
   %83 = landingpad { ptr, i32 }
           catch ptr null
   %84 = extractvalue { ptr, i32 } %83, 0
-  call void @__clang_call_terminate(ptr %84) #20
+  call void @__clang_call_terminate(ptr %84) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit304:                ; preds = %if.then.i301, %invoke.cont82
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp79) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp83) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp79) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp83) #20
   %_M_manager.i.i305 = getelementptr inbounds i8, ptr %ref.tmp83, i64 16
   %_M_invoker.i306 = getelementptr inbounds i8, ptr %ref.tmp83, i64 24
   %85 = getelementptr inbounds i8, ptr %ref.tmp83, i64 8
@@ -849,12 +849,12 @@ terminate.lpad.i312:                              ; preds = %if.then.i310
   %87 = landingpad { ptr, i32 }
           catch ptr null
   %88 = extractvalue { ptr, i32 } %87, 0
-  call void @__clang_call_terminate(ptr %88) #20
+  call void @__clang_call_terminate(ptr %88) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit313:                ; preds = %if.then.i310, %invoke.cont86
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp83) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp87) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp83) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp87) #20
   %_M_manager.i.i314 = getelementptr inbounds i8, ptr %ref.tmp87, i64 16
   %_M_invoker.i315 = getelementptr inbounds i8, ptr %ref.tmp87, i64 24
   %89 = getelementptr inbounds i8, ptr %ref.tmp87, i64 8
@@ -878,12 +878,12 @@ terminate.lpad.i321:                              ; preds = %if.then.i319
   %91 = landingpad { ptr, i32 }
           catch ptr null
   %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #20
+  call void @__clang_call_terminate(ptr %92) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit322:                ; preds = %if.then.i319, %invoke.cont90
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp87) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp91) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp87) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp91) #20
   %_M_manager.i.i323 = getelementptr inbounds i8, ptr %ref.tmp91, i64 16
   %_M_invoker.i324 = getelementptr inbounds i8, ptr %ref.tmp91, i64 24
   %93 = getelementptr inbounds i8, ptr %ref.tmp91, i64 8
@@ -907,12 +907,12 @@ terminate.lpad.i330:                              ; preds = %if.then.i328
   %95 = landingpad { ptr, i32 }
           catch ptr null
   %96 = extractvalue { ptr, i32 } %95, 0
-  call void @__clang_call_terminate(ptr %96) #20
+  call void @__clang_call_terminate(ptr %96) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit331:                ; preds = %if.then.i328, %invoke.cont94
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp91) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp95) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp91) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp95) #20
   %_M_manager.i.i332 = getelementptr inbounds i8, ptr %ref.tmp95, i64 16
   %_M_invoker.i333 = getelementptr inbounds i8, ptr %ref.tmp95, i64 24
   %97 = getelementptr inbounds i8, ptr %ref.tmp95, i64 8
@@ -936,12 +936,12 @@ terminate.lpad.i339:                              ; preds = %if.then.i337
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #20
+  call void @__clang_call_terminate(ptr %100) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit340:                ; preds = %if.then.i337, %invoke.cont98
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp95) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp99) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp95) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp99) #20
   %_M_manager.i.i341 = getelementptr inbounds i8, ptr %ref.tmp99, i64 16
   %_M_invoker.i342 = getelementptr inbounds i8, ptr %ref.tmp99, i64 24
   %101 = getelementptr inbounds i8, ptr %ref.tmp99, i64 8
@@ -965,12 +965,12 @@ terminate.lpad.i348:                              ; preds = %if.then.i346
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #20
+  call void @__clang_call_terminate(ptr %104) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit349:                ; preds = %if.then.i346, %invoke.cont102
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp99) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp103) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp99) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp103) #20
   %_M_manager.i.i350 = getelementptr inbounds i8, ptr %ref.tmp103, i64 16
   %_M_invoker.i351 = getelementptr inbounds i8, ptr %ref.tmp103, i64 24
   %105 = getelementptr inbounds i8, ptr %ref.tmp103, i64 8
@@ -994,12 +994,12 @@ terminate.lpad.i357:                              ; preds = %if.then.i355
   %107 = landingpad { ptr, i32 }
           catch ptr null
   %108 = extractvalue { ptr, i32 } %107, 0
-  call void @__clang_call_terminate(ptr %108) #20
+  call void @__clang_call_terminate(ptr %108) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit358:                ; preds = %if.then.i355, %invoke.cont106
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp103) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp107) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp103) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp107) #20
   %_M_manager.i.i359 = getelementptr inbounds i8, ptr %ref.tmp107, i64 16
   %_M_invoker.i360 = getelementptr inbounds i8, ptr %ref.tmp107, i64 24
   %109 = getelementptr inbounds i8, ptr %ref.tmp107, i64 8
@@ -1023,12 +1023,12 @@ terminate.lpad.i366:                              ; preds = %if.then.i364
   %111 = landingpad { ptr, i32 }
           catch ptr null
   %112 = extractvalue { ptr, i32 } %111, 0
-  call void @__clang_call_terminate(ptr %112) #20
+  call void @__clang_call_terminate(ptr %112) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit367:                ; preds = %if.then.i364, %invoke.cont110
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp107) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp111) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp107) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp111) #20
   %_M_manager.i.i368 = getelementptr inbounds i8, ptr %ref.tmp111, i64 16
   %_M_invoker.i369 = getelementptr inbounds i8, ptr %ref.tmp111, i64 24
   %113 = getelementptr inbounds i8, ptr %ref.tmp111, i64 8
@@ -1052,12 +1052,12 @@ terminate.lpad.i375:                              ; preds = %if.then.i373
   %115 = landingpad { ptr, i32 }
           catch ptr null
   %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #20
+  call void @__clang_call_terminate(ptr %116) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit376:                ; preds = %if.then.i373, %invoke.cont114
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp111) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp115) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp111) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp115) #20
   %_M_manager.i.i377 = getelementptr inbounds i8, ptr %ref.tmp115, i64 16
   %_M_invoker.i378 = getelementptr inbounds i8, ptr %ref.tmp115, i64 24
   %117 = getelementptr inbounds i8, ptr %ref.tmp115, i64 8
@@ -1081,12 +1081,12 @@ terminate.lpad.i384:                              ; preds = %if.then.i382
   %119 = landingpad { ptr, i32 }
           catch ptr null
   %120 = extractvalue { ptr, i32 } %119, 0
-  call void @__clang_call_terminate(ptr %120) #20
+  call void @__clang_call_terminate(ptr %120) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit385:                ; preds = %if.then.i382, %invoke.cont118
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp115) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp119) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp115) #20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp119) #20
   %_M_manager.i.i386 = getelementptr inbounds i8, ptr %ref.tmp119, i64 16
   %_M_invoker.i387 = getelementptr inbounds i8, ptr %ref.tmp119, i64 24
   %121 = getelementptr inbounds i8, ptr %ref.tmp119, i64 8
@@ -1110,11 +1110,11 @@ terminate.lpad.i393:                              ; preds = %if.then.i391
   %123 = landingpad { ptr, i32 }
           catch ptr null
   %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #20
+  call void @__clang_call_terminate(ptr %124) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit394:                ; preds = %if.then.i391, %invoke.cont122
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp119) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp119) #20
   ret void
 
 lpad:                                             ; preds = %entry
@@ -1132,11 +1132,11 @@ terminate.lpad.i399:                              ; preds = %if.then.i397
   %127 = landingpad { ptr, i32 }
           catch ptr null
   %128 = extractvalue { ptr, i32 } %127, 0
-  call void @__clang_call_terminate(ptr %128) #20
+  call void @__clang_call_terminate(ptr %128) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit400:                ; preds = %if.then.i397, %lpad
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #20
   br label %eh.resume
 
 lpad5:                                            ; preds = %_ZNSt14_Function_baseD2Ev.exit
@@ -1154,11 +1154,11 @@ terminate.lpad.i405:                              ; preds = %if.then.i403
   %131 = landingpad { ptr, i32 }
           catch ptr null
   %132 = extractvalue { ptr, i32 } %131, 0
-  call void @__clang_call_terminate(ptr %132) #20
+  call void @__clang_call_terminate(ptr %132) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit406:                ; preds = %if.then.i403, %lpad5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #20
   br label %eh.resume
 
 lpad9:                                            ; preds = %_ZNSt14_Function_baseD2Ev.exit133
@@ -1176,11 +1176,11 @@ terminate.lpad.i411:                              ; preds = %if.then.i409
   %135 = landingpad { ptr, i32 }
           catch ptr null
   %136 = extractvalue { ptr, i32 } %135, 0
-  call void @__clang_call_terminate(ptr %136) #20
+  call void @__clang_call_terminate(ptr %136) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit412:                ; preds = %if.then.i409, %lpad9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7) #20
   br label %eh.resume
 
 lpad13:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit142
@@ -1198,11 +1198,11 @@ terminate.lpad.i417:                              ; preds = %if.then.i415
   %139 = landingpad { ptr, i32 }
           catch ptr null
   %140 = extractvalue { ptr, i32 } %139, 0
-  call void @__clang_call_terminate(ptr %140) #20
+  call void @__clang_call_terminate(ptr %140) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit418:                ; preds = %if.then.i415, %lpad13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11) #20
   br label %eh.resume
 
 lpad17:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit151
@@ -1220,11 +1220,11 @@ terminate.lpad.i423:                              ; preds = %if.then.i421
   %143 = landingpad { ptr, i32 }
           catch ptr null
   %144 = extractvalue { ptr, i32 } %143, 0
-  call void @__clang_call_terminate(ptr %144) #20
+  call void @__clang_call_terminate(ptr %144) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit424:                ; preds = %if.then.i421, %lpad17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp15) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp15) #20
   br label %eh.resume
 
 lpad21:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit160
@@ -1242,11 +1242,11 @@ terminate.lpad.i429:                              ; preds = %if.then.i427
   %147 = landingpad { ptr, i32 }
           catch ptr null
   %148 = extractvalue { ptr, i32 } %147, 0
-  call void @__clang_call_terminate(ptr %148) #20
+  call void @__clang_call_terminate(ptr %148) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit430:                ; preds = %if.then.i427, %lpad21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp19) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp19) #20
   br label %eh.resume
 
 lpad25:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit169
@@ -1264,11 +1264,11 @@ terminate.lpad.i435:                              ; preds = %if.then.i433
   %151 = landingpad { ptr, i32 }
           catch ptr null
   %152 = extractvalue { ptr, i32 } %151, 0
-  call void @__clang_call_terminate(ptr %152) #20
+  call void @__clang_call_terminate(ptr %152) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit436:                ; preds = %if.then.i433, %lpad25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp23) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp23) #20
   br label %eh.resume
 
 lpad29:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit178
@@ -1286,11 +1286,11 @@ terminate.lpad.i441:                              ; preds = %if.then.i439
   %155 = landingpad { ptr, i32 }
           catch ptr null
   %156 = extractvalue { ptr, i32 } %155, 0
-  call void @__clang_call_terminate(ptr %156) #20
+  call void @__clang_call_terminate(ptr %156) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit442:                ; preds = %if.then.i439, %lpad29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp27) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp27) #20
   br label %eh.resume
 
 lpad33:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit187
@@ -1308,11 +1308,11 @@ terminate.lpad.i447:                              ; preds = %if.then.i445
   %159 = landingpad { ptr, i32 }
           catch ptr null
   %160 = extractvalue { ptr, i32 } %159, 0
-  call void @__clang_call_terminate(ptr %160) #20
+  call void @__clang_call_terminate(ptr %160) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit448:                ; preds = %if.then.i445, %lpad33
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp31) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp31) #20
   br label %eh.resume
 
 lpad37:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit196
@@ -1330,11 +1330,11 @@ terminate.lpad.i453:                              ; preds = %if.then.i451
   %163 = landingpad { ptr, i32 }
           catch ptr null
   %164 = extractvalue { ptr, i32 } %163, 0
-  call void @__clang_call_terminate(ptr %164) #20
+  call void @__clang_call_terminate(ptr %164) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit454:                ; preds = %if.then.i451, %lpad37
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp35) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp35) #20
   br label %eh.resume
 
 lpad41:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit205
@@ -1352,11 +1352,11 @@ terminate.lpad.i459:                              ; preds = %if.then.i457
   %167 = landingpad { ptr, i32 }
           catch ptr null
   %168 = extractvalue { ptr, i32 } %167, 0
-  call void @__clang_call_terminate(ptr %168) #20
+  call void @__clang_call_terminate(ptr %168) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit460:                ; preds = %if.then.i457, %lpad41
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp39) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp39) #20
   br label %eh.resume
 
 lpad45:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit214
@@ -1374,11 +1374,11 @@ terminate.lpad.i465:                              ; preds = %if.then.i463
   %171 = landingpad { ptr, i32 }
           catch ptr null
   %172 = extractvalue { ptr, i32 } %171, 0
-  call void @__clang_call_terminate(ptr %172) #20
+  call void @__clang_call_terminate(ptr %172) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit466:                ; preds = %if.then.i463, %lpad45
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43) #20
   br label %eh.resume
 
 lpad49:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit223
@@ -1396,11 +1396,11 @@ terminate.lpad.i471:                              ; preds = %if.then.i469
   %175 = landingpad { ptr, i32 }
           catch ptr null
   %176 = extractvalue { ptr, i32 } %175, 0
-  call void @__clang_call_terminate(ptr %176) #20
+  call void @__clang_call_terminate(ptr %176) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit472:                ; preds = %if.then.i469, %lpad49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp47) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp47) #20
   br label %eh.resume
 
 lpad53:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit232
@@ -1418,11 +1418,11 @@ terminate.lpad.i477:                              ; preds = %if.then.i475
   %179 = landingpad { ptr, i32 }
           catch ptr null
   %180 = extractvalue { ptr, i32 } %179, 0
-  call void @__clang_call_terminate(ptr %180) #20
+  call void @__clang_call_terminate(ptr %180) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit478:                ; preds = %if.then.i475, %lpad53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp51) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp51) #20
   br label %eh.resume
 
 lpad57:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit241
@@ -1440,11 +1440,11 @@ terminate.lpad.i483:                              ; preds = %if.then.i481
   %183 = landingpad { ptr, i32 }
           catch ptr null
   %184 = extractvalue { ptr, i32 } %183, 0
-  call void @__clang_call_terminate(ptr %184) #20
+  call void @__clang_call_terminate(ptr %184) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit484:                ; preds = %if.then.i481, %lpad57
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp55) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp55) #20
   br label %eh.resume
 
 lpad61:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit250
@@ -1462,11 +1462,11 @@ terminate.lpad.i489:                              ; preds = %if.then.i487
   %187 = landingpad { ptr, i32 }
           catch ptr null
   %188 = extractvalue { ptr, i32 } %187, 0
-  call void @__clang_call_terminate(ptr %188) #20
+  call void @__clang_call_terminate(ptr %188) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit490:                ; preds = %if.then.i487, %lpad61
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp59) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp59) #20
   br label %eh.resume
 
 lpad65:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit259
@@ -1484,11 +1484,11 @@ terminate.lpad.i495:                              ; preds = %if.then.i493
   %191 = landingpad { ptr, i32 }
           catch ptr null
   %192 = extractvalue { ptr, i32 } %191, 0
-  call void @__clang_call_terminate(ptr %192) #20
+  call void @__clang_call_terminate(ptr %192) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit496:                ; preds = %if.then.i493, %lpad65
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp63) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp63) #20
   br label %eh.resume
 
 lpad69:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit268
@@ -1506,11 +1506,11 @@ terminate.lpad.i501:                              ; preds = %if.then.i499
   %195 = landingpad { ptr, i32 }
           catch ptr null
   %196 = extractvalue { ptr, i32 } %195, 0
-  call void @__clang_call_terminate(ptr %196) #20
+  call void @__clang_call_terminate(ptr %196) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit502:                ; preds = %if.then.i499, %lpad69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp67) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp67) #20
   br label %eh.resume
 
 lpad73:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit277
@@ -1528,11 +1528,11 @@ terminate.lpad.i507:                              ; preds = %if.then.i505
   %199 = landingpad { ptr, i32 }
           catch ptr null
   %200 = extractvalue { ptr, i32 } %199, 0
-  call void @__clang_call_terminate(ptr %200) #20
+  call void @__clang_call_terminate(ptr %200) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit508:                ; preds = %if.then.i505, %lpad73
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp71) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp71) #20
   br label %eh.resume
 
 lpad77:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit286
@@ -1550,11 +1550,11 @@ terminate.lpad.i513:                              ; preds = %if.then.i511
   %203 = landingpad { ptr, i32 }
           catch ptr null
   %204 = extractvalue { ptr, i32 } %203, 0
-  call void @__clang_call_terminate(ptr %204) #20
+  call void @__clang_call_terminate(ptr %204) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit514:                ; preds = %if.then.i511, %lpad77
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp75) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp75) #20
   br label %eh.resume
 
 lpad81:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit295
@@ -1572,11 +1572,11 @@ terminate.lpad.i519:                              ; preds = %if.then.i517
   %207 = landingpad { ptr, i32 }
           catch ptr null
   %208 = extractvalue { ptr, i32 } %207, 0
-  call void @__clang_call_terminate(ptr %208) #20
+  call void @__clang_call_terminate(ptr %208) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit520:                ; preds = %if.then.i517, %lpad81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp79) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp79) #20
   br label %eh.resume
 
 lpad85:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit304
@@ -1594,11 +1594,11 @@ terminate.lpad.i525:                              ; preds = %if.then.i523
   %211 = landingpad { ptr, i32 }
           catch ptr null
   %212 = extractvalue { ptr, i32 } %211, 0
-  call void @__clang_call_terminate(ptr %212) #20
+  call void @__clang_call_terminate(ptr %212) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit526:                ; preds = %if.then.i523, %lpad85
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp83) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp83) #20
   br label %eh.resume
 
 lpad89:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit313
@@ -1616,11 +1616,11 @@ terminate.lpad.i531:                              ; preds = %if.then.i529
   %215 = landingpad { ptr, i32 }
           catch ptr null
   %216 = extractvalue { ptr, i32 } %215, 0
-  call void @__clang_call_terminate(ptr %216) #20
+  call void @__clang_call_terminate(ptr %216) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit532:                ; preds = %if.then.i529, %lpad89
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp87) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp87) #20
   br label %eh.resume
 
 lpad93:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit322
@@ -1638,11 +1638,11 @@ terminate.lpad.i537:                              ; preds = %if.then.i535
   %219 = landingpad { ptr, i32 }
           catch ptr null
   %220 = extractvalue { ptr, i32 } %219, 0
-  call void @__clang_call_terminate(ptr %220) #20
+  call void @__clang_call_terminate(ptr %220) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit538:                ; preds = %if.then.i535, %lpad93
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp91) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp91) #20
   br label %eh.resume
 
 lpad97:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit331
@@ -1660,11 +1660,11 @@ terminate.lpad.i543:                              ; preds = %if.then.i541
   %223 = landingpad { ptr, i32 }
           catch ptr null
   %224 = extractvalue { ptr, i32 } %223, 0
-  call void @__clang_call_terminate(ptr %224) #20
+  call void @__clang_call_terminate(ptr %224) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit544:                ; preds = %if.then.i541, %lpad97
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp95) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp95) #20
   br label %eh.resume
 
 lpad101:                                          ; preds = %_ZNSt14_Function_baseD2Ev.exit340
@@ -1682,11 +1682,11 @@ terminate.lpad.i549:                              ; preds = %if.then.i547
   %227 = landingpad { ptr, i32 }
           catch ptr null
   %228 = extractvalue { ptr, i32 } %227, 0
-  call void @__clang_call_terminate(ptr %228) #20
+  call void @__clang_call_terminate(ptr %228) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit550:                ; preds = %if.then.i547, %lpad101
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp99) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp99) #20
   br label %eh.resume
 
 lpad105:                                          ; preds = %_ZNSt14_Function_baseD2Ev.exit349
@@ -1704,11 +1704,11 @@ terminate.lpad.i555:                              ; preds = %if.then.i553
   %231 = landingpad { ptr, i32 }
           catch ptr null
   %232 = extractvalue { ptr, i32 } %231, 0
-  call void @__clang_call_terminate(ptr %232) #20
+  call void @__clang_call_terminate(ptr %232) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit556:                ; preds = %if.then.i553, %lpad105
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp103) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp103) #20
   br label %eh.resume
 
 lpad109:                                          ; preds = %_ZNSt14_Function_baseD2Ev.exit358
@@ -1726,11 +1726,11 @@ terminate.lpad.i561:                              ; preds = %if.then.i559
   %235 = landingpad { ptr, i32 }
           catch ptr null
   %236 = extractvalue { ptr, i32 } %235, 0
-  call void @__clang_call_terminate(ptr %236) #20
+  call void @__clang_call_terminate(ptr %236) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit562:                ; preds = %if.then.i559, %lpad109
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp107) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp107) #20
   br label %eh.resume
 
 lpad113:                                          ; preds = %_ZNSt14_Function_baseD2Ev.exit367
@@ -1748,11 +1748,11 @@ terminate.lpad.i567:                              ; preds = %if.then.i565
   %239 = landingpad { ptr, i32 }
           catch ptr null
   %240 = extractvalue { ptr, i32 } %239, 0
-  call void @__clang_call_terminate(ptr %240) #20
+  call void @__clang_call_terminate(ptr %240) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit568:                ; preds = %if.then.i565, %lpad113
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp111) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp111) #20
   br label %eh.resume
 
 lpad117:                                          ; preds = %_ZNSt14_Function_baseD2Ev.exit376
@@ -1770,11 +1770,11 @@ terminate.lpad.i573:                              ; preds = %if.then.i571
   %243 = landingpad { ptr, i32 }
           catch ptr null
   %244 = extractvalue { ptr, i32 } %243, 0
-  call void @__clang_call_terminate(ptr %244) #20
+  call void @__clang_call_terminate(ptr %244) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit574:                ; preds = %if.then.i571, %lpad117
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp115) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp115) #20
   br label %eh.resume
 
 lpad121:                                          ; preds = %_ZNSt14_Function_baseD2Ev.exit385
@@ -1792,11 +1792,11 @@ terminate.lpad.i579:                              ; preds = %if.then.i577
   %247 = landingpad { ptr, i32 }
           catch ptr null
   %248 = extractvalue { ptr, i32 } %247, 0
-  call void @__clang_call_terminate(ptr %248) #20
+  call void @__clang_call_terminate(ptr %248) #21
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit580:                ; preds = %if.then.i577, %lpad121
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp119) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp119) #20
   br label %eh.resume
 
 eh.resume:                                        ; preds = %_ZNSt14_Function_baseD2Ev.exit580, %_ZNSt14_Function_baseD2Ev.exit574, %_ZNSt14_Function_baseD2Ev.exit568, %_ZNSt14_Function_baseD2Ev.exit562, %_ZNSt14_Function_baseD2Ev.exit556, %_ZNSt14_Function_baseD2Ev.exit550, %_ZNSt14_Function_baseD2Ev.exit544, %_ZNSt14_Function_baseD2Ev.exit538, %_ZNSt14_Function_baseD2Ev.exit532, %_ZNSt14_Function_baseD2Ev.exit526, %_ZNSt14_Function_baseD2Ev.exit520, %_ZNSt14_Function_baseD2Ev.exit514, %_ZNSt14_Function_baseD2Ev.exit508, %_ZNSt14_Function_baseD2Ev.exit502, %_ZNSt14_Function_baseD2Ev.exit496, %_ZNSt14_Function_baseD2Ev.exit490, %_ZNSt14_Function_baseD2Ev.exit484, %_ZNSt14_Function_baseD2Ev.exit478, %_ZNSt14_Function_baseD2Ev.exit472, %_ZNSt14_Function_baseD2Ev.exit466, %_ZNSt14_Function_baseD2Ev.exit460, %_ZNSt14_Function_baseD2Ev.exit454, %_ZNSt14_Function_baseD2Ev.exit448, %_ZNSt14_Function_baseD2Ev.exit442, %_ZNSt14_Function_baseD2Ev.exit436, %_ZNSt14_Function_baseD2Ev.exit430, %_ZNSt14_Function_baseD2Ev.exit424, %_ZNSt14_Function_baseD2Ev.exit418, %_ZNSt14_Function_baseD2Ev.exit412, %_ZNSt14_Function_baseD2Ev.exit406, %_ZNSt14_Function_baseD2Ev.exit400
@@ -2014,14 +2014,14 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN11TestManager14getTestModulesEv.exit, !prof !19
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test) #19
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test) #20
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN11TestManager14getTestModulesEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i8 0, i64 24, i1 false)
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIP8TestBaseSaIS1_EED2Ev, ptr nonnull @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, ptr nonnull @__dso_handle) #19
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test) #19
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIP8TestBaseSaIS1_EED2Ev, ptr nonnull @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, ptr nonnull @__dso_handle) #20
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test) #20
   br label %_ZN11TestManager14getTestModulesEv.exit
 
 _ZN11TestManager14getTestModulesEv.exit:          ; preds = %init.i, %init.check.i, %entry
@@ -2046,7 +2046,7 @@ if.else.i:                                        ; preds = %_ZN11TestManager14g
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.112) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.112) #22
   unreachable
 
 _ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -2061,7 +2061,7 @@ _ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else
 
 cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #23
   br label %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIP8TestBaseSaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -2082,7 +2082,7 @@ _ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i: ; preds 
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i39.i.i
 
 if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #19
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
@@ -2100,14 +2100,15 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
-  tail call void @_ZSt9terminatev() #20
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
+  tail call void @_ZSt9terminatev() #21
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
@@ -2120,7 +2121,7 @@ invoke.cont:
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   br label %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EED2Ev.exit
 
 _ZNSt12_Vector_baseIP8TestBaseSaIS1_EED2Ev.exit:  ; preds = %if.then.i.i, %invoke.cont
@@ -2131,19 +2132,19 @@ _ZNSt12_Vector_baseIP8TestBaseSaIS1_EED2Ev.exit:  ; preds = %if.then.i.i, %invok
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal void @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -2152,7 +2153,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2184,7 +2185,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2216,7 +2217,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_2E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_2E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2248,7 +2249,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_3E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_3E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2280,7 +2281,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_4E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_4E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2312,7 +2313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_5E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_5E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2344,7 +2345,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_6E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_6E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2376,7 +2377,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_7E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_7E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2408,7 +2409,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_8E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_8E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2440,7 +2441,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_9E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_9E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2472,7 +2473,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_10E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_10E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2504,7 +2505,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_11E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_11E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2536,7 +2537,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_12E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_12E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2568,7 +2569,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_13E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_13E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2600,7 +2601,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_14E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_14E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2632,7 +2633,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_15E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_15E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2664,7 +2665,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_16E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_16E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2696,7 +2697,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_17E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_17E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2728,7 +2729,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_18E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_18E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2760,7 +2761,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_19E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_19E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2792,7 +2793,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_20E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_20E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2824,7 +2825,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_21E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_21E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2856,7 +2857,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_22E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_22E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2888,7 +2889,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_23E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_23E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2920,7 +2921,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_24E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_24E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2952,7 +2953,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_25E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_25E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -2984,7 +2985,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_26E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_26E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -3016,7 +3017,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_27E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_27E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -3048,7 +3049,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_28E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_28E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -3080,7 +3081,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_29E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_29E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -3112,7 +3113,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_30E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_30E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -3138,10 +3139,10 @@ sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, 
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_test_voxelarea.cpp() #15 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_test_voxelarea.cpp() #16 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
   store ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !24
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), align 8, !tbaa !25
@@ -3164,25 +3165,25 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN8TestBaseD2Ev.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %lpad.i.i
-  tail call void @_ZdlPv(ptr noundef %2) #18
+  tail call void @_ZdlPv(ptr noundef %2) #19
   br label %_ZN8TestBaseD2Ev.exit.i.i
 
 _ZN8TestBaseD2Ev.exit.i.i:                        ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
   resume { ptr, i32 } %1
 
 __cxx_global_var_init.1.exit:                     ; preds = %entry
-  %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8TestBaseD2Ev, ptr nonnull @_ZL15g_test_instance, ptr nonnull @__dso_handle) #19
+  %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8TestBaseD2Ev, ptr nonnull @_ZL15g_test_instance, ptr nonnull @__dso_handle) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #16
+declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3193,20 +3194,21 @@ attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn nounwind uwtable "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin allocsize(0) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { builtin nounwind }
-attributes #19 = { nounwind }
-attributes #20 = { noreturn nounwind }
-attributes #21 = { noreturn }
-attributes #22 = { builtin allocsize(0) }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { nobuiltin nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin allocsize(0) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { builtin nounwind }
+attributes #20 = { nounwind }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { noreturn }
+attributes #23 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

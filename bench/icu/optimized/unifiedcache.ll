@@ -59,7 +59,7 @@ delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %obj, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(13) %obj) #14
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(13) %obj) #15
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -69,7 +69,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
   ret void
 }
 
@@ -79,7 +79,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN6icu_7512CacheKeyBaseD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @llvm.trap() #15
+  tail call void @llvm.trap() #16
   unreachable
 }
 
@@ -107,9 +107,9 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   tail call void @ucln_common_registerCleanup_75(i32 noundef 26, ptr noundef nonnull @_ZL20unifiedcache_cleanupv)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @"_ZZZN6icu_75L9cacheInitER10UErrorCodeENK3$_0clEvE7storage", i8 0, i64 40, i1 false)
   store ptr @"_ZZZN6icu_75L9cacheInitER10UErrorCodeENK3$_0clEvE7storage", ptr @_ZL11gCacheMutex, align 8
-  tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) @"_ZZZN6icu_75L9cacheInitER10UErrorCodeENK3$_1clEvE7storage") #14
+  tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) @"_ZZZN6icu_75L9cacheInitER10UErrorCodeENK3$_1clEvE7storage") #15
   store ptr @"_ZZZN6icu_75L9cacheInitER10UErrorCodeENK3$_1clEvE7storage", ptr @_ZL25gInProgressValueAddedCond, align 8
-  %call3.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 56) #14
+  %call3.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 56) #15
   %new.isnull.i = icmp eq ptr %call3.i, null
   br i1 %new.isnull.i, label %if.end.i2, label %new.notnull.i
 
@@ -120,7 +120,7 @@ new.notnull.i:                                    ; preds = %if.then4.i
 lpad.i:                                           ; preds = %new.notnull.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call3.i) #14
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call3.i) #15
   resume { ptr, i32 } %2
 
 if.end.i2:                                        ; preds = %if.then4.i
@@ -138,7 +138,7 @@ delete.notnull.i:                                 ; preds = %if.end.thread.i
   %vtable.i = load ptr, ptr %call3.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %4 = load ptr, ptr %vfn.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(56) %call3.i) #14
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(56) %call3.i) #15
   %.pre.pre = load i32, ptr %status, align 4
   br label %delete.end.i
 
@@ -196,11 +196,11 @@ entry:
 lpad:                                             ; preds = %if.end20, %if.end8
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7516UnifiedCacheBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_7516UnifiedCacheBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #14
+  %call2 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #15
   %new.isnull = icmp eq ptr %call2, null
   br i1 %new.isnull, label %if.then7, label %if.end8
 
@@ -271,12 +271,12 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %2 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %2) #14
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %2) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end4
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #16
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #17
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %if.end4
@@ -284,7 +284,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %if.end4
   store i32 %count, ptr %fMaxUnused, align 4
   %fMaxPercentageOfInUse = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %percentageOfInUseItems, ptr %fMaxPercentageOfInUse, align 8
-  %call1.i.i.i4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #14
+  %call1.i.i.i4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #15
   br label %return
 
 return:                                           ; preds = %entry, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %if.then3
@@ -295,12 +295,12 @@ return:                                           ; preds = %entry, %_ZNSt10lock
 define noundef i32 @_ZNK6icu_7512UnifiedCache11unusedCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #14
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #16
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #17
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
@@ -313,13 +313,13 @@ invoke.cont:                                      ; preds = %_ZNSt10lock_guardIS
   %fNumValuesInUse = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %fNumValuesInUse, align 8
   %sub = sub nsw i32 %call, %2
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
   ret i32 %sub
 
 lpad:                                             ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
   resume { ptr, i32 } %3
 }
 
@@ -329,18 +329,18 @@ declare i32 @uhash_count_75(ptr noundef) local_unnamed_addr #5
 define noundef i64 @_ZNK6icu_7512UnifiedCache16autoEvictedCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #14
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #16
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #17
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   %fAutoEvictedCount = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %fAutoEvictedCount, align 8
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
   ret i64 %1
 }
 
@@ -348,12 +348,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 define noundef i32 @_ZNK6icu_7512UnifiedCache8keyCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #14
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #16
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #17
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
@@ -363,13 +363,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
   ret i32 %call
 
 lpad:                                             ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %2 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
   resume { ptr, i32 } %2
 }
 
@@ -377,12 +377,12 @@ lpad:                                             ; preds = %_ZNSt10lock_guardIS
 define void @_ZNK6icu_7512UnifiedCache5flushEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #14
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %while.cond, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #16
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #17
   unreachable
 
 while.cond:                                       ; preds = %entry, %invoke.cont
@@ -396,11 +396,11 @@ invoke.cont:                                      ; preds = %while.cond
 lpad:                                             ; preds = %while.cond
   %1 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
   resume { ptr, i32 } %1
 
 while.end:                                        ; preds = %invoke.cont
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
   ret void
 }
 
@@ -498,7 +498,7 @@ delete.notnull.i.us:                              ; preds = %if.then.i9.us
   %vtable.i.us = load ptr, ptr %9, align 8
   %vfn.i.us = getelementptr inbounds i8, ptr %vtable.i.us, i64 8
   %13 = load ptr, ptr %vfn.i.us, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %delete.notnull.i.us, %if.else.i.us, %if.then6.us, %_ZNK6icu_7512UnifiedCache12_isEvictableEPK12UHashElement.exit.us, %lor.rhs.i.us, %if.end.us
@@ -547,7 +547,7 @@ delete.notnull.i:                                 ; preds = %if.then.i9
   %vtable.i = load ptr, ptr %16, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %20 = load ptr, ptr %vfn.i, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(24) %16) #15
   br label %for.inc
 
 if.else.i:                                        ; preds = %if.then.i9
@@ -569,12 +569,12 @@ for.end:                                          ; preds = %for.inc, %_ZNK6icu_
 define void @_ZNK6icu_7512UnifiedCache24handleUnreferencedObjectEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #14
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #16
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #17
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
@@ -586,13 +586,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
   ret void
 
 lpad:                                             ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %2 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
   resume { ptr, i32 } %2
 }
 
@@ -696,7 +696,7 @@ delete.notnull.i:                                 ; preds = %if.then.i12
   %vtable.i = load ptr, ptr %13, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %17 = load ptr, ptr %vfn.i, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(24) %13) #15
   br label %_ZNK6icu_7512UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit
 
 if.else.i:                                        ; preds = %if.then.i12
@@ -727,7 +727,7 @@ define void @_ZN6icu_7512UnifiedCacheD2Ev(ptr noundef nonnull align 8 dereferenc
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512UnifiedCacheE, i64 16), ptr %this, align 8
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #14
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %while.cond.i, label %if.then.i.i.invoke
 
@@ -742,19 +742,19 @@ invoke.cont.i:                                    ; preds = %while.cond.i
 lpad.i:                                           ; preds = %while.cond.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
-  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
+  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
   br label %terminate.lpad.body
 
 invoke.cont:                                      ; preds = %invoke.cont.i
-  %call1.i.i.i2.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
+  %call1.i.i.i2.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
   %2 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %2) #14
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %2) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont2, label %if.then.i.i.invoke
 
 if.then.i.i.invoke:                               ; preds = %invoke.cont, %entry
   %3 = phi i32 [ %call1.i.i.i.i, %entry ], [ %call1.i.i.i, %invoke.cont ]
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %3) #16
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %3) #17
           to label %if.then.i.i.cont unwind label %terminate.lpad
 
 if.then.i.i.cont:                                 ; preds = %if.then.i.i.invoke
@@ -765,7 +765,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
-  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #14
+  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #15
   %fHashtable = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %fHashtable, align 8
   invoke void @uhash_close_75(ptr noundef %4)
@@ -782,12 +782,12 @@ delete.notnull:                                   ; preds = %invoke.cont4
   %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %6 = load ptr, ptr %vfn, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont4
   store ptr null, ptr %fNoValue, align 8
-  tail call void @_ZN6icu_7516UnifiedCacheBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_7516UnifiedCacheBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i.i.invoke, %invoke.cont3, %invoke.cont2
@@ -798,28 +798,29 @@ terminate.lpad:                                   ; preds = %if.then.i.i.invoke,
 terminate.lpad.body:                              ; preds = %lpad.i, %terminate.lpad
   %eh.lpad-body = phi { ptr, i32 } [ %7, %terminate.lpad ], [ %1, %lpad.i ]
   %8 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  tail call void @__clang_call_terminate(ptr %8) #15
+  tail call void @__clang_call_terminate(ptr %8) #16
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #15
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 declare void @uhash_close_75(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7512UnifiedCacheD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN6icu_7512UnifiedCacheD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #14
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #14
+  tail call void @_ZN6icu_7512UnifiedCacheD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #15
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -910,7 +911,7 @@ delete.notnull:                                   ; preds = %if.then
   %vtable = load ptr, ptr %value, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %value) #14
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %value) #15
   br label %if.end4
 
 if.else:                                          ; preds = %if.then
@@ -1004,7 +1005,7 @@ if.end13:                                         ; preds = %entry, %if.then11, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6icu_7512UnifiedCache16_registerPrimaryEPKNS_12CacheKeyBaseEPKNS_12SharedObjectE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef writeonly %theKey, ptr nocapture noundef writeonly %value) local_unnamed_addr #7 align 2 {
+define void @_ZNK6icu_7512UnifiedCache16_registerPrimaryEPKNS_12CacheKeyBaseEPKNS_12SharedObjectE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef writeonly %theKey, ptr nocapture noundef writeonly %value) local_unnamed_addr #8 align 2 {
 entry:
   %fIsPrimary = getelementptr inbounds i8, ptr %theKey, i64 12
   store i8 1, ptr %fIsPrimary, align 4
@@ -1028,12 +1029,12 @@ define void @_ZNK6icu_7512UnifiedCache18_putIfAbsentAndGetERKNS_12CacheKeyBaseER
 entry:
   %putError = alloca i32, align 4
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #14
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #16
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #17
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
@@ -1141,7 +1142,7 @@ if.then2.i9.i:                                    ; preds = %if.then.i5.i
 lpad:                                             ; preds = %if.then.i.i33, %if.end7.i, %if.end.i, %if.end9, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %21 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i17 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
+  %call1.i.i.i17 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
   resume { ptr, i32 } %21
 
 if.end.i:                                         ; preds = %invoke.cont
@@ -1257,7 +1258,7 @@ delete.notnull.i.i:                               ; preds = %call.i.i.i.noexc
   %vtable.i.i = load ptr, ptr %34, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %41 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(24) %34) #14
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(24) %34) #15
   br label %_ZNK6icu_7512UnifiedCache4_putEPK12UHashElementPKNS_12SharedObjectE10UErrorCode.exit
 
 if.else.i.i:                                      ; preds = %call.i.i.i.noexc
@@ -1267,7 +1268,7 @@ if.else.i.i:                                      ; preds = %call.i.i.i.noexc
 
 _ZNK6icu_7512UnifiedCache4_putEPK12UHashElementPKNS_12SharedObjectE10UErrorCode.exit: ; preds = %if.end.i29, %delete.notnull.i.i, %if.else.i.i
   %42 = load ptr, ptr @_ZL25gInProgressValueAddedCond, align 8
-  tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %42) #14
+  tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %42) #15
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then11.i, %call8.i.noexc, %if.then3.i, %_ZNK6icu_7512UnifiedCache4_putEPK12UHashElementPKNS_12SharedObjectE10UErrorCode.exit
@@ -1275,14 +1276,14 @@ if.end9:                                          ; preds = %if.then11.i, %call8
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.then2.i9.i, %if.then.i5.i, %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i, %if.end9
-  %call1.i.i.i41 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
+  %call1.i.i.i41 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
   ret void
 }
 
 declare ptr @uhash_find_75(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7512UnifiedCache11_inProgressEPK12UHashElement(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %element) local_unnamed_addr #8 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7512UnifiedCache11_inProgressEPK12UHashElement(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %element) local_unnamed_addr #9 align 2 {
 _ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i:
   %key.i = getelementptr inbounds i8, ptr %element, i64 16
   %0 = load ptr, ptr %key.i, align 8
@@ -1338,7 +1339,7 @@ _ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %element, ptr nocapture noundef nonnull align 8 dereferenceable(8) %value, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #8 align 2 {
+define void @_ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %element, ptr nocapture noundef nonnull align 8 dereferenceable(8) %value, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #9 align 2 {
 entry:
   %key = getelementptr inbounds i8, ptr %element, i64 16
   %0 = load ptr, ptr %key, align 8
@@ -1441,7 +1442,7 @@ delete.notnull.i:                                 ; preds = %if.then.i
   %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %8 = load ptr, ptr %vfn.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %1) #14
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %1) #15
   br label %_ZNK6icu_7512UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit
 
 if.else.i:                                        ; preds = %if.then.i
@@ -1451,7 +1452,7 @@ if.else.i:                                        ; preds = %if.then.i
 
 _ZNK6icu_7512UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit: ; preds = %if.end, %delete.notnull.i, %if.else.i
   %9 = load ptr, ptr @_ZL25gInProgressValueAddedCond, align 8
-  tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #14
+  tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #15
   ret void
 }
 
@@ -1462,12 +1463,12 @@ entry:
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
   store ptr %0, ptr %lock, align 8
   %_M_owns.i = getelementptr inbounds i8, ptr %lock, i64 8
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #14
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #15
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #16
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #17
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
@@ -1566,7 +1567,7 @@ if.else.i.i:                                      ; preds = %lpad
   br i1 %tobool2.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  %call1.i.i.i.i8 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #14
+  %call1.i.i.i.i8 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #15
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %lpad, %if.else.i.i, %if.then3.i.i
@@ -1684,7 +1685,7 @@ if.else.i.i23:                                    ; preds = %cleanup
   br i1 %tobool2.not.i.i24, label %_ZNSt11unique_lockISt5mutexED2Ev.exit27, label %if.then3.i.i25
 
 if.then3.i.i25:                                   ; preds = %if.else.i.i23
-  %call1.i.i.i.i26 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %35) #14
+  %call1.i.i.i.i26 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %35) #15
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit27
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit27:          ; preds = %cleanup, %if.else.i.i23, %if.then3.i.i25
@@ -1758,7 +1759,7 @@ if.end16:                                         ; preds = %if.end16.sink.split
 declare void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %value) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %value) local_unnamed_addr #10 align 2 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %if.end3, label %if.then
@@ -1783,7 +1784,7 @@ if.end3:                                          ; preds = %if.then, %if.then2,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZNK6icu_7512UnifiedCache10addHardRefEPKNS_12SharedObjectE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %value) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK6icu_7512UnifiedCache10addHardRefEPKNS_12SharedObjectE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %value) local_unnamed_addr #10 align 2 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %if.end3, label %if.then
@@ -1808,7 +1809,7 @@ if.end3:                                          ; preds = %if.then, %if.then2,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7512UnifiedCache11_inProgressEPKNS_12SharedObjectE10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef readnone %theValue, i32 noundef %creationStatus) local_unnamed_addr #10 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7512UnifiedCache11_inProgressEPKNS_12SharedObjectE10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef readnone %theValue, i32 noundef %creationStatus) local_unnamed_addr #11 align 2 {
 entry:
   %fNoValue = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %fNoValue, align 8
@@ -1841,14 +1842,14 @@ delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   store ptr null, ptr @_ZL6gCache, align 8
   store ptr null, ptr @_ZL11gCacheMutex, align 8
   %2 = load ptr, ptr @_ZL25gInProgressValueAddedCond, align 8
-  tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #14
+  tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #15
   store ptr null, ptr @_ZL25gInProgressValueAddedCond, align 8
   ret i8 1
 }
@@ -1857,7 +1858,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 declare void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind
 declare void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #2
@@ -1865,7 +1866,7 @@ declare void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 derefere
 declare noundef i32 @_ZNK6icu_7512SharedObject11getRefCountEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #12
+declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
@@ -1878,7 +1879,7 @@ declare void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 
 declare void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+declare i32 @llvm.smax.i32(i32, i32) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1887,16 +1888,17 @@ attributes #3 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) 
 attributes #4 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { noreturn }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -106,12 +106,12 @@ entry:
 lpad:                                             ; preds = %if.then.i.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) #16
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) #17
   resume { ptr, i32 } %0
 
 if.then.i:                                        ; preds = %entry
   %conv.i3 = zext nneg i32 %newCapacity to i64
-  %call.i4 = invoke noalias ptr @uprv_malloc_75(i64 noundef %conv.i3) #17
+  %call.i4 = invoke noalias ptr @uprv_malloc_75(i64 noundef %conv.i3) #18
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then.i
@@ -148,7 +148,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = zext nneg i32 %newCapacity to i64
-  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #17
+  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #18
   %cmp2.not = icmp eq ptr %call, null
   br i1 %cmp2.not, label %return, label %if.then3
 
@@ -209,7 +209,7 @@ terminate.lpad:                                   ; preds = %if.then.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #18
+  tail call void @__clang_call_terminate(ptr %3) #19
   unreachable
 }
 
@@ -232,14 +232,15 @@ if.end:                                           ; preds = %if.then, %entry
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
-  tail call void @_ZSt9terminatev() #18
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  tail call void @_ZSt9terminatev() #19
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5EOS1_) align 2 personality ptr @__gxx_personality_v0 {
@@ -278,7 +279,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -340,7 +341,7 @@ terminate.lpad:                                   ; preds = %if.then.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #18
+  tail call void @__clang_call_terminate(ptr %7) #19
   unreachable
 }
 
@@ -417,7 +418,7 @@ if.end:                                           ; preds = %_ZN6icu_7515MaybeSt
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
@@ -440,7 +441,7 @@ if.else3:                                         ; preds = %if.else
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
   %conv = sext i32 %spec.select to i64
-  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #17
+  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #18
   %cmp7 = icmp eq ptr %call, null
   br i1 %cmp7, label %return, label %do.body
 
@@ -480,7 +481,7 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   %conv.i4 = zext nneg i32 %1 to i64
-  %call.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv.i4) #17
+  %call.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv.i4) #18
   %cmp2.not.i = icmp eq ptr %call.i, null
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
@@ -512,16 +513,16 @@ do.end:                                           ; preds = %entry, %do.body, %i
   ret void
 }
 
-declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
+declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN6icu_7511Formattable16getStaticClassIDEv() local_unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZN6icu_7511Formattable16getStaticClassIDEv() local_unnamed_addr #7 align 2 {
 entry:
   ret ptr @_ZZN6icu_7511Formattable16getStaticClassIDEvE7classID
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7511Formattable17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7511Formattable17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
 entry:
   ret ptr @_ZZN6icu_7511Formattable16getStaticClassIDEvE7classID
 }
@@ -540,7 +541,7 @@ entry:
   ret void
 }
 
-declare void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #5
+declare void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511FormattableC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -565,16 +566,16 @@ invoke.cont3:                                     ; preds = %invoke.cont
 lpad2:                                            ; preds = %invoke.cont
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #16
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #7
+declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
+declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511FormattableC2EdNS0_6ISDATEE(ptr noundef nonnull align 8 dereferenceable(112) %this, double noundef %date, i32 %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -601,8 +602,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
 lpad2:                                            ; preds = %invoke.cont
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #16
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %1
 }
 
@@ -631,8 +632,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
 lpad2:                                            ; preds = %invoke.cont
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #16
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 }
 
@@ -661,8 +662,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
 lpad2:                                            ; preds = %invoke.cont
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #16
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 }
 
@@ -691,8 +692,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
 lpad2:                                            ; preds = %invoke.cont
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #16
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 }
 
@@ -723,8 +724,8 @@ invoke.cont4:                                     ; preds = %invoke.cont3
 lpad2:                                            ; preds = %invoke.cont, %invoke.cont3
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #16
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 }
 
@@ -737,7 +738,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6icu_7511Formattable7disposeEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
-  %call2 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 72) #16
+  %call2 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 72) #17
   %new.isnull = icmp ne ptr %call2, null
   tail call void @llvm.assume(i1 %new.isnull)
   invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %call2)
@@ -754,7 +755,7 @@ delete.notnull.i:                                 ; preds = %new.cont
   %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %2 = load ptr, ptr %vfn.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(66) %1) #16
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(66) %1) #17
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %new.cont, %delete.notnull.i
@@ -795,7 +796,7 @@ return:                                           ; preds = %if.else18.i, %if.el
 lpad:                                             ; preds = %if.end
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call2) #16
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call2) #17
   resume { ptr, i32 } %6
 }
 
@@ -818,7 +819,7 @@ invoke.cont:
 
 invoke.cont3:                                     ; preds = %invoke.cont
   store i32 3, ptr %fType.i, align 8
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #16
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #17
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -838,23 +839,23 @@ lpad2:                                            ; preds = %invoke.cont
 lpad4:                                            ; preds = %new.notnull
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #16
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #17
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad4, %lpad2
   %.pn = phi { ptr, i32 } [ %1, %lpad4 ], [ %0, %lpad2 ]
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #16
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #7
+declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #8
 
-declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #5
+declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511FormattableC2EPNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %stringToAdopt) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -881,8 +882,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
 lpad2:                                            ; preds = %invoke.cont
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #16
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 }
 
@@ -911,8 +912,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
 lpad2:                                            ; preds = %invoke.cont
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #16
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 }
 
@@ -941,7 +942,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %2 = extractvalue { i64, i1 } %0, 0
   %3 = or disjoint i64 %2, 8
   %4 = select i1 %1, i64 -1, i64 %3
-  %call.i = tail call noundef ptr @_ZN6icu_757UMemorynaEm(i64 noundef %4) #16
+  %call.i = tail call noundef ptr @_ZN6icu_757UMemorynaEm(i64 noundef %4) #17
   %new.isnull.i = icmp eq ptr %call.i, null
   br i1 %new.isnull.i, label %invoke.cont5, label %new.notnull.i
 
@@ -997,12 +998,12 @@ arraydestroy.body.i:                              ; preds = %lpad.i, %arraydestr
   %arraydestroy.elementPast.idx.i = phi i64 [ %arraydestroy.elementPast.add.i, %arraydestroy.body.i ], [ %arrayctor.cur.idx.i, %lpad.i ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -112
   %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arraydestroy.elementPast.add.i
-  tail call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %arraydestroy.element.ptr.i) #16
+  tail call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %arraydestroy.element.ptr.i) #17
   %arraydestroy.done.i = icmp eq i64 %arraydestroy.elementPast.add.i, 8
   br i1 %arraydestroy.done.i, label %cleanup.action5.i, label %arraydestroy.body.i
 
 cleanup.action5.i:                                ; preds = %arraydestroy.body.i, %lpad.i
-  tail call void @_ZN6icu_757UMemorydaEPv(ptr noundef nonnull %call.i) #16
+  tail call void @_ZN6icu_757UMemorydaEPv(ptr noundef nonnull %call.i) #17
   br label %lpad2.body
 
 invoke.cont5:                                     ; preds = %call10.i.noexc, %new.cont.i, %new.notnull.i, %invoke.cont3
@@ -1024,13 +1025,13 @@ lpad2.loopexit.split-lp:                          ; preds = %invoke.cont
 
 lpad2.body:                                       ; preds = %lpad2.loopexit, %lpad2.loopexit.split-lp, %cleanup.action5.i
   %eh.lpad-body = phi { ptr, i32 } [ %5, %cleanup.action5.i ], [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit.split-lp, %lpad2.loopexit.split-lp ]
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #16
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511FormattableC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %source) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -1059,8 +1060,8 @@ invoke.cont4:                                     ; preds = %invoke.cont3
 lpad2:                                            ; preds = %invoke.cont, %invoke.cont3
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #16
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 }
 
@@ -1101,7 +1102,7 @@ sw.bb:                                            ; preds = %if.then
   %5 = extractvalue { i64, i1 } %3, 0
   %6 = or disjoint i64 %5, 8
   %7 = select i1 %4, i64 -1, i64 %6
-  %call.i = tail call noundef ptr @_ZN6icu_757UMemorynaEm(i64 noundef %7) #16
+  %call.i = tail call noundef ptr @_ZN6icu_757UMemorynaEm(i64 noundef %7) #17
   %new.isnull.i = icmp eq ptr %call.i, null
   br i1 %new.isnull.i, label %_ZN6icu_75L15createArrayCopyEPKNS_11FormattableEi.exit, label %new.notnull.i
 
@@ -1154,7 +1155,7 @@ arraydestroy.body.i:                              ; preds = %lpad.i, %arraydestr
   %arraydestroy.elementPast.idx.i = phi i64 [ %arraydestroy.elementPast.add.i, %arraydestroy.body.i ], [ %arrayctor.cur.idx.i, %lpad.i ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -112
   %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arraydestroy.elementPast.add.i
-  tail call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %arraydestroy.element.ptr.i) #16
+  tail call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %arraydestroy.element.ptr.i) #17
   %arraydestroy.done.i = icmp eq i64 %arraydestroy.elementPast.add.i, 8
   br i1 %arraydestroy.done.i, label %cleanup.action5.i, label %arraydestroy.body.i
 
@@ -1163,7 +1164,7 @@ common.resume:                                    ; preds = %lpad, %lpad36, %lpa
   resume { ptr, i32 } %common.resume.op
 
 cleanup.action5.i:                                ; preds = %arraydestroy.body.i, %lpad.i
-  tail call void @_ZN6icu_757UMemorydaEPv(ptr noundef nonnull %call.i) #16
+  tail call void @_ZN6icu_757UMemorydaEPv(ptr noundef nonnull %call.i) #17
   br label %common.resume
 
 _ZN6icu_75L15createArrayCopyEPKNS_11FormattableEi.exit: ; preds = %for.body.i, %new.notnull.i, %new.cont.i, %sw.bb
@@ -1172,7 +1173,7 @@ _ZN6icu_75L15createArrayCopyEPKNS_11FormattableEi.exit: ; preds = %for.body.i, %
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %if.then
-  %call12 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #16
+  %call12 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #17
   %new.isnull = icmp eq ptr %call12, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -1190,7 +1191,7 @@ new.cont:                                         ; preds = %new.notnull, %sw.bb
 lpad:                                             ; preds = %new.notnull
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call12) #16
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call12) #17
   br label %common.resume
 
 sw.bb15:                                          ; preds = %if.then
@@ -1233,7 +1234,7 @@ sw.epilog:                                        ; preds = %sw.bb24, %sw.bb21, 
   br i1 %cmp28.not, label %if.end, label %if.then29
 
 if.then29:                                        ; preds = %sw.epilog
-  %call30 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 72) #16
+  %call30 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 72) #17
   %new.isnull31 = icmp eq ptr %call30, null
   br i1 %new.isnull31, label %new.cont41, label %new.notnull32
 
@@ -1250,7 +1251,7 @@ new.cont41:                                       ; preds = %new.notnull32, %if.
 lpad36:                                           ; preds = %new.notnull32
   %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call30) #16
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call30) #17
   br label %common.resume
 
 if.end:                                           ; preds = %new.cont41, %sw.epilog
@@ -1260,7 +1261,7 @@ if.end:                                           ; preds = %new.cont41, %sw.epi
   br i1 %cmp43.not, label %if.end64, label %if.then44
 
 if.then44:                                        ; preds = %if.end
-  %call45 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #16
+  %call45 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #17
   %new.isnull46 = icmp eq ptr %call45, null
   br i1 %new.isnull46, label %new.cont56.thread, label %new.notnull47
 
@@ -1283,7 +1284,7 @@ new.notnull47:                                    ; preds = %if.then44
 lpad.i16:                                         ; preds = %.noexc
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %call45) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %call45) #17
   br label %lpad51.body
 
 new.cont56:                                       ; preds = %.noexc
@@ -1298,8 +1299,8 @@ new.cont56.thread:                                ; preds = %if.then44
   br label %if.end64.sink.split
 
 delete.end:                                       ; preds = %new.cont56
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %call45) #16
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call45) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %call45) #17
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call45) #17
   br label %if.end64.sink.split
 
 lpad51:                                           ; preds = %new.notnull47
@@ -1309,7 +1310,7 @@ lpad51:                                           ; preds = %new.notnull47
 
 lpad51.body:                                      ; preds = %lpad.i16, %lpad51
   %eh.lpad-body = phi { ptr, i32 } [ %27, %lpad51 ], [ %25, %lpad.i16 ]
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call45) #16
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call45) #17
   br label %common.resume
 
 if.end64.sink.split:                              ; preds = %delete.end, %new.cont56.thread
@@ -1342,7 +1343,7 @@ delete.notnull:                                   ; preds = %sw.bb
   %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(64) %1) #16
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(64) %1) #17
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
@@ -1364,12 +1365,12 @@ arraydestroy.body.preheader:                      ; preds = %delete.notnull5
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end6, %arraydestroy.body.preheader ]
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -112
-  tail call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %arraydestroy.element) #16
+  tail call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %arraydestroy.element) #17
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %3
   br i1 %arraydestroy.done, label %arraydestroy.done7, label %arraydestroy.body
 
 arraydestroy.done7:                               ; preds = %arraydestroy.body, %delete.notnull5
-  tail call void @_ZN6icu_757UMemorydaEPv(ptr noundef nonnull %4) #16
+  tail call void @_ZN6icu_757UMemorydaEPv(ptr noundef nonnull %4) #17
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %entry
@@ -1382,7 +1383,7 @@ delete.notnull12:                                 ; preds = %sw.bb9
   %vtable13 = load ptr, ptr %6, align 8
   %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 8
   %7 = load ptr, ptr %vfn14, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #16
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb9, %delete.notnull12, %sw.bb2, %arraydestroy.done7, %sw.bb, %delete.notnull
@@ -1395,8 +1396,8 @@ sw.epilog:                                        ; preds = %entry, %sw.bb9, %de
   br i1 %isnull18, label %delete.end20, label %delete.notnull19
 
 delete.notnull19:                                 ; preds = %sw.epilog
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %8) #16
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %8) #16
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %8) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %8) #17
   br label %delete.end20
 
 delete.end20:                                     ; preds = %delete.notnull19, %sw.epilog
@@ -1410,7 +1411,7 @@ delete.notnull23:                                 ; preds = %delete.end20
   %vtable24 = load ptr, ptr %9, align 8
   %vfn25 = getelementptr inbounds i8, ptr %vtable24, i64 8
   %10 = load ptr, ptr %vfn25, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(66) %9) #16
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(66) %9) #17
   br label %delete.end26
 
 delete.end26:                                     ; preds = %delete.notnull23, %delete.end20
@@ -1418,7 +1419,7 @@ delete.end26:                                     ; preds = %delete.notnull23, %
   ret void
 }
 
-declare void @_ZN6icu_756number4impl15DecimalQuantityC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(66), ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #5
+declare void @_ZN6icu_756number4impl15DecimalQuantityC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(66), ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6icu_7511FormattableeqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(112) %this, ptr noundef nonnull readonly align 8 dereferenceable(112) %that) local_unnamed_addr #1 align 2 {
@@ -1570,26 +1571,26 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
   tail call void @_ZN6icu_7511Formattable7disposeEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
   %fBogus = getelementptr inbounds i8, ptr %this, i64 48
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #16
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7511FormattableD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #16
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #16
+  tail call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #17
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UMemorydaEPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZN6icu_757UMemorydaEPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7511Formattable5cloneEv(ptr noundef nonnull align 8 dereferenceable(112) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 112) #16
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 112) #17
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -1603,12 +1604,12 @@ new.cont:                                         ; preds = %new.notnull, %entry
 lpad:                                             ; preds = %new.notnull
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #16
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #17
   resume { ptr, i32 } %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7511Formattable7getTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK6icu_7511Formattable7getTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) local_unnamed_addr #10 align 2 {
 entry:
   %fType = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %fType, align 8
@@ -1616,7 +1617,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7511Formattable9isNumericEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) local_unnamed_addr #9 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7511Formattable9isNumericEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) local_unnamed_addr #10 align 2 {
 entry:
   %fType = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %fType, align 8
@@ -1630,7 +1631,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef i32 @_ZNK6icu_7511Formattable7getLongER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK6icu_7511Formattable7getLongER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1654,7 +1655,7 @@ sw.bb22.us:                                       ; preds = %if.end.us
   br i1 %cmp24.us, label %if.then25, label %if.end26.us
 
 if.end26.us:                                      ; preds = %sw.bb22.us
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #16
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #17
   %cmp.i10.not.us = icmp eq ptr %3, null
   %number.i.us = getelementptr inbounds i8, ptr %2, i64 8
   br i1 %cmp.i10.not.us, label %sw.default, label %if.end.us
@@ -1747,7 +1748,7 @@ sw.bb23.us:                                       ; preds = %if.end.us
   br i1 %cmp25.us, label %if.then26, label %if.end27.us
 
 if.end27.us:                                      ; preds = %sw.bb23.us
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #16
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #17
   %cmp.i9.not.us = icmp eq ptr %3, null
   %number.i.us = getelementptr inbounds i8, ptr %2, i64 8
   br i1 %cmp.i9.not.us, label %sw.default, label %if.end.us
@@ -1820,16 +1821,16 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #11
+declare double @llvm.fabs.f64(double) #12
 
-declare noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity10fitsInLongEb(ptr noundef nonnull align 8 dereferenceable(66), i1 noundef zeroext) local_unnamed_addr #5
+declare noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity10fitsInLongEb(ptr noundef nonnull align 8 dereferenceable(66), i1 noundef zeroext) local_unnamed_addr #6
 
-declare noundef i64 @_ZNK6icu_756number4impl15DecimalQuantity6toLongEb(ptr noundef nonnull align 8 dereferenceable(66), i1 noundef zeroext) local_unnamed_addr #5
+declare noundef i64 @_ZNK6icu_756number4impl15DecimalQuantity6toLongEb(ptr noundef nonnull align 8 dereferenceable(66), i1 noundef zeroext) local_unnamed_addr #6
 
-declare noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity10isNegativeEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #5
+declare noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity10isNegativeEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef double @_ZNK6icu_7511Formattable9getDoubleER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #10 align 2 {
+define noundef double @_ZNK6icu_7511Formattable9getDoubleER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1853,7 +1854,7 @@ sw.bb4.us:                                        ; preds = %if.end.us
   br i1 %cmp.us, label %if.then6, label %if.end7.us
 
 if.end7.us:                                       ; preds = %sw.bb4.us
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #16
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #17
   %cmp.i4.not.us = icmp eq ptr %3, null
   %number.i.us = getelementptr inbounds i8, ptr %2, i64 8
   br i1 %cmp.i4.not.us, label %sw.default, label %if.end.us
@@ -1883,7 +1884,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6icu_7511Formattable9getObjectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZNK6icu_7511Formattable9getObjectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) local_unnamed_addr #10 align 2 {
 entry:
   %fType = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %fType, align 8
@@ -1945,7 +1946,7 @@ entry:
   tail call void @_ZN6icu_7511Formattable7disposeEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
   %fType = getelementptr inbounds i8, ptr %this, i64 40
   store i32 3, ptr %fType, align 8
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #16
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #17
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -1961,7 +1962,7 @@ new.cont:                                         ; preds = %new.notnull, %entry
 lpad:                                             ; preds = %new.notnull
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #16
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #17
   resume { ptr, i32 } %0
 }
 
@@ -1977,7 +1978,7 @@ entry:
   %2 = extractvalue { i64, i1 } %0, 0
   %3 = or disjoint i64 %2, 8
   %4 = select i1 %1, i64 -1, i64 %3
-  %call.i = tail call noundef ptr @_ZN6icu_757UMemorynaEm(i64 noundef %4) #16
+  %call.i = tail call noundef ptr @_ZN6icu_757UMemorynaEm(i64 noundef %4) #17
   %new.isnull.i = icmp eq ptr %call.i, null
   br i1 %new.isnull.i, label %_ZN6icu_75L15createArrayCopyEPKNS_11FormattableEi.exit, label %new.notnull.i
 
@@ -2030,12 +2031,12 @@ arraydestroy.body.i:                              ; preds = %lpad.i, %arraydestr
   %arraydestroy.elementPast.idx.i = phi i64 [ %arraydestroy.elementPast.add.i, %arraydestroy.body.i ], [ %arrayctor.cur.idx.i, %lpad.i ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -112
   %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arraydestroy.elementPast.add.i
-  tail call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %arraydestroy.element.ptr.i) #16
+  tail call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %arraydestroy.element.ptr.i) #17
   %arraydestroy.done.i = icmp eq i64 %arraydestroy.elementPast.add.i, 8
   br i1 %arraydestroy.done.i, label %cleanup.action5.i, label %arraydestroy.body.i
 
 cleanup.action5.i:                                ; preds = %arraydestroy.body.i, %lpad.i
-  tail call void @_ZN6icu_757UMemorydaEPv(ptr noundef nonnull %call.i) #16
+  tail call void @_ZN6icu_757UMemorydaEPv(ptr noundef nonnull %call.i) #17
   resume { ptr, i32 } %5
 
 _ZN6icu_75L15createArrayCopyEPKNS_11FormattableEi.exit: ; preds = %for.body.i, %entry, %new.notnull.i, %new.cont.i
@@ -2126,10 +2127,10 @@ if.end6:                                          ; preds = %if.then.i5, %if.the
   ret ptr %result
 }
 
-declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7511Formattable9getStringER10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7511Formattable9getStringER10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #13 align 2 {
 entry:
   %fType = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %fType, align 8
@@ -2174,14 +2175,14 @@ return:                                           ; preds = %if.end, %_ZN6icu_75
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7511Formattable8getBogusEv(ptr noundef nonnull readnone align 8 dereferenceable(112) %this) local_unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7511Formattable8getBogusEv(ptr noundef nonnull readnone align 8 dereferenceable(112) %this) local_unnamed_addr #7 align 2 {
 entry:
   %fBogus = getelementptr inbounds i8, ptr %this, i64 48
   ret ptr %fBogus
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7511Formattable9getStringER10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7511Formattable9getStringER10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #13 align 2 {
 entry:
   %fType = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %fType, align 8
@@ -2226,7 +2227,7 @@ return:                                           ; preds = %if.end, %_ZN6icu_75
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK6icu_7511Formattable8getArrayERiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #12 align 2 {
+define noundef ptr @_ZNK6icu_7511Formattable8getArrayERiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #13 align 2 {
 entry:
   %fType = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %fType, align 8
@@ -2313,7 +2314,7 @@ return:                                           ; preds = %if.else, %if.then8,
   ret { ptr, i32 } %.fca.1.insert
 }
 
-declare void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #5
+declare void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_7511Formattable21internalGetCharStringER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -2334,7 +2335,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end19
 
 if.then3:                                         ; preds = %if.then
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 72) #16
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 72) #17
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -2359,7 +2360,7 @@ _ZN6icu_7512LocalPointerINS_6number4impl15DecimalQuantityEEC2EPS3_R10UErrorCode.
 lpad:                                             ; preds = %new.notnull
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #16
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #17
   br label %eh.resume
 
 delete.notnull.i:                                 ; preds = %if.then.i12, %sw.bb.i, %call4.i.noexc, %sw.bb5.i, %sw.bb8.i
@@ -2368,7 +2369,7 @@ delete.notnull.i:                                 ; preds = %if.then.i12, %sw.bb
   %vtable.i = load ptr, ptr %call, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %5 = load ptr, ptr %vfn.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(66) %call) #16
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(66) %call) #17
   br label %eh.resume
 
 if.end:                                           ; preds = %_ZN6icu_7512LocalPointerINS_6number4impl15DecimalQuantityEEC2EPS3_R10UErrorCode.exit
@@ -2425,7 +2426,7 @@ delete.notnull.i20:                               ; preds = %invoke.cont10.threa
   %vtable.i21 = load ptr, ptr %call, align 8
   %vfn.i22 = getelementptr inbounds i8, ptr %vtable.i21, i64 8
   %11 = load ptr, ptr %vfn.i22, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(66) %call) #16
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(66) %call) #17
   br label %return
 
 _ZN6icu_7512LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit23: ; preds = %invoke.cont10
@@ -2433,7 +2434,7 @@ _ZN6icu_7512LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit23: ; preds 
   br label %if.end19
 
 if.end19:                                         ; preds = %_ZN6icu_7512LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit23, %if.then
-  %call20 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #16
+  %call20 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #17
   %new.isnull21 = icmp eq ptr %call20, null
   br i1 %new.isnull21, label %if.then34, label %new.notnull22
 
@@ -2449,7 +2450,7 @@ if.then34:                                        ; preds = %if.end19
 lpad25:                                           ; preds = %new.notnull22
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call20) #16
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call20) #17
   br label %eh.resume
 
 if.end35:                                         ; preds = %new.notnull22
@@ -2530,13 +2531,13 @@ if.then66:                                        ; preds = %if.else55, %if.else
           to label %invoke.cont70 unwind label %lpad69
 
 invoke.cont70:                                    ; preds = %if.then66
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #16
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #17
   br label %if.end83
 
 lpad69:                                           ; preds = %if.then66
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #16
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #17
   br label %eh.resume
 
 if.else72:                                        ; preds = %land.lhs.true, %lor.lhs.false59
@@ -2547,13 +2548,13 @@ if.else72:                                        ; preds = %land.lhs.true, %lor
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %if.else72
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp74) #16
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp74) #17
   br label %if.end83
 
 lpad76:                                           ; preds = %if.else72
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp74) #16
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp74) #17
   br label %eh.resume
 
 if.end83:                                         ; preds = %if.then38, %if.then52, %invoke.cont77, %invoke.cont70, %if.then45, %entry
@@ -2569,7 +2570,7 @@ eh.resume:                                        ; preds = %delete.notnull.i, %
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #5
+declare void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7511Formattable23populateDecimalQuantityERNS_6number4impl15DecimalQuantityER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(66) %output, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
@@ -2620,30 +2621,30 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb8
   ret void
 }
 
-declare noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #5
+declare noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #6
 
-declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
-declare noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #5
+declare noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #11
+declare i32 @llvm.abs.i32(i32, i1 immarg) #12
 
-declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
-declare void @_ZNK6icu_756number4impl15DecimalQuantity13toPlainStringEv(ptr sret(%"class.icu_75::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #5
+declare void @_ZNK6icu_756number4impl15DecimalQuantity13toPlainStringEv(ptr sret(%"class.icu_75::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #6
 
-declare void @_ZNK6icu_756number4impl15DecimalQuantity18toScientificStringEv(ptr sret(%"class.icu_75::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #5
+declare void @_ZNK6icu_756number4impl15DecimalQuantity18toScientificStringEv(ptr sret(%"class.icu_75::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #6
 
-declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(66), ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(66), ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #6
 
-declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity11setToDoubleEd(ptr noundef nonnull align 8 dereferenceable(66), double noundef) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity11setToDoubleEd(ptr noundef nonnull align 8 dereferenceable(66), double noundef) local_unnamed_addr #6
 
-declare void @_ZN6icu_756number4impl15DecimalQuantity15roundToInfinityEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #5
+declare void @_ZN6icu_756number4impl15DecimalQuantity15roundToInfinityEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #6
 
-declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity8setToIntEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity8setToIntEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) local_unnamed_addr #6
 
-declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity9setToLongEl(ptr noundef nonnull align 8 dereferenceable(66), i64 noundef) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity9setToLongEl(ptr noundef nonnull align 8 dereferenceable(66), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511Formattable20adoptDecimalQuantityEPNS_6number4impl15DecimalQuantityE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %dq) local_unnamed_addr #1 align 2 {
@@ -2657,7 +2658,7 @@ delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(66) %0) #16
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(66) %0) #17
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %entry
@@ -2700,9 +2701,9 @@ if.end23:                                         ; preds = %if.then15, %if.else
   ret void
 }
 
-declare noundef double @_ZNK6icu_756number4impl15DecimalQuantity8toDoubleEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #5
+declare noundef double @_ZNK6icu_756number4impl15DecimalQuantity8toDoubleEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #6
 
-declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), ptr, i32, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), ptr, i32, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @ufmt_open_75(ptr nocapture noundef readonly %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
@@ -2712,7 +2713,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 112) #16
+  %call1 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 112) #17
   %new.isnull = icmp ne ptr %call1, null
   tail call void @llvm.assume(i1 %new.isnull)
   invoke void @_ZN6icu_7511FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %call1)
@@ -2721,7 +2722,7 @@ if.end:                                           ; preds = %entry
 lpad:                                             ; preds = %if.end
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1) #16
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1) #17
   resume { ptr, i32 } %1
 
 return:                                           ; preds = %if.end, %entry
@@ -2739,7 +2740,7 @@ delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %fmt, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(112) %fmt) #16
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(112) %fmt) #17
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -2747,7 +2748,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ufmt_getType_75(ptr nocapture noundef readonly %fmt, ptr nocapture noundef readonly %status) local_unnamed_addr #9 {
+define i32 @ufmt_getType_75(ptr nocapture noundef readonly %fmt, ptr nocapture noundef readonly %status) local_unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2764,7 +2765,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext range(i8 0, 2) i8 @ufmt_isNumeric_75(ptr nocapture noundef readonly %fmt) local_unnamed_addr #9 {
+define signext range(i8 0, 2) i8 @ufmt_isNumeric_75(ptr nocapture noundef readonly %fmt) local_unnamed_addr #10 {
 entry:
   %fType.i = getelementptr inbounds i8, ptr %fmt, i64 40
   %0 = load i32, ptr %fType.i, align 8
@@ -2778,7 +2779,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define double @ufmt_getDate_75(ptr nocapture noundef readonly %fmt, ptr nocapture noundef %status) local_unnamed_addr #12 {
+define double @ufmt_getDate_75(ptr nocapture noundef readonly %fmt, ptr nocapture noundef %status) local_unnamed_addr #13 {
 entry:
   %fType.i = getelementptr inbounds i8, ptr %fmt, i64 40
   %0 = load i32, ptr %fType.i, align 8
@@ -2805,7 +2806,7 @@ _ZNK6icu_7511Formattable7getDateER10UErrorCode.exit: ; preds = %if.then.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define double @ufmt_getDouble_75(ptr nocapture noundef readonly %fmt, ptr nocapture noundef %status) local_unnamed_addr #10 {
+define double @ufmt_getDouble_75(ptr nocapture noundef readonly %fmt, ptr nocapture noundef %status) local_unnamed_addr #11 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2829,7 +2830,7 @@ sw.bb4.us.i:                                      ; preds = %if.end.us.i
   br i1 %cmp.us.i, label %if.then6.i, label %if.end7.us.i
 
 if.end7.us.i:                                     ; preds = %sw.bb4.us.i
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #16
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #17
   %cmp.i4.not.us.i = icmp eq ptr %3, null
   %number.i.us.i = getelementptr inbounds i8, ptr %2, i64 8
   br i1 %cmp.i4.not.us.i, label %sw.default.i, label %if.end.us.i
@@ -2859,7 +2860,7 @@ _ZNK6icu_7511Formattable9getDoubleER10UErrorCode.exit: ; preds = %entry, %sw.bb.
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define i32 @ufmt_getLong_75(ptr nocapture noundef readonly %fmt, ptr nocapture noundef %status) local_unnamed_addr #10 {
+define i32 @ufmt_getLong_75(ptr nocapture noundef readonly %fmt, ptr nocapture noundef %status) local_unnamed_addr #11 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2883,7 +2884,7 @@ sw.bb22.us.i:                                     ; preds = %if.end.us.i
   br i1 %cmp24.us.i, label %if.then25.i, label %if.end26.us.i
 
 if.end26.us.i:                                    ; preds = %sw.bb22.us.i
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #16
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %2, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_757MeasureE, i64 0) #17
   %cmp.i10.not.us.i = icmp eq ptr %3, null
   %number.i.us.i = getelementptr inbounds i8, ptr %2, i64 8
   br i1 %cmp.i10.not.us.i, label %sw.default.i, label %if.end.us.i
@@ -2952,7 +2953,7 @@ _ZNK6icu_7511Formattable7getLongER10UErrorCode.exit: ; preds = %entry, %sw.bb.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @ufmt_getObject_75(ptr nocapture noundef readonly %fmt, ptr nocapture noundef %status) local_unnamed_addr #12 {
+define ptr @ufmt_getObject_75(ptr nocapture noundef readonly %fmt, ptr nocapture noundef %status) local_unnamed_addr #13 {
 entry:
   %fType.i = getelementptr inbounds i8, ptr %fmt, i64 40
   %0 = load i32, ptr %fType.i, align 8
@@ -3041,10 +3042,10 @@ return:                                           ; preds = %if.then, %if.then3,
   ret ptr %retval.0
 }
 
-declare noundef ptr @_ZN6icu_7513UnicodeString19getTerminatedBufferEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #5
+declare noundef ptr @_ZN6icu_7513UnicodeString19getTerminatedBufferEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @ufmt_getArrayLength_75(ptr nocapture noundef readonly %fmt, ptr nocapture noundef %status) local_unnamed_addr #12 {
+define i32 @ufmt_getArrayLength_75(ptr nocapture noundef readonly %fmt, ptr nocapture noundef %status) local_unnamed_addr #13 {
 entry:
   %fType.i = getelementptr inbounds i8, ptr %fmt, i64 40
   %0 = load i32, ptr %fType.i, align 8
@@ -3071,7 +3072,7 @@ _ZNK6icu_7511Formattable8getArrayERiR10UErrorCode.exit: ; preds = %if.then.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @ufmt_getArrayItemByIndex_75(ptr nocapture noundef readonly %fmt, i32 noundef %n, ptr nocapture noundef %status) local_unnamed_addr #12 {
+define ptr @ufmt_getArrayItemByIndex_75(ptr nocapture noundef readonly %fmt, i32 noundef %n, ptr nocapture noundef %status) local_unnamed_addr #13 {
 entry:
   %fType.i = getelementptr inbounds i8, ptr %fmt, i64 40
   %0 = load i32, ptr %fType.i, align 8
@@ -3163,43 +3164,44 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #11
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #12
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN6icu_757UMemorynaEm(i64 noundef) local_unnamed_addr #7
+declare noundef ptr @_ZN6icu_757UMemorynaEm(i64 noundef) local_unnamed_addr #8
 
-declare noundef signext i8 @_ZNK6icu_7513UnicodeString8doEqualsERKS0_i(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #5
+declare noundef signext i8 @_ZNK6icu_7513UnicodeString8doEqualsERKS0_i(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #6
 
-declare noundef zeroext i1 @_ZNK6icu_757MeasureeqERKNS_7UObjectE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
+declare noundef zeroext i1 @_ZNK6icu_757MeasureeqERKNS_7UObjectE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
+declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
+declare i32 @llvm.smin.i32(i32, i32) #16
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { allocsize(0) }
-attributes #18 = { noreturn nounwind }
+attributes #3 = { cold nofree noreturn }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { allocsize(0) }
+attributes #19 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

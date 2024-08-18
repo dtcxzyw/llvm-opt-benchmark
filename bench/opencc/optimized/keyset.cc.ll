@@ -81,7 +81,7 @@ define linkonce_odr void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef non
   br i1 %12, label %_ZN6marisa12scoped_arrayIcED2Ev.exit, label %13
 
 13:                                               ; preds = %.preheader
-  tail call void @_ZdaPv(ptr noundef nonnull %11) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %11) #10
   br label %_ZN6marisa12scoped_arrayIcED2Ev.exit
 
 _ZN6marisa12scoped_arrayIcED2Ev.exit:             ; preds = %.preheader, %13
@@ -89,7 +89,7 @@ _ZN6marisa12scoped_arrayIcED2Ev.exit:             ; preds = %.preheader, %13
   br i1 %14, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %_ZN6marisa12scoped_arrayIcED2Ev.exit, %4
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #10
   br label %15
 
 15:                                               ; preds = %.loopexit, %1
@@ -391,7 +391,7 @@ define void @_ZN6marisa6Keyset16append_key_blockEv(ptr nocapture noundef nonnull
   %14 = or i1 %10, %13
   %15 = extractvalue { i64, i1 } %12, 0
   %16 = select i1 %14, i64 -1, i64 %15
-  %17 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #10
+  %17 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %23, label %19
 
@@ -414,7 +414,7 @@ define void @_ZN6marisa6Keyset16append_key_blockEv(ptr nocapture noundef nonnull
 
 23:                                               ; preds = %8
   store ptr null, ptr %2, align 8
-  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #11
+  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #12
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr @.str, ptr %25, align 8
@@ -424,7 +424,7 @@ define void @_ZN6marisa6Keyset16append_key_blockEv(ptr nocapture noundef nonnull
   store i32 8, ptr %27, align 4
   %28 = getelementptr inbounds i8, ptr %24, i64 24
   store ptr @.str.8, ptr %28, align 8
-  invoke void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #12
+  invoke void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #13
           to label %70 unwind label %38
 
 29:                                               ; preds = %.lr.ph, %29
@@ -444,7 +444,7 @@ define void @_ZN6marisa6Keyset16append_key_blockEv(ptr nocapture noundef nonnull
 38:                                               ; preds = %23
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  call void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   resume { ptr, i32 } %39
 
 ._crit_edge:                                      ; preds = %29, %.loopexit
@@ -473,7 +473,7 @@ define void @_ZN6marisa6Keyset16append_key_blockEv(ptr nocapture noundef nonnull
   br i1 %51, label %_ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit.i, label %52
 
 52:                                               ; preds = %.preheader.i
-  tail call void @_ZdaPv(ptr noundef nonnull %50) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %50) #10
   br label %_ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit.i
 
 _ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit.i:    ; preds = %52, %.preheader.i
@@ -481,11 +481,11 @@ _ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit.i:    ; preds = %52, %.preheader.i
   br i1 %53, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %_ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit.i, %43
-  tail call void @_ZdaPv(ptr noundef nonnull %44) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %44) #10
   br label %_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev.exit
 
 _ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev.exit: ; preds = %.loopexit.i, %._crit_edge, %1
-  %54 = tail call noalias noundef dereferenceable_or_null(4096) ptr @_ZnamRKSt9nothrow_t(i64 noundef 4096, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #10
+  %54 = tail call noalias noundef dereferenceable_or_null(4096) ptr @_ZnamRKSt9nothrow_t(i64 noundef 4096, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
   %55 = icmp eq ptr %54, null
   br i1 %55, label %63, label %.preheader.preheader
 
@@ -503,7 +503,7 @@ _ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev.exit: ; preds = %.loopexit.i, %._c
   br i1 %62, label %_ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit, label %69
 
 63:                                               ; preds = %_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev.exit
-  %64 = tail call ptr @__cxa_allocate_exception(i64 32) #11
+  %64 = tail call ptr @__cxa_allocate_exception(i64 32) #12
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   store ptr @.str, ptr %65, align 8
@@ -513,11 +513,11 @@ _ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev.exit: ; preds = %.loopexit.i, %._c
   store i32 8, ptr %67, align 4
   %68 = getelementptr inbounds i8, ptr %64, i64 24
   store ptr @.str.9, ptr %68, align 8
-  tail call void @__cxa_throw(ptr nonnull %64, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #12
+  tail call void @__cxa_throw(ptr nonnull %64, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #13
   unreachable
 
 69:                                               ; preds = %.preheader.preheader
-  tail call void @_ZdaPv(ptr noundef nonnull %61) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %61) #10
   br label %_ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit
 
 _ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit:      ; preds = %.preheader.preheader, %69
@@ -533,7 +533,7 @@ define void @_ZN6marisa6Keyset9push_backEPKc(ptr nocapture noundef nonnull align
   br i1 %3, label %4, label %.preheader
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @__cxa_allocate_exception(i64 32) #11
+  %5 = tail call ptr @__cxa_allocate_exception(i64 32) #12
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
@@ -543,7 +543,7 @@ define void @_ZN6marisa6Keyset9push_backEPKc(ptr nocapture noundef nonnull align
   store i32 2, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr @.str.1, ptr %9, align 8
-  tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #12
+  tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #13
   unreachable
 
 .preheader:                                       ; preds = %2, %.preheader
@@ -563,11 +563,12 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
   ret void
 }
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6marisa6Keyset9push_backEPKcmf(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr noundef readonly %1, i64 noundef %2, float noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
@@ -577,7 +578,7 @@ define void @_ZN6marisa6Keyset9push_backEPKcmf(ptr nocapture noundef nonnull ali
   br i1 %or.cond, label %7, label %13
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @__cxa_allocate_exception(i64 32) #11
+  %8 = tail call ptr @__cxa_allocate_exception(i64 32) #12
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @.str, ptr %9, align 8
@@ -587,7 +588,7 @@ define void @_ZN6marisa6Keyset9push_backEPKcmf(ptr nocapture noundef nonnull ali
   store i32 2, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr @.str.2, ptr %12, align 8
-  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #12
+  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #13
   unreachable
 
 13:                                               ; preds = %4
@@ -595,7 +596,7 @@ define void @_ZN6marisa6Keyset9push_backEPKcmf(ptr nocapture noundef nonnull ali
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %13
-  %16 = tail call ptr @__cxa_allocate_exception(i64 32) #11
+  %16 = tail call ptr @__cxa_allocate_exception(i64 32) #12
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr @.str, ptr %17, align 8
@@ -605,7 +606,7 @@ define void @_ZN6marisa6Keyset9push_backEPKcmf(ptr nocapture noundef nonnull ali
   store i32 7, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %16, i64 24
   store ptr @.str.3, ptr %20, align 8
-  tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #12
+  tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #13
   unreachable
 
 21:                                               ; preds = %13
@@ -794,12 +795,12 @@ define void @_ZN6marisa6Keyset5clearEv(ptr nocapture noundef nonnull align 8 der
   %52 = load i64, ptr %50, align 8
   store i64 %52, ptr %49, align 8
   store i64 %51, ptr %50, align 8
-  call void @_ZN6marisa6KeysetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #11
+  call void @_ZN6marisa6KeysetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6marisa6Keyset4swapERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN6marisa6Keyset4swapERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
@@ -904,7 +905,7 @@ define linkonce_odr void @_ZN6marisa6KeysetD2Ev(ptr noundef nonnull align 8 dere
   br i1 %13, label %_ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit.i, label %14
 
 14:                                               ; preds = %.preheader.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #10
   br label %_ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit.i
 
 _ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit.i:    ; preds = %14, %.preheader.i
@@ -912,7 +913,7 @@ _ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit.i:    ; preds = %14, %.preheader.i
   br i1 %15, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %_ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit.i, %5
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %6) #10
   br label %_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev.exit
 
 _ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev.exit: ; preds = %1, %.loopexit.i
@@ -939,7 +940,7 @@ _ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev.exit: ; preds = %1, %.loopexit.i
   br i1 %27, label %_ZN6marisa12scoped_arrayIcED2Ev.exit.i, label %28
 
 28:                                               ; preds = %.preheader.i2
-  tail call void @_ZdaPv(ptr noundef nonnull %26) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %26) #10
   br label %_ZN6marisa12scoped_arrayIcED2Ev.exit.i
 
 _ZN6marisa12scoped_arrayIcED2Ev.exit.i:           ; preds = %28, %.preheader.i2
@@ -947,7 +948,7 @@ _ZN6marisa12scoped_arrayIcED2Ev.exit.i:           ; preds = %28, %.preheader.i2
   br i1 %29, label %.loopexit.i3, label %.preheader.i2
 
 .loopexit.i3:                                     ; preds = %_ZN6marisa12scoped_arrayIcED2Ev.exit.i, %19
-  tail call void @_ZdaPv(ptr noundef nonnull %20) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %20) #10
   br label %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit
 
 _ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit:      ; preds = %_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev.exit, %.loopexit.i3
@@ -973,7 +974,7 @@ _ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit:      ; preds = %_ZN6marisa12scoped_
   br i1 %40, label %_ZN6marisa12scoped_arrayIcED2Ev.exit.i6, label %41
 
 41:                                               ; preds = %.preheader.i5
-  tail call void @_ZdaPv(ptr noundef nonnull %39) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %39) #10
   br label %_ZN6marisa12scoped_arrayIcED2Ev.exit.i6
 
 _ZN6marisa12scoped_arrayIcED2Ev.exit.i6:          ; preds = %41, %.preheader.i5
@@ -981,7 +982,7 @@ _ZN6marisa12scoped_arrayIcED2Ev.exit.i6:          ; preds = %41, %.preheader.i5
   br i1 %42, label %.loopexit.i7, label %.preheader.i5
 
 .loopexit.i7:                                     ; preds = %_ZN6marisa12scoped_arrayIcED2Ev.exit.i6, %32
-  tail call void @_ZdaPv(ptr noundef nonnull %33) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %33) #10
   br label %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit8
 
 _ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit8:     ; preds = %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit, %.loopexit.i7
@@ -1009,7 +1010,7 @@ define void @_ZN6marisa6Keyset18append_extra_blockEm(ptr nocapture noundef nonnu
   %15 = or i1 %11, %14
   %16 = extractvalue { i64, i1 } %13, 0
   %17 = select i1 %15, i64 -1, i64 %16
-  %18 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %17, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #10
+  %18 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %17, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
   %19 = icmp eq ptr %18, null
   br i1 %19, label %24, label %20
 
@@ -1032,7 +1033,7 @@ define void @_ZN6marisa6Keyset18append_extra_blockEm(ptr nocapture noundef nonnu
 
 24:                                               ; preds = %9
   store ptr null, ptr %3, align 8
-  %25 = tail call ptr @__cxa_allocate_exception(i64 32) #11
+  %25 = tail call ptr @__cxa_allocate_exception(i64 32) #12
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr @.str, ptr %26, align 8
@@ -1042,7 +1043,7 @@ define void @_ZN6marisa6Keyset18append_extra_blockEm(ptr nocapture noundef nonnu
   store i32 8, ptr %28, align 4
   %29 = getelementptr inbounds i8, ptr %25, i64 24
   store ptr @.str.6, ptr %29, align 8
-  invoke void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #12
+  invoke void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #13
           to label %72 unwind label %39
 
 30:                                               ; preds = %.lr.ph, %30
@@ -1062,7 +1063,7 @@ define void @_ZN6marisa6Keyset18append_extra_blockEm(ptr nocapture noundef nonnu
 39:                                               ; preds = %24
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   resume { ptr, i32 } %40
 
 ._crit_edge:                                      ; preds = %30, %.loopexit
@@ -1091,7 +1092,7 @@ define void @_ZN6marisa6Keyset18append_extra_blockEm(ptr nocapture noundef nonnu
   br i1 %52, label %_ZN6marisa12scoped_arrayIcED2Ev.exit.i, label %53
 
 53:                                               ; preds = %.preheader.i
-  tail call void @_ZdaPv(ptr noundef nonnull %51) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %51) #10
   br label %_ZN6marisa12scoped_arrayIcED2Ev.exit.i
 
 _ZN6marisa12scoped_arrayIcED2Ev.exit.i:           ; preds = %53, %.preheader.i
@@ -1099,16 +1100,16 @@ _ZN6marisa12scoped_arrayIcED2Ev.exit.i:           ; preds = %53, %.preheader.i
   br i1 %54, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %_ZN6marisa12scoped_arrayIcED2Ev.exit.i, %44
-  tail call void @_ZdaPv(ptr noundef nonnull %45) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %45) #10
   br label %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit
 
 _ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit:      ; preds = %.loopexit.i, %._crit_edge, %2
-  %55 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #10
+  %55 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %63
 
 57:                                               ; preds = %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit
-  %58 = tail call ptr @__cxa_allocate_exception(i64 32) #11
+  %58 = tail call ptr @__cxa_allocate_exception(i64 32) #12
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 8
   store ptr @.str, ptr %59, align 8
@@ -1118,7 +1119,7 @@ _ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit:      ; preds = %.loopexit.i, %._cri
   store i32 8, ptr %61, align 4
   %62 = getelementptr inbounds i8, ptr %58, i64 24
   store ptr @.str.7, ptr %62, align 8
-  tail call void @__cxa_throw(ptr nonnull %58, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #12
+  tail call void @__cxa_throw(ptr nonnull %58, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #13
   unreachable
 
 63:                                               ; preds = %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit
@@ -1134,7 +1135,7 @@ _ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit:      ; preds = %.loopexit.i, %._cri
   br i1 %70, label %_ZN6marisa12scoped_arrayIcED2Ev.exit, label %71
 
 71:                                               ; preds = %63
-  tail call void @_ZdaPv(ptr noundef nonnull %69) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %69) #10
   br label %_ZN6marisa12scoped_arrayIcED2Ev.exit
 
 _ZN6marisa12scoped_arrayIcED2Ev.exit:             ; preds = %63, %71
@@ -1165,7 +1166,7 @@ define void @_ZN6marisa6Keyset17append_base_blockEv(ptr nocapture noundef nonnul
   %14 = or i1 %10, %13
   %15 = extractvalue { i64, i1 } %12, 0
   %16 = select i1 %14, i64 -1, i64 %15
-  %17 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #10
+  %17 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %22, label %19
 
@@ -1184,7 +1185,7 @@ define void @_ZN6marisa6Keyset17append_base_blockEv(ptr nocapture noundef nonnul
 
 22:                                               ; preds = %8
   store ptr null, ptr %2, align 8
-  %23 = tail call ptr @__cxa_allocate_exception(i64 32) #11
+  %23 = tail call ptr @__cxa_allocate_exception(i64 32) #12
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr @.str, ptr %24, align 8
@@ -1194,7 +1195,7 @@ define void @_ZN6marisa6Keyset17append_base_blockEv(ptr nocapture noundef nonnul
   store i32 8, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %23, i64 24
   store ptr @.str.4, ptr %27, align 8
-  invoke void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #12
+  invoke void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #13
           to label %73 unwind label %36
 
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph
@@ -1214,7 +1215,7 @@ define void @_ZN6marisa6Keyset17append_base_blockEv(ptr nocapture noundef nonnul
 36:                                               ; preds = %22
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
+  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   resume { ptr, i32 } %37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
@@ -1243,7 +1244,7 @@ define void @_ZN6marisa6Keyset17append_base_blockEv(ptr nocapture noundef nonnul
   br i1 %49, label %_ZN6marisa12scoped_arrayIcED2Ev.exit.i, label %50
 
 50:                                               ; preds = %.preheader.i
-  tail call void @_ZdaPv(ptr noundef nonnull %48) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %48) #10
   br label %_ZN6marisa12scoped_arrayIcED2Ev.exit.i
 
 _ZN6marisa12scoped_arrayIcED2Ev.exit.i:           ; preds = %50, %.preheader.i
@@ -1251,7 +1252,7 @@ _ZN6marisa12scoped_arrayIcED2Ev.exit.i:           ; preds = %50, %.preheader.i
   br i1 %51, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %_ZN6marisa12scoped_arrayIcED2Ev.exit.i, %41
-  tail call void @_ZdaPv(ptr noundef nonnull %42) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %42) #10
   %.pre = load i64, ptr %3, align 8
   br label %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit
 
@@ -1264,12 +1265,12 @@ _ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit:      ; preds = %.loopexit.i, %._cri
   br i1 %56, label %57, label %_ZN6marisa12scoped_arrayIcED2Ev.exit
 
 57:                                               ; preds = %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit
-  %58 = tail call noalias noundef dereferenceable_or_null(4096) ptr @_ZnamRKSt9nothrow_t(i64 noundef 4096, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #10
+  %58 = tail call noalias noundef dereferenceable_or_null(4096) ptr @_ZnamRKSt9nothrow_t(i64 noundef 4096, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %._ZN6marisa12scoped_arrayIcED2Ev.exit_crit_edge
 
 60:                                               ; preds = %57
-  %61 = tail call ptr @__cxa_allocate_exception(i64 32) #11
+  %61 = tail call ptr @__cxa_allocate_exception(i64 32) #12
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 8
   store ptr @.str, ptr %62, align 8
@@ -1279,7 +1280,7 @@ _ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit:      ; preds = %.loopexit.i, %._cri
   store i32 8, ptr %64, align 4
   %65 = getelementptr inbounds i8, ptr %61, i64 24
   store ptr @.str.5, ptr %65, align 8
-  tail call void @__cxa_throw(ptr nonnull %61, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #12
+  tail call void @__cxa_throw(ptr nonnull %61, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #13
   unreachable
 
 ._ZN6marisa12scoped_arrayIcED2Ev.exit_crit_edge:  ; preds = %57
@@ -1306,10 +1307,10 @@ _ZN6marisa12scoped_arrayIcED2Ev.exit:             ; preds = %._ZN6marisa12scoped
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #4
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #5
 
 ; Function Attrs: nobuiltin nounwind allocsize(0)
-declare noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #5
+declare noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
@@ -1335,7 +1336,7 @@ define linkonce_odr void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev(ptr noun
   br i1 %12, label %_ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit, label %13
 
 13:                                               ; preds = %.preheader
-  tail call void @_ZdaPv(ptr noundef nonnull %11) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %11) #10
   br label %_ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit
 
 _ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit:      ; preds = %.preheader, %13
@@ -1343,7 +1344,7 @@ _ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit:      ; preds = %.preheader, %13
   br i1 %14, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %_ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit, %4
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #10
   br label %15
 
 15:                                               ; preds = %.loopexit, %1
@@ -1352,8 +1353,8 @@ _ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit:      ; preds = %.preheader, %13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa9ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #9
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
 
@@ -1365,30 +1366,31 @@ define linkonce_odr noundef ptr @_ZNK6marisa9Exception4whatEv(ptr noundef nonnul
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nobuiltin nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { builtin nounwind }
-attributes #10 = { builtin nounwind allocsize(0) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn }
+attributes #3 = { cold noreturn }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nobuiltin nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { builtin nounwind }
+attributes #11 = { builtin nounwind allocsize(0) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

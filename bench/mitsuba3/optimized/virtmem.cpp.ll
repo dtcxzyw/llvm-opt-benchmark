@@ -48,7 +48,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_107VirtMem5alloc
   %11 = icmp eq i32 %10, 0
   %12 = or i32 %9, 5
   %13 = select i1 %11, i32 %9, i32 %12
-  %14 = tail call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef %13, i32 noundef 34, i32 noundef -1, i64 noundef 0) #13
+  %14 = tail call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef %13, i32 noundef 34, i32 noundef -1, i64 noundef 0) #14
   %15 = icmp eq ptr %14, inttoptr (i64 -1 to ptr)
   br i1 %15, label %17, label %16
 
@@ -72,7 +72,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_107VirtMem7releaseEPvm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @munmap(ptr noundef %0, i64 noundef %1) #13
+  %3 = tail call i32 @munmap(ptr noundef %0, i64 noundef %1) #14
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %6, label %5, !prof !7
 
@@ -97,7 +97,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_107VirtMem7prote
   %9 = icmp eq i32 %8, 0
   %10 = or i32 %7, 5
   %11 = select i1 %9, i32 %7, i32 %10
-  %12 = tail call i32 @mprotect(ptr noundef %0, i64 noundef %1, i32 noundef %11) #13
+  %12 = tail call i32 @mprotect(ptr noundef %0, i64 noundef %1, i32 noundef %11) #14
   %13 = icmp eq i32 %12, 0
   %14 = select i1 %13, i32 0, i32 2
   ret i32 %14
@@ -130,7 +130,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
   br i1 %15, label %16, label %92
 
 16:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4) #14
   store i32 -1, ptr %4, align 8, !tbaa !8
   %17 = getelementptr inbounds i8, ptr %4, i64 4
   %18 = getelementptr inbounds i8, ptr %4, i64 8
@@ -152,7 +152,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
   br label %34
 
 27:                                               ; preds = %16
-  %28 = tail call i32 @getpagesize() #14
+  %28 = tail call i32 @getpagesize() #15
   %29 = call noundef i32 @llvm.umax.i32(i32 %28, i32 65536)
   %30 = zext i32 %29 to i64
   %31 = shl nuw i64 %30, 32
@@ -164,40 +164,40 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
 
 34:                                               ; preds = %27, %24
   %35 = phi i64 [ %26, %24 ], [ %32, %27 ]
-  %36 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousMemory4openEb(ptr noundef nonnull align 8 dereferenceable(176) %4, i1 noundef zeroext false) #13
+  %36 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousMemory4openEb(ptr noundef nonnull align 8 dereferenceable(176) %4, i1 noundef zeroext false) #14
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %58
 
 38:                                               ; preds = %34
   %39 = load i32, ptr %4, align 8, !tbaa !8
-  %40 = call i32 @ftruncate(i32 noundef %39, i64 noundef %35) #13
+  %40 = call i32 @ftruncate(i32 noundef %39, i64 noundef %35) #14
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %46, label %42
 
 42:                                               ; preds = %38
-  %43 = tail call ptr @__errno_location() #14
+  %43 = tail call ptr @__errno_location() #15
   %44 = load i32, ptr %43, align 4, !tbaa !16
-  %45 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %44) #13, !range !17
+  %45 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %44) #14, !range !17
   br label %58
 
 46:                                               ; preds = %38
   %47 = load i32, ptr %4, align 8, !tbaa !8
-  %48 = call ptr @mmap(ptr noundef null, i64 noundef %35, i32 noundef 5, i32 noundef 1, i32 noundef %47, i64 noundef 0) #13
+  %48 = call ptr @mmap(ptr noundef null, i64 noundef %35, i32 noundef 5, i32 noundef 1, i32 noundef %47, i64 noundef 0) #14
   %49 = icmp eq ptr %48, inttoptr (i64 -1 to ptr)
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %46
-  %51 = tail call ptr @__errno_location() #14
+  %51 = tail call ptr @__errno_location() #15
   %52 = load i32, ptr %51, align 4, !tbaa !16
   %53 = icmp eq i32 %52, 22
   br i1 %53, label %58, label %54
 
 54:                                               ; preds = %50
-  %55 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %52) #13, !range !17
+  %55 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %52) #14, !range !17
   br label %58
 
 56:                                               ; preds = %46
-  %57 = call i32 @munmap(ptr noundef %48, i64 noundef %35) #13
+  %57 = call i32 @munmap(ptr noundef %48, i64 noundef %35) #14
   br label %58
 
 58:                                               ; preds = %56, %54, %50, %42, %34
@@ -225,14 +225,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
   %72 = load ptr, ptr %21, align 8
   %73 = getelementptr inbounds i8, ptr %4, i64 9
   %74 = select i1 %71, ptr %72, ptr %73
-  %75 = call i32 @unlink(ptr noundef %74) #13
+  %75 = call i32 @unlink(ptr noundef %74) #14
   br label %79
 
 76:                                               ; preds = %62
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #15
+  call void @__clang_call_terminate(ptr %78) #16
   unreachable
 
 79:                                               ; preds = %69, %62, %58
@@ -252,12 +252,12 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #15
+  call void @__clang_call_terminate(ptr %87) #16
   unreachable
 
 88:                                               ; preds = %84, %79
-  %89 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #13
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4) #13
+  %89 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #14
+  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4) #14
   %90 = icmp eq i32 %60, 0
   br i1 %90, label %91, label %169
 
@@ -272,7 +272,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
 
 95:                                               ; preds = %92, %11
   %96 = phi i1 [ true, %11 ], [ %94, %92 ]
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #14
   store i32 -1, ptr %5, align 8, !tbaa !8
   %97 = getelementptr inbounds i8, ptr %5, i64 4
   %98 = getelementptr inbounds i8, ptr %5, i64 8
@@ -284,20 +284,20 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
   %101 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %100, ptr %101, align 8, !tbaa !14
   store i8 0, ptr %100, align 8, !tbaa !14
-  %102 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousMemory4openEb(ptr noundef nonnull align 8 dereferenceable(176) %5, i1 noundef zeroext %96) #13
+  %102 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousMemory4openEb(ptr noundef nonnull align 8 dereferenceable(176) %5, i1 noundef zeroext %96) #14
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %104, label %138
 
 104:                                              ; preds = %95
   %105 = load i32, ptr %5, align 8, !tbaa !8
-  %106 = call i32 @ftruncate(i32 noundef %105, i64 noundef %1) #13
+  %106 = call i32 @ftruncate(i32 noundef %105, i64 noundef %1) #14
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %112, label %108
 
 108:                                              ; preds = %104
-  %109 = tail call ptr @__errno_location() #14
+  %109 = tail call ptr @__errno_location() #15
   %110 = load i32, ptr %109, align 4, !tbaa !16
-  %111 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %110) #13, !range !17
+  %111 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %110) #14, !range !17
   br label %138
 
 112:                                              ; preds = %104
@@ -306,19 +306,19 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
   %115 = icmp eq i32 %114, 0
   %116 = select i1 %115, i32 %113, i32 5
   %117 = load i32, ptr %5, align 8, !tbaa !8
-  %118 = call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef %116, i32 noundef 1, i32 noundef %117, i64 noundef 0) #13
+  %118 = call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef %116, i32 noundef 1, i32 noundef %117, i64 noundef 0) #14
   %119 = icmp eq ptr %118, inttoptr (i64 -1 to ptr)
   br i1 %119, label %120, label %127
 
 120:                                              ; preds = %112
-  %121 = tail call ptr @__errno_location() #14
+  %121 = tail call ptr @__errno_location() #15
   %122 = load i32, ptr %121, align 4, !tbaa !16
   br label %135
 
 123:                                              ; preds = %127
-  %124 = tail call ptr @__errno_location() #14
+  %124 = tail call ptr @__errno_location() #15
   %125 = load i32, ptr %124, align 4, !tbaa !16
-  %126 = call i32 @munmap(ptr noundef %118, i64 noundef %1) #13
+  %126 = call i32 @munmap(ptr noundef %118, i64 noundef %1) #14
   br label %135
 
 127:                                              ; preds = %112
@@ -326,7 +326,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
   %129 = icmp eq i32 %128, 0
   %130 = select i1 %129, i32 %113, i32 3
   %131 = load i32, ptr %5, align 8, !tbaa !8
-  %132 = call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef %130, i32 noundef 1, i32 noundef %131, i64 noundef 0) #13
+  %132 = call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef %130, i32 noundef 1, i32 noundef %131, i64 noundef 0) #14
   %133 = icmp eq ptr %132, inttoptr (i64 -1 to ptr)
   br i1 %133, label %123, label %134
 
@@ -337,7 +337,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
 
 135:                                              ; preds = %123, %120
   %136 = phi i32 [ %122, %120 ], [ %125, %123 ]
-  %137 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %136) #13, !range !17
+  %137 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %136) #14, !range !17
   br label %138
 
 138:                                              ; preds = %135, %134, %108, %95
@@ -364,14 +364,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
   %151 = load ptr, ptr %101, align 8
   %152 = getelementptr inbounds i8, ptr %5, i64 9
   %153 = select i1 %150, ptr %151, ptr %152
-  %154 = call i32 @unlink(ptr noundef %153) #13
+  %154 = call i32 @unlink(ptr noundef %153) #14
   br label %158
 
 155:                                              ; preds = %141
   %156 = landingpad { ptr, i32 }
           catch ptr null
   %157 = extractvalue { ptr, i32 } %156, 0
-  call void @__clang_call_terminate(ptr %157) #15
+  call void @__clang_call_terminate(ptr %157) #16
   unreachable
 
 158:                                              ; preds = %148, %141, %138
@@ -391,12 +391,12 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS
   %165 = landingpad { ptr, i32 }
           catch ptr null
   %166 = extractvalue { ptr, i32 } %165, 0
-  call void @__clang_call_terminate(ptr %166) #15
+  call void @__clang_call_terminate(ptr %166) #16
   unreachable
 
 167:                                              ; preds = %163, %158
-  %168 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %98) #13
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #13
+  %168 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %98) #14
+  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #14
   br label %169
 
 169:                                              ; preds = %167, %88, %8
@@ -411,14 +411,14 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousM
   br i1 %4, label %5, label %16
 
 5:                                                ; preds = %2
-  %6 = tail call i64 (i64, ...) @syscall(i64 noundef 319, ptr noundef nonnull @.str, i32 noundef 0) #13
+  %6 = tail call i64 (i64, ...) @syscall(i64 noundef 319, ptr noundef nonnull @.str, i32 noundef 0) #14
   %7 = trunc i64 %6 to i32
   store i32 %7, ptr %0, align 8, !tbaa !8
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %.loopexit, label %9, !prof !7
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @__errno_location() #14
+  %10 = tail call ptr @__errno_location() #15
   %11 = load i32, ptr %10, align 4, !tbaa !16
   %12 = icmp eq i32 %11, 38
   br i1 %12, label %13, label %14
@@ -428,7 +428,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousM
   br label %16
 
 14:                                               ; preds = %9
-  %15 = tail call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %11) #13, !range !17
+  %15 = tail call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %11) #14, !range !17
   br label %.loopexit
 
 16:                                               ; preds = %13, %2
@@ -442,7 +442,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousM
 .split.us:                                        ; preds = %16, %52
   %22 = phi i32 [ %53, %52 ], [ 0, %16 ]
   %23 = phi i64 [ %35, %52 ], [ %18, %16 ]
-  %24 = tail call noundef i32 @_ZN6asmjit9_abi_1_107OSUtils12getTickCountEv() #13
+  %24 = tail call noundef i32 @_ZN6asmjit9_abi_1_107OSUtils12getTickCountEv() #14
   %25 = zext i32 %24 to i64
   %26 = mul nsw i64 %25, -773703683
   %27 = add i64 %26, %23
@@ -454,11 +454,11 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousM
   %33 = zext i32 %32 to i64
   %34 = mul nuw nsw i64 %33, 10619863
   %35 = add i64 %30, %34
-  %36 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #13
+  %36 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #14
   %37 = icmp eq ptr %36, null
   %38 = select i1 %37, ptr @.str.3, ptr %36
-  %39 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull %38, i64 noundef -1) #13
-  %40 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %35) #13
+  %39 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull %38, i64 noundef -1) #14
+  %40 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %35) #14
   %41 = load i8, ptr %19, align 8, !tbaa !14
   %42 = icmp ugt i8 %41, 30
   %43 = load ptr, ptr %20, align 8
@@ -472,7 +472,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousM
   br i1 %47, label %.split7.us, label %48, !prof !7
 
 48:                                               ; preds = %46
-  %49 = tail call ptr @__errno_location() #14
+  %49 = tail call ptr @__errno_location() #15
   %50 = load i32, ptr %49, align 4, !tbaa !16
   %51 = icmp eq i32 %50, 17
   br i1 %51, label %52, label %.split9.us
@@ -495,7 +495,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousM
 .split:                                           ; preds = %16, %56
   %59 = phi i32 [ %57, %56 ], [ 0, %16 ]
   %60 = phi i64 [ %72, %56 ], [ %18, %16 ]
-  %61 = tail call noundef i32 @_ZN6asmjit9_abi_1_107OSUtils12getTickCountEv() #13
+  %61 = tail call noundef i32 @_ZN6asmjit9_abi_1_107OSUtils12getTickCountEv() #14
   %62 = zext i32 %61 to i64
   %63 = mul nsw i64 %62, -773703683
   %64 = add i64 %63, %60
@@ -507,7 +507,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousM
   %70 = zext i32 %69 to i64
   %71 = mul nuw nsw i64 %70, 10619863
   %72 = add i64 %67, %71
-  %73 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 0, ptr noundef nonnull @.str.1, i64 noundef %72) #13
+  %73 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 0, ptr noundef nonnull @.str.1, i64 noundef %72) #14
   %74 = load i8, ptr %19, align 8, !tbaa !14
   %75 = icmp ugt i8 %74, 30
   %76 = load ptr, ptr %20, align 8
@@ -531,14 +531,14 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousM
   br label %.loopexit
 
 84:                                               ; preds = %80
-  %85 = tail call ptr @__errno_location() #14
+  %85 = tail call ptr @__errno_location() #15
   %86 = load i32, ptr %85, align 4, !tbaa !16
   %87 = icmp eq i32 %86, 17
   br i1 %87, label %56, label %.split9.us
 
 .split9.us:                                       ; preds = %84, %48
   %.us-phi10 = phi i32 [ %50, %48 ], [ %86, %84 ]
-  %88 = tail call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %.us-phi10) #13, !range !17
+  %88 = tail call fastcc noundef i32 @_ZN6asmjit9_abi_1_107VirtMemL20asmjitErrorFromErrnoEi(i32 noundef %.us-phi10) #14, !range !17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %52, %.split9.us, %82, %.split7.us, %14, %5
@@ -553,7 +553,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_107VirtMem15AnonymousM
 91:                                               ; preds = %.split5.us, %.split5
   %.us-phi = phi { ptr, i32 } [ %90, %.split5 ], [ %55, %.split5.us ]
   %92 = extractvalue { ptr, i32 } %.us-phi, 0
-  tail call void @__clang_call_terminate(ptr %92) #15
+  tail call void @__clang_call_terminate(ptr %92) #16
   unreachable
 }
 
@@ -591,7 +591,7 @@ define internal fastcc noundef range(i32 1, 9) i32 @_ZN6asmjit9_abi_1_107VirtMem
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_107VirtMem18releaseDualMappingEPNS1_11DualMappingEm(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !19
-  %4 = tail call i32 @munmap(ptr noundef %3, i64 noundef %1) #13
+  %4 = tail call i32 @munmap(ptr noundef %3, i64 noundef %1) #14
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %7, label %6, !prof !7
 
@@ -607,7 +607,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_107VirtMem18rele
   br i1 %12, label %20, label %13
 
 13:                                               ; preds = %7
-  %14 = tail call i32 @munmap(ptr noundef %11, i64 noundef %1) #13
+  %14 = tail call i32 @munmap(ptr noundef %11, i64 noundef %1) #14
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %17, label %16, !prof !7
 
@@ -649,7 +649,7 @@ define dso_local range(i64 281474976710656, 1) i64 @_ZN6asmjit9_abi_1_107VirtMem
   br label %12
 
 5:                                                ; preds = %0
-  %6 = tail call i32 @getpagesize() #14
+  %6 = tail call i32 @getpagesize() #15
   %7 = tail call noundef i32 @llvm.umax.i32(i32 %6, i32 65536)
   %8 = zext i32 %7 to i64
   %9 = shl nuw i64 %8, 32
@@ -671,14 +671,14 @@ define dso_local range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_107VirtMem19hardenedRunt
   br i1 %2, label %3, label %12
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @getpagesize() #14
+  %4 = tail call i32 @getpagesize() #15
   %5 = zext i32 %4 to i64
-  %6 = tail call ptr @mmap(ptr noundef null, i64 noundef %5, i32 noundef 7, i32 noundef 34, i32 noundef -1, i64 noundef 0) #13
+  %6 = tail call ptr @mmap(ptr noundef null, i64 noundef %5, i32 noundef 7, i32 noundef 34, i32 noundef -1, i64 noundef 0) #14
   %7 = icmp eq ptr %6, inttoptr (i64 -1 to ptr)
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call i32 @munmap(ptr noundef %6, i64 noundef %5) #13
+  %9 = tail call i32 @munmap(ptr noundef %6, i64 noundef %5) #14
   br label %10
 
 10:                                               ; preds = %8, %3
@@ -717,19 +717,20 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #15
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
-declare i32 @shm_open(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
+declare i32 @shm_open(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare noundef i32 @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -737,12 +738,12 @@ declare noundef i32 @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(pt
 ; Function Attrs: nounwind
 declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @shm_unlink(ptr noundef) local_unnamed_addr #9
+declare i32 @shm_unlink(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #12
 
-declare i32 @close(i32 noundef) local_unnamed_addr #9
+declare i32 @close(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
@@ -751,7 +752,7 @@ declare noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull ali
 declare i32 @getpagesize() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
+declare i32 @llvm.umax.i32(i32, i32) #13
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -762,13 +763,14 @@ attributes #5 = { mustprogress nofree nounwind willreturn memory(readwrite, argm
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #8 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #10 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(none) }
-attributes #15 = { noreturn nounwind }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #11 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(none) }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

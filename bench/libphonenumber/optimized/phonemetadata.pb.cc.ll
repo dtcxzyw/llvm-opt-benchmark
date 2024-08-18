@@ -171,7 +171,7 @@ define internal void @_ZL55InitDefaultsscc_info_NumberFormat_phonemetadata_2epro
 3:                                                ; preds = %2
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers31_NumberFormat_default_instance_E, i64 24)) #21
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers31_NumberFormat_default_instance_E, i64 24)) #22
   resume { ptr, i32 } %4
 
 _ZN4i18n12phonenumbers12NumberFormatC2Ev.exit:    ; preds = %0, %2
@@ -226,7 +226,7 @@ define internal void @_ZL66InitDefaultsscc_info_PhoneMetadataCollection_phonemet
 3:                                                ; preds = %2
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers42_PhoneMetadataCollection_default_instance_E, i64 16)) #21
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers42_PhoneMetadataCollection_default_instance_E, i64 16)) #22
   resume { ptr, i32 } %4
 
 _ZN4i18n12phonenumbers23PhoneMetadataCollectionC2Ev.exit: ; preds = %0, %2
@@ -262,12 +262,12 @@ define internal void @_ZL58InitDefaultsscc_info_PhoneNumberDesc_phonemetadata_2e
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, i64 40)) #21
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, i64 40)) #22
   br label %8
 
 8:                                                ; preds = %6, %4
   %.pn.i.i = phi { ptr, i32 } [ %7, %6 ], [ %5, %4 ]
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, i64 24)) #21
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, i64 24)) #22
   resume { ptr, i32 } %.pn.i.i
 
 _ZN4i18n12phonenumbers15PhoneNumberDescC2Ev.exit: ; preds = %1, %3
@@ -317,7 +317,7 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormatC2EPN6google8protobuf
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #21
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #22
   resume { ptr, i32 } %16
 }
 
@@ -370,7 +370,7 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormatC2ERKS1_(ptr noundef 
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %28 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
           to label %.noexc unwind label %54
 
 .noexc:                                           ; preds = %27
@@ -398,7 +398,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %32, %2
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %.noexc28, %.noexc
   %.sink26.i.i = phi ptr [ %33, %.noexc28 ], [ %28, %.noexc ]
   %34 = getelementptr inbounds i8, ptr %.sink26.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #22
   %35 = ptrtoint ptr %.sink26.i.i to i64
   %36 = or i64 %35, 1
   %37 = inttoptr i64 %36 to ptr
@@ -442,7 +442,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %50, %44
 54:                                               ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit45, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit40, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit35, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %38, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %32, %27
   %55 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #21
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #22
   resume { ptr, i32 } %55
 
 56:                                               ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %40
@@ -565,20 +565,20 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormatD2Ev(ptr noundef nonn
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %9, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #24
   br label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit: ; preds = %12, %7, %2
   %14 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #21
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #22
   ret void
 
 15:                                               ; preds = %1
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #24
+  tail call void @__clang_call_terminate(ptr %17) #25
   unreachable
 }
 
@@ -592,8 +592,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers12NumberFormat10Shared
   br i1 %or.cond.i, label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #24
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %1, %5
@@ -605,8 +605,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %or.cond.i2, label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit3, label %9
 
 9:                                                ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #24
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit3
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit3: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %9
@@ -618,8 +618,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %or.cond.i5, label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit6, label %13
 
 13:                                               ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit3
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #24
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit6
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit6: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit3, %13
@@ -631,8 +631,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %or.cond.i8, label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit9, label %17
 
 17:                                               ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit6
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %15) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %15) #24
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit9
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit9: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit6, %17
@@ -641,14 +641,15 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
-  tail call void @_ZSt9terminatev() #24
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
+  tail call void @_ZSt9terminatev() #25
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4i18n12phonenumbers12NumberFormatD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -672,26 +673,26 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormatD0Ev(ptr noundef nonn
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %9, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #24
   br label %_ZN4i18n12phonenumbers12NumberFormatD2Ev.exit
 
 14:                                               ; preds = %1
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #24
+  tail call void @__clang_call_terminate(ptr %16) #25
   unreachable
 
 _ZN4i18n12phonenumbers12NumberFormatD2Ev.exit:    ; preds = %2, %7, %12
   %17 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local void @_ZN4i18n12phonenumbers12NumberFormat9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
@@ -699,7 +700,7 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormat9ArenaDtorEPv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4i18n12phonenumbers12NumberFormat13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4i18n12phonenumbers12NumberFormat13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -737,7 +738,7 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormat5ClearEv(ptr noundef 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
   br label %11
 
 11:                                               ; preds = %8, %6
@@ -748,7 +749,7 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormat5ClearEv(ptr noundef 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #22
   br label %16
 
 16:                                               ; preds = %13, %11
@@ -759,7 +760,7 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormat5ClearEv(ptr noundef 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #22
   br label %21
 
 21:                                               ; preds = %18, %16
@@ -770,7 +771,7 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormat5ClearEv(ptr noundef 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %0, i64 72
   %25 = load ptr, ptr %24, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #22
   br label %26
 
 26:                                               ; preds = %21, %23, %1
@@ -788,7 +789,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %32 = and i64 %30, -2
   %33 = inttoptr i64 %32 to ptr
   %34 = getelementptr inbounds i8, ptr %33, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #22
   br label %35
 
 35:                                               ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit, %26
@@ -1102,7 +1103,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit: ; preds = %128, %137, %140
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %161
-  %164 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %164 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %164, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
@@ -1124,7 +1125,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %168, %16
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %163, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %.sink26.i = phi ptr [ %169, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ], [ %164, %163 ]
   %170 = getelementptr inbounds i8, ptr %.sink26.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %170) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %170) #22
   %171 = ptrtoint ptr %.sink26.i to i64
   %172 = or i64 %171, 1
   %173 = inttoptr i64 %172 to ptr
@@ -1162,7 +1163,7 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers12NumberFormat18_InternalSe
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
+  %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
   %11 = icmp sgt i64 %10, 127
   br i1 %11, label %.critedge.i, label %12
 
@@ -1185,7 +1186,7 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers12NumberFormat18_InternalSe
   %20 = trunc i64 %10 to i8
   %21 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 %20, ptr %19, align 1
-  %22 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
+  %22 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr align 1 %22, i64 %10, i1 false)
   %23 = getelementptr inbounds i8, ptr %21, i64 %10
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit
@@ -1199,7 +1200,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 25:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit
   %26 = getelementptr inbounds i8, ptr %0, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #21
+  %28 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #22
   %29 = icmp sgt i64 %28, 127
   br i1 %29, label %.critedge.i109, label %30
 
@@ -1222,7 +1223,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
   %38 = trunc i64 %28 to i8
   %39 = getelementptr inbounds i8, ptr %.094, i64 2
   store i8 %38, ptr %37, align 1
-  %40 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #21
+  %40 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %40, i64 %28, i1 false)
   %41 = getelementptr inbounds i8, ptr %39, i64 %28
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit110
@@ -1238,7 +1239,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
   %.092129 = phi i32 [ %62, %61 ], [ 0, %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit110 ]
   %.2128 = phi ptr [ %.097, %61 ], [ %.1, %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit110 ]
   %45 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3GetEi(ptr noundef nonnull align 8 dereferenceable(24) %42, i32 noundef %.092129)
-  %46 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %45) #21
+  %46 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %45) #22
   %47 = icmp sgt i64 %46, 127
   br i1 %47, label %.critedge, label %48
 
@@ -1261,7 +1262,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
   %57 = trunc i64 %46 to i8
   %58 = getelementptr inbounds i8, ptr %.2128, i64 2
   store i8 %57, ptr %56, align 1
-  %59 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %45) #21
+  %59 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %45) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr align 1 %59, i64 %46, i1 false)
   %60 = getelementptr inbounds i8, ptr %58, i64 %46
   br label %61
@@ -1281,7 +1282,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 64:                                               ; preds = %._crit_edge
   %65 = getelementptr inbounds i8, ptr %0, i64 64
   %66 = load ptr, ptr %65, align 8
-  %67 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #21
+  %67 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #22
   %68 = icmp sgt i64 %67, 127
   br i1 %68, label %.critedge.i114, label %69
 
@@ -1304,7 +1305,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
   %77 = trunc i64 %67 to i8
   %78 = getelementptr inbounds i8, ptr %.2.lcssa, i64 2
   store i8 %77, ptr %76, align 1
-  %79 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #21
+  %79 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr align 1 %79, i64 %67, i1 false)
   %80 = getelementptr inbounds i8, ptr %78, i64 %67
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit115
@@ -1318,7 +1319,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 82:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit115
   %83 = getelementptr inbounds i8, ptr %0, i64 72
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %84) #21
+  %85 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %84) #22
   %86 = icmp sgt i64 %85, 127
   br i1 %86, label %.critedge.i119, label %87
 
@@ -1341,7 +1342,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
   %95 = trunc i64 %85 to i8
   %96 = getelementptr inbounds i8, ptr %.3, i64 2
   store i8 %95, ptr %94, align 1
-  %97 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %84) #21
+  %97 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %84) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %96, ptr align 1 %97, i64 %85, i1 false)
   %98 = getelementptr inbounds i8, ptr %96, i64 %85
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit120
@@ -1385,7 +1386,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %100
   %115 = and i64 %112, -2
   %116 = inttoptr i64 %115 to ptr
   %117 = getelementptr inbounds i8, ptr %116, i64 8
-  %118 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %117) #21
+  %118 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %117) #22
   %119 = load ptr, ptr %110, align 8
   %120 = ptrtoint ptr %119 to i64
   %121 = and i64 %120, 1
@@ -1404,7 +1405,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %100
 
 127:                                              ; preds = %126, %122
   %.096 = phi ptr [ %125, %122 ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, %126 ]
-  %128 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.096) #21
+  %128 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.096) #22
   %129 = load ptr, ptr %2, align 8
   %130 = ptrtoint ptr %129 to i64
   %131 = ptrtoint ptr %.5 to i64
@@ -1446,7 +1447,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers12NumberFormat30RequiredFie
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
+  %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   %9 = trunc i64 %8 to i32
   %10 = or i32 %9, 1
   %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %10, i1 true)
@@ -1470,7 +1471,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers12NumberFormat30RequiredFie
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %0, i64 56
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #21
+  %25 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #22
   %26 = trunc i64 %25 to i32
   %27 = or i32 %26, 1
   %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
@@ -1500,7 +1501,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers12NumberFormat12ByteSizeLon
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
+  %9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   %10 = trunc i64 %9 to i32
   %11 = or i32 %10, 1
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %11, i1 true)
@@ -1511,7 +1512,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers12NumberFormat12ByteSizeLon
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #21
+  %20 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #22
   %21 = trunc i64 %20 to i32
   %22 = or i32 %21, 1
   %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
@@ -1534,7 +1535,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers12NumberFormat12ByteSizeLon
 35:                                               ; preds = %33
   %36 = getelementptr inbounds i8, ptr %0, i64 48
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #21
+  %38 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #22
   %39 = trunc i64 %38 to i32
   %40 = or i32 %39, 1
   %41 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %40, i1 true)
@@ -1558,7 +1559,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers12NumberFormat12ByteSizeLon
 52:                                               ; preds = %49
   %53 = getelementptr inbounds i8, ptr %0, i64 56
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %54) #21
+  %55 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %54) #22
   %56 = trunc i64 %55 to i32
   %57 = or i32 %56, 1
   %58 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %57, i1 true)
@@ -1586,7 +1587,7 @@ _ZNK4i18n12phonenumbers12NumberFormat30RequiredFieldsByteSizeFallbackEv.exit: ; 
   %.138 = phi i64 [ %84, %.lr.ph ], [ %70, %_ZNK4i18n12phonenumbers12NumberFormat30RequiredFieldsByteSizeFallbackEv.exit ]
   %.03237 = phi i32 [ %85, %.lr.ph ], [ 0, %_ZNK4i18n12phonenumbers12NumberFormat30RequiredFieldsByteSizeFallbackEv.exit ]
   %73 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3GetEi(ptr noundef nonnull align 8 dereferenceable(24) %67, i32 noundef %.03237)
-  %74 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %73) #21
+  %74 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %73) #22
   %75 = trunc i64 %74 to i32
   %76 = or i32 %75, 1
   %77 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %76, i1 true)
@@ -1616,7 +1617,7 @@ _ZNK4i18n12phonenumbers12NumberFormat30RequiredFieldsByteSizeFallbackEv.exit: ; 
 90:                                               ; preds = %88
   %91 = getelementptr inbounds i8, ptr %0, i64 64
   %92 = load ptr, ptr %91, align 8
-  %93 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %92) #21
+  %93 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %92) #22
   %94 = trunc i64 %93 to i32
   %95 = or i32 %94, 1
   %96 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %95, i1 true)
@@ -1639,7 +1640,7 @@ _ZNK4i18n12phonenumbers12NumberFormat30RequiredFieldsByteSizeFallbackEv.exit: ; 
 107:                                              ; preds = %105
   %108 = getelementptr inbounds i8, ptr %0, i64 72
   %109 = load ptr, ptr %108, align 8
-  %110 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %109) #21
+  %110 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %109) #22
   %111 = trunc i64 %110 to i32
   %112 = or i32 %111, 1
   %113 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %112, i1 true)
@@ -1674,7 +1675,7 @@ _ZNK4i18n12phonenumbers12NumberFormat30RequiredFieldsByteSizeFallbackEv.exit: ; 
   %132 = and i64 %129, -2
   %133 = inttoptr i64 %132 to ptr
   %134 = getelementptr inbounds i8, ptr %133, i64 8
-  %135 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %134) #21
+  %135 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %134) #22
   %136 = add i64 %135, %.2
   br label %137
 
@@ -1727,7 +1728,7 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormat9MergeFromERKS1_(ptr 
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %22, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
@@ -1749,7 +1750,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %26, %2
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %21
   %.sink26.i.i = phi ptr [ %27, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ], [ %22, %21 ]
   %28 = getelementptr inbounds i8, ptr %.sink26.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #22
   %29 = ptrtoint ptr %.sink26.i.i to i64
   %30 = or i64 %29, 1
   %31 = inttoptr i64 %30 to ptr
@@ -1933,7 +1934,7 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormat8CopyFromERKS1_(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers12NumberFormat13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers12NumberFormat13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 3
@@ -1972,7 +1973,7 @@ thread-pre-split:                                 ; preds = %2
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %19 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %19, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
@@ -1994,7 +1995,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %23, %20
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %18, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %.sink26.i = phi ptr [ %24, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ], [ %19, %18 ]
   %25 = getelementptr inbounds i8, ptr %.sink26.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #22
   %26 = ptrtoint ptr %.sink26.i to i64
   %27 = or i64 %26, 1
   %28 = inttoptr i64 %27 to ptr
@@ -2023,7 +2024,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %39 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %39, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
@@ -2045,7 +2046,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %43, %4
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %38
   %.sink26.i.i = phi ptr [ %44, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ], [ %39, %38 ]
   %45 = getelementptr inbounds i8, ptr %.sink26.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #22
   %46 = ptrtoint ptr %.sink26.i.i to i64
   %47 = or i64 %46, 1
   %48 = inttoptr i64 %47 to ptr
@@ -2055,7 +2056,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit: ; preds = %32, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
   %.0.i = phi ptr [ %35, %32 ], [ %45, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %.0.i, ptr noundef nonnull align 8 dereferenceable(32) %.0) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %.0.i, ptr noundef nonnull align 8 dereferenceable(32) %.0) #22
   br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %2, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit
@@ -2108,7 +2109,7 @@ declare void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcS
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4i18n12phonenumbers12NumberFormat11GetTypeNameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   %4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %7
 
@@ -2123,11 +2124,11 @@ define dso_local void @_ZNK4i18n12phonenumbers12NumberFormat11GetTypeNameB5cxx11
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #22
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   ret void
 
 7:                                                ; preds = %.noexc, %2
@@ -2137,7 +2138,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .body:                                            ; preds = %5, %7
   %eh.lpad-body = phi { ptr, i32 } [ %8, %7 ], [ %6, %5 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -2191,12 +2192,12 @@ define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDescC2EPN6google8proto
 16:                                               ; preds = %10
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #22
   br label %18
 
 18:                                               ; preds = %16, %14
   %.pn = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ]
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
   resume { ptr, i32 } %.pn
 }
 
@@ -2253,7 +2254,7 @@ define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDescC2ERKS1_(ptr nound
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
-  %31 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %31 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
           to label %.noexc unwind label %59
 
 .noexc:                                           ; preds = %30
@@ -2281,7 +2282,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %35, %3
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %.noexc26, %.noexc
   %.sink26.i.i = phi ptr [ %36, %.noexc26 ], [ %31, %.noexc ]
   %37 = getelementptr inbounds i8, ptr %.sink26.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #22
   %38 = ptrtoint ptr %.sink26.i.i to i64
   %39 = or i64 %38, 1
   %40 = inttoptr i64 %39 to ptr
@@ -2330,7 +2331,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %53, %47
 59:                                               ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit33, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %41, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %35, %30
   %60 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #22
   br label %75
 
 61:                                               ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %43
@@ -2366,7 +2367,7 @@ _ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_string
 
 75:                                               ; preds = %59, %57
   %.pn = phi { ptr, i32 } [ %60, %59 ], [ %58, %57 ]
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #21
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #22
   resume { ptr, i32 } %.pn
 }
 
@@ -2382,8 +2383,8 @@ define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef n
   br i1 %or.cond.i.i, label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #24
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %5, %1
@@ -2395,8 +2396,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %or.cond.i2.i, label %_ZN4i18n12phonenumbers15PhoneNumberDesc10SharedDtorEv.exit, label %9
 
 9:                                                ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #24
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc10SharedDtorEv.exit
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc10SharedDtorEv.exit: ; preds = %9, %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
@@ -2416,22 +2417,22 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc10SharedDtorEv.exit: ; preds = %9, %_ZN6g
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %16, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %16) #24
   br label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit: ; preds = %19, %14, %_ZN4i18n12phonenumbers15PhoneNumberDesc10SharedDtorEv.exit
   %21 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #21
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #22
   %22 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDescD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 align 2 {
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
@@ -2441,7 +2442,7 @@ define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDesc9ArenaDtorEPv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4i18n12phonenumbers15PhoneNumberDesc13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4i18n12phonenumbers15PhoneNumberDesc13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -2481,7 +2482,7 @@ define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv(ptr nound
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #22
   br label %12
 
 12:                                               ; preds = %9, %7
@@ -2492,7 +2493,7 @@ define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv(ptr nound
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %0, i64 64
   %16 = load ptr, ptr %15, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #22
   br label %17
 
 17:                                               ; preds = %12, %14, %1
@@ -2508,7 +2509,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %22 = and i64 %20, -2
   %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds i8, ptr %23, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #22
   br label %25
 
 25:                                               ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit, %17
@@ -2827,7 +2828,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit41: ; preds = %113
   br i1 %149, label %150, label %152
 
 150:                                              ; preds = %148
-  %151 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %151 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %151, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
@@ -2849,7 +2850,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %155, %15
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %150, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %.sink26.i = phi ptr [ %156, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ], [ %151, %150 ]
   %157 = getelementptr inbounds i8, ptr %.sink26.i, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %157) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %157) #22
   %158 = ptrtoint ptr %.sink26.i to i64
   %159 = or i64 %158, 1
   %160 = inttoptr i64 %159 to ptr
@@ -2881,7 +2882,7 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers15PhoneNumberDesc18_Interna
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
+  %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
   %11 = icmp sgt i64 %10, 127
   br i1 %11, label %.critedge.i, label %12
 
@@ -2904,7 +2905,7 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers15PhoneNumberDesc18_Interna
   %20 = trunc i64 %10 to i8
   %21 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 %20, ptr %19, align 1
-  %22 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
+  %22 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr align 1 %22, i64 %10, i1 false)
   %23 = getelementptr inbounds i8, ptr %21, i64 %10
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit
@@ -2918,7 +2919,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 25:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit
   %26 = getelementptr inbounds i8, ptr %0, i64 64
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #21
+  %28 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #22
   %29 = icmp sgt i64 %28, 127
   br i1 %29, label %.critedge.i69, label %30
 
@@ -2941,7 +2942,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
   %38 = trunc i64 %28 to i8
   %39 = getelementptr inbounds i8, ptr %.062, i64 2
   store i8 %38, ptr %37, align 1
-  %40 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #21
+  %40 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %40, i64 %28, i1 false)
   %41 = getelementptr inbounds i8, ptr %39, i64 %28
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit70
@@ -3109,7 +3110,7 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
   %115 = and i64 %112, -2
   %116 = inttoptr i64 %115 to ptr
   %117 = getelementptr inbounds i8, ptr %116, i64 8
-  %118 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %117) #21
+  %118 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %117) #22
   %119 = load ptr, ptr %110, align 8
   %120 = ptrtoint ptr %119 to i64
   %121 = and i64 %120, 1
@@ -3128,7 +3129,7 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
 
 127:                                              ; preds = %126, %122
   %.060 = phi ptr [ %125, %122 ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, %126 ]
-  %128 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.060) #21
+  %128 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.060) #22
   %129 = load ptr, ptr %2, align 8
   %130 = ptrtoint ptr %129 to i64
   %131 = ptrtoint ptr %.3.lcssa to i64
@@ -3180,7 +3181,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers15PhoneNumberDesc12ByteSize
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #21
+  %21 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #22
   %22 = trunc i64 %21 to i32
   %23 = or i32 %22, 1
   %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %23, i1 true)
@@ -3203,7 +3204,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers15PhoneNumberDesc12ByteSize
 35:                                               ; preds = %33
   %36 = getelementptr inbounds i8, ptr %0, i64 64
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #21
+  %38 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #22
   %39 = trunc i64 %38 to i32
   %40 = or i32 %39, 1
   %41 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %40, i1 true)
@@ -3230,7 +3231,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers15PhoneNumberDesc12ByteSize
   %56 = and i64 %53, -2
   %57 = inttoptr i64 %56 to ptr
   %58 = getelementptr inbounds i8, ptr %57, i64 8
-  %59 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %58) #21
+  %59 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %58) #22
   %60 = add i64 %59, %.024
   br label %61
 
@@ -3281,7 +3282,7 @@ define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDesc9MergeFromERKS1_(p
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %22, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
@@ -3303,7 +3304,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %26, %2
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %21
   %.sink26.i.i = phi ptr [ %27, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ], [ %22, %21 ]
   %28 = getelementptr inbounds i8, ptr %.sink26.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #22
   %29 = ptrtoint ptr %.sink26.i.i to i64
   %30 = or i64 %29, 1
   %31 = inttoptr i64 %30 to ptr
@@ -3419,7 +3420,7 @@ define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDesc8CopyFromERKS1_(pt
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #22
   br label %15
 
 15:                                               ; preds = %12, %10
@@ -3430,7 +3431,7 @@ define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDesc8CopyFromERKS1_(pt
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %0, i64 64
   %19 = load ptr, ptr %18, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #22
   br label %20
 
 20:                                               ; preds = %17, %15, %4
@@ -3446,7 +3447,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %25 = and i64 %23, -2
   %26 = inttoptr i64 %25 to ptr
   %27 = getelementptr inbounds i8, ptr %26, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit: ; preds = %20, %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i
@@ -3493,7 +3494,7 @@ thread-pre-split:                                 ; preds = %2
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %19 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %19, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
@@ -3515,7 +3516,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %23, %20
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %18, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %.sink26.i = phi ptr [ %24, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ], [ %19, %18 ]
   %25 = getelementptr inbounds i8, ptr %.sink26.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #22
   %26 = ptrtoint ptr %.sink26.i to i64
   %27 = or i64 %26, 1
   %28 = inttoptr i64 %27 to ptr
@@ -3544,7 +3545,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %39 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %39, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
@@ -3566,7 +3567,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %43, %4
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %38
   %.sink26.i.i = phi ptr [ %44, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ], [ %39, %38 ]
   %45 = getelementptr inbounds i8, ptr %.sink26.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #22
   %46 = ptrtoint ptr %.sink26.i.i to i64
   %47 = or i64 %46, 1
   %48 = inttoptr i64 %47 to ptr
@@ -3576,7 +3577,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit: ; preds = %32, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
   %.0.i = phi ptr [ %35, %32 ], [ %45, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %.0.i, ptr noundef nonnull align 8 dereferenceable(32) %.0) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %.0.i, ptr noundef nonnull align 8 dereferenceable(32) %.0) #22
   br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %2, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit
@@ -3612,7 +3613,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIiE12InternalSwapEPS2_(ptr nound
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4i18n12phonenumbers15PhoneNumberDesc11GetTypeNameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   %4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %7
 
@@ -3627,11 +3628,11 @@ define dso_local void @_ZNK4i18n12phonenumbers15PhoneNumberDesc11GetTypeNameB5cx
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #22
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   ret void
 
 7:                                                ; preds = %.noexc, %2
@@ -3641,12 +3642,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .body:                                            ; preds = %5, %7
   %eh.lpad-body = phi { ptr, i32 } [ %8, %7 ], [ %6, %5 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadata21InitAsDefaultInstanceEv() local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadata21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 136), align 8
   store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 144), align 8
   store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 152), align 8
@@ -3668,119 +3669,119 @@ define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadata21InitAsDefaultInsta
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal12general_descEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal12general_descEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal10fixed_lineEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal10fixed_lineEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal6mobileEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal6mobileEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal9toll_freeEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal9toll_freeEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal12premium_rateEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal12premium_rateEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal11shared_costEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal11shared_costEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal15personal_numberEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal15personal_numberEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal4voipEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal4voipEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal5pagerEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal5pagerEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal3uanEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal3uanEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal9emergencyEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal9emergencyEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal9voicemailEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal9voicemailEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal10short_codeEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal10short_codeEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal13standard_rateEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal13standard_rateEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal16carrier_specificEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal16carrier_specificEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal12sms_servicesEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal12sms_servicesEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal25no_international_diallingEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal25no_international_diallingEPKS1_(ptr nocapture noundef readonly %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -3842,7 +3843,7 @@ define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadataC2EPN6google8protobu
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #24
+  tail call void @__clang_call_terminate(ptr %26) #25
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit: ; preds = %22
@@ -3853,7 +3854,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.e
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #24
+  tail call void @__clang_call_terminate(ptr %29) #25
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit12: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit
@@ -3910,7 +3911,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEEC2ERKS
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
-  %29 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %29 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
           to label %.noexc unwind label %57
 
 .noexc:                                           ; preds = %28
@@ -3938,7 +3939,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %33, %3
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %.noexc76, %.noexc
   %.sink26.i.i = phi ptr [ %34, %.noexc76 ], [ %29, %.noexc ]
   %35 = getelementptr inbounds i8, ptr %.sink26.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #22
   %36 = ptrtoint ptr %.sink26.i.i to i64
   %37 = or i64 %36, 1
   %38 = inttoptr i64 %37 to ptr
@@ -4201,7 +4202,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   br i1 %.not141, label %169, label %164
 
 164:                                              ; preds = %157
-  %165 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %165 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %166 unwind label %57
 
 166:                                              ; preds = %164
@@ -4211,7 +4212,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
 167:                                              ; preds = %166
   %168 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %165) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %165) #24
   br label %381
 
 169:                                              ; preds = %157, %166
@@ -4229,7 +4230,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   br i1 %.not142, label %182, label %177
 
 177:                                              ; preds = %169
-  %178 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %178 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %179 unwind label %57
 
 179:                                              ; preds = %177
@@ -4239,7 +4240,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
 180:                                              ; preds = %179
   %181 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %178) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %178) #24
   br label %381
 
 182:                                              ; preds = %169, %179
@@ -4257,7 +4258,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   br i1 %.not143, label %195, label %190
 
 190:                                              ; preds = %182
-  %191 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %191 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %192 unwind label %57
 
 192:                                              ; preds = %190
@@ -4267,7 +4268,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
 193:                                              ; preds = %192
   %194 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %191) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %191) #24
   br label %381
 
 195:                                              ; preds = %182, %192
@@ -4285,7 +4286,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   br i1 %.not144, label %208, label %203
 
 203:                                              ; preds = %195
-  %204 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %204 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %205 unwind label %57
 
 205:                                              ; preds = %203
@@ -4295,7 +4296,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
 206:                                              ; preds = %205
   %207 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %204) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %204) #24
   br label %381
 
 208:                                              ; preds = %195, %205
@@ -4313,7 +4314,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   br i1 %.not145, label %221, label %216
 
 216:                                              ; preds = %208
-  %217 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %217 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %218 unwind label %57
 
 218:                                              ; preds = %216
@@ -4323,7 +4324,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
 219:                                              ; preds = %218
   %220 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %217) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %217) #24
   br label %381
 
 221:                                              ; preds = %208, %218
@@ -4341,7 +4342,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   br i1 %.not146, label %234, label %229
 
 229:                                              ; preds = %221
-  %230 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %230 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %231 unwind label %57
 
 231:                                              ; preds = %229
@@ -4351,7 +4352,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
 232:                                              ; preds = %231
   %233 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %230) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %230) #24
   br label %381
 
 234:                                              ; preds = %221, %231
@@ -4369,7 +4370,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   br i1 %.not147, label %247, label %242
 
 242:                                              ; preds = %234
-  %243 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %243 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %244 unwind label %57
 
 244:                                              ; preds = %242
@@ -4379,7 +4380,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
 245:                                              ; preds = %244
   %246 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %243) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %243) #24
   br label %381
 
 247:                                              ; preds = %234, %244
@@ -4397,7 +4398,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   br i1 %.not148, label %260, label %255
 
 255:                                              ; preds = %247
-  %256 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %256 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %257 unwind label %57
 
 257:                                              ; preds = %255
@@ -4407,7 +4408,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
 258:                                              ; preds = %257
   %259 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %256) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %256) #24
   br label %381
 
 260:                                              ; preds = %247, %257
@@ -4425,7 +4426,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   br i1 %.not149, label %273, label %268
 
 268:                                              ; preds = %260
-  %269 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %269 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %270 unwind label %57
 
 270:                                              ; preds = %268
@@ -4435,7 +4436,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
 271:                                              ; preds = %270
   %272 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %269) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %269) #24
   br label %381
 
 273:                                              ; preds = %260, %270
@@ -4453,7 +4454,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   br i1 %.not150, label %286, label %281
 
 281:                                              ; preds = %273
-  %282 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %282 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %283 unwind label %57
 
 283:                                              ; preds = %281
@@ -4463,7 +4464,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
 284:                                              ; preds = %283
   %285 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %282) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %282) #24
   br label %381
 
 286:                                              ; preds = %273, %283
@@ -4481,7 +4482,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   br i1 %.not151, label %299, label %294
 
 294:                                              ; preds = %286
-  %295 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %295 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %296 unwind label %57
 
 296:                                              ; preds = %294
@@ -4491,7 +4492,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
 297:                                              ; preds = %296
   %298 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %295) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %295) #24
   br label %381
 
 299:                                              ; preds = %286, %296
@@ -4509,7 +4510,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   br i1 %.not152, label %312, label %307
 
 307:                                              ; preds = %299
-  %308 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %308 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %309 unwind label %57
 
 309:                                              ; preds = %307
@@ -4519,7 +4520,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
 310:                                              ; preds = %309
   %311 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %308) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %308) #24
   br label %381
 
 312:                                              ; preds = %299, %309
@@ -4537,7 +4538,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   br i1 %.not153, label %325, label %320
 
 320:                                              ; preds = %312
-  %321 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %321 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %322 unwind label %57
 
 322:                                              ; preds = %320
@@ -4547,7 +4548,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
 323:                                              ; preds = %322
   %324 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %321) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %321) #24
   br label %381
 
 325:                                              ; preds = %312, %322
@@ -4565,7 +4566,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   br i1 %.not154, label %338, label %333
 
 333:                                              ; preds = %325
-  %334 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %334 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %335 unwind label %57
 
 335:                                              ; preds = %333
@@ -4575,7 +4576,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
 336:                                              ; preds = %335
   %337 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %334) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %334) #24
   br label %381
 
 338:                                              ; preds = %325, %335
@@ -4593,7 +4594,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   br i1 %.not155, label %351, label %346
 
 346:                                              ; preds = %338
-  %347 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %347 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %348 unwind label %57
 
 348:                                              ; preds = %346
@@ -4603,7 +4604,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
 349:                                              ; preds = %348
   %350 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %347) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %347) #24
   br label %381
 
 351:                                              ; preds = %338, %348
@@ -4621,7 +4622,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   br i1 %.not156, label %364, label %359
 
 359:                                              ; preds = %351
-  %360 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %360 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %361 unwind label %57
 
 361:                                              ; preds = %359
@@ -4631,7 +4632,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
 362:                                              ; preds = %361
   %363 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %360) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %360) #24
   br label %381
 
 364:                                              ; preds = %351, %361
@@ -4649,7 +4650,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   br i1 %.not157, label %377, label %372
 
 372:                                              ; preds = %364
-  %373 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %373 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %374 unwind label %57
 
 374:                                              ; preds = %372
@@ -4659,7 +4660,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
 375:                                              ; preds = %374
   %376 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %373) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %373) #24
   br label %381
 
 377:                                              ; preds = %364, %374
@@ -4680,7 +4681,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit113._crit_edge: ; preds = %_ZNK
   %383 = landingpad { ptr, i32 }
           catch ptr null
   %384 = extractvalue { ptr, i32 } %383, 0
-  tail call void @__clang_call_terminate(ptr %384) #24
+  tail call void @__clang_call_terminate(ptr %384) #25
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit: ; preds = %381, %55
@@ -4692,7 +4693,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.e
   %386 = landingpad { ptr, i32 }
           catch ptr null
   %387 = extractvalue { ptr, i32 } %386, 0
-  tail call void @__clang_call_terminate(ptr %387) #24
+  tail call void @__clang_call_terminate(ptr %387) #25
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit132: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit
@@ -4700,7 +4701,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.e
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -4724,8 +4725,8 @@ define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadataD2Ev(ptr noundef non
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %9, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #24
   br label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit: ; preds = %12, %7, %2
@@ -4737,7 +4738,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringI
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #24
+  tail call void @__clang_call_terminate(ptr %17) #25
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit
@@ -4749,7 +4750,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.e
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #24
+  tail call void @__clang_call_terminate(ptr %21) #25
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit1: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit
@@ -4759,7 +4760,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.e
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #24
+  tail call void @__clang_call_terminate(ptr %24) #25
   unreachable
 }
 
@@ -4773,8 +4774,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers13PhoneMetadata10Share
   br i1 %or.cond.i, label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #24
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %1, %5
@@ -4786,8 +4787,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %or.cond.i35, label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit36, label %9
 
 9:                                                ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #24
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit36
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit36: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %9
@@ -4799,8 +4800,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %or.cond.i38, label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit39, label %13
 
 13:                                               ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit36
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #24
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit39
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit39: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit36, %13
@@ -4812,8 +4813,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %or.cond.i41, label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit42, label %17
 
 17:                                               ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit39
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %15) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %15) #24
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit42
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit42: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit39, %17
@@ -4825,8 +4826,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %or.cond.i44, label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit45, label %21
 
 21:                                               ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit42
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %19) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %19) #24
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit45
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit45: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit42, %21
@@ -4838,8 +4839,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %or.cond.i47, label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48, label %25
 
 25:                                               ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit45
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %23) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %23) #24
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit45, %25
@@ -4851,8 +4852,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %or.cond.i50, label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit51, label %29
 
 29:                                               ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %27) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %27) #24
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit51
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit51: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48, %29
@@ -4864,8 +4865,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %or.cond.i53, label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit54, label %33
 
 33:                                               ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit51
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %31) #24
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit54
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit54: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit51, %33
@@ -4879,8 +4880,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %37, label %39, label %38
 
 38:                                               ; preds = %34
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %36) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %36) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %36) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %36) #24
   br label %39
 
 39:                                               ; preds = %34, %38
@@ -4890,8 +4891,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %39
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %41) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %41) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %41) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %41) #24
   br label %44
 
 44:                                               ; preds = %39, %43
@@ -4901,8 +4902,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %47, label %49, label %48
 
 48:                                               ; preds = %44
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %46) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %46) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %46) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %46) #24
   br label %49
 
 49:                                               ; preds = %44, %48
@@ -4912,8 +4913,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %52, label %54, label %53
 
 53:                                               ; preds = %49
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %51) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %51) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %51) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %51) #24
   br label %54
 
 54:                                               ; preds = %49, %53
@@ -4923,8 +4924,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %57, label %59, label %58
 
 58:                                               ; preds = %54
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %56) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %56) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %56) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %56) #24
   br label %59
 
 59:                                               ; preds = %54, %58
@@ -4934,8 +4935,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %62, label %64, label %63
 
 63:                                               ; preds = %59
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %61) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %61) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %61) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %61) #24
   br label %64
 
 64:                                               ; preds = %59, %63
@@ -4945,8 +4946,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %67, label %69, label %68
 
 68:                                               ; preds = %64
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %66) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %66) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %66) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %66) #24
   br label %69
 
 69:                                               ; preds = %64, %68
@@ -4956,8 +4957,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %72, label %74, label %73
 
 73:                                               ; preds = %69
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %71) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %71) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %71) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %71) #24
   br label %74
 
 74:                                               ; preds = %69, %73
@@ -4967,8 +4968,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %77, label %79, label %78
 
 78:                                               ; preds = %74
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %76) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %76) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %76) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %76) #24
   br label %79
 
 79:                                               ; preds = %74, %78
@@ -4978,8 +4979,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %82, label %84, label %83
 
 83:                                               ; preds = %79
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %81) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %81) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %81) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %81) #24
   br label %84
 
 84:                                               ; preds = %79, %83
@@ -4989,8 +4990,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %87, label %89, label %88
 
 88:                                               ; preds = %84
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %86) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %86) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %86) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %86) #24
   br label %89
 
 89:                                               ; preds = %84, %88
@@ -5000,8 +5001,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %92, label %94, label %93
 
 93:                                               ; preds = %89
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %91) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %91) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %91) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %91) #24
   br label %94
 
 94:                                               ; preds = %89, %93
@@ -5011,8 +5012,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %97, label %99, label %98
 
 98:                                               ; preds = %94
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %96) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %96) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %96) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %96) #24
   br label %99
 
 99:                                               ; preds = %94, %98
@@ -5022,8 +5023,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %102, label %104, label %103
 
 103:                                              ; preds = %99
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %101) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %101) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %101) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %101) #24
   br label %104
 
 104:                                              ; preds = %99, %103
@@ -5033,8 +5034,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %107, label %109, label %108
 
 108:                                              ; preds = %104
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %106) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %106) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %106) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %106) #24
   br label %109
 
 109:                                              ; preds = %104, %108
@@ -5044,8 +5045,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %112, label %114, label %113
 
 113:                                              ; preds = %109
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %111) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %111) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %111) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %111) #24
   br label %114
 
 114:                                              ; preds = %109, %113
@@ -5055,8 +5056,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %117, label %119, label %118
 
 118:                                              ; preds = %114
-  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %116) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %116) #23
+  tail call void @_ZN4i18n12phonenumbers15PhoneNumberDescD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %116) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %116) #24
   br label %119
 
 119:                                              ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit54, %114, %118
@@ -5065,8 +5066,8 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadataD0Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #6 align 2 {
-  tail call void @_ZN4i18n12phonenumbers13PhoneMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZN4i18n12phonenumbers13PhoneMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
@@ -5076,7 +5077,7 @@ define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadata9ArenaDtorEPv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4i18n12phonenumbers13PhoneMetadata13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) %0, i32 noundef %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4i18n12phonenumbers13PhoneMetadata13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) %0, i32 noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -5164,7 +5165,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE5Clear
 29:                                               ; preds = %27
   %30 = getelementptr inbounds i8, ptr %0, i64 72
   %31 = load ptr, ptr %30, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #22
   br label %32
 
 32:                                               ; preds = %29, %27
@@ -5175,7 +5176,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE5Clear
 34:                                               ; preds = %32
   %35 = getelementptr inbounds i8, ptr %0, i64 80
   %36 = load ptr, ptr %35, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %36) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %36) #22
   br label %37
 
 37:                                               ; preds = %34, %32
@@ -5186,7 +5187,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE5Clear
 39:                                               ; preds = %37
   %40 = getelementptr inbounds i8, ptr %0, i64 88
   %41 = load ptr, ptr %40, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %41) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %41) #22
   br label %42
 
 42:                                               ; preds = %39, %37
@@ -5197,7 +5198,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE5Clear
 44:                                               ; preds = %42
   %45 = getelementptr inbounds i8, ptr %0, i64 96
   %46 = load ptr, ptr %45, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %46) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %46) #22
   br label %47
 
 47:                                               ; preds = %44, %42
@@ -5208,7 +5209,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE5Clear
 49:                                               ; preds = %47
   %50 = getelementptr inbounds i8, ptr %0, i64 104
   %51 = load ptr, ptr %50, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %51) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %51) #22
   br label %52
 
 52:                                               ; preds = %49, %47
@@ -5219,7 +5220,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE5Clear
 54:                                               ; preds = %52
   %55 = getelementptr inbounds i8, ptr %0, i64 112
   %56 = load ptr, ptr %55, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #22
   br label %57
 
 57:                                               ; preds = %54, %52
@@ -5230,7 +5231,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE5Clear
 59:                                               ; preds = %57
   %60 = getelementptr inbounds i8, ptr %0, i64 120
   %61 = load ptr, ptr %60, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %61) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %61) #22
   br label %62
 
 62:                                               ; preds = %59, %57
@@ -5241,7 +5242,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE5Clear
 64:                                               ; preds = %62
   %65 = getelementptr inbounds i8, ptr %0, i64 128
   %66 = load ptr, ptr %65, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #22
   br label %67
 
 67:                                               ; preds = %62, %64, %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE5ClearEv.exit68
@@ -5275,7 +5276,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE5Clear
 81:                                               ; preds = %79
   %82 = getelementptr inbounds i8, ptr %73, i64 56
   %83 = load ptr, ptr %82, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #22
   br label %84
 
 84:                                               ; preds = %81, %79
@@ -5286,7 +5287,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE5Clear
 86:                                               ; preds = %84
   %87 = getelementptr inbounds i8, ptr %73, i64 64
   %88 = load ptr, ptr %87, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %88) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %88) #22
   br label %89
 
 89:                                               ; preds = %86, %84, %71
@@ -5302,7 +5303,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %94 = and i64 %92, -2
   %95 = inttoptr i64 %94 to ptr
   %96 = getelementptr inbounds i8, ptr %95, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %96) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %96) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i, %89, %69
@@ -5331,7 +5332,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit: ; preds = %_ZN6google8prot
 108:                                              ; preds = %106
   %109 = getelementptr inbounds i8, ptr %100, i64 56
   %110 = load ptr, ptr %109, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %110) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %110) #22
   br label %111
 
 111:                                              ; preds = %108, %106
@@ -5342,7 +5343,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit: ; preds = %_ZN6google8prot
 113:                                              ; preds = %111
   %114 = getelementptr inbounds i8, ptr %100, i64 64
   %115 = load ptr, ptr %114, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %115) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %115) #22
   br label %116
 
 116:                                              ; preds = %113, %111, %98
@@ -5358,7 +5359,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %121 = and i64 %119, -2
   %122 = inttoptr i64 %121 to ptr
   %123 = getelementptr inbounds i8, ptr %122, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %123) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %123) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit74
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit74: ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i73, %116, %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit
@@ -5387,7 +5388,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit74: ; preds = %_ZN6google8pr
 135:                                              ; preds = %133
   %136 = getelementptr inbounds i8, ptr %127, i64 56
   %137 = load ptr, ptr %136, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %137) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %137) #22
   br label %138
 
 138:                                              ; preds = %135, %133
@@ -5398,7 +5399,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit74: ; preds = %_ZN6google8pr
 140:                                              ; preds = %138
   %141 = getelementptr inbounds i8, ptr %127, i64 64
   %142 = load ptr, ptr %141, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %142) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %142) #22
   br label %143
 
 143:                                              ; preds = %140, %138, %125
@@ -5414,7 +5415,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %148 = and i64 %146, -2
   %149 = inttoptr i64 %148 to ptr
   %150 = getelementptr inbounds i8, ptr %149, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %150) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %150) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit80
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit80: ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i79, %143, %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit74
@@ -5443,7 +5444,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit80: ; preds = %_ZN6google8pr
 162:                                              ; preds = %160
   %163 = getelementptr inbounds i8, ptr %154, i64 56
   %164 = load ptr, ptr %163, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %164) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %164) #22
   br label %165
 
 165:                                              ; preds = %162, %160
@@ -5454,7 +5455,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit80: ; preds = %_ZN6google8pr
 167:                                              ; preds = %165
   %168 = getelementptr inbounds i8, ptr %154, i64 64
   %169 = load ptr, ptr %168, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %169) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %169) #22
   br label %170
 
 170:                                              ; preds = %167, %165, %152
@@ -5470,7 +5471,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %175 = and i64 %173, -2
   %176 = inttoptr i64 %175 to ptr
   %177 = getelementptr inbounds i8, ptr %176, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %177) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %177) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit86
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit86: ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i85, %170, %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit80
@@ -5499,7 +5500,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit86: ; preds = %_ZN6google8pr
 189:                                              ; preds = %187
   %190 = getelementptr inbounds i8, ptr %181, i64 56
   %191 = load ptr, ptr %190, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %191) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %191) #22
   br label %192
 
 192:                                              ; preds = %189, %187
@@ -5510,7 +5511,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit86: ; preds = %_ZN6google8pr
 194:                                              ; preds = %192
   %195 = getelementptr inbounds i8, ptr %181, i64 64
   %196 = load ptr, ptr %195, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %196) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %196) #22
   br label %197
 
 197:                                              ; preds = %194, %192, %179
@@ -5526,7 +5527,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %202 = and i64 %200, -2
   %203 = inttoptr i64 %202 to ptr
   %204 = getelementptr inbounds i8, ptr %203, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %204) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %204) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit92
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit92: ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i91, %197, %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit86
@@ -5555,7 +5556,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit92: ; preds = %_ZN6google8pr
 216:                                              ; preds = %214
   %217 = getelementptr inbounds i8, ptr %208, i64 56
   %218 = load ptr, ptr %217, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %218) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %218) #22
   br label %219
 
 219:                                              ; preds = %216, %214
@@ -5566,7 +5567,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit92: ; preds = %_ZN6google8pr
 221:                                              ; preds = %219
   %222 = getelementptr inbounds i8, ptr %208, i64 64
   %223 = load ptr, ptr %222, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %223) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %223) #22
   br label %224
 
 224:                                              ; preds = %221, %219, %206
@@ -5582,7 +5583,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %229 = and i64 %227, -2
   %230 = inttoptr i64 %229 to ptr
   %231 = getelementptr inbounds i8, ptr %230, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %231) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %231) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit98
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit98: ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i97, %224, %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit92
@@ -5611,7 +5612,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit98: ; preds = %_ZN6google8pr
 243:                                              ; preds = %241
   %244 = getelementptr inbounds i8, ptr %235, i64 56
   %245 = load ptr, ptr %244, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %245) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %245) #22
   br label %246
 
 246:                                              ; preds = %243, %241
@@ -5622,7 +5623,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit98: ; preds = %_ZN6google8pr
 248:                                              ; preds = %246
   %249 = getelementptr inbounds i8, ptr %235, i64 64
   %250 = load ptr, ptr %249, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %250) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %250) #22
   br label %251
 
 251:                                              ; preds = %248, %246, %233
@@ -5638,7 +5639,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %256 = and i64 %254, -2
   %257 = inttoptr i64 %256 to ptr
   %258 = getelementptr inbounds i8, ptr %257, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %258) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %258) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit104
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit104: ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i103, %251, %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit98
@@ -5667,7 +5668,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit104: ; preds = %_ZN6google8p
 270:                                              ; preds = %268
   %271 = getelementptr inbounds i8, ptr %262, i64 56
   %272 = load ptr, ptr %271, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %272) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %272) #22
   br label %273
 
 273:                                              ; preds = %270, %268
@@ -5678,7 +5679,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit104: ; preds = %_ZN6google8p
 275:                                              ; preds = %273
   %276 = getelementptr inbounds i8, ptr %262, i64 64
   %277 = load ptr, ptr %276, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %277) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %277) #22
   br label %278
 
 278:                                              ; preds = %275, %273, %260
@@ -5694,7 +5695,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %283 = and i64 %281, -2
   %284 = inttoptr i64 %283 to ptr
   %285 = getelementptr inbounds i8, ptr %284, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %285) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %285) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit110
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit110: ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i109, %278, %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit104, %67
@@ -5728,7 +5729,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit110: ; preds = %_ZN6google8p
 299:                                              ; preds = %297
   %300 = getelementptr inbounds i8, ptr %291, i64 56
   %301 = load ptr, ptr %300, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %301) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %301) #22
   br label %302
 
 302:                                              ; preds = %299, %297
@@ -5739,7 +5740,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit110: ; preds = %_ZN6google8p
 304:                                              ; preds = %302
   %305 = getelementptr inbounds i8, ptr %291, i64 64
   %306 = load ptr, ptr %305, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %306) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %306) #22
   br label %307
 
 307:                                              ; preds = %304, %302, %289
@@ -5755,7 +5756,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %312 = and i64 %310, -2
   %313 = inttoptr i64 %312 to ptr
   %314 = getelementptr inbounds i8, ptr %313, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %314) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %314) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit116
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit116: ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i115, %307, %287
@@ -5784,7 +5785,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit116: ; preds = %_ZN6google8p
 326:                                              ; preds = %324
   %327 = getelementptr inbounds i8, ptr %318, i64 56
   %328 = load ptr, ptr %327, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %328) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %328) #22
   br label %329
 
 329:                                              ; preds = %326, %324
@@ -5795,7 +5796,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit116: ; preds = %_ZN6google8p
 331:                                              ; preds = %329
   %332 = getelementptr inbounds i8, ptr %318, i64 64
   %333 = load ptr, ptr %332, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %333) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %333) #22
   br label %334
 
 334:                                              ; preds = %331, %329, %316
@@ -5811,7 +5812,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %339 = and i64 %337, -2
   %340 = inttoptr i64 %339 to ptr
   %341 = getelementptr inbounds i8, ptr %340, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %341) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %341) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit122
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit122: ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i121, %334, %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit116
@@ -5840,7 +5841,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit122: ; preds = %_ZN6google8p
 353:                                              ; preds = %351
   %354 = getelementptr inbounds i8, ptr %345, i64 56
   %355 = load ptr, ptr %354, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %355) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %355) #22
   br label %356
 
 356:                                              ; preds = %353, %351
@@ -5851,7 +5852,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit122: ; preds = %_ZN6google8p
 358:                                              ; preds = %356
   %359 = getelementptr inbounds i8, ptr %345, i64 64
   %360 = load ptr, ptr %359, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %360) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %360) #22
   br label %361
 
 361:                                              ; preds = %358, %356, %343
@@ -5867,7 +5868,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %366 = and i64 %364, -2
   %367 = inttoptr i64 %366 to ptr
   %368 = getelementptr inbounds i8, ptr %367, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %368) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %368) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit128
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit128: ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i127, %361, %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit122
@@ -5896,7 +5897,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit128: ; preds = %_ZN6google8p
 380:                                              ; preds = %378
   %381 = getelementptr inbounds i8, ptr %372, i64 56
   %382 = load ptr, ptr %381, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %382) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %382) #22
   br label %383
 
 383:                                              ; preds = %380, %378
@@ -5907,7 +5908,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit128: ; preds = %_ZN6google8p
 385:                                              ; preds = %383
   %386 = getelementptr inbounds i8, ptr %372, i64 64
   %387 = load ptr, ptr %386, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %387) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %387) #22
   br label %388
 
 388:                                              ; preds = %385, %383, %370
@@ -5923,7 +5924,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %393 = and i64 %391, -2
   %394 = inttoptr i64 %393 to ptr
   %395 = getelementptr inbounds i8, ptr %394, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %395) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %395) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit134
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit134: ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i133, %388, %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit128
@@ -5952,7 +5953,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit134: ; preds = %_ZN6google8p
 407:                                              ; preds = %405
   %408 = getelementptr inbounds i8, ptr %399, i64 56
   %409 = load ptr, ptr %408, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %409) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %409) #22
   br label %410
 
 410:                                              ; preds = %407, %405
@@ -5963,7 +5964,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit134: ; preds = %_ZN6google8p
 412:                                              ; preds = %410
   %413 = getelementptr inbounds i8, ptr %399, i64 64
   %414 = load ptr, ptr %413, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %414) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %414) #22
   br label %415
 
 415:                                              ; preds = %412, %410, %397
@@ -5979,7 +5980,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %420 = and i64 %418, -2
   %421 = inttoptr i64 %420 to ptr
   %422 = getelementptr inbounds i8, ptr %421, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %422) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %422) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit140
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit140: ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i139, %415, %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit134
@@ -6008,7 +6009,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit140: ; preds = %_ZN6google8p
 434:                                              ; preds = %432
   %435 = getelementptr inbounds i8, ptr %426, i64 56
   %436 = load ptr, ptr %435, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %436) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %436) #22
   br label %437
 
 437:                                              ; preds = %434, %432
@@ -6019,7 +6020,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit140: ; preds = %_ZN6google8p
 439:                                              ; preds = %437
   %440 = getelementptr inbounds i8, ptr %426, i64 64
   %441 = load ptr, ptr %440, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %441) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %441) #22
   br label %442
 
 442:                                              ; preds = %439, %437, %424
@@ -6035,7 +6036,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %447 = and i64 %445, -2
   %448 = inttoptr i64 %447 to ptr
   %449 = getelementptr inbounds i8, ptr %448, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %449) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %449) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit146
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit146: ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i145, %442, %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit140
@@ -6064,7 +6065,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit146: ; preds = %_ZN6google8p
 461:                                              ; preds = %459
   %462 = getelementptr inbounds i8, ptr %453, i64 56
   %463 = load ptr, ptr %462, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %463) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %463) #22
   br label %464
 
 464:                                              ; preds = %461, %459
@@ -6075,7 +6076,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit146: ; preds = %_ZN6google8p
 466:                                              ; preds = %464
   %467 = getelementptr inbounds i8, ptr %453, i64 64
   %468 = load ptr, ptr %467, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %468) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %468) #22
   br label %469
 
 469:                                              ; preds = %466, %464, %451
@@ -6091,7 +6092,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %474 = and i64 %472, -2
   %475 = inttoptr i64 %474 to ptr
   %476 = getelementptr inbounds i8, ptr %475, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %476) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %476) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit152
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit152: ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i151, %469, %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit146
@@ -6120,7 +6121,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit152: ; preds = %_ZN6google8p
 488:                                              ; preds = %486
   %489 = getelementptr inbounds i8, ptr %480, i64 56
   %490 = load ptr, ptr %489, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %490) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %490) #22
   br label %491
 
 491:                                              ; preds = %488, %486
@@ -6131,7 +6132,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit152: ; preds = %_ZN6google8p
 493:                                              ; preds = %491
   %494 = getelementptr inbounds i8, ptr %480, i64 64
   %495 = load ptr, ptr %494, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %495) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %495) #22
   br label %496
 
 496:                                              ; preds = %493, %491, %478
@@ -6147,7 +6148,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %501 = and i64 %499, -2
   %502 = inttoptr i64 %501 to ptr
   %503 = getelementptr inbounds i8, ptr %502, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %503) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %503) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit158
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit158: ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i157, %496, %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit152, %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit110
@@ -6176,7 +6177,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit158: ; preds = %_ZN6google8p
 515:                                              ; preds = %513
   %516 = getelementptr inbounds i8, ptr %507, i64 56
   %517 = load ptr, ptr %516, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %517) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %517) #22
   br label %518
 
 518:                                              ; preds = %515, %513
@@ -6187,7 +6188,7 @@ _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit158: ; preds = %_ZN6google8p
 520:                                              ; preds = %518
   %521 = getelementptr inbounds i8, ptr %507, i64 64
   %522 = load ptr, ptr %521, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %522) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %522) #22
   br label %523
 
 523:                                              ; preds = %520, %518, %505
@@ -6203,7 +6204,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %528 = and i64 %526, -2
   %529 = inttoptr i64 %528 to ptr
   %530 = getelementptr inbounds i8, ptr %529, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %530) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %530) #22
   br label %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit164
 
 _ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit164: ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i163, %523, %_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv.exit158
@@ -6229,7 +6230,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %539 = and i64 %537, -2
   %540 = inttoptr i64 %539 to ptr
   %541 = getelementptr inbounds i8, ptr %540, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %541) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %541) #22
   br label %542
 
 542:                                              ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit, %534
@@ -6237,7 +6238,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN4i18n12phonenumbers13PhoneMetadata14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -8728,7 +8729,7 @@ _ZN6google8protobuf8internal12ParseContext12ParseMessageIN4i18n12phonenumbers15P
   br i1 %1343, label %1344, label %1346
 
 1344:                                             ; preds = %1342
-  %1345 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %1345 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1345, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
@@ -8750,7 +8751,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %1349, %1
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %1344, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %.sink26.i = phi ptr [ %1350, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ], [ %1345, %1344 ]
   %1351 = getelementptr inbounds i8, ptr %.sink26.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1351) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1351) #22
   %1352 = ptrtoint ptr %.sink26.i to i64
   %1353 = or i64 %1352, 1
   %1354 = inttoptr i64 %1353 to ptr
@@ -9360,7 +9361,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit521: ; p
 287:                                              ; preds = %285
   %288 = getelementptr inbounds i8, ptr %0, i64 72
   %289 = load ptr, ptr %288, align 8
-  %290 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %289) #21
+  %290 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %289) #22
   %291 = icmp sgt i64 %290, 127
   br i1 %291, label %.critedge.i, label %292
 
@@ -9383,7 +9384,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit521: ; p
   %300 = trunc i64 %290 to i8
   %301 = getelementptr inbounds i8, ptr %.7, i64 2
   store i8 %300, ptr %299, align 1
-  %302 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %289) #21
+  %302 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %289) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %301, ptr align 1 %302, i64 %290, i1 false)
   %303 = getelementptr inbounds i8, ptr %301, i64 %290
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit
@@ -9463,7 +9464,7 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
 337:                                              ; preds = %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit
   %338 = getelementptr inbounds i8, ptr %0, i64 80
   %339 = load ptr, ptr %338, align 8
-  %340 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %339) #21
+  %340 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %339) #22
   %341 = icmp sgt i64 %340, 127
   br i1 %341, label %.critedge.i531, label %342
 
@@ -9486,7 +9487,7 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
   %350 = trunc i64 %340 to i8
   %351 = getelementptr inbounds i8, ptr %.9, i64 2
   store i8 %350, ptr %349, align 1
-  %352 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %339) #21
+  %352 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %339) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %351, ptr align 1 %352, i64 %340, i1 false)
   %353 = getelementptr inbounds i8, ptr %351, i64 %340
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit532
@@ -9500,7 +9501,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 355:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit532
   %356 = getelementptr inbounds i8, ptr %0, i64 88
   %357 = load ptr, ptr %356, align 8
-  %358 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %357) #21
+  %358 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %357) #22
   %359 = icmp sgt i64 %358, 127
   br i1 %359, label %.critedge.i537, label %360
 
@@ -9523,7 +9524,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
   %368 = trunc i64 %358 to i8
   %369 = getelementptr inbounds i8, ptr %.10, i64 2
   store i8 %368, ptr %367, align 1
-  %370 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %357) #21
+  %370 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %357) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %369, ptr align 1 %370, i64 %358, i1 false)
   %371 = getelementptr inbounds i8, ptr %369, i64 %358
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit538
@@ -9537,7 +9538,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 373:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit538
   %374 = getelementptr inbounds i8, ptr %0, i64 96
   %375 = load ptr, ptr %374, align 8
-  %376 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %375) #21
+  %376 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %375) #22
   %377 = icmp sgt i64 %376, 127
   br i1 %377, label %.critedge.i543, label %378
 
@@ -9560,7 +9561,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
   %386 = trunc i64 %376 to i8
   %387 = getelementptr inbounds i8, ptr %.11, i64 2
   store i8 %386, ptr %385, align 1
-  %388 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %375) #21
+  %388 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %375) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %387, ptr align 1 %388, i64 %376, i1 false)
   %389 = getelementptr inbounds i8, ptr %387, i64 %376
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit544
@@ -9574,7 +9575,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 391:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit544
   %392 = getelementptr inbounds i8, ptr %0, i64 104
   %393 = load ptr, ptr %392, align 8
-  %394 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %393) #21
+  %394 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %393) #22
   %395 = icmp sgt i64 %394, 127
   br i1 %395, label %.critedge.i549, label %396
 
@@ -9597,7 +9598,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
   %404 = trunc i64 %394 to i8
   %405 = getelementptr inbounds i8, ptr %.12, i64 2
   store i8 %404, ptr %403, align 1
-  %406 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %393) #21
+  %406 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %393) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %405, ptr align 1 %406, i64 %394, i1 false)
   %407 = getelementptr inbounds i8, ptr %405, i64 %394
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit550
@@ -9611,7 +9612,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 409:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit550
   %410 = getelementptr inbounds i8, ptr %0, i64 112
   %411 = load ptr, ptr %410, align 8
-  %412 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %411) #21
+  %412 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %411) #22
   %413 = icmp sgt i64 %412, 127
   br i1 %413, label %.critedge.i553, label %414
 
@@ -9636,7 +9637,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
   %424 = trunc i64 %412 to i8
   %425 = getelementptr inbounds i8, ptr %.13, i64 3
   store i8 %424, ptr %423, align 1
-  %426 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %411) #21
+  %426 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %411) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %425, ptr align 1 %426, i64 %412, i1 false)
   %427 = getelementptr inbounds i8, ptr %425, i64 %412
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit554
@@ -9650,7 +9651,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 429:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit554
   %430 = getelementptr inbounds i8, ptr %0, i64 120
   %431 = load ptr, ptr %430, align 8
-  %432 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %431) #21
+  %432 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %431) #22
   %433 = icmp sgt i64 %432, 127
   br i1 %433, label %.critedge.i558, label %434
 
@@ -9675,7 +9676,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
   %444 = trunc i64 %432 to i8
   %445 = getelementptr inbounds i8, ptr %.14, i64 3
   store i8 %444, ptr %443, align 1
-  %446 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %431) #21
+  %446 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %431) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %445, ptr align 1 %446, i64 %432, i1 false)
   %447 = getelementptr inbounds i8, ptr %445, i64 %432
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit559
@@ -9991,7 +9992,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit593: ; preds = %
 591:                                              ; preds = %589
   %592 = getelementptr inbounds i8, ptr %0, i64 128
   %593 = load ptr, ptr %592, align 8
-  %594 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %593) #21
+  %594 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %593) #22
   %595 = icmp sgt i64 %594, 127
   br i1 %595, label %.critedge.i601, label %596
 
@@ -10016,7 +10017,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit593: ; preds = %
   %606 = trunc i64 %594 to i8
   %607 = getelementptr inbounds i8, ptr %.20, i64 3
   store i8 %606, ptr %605, align 1
-  %608 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %593) #21
+  %608 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %593) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %607, ptr align 1 %608, i64 %594, i1 false)
   %609 = getelementptr inbounds i8, ptr %607, i64 %594
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit602
@@ -10654,7 +10655,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit673: ; p
   %915 = and i64 %912, -2
   %916 = inttoptr i64 %915 to ptr
   %917 = getelementptr inbounds i8, ptr %916, i64 8
-  %918 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %917) #21
+  %918 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %917) #22
   %919 = load ptr, ptr %910, align 8
   %920 = ptrtoint ptr %919 to i64
   %921 = and i64 %920, 1
@@ -10673,7 +10674,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit673: ; p
 
 927:                                              ; preds = %926, %922
   %.0431 = phi ptr [ %925, %922 ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, %926 ]
-  %928 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0431) #21
+  %928 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0431) #22
   %929 = load ptr, ptr %2, align 8
   %930 = ptrtoint ptr %929 to i64
   %931 = ptrtoint ptr %.30 to i64
@@ -10709,7 +10710,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
+  %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   %9 = trunc i64 %8 to i32
   %10 = or i32 %9, 1
   %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %10, i1 true)
@@ -10807,7 +10808,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
 68:                                               ; preds = %66
   %69 = getelementptr inbounds i8, ptr %0, i64 80
   %70 = load ptr, ptr %69, align 8
-  %71 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %70) #21
+  %71 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %70) #22
   %72 = trunc i64 %71 to i32
   %73 = or i32 %72, 1
   %74 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %73, i1 true)
@@ -10830,7 +10831,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
 85:                                               ; preds = %83
   %86 = getelementptr inbounds i8, ptr %0, i64 88
   %87 = load ptr, ptr %86, align 8
-  %88 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %87) #21
+  %88 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %87) #22
   %89 = trunc i64 %88 to i32
   %90 = or i32 %89, 1
   %91 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %90, i1 true)
@@ -10853,7 +10854,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
 102:                                              ; preds = %100
   %103 = getelementptr inbounds i8, ptr %0, i64 96
   %104 = load ptr, ptr %103, align 8
-  %105 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %104) #21
+  %105 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %104) #22
   %106 = trunc i64 %105 to i32
   %107 = or i32 %106, 1
   %108 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %107, i1 true)
@@ -10876,7 +10877,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
 119:                                              ; preds = %117
   %120 = getelementptr inbounds i8, ptr %0, i64 104
   %121 = load ptr, ptr %120, align 8
-  %122 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %121) #21
+  %122 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %121) #22
   %123 = trunc i64 %122 to i32
   %124 = or i32 %123, 1
   %125 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %124, i1 true)
@@ -10899,7 +10900,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
 136:                                              ; preds = %134
   %137 = getelementptr inbounds i8, ptr %0, i64 112
   %138 = load ptr, ptr %137, align 8
-  %139 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %138) #21
+  %139 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %138) #22
   %140 = trunc i64 %139 to i32
   %141 = or i32 %140, 1
   %142 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %141, i1 true)
@@ -10922,7 +10923,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
 153:                                              ; preds = %151
   %154 = getelementptr inbounds i8, ptr %0, i64 120
   %155 = load ptr, ptr %154, align 8
-  %156 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %155) #21
+  %156 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %155) #22
   %157 = trunc i64 %156 to i32
   %158 = or i32 %157, 1
   %159 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %158, i1 true)
@@ -10945,7 +10946,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
 170:                                              ; preds = %168
   %171 = getelementptr inbounds i8, ptr %0, i64 128
   %172 = load ptr, ptr %171, align 8
-  %173 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %172) #21
+  %173 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %172) #22
   %174 = trunc i64 %173 to i32
   %175 = or i32 %174, 1
   %176 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %175, i1 true)
@@ -11422,7 +11423,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit: ; preds = %482, %
   %508 = and i64 %505, -2
   %509 = inttoptr i64 %508 to ptr
   %510 = getelementptr inbounds i8, ptr %509, i64 8
-  %511 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %510) #21
+  %511 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %510) #22
   %512 = add i64 %511, %.26
   br label %513
 
@@ -11471,7 +11472,7 @@ define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadata9MergeFromERKS1_(ptr
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %22, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
@@ -11493,7 +11494,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %26, %2
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %21
   %.sink26.i.i = phi ptr [ %27, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ], [ %22, %21 ]
   %28 = getelementptr inbounds i8, ptr %.sink26.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #22
   %29 = ptrtoint ptr %.sink26.i.i to i64
   %30 = or i64 %29, 1
   %31 = inttoptr i64 %30 to ptr
@@ -12582,7 +12583,7 @@ define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadata8CopyFromERKS1_(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
@@ -12675,7 +12676,7 @@ thread-pre-split:                                 ; preds = %2
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %19 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %19, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
@@ -12697,7 +12698,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %23, %20
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %18, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %.sink26.i = phi ptr [ %24, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ], [ %19, %18 ]
   %25 = getelementptr inbounds i8, ptr %.sink26.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #22
   %26 = ptrtoint ptr %.sink26.i to i64
   %27 = or i64 %26, 1
   %28 = inttoptr i64 %27 to ptr
@@ -12726,7 +12727,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %39 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %39, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
@@ -12748,7 +12749,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %43, %4
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %38
   %.sink26.i.i = phi ptr [ %44, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ], [ %39, %38 ]
   %45 = getelementptr inbounds i8, ptr %.sink26.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #22
   %46 = ptrtoint ptr %.sink26.i.i to i64
   %47 = or i64 %46, 1
   %48 = inttoptr i64 %47 to ptr
@@ -12758,7 +12759,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit: ; preds = %32, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
   %.0.i = phi ptr [ %35, %32 ], [ %45, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %.0.i, ptr noundef nonnull align 8 dereferenceable(32) %.0) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %.0.i, ptr noundef nonnull align 8 dereferenceable(32) %.0) #22
   br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %2, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit
@@ -12896,7 +12897,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %2, %_ZN6google8pro
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4i18n12phonenumbers13PhoneMetadata11GetTypeNameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   %4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %7
 
@@ -12911,11 +12912,11 @@ define dso_local void @_ZNK4i18n12phonenumbers13PhoneMetadata11GetTypeNameB5cxx1
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #22
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   ret void
 
 7:                                                ; preds = %.noexc, %2
@@ -12925,7 +12926,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .body:                                            ; preds = %5, %7
   %eh.lpad-body = phi { ptr, i32 } [ %8, %7 ], [ %6, %5 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -12957,7 +12958,7 @@ _ZN4i18n12phonenumbers23PhoneMetadataCollection10SharedCtorEv.exit: ; preds = %2
 8:                                                ; preds = %7
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #21
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #22
   resume { ptr, i32 } %9
 }
 
@@ -12989,8 +12990,8 @@ define linkonce_odr dso_local void @_ZN6google8protobuf16RepeatedPtrFieldIN4i18n
   br i1 %12, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE6DeleteEPS5_PNS0_5ArenaE.exit.i, label %13
 
 13:                                               ; preds = %.lr.ph.i
-  tail call void @_ZN4i18n12phonenumbers13PhoneMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %11) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #23
+  tail call void @_ZN4i18n12phonenumbers13PhoneMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %11) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #24
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE6DeleteEPS5_PNS0_5ArenaE.exit.i
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE6DeleteEPS5_PNS0_5ArenaE.exit.i: ; preds = %13, %.lr.ph.i
@@ -13004,7 +13005,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMeta
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %6
   %14 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %3, %6 ]
-  tail call void @_ZdlPv(ptr noundef %14) #21
+  tail call void @_ZdlPv(ptr noundef %14) #22
   br label %15
 
 15:                                               ; preds = %._crit_edge.i, %1
@@ -13079,7 +13080,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEEC2ERK
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %40
-  %43 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %43 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
           to label %.noexc18 unwind label %55
 
 .noexc18:                                         ; preds = %42
@@ -13107,7 +13108,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %47, %4
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %.noexc20, %.noexc18
   %.sink26.i.i = phi ptr [ %48, %.noexc20 ], [ %43, %.noexc18 ]
   %49 = getelementptr inbounds i8, ptr %.sink26.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #22
   %50 = ptrtoint ptr %.sink26.i.i to i64
   %51 = or i64 %50, 1
   %52 = inttoptr i64 %51 to ptr
@@ -13126,7 +13127,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_s
 55:                                               ; preds = %53, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %47, %42
   %56 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #21
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #22
   resume { ptr, i32 } %56
 }
 
@@ -13148,8 +13149,8 @@ define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollectionD2Ev(ptr n
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %8, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #24
   br label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit: ; preds = %11, %6, %1
@@ -13180,8 +13181,8 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringI
   br i1 %24, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE6DeleteEPS5_PNS0_5ArenaE.exit.i.i, label %25
 
 25:                                               ; preds = %.lr.ph.i.i
-  tail call void @_ZN4i18n12phonenumbers13PhoneMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %23) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %23) #23
+  tail call void @_ZN4i18n12phonenumbers13PhoneMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %23) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %23) #24
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE6DeleteEPS5_PNS0_5ArenaE.exit.i.i
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE6DeleteEPS5_PNS0_5ArenaE.exit.i.i: ; preds = %25, %.lr.ph.i.i
@@ -13195,7 +13196,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMeta
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %18
   %26 = phi ptr [ %.pre.i.i, %._crit_edge.loopexit.i.i ], [ %15, %18 ]
-  tail call void @_ZdlPv(ptr noundef %26) #21
+  tail call void @_ZdlPv(ptr noundef %26) #22
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEED2Ev.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEED2Ev.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit, %._crit_edge.i.i
@@ -13205,8 +13206,8 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEED2Ev.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollectionD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 align 2 {
-  tail call void @_ZN4i18n12phonenumbers23PhoneMetadataCollectionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZN4i18n12phonenumbers23PhoneMetadataCollectionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
@@ -13216,7 +13217,7 @@ define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollection9ArenaDtor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4i18n12phonenumbers23PhoneMetadataCollection13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4i18n12phonenumbers23PhoneMetadataCollection13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -13275,7 +13276,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %17 = and i64 %15, -2
   %18 = inttoptr i64 %17 to ptr
   %19 = getelementptr inbounds i8, ptr %18, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #22
   br label %20
 
 20:                                               ; preds = %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit, %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEE5ClearEv.exit
@@ -13462,7 +13463,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %45
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %101
-  %104 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %104 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %104, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
@@ -13484,7 +13485,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %108, %10
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %103, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %.sink26.i = phi ptr [ %109, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ], [ %104, %103 ]
   %110 = getelementptr inbounds i8, ptr %.sink26.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #22
   %111 = ptrtoint ptr %.sink26.i to i64
   %112 = or i64 %111, 1
   %113 = inttoptr i64 %112 to ptr
@@ -13600,7 +13601,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   %49 = and i64 %46, -2
   %50 = inttoptr i64 %49 to ptr
   %51 = getelementptr inbounds i8, ptr %50, i64 8
-  %52 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %51) #21
+  %52 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %51) #22
   %53 = load ptr, ptr %44, align 8
   %54 = ptrtoint ptr %53 to i64
   %55 = and i64 %54, 1
@@ -13619,7 +13620,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
 
 61:                                               ; preds = %60, %56
   %.036 = phi ptr [ %59, %56 ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, %60 ]
-  %62 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.036) #21
+  %62 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.036) #22
   %63 = load ptr, ptr %2, align 8
   %64 = ptrtoint ptr %63 to i64
   %65 = ptrtoint ptr %.037.lcssa to i64
@@ -13690,7 +13691,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers23PhoneMetadataCollection12
   %27 = and i64 %24, -2
   %28 = inttoptr i64 %27 to ptr
   %29 = getelementptr inbounds i8, ptr %28, i64 8
-  %30 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #21
+  %30 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #22
   %31 = add i64 %30, %.016.lcssa
   br label %32
 
@@ -13739,7 +13740,7 @@ define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollection9MergeFrom
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %22, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
@@ -13761,7 +13762,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %26, %2
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %21
   %.sink26.i.i = phi ptr [ %27, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ], [ %22, %21 ]
   %28 = getelementptr inbounds i8, ptr %.sink26.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #22
   %29 = ptrtoint ptr %.sink26.i.i to i64
   %30 = or i64 %29, 1
   %31 = inttoptr i64 %30 to ptr
@@ -13852,7 +13853,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_string
   %20 = and i64 %18, -2
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds i8, ptr %21, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #22
   br label %_ZN4i18n12phonenumbers23PhoneMetadataCollection5ClearEv.exit
 
 _ZN4i18n12phonenumbers23PhoneMetadataCollection5ClearEv.exit: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEE5ClearEv.exit.i, %_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i
@@ -13864,7 +13865,7 @@ _ZN4i18n12phonenumbers23PhoneMetadataCollection5ClearEv.exit: ; preds = %_ZN6goo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers23PhoneMetadataCollection13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers23PhoneMetadataCollection13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 1
@@ -13978,7 +13979,7 @@ thread-pre-split:                                 ; preds = %2
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %19 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %19, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
@@ -14000,7 +14001,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %23, %20
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %18, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %.sink26.i = phi ptr [ %24, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ], [ %19, %18 ]
   %25 = getelementptr inbounds i8, ptr %.sink26.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #22
   %26 = ptrtoint ptr %.sink26.i to i64
   %27 = or i64 %26, 1
   %28 = inttoptr i64 %27 to ptr
@@ -14029,7 +14030,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %39 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %39, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
@@ -14051,7 +14052,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %43, %4
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %38
   %.sink26.i.i = phi ptr [ %44, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ], [ %39, %38 ]
   %45 = getelementptr inbounds i8, ptr %.sink26.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #22
   %46 = ptrtoint ptr %.sink26.i.i to i64
   %47 = or i64 %46, 1
   %48 = inttoptr i64 %47 to ptr
@@ -14061,7 +14062,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit: ; preds = %32, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
   %.0.i = phi ptr [ %35, %32 ], [ %45, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %.0.i, ptr noundef nonnull align 8 dereferenceable(32) %.0) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %.0.i, ptr noundef nonnull align 8 dereferenceable(32) %.0) #22
   br label %49
 
 49:                                               ; preds = %2, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit
@@ -14076,7 +14077,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringI
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4i18n12phonenumbers23PhoneMetadataCollection11GetTypeNameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   %4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %7
 
@@ -14091,11 +14092,11 @@ define dso_local void @_ZNK4i18n12phonenumbers23PhoneMetadataCollection11GetType
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #22
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   ret void
 
 7:                                                ; preds = %.noexc, %2
@@ -14105,7 +14106,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .body:                                            ; preds = %5, %7
   %eh.lpad-body = phi { ptr, i32 } [ %8, %7 ], [ %6, %5 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -14115,7 +14116,7 @@ define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i1
   br i1 %2, label %3, label %15
 
 3:                                                ; preds = %1
-  %4 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #22
+  %4 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #23
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i64 16), ptr %4, align 8
@@ -14139,7 +14140,7 @@ define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i1
 11:                                               ; preds = %10
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #21
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #22
   br label %.body
 
 13:                                               ; preds = %3
@@ -14153,7 +14154,7 @@ common.resume:                                    ; preds = %26, %.body
 
 .body:                                            ; preds = %11, %13
   %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #24
   br label %common.resume
 
 15:                                               ; preds = %1
@@ -14188,7 +14189,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %15, %18
 26:                                               ; preds = %25
   %27 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #21
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #22
   br label %common.resume
 
 _ZN4i18n12phonenumbers12NumberFormatC2Ev.exit:    ; preds = %25, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %10, %.noexc
@@ -14212,7 +14213,7 @@ define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i1
   br i1 %2, label %3, label %20
 
 3:                                                ; preds = %1
-  %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberDescE, i64 16), ptr %4, align 8
@@ -14246,12 +14247,12 @@ define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i1
 15:                                               ; preds = %12
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #22
   br label %17
 
 17:                                               ; preds = %15, %13
   %.pn.i.i = phi { ptr, i32 } [ %16, %15 ], [ %14, %13 ]
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #21
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #22
   br label %.body
 
 18:                                               ; preds = %3
@@ -14265,7 +14266,7 @@ common.resume:                                    ; preds = %37, %.body
 
 .body:                                            ; preds = %17, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %.pn.i.i, %17 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #24
   br label %common.resume
 
 20:                                               ; preds = %1
@@ -14310,12 +14311,12 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %20, %23
 35:                                               ; preds = %32
   %36 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #21
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #22
   br label %37
 
 37:                                               ; preds = %35, %33
   %.pn.i.i14 = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #21
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #22
   br label %common.resume
 
 _ZN4i18n12phonenumbers15PhoneNumberDescC2Ev.exit: ; preds = %32, %30, %12, %10
@@ -14333,14 +14334,14 @@ define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i1
   br i1 %2, label %3, label %7
 
 3:                                                ; preds = %1
-  %4 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #22
+  %4 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #23
   invoke void @_ZN4i18n12phonenumbers13PhoneMetadataC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(280) %4, ptr noundef null)
           to label %_ZN4i18n12phonenumbers13PhoneMetadataC2Ev.exit unwind label %5
 
 5:                                                ; preds = %3
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #24
   resume { ptr, i32 } %6
 
 7:                                                ; preds = %1
@@ -14369,7 +14370,7 @@ define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i1
   br i1 %2, label %3, label %10
 
 3:                                                ; preds = %1
-  %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
+  %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i64 16), ptr %4, align 8
@@ -14386,8 +14387,8 @@ define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i1
 .body:                                            ; preds = %8
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #23
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #24
   br label %common.resume
 
 common.resume:                                    ; preds = %20, %.body
@@ -14424,7 +14425,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %10, %13
 20:                                               ; preds = %19
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #21
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #22
   br label %common.resume
 
 _ZN4i18n12phonenumbers23PhoneMetadataCollectionC2Ev.exit: ; preds = %19, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %8, %3
@@ -14434,7 +14435,7 @@ _ZN4i18n12phonenumbers23PhoneMetadataCollectionC2Ev.exit: ; preds = %19, %_ZNK6g
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers12NumberFormat3NewEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #22
+  %2 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #23
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i64 16), ptr %2, align 8
@@ -14458,7 +14459,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers12NumberFormat
 9:                                                ; preds = %8
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #21
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #22
   br label %.body.i
 
 11:                                               ; preds = %1
@@ -14468,7 +14469,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers12NumberFormat
 
 .body.i:                                          ; preds = %11, %9
   %eh.lpad-body.i = phi { ptr, i32 } [ %12, %11 ], [ %10, %9 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
   resume { ptr, i32 } %eh.lpad-body.i
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers12NumberFormatEJEEEPT_PS1_DpOT0_.exit: ; preds = %.noexc.i, %8
@@ -14526,14 +14527,14 @@ define linkonce_odr dso_local noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberD
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers13PhoneMetadata3NewEv(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #22
+  %2 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #23
   invoke void @_ZN4i18n12phonenumbers13PhoneMetadataC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(280) %2, ptr noundef null)
           to label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN4i18n12phonenumbers13PhoneMetadataEEEPT_PNS0_5ArenaE.exit unwind label %3
 
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
   resume { ptr, i32 } %4
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN4i18n12phonenumbers13PhoneMetadataEEEPT_PNS0_5ArenaE.exit: ; preds = %1
@@ -14546,14 +14547,14 @@ define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers13PhoneMetadat
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #22
+  %5 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #23
   invoke void @_ZN4i18n12phonenumbers13PhoneMetadataC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef null)
           to label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN4i18n12phonenumbers13PhoneMetadataEEEPT_PNS0_5ArenaE.exit unwind label %6
 
 6:                                                ; preds = %4
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #24
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %2
@@ -14585,7 +14586,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4i18n12phonenumbers13PhoneMetadat
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers23PhoneMetadataCollection3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
+  %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i64 16), ptr %2, align 8
@@ -14602,8 +14603,8 @@ define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers23PhoneMetadat
 .body.i:                                          ; preds = %6
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
   resume { ptr, i32 } %7
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers23PhoneMetadataCollectionEJEEEPT_PS1_DpOT0_.exit: ; preds = %1, %6
@@ -14640,14 +14641,14 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %7
-  %10 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
+  %10 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZN6google8protobuf8internal14ArenaStringPtr14CreateInstanceEPNS0_5ArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %11
 
 11:                                               ; preds = %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #24
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %7
@@ -14688,7 +14689,7 @@ declare noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv(ptr noundef %0) #6 comdat {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   ret void
 }
 
@@ -14717,14 +14718,14 @@ define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal14ArenaSt
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %6
-  %9 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
+  %9 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZN6google8protobuf8internal14ArenaStringPtr14CreateInstanceEPNS0_5ArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %10
 
 10:                                               ; preds = %8
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #24
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %6
@@ -14765,7 +14766,7 @@ declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallba
 declare void @_ZN6google8protobuf8internal20InitProtobufDefaultsEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #15
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #16
 
 declare void @_ZN6google8protobuf13RepeatedFieldIiE3AddERKi(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
@@ -14774,7 +14775,7 @@ declare noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef n
 declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf13RepeatedFieldIiE3GetEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #16
+declare void @llvm.assume(i1 noundef) #17
 
 declare void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
@@ -14830,14 +14831,14 @@ define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal20Repeate
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %22
-  %29 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #22
+  %29 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #23
   invoke void @_ZN4i18n12phonenumbers13PhoneMetadataC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(280) %29, ptr noundef null)
           to label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit unwind label %30
 
 30:                                               ; preds = %28
   %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %29) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %29) #24
   resume { ptr, i32 } %31
 
 32:                                               ; preds = %22
@@ -14903,7 +14904,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #24
+  tail call void @__clang_call_terminate(ptr %17) #25
   unreachable
 
 18:                                               ; preds = %13, %10
@@ -14912,7 +14913,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
           to label %20 unwind label %22
 
 20:                                               ; preds = %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #22
   store ptr null, ptr %5, align 8
   %21 = load i64, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %21)
@@ -14924,7 +14925,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 22:                                               ; preds = %20, %18
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
   resume { ptr, i32 } %23
 }
 
@@ -14958,7 +14959,7 @@ define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_trait
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #24
+  tail call void @__clang_call_terminate(ptr %7) #25
   unreachable
 }
 
@@ -14973,7 +14974,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv(ptr noundef %0) #6 comdat {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   ret void
 }
 
@@ -15032,21 +15033,21 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal20RepeatedPtrFie
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %21, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %21) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %21) #24
   br label %_ZN4i18n12phonenumbers12NumberFormatD2Ev.exit.i
 
 26:                                               ; preds = %13
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #24
+  tail call void @__clang_call_terminate(ptr %28) #25
   unreachable
 
 _ZN4i18n12phonenumbers12NumberFormatD2Ev.exit.i:  ; preds = %24, %19, %14
   %29 = getelementptr inbounds i8, ptr %11, i64 24
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #23
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #24
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE6DeleteEPS5_PNS0_5ArenaE.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE6DeleteEPS5_PNS0_5ArenaE.exit: ; preds = %.lr.ph, %_ZN4i18n12phonenumbers12NumberFormatD2Ev.exit.i
@@ -15060,7 +15061,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFor
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
   %30 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %3, %6 ]
-  tail call void @_ZdlPv(ptr noundef %30) #21
+  tail call void @_ZdlPv(ptr noundef %30) #22
   br label %31
 
 31:                                               ; preds = %._crit_edge, %1
@@ -15188,7 +15189,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal20RepeatedPtrFie
   %indvars.iv38 = phi i64 [ %15, %.lr.ph28.split.us.preheader ], [ %indvars.iv.next39, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit.us ]
   %16 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv38
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #22
+  %18 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #23
   invoke void @_ZN4i18n12phonenumbers13PhoneMetadataC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(280) %18, ptr noundef null)
           to label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit.us unwind label %.split.us
 
@@ -15203,7 +15204,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMeta
 .split.us:                                        ; preds = %.lr.ph28.split.us
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %18) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #24
   resume { ptr, i32 } %20
 
 .lr.ph28.split:                                   ; preds = %.lr.ph28, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
@@ -15234,23 +15235,23 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %24, 
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_phonemetadata.pb.cc() #17 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_phonemetadata.pb.cc() #18 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
   ret void
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #20
+declare i32 @llvm.smin.i32(i32, i32) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -15260,23 +15261,24 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #17 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nounwind }
-attributes #22 = { builtin allocsize(0) }
-attributes #23 = { builtin nounwind }
-attributes #24 = { noreturn nounwind }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nounwind }
+attributes #23 = { builtin allocsize(0) }
+attributes #24 = { builtin nounwind }
+attributes #25 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

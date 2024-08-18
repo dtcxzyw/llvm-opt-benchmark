@@ -70,7 +70,7 @@ for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_Destr
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #12
   br label %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i:  ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i
@@ -88,7 +88,7 @@ invoke.cont:                                      ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #12
   br label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EED2Ev.exit
 
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -100,29 +100,30 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #5
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKSt6vectorIdSaIdEEPS2_ET0_T_S7_S6_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) local_unnamed_addr #7 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKSt6vectorIdSaIdEEPS2_ET0_T_S7_S6_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not13 = icmp eq ptr %__first, %__last
   br i1 %cmp.not13, label %for.end, label %for.body
@@ -146,14 +147,14 @@ cond.true.i.i.i.i.i:                              ; preds = %for.body
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i
 
 if.then3.i.i.i.i.i.i.i:                           ; preds = %cond.true.i.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #14
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
           to label %.noexc unwind label %lpad.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %cond.true.i.i.i.i.i
-  %call5.i.i.i.i2.i6.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i) #15
+  %call5.i.i.i.i2.i6.i.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i) #16
           to label %invoke.cont.i.i unwind label %lpad.loopexit
 
 invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i, %for.body
@@ -197,7 +198,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.then3.i.i.i.i.i.
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   %4 = extractvalue { ptr, i32 } %lpad.phi, 0
-  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #12
+  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #13
   %cmp.not3.i.i = icmp eq ptr %__cur.015, %__result
   br i1 %cmp.not3.i.i, label %invoke.cont3, label %for.body.i.i
 
@@ -208,7 +209,7 @@ for.body.i.i:                                     ; preds = %lpad, %_ZSt8_Destro
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #12
   br label %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i
 
 _ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i:    ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i
@@ -217,7 +218,7 @@ _ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i:    ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp.not.i.i, label %invoke.cont3, label %for.body.i.i, !llvm.loop !4
 
 invoke.cont3:                                     ; preds = %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i, %lpad
-  invoke void @__cxa_rethrow() #14
+  invoke void @__cxa_rethrow() #15
           to label %unreachable unwind label %lpad2
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -237,7 +238,7 @@ terminate.lpad:                                   ; preds = %lpad2
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #13
+  tail call void @__clang_call_terminate(ptr %9) #14
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont3
@@ -249,12 +250,12 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_BiasCorrection.cpp() #8 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_BiasCorrection.cpp() #9 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i1 = alloca [13 x %"class.std::vector.0"], align 8
   %ref.tmp.i = alloca [13 x %"class.std::vector.0"], align 8
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %ref.tmp.i)
-  %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(640) ptr @_Znwm(i64 noundef 640) #15
+  %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(640) ptr @_Znwm(i64 noundef 640) #16
   store ptr %call5.i.i.i.i2.i.i, ptr %ref.tmp.i, align 8
   %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 640
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
@@ -264,7 +265,7 @@ entry:
   store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8
   %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element.i, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i14.i = invoke noalias noundef nonnull dereferenceable(1280) ptr @_Znwm(i64 noundef 1280) #15
+  %call5.i.i.i.i2.i14.i = invoke noalias noundef nonnull dereferenceable(1280) ptr @_Znwm(i64 noundef 1280) #16
           to label %invoke.cont13.i unwind label %lpad.i15.i
 
 lpad.i15.i:                                       ; preds = %entry
@@ -282,7 +283,7 @@ invoke.cont13.i:                                  ; preds = %entry
   store ptr %add.ptr.i1.i19.i, ptr %_M_finish.i.i22.i, align 8
   %arrayinit.element14.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element14.i, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i25.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i25.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont23.i unwind label %lpad.i26.i
 
 lpad.i26.i:                                       ; preds = %invoke.cont13.i
@@ -300,7 +301,7 @@ invoke.cont23.i:                                  ; preds = %invoke.cont13.i
   store ptr %add.ptr.i1.i30.i, ptr %_M_finish.i.i33.i, align 8
   %arrayinit.element24.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element24.i, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i36.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i36.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont33.i unwind label %lpad.i37.i
 
 lpad.i37.i:                                       ; preds = %invoke.cont23.i
@@ -318,7 +319,7 @@ invoke.cont33.i:                                  ; preds = %invoke.cont23.i
   store ptr %add.ptr.i1.i41.i, ptr %_M_finish.i.i44.i, align 8
   %arrayinit.element34.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element34.i, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i47.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i47.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont43.i unwind label %lpad.i48.i
 
 lpad.i48.i:                                       ; preds = %invoke.cont33.i
@@ -336,7 +337,7 @@ invoke.cont43.i:                                  ; preds = %invoke.cont33.i
   store ptr %add.ptr.i1.i52.i, ptr %_M_finish.i.i55.i, align 8
   %arrayinit.element44.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element44.i, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i58.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i58.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont53.i unwind label %lpad.i59.i
 
 lpad.i59.i:                                       ; preds = %invoke.cont43.i
@@ -354,7 +355,7 @@ invoke.cont53.i:                                  ; preds = %invoke.cont43.i
   store ptr %add.ptr.i1.i63.i, ptr %_M_finish.i.i66.i, align 8
   %arrayinit.element54.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element54.i, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i69.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i69.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont63.i unwind label %lpad.i70.i
 
 lpad.i70.i:                                       ; preds = %invoke.cont53.i
@@ -372,7 +373,7 @@ invoke.cont63.i:                                  ; preds = %invoke.cont53.i
   store ptr %add.ptr.i1.i74.i, ptr %_M_finish.i.i77.i, align 8
   %arrayinit.element64.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element64.i, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i80.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i80.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont73.i unwind label %lpad.i81.i
 
 lpad.i81.i:                                       ; preds = %invoke.cont63.i
@@ -390,7 +391,7 @@ invoke.cont73.i:                                  ; preds = %invoke.cont63.i
   store ptr %add.ptr.i1.i85.i, ptr %_M_finish.i.i88.i, align 8
   %arrayinit.element74.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element74.i, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i91.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i91.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont83.i unwind label %lpad.i92.i
 
 lpad.i92.i:                                       ; preds = %invoke.cont73.i
@@ -408,7 +409,7 @@ invoke.cont83.i:                                  ; preds = %invoke.cont73.i
   store ptr %add.ptr.i1.i96.i, ptr %_M_finish.i.i99.i, align 8
   %arrayinit.element84.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element84.i, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i102.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i102.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont93.i unwind label %lpad.i103.i
 
 lpad.i103.i:                                      ; preds = %invoke.cont83.i
@@ -426,7 +427,7 @@ invoke.cont93.i:                                  ; preds = %invoke.cont83.i
   store ptr %add.ptr.i1.i107.i, ptr %_M_finish.i.i110.i, align 8
   %arrayinit.element94.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element94.i, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i113.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i113.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont103.i unwind label %lpad.i114.i
 
 lpad.i114.i:                                      ; preds = %invoke.cont93.i
@@ -444,7 +445,7 @@ invoke.cont103.i:                                 ; preds = %invoke.cont93.i
   store ptr %add.ptr.i1.i118.i, ptr %_M_finish.i.i121.i, align 8
   %arrayinit.element104.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 264
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element104.i, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i124.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i124.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont113.i unwind label %lpad.i125.i
 
 lpad.i125.i:                                      ; preds = %invoke.cont103.i
@@ -462,7 +463,7 @@ invoke.cont113.i:                                 ; preds = %invoke.cont103.i
   store ptr %add.ptr.i1.i129.i, ptr %_M_finish.i.i132.i, align 8
   %arrayinit.element114.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element114.i, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i135.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i135.i = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont123.i unwind label %lpad.i136.i
 
 lpad.i136.i:                                      ; preds = %invoke.cont113.i
@@ -480,7 +481,7 @@ invoke.cont123.i:                                 ; preds = %invoke.cont113.i
   store ptr %add.ptr.i1.i140.i, ptr %_M_finish.i.i143.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8facebook5velox6common3hll14BiasCorrection13kRawEstimatesE, i8 0, i64 24, i1 false)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 312
-  %call5.i.i.i.i2.i146.i = invoke noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #15
+  %call5.i.i.i.i2.i146.i = invoke noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #16
           to label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i.i.i unwind label %lpad.i147.i
 
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %invoke.cont123.i
@@ -501,7 +502,7 @@ arraydestroy.body132.i.preheader:                 ; preds = %if.then.i.i4.i.i, %
   br label %arraydestroy.body132.i
 
 if.then.i.i4.i.i:                                 ; preds = %lpad.i147.i
-  call void @_ZdlPv(ptr noundef nonnull %13) #11
+  call void @_ZdlPv(ptr noundef nonnull %13) #12
   br label %arraydestroy.body132.i.preheader
 
 invoke.cont129.i:                                 ; preds = %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i.i.i
@@ -516,7 +517,7 @@ arraydestroy.body.i:                              ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %tobool.not.i.i.i151.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %arraydestroy.body.i
-  call void @_ZdlPv(ptr noundef nonnull %14) #11
+  call void @_ZdlPv(ptr noundef nonnull %14) #12
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %arraydestroy.body.i
@@ -531,7 +532,7 @@ arraydestroy.body132.i:                           ; preds = %arraydestroy.body13
   br i1 %tobool.not.i.i.i153.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit156.i, label %if.then.i.i.i154.i
 
 if.then.i.i.i154.i:                               ; preds = %arraydestroy.body132.i
-  call void @_ZdlPv(ptr noundef nonnull %15) #11
+  call void @_ZdlPv(ptr noundef nonnull %15) #12
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit156.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit156.i:               ; preds = %if.then.i.i.i154.i, %arraydestroy.body132.i
@@ -551,7 +552,7 @@ arraydestroy.body150.i:                           ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %tobool.not.i.i.i157.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit160.i, label %if.then.i.i.i158.i
 
 if.then.i.i.i158.i:                               ; preds = %arraydestroy.body150.i
-  call void @_ZdlPv(ptr noundef nonnull %16) #11
+  call void @_ZdlPv(ptr noundef nonnull %16) #12
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit160.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit160.i:               ; preds = %if.then.i.i.i158.i, %arraydestroy.body150.i
@@ -563,10 +564,10 @@ common.resume:                                    ; preds = %_ZNSt6vectorIdSaIdE
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.exit:                       ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i
-  %17 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev, ptr nonnull @_ZN8facebook5velox6common3hll14BiasCorrection13kRawEstimatesE, ptr nonnull @__dso_handle) #12
+  %17 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev, ptr nonnull @_ZN8facebook5velox6common3hll14BiasCorrection13kRawEstimatesE, ptr nonnull @__dso_handle) #13
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %ref.tmp.i1)
-  %call5.i.i.i.i2.i.i2 = call noalias noundef nonnull dereferenceable(640) ptr @_Znwm(i64 noundef 640) #15
+  %call5.i.i.i.i2.i.i2 = call noalias noundef nonnull dereferenceable(640) ptr @_Znwm(i64 noundef 640) #16
   store ptr %call5.i.i.i.i2.i.i2, ptr %ref.tmp.i1, align 8
   %add.ptr.i1.i.i3 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i2, i64 640
   %_M_end_of_storage.i.i.i4 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 16
@@ -576,7 +577,7 @@ __cxx_global_var_init.exit:                       ; preds = %_ZNSt6vectorIdSaIdE
   store ptr %add.ptr.i1.i.i3, ptr %_M_finish.i.i.i5, align 8
   %arrayinit.element.i6 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element.i6, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i14.i7 = invoke noalias noundef nonnull dereferenceable(1280) ptr @_Znwm(i64 noundef 1280) #15
+  %call5.i.i.i.i2.i14.i7 = invoke noalias noundef nonnull dereferenceable(1280) ptr @_Znwm(i64 noundef 1280) #16
           to label %invoke.cont13.i21 unwind label %lpad.i15.i8
 
 lpad.i15.i8:                                      ; preds = %__cxx_global_var_init.exit
@@ -594,7 +595,7 @@ invoke.cont13.i21:                                ; preds = %__cxx_global_var_in
   store ptr %add.ptr.i1.i19.i22, ptr %_M_finish.i.i22.i24, align 8
   %arrayinit.element14.i25 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element14.i25, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i25.i26 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i25.i26 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont23.i28 unwind label %lpad.i26.i27
 
 lpad.i26.i27:                                     ; preds = %invoke.cont13.i21
@@ -612,7 +613,7 @@ invoke.cont23.i28:                                ; preds = %invoke.cont13.i21
   store ptr %add.ptr.i1.i30.i29, ptr %_M_finish.i.i33.i31, align 8
   %arrayinit.element24.i32 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element24.i32, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i36.i33 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i36.i33 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont33.i35 unwind label %lpad.i37.i34
 
 lpad.i37.i34:                                     ; preds = %invoke.cont23.i28
@@ -630,7 +631,7 @@ invoke.cont33.i35:                                ; preds = %invoke.cont23.i28
   store ptr %add.ptr.i1.i41.i36, ptr %_M_finish.i.i44.i38, align 8
   %arrayinit.element34.i39 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element34.i39, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i47.i40 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i47.i40 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont43.i42 unwind label %lpad.i48.i41
 
 lpad.i48.i41:                                     ; preds = %invoke.cont33.i35
@@ -648,7 +649,7 @@ invoke.cont43.i42:                                ; preds = %invoke.cont33.i35
   store ptr %add.ptr.i1.i52.i43, ptr %_M_finish.i.i55.i45, align 8
   %arrayinit.element44.i46 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element44.i46, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i58.i47 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i58.i47 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont53.i49 unwind label %lpad.i59.i48
 
 lpad.i59.i48:                                     ; preds = %invoke.cont43.i42
@@ -666,7 +667,7 @@ invoke.cont53.i49:                                ; preds = %invoke.cont43.i42
   store ptr %add.ptr.i1.i63.i50, ptr %_M_finish.i.i66.i52, align 8
   %arrayinit.element54.i53 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element54.i53, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i69.i54 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i69.i54 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont63.i56 unwind label %lpad.i70.i55
 
 lpad.i70.i55:                                     ; preds = %invoke.cont53.i49
@@ -684,7 +685,7 @@ invoke.cont63.i56:                                ; preds = %invoke.cont53.i49
   store ptr %add.ptr.i1.i74.i57, ptr %_M_finish.i.i77.i59, align 8
   %arrayinit.element64.i60 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element64.i60, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i80.i61 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i80.i61 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont73.i63 unwind label %lpad.i81.i62
 
 lpad.i81.i62:                                     ; preds = %invoke.cont63.i56
@@ -702,7 +703,7 @@ invoke.cont73.i63:                                ; preds = %invoke.cont63.i56
   store ptr %add.ptr.i1.i85.i64, ptr %_M_finish.i.i88.i66, align 8
   %arrayinit.element74.i67 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element74.i67, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i91.i68 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i91.i68 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont83.i70 unwind label %lpad.i92.i69
 
 lpad.i92.i69:                                     ; preds = %invoke.cont73.i63
@@ -720,7 +721,7 @@ invoke.cont83.i70:                                ; preds = %invoke.cont73.i63
   store ptr %add.ptr.i1.i96.i71, ptr %_M_finish.i.i99.i73, align 8
   %arrayinit.element84.i74 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element84.i74, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i102.i75 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i102.i75 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont93.i77 unwind label %lpad.i103.i76
 
 lpad.i103.i76:                                    ; preds = %invoke.cont83.i70
@@ -738,7 +739,7 @@ invoke.cont93.i77:                                ; preds = %invoke.cont83.i70
   store ptr %add.ptr.i1.i107.i78, ptr %_M_finish.i.i110.i80, align 8
   %arrayinit.element94.i81 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element94.i81, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i113.i82 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i113.i82 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont103.i84 unwind label %lpad.i114.i83
 
 lpad.i114.i83:                                    ; preds = %invoke.cont93.i77
@@ -756,7 +757,7 @@ invoke.cont103.i84:                               ; preds = %invoke.cont93.i77
   store ptr %add.ptr.i1.i118.i85, ptr %_M_finish.i.i121.i87, align 8
   %arrayinit.element104.i88 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 264
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element104.i88, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i124.i89 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i124.i89 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont113.i91 unwind label %lpad.i125.i90
 
 lpad.i125.i90:                                    ; preds = %invoke.cont103.i84
@@ -774,7 +775,7 @@ invoke.cont113.i91:                               ; preds = %invoke.cont103.i84
   store ptr %add.ptr.i1.i129.i92, ptr %_M_finish.i.i132.i94, align 8
   %arrayinit.element114.i95 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayinit.element114.i95, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i135.i96 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #15
+  %call5.i.i.i.i2.i135.i96 = invoke noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #16
           to label %invoke.cont123.i98 unwind label %lpad.i136.i97
 
 lpad.i136.i97:                                    ; preds = %invoke.cont113.i91
@@ -792,7 +793,7 @@ invoke.cont123.i98:                               ; preds = %invoke.cont113.i91
   store ptr %add.ptr.i1.i140.i99, ptr %_M_finish.i.i143.i101, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8facebook5velox6common3hll14BiasCorrection5kBiasE, i8 0, i64 24, i1 false)
   %add.ptr.i.i.i102 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 312
-  %call5.i.i.i.i2.i146.i103 = invoke noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #15
+  %call5.i.i.i.i2.i146.i103 = invoke noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #16
           to label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i.i.i115 unwind label %lpad.i147.i104
 
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i.i.i115: ; preds = %invoke.cont123.i98
@@ -813,7 +814,7 @@ arraydestroy.body132.i108.preheader:              ; preds = %if.then.i.i4.i.i106
   br label %arraydestroy.body132.i108
 
 if.then.i.i4.i.i106:                              ; preds = %lpad.i147.i104
-  call void @_ZdlPv(ptr noundef nonnull %31) #11
+  call void @_ZdlPv(ptr noundef nonnull %31) #12
   br label %arraydestroy.body132.i108.preheader
 
 invoke.cont129.i118:                              ; preds = %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit.i.i.i115
@@ -828,7 +829,7 @@ arraydestroy.body.i119:                           ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %tobool.not.i.i.i151.i122, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i124, label %if.then.i.i.i.i123
 
 if.then.i.i.i.i123:                               ; preds = %arraydestroy.body.i119
-  call void @_ZdlPv(ptr noundef nonnull %32) #11
+  call void @_ZdlPv(ptr noundef nonnull %32) #12
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i124
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i124:               ; preds = %if.then.i.i.i.i123, %arraydestroy.body.i119
@@ -843,7 +844,7 @@ arraydestroy.body132.i108:                        ; preds = %arraydestroy.body13
   br i1 %tobool.not.i.i.i153.i111, label %_ZNSt6vectorIdSaIdEED2Ev.exit156.i113, label %if.then.i.i.i154.i112
 
 if.then.i.i.i154.i112:                            ; preds = %arraydestroy.body132.i108
-  call void @_ZdlPv(ptr noundef nonnull %33) #11
+  call void @_ZdlPv(ptr noundef nonnull %33) #12
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit156.i113
 
 _ZNSt6vectorIdSaIdEED2Ev.exit156.i113:            ; preds = %if.then.i.i.i154.i112, %arraydestroy.body132.i108
@@ -863,7 +864,7 @@ arraydestroy.body150.i12:                         ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %tobool.not.i.i.i157.i15, label %_ZNSt6vectorIdSaIdEED2Ev.exit160.i17, label %if.then.i.i.i158.i16
 
 if.then.i.i.i158.i16:                             ; preds = %arraydestroy.body150.i12
-  call void @_ZdlPv(ptr noundef nonnull %34) #11
+  call void @_ZdlPv(ptr noundef nonnull %34) #12
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit160.i17
 
 _ZNSt6vectorIdSaIdEED2Ev.exit160.i17:             ; preds = %if.then.i.i.i158.i16, %arraydestroy.body150.i12
@@ -871,36 +872,37 @@ _ZNSt6vectorIdSaIdEED2Ev.exit160.i17:             ; preds = %if.then.i.i.i158.i1
   br i1 %arraydestroy.done153.i18, label %common.resume, label %arraydestroy.body150.i12
 
 __cxx_global_var_init.13.exit:                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i124
-  %35 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev, ptr nonnull @_ZN8facebook5velox6common3hll14BiasCorrection5kBiasE, ptr nonnull @__dso_handle) #12
+  %35 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev, ptr nonnull @_ZN8facebook5velox6common3hll14BiasCorrection5kBiasE, ptr nonnull @__dso_handle) #13
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %ref.tmp.i1)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { builtin nounwind }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { noreturn }
-attributes #15 = { builtin allocsize(0) }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { builtin nounwind }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { noreturn }
+attributes #16 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -217,7 +217,7 @@ do.body:                                          ; preds = %entry
   br i1 %cmp3.not, label %if.then4, label %do.body5
 
 if.then4:                                         ; preds = %do.body
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 153, ptr noundef nonnull @.str.8) #17
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 153, ptr noundef nonnull @.str.8) #18
   unreachable
 
 do.body5:                                         ; preds = %do.body
@@ -227,7 +227,7 @@ do.body5:                                         ; preds = %do.body
   br i1 %cmp6.not, label %if.then8, label %do.end10
 
 if.then8:                                         ; preds = %do.body5
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 154, ptr noundef nonnull @.str.9) #17
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 154, ptr noundef nonnull @.str.9) #18
   unreachable
 
 do.end10:                                         ; preds = %do.body5
@@ -321,7 +321,7 @@ if.then10:                                        ; preds = %land.end
 lpad:                                             ; preds = %invoke.cont33, %if.then32, %invoke.cont27, %invoke.cont24, %invoke.cont21, %invoke.cont19, %if.end18, %if.end11, %if.then10
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN33tsi_ssl_client_handshaker_optionsD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %options) #18
+  call void @_ZN33tsi_ssl_client_handshaker_optionsD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %options) #19
   resume { ptr, i32 } %5
 
 if.end11:                                         ; preds = %land.end
@@ -407,7 +407,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %10, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %13 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %10) #18
+  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %10) #19
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -433,7 +433,7 @@ if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %16 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(16) %10) #18
+  call void %16(ptr noundef nonnull align 8 dereferenceable(16) %10) #19
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 12
   %17 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %17, 0
@@ -458,7 +458,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %20 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #18
+  call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #19
   br label %return
 
 return:                                           ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %cleanup, %entry
@@ -506,7 +506,7 @@ terminate.lpad:                                   ; preds = %if.end, %if.then, %
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #19
+  tail call void @__clang_call_terminate(ptr %6) #20
   unreachable
 }
 
@@ -514,14 +514,15 @@ declare void @gpr_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
-  tail call void @_ZSt9terminatev() #19
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 declare void @_Z39grpc_tsi_ssl_pem_key_cert_pairs_destroyP25tsi_ssl_pem_key_cert_pairm(ptr noundef, i64 noundef) local_unnamed_addr #0
 
@@ -530,13 +531,13 @@ declare void @_Z39tsi_ssl_client_handshaker_factory_unrefP33tsi_ssl_client_hands
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN20grpc_ssl_credentialsD0Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN20grpc_ssl_credentialsD1Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
+  tail call void @_ZN20grpc_ssl_credentialsD1Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN20grpc_ssl_credentials25create_security_connectorEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEPKcPNS0_11ChannelArgsE(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(84) %this, ptr nocapture noundef %call_creds, ptr noundef %target, ptr noundef %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -605,7 +606,7 @@ invoke.cont20:                                    ; preds = %invoke.cont12
   br i1 %tobool.i.i, label %cond.true24, label %cond.end28
 
 cond.true24:                                      ; preds = %invoke.cont20
-  %call26 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name) #18
+  %call26 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name) #19
   br label %cond.end28
 
 cond.end28:                                       ; preds = %invoke.cont20, %cond.true24
@@ -631,7 +632,7 @@ if.then.i.i17:                                    ; preds = %if.then.i14
   %vtable.i.i.i18 = load ptr, ptr %9, align 8
   %vfn.i.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i.i18, i64 8
   %11 = load ptr, ptr %vfn.i.i.i19, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(20) %9) #18
+  call void %11(ptr noundef nonnull align 8 dereferenceable(20) %9) #19
   br label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit: ; preds = %_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorEaSEOS2_.exit, %if.then.i14, %if.then.i.i17
@@ -649,7 +650,7 @@ if.then.i.i24:                                    ; preds = %if.then.i21
   %vtable.i.i.i25 = load ptr, ptr %12, align 8
   %vfn.i.i.i26 = getelementptr inbounds i8, ptr %vtable.i.i.i25, i64 8
   %14 = load ptr, ptr %vfn.i.i.i26, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
+  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %12) #19
   br label %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit: ; preds = %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit, %if.then.i21, %if.then.i.i24
@@ -674,7 +675,7 @@ if.then.i.i31:                                    ; preds = %if.then.i28
   %vtable.i.i.i32 = load ptr, ptr %17, align 8
   %vfn.i.i.i33 = getelementptr inbounds i8, ptr %vtable.i.i.i32, i64 8
   %19 = load ptr, ptr %vfn.i.i.i33, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(20) %17) #18
+  call void %19(ptr noundef nonnull align 8 dereferenceable(20) %17) #19
   br label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit34
 
 _ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit34: ; preds = %lpad30, %if.then.i28, %if.then.i.i31
@@ -692,7 +693,7 @@ if.then.i.i39:                                    ; preds = %if.then.i36
   %vtable.i.i.i40 = load ptr, ptr %20, align 8
   %vfn.i.i.i41 = getelementptr inbounds i8, ptr %vtable.i.i.i40, i64 8
   %22 = load ptr, ptr %vfn.i.i.i41, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(16) %20) #18
+  call void %22(ptr noundef nonnull align 8 dereferenceable(16) %20) #19
   br label %ehcleanup63
 
 if.else:                                          ; preds = %invoke.cont
@@ -715,7 +716,7 @@ invoke.cont40:                                    ; preds = %if.else
   br i1 %tobool.i.i45, label %cond.true44, label %cond.end48
 
 cond.true44:                                      ; preds = %invoke.cont40
-  %call46 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name) #18
+  %call46 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name) #19
   br label %cond.end48
 
 cond.end48:                                       ; preds = %invoke.cont40, %cond.true44
@@ -742,7 +743,7 @@ if.then.i.i66:                                    ; preds = %if.then.i63
   %vtable.i.i.i67 = load ptr, ptr %29, align 8
   %vfn.i.i.i68 = getelementptr inbounds i8, ptr %vtable.i.i.i67, i64 8
   %31 = load ptr, ptr %vfn.i.i.i68, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(20) %29) #18
+  call void %31(ptr noundef nonnull align 8 dereferenceable(20) %29) #19
   br label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit69
 
 _ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit69: ; preds = %_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorEaSEOS2_.exit53, %if.then.i63, %if.then.i.i66
@@ -760,7 +761,7 @@ if.then.i.i74:                                    ; preds = %if.then.i71
   %vtable.i.i.i75 = load ptr, ptr %32, align 8
   %vfn.i.i.i76 = getelementptr inbounds i8, ptr %vtable.i.i.i75, i64 8
   %34 = load ptr, ptr %vfn.i.i.i76, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(16) %32) #18
+  call void %34(ptr noundef nonnull align 8 dereferenceable(16) %32) #19
   br label %if.end53
 
 lpad50:                                           ; preds = %cond.end48
@@ -780,7 +781,7 @@ if.then.i.i82:                                    ; preds = %if.then.i79
   %vtable.i.i.i83 = load ptr, ptr %36, align 8
   %vfn.i.i.i84 = getelementptr inbounds i8, ptr %vtable.i.i.i83, i64 8
   %38 = load ptr, ptr %vfn.i.i.i84, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(20) %36) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(20) %36) #19
   br label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit85
 
 _ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit85: ; preds = %lpad50, %if.then.i79, %if.then.i.i82
@@ -798,7 +799,7 @@ if.then.i.i90:                                    ; preds = %if.then.i87
   %vtable.i.i.i91 = load ptr, ptr %39, align 8
   %vfn.i.i.i92 = getelementptr inbounds i8, ptr %vtable.i.i.i91, i64 8
   %41 = load ptr, ptr %vfn.i.i.i92, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39) #18
+  call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39) #19
   br label %ehcleanup63
 
 if.end53:                                         ; preds = %if.then.i.i74, %if.then.i71, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit69, %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit
@@ -816,8 +817,8 @@ ehcleanup.thread133:                              ; preds = %if.end57
   br label %if.then.i105
 
 invoke.cont60:                                    ; preds = %if.end57
-  %call61 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9grpc_core11ChannelArgsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp58) #18
-  call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp58) #18
+  %call61 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9grpc_core11ChannelArgsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp58) #19
+  call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp58) #19
   br label %_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit103
 
 _ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit103: ; preds = %if.end53, %if.else, %if.then15, %invoke.cont60
@@ -830,7 +831,7 @@ _ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit103: ; p
 
 if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit103
   store i8 0, ptr %_M_engaged.i.i.i.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name) #19
   br label %return
 
 ehcleanup.thread129:                              ; preds = %if.then15, %if.then7
@@ -856,7 +857,7 @@ if.then.i.i108:                                   ; preds = %if.then.i105
   %vtable.i.i.i109 = load ptr, ptr %security_connector.sroa.0.0.ph137, align 8
   %vfn.i.i.i110 = getelementptr inbounds i8, ptr %vtable.i.i.i109, i64 8
   %44 = load ptr, ptr %vfn.i.i.i110, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(32) %security_connector.sroa.0.0.ph137) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(32) %security_connector.sroa.0.0.ph137) #19
   br label %ehcleanup63
 
 ehcleanup63:                                      ; preds = %if.then.i.i90, %if.then.i87, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit85, %if.then.i.i39, %if.then.i36, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit34, %if.then.i.i108, %if.then.i105, %ehcleanup, %ehcleanup.thread129, %lpad
@@ -868,7 +869,7 @@ ehcleanup63:                                      ; preds = %if.then.i.i90, %if.
 
 if.then.i.i.i.i114:                               ; preds = %ehcleanup63
   store i8 0, ptr %_M_engaged.i.i.i.i112, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit115
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit115: ; preds = %ehcleanup63, %if.then.i.i.i.i114
@@ -901,7 +902,7 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !10
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #18
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #19
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
@@ -910,13 +911,13 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #18
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #19
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %2 = load ptr, ptr @_ZZN20grpc_ssl_credentials4TypeEvE8kFactory, align 8, !noalias !11
-  %call.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #18, !noalias !11
+  %call.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19, !noalias !11
   %3 = extractvalue { i64, ptr } %call.i, 0
   %4 = extractvalue { i64, ptr } %call.i, 1
   store i64 %3, ptr %agg.result, align 8, !alias.scope !11
@@ -927,7 +928,7 @@ init.end:                                         ; preds = %invoke.cont, %init.
 lpad:                                             ; preds = %init
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #18
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #19
   resume { ptr, i32 } %5
 }
 
@@ -939,13 +940,13 @@ define linkonce_odr void @_ZN9grpc_core14UniqueTypeName7FactoryC2ESt17basic_stri
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
+  %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %name.coerce0, ptr %name.coerce1) #18
+  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %name.coerce0, ptr %name.coerce1) #19
   %0 = extractvalue { i64, ptr } %call.i, 0
   %1 = extractvalue { i64, ptr } %call.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %0, ptr %1) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %0, ptr %1) #19
   %2 = load i64, ptr %agg.tmp.i, align 8
   %3 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -954,15 +955,15 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   store ptr %call, ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
-  call void @_ZdlPv(ptr noundef nonnull %call) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
+  call void @_ZdlPv(ptr noundef nonnull %call) #21
   resume { ptr, i32 } %5
 }
 
@@ -973,18 +974,18 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
+declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN20grpc_ssl_credentials19set_min_tls_versionE16grpc_tls_version(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) %this, i32 noundef %min_tls_version) local_unnamed_addr #10 align 2 {
+define void @_ZN20grpc_ssl_credentials19set_min_tls_versionE16grpc_tls_version(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) %this, i32 noundef %min_tls_version) local_unnamed_addr #11 align 2 {
 entry:
   %min_tls_version2 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %min_tls_version, ptr %min_tls_version2, align 8
@@ -992,7 +993,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN20grpc_ssl_credentials19set_max_tls_versionE16grpc_tls_version(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) %this, i32 noundef %max_tls_version) local_unnamed_addr #10 align 2 {
+define void @_ZN20grpc_ssl_credentials19set_max_tls_versionE16grpc_tls_version(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) %this, i32 noundef %max_tls_version) local_unnamed_addr #11 align 2 {
 entry:
   %max_tls_version2 = getelementptr inbounds i8, ptr %this, i64 60
   store i32 %max_tls_version, ptr %max_tls_version2, align 4
@@ -1031,7 +1032,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -1057,7 +1058,7 @@ if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %7, 0
@@ -1082,7 +1083,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %_ZNSt10shared_ptrIN9grpc_core12experimental11CrlProviderEED2Ev.exit
 
 _ZNSt10shared_ptrIN9grpc_core12experimental11CrlProviderEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
@@ -1105,11 +1106,11 @@ do.body:                                          ; preds = %entry, %if.then
   br i1 %cmp.not, label %do.end, label %if.then1
 
 if.then1:                                         ; preds = %do.body
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 238, ptr noundef nonnull @.str.13) #17
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 238, ptr noundef nonnull @.str.13) #18
   unreachable
 
 do.end:                                           ; preds = %do.body
-  %call3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #21
+  %call3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #22
   invoke void @_ZN20grpc_ssl_credentialsC1EPKcP26grpc_ssl_pem_key_cert_pairPK28grpc_ssl_verify_peer_options(ptr noundef nonnull align 8 dereferenceable(84) %call3, ptr noundef %pem_root_certs, ptr noundef %pem_key_cert_pair, ptr noundef %verify_options)
           to label %invoke.cont unwind label %lpad
 
@@ -1119,12 +1120,12 @@ invoke.cont:                                      ; preds = %do.end
 lpad:                                             ; preds = %do.end
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call3) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %call3) #21
   resume { ptr, i32 } %1
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @grpc_ssl_credentials_create_ex(ptr noundef %pem_root_certs, ptr noundef %pem_key_cert_pair, ptr noundef %verify_options, ptr noundef %reserved) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -1142,11 +1143,11 @@ do.body:                                          ; preds = %entry, %if.then
   br i1 %cmp.not, label %do.end, label %if.then1
 
 if.then1:                                         ; preds = %do.body
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 254, ptr noundef nonnull @.str.13) #17
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 254, ptr noundef nonnull @.str.13) #18
   unreachable
 
 do.end:                                           ; preds = %do.body
-  %call3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #21
+  %call3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #22
   invoke void @_ZN20grpc_ssl_credentialsC1EPKcP26grpc_ssl_pem_key_cert_pairPK28grpc_ssl_verify_peer_options(ptr noundef nonnull align 8 dereferenceable(84) %call3, ptr noundef %pem_root_certs, ptr noundef %pem_key_cert_pair, ptr noundef %verify_options)
           to label %invoke.cont unwind label %lpad
 
@@ -1156,7 +1157,7 @@ invoke.cont:                                      ; preds = %do.end
 lpad:                                             ; preds = %do.end
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call3) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %call3) #21
   resume { ptr, i32 } %1
 }
 
@@ -1216,7 +1217,7 @@ _ZN27grpc_ssl_server_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairm
 lpad:                                             ; preds = %call.i.noexc, %if.else
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN23grpc_server_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #18
+  tail call void @_ZN23grpc_server_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #19
   resume { ptr, i32 } %8
 
 if.end:                                           ; preds = %_ZN27grpc_ssl_server_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairm40grpc_ssl_client_certificate_request_type.exit, %if.then
@@ -1276,7 +1277,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #19
+  tail call void @__clang_call_terminate(ptr %6) #20
   unreachable
 
 _ZN23grpc_server_credentialsD2Ev.exit:            ; preds = %invoke.cont4, %land.lhs.true.i.i, %if.then.i.i
@@ -1286,15 +1287,15 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #19
+  tail call void @__clang_call_terminate(ptr %8) #20
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN27grpc_ssl_server_credentialsD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN27grpc_ssl_server_credentialsD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
+  tail call void @_ZN27grpc_ssl_server_credentialsD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
 
@@ -1324,7 +1325,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %2, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(40) %2) #18
+  call void %4(ptr noundef nonnull align 8 dereferenceable(40) %2) #19
   br label %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit: ; preds = %invoke.cont, %if.then.i, %if.then.i.i
@@ -1347,7 +1348,7 @@ if.then.i.i6:                                     ; preds = %if.then.i3
   %vtable.i.i.i7 = load ptr, ptr %6, align 8
   %vfn.i.i.i8 = getelementptr inbounds i8, ptr %vtable.i.i.i7, i64 8
   %8 = load ptr, ptr %vfn.i.i.i8, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(40) %6) #18
+  call void %8(ptr noundef nonnull align 8 dereferenceable(40) %6) #19
   br label %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit9
 
 _ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit9: ; preds = %lpad, %if.then.i3, %if.then.i.i6
@@ -1364,7 +1365,7 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !10
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #18
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #19
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
@@ -1373,13 +1374,13 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #18
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #19
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %2 = load ptr, ptr @_ZZN27grpc_ssl_server_credentials4TypeEvE8kFactory, align 8, !noalias !17
-  %call.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #18, !noalias !17
+  %call.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19, !noalias !17
   %3 = extractvalue { i64, ptr } %call.i, 0
   %4 = extractvalue { i64, ptr } %call.i, 1
   store i64 %3, ptr %agg.result, align 8, !alias.scope !17
@@ -1390,7 +1391,7 @@ init.end:                                         ; preds = %invoke.cont, %init.
 lpad:                                             ; preds = %init
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #18
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #19
   resume { ptr, i32 } %5
 }
 
@@ -1405,7 +1406,7 @@ do.body:                                          ; preds = %entry
   br i1 %cmp1.not, label %if.then2, label %do.body5.preheader
 
 if.then2:                                         ; preds = %do.body
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 304, ptr noundef nonnull @.str.14) #17
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 304, ptr noundef nonnull @.str.14) #18
   unreachable
 
 do.body5.preheader:                               ; preds = %do.body
@@ -1421,7 +1422,7 @@ do.body5:                                         ; preds = %do.body5.preheader,
   br i1 %cmp6.not, label %if.then8, label %do.body11
 
 if.then8:                                         ; preds = %do.body5
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 309, ptr noundef nonnull @.str.15) #17
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 309, ptr noundef nonnull @.str.15) #18
   unreachable
 
 do.body11:                                        ; preds = %do.body5
@@ -1431,7 +1432,7 @@ do.body11:                                        ; preds = %do.body5
   br i1 %cmp13.not, label %if.then15, label %do.end17
 
 if.then15:                                        ; preds = %do.body11
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 310, ptr noundef nonnull @.str.16) #17
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 310, ptr noundef nonnull @.str.16) #18
   unreachable
 
 do.end17:                                         ; preds = %do.body11
@@ -1452,7 +1453,7 @@ for.end:                                          ; preds = %do.end17, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN27grpc_ssl_server_credentials19set_min_tls_versionE16grpc_tls_version(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, i32 noundef %min_tls_version) local_unnamed_addr #10 align 2 {
+define void @_ZN27grpc_ssl_server_credentials19set_min_tls_versionE16grpc_tls_version(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, i32 noundef %min_tls_version) local_unnamed_addr #11 align 2 {
 entry:
   %min_tls_version2 = getelementptr inbounds i8, ptr %this, i64 68
   store i32 %min_tls_version, ptr %min_tls_version2, align 4
@@ -1460,7 +1461,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN27grpc_ssl_server_credentials19set_max_tls_versionE16grpc_tls_version(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, i32 noundef %max_tls_version) local_unnamed_addr #10 align 2 {
+define void @_ZN27grpc_ssl_server_credentials19set_max_tls_versionE16grpc_tls_version(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, i32 noundef %max_tls_version) local_unnamed_addr #11 align 2 {
 entry:
   %max_tls_version2 = getelementptr inbounds i8, ptr %this, i64 72
   store i32 %max_tls_version, ptr %max_tls_version2, align 8
@@ -1487,7 +1488,7 @@ do.body:                                          ; preds = %entry
   br i1 %cmp3.not, label %if.then4, label %do.body10.preheader
 
 if.then4:                                         ; preds = %do.body
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 347, ptr noundef nonnull @.str.14) #17
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 347, ptr noundef nonnull @.str.14) #18
   unreachable
 
 do.body10.preheader:                              ; preds = %do.body
@@ -1506,7 +1507,7 @@ do.body10:                                        ; preds = %do.body10.preheader
   br i1 %cmp11.not, label %if.then13, label %do.body16
 
 if.then13:                                        ; preds = %do.body10
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 353, ptr noundef nonnull @.str.15) #17
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 353, ptr noundef nonnull @.str.15) #18
   unreachable
 
 do.body16:                                        ; preds = %do.body10
@@ -1516,7 +1517,7 @@ do.body16:                                        ; preds = %do.body10
   br i1 %cmp18.not, label %if.then20, label %do.end22
 
 if.then20:                                        ; preds = %do.body16
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 354, ptr noundef nonnull @.str.16) #17
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 354, ptr noundef nonnull @.str.16) #18
   unreachable
 
 do.end22:                                         ; preds = %do.body16
@@ -1650,7 +1651,7 @@ do.body:                                          ; preds = %entry, %if.then
   br i1 %cmp.not, label %do.end, label %if.then1
 
 if.then1:                                         ; preds = %do.body
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 439, ptr noundef nonnull @.str.13) #17
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 439, ptr noundef nonnull @.str.13) #18
   unreachable
 
 do.end:                                           ; preds = %do.body
@@ -1714,7 +1715,7 @@ if.then10:                                        ; preds = %land.lhs.true7
   br label %done
 
 if.end12:                                         ; preds = %if.else, %land.lhs.true7
-  %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #21
+  %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
   invoke void @_ZN27grpc_ssl_server_credentialsC1ERK35grpc_ssl_server_credentials_options(ptr noundef nonnull align 8 dereferenceable(96) %call, ptr noundef nonnull align 8 dereferenceable(24) %options)
           to label %done unwind label %lpad
 
@@ -1726,7 +1727,7 @@ done:                                             ; preds = %if.end12, %if.then1
 lpad:                                             ; preds = %if.end12
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #21
   resume { ptr, i32 } %3
 }
 
@@ -1796,7 +1797,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN24grpc_channel_credentials16update_argumentsEN9grpc_core11ChannelArgsE(ptr noalias sret(%"class.grpc_core::ChannelArgs") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %args) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %args) #18
+  tail call void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %args) #19
   ret void
 }
 
@@ -1809,7 +1810,7 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN20grpc_ssl_credentials4TypeEv.exit, !prof !10
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #18, !noalias !27
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #19, !noalias !27
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN20grpc_ssl_credentials4TypeEv.exit, label %init.i
 
@@ -1818,19 +1819,19 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i unwind label %lpad.i, !noalias !27
 
 invoke.cont.i:                                    ; preds = %init.i
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #18, !noalias !27
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #19, !noalias !27
   br label %_ZN20grpc_ssl_credentials4TypeEv.exit
 
 lpad.i:                                           ; preds = %init.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #18, !noalias !27
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #19, !noalias !27
   resume { ptr, i32 } %2
 
 _ZN20grpc_ssl_credentials4TypeEv.exit:            ; preds = %entry, %init.check.i, %invoke.cont.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %3 = load ptr, ptr @_ZZN20grpc_ssl_credentials4TypeEvE8kFactory, align 8, !noalias !33
-  %call.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18, !noalias !33
+  %call.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19, !noalias !33
   %4 = extractvalue { i64, ptr } %call.i.i, 0
   %5 = extractvalue { i64, ptr } %call.i.i, 1
   store i64 %4, ptr %agg.result, align 8, !alias.scope !33
@@ -1858,7 +1859,7 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN27grpc_ssl_server_credentials4TypeEv.exit, !prof !10
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #18, !noalias !34
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #19, !noalias !34
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN27grpc_ssl_server_credentials4TypeEv.exit, label %init.i
 
@@ -1867,19 +1868,19 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i unwind label %lpad.i, !noalias !34
 
 invoke.cont.i:                                    ; preds = %init.i
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #18, !noalias !34
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #19, !noalias !34
   br label %_ZN27grpc_ssl_server_credentials4TypeEv.exit
 
 lpad.i:                                           ; preds = %init.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #18, !noalias !34
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #19, !noalias !34
   resume { ptr, i32 } %2
 
 _ZN27grpc_ssl_server_credentials4TypeEv.exit:     ; preds = %entry, %init.check.i, %invoke.cont.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %3 = load ptr, ptr @_ZZN27grpc_ssl_server_credentials4TypeEvE8kFactory, align 8, !noalias !40
-  %call.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18, !noalias !40
+  %call.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19, !noalias !40
   %4 = extractvalue { i64, ptr } %call.i.i, 0
   %5 = extractvalue { i64, ptr } %call.i.i, 1
   store i64 %4, ptr %agg.result, align 8, !alias.scope !40
@@ -1889,7 +1890,7 @@ _ZN27grpc_ssl_server_credentials4TypeEv.exit:     ; preds = %entry, %init.check.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @__cxx_global_var_init.23() #12 section ".text.startup" comdat($_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E) {
+define internal void @__cxx_global_var_init.23() #13 section ".text.startup" comdat($_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E) {
 entry:
   %0 = load i8, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -1907,7 +1908,7 @@ init.end:                                         ; preds = %init.check, %entry
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #13
+declare void @llvm.trap() #14
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
@@ -1955,14 +1956,14 @@ terminate.lpad:                                   ; preds = %if.then.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #19
+  tail call void @__clang_call_terminate(ptr %3) #20
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN23grpc_server_credentialsD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #19
+  tail call void @llvm.trap() #20
   unreachable
 }
 
@@ -1972,21 +1973,21 @@ declare void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dere
 declare noundef ptr @_ZNK9grpc_core11ChannelArgs14GetVoidPointerESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_ssl_credentials.cc() #14 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_ssl_credentials.cc() #15 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #15
+declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1994,22 +1995,23 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { noreturn }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { builtin nounwind }
-attributes #21 = { builtin allocsize(0) }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { noreturn }
+attributes #19 = { nounwind }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { builtin nounwind }
+attributes #22 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

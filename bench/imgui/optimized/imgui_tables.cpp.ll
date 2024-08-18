@@ -341,20 +341,20 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #21
+  call void @__clang_call_terminate(ptr %26) #22
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #21
+  call void @__clang_call_terminate(ptr %28) #22
   unreachable
 
 lpad:                                             ; preds = %if.then2.i.i, %_ZNK8ImVectorI18ImGuiTableTempDataE14_grow_capacityEi.exit.i
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18ImGuiTableTempDataD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %ref.tmp30) #22
+  call void @_ZN18ImGuiTableTempDataD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %ref.tmp30) #23
   resume { ptr, i32 } %29
 
 if.end31:                                         ; preds = %if.then.i.i.i, %invoke.cont.i.i, %if.end22
@@ -1543,14 +1543,14 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #22
   unreachable
 
 terminate.lpad.i:                                 ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #21
+  tail call void @__clang_call_terminate(ptr %4) #22
   unreachable
 
 _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %invoke.cont.i, %if.then.i.i
@@ -8290,7 +8290,7 @@ if.then78:                                        ; preds = %land.lhs.true75
   %spec.select.i = tail call noundef i32 @llvm.usub.sat.i32(i32 %15, i32 1)
   %conv80 = trunc i32 %spec.select.i to i16
   store i16 %conv80, ptr %NameOffset, align 4
-  %call83 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %label) #23
+  %call83 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %label) #24
   %add.ptr = getelementptr inbounds i8, ptr %label, i64 %call83
   %add.ptr84 = getelementptr inbounds i8, ptr %add.ptr, i64 1
   tail call void @_ZN15ImGuiTextBuffer6appendEPKcS1_(ptr noundef nonnull align 8 dereferenceable(16) %ColumnsNames, ptr noundef nonnull %label, ptr noundef nonnull %add.ptr84)
@@ -11653,14 +11653,14 @@ if.end:                                           ; preds = %_ZN5ImGui33TableGet
   %max_label_width.addr.0 = phi float [ %20, %_ZN5ImGui33TableGetHeaderAngledMaxLabelWidthEv.exit ], [ %max_label_width, %entry ]
   %cmp1 = fcmp olt float %angle, 0.000000e+00
   %sub = fadd float %angle, 0xBFF921FB60000000
-  %call2 = tail call float @cosf(float noundef %sub) #22
-  %call3 = tail call float @sinf(float noundef %sub) #22
+  %call2 = tail call float @cosf(float noundef %sub) #23
+  %call3 = tail call float @sinf(float noundef %sub) #23
   br i1 %cmp1, label %cond.true6, label %cond.end10
 
 cond.true6:                                       ; preds = %if.end
   %add = fadd float %sub, 0x400921FB60000000
-  %call4 = tail call float @cosf(float noundef %add) #22
-  %call8 = tail call float @sinf(float noundef %add) #22
+  %call4 = tail call float @cosf(float noundef %add) #23
+  %call8 = tail call float @sinf(float noundef %add) #23
   br label %cond.end10
 
 cond.end10:                                       ; preds = %if.end, %cond.true6
@@ -12534,7 +12534,7 @@ entry:
   %columns_count = alloca i32, align 4
   store i32 0, ptr %id, align 4
   store i32 0, ptr %columns_count, align 4
-  %call = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %name, ptr noundef nonnull @.str.38, ptr noundef nonnull %id, ptr noundef nonnull %columns_count) #22
+  %call = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %name, ptr noundef nonnull @.str.38, ptr noundef nonnull %id, ptr noundef nonnull %columns_count) #23
   %cmp = icmp slt i32 %call, 2
   br i1 %cmp, label %return, label %if.end
 
@@ -12642,7 +12642,7 @@ entry:
   store i32 0, ptr %column_n, align 4
   store i32 0, ptr %r, align 4
   store i32 0, ptr %n, align 4
-  %call = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line, ptr noundef nonnull @.str.39, ptr noundef nonnull %f) #22
+  %call = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line, ptr noundef nonnull @.str.39, ptr noundef nonnull %f) #23
   %cmp = icmp eq i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -12653,7 +12653,7 @@ if.then:                                          ; preds = %entry
   br label %if.end84
 
 if.end:                                           ; preds = %entry
-  %call3 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line, ptr noundef nonnull @.str.40, ptr noundef nonnull %column_n, ptr noundef nonnull %r) #22
+  %call3 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line, ptr noundef nonnull @.str.40, ptr noundef nonnull %column_n, ptr noundef nonnull %r) #23
   %cmp4 = icmp ne i32 %call3, 1
   %3 = load i32, ptr %column_n, align 4
   %cmp6 = icmp slt i32 %3, 0
@@ -12680,7 +12680,7 @@ if.end9:                                          ; preds = %lor.lhs.false
   %conv14 = trunc i32 %6 to i16
   %Index = getelementptr inbounds i8, ptr %add.ptr13, i64 8
   store i16 %conv14, ptr %Index, align 4
-  %call15 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %call10, ptr noundef nonnull @.str.41, ptr noundef nonnull %n, ptr noundef nonnull %r) #22
+  %call15 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %call10, ptr noundef nonnull @.str.41, ptr noundef nonnull %n, ptr noundef nonnull %r) #23
   %cmp16 = icmp eq i32 %call15, 1
   br i1 %cmp16, label %if.then17, label %if.end21
 
@@ -12696,7 +12696,7 @@ if.then17:                                        ; preds = %if.end9
 
 if.end21:                                         ; preds = %if.then17, %if.end9
   %line.addr.0 = phi ptr [ %call20, %if.then17 ], [ %call10, %if.end9 ]
-  %call22 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.0, ptr noundef nonnull @.str.42, ptr noundef nonnull %n, ptr noundef nonnull %r) #22
+  %call22 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.0, ptr noundef nonnull @.str.42, ptr noundef nonnull %n, ptr noundef nonnull %r) #23
   %cmp23 = icmp eq i32 %call22, 1
   br i1 %cmp23, label %if.then24, label %if.end29
 
@@ -12720,7 +12720,7 @@ if.then24:                                        ; preds = %if.end21
 
 if.end29:                                         ; preds = %if.then24, %if.end21
   %line.addr.1 = phi ptr [ %call27, %if.then24 ], [ %line.addr.0, %if.end21 ]
-  %call30 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.1, ptr noundef nonnull @.str.43, ptr noundef nonnull %f, ptr noundef nonnull %r) #22
+  %call30 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.1, ptr noundef nonnull @.str.43, ptr noundef nonnull %f, ptr noundef nonnull %r) #23
   %cmp31 = icmp eq i32 %call30, 1
   br i1 %cmp31, label %if.then32, label %if.end43
 
@@ -12743,7 +12743,7 @@ if.then32:                                        ; preds = %if.end29
 
 if.end43:                                         ; preds = %if.then32, %if.end29
   %line.addr.2 = phi ptr [ %call35, %if.then32 ], [ %line.addr.1, %if.end29 ]
-  %call44 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.2, ptr noundef nonnull @.str.44, ptr noundef nonnull %n, ptr noundef nonnull %r) #22
+  %call44 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.2, ptr noundef nonnull @.str.44, ptr noundef nonnull %n, ptr noundef nonnull %r) #23
   %cmp45 = icmp eq i32 %call44, 1
   br i1 %cmp45, label %if.then46, label %if.end56
 
@@ -12769,7 +12769,7 @@ if.then46:                                        ; preds = %if.end43
 
 if.end56:                                         ; preds = %if.then46, %if.end43
   %line.addr.3 = phi ptr [ %call49, %if.then46 ], [ %line.addr.2, %if.end43 ]
-  %call57 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.3, ptr noundef nonnull @.str.45, ptr noundef nonnull %n, ptr noundef nonnull %r) #22
+  %call57 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.3, ptr noundef nonnull @.str.45, ptr noundef nonnull %n, ptr noundef nonnull %r) #23
   %cmp58 = icmp eq i32 %call57, 1
   br i1 %cmp58, label %if.then59, label %if.end66
 
@@ -12790,7 +12790,7 @@ if.then59:                                        ; preds = %if.end56
 
 if.end66:                                         ; preds = %if.then59, %if.end56
   %line.addr.4 = phi ptr [ %call62, %if.then59 ], [ %line.addr.3, %if.end56 ]
-  %call67 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.4, ptr noundef nonnull @.str.46, ptr noundef nonnull %n, ptr noundef nonnull %c, ptr noundef nonnull %r) #22
+  %call67 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %line.addr.4, ptr noundef nonnull @.str.46, ptr noundef nonnull %n, ptr noundef nonnull %c, ptr noundef nonnull %r) #23
   %cmp68 = icmp eq i32 %call67, 2
   br i1 %cmp68, label %if.then69, label %if.end84
 
@@ -13117,7 +13117,7 @@ entry:
   %sext.i = shl i64 %sub.ptr.div.i, 32
   %idxprom.i.i.i = ashr exact i64 %sext.i, 32
   %arrayidx.i.i.i = getelementptr inbounds %struct.ImGuiTable, ptr %1, i64 %idxprom.i.i.i
-  tail call void @_ZN10ImGuiTableD2Ev(ptr noundef nonnull align 8 dereferenceable(586) %arrayidx.i.i.i) #22
+  tail call void @_ZN10ImGuiTableD2Ev(ptr noundef nonnull align 8 dereferenceable(586) %arrayidx.i.i.i) #23
   %FreeIdx.i.i = getelementptr inbounds i8, ptr %0, i64 19976
   %3 = load i32, ptr %FreeIdx.i.i, align 8
   %4 = load ptr, ptr %Data.i, align 8
@@ -13401,7 +13401,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.end.i
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit56, %lpad.loopexit ], [ %lpad.loopexit.split-lp57, %lpad.loopexit.split-lp ]
-  call void @_ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_chunk_stream) #22
+  call void @_ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_chunk_stream) #23
   resume { ptr, i32 } %lpad.phi
 
 for.inc32:                                        ; preds = %for.body17, %invoke.cont25
@@ -13447,7 +13447,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i49
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #21
+  tail call void @__clang_call_terminate(ptr %31) #22
   unreachable
 
 return:                                           ; preds = %for.end.thread, %if.then.i.i49, %invoke.cont38, %for.end
@@ -13470,7 +13470,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #22
   unreachable
 
 _ZN8ImVectorIcED2Ev.exit:                         ; preds = %entry, %if.then.i
@@ -14709,14 +14709,14 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #21
+  call void @__clang_call_terminate(ptr %12) #22
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #21
+  call void @__clang_call_terminate(ptr %14) #22
   unreachable
 
 _ZN18ImDrawListSplitterD2Ev.exit.i:               ; preds = %if.then.i.i.i, %invoke.cont.i.i
@@ -14733,7 +14733,7 @@ terminate.lpad.i1.i:                              ; preds = %if.then.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #21
+  call void @__clang_call_terminate(ptr %17) #22
   unreachable
 
 _ZN15ImGuiOldColumnsD2Ev.exit:                    ; preds = %_ZN18ImDrawListSplitterD2Ev.exit.i, %if.then.i.i
@@ -14748,7 +14748,7 @@ _ZN15ImGuiOldColumnsD2Ev.exit:                    ; preds = %_ZN18ImDrawListSpli
 lpad:                                             ; preds = %if.then2.i.i, %if.end.i.i
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN15ImGuiOldColumnsD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp) #22
+  call void @_ZN15ImGuiOldColumnsD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp) #23
   resume { ptr, i32 } %22
 
 return:                                           ; preds = %for.body, %_ZN15ImGuiOldColumnsD2Ev.exit
@@ -14777,14 +14777,14 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #22
   unreachable
 
 terminate.lpad.i:                                 ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #21
+  tail call void @__clang_call_terminate(ptr %4) #22
   unreachable
 
 _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %invoke.cont.i, %if.then.i.i
@@ -14801,7 +14801,7 @@ terminate.lpad.i1:                                ; preds = %if.then.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #21
+  tail call void @__clang_call_terminate(ptr %7) #22
   unreachable
 
 _ZN8ImVectorI18ImGuiOldColumnDataED2Ev.exit:      ; preds = %_ZN18ImDrawListSplitterD2Ev.exit, %if.then.i
@@ -16021,17 +16021,18 @@ if.end9:                                          ; preds = %land.lhs.true2, %if
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #16 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
-  tail call void @_ZSt9terminatev() #21
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
+  tail call void @_ZSt9terminatev() #22
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
+declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #18
 
 declare noundef ptr @_Z14ImStrSkipBlankPKc(ptr noundef) local_unnamed_addr #1
 
@@ -16063,7 +16064,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #21
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN8ImVectorI25ImGuiTableColumnSortSpecsED2Ev.exit: ; preds = %invoke.cont, %if.then.i
@@ -16080,7 +16081,7 @@ terminate.lpad.i4:                                ; preds = %if.then.i3
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #21
+  tail call void @__clang_call_terminate(ptr %6) #22
   unreachable
 
 _ZN8ImVectorI22ImGuiTableInstanceDataED2Ev.exit:  ; preds = %_ZN8ImVectorI25ImGuiTableColumnSortSpecsED2Ev.exit, %if.then.i3
@@ -16097,7 +16098,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #21
+  tail call void @__clang_call_terminate(ptr %9) #22
   unreachable
 
 _ZN15ImGuiTextBufferD2Ev.exit:                    ; preds = %_ZN8ImVectorI22ImGuiTableInstanceDataED2Ev.exit, %if.then.i.i
@@ -16107,32 +16108,32 @@ terminate.lpad:                                   ; preds = %entry
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #21
+  tail call void @__clang_call_terminate(ptr %11) #22
   unreachable
 }
 
 declare void @_ZN12ImGuiStorage6SetIntEji(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #19
+declare i32 @llvm.smin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smax.i16(i16, i16) #19
+declare i16 @llvm.smax.i16(i16, i16) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
+declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #19
+declare i32 @llvm.usub.sat.i32(i32, i32) #20
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -16151,13 +16152,14 @@ attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { nounwind }
-attributes #23 = { nounwind willreturn memory(read) }
+attributes #17 = { cold nofree noreturn }
+attributes #18 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { nounwind }
+attributes #24 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -42,7 +42,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #7
+  tail call void @__clang_call_terminate(ptr %3) #8
   unreachable
 }
 
@@ -52,19 +52,20 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
-  tail call void @_ZSt9terminatev() #7
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
+  tail call void @_ZSt9terminatev() #8
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 declare void @ucptrie_close_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7510EmojiProps12getSingletonER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6icu_7510EmojiProps12getSingletonER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -86,7 +87,7 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i2, label %if.end.i3, label %_ZN6icu_7512_GLOBAL__N_113initSingletonER10UErrorCode.exit
 
 if.end.i3:                                        ; preds = %if.then4.i
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #8
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #9
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -156,7 +157,7 @@ if.then2.i:                                       ; preds = %if.end.i3
 lpad.i:                                           ; preds = %if.end6.i.i.i, %if.end.i.i.i, %new.notnull.i
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #8
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #9
   resume { ptr, i32 } %10
 
 if.else.thread.i:                                 ; preds = %call10.i.i.noexc.i, %if.then5.i.i.i, %call.i.i.noexc.i
@@ -170,8 +171,8 @@ if.else.i4:                                       ; preds = %for.body.i.i.i
   br i1 %11, label %if.end7.i, label %delete.end.i
 
 delete.end.i:                                     ; preds = %if.else.i4, %if.else.thread.i
-  tail call void @_ZN6icu_7510EmojiPropsD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call1.i) #8
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #8
+  tail call void @_ZN6icu_7510EmojiPropsD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call1.i) #9
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #9
   store ptr null, ptr @_ZN6icu_7512_GLOBAL__N_19singletonE, align 8
   br label %if.end7.i
 
@@ -205,7 +206,7 @@ return:                                           ; preds = %entry, %_ZN6icu_751
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510EmojiProps12isAcceptableEPvPKcS3_PK9UDataInfo(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %pInfo) #4 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510EmojiProps12isAcceptableEPvPKcS3_PK9UDataInfo(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %pInfo) #5 align 2 {
 entry:
   %3 = load i16, ptr %pInfo, align 2
   %cmp.i = icmp ugt i16 %3, 19
@@ -242,7 +243,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510EmojiProps4loadER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #3 align 2 {
+define void @_ZN6icu_7510EmojiProps4loadER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 {
 entry:
   %call = tail call ptr @udata_openChoice_75(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZN6icu_7510EmojiProps12isAcceptableEPvPKcS3_PK9UDataInfo, ptr noundef nonnull %this, ptr noundef nonnull %errorCode)
   store ptr %call, ptr %this, align 8
@@ -305,7 +306,7 @@ declare ptr @udata_getMemory_75(ptr noundef) local_unnamed_addr #1
 declare ptr @ucptrie_openFromBinary_75(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7510EmojiProps17addPropertyStartsEPK9USetAdderR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %sa, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) local_unnamed_addr #3 align 2 {
+define void @_ZNK6icu_7510EmojiProps17addPropertyStartsEPK9USetAdderR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %sa, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) local_unnamed_addr #4 align 2 {
 entry:
   %value = alloca i32, align 4
   %cpTrie = getelementptr inbounds i8, ptr %this, i64 8
@@ -337,7 +338,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare i32 @ucptrie_getRange_75(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510EmojiProps17hasBinaryPropertyEi9UProperty(i32 noundef %c, i32 noundef %which) local_unnamed_addr #3 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510EmojiProps17hasBinaryPropertyEi9UProperty(i32 noundef %c, i32 noundef %which) local_unnamed_addr #4 align 2 {
 entry:
   %errorCode = alloca i32, align 4
   store i32 0, ptr %errorCode, align 4
@@ -422,7 +423,7 @@ land.end:                                         ; preds = %cond.end26.i, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510EmojiProps21hasBinaryPropertyImplEi9UProperty(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %c, i32 noundef %which) local_unnamed_addr #3 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510EmojiProps21hasBinaryPropertyImplEi9UProperty(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %c, i32 noundef %which) local_unnamed_addr #4 align 2 {
 entry:
   %0 = add i32 %which, -72
   %or.cond = icmp ult i32 %0, -15
@@ -503,7 +504,7 @@ return:                                           ; preds = %if.end, %entry, %co
 declare i32 @ucptrie_internalSmallIndex_75(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510EmojiProps17hasBinaryPropertyEPKDsi9UProperty(ptr noundef %s, i32 noundef %length, i32 noundef %which) local_unnamed_addr #3 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510EmojiProps17hasBinaryPropertyEPKDsi9UProperty(ptr noundef %s, i32 noundef %length, i32 noundef %which) local_unnamed_addr #4 align 2 {
 entry:
   %errorCode = alloca i32, align 4
   store i32 0, ptr %errorCode, align 4
@@ -524,7 +525,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7510EmojiProps21hasBinaryPropertyImplEPKDsi9UProperty(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %s, i32 noundef %length, i32 noundef %which) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext i8 @_ZNK6icu_7510EmojiProps21hasBinaryPropertyImplEPKDsi9UProperty(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %s, i32 noundef %length, i32 noundef %which) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %trie = alloca %"class.icu_75::UCharsTrie", align 8
   %agg.tmp20 = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -584,24 +585,24 @@ invoke.cont:                                      ; preds = %for.body
   store ptr %4, ptr %uchars_.i, align 8
   store ptr %4, ptr %pos_.i, align 8
   store i32 -1, ptr %remainingMatchLength_.i, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #8, !srcloc !7
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #9, !srcloc !7
   store ptr %s, ptr %agg.tmp20, align 8
   %call = invoke noundef i32 @_ZN6icu_7510UCharsTrie4nextENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(28) %trie, ptr noundef nonnull %agg.tmp20, i32 noundef %length)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %invoke.cont
   %5 = load ptr, ptr %agg.tmp20, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #8, !srcloc !7
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #9, !srcloc !7
   %cmp25 = icmp slt i32 %call, 2
-  call void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %trie) #8
+  call void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %trie) #9
   br i1 %cmp25, label %for.inc, label %return
 
 lpad23:                                           ; preds = %invoke.cont
   %6 = landingpad { ptr, i32 }
           cleanup
   %7 = load ptr, ptr %agg.tmp20, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7) #8, !srcloc !7
-  call void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %trie) #8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7) #9, !srcloc !7
+  call void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %trie) #9
   resume { ptr, i32 } %6
 
 for.inc:                                          ; preds = %invoke.cont24, %for.body
@@ -617,10 +618,10 @@ return:                                           ; preds = %for.inc, %invoke.co
 declare noundef i32 @_ZN6icu_7510UCharsTrie4nextENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #5
+declare void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7510EmojiProps10addStringsEPK9USetAdder9UPropertyR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %sa, i32 noundef %which, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7510EmojiProps10addStringsEPK9USetAdder9UPropertyR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %sa, i32 noundef %which, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %iter = alloca %"class.icu_75::UCharsTrie::Iterator", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -665,7 +666,7 @@ if.then10:                                        ; preds = %for.body
 
 invoke.cont:                                      ; preds = %if.then10
   %5 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #8, !srcloc !7
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #9, !srcloc !7
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %invoke.cont
@@ -700,17 +701,17 @@ lpad:                                             ; preds = %if.then10
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %13) #8, !srcloc !7
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %13) #9, !srcloc !7
   br label %eh.resume
 
 lpad11:                                           ; preds = %while.body, %while.cond
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7510UCharsTrie8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %iter) #8
+  call void @_ZN6icu_7510UCharsTrie8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %iter) #9
   br label %eh.resume
 
 while.end:                                        ; preds = %invoke.cont12
-  call void @_ZN6icu_7510UCharsTrie8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %iter) #8
+  call void @_ZN6icu_7510UCharsTrie8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %iter) #9
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %while.end
@@ -731,30 +732,30 @@ declare void @_ZN6icu_7510UCharsTrie8IteratorC1ENS_14ConstChar16PtrEiR10UErrorCo
 declare noundef signext i8 @_ZN6icu_7510UCharsTrie8Iterator4nextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7510UCharsTrie8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #5
+declare void @_ZN6icu_7510UCharsTrie8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #6
 
 declare noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 declare void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #5
+declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #6
 
 declare void @ucln_common_registerCleanup_75(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZN6icu_7512_GLOBAL__N_118emojiprops_cleanupEv() #3 {
+define internal noundef signext i8 @_ZN6icu_7512_GLOBAL__N_118emojiprops_cleanupEv() #4 {
 entry:
   %0 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_19singletonE, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZN6icu_7510EmojiPropsD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #8
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #8
+  tail call void @_ZN6icu_7510EmojiPropsD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #9
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #9
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -764,17 +765,18 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { noreturn nounwind }
-attributes #8 = { nounwind }
+attributes #3 = { cold nofree noreturn }
+attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { noreturn nounwind }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

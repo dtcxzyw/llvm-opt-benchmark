@@ -42,7 +42,7 @@ invoke.cont3:                                     ; preds = %entry
 lpad2:                                            ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_) #7
+  tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_) #8
   resume { ptr, i32 } %0
 }
 
@@ -76,7 +76,7 @@ terminate.lpad.i:                                 ; preds = %lpad
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #8
+  call void @__clang_call_terminate(ptr %3) #9
   unreachable
 
 _ZN4base8AutoLockD2Ev.exit:                       ; preds = %lpad
@@ -105,7 +105,7 @@ terminate.lpad.i1:                                ; preds = %cleanup
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #8
+  call void @__clang_call_terminate(ptr %5) #9
   unreachable
 
 _ZN4base8AutoLockD2Ev.exit2:                      ; preds = %cleanup
@@ -155,7 +155,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont5
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #8
+  call void @__clang_call_terminate(ptr %2) #9
   unreachable
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont, %if.else
@@ -168,7 +168,7 @@ terminate.lpad.i2:                                ; preds = %lpad
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #8
+  call void @__clang_call_terminate(ptr %5) #9
   unreachable
 
 _ZN4base8AutoLockD2Ev.exit3:                      ; preds = %lpad
@@ -184,7 +184,7 @@ if.end:                                           ; preds = %invoke.cont5, %entr
   %vtable2.i = load ptr, ptr %cb, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 8
   %7 = load ptr, ptr %vfn3.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %cb) #7
+  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %cb) #8
   ret void
 }
 
@@ -197,9 +197,9 @@ define linkonce_odr dso_local void @_ZN3net25LocalStrikeRegisterClientD2Ev(ptr n
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i64 16), ptr %this, align 8
   %strike_register_ = getelementptr inbounds i8, ptr %this, i64 48
-  tail call void @_ZN3net14StrikeRegisterD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_) #7
+  tail call void @_ZN3net14StrikeRegisterD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_) #8
   %m_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_) #7
+  tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_) #8
   ret void
 }
 
@@ -208,10 +208,10 @@ define linkonce_odr dso_local void @_ZN3net25LocalStrikeRegisterClientD0Ev(ptr n
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i64 16), ptr %this, align 8
   %strike_register_.i = getelementptr inbounds i8, ptr %this, i64 48
-  tail call void @_ZN3net14StrikeRegisterD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_.i) #7
+  tail call void @_ZN3net14StrikeRegisterD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_.i) #8
   %m_.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_.i) #7
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #9
+  tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_.i) #8
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
   ret void
 }
 
@@ -224,14 +224,15 @@ declare void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
-  tail call void @_ZSt9terminatev() #8
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
+  tail call void @_ZSt9terminatev() #9
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 declare void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
@@ -239,21 +240,22 @@ declare void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 de
 declare void @_ZN3net14StrikeRegisterD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
-attributes #9 = { builtin nounwind }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn nounwind }
+attributes #10 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -118,13 +118,13 @@ define dso_local noundef range(i32 0, 2) i32 @_Z27cmCTestResourceGroups_yylexPv(
   br i1 %35, label %.critedge, label %66
 
 36:                                               ; preds = %27
-  %37 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #32
+  %37 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #33
   store ptr %37, ptr %28, align 8
   %.not28.i = icmp eq ptr %37, null
   br i1 %.not28.i, label %38, label %39
 
 38:                                               ; preds = %36
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.13) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.13) #34
   unreachable
 
 39:                                               ; preds = %36
@@ -145,13 +145,13 @@ define dso_local noundef range(i32 0, 2) i32 @_Z27cmCTestResourceGroups_yylexPv(
 45:                                               ; preds = %.critedge
   %46 = add i64 %43, 8
   %47 = shl i64 %46, 3
-  %48 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %29, i64 noundef %47) #34
+  %48 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %29, i64 noundef %47) #35
   store ptr %48, ptr %28, align 8
   %.not30.i = icmp eq ptr %48, null
   br i1 %.not30.i, label %49, label %50
 
 49:                                               ; preds = %45
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.13) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.13) #34
   unreachable
 
 50:                                               ; preds = %45
@@ -164,25 +164,25 @@ define dso_local noundef range(i32 0, 2) i32 @_Z27cmCTestResourceGroups_yylexPv(
 
 _ZL43cmCTestResourceGroups_yyensure_buffer_stackPv.exit: ; preds = %39, %.critedge, %50
   %53 = phi ptr [ %22, %39 ], [ %22, %.critedge ], [ %.pre, %50 ]
-  %54 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #32
+  %54 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
   %.not.i168 = icmp eq ptr %54, null
   br i1 %.not.i168, label %55, label %56
 
 55:                                               ; preds = %_ZL43cmCTestResourceGroups_yyensure_buffer_stackPv.exit
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.2) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.2) #34
   unreachable
 
 56:                                               ; preds = %_ZL43cmCTestResourceGroups_yyensure_buffer_stackPv.exit
   %57 = getelementptr inbounds i8, ptr %54, i64 24
   store i32 16384, ptr %57, align 8
-  %58 = tail call noalias noundef dereferenceable_or_null(16386) ptr @malloc(i64 noundef 16386) #32
+  %58 = tail call noalias noundef dereferenceable_or_null(16386) ptr @malloc(i64 noundef 16386) #33
   %59 = getelementptr inbounds i8, ptr %54, i64 8
   store ptr %58, ptr %59, align 8
   %.not14.i = icmp eq ptr %58, null
   br i1 %.not14.i, label %60, label %_Z38cmCTestResourceGroups_yy_create_bufferP8_IO_FILEiPv.exit
 
 60:                                               ; preds = %56
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.2) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.2) #34
   unreachable
 
 _Z38cmCTestResourceGroups_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %56
@@ -400,7 +400,7 @@ _Z38cmCTestResourceGroups_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %56
   %165 = load i32, ptr %90, align 8
   %166 = add nsw i32 %165, -1
   %167 = sext i32 %166 to i64
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #35
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #36
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %164, i64 noundef %167, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %168 unwind label %170
 
@@ -409,8 +409,8 @@ _Z38cmCTestResourceGroups_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %56
           to label %169 unwind label %172
 
 169:                                              ; preds = %168
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #35
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #36
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #36
   br label %.backedge660
 
 170:                                              ; preds = %162
@@ -421,14 +421,14 @@ _Z38cmCTestResourceGroups_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %56
 172:                                              ; preds = %168
   %173 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #36
   br label %.body
 
 174:                                              ; preds = %157
   store i32 5, ptr %86, align 4
   %175 = load ptr, ptr %0, align 8
   %176 = load ptr, ptr %89, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #35
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #36
   %177 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc unwind label %205
 
@@ -441,7 +441,7 @@ _Z38cmCTestResourceGroups_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %56
   br i1 %178, label %179, label %182
 
 179:                                              ; preds = %.noexc169
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.15) #33
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.15) #34
           to label %180 unwind label %.loopexit.split-lp229
 
 180:                                              ; preds = %179
@@ -459,19 +459,19 @@ _Z38cmCTestResourceGroups_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %56
 
 181:                                              ; preds = %.loopexit.split-lp229, %.loopexit228
   %lpad.phi232 = phi { ptr, i32 } [ %lpad.loopexit230, %.loopexit228 ], [ %lpad.loopexit.split-lp231, %.loopexit.split-lp229 ]
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #35
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #36
   br label %.body
 
 182:                                              ; preds = %.noexc169
-  %183 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %176) #35
+  %183 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %176) #36
   %184 = getelementptr inbounds i8, ptr %176, i64 %183
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %176, ptr noundef nonnull %184)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %.loopexit228
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %182
-  %185 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #35
+  %185 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %186 = tail call ptr @__errno_location() #36
+  %186 = tail call ptr @__errno_location() #37
   %187 = load i32, ptr %186, align 4
   store i32 0, ptr %186, align 4
   %188 = call noundef i64 @strtoll(ptr noundef %185, ptr noundef nonnull %3, i32 noundef 10)
@@ -480,7 +480,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %190, label %191, label %198
 
 191:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.8) #33
+  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.8) #34
           to label %192 unwind label %193
 
 192:                                              ; preds = %191
@@ -505,7 +505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   ]
 
 .critedge.i.i:                                    ; preds = %198
-  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.8) #33
+  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.8) #34
           to label %200 unwind label %193
 
 200:                                              ; preds = %.critedge.i.i
@@ -522,8 +522,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %204 unwind label %207
 
 204:                                              ; preds = %202
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #35
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #36
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #36
   br label %.backedge660
 
 205:                                              ; preds = %.noexc, %174
@@ -538,14 +538,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .body170:                                         ; preds = %193, %197, %207
   %eh.lpad-body171 = phi { ptr, i32 } [ %208, %207 ], [ %194, %197 ], [ %194, %193 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #36
   br label %.body
 
 209:                                              ; preds = %157
   store i32 11, ptr %86, align 4
   %210 = load ptr, ptr %0, align 8
   %211 = load ptr, ptr %89, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #35
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #36
   %212 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc172 unwind label %241
 
@@ -558,7 +558,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %213, label %214, label %217
 
 214:                                              ; preds = %.noexc173
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.15) #33
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.15) #34
           to label %215 unwind label %.loopexit.split-lp
 
 215:                                              ; preds = %214
@@ -576,19 +576,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 216:                                              ; preds = %.loopexit.split-lp, %.loopexit227
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit227 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #35
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #36
   br label %.body
 
 217:                                              ; preds = %.noexc173
-  %218 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %211) #35
+  %218 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %211) #36
   %219 = getelementptr inbounds i8, ptr %211, i64 %218
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %211, ptr noundef nonnull %219)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit176 unwind label %.loopexit227
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit176: ; preds = %217
-  %220 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #35
+  %220 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %221 = tail call ptr @__errno_location() #36
+  %221 = tail call ptr @__errno_location() #37
   %222 = load i32, ptr %221, align 4
   store i32 0, ptr %221, align 4
   %223 = call noundef i64 @strtoll(ptr noundef %220, ptr noundef nonnull %2, i32 noundef 10)
@@ -597,7 +597,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit176: ;
   br i1 %225, label %226, label %233
 
 226:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit176
-  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.8) #33
+  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.8) #34
           to label %227 unwind label %228
 
 227:                                              ; preds = %226
@@ -622,7 +622,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit176: ;
   ]
 
 .critedge.i.i178:                                 ; preds = %233
-  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.8) #33
+  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.8) #34
           to label %235 unwind label %228
 
 235:                                              ; preds = %.critedge.i.i178
@@ -639,8 +639,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit176: ;
           to label %239 unwind label %243
 
 239:                                              ; preds = %237
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #35
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #36
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #36
   %240 = load ptr, ptr %0, align 8
   call void @_ZN32cmCTestResourceGroupsLexerHelper16WriteRequirementEv(ptr noundef nonnull align 8 dereferenceable(80) %240)
   br label %.backedge660
@@ -657,7 +657,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit176: ;
 
 .body180:                                         ; preds = %228, %232, %243
   %eh.lpad-body181 = phi { ptr, i32 } [ %244, %243 ], [ %229, %232 ], [ %229, %228 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #36
   br label %.body
 
 245:                                              ; preds = %157
@@ -683,7 +683,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit176: ;
   br label %.loopexit
 
 251:                                              ; preds = %157
-  call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str) #33
+  call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str) #34
   unreachable
 
 252:                                              ; preds = %157
@@ -887,7 +887,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i184, %338
   br i1 %367, label %368, label %369
 
 368:                                              ; preds = %364
-  call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.9) #33
+  call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.9) #34
   unreachable
 
 369:                                              ; preds = %364
@@ -984,13 +984,13 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i184, %338
   store i32 %storemerge148.i, ptr %409, align 8
   %414 = add nsw i32 %storemerge148.i, 2
   %415 = sext i32 %414 to i64
-  %416 = call noalias noundef ptr @realloc(ptr noundef %402, i64 noundef %415) #34
+  %416 = call noalias noundef ptr @realloc(ptr noundef %402, i64 noundef %415) #35
   store ptr %416, ptr %401, align 8
   %.not149.i = icmp eq ptr %416, null
   br i1 %.not149.i, label %.loopexit.i, label %417
 
 .loopexit.i:                                      ; preds = %408, %.thread.i
-  call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.10) #33
+  call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.10) #34
   unreachable
 
 417:                                              ; preds = %408
@@ -1074,12 +1074,12 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i184, %338
 
 454:                                              ; preds = %.critedge.i
   %455 = load ptr, ptr %94, align 8
-  %456 = call i32 @ferror(ptr noundef %455) #35
+  %456 = call i32 @ferror(ptr noundef %455) #36
   %.not145.i = icmp eq i32 %456, 0
   br i1 %.not145.i, label %458, label %457
 
 457:                                              ; preds = %454
-  call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.11) #33
+  call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.11) #34
   unreachable
 
 458:                                              ; preds = %454, %.thread154.i, %.critedge.i
@@ -1088,7 +1088,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i184, %338
   br label %.critedge2.i
 
 459:                                              ; preds = %._crit_edge169.i
-  %460 = tail call ptr @__errno_location() #36
+  %460 = tail call ptr @__errno_location() #37
   store i32 0, ptr %460, align 4
   %sext.i = shl i64 %380, 32
   %461 = ashr exact i64 %sext.i, 32
@@ -1109,7 +1109,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i184, %338
 
 .lr.ph172.i:                                      ; preds = %459, %479
   %474 = load ptr, ptr %94, align 8
-  %475 = call i32 @ferror(ptr noundef %474) #35
+  %475 = call i32 @ferror(ptr noundef %474) #36
   %.not142.i = icmp eq i32 %475, 0
   br i1 %.not142.i, label %.critedge2.i, label %476
 
@@ -1119,13 +1119,13 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i184, %338
   br i1 %.not143.i, label %479, label %478
 
 478:                                              ; preds = %476
-  call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.11) #33
+  call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.11) #34
   unreachable
 
 479:                                              ; preds = %476
   store i32 0, ptr %460, align 4
   %480 = load ptr, ptr %94, align 8
-  call void @clearerr(ptr noundef %480) #35
+  call void @clearerr(ptr noundef %480) #36
   %481 = load ptr, ptr %91, align 8
   %482 = load i64, ptr %92, align 8
   %483 = getelementptr inbounds ptr, ptr %481, i64 %482
@@ -1194,7 +1194,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i184, %338
   %524 = getelementptr inbounds i8, ptr %517, i64 8
   %525 = load ptr, ptr %524, align 8
   %526 = sext i32 %523 to i64
-  %527 = call noalias noundef ptr @realloc(ptr noundef %525, i64 noundef %526) #34
+  %527 = call noalias noundef ptr @realloc(ptr noundef %525, i64 noundef %526) #35
   %528 = load ptr, ptr %91, align 8
   %529 = load i64, ptr %92, align 8
   %530 = getelementptr inbounds ptr, ptr %528, i64 %529
@@ -1211,7 +1211,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i184, %338
   br i1 %.not151.i, label %539, label %540
 
 539:                                              ; preds = %521
-  call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.12) #33
+  call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.12) #34
   unreachable
 
 540:                                              ; preds = %521
@@ -1473,7 +1473,7 @@ _ZL18yy_get_next_bufferPv.exit.thread225:         ; preds = %375, %_ZL18yy_get_n
   br i1 %exitcond.not.i222, label %.outer.backedge, label %.lr.ph33.i209, !llvm.loop !10
 
 671:                                              ; preds = %157
-  call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.1) #33
+  call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.1) #34
   unreachable
 
 default.unreachable449:                           ; preds = %_ZL18yy_get_next_bufferPv.exit
@@ -1489,18 +1489,18 @@ default.unreachable449:                           ; preds = %_ZL18yy_get_next_bu
 .body:                                            ; preds = %.body180, %216, %241, %.body170, %181, %205, %170, %172
   %.sink = phi ptr [ %5, %172 ], [ %5, %170 ], [ %7, %205 ], [ %7, %181 ], [ %7, %.body170 ], [ %9, %241 ], [ %9, %216 ], [ %9, %.body180 ]
   %.pn161.pn = phi { ptr, i32 } [ %173, %172 ], [ %171, %170 ], [ %206, %205 ], [ %lpad.phi232, %181 ], [ %eh.lpad-body171, %.body170 ], [ %242, %241 ], [ %lpad.phi, %216 ], [ %eh.lpad-body181, %.body180 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #36
   resume { ptr, i32 } %.pn161.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_Z38cmCTestResourceGroups_yy_create_bufferP8_IO_FILEiPv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
-  %4 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #32
+  %4 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.2) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.2) #34
   unreachable
 
 6:                                                ; preds = %3
@@ -1508,14 +1508,14 @@ define dso_local noundef ptr @_Z38cmCTestResourceGroups_yy_create_bufferP8_IO_FI
   store i32 %1, ptr %7, align 8
   %8 = add nsw i32 %1, 2
   %9 = sext i32 %8 to i64
-  %10 = tail call noalias noundef ptr @malloc(i64 noundef %9) #32
+  %10 = tail call noalias noundef ptr @malloc(i64 noundef %9) #33
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.2) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.2) #34
   unreachable
 
 13:                                               ; preds = %6
@@ -1551,8 +1551,8 @@ declare void @_ZN32cmCTestResourceGroupsLexerHelper12WriteProcessEv(ptr noundef 
 ; Function Attrs: mustprogress nofree noreturn nounwind uwtable
 define internal fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef %0) unnamed_addr #5 {
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.14, ptr noundef %0) #37
-  tail call void @exit(i32 noundef 2) #38
+  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.14, ptr noundef %0) #38
+  tail call void @exit(i32 noundef 2) #39
   unreachable
 }
 
@@ -1572,13 +1572,13 @@ define dso_local void @_Z31cmCTestResourceGroups_yyrestartP8_IO_FILEPv(ptr nound
   br i1 %10, label %.critedge, label %.thread
 
 11:                                               ; preds = %2
-  %12 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #32
+  %12 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #33
   store ptr %12, ptr %3, align 8
   %.not28.i = icmp eq ptr %12, null
   br i1 %.not28.i, label %13, label %14
 
 13:                                               ; preds = %11
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.13) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.13) #34
   unreachable
 
 14:                                               ; preds = %11
@@ -1599,13 +1599,13 @@ define dso_local void @_Z31cmCTestResourceGroups_yyrestartP8_IO_FILEPv(ptr nound
 20:                                               ; preds = %.critedge
   %21 = add i64 %18, 8
   %22 = shl i64 %21, 3
-  %23 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %22) #34
+  %23 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %22) #35
   store ptr %23, ptr %3, align 8
   %.not30.i = icmp eq ptr %23, null
   br i1 %.not30.i, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.13) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.13) #34
   unreachable
 
 25:                                               ; preds = %20
@@ -1618,25 +1618,25 @@ define dso_local void @_Z31cmCTestResourceGroups_yyrestartP8_IO_FILEPv(ptr nound
 _ZL43cmCTestResourceGroups_yyensure_buffer_stackPv.exit: ; preds = %14, %.critedge, %25
   %28 = getelementptr inbounds i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #32
+  %30 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
   %.not.i18 = icmp eq ptr %30, null
   br i1 %.not.i18, label %31, label %32
 
 31:                                               ; preds = %_ZL43cmCTestResourceGroups_yyensure_buffer_stackPv.exit
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.2) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.2) #34
   unreachable
 
 32:                                               ; preds = %_ZL43cmCTestResourceGroups_yyensure_buffer_stackPv.exit
   %33 = getelementptr inbounds i8, ptr %30, i64 24
   store i32 16384, ptr %33, align 8
-  %34 = tail call noalias noundef dereferenceable_or_null(16386) ptr @malloc(i64 noundef 16386) #32
+  %34 = tail call noalias noundef dereferenceable_or_null(16386) ptr @malloc(i64 noundef 16386) #33
   %35 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %34, ptr %35, align 8
   %.not14.i = icmp eq ptr %34, null
   br i1 %.not14.i, label %36, label %37
 
 36:                                               ; preds = %32
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.2) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.2) #34
   unreachable
 
 37:                                               ; preds = %32
@@ -1691,7 +1691,7 @@ _ZL43cmCTestResourceGroups_yyensure_buffer_stackPv.exit: ; preds = %14, %.crited
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL36cmCTestResourceGroups_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #4 {
-  %4 = tail call ptr @__errno_location() #36
+  %4 = tail call ptr @__errno_location() #37
   %5 = load i32, ptr %4, align 4
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_Z37cmCTestResourceGroups_yy_flush_bufferP15yy_buffer_statePv.exit, label %6
@@ -1787,8 +1787,8 @@ _Z37cmCTestResourceGroups_yy_flush_bufferP15yy_buffer_statePv.exit: ; preds = %3
   br i1 %.not18, label %63, label %58
 
 58:                                               ; preds = %57
-  %59 = tail call i32 @fileno(ptr noundef nonnull %1) #35
-  %60 = tail call i32 @isatty(i32 noundef %59) #35
+  %59 = tail call i32 @fileno(ptr noundef nonnull %1) #36
+  %60 = tail call i32 @isatty(i32 noundef %59) #36
   %61 = icmp sgt i32 %60, 0
   %62 = zext i1 %61 to i32
   br label %63
@@ -1809,13 +1809,13 @@ define dso_local void @_Z41cmCTestResourceGroups_yy_switch_to_bufferP15yy_buffer
   br i1 %.not.i, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #32
+  %6 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #33
   store ptr %6, ptr %3, align 8
   %.not28.i = icmp eq ptr %6, null
   br i1 %.not28.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.13) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.13) #34
   unreachable
 
 8:                                                ; preds = %5
@@ -1838,13 +1838,13 @@ define dso_local void @_Z41cmCTestResourceGroups_yy_switch_to_bufferP15yy_buffer
 17:                                               ; preds = %11
   %18 = add i64 %15, 8
   %19 = shl i64 %18, 3
-  %20 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %19) #34
+  %20 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %19) #35
   store ptr %20, ptr %3, align 8
   %.not30.i = icmp eq ptr %20, null
   br i1 %.not30.i, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.13) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.13) #34
   unreachable
 
 22:                                               ; preds = %17
@@ -1929,7 +1929,7 @@ define dso_local void @_Z41cmCTestResourceGroups_yy_switch_to_bufferP15yy_buffer
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define dso_local noalias noundef ptr @_Z29cmCTestResourceGroups_yyallocmPv(i64 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #6 {
-  %3 = tail call noalias ptr @malloc(i64 noundef %0) #32
+  %3 = tail call noalias ptr @malloc(i64 noundef %0) #33
   ret ptr %3
 }
 
@@ -1972,11 +1972,11 @@ define dso_local void @_Z38cmCTestResourceGroups_yy_delete_bufferP15yy_buffer_st
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef %23) #35
+  tail call void @free(ptr noundef %23) #36
   br label %24
 
 24:                                               ; preds = %21, %18
-  tail call void @free(ptr noundef nonnull %0) #35
+  tail call void @free(ptr noundef nonnull %0) #36
   br label %25
 
 25:                                               ; preds = %2, %24
@@ -1985,7 +1985,7 @@ define dso_local void @_Z38cmCTestResourceGroups_yy_delete_bufferP15yy_buffer_st
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local void @_Z28cmCTestResourceGroups_yyfreePvS_(ptr nocapture noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #8 {
-  tail call void @free(ptr noundef %0) #35
+  tail call void @free(ptr noundef %0) #36
   ret void
 }
 
@@ -2068,13 +2068,13 @@ define dso_local void @_Z41cmCTestResourceGroups_yypush_buffer_stateP15yy_buffer
   br i1 %.not.i, label %7, label %13
 
 7:                                                ; preds = %4
-  %8 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #32
+  %8 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #33
   store ptr %8, ptr %5, align 8
   %.not28.i = icmp eq ptr %8, null
   br i1 %.not28.i, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.13) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.13) #34
   unreachable
 
 10:                                               ; preds = %7
@@ -2097,13 +2097,13 @@ define dso_local void @_Z41cmCTestResourceGroups_yypush_buffer_stateP15yy_buffer
 19:                                               ; preds = %13
   %20 = add i64 %17, 8
   %21 = shl i64 %20, 3
-  %22 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %6, i64 noundef %21) #34
+  %22 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %6, i64 noundef %21) #35
   store ptr %22, ptr %5, align 8
   %.not30.i = icmp eq ptr %22, null
   br i1 %.not30.i, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.13) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.13) #34
   unreachable
 
 24:                                               ; preds = %19
@@ -2216,11 +2216,11 @@ define dso_local void @_Z40cmCTestResourceGroups_yypop_buffer_statePv(ptr nocapt
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %8, i64 8
   %15 = load ptr, ptr %14, align 8
-  tail call void @free(ptr noundef %15) #35
+  tail call void @free(ptr noundef %15) #36
   br label %_Z38cmCTestResourceGroups_yy_delete_bufferP15yy_buffer_statePv.exit
 
 _Z38cmCTestResourceGroups_yy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %10, %13
-  tail call void @free(ptr noundef nonnull %8) #35
+  tail call void @free(ptr noundef nonnull %8) #36
   %16 = load ptr, ptr %2, align 8
   %17 = load i64, ptr %5, align 8
   %18 = getelementptr inbounds ptr, ptr %16, i64 %17
@@ -2293,12 +2293,12 @@ define dso_local noundef ptr @_Z36cmCTestResourceGroups_yy_scan_bufferPcmPv(ptr 
   br i1 %.not26, label %13, label %27
 
 13:                                               ; preds = %9
-  %14 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #32
+  %14 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
   %.not27 = icmp eq ptr %14, null
   br i1 %.not27, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.3) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.3) #34
   unreachable
 
 16:                                               ; preds = %13
@@ -2332,7 +2332,7 @@ define dso_local noundef ptr @_Z36cmCTestResourceGroups_yy_scan_bufferPcmPv(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_Z36cmCTestResourceGroups_yy_scan_stringPKcPv(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #39
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #40
   %4 = trunc i64 %3 to i32
   %5 = tail call noundef ptr @_Z35cmCTestResourceGroups_yy_scan_bytesPKciPv(ptr noundef %0, i32 noundef %4, ptr noundef %1)
   ret ptr %5
@@ -2342,7 +2342,7 @@ define dso_local noundef ptr @_Z36cmCTestResourceGroups_yy_scan_stringPKcPv(ptr 
 define dso_local noundef ptr @_Z35cmCTestResourceGroups_yy_scan_bytesPKciPv(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
   %4 = add nsw i32 %1, 2
   %5 = sext i32 %4 to i64
-  %6 = tail call noalias noundef ptr @malloc(i64 noundef %5) #32
+  %6 = tail call noalias noundef ptr @malloc(i64 noundef %5) #33
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %.preheader
 
@@ -2361,7 +2361,7 @@ define dso_local noundef ptr @_Z35cmCTestResourceGroups_yy_scan_bytesPKciPv(ptr 
   br label %17
 
 12:                                               ; preds = %3
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.4) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.4) #34
   unreachable
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -2374,16 +2374,16 @@ define dso_local noundef ptr @_Z35cmCTestResourceGroups_yy_scan_bytesPKciPv(ptr 
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %18 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #32
+  %18 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
   %.not27.i = icmp eq ptr %18, null
   br i1 %.not27.i, label %19, label %21
 
 19:                                               ; preds = %17
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.3) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.3) #34
   unreachable
 
 20:                                               ; preds = %._crit_edge
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.5) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.5) #34
   unreachable
 
 21:                                               ; preds = %17
@@ -2520,7 +2520,7 @@ define dso_local void @_Z34cmCTestResourceGroups_yyset_linenoiPv(i32 noundef %0,
   br i1 %10, label %.critedge, label %11
 
 .critedge:                                        ; preds = %2, %5
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.6) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.6) #34
   unreachable
 
 11:                                               ; preds = %5
@@ -2545,7 +2545,7 @@ define dso_local void @_Z34cmCTestResourceGroups_yyset_columniPv(i32 noundef %0,
   br i1 %10, label %.critedge, label %11
 
 .critedge:                                        ; preds = %2, %5
-  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.7) #33
+  tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.7) #34
   unreachable
 
 11:                                               ; preds = %5
@@ -2595,7 +2595,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z32cmCTestResourceGroups_yylex_in
 
 .sink.split:                                      ; preds = %3, %1
   %.sink = phi i32 [ 22, %1 ], [ 12, %3 ]
-  %5 = tail call ptr @__errno_location() #36
+  %5 = tail call ptr @__errno_location() #37
   store i32 %.sink, ptr %5, align 4
   br label %6
 
@@ -2616,7 +2616,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z38cmCTestResourceGroups_yylex_in
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @__errno_location() #36
+  %5 = tail call ptr @__errno_location() #37
   store i32 22, ptr %5, align 4
   br label %11
 
@@ -2627,7 +2627,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z38cmCTestResourceGroups_yylex_in
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @__errno_location() #36
+  %9 = tail call ptr @__errno_location() #37
   store i32 12, ptr %9, align 4
   br label %11
 
@@ -2673,11 +2673,11 @@ define dso_local noundef i32 @_Z35cmCTestResourceGroups_yylex_destroyPv(ptr noca
 18:                                               ; preds = %.lr.ph34
   %19 = getelementptr inbounds i8, ptr %14, i64 8
   %20 = load ptr, ptr %19, align 8
-  tail call void @free(ptr noundef %20) #35
+  tail call void @free(ptr noundef %20) #36
   br label %_Z38cmCTestResourceGroups_yy_delete_bufferP15yy_buffer_statePv.exit
 
 _Z38cmCTestResourceGroups_yy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.lr.ph34, %18
-  tail call void @free(ptr noundef nonnull %14) #35
+  tail call void @free(ptr noundef nonnull %14) #36
   %.pre31 = load i64, ptr %2, align 8
   %.pre = load ptr, ptr %3, align 8
   %21 = getelementptr inbounds ptr, ptr %.pre, i64 %.pre31
@@ -2703,11 +2703,11 @@ _Z38cmCTestResourceGroups_yy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %
 31:                                               ; preds = %28
   %32 = getelementptr inbounds i8, ptr %26, i64 8
   %33 = load ptr, ptr %32, align 8
-  tail call void @free(ptr noundef %33) #35
+  tail call void @free(ptr noundef %33) #36
   br label %_Z38cmCTestResourceGroups_yy_delete_bufferP15yy_buffer_statePv.exit.i
 
 _Z38cmCTestResourceGroups_yy_delete_bufferP15yy_buffer_statePv.exit.i: ; preds = %31, %28
-  tail call void @free(ptr noundef nonnull %26) #35
+  tail call void @free(ptr noundef nonnull %26) #36
   %34 = load ptr, ptr %3, align 8
   %35 = load i64, ptr %2, align 8
   %36 = getelementptr inbounds ptr, ptr %34, i64 %35
@@ -2760,12 +2760,12 @@ _Z40cmCTestResourceGroups_yypop_buffer_statePv.exit: ; preds = %23, %43, %47
 
 .thread:                                          ; preds = %_Z40cmCTestResourceGroups_yypop_buffer_statePv.exit, %_Z38cmCTestResourceGroups_yy_delete_bufferP15yy_buffer_statePv.exit, %40, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %40 ], [ null, %_Z38cmCTestResourceGroups_yy_delete_bufferP15yy_buffer_statePv.exit ], [ %56, %_Z40cmCTestResourceGroups_yypop_buffer_statePv.exit ]
-  tail call void @free(ptr noundef %.lcssa) #35
+  tail call void @free(ptr noundef %.lcssa) #36
   store ptr null, ptr %3, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 96
   %61 = load ptr, ptr %60, align 8
-  tail call void @free(ptr noundef %61) #35
-  tail call void @free(ptr noundef nonnull %0) #35
+  tail call void @free(ptr noundef %61) #36
+  tail call void @free(ptr noundef nonnull %0) #36
   ret i32 0
 }
 
@@ -2774,7 +2774,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local noalias noundef ptr @_Z31cmCTestResourceGroups_yyreallocPvmS_(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #8 {
-  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #34
+  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #35
   ret ptr %4
 }
 
@@ -2853,7 +2853,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #40
+  tail call void @__clang_call_terminate(ptr %17) #41
   unreachable
 
 18:                                               ; preds = %13, %10
@@ -2862,7 +2862,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
           to label %20 unwind label %22
 
 20:                                               ; preds = %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #36
   store ptr null, ptr %5, align 8
   %21 = load i64, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %21)
@@ -2874,7 +2874,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 22:                                               ; preds = %20, %18
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #35
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #36
   resume { ptr, i32 } %23
 }
 
@@ -2908,20 +2908,21 @@ define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_trait
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #40
+  tail call void @__clang_call_terminate(ptr %7) #41
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #26 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #35
-  tail call void @_ZSt9terminatev() #40
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #36
+  tail call void @_ZSt9terminatev() #41
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #27
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -2929,26 +2930,26 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_cmCTestResourceGroupsLexer.cxx() #27 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_cmCTestResourceGroupsLexer.cxx() #28 section ".text.startup" {
   tail call void @_ZN5cmsys18SystemToolsManagerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5cmsysL26SystemToolsManagerInstanceE)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys18SystemToolsManagerD1Ev, ptr nonnull @_ZN5cmsysL26SystemToolsManagerInstanceE, ptr nonnull @__dso_handle) #35
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys18SystemToolsManagerD1Ev, ptr nonnull @_ZN5cmsysL26SystemToolsManagerInstanceE, ptr nonnull @__dso_handle) #36
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #29
+declare i32 @llvm.umin.i32(i32, i32) #30
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #30
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #31
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #31
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #32
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2977,20 +2978,21 @@ attributes #23 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #24 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #30 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #31 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #32 = { nounwind allocsize(0) }
-attributes #33 = { noreturn }
-attributes #34 = { nounwind allocsize(1) }
-attributes #35 = { nounwind }
-attributes #36 = { nounwind willreturn memory(none) }
-attributes #37 = { cold nounwind }
-attributes #38 = { cold noreturn nounwind }
-attributes #39 = { nounwind willreturn memory(read) }
-attributes #40 = { noreturn nounwind }
+attributes #27 = { cold nofree noreturn }
+attributes #28 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #30 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #31 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #32 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #33 = { nounwind allocsize(0) }
+attributes #34 = { noreturn }
+attributes #35 = { nounwind allocsize(1) }
+attributes #36 = { nounwind }
+attributes #37 = { nounwind willreturn memory(none) }
+attributes #38 = { cold nounwind }
+attributes #39 = { cold noreturn nounwind }
+attributes #40 = { nounwind willreturn memory(read) }
+attributes #41 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

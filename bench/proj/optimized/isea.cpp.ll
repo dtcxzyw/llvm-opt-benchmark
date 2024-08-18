@@ -74,7 +74,7 @@ define hidden noundef ptr @pj_isea(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z33pj_projection_specific_setup_iseaP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #13
+  %2 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
@@ -112,7 +112,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_iseaP8PJconsts(ptr n
   br i1 %.not, label %29, label %21
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.019.0..sroa.019.0..cast, ptr noundef nonnull dereferenceable(5) @.str) #14
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.019.0..sroa.019.0..cast, ptr noundef nonnull dereferenceable(5) @.str) #15
   %.not81 = icmp eq i32 %22, 0
   br i1 %.not81, label %23, label %24
 
@@ -123,7 +123,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_iseaP8PJconsts(ptr n
   br label %29
 
 24:                                               ; preds = %21
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.019.0..sroa.019.0..cast, ptr noundef nonnull dereferenceable(5) @.str.2) #14
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.019.0..sroa.019.0..cast, ptr noundef nonnull dereferenceable(5) @.str.2) #15
   %.not82 = icmp eq i32 %25, 0
   br i1 %.not82, label %26, label %27
 
@@ -191,7 +191,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_iseaP8PJconsts(ptr n
   br i1 %.not86, label %76, label %60
 
 60:                                               ; preds = %56
-  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.09.0..sroa.09.0..cast, ptr noundef nonnull dereferenceable(6) @.str.11) #14
+  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.09.0..sroa.09.0..cast, ptr noundef nonnull dereferenceable(6) @.str.11) #15
   %.not87 = icmp eq i32 %61, 0
   br i1 %.not87, label %.sink.split, label %sub_0
 
@@ -225,7 +225,7 @@ sub_196:                                          ; preds = %.tail, %sub_1
   br i1 %72, label %.sink.split, label %.tail94.thread
 
 .tail94.thread:                                   ; preds = %sub_0, %sub_196, %.tail94
-  %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.09.0..sroa.09.0..cast, ptr noundef nonnull dereferenceable(4) @.str.14) #14
+  %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.09.0..sroa.09.0..cast, ptr noundef nonnull dereferenceable(4) @.str.14) #15
   %.not90 = icmp eq i32 %73, 0
   br i1 %.not90, label %.sink.split, label %74
 
@@ -317,23 +317,23 @@ define internal { double, double } @_ZL14isea_s_forward5PJ_LPP8PJconsts(double %
   %14 = getelementptr inbounds i8, ptr %9, i64 24
   %15 = load double, ptr %14, align 8
   %16 = fadd double %13, 0x400921FB54442D18
-  %17 = tail call double @cos(double noundef %1) #15
-  %18 = tail call double @sin(double noundef %11) #15
-  %19 = tail call double @sin(double noundef %1) #15
-  %20 = tail call double @cos(double noundef %11) #15
+  %17 = tail call double @cos(double noundef %1) #16
+  %18 = tail call double @sin(double noundef %11) #16
+  %19 = tail call double @sin(double noundef %1) #16
+  %20 = tail call double @cos(double noundef %11) #16
   %21 = fsub double %0, %16
-  %22 = tail call double @cos(double noundef %21) #15
-  %23 = tail call double @sin(double noundef %21) #15
+  %22 = tail call double @cos(double noundef %21) #16
+  %23 = tail call double @sin(double noundef %21) #16
   %24 = fmul double %17, %23
   %25 = fmul double %17, %18
-  %26 = tail call double @cos(double noundef %21) #15
-  %27 = tail call double @cos(double noundef %11) #15
-  %28 = tail call double @sin(double noundef %1) #15
+  %26 = tail call double @cos(double noundef %21) #16
+  %27 = tail call double @cos(double noundef %11) #16
+  %28 = tail call double @sin(double noundef %1) #16
   %29 = fmul double %27, %28
   %30 = tail call double @llvm.fmuladd.f64(double %25, double %26, double %29)
-  %31 = tail call double @atan2(double noundef %24, double noundef %30) #15
+  %31 = tail call double @atan2(double noundef %24, double noundef %30) #16
   %32 = fadd double %16, %31
-  %33 = tail call double @fmod(double noundef %32, double noundef 0x401921FB54442D18) #15
+  %33 = tail call double @fmod(double noundef %32, double noundef 0x401921FB54442D18) #16
   %34 = fcmp ogt double %33, 0x400921FB54442D18
   br i1 %34, label %.lr.ph.i.i.i.i, label %.preheader.i.i.i.i
 
@@ -360,13 +360,13 @@ _ZL12snyder_ctranPN12_GLOBAL__N_18isea_geoES1_.exit.i.i.i: ; preds = %.lr.ph7.i.
   %41 = fmul double %17, %40
   %42 = fmul double %41, %22
   %43 = tail call double @llvm.fmuladd.f64(double %18, double %19, double %42)
-  %44 = tail call double @asin(double noundef %43) #15
+  %44 = tail call double @asin(double noundef %43) #16
   %45 = fadd double %16, 0xC00921FB54442D18
   %46 = fsub double 0x400921FB54442D18, %15
   %47 = fadd double %46, %45
   %48 = fsub double %.1.lcssa.i.i.i.i, %47
   %49 = fadd double %48, 0x400921FB54442D18
-  %50 = tail call double @fmod(double noundef %49, double noundef 0x401921FB54442D18) #15
+  %50 = tail call double @fmod(double noundef %49, double noundef 0x401921FB54442D18) #16
   %51 = fcmp ogt double %50, 0x400921FB54442D18
   br i1 %51, label %.lr.ph.i.i.i, label %.preheader.i.i.i
 
@@ -397,33 +397,33 @@ _ZL10isea_ctranPN12_GLOBAL__N_18isea_geoES1_d.exit.i.i: ; preds = %.lr.ph19.i.i.
   %.sroa.0.0.copyload.i.i.i = load double, ptr %58, align 16
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %58, i64 8
   %.sroa.3.0.copyload.i.i.i = load double, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
-  %59 = tail call double @sin(double noundef %.sroa.3.0.copyload.i.i.i) #15
-  %60 = tail call double @sin(double noundef %44) #15
-  %61 = tail call double @cos(double noundef %.sroa.3.0.copyload.i.i.i) #15
-  %62 = tail call double @cos(double noundef %44) #15
+  %59 = tail call double @sin(double noundef %.sroa.3.0.copyload.i.i.i) #16
+  %60 = tail call double @sin(double noundef %44) #16
+  %61 = tail call double @cos(double noundef %.sroa.3.0.copyload.i.i.i) #16
+  %62 = tail call double @cos(double noundef %44) #16
   %63 = fmul double %61, %62
   %64 = fsub double %.sroa.06.1.lcssa.i.i.i, %.sroa.0.0.copyload.i.i.i
-  %65 = tail call double @cos(double noundef %64) #15
+  %65 = tail call double @cos(double noundef %64) #16
   %66 = fmul double %63, %65
   %67 = tail call double @llvm.fmuladd.f64(double %59, double %60, double %66)
-  %68 = tail call double @acos(double noundef %67) #15
+  %68 = tail call double @acos(double noundef %67) #16
   %69 = fcmp ogt double %68, 0x3FE4E028A9CE1CF8
   br i1 %69, label %119, label %70
 
 70:                                               ; preds = %57
-  %71 = tail call double @cos(double noundef %44) #15
-  %72 = tail call double @sin(double noundef %64) #15
+  %71 = tail call double @cos(double noundef %44) #16
+  %72 = tail call double @sin(double noundef %64) #16
   %73 = fmul double %71, %72
-  %74 = tail call double @cos(double noundef %.sroa.3.0.copyload.i.i.i) #15
-  %75 = tail call double @sin(double noundef %44) #15
-  %76 = tail call double @sin(double noundef %.sroa.3.0.copyload.i.i.i) #15
-  %77 = tail call double @cos(double noundef %44) #15
-  %78 = tail call double @cos(double noundef %64) #15
+  %74 = tail call double @cos(double noundef %.sroa.3.0.copyload.i.i.i) #16
+  %75 = tail call double @sin(double noundef %44) #16
+  %76 = tail call double @sin(double noundef %.sroa.3.0.copyload.i.i.i) #16
+  %77 = tail call double @cos(double noundef %44) #16
+  %78 = tail call double @cos(double noundef %64) #16
   %79 = fneg double %76
   %80 = fmul double %77, %79
   %81 = fmul double %80, %78
   %82 = tail call double @llvm.fmuladd.f64(double %74, double %75, double %81)
-  %83 = tail call noundef double @atan2(double noundef %73, double noundef %82) #15
+  %83 = tail call noundef double @atan2(double noundef %73, double noundef %82) #16
   %84 = getelementptr inbounds [21 x i32], ptr @_ZL6tri_v1, i64 0, i64 %indvars.iv.i.i.i
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
@@ -431,20 +431,20 @@ _ZL10isea_ctranPN12_GLOBAL__N_18isea_geoES1_d.exit.i.i: ; preds = %.lr.ph19.i.i.
   %.sroa.03.0.copyload.i.i.i.i = load double, ptr %87, align 16
   %.sroa.35.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %87, i64 8
   %.sroa.35.0.copyload.i.i.i.i = load double, ptr %.sroa.35.0..sroa_idx.i.i.i.i, align 8
-  %88 = tail call double @cos(double noundef %.sroa.35.0.copyload.i.i.i.i) #15
+  %88 = tail call double @cos(double noundef %.sroa.35.0.copyload.i.i.i.i) #16
   %89 = fsub double %.sroa.03.0.copyload.i.i.i.i, %.sroa.0.0.copyload.i.i.i
-  %90 = tail call double @sin(double noundef %89) #15
+  %90 = tail call double @sin(double noundef %89) #16
   %91 = fmul double %88, %90
-  %92 = tail call double @cos(double noundef %.sroa.3.0.copyload.i.i.i) #15
-  %93 = tail call double @sin(double noundef %.sroa.35.0.copyload.i.i.i.i) #15
-  %94 = tail call double @sin(double noundef %.sroa.3.0.copyload.i.i.i) #15
-  %95 = tail call double @cos(double noundef %.sroa.35.0.copyload.i.i.i.i) #15
-  %96 = tail call double @cos(double noundef %89) #15
+  %92 = tail call double @cos(double noundef %.sroa.3.0.copyload.i.i.i) #16
+  %93 = tail call double @sin(double noundef %.sroa.35.0.copyload.i.i.i.i) #16
+  %94 = tail call double @sin(double noundef %.sroa.3.0.copyload.i.i.i) #16
+  %95 = tail call double @cos(double noundef %.sroa.35.0.copyload.i.i.i.i) #16
+  %96 = tail call double @cos(double noundef %89) #16
   %97 = fneg double %94
   %98 = fmul double %95, %97
   %99 = fmul double %98, %96
   %100 = tail call double @llvm.fmuladd.f64(double %92, double %93, double %99)
-  %101 = tail call noundef double @atan2(double noundef %91, double noundef %100) #15
+  %101 = tail call noundef double @atan2(double noundef %91, double noundef %100) #16
   %102 = fsub double %83, %101
   %103 = fcmp olt double %102, 0.000000e+00
   %104 = fadd double %102, 0x401921FB54442D18
@@ -477,10 +477,10 @@ _ZL10isea_ctranPN12_GLOBAL__N_18isea_geoES1_d.exit.i.i: ; preds = %.lr.ph19.i.i.
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph80.i.i.i, %.preheader.i11.i.i
   %.169.lcssa.i.i.i = phi i32 [ %.068.lcssa.i.i.i, %.preheader.i11.i.i ], [ %111, %.lr.ph80.i.i.i ]
   %.2.lcssa.i.i.i = phi double [ %.1.lcssa.i.i.i, %.preheader.i11.i.i ], [ %110, %.lr.ph80.i.i.i ]
-  %113 = tail call double @cos(double noundef %.2.lcssa.i.i.i) #15
-  %114 = tail call double @sin(double noundef %.2.lcssa.i.i.i) #15
+  %113 = tail call double @cos(double noundef %.2.lcssa.i.i.i) #16
+  %114 = tail call double @sin(double noundef %.2.lcssa.i.i.i) #16
   %115 = tail call double @llvm.fmuladd.f64(double %114, double 0x3FFBB67AE8584CAB, double %113)
-  %116 = tail call double @atan2(double noundef 0x3FE87221919DB595, double noundef %115) #15
+  %116 = tail call double @atan2(double noundef 0x3FE87221919DB595, double noundef %115) #16
   %117 = fadd double %116, 5.000000e-06
   %118 = fcmp ogt double %68, %117
   br i1 %118, label %119, label %_ZL14isea_transformPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoEPNS_7isea_ptE.exit.i
@@ -496,42 +496,42 @@ _ZL10isea_ctranPN12_GLOBAL__N_18isea_geoES1_d.exit.i.i: ; preds = %.lr.ph19.i.i.
   %123 = fdiv double %122, 0x400921FB54442D18
   %124 = fmul double %44, 1.800000e+02
   %125 = fdiv double %124, 0x400921FB54442D18
-  %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.21, double noundef %123, double noundef %125) #16
-  tail call void @exit(i32 noundef 1) #17
+  %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.21, double noundef %123, double noundef %125) #17
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 _ZL14isea_transformPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoEPNS_7isea_ptE.exit.i: ; preds = %._crit_edge.i.i.i
   %127 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %128 = tail call double @sin(double noundef %.2.lcssa.i.i.i) #15
+  %128 = tail call double @sin(double noundef %.2.lcssa.i.i.i) #16
   %129 = fmul double %128, 0x3FE2CF2304755A5E
-  %130 = tail call double @cos(double noundef %.2.lcssa.i.i.i) #15
+  %130 = tail call double @cos(double noundef %.2.lcssa.i.i.i) #16
   %131 = fmul double %130, 0xBFE9E3779B97F4A8
   %132 = tail call double @llvm.fmuladd.f64(double %129, double 0x3FE96DCF37449222, double %131)
-  %133 = tail call double @acos(double noundef %132) #15
+  %133 = tail call double @acos(double noundef %132) #16
   %134 = fadd double %.2.lcssa.i.i.i, 0x3FE41B2F769CF0E0
   %135 = fadd double %134, %133
   %136 = fadd double %135, 0xC00921FB54442D18
   %137 = fmul double %136, 2.000000e+00
   %138 = fmul double %137, 0x3FFBB67AE8584CAB
   %139 = fsub double 0x3FDEF49C3F648C9D, %138
-  %140 = tail call double @atan2(double noundef %137, double noundef %139) #15
-  %141 = tail call double @cos(double noundef %140) #15
-  %142 = tail call double @sin(double noundef %140) #15
+  %140 = tail call double @atan2(double noundef %137, double noundef %139) #16
+  %141 = tail call double @cos(double noundef %140) #16
+  %142 = tail call double @sin(double noundef %140) #16
   %143 = tail call double @llvm.fmuladd.f64(double %142, double 0x3FFBB67AE8584CAB, double %141)
   %144 = fdiv double 0x3FE6414C46A11CDE, %143
   %145 = fmul double %116, 5.000000e-01
-  %146 = tail call double @sin(double noundef %145) #15
+  %146 = tail call double @sin(double noundef %145) #16
   %147 = fmul double %146, 0x3FFD21DC1EA0032F
   %148 = fdiv double %144, %147
   %149 = fmul double %148, 0x3FFD21DC1EA0032F
   %150 = fmul double %68, 5.000000e-01
-  %151 = tail call double @sin(double noundef %150) #15
+  %151 = tail call double @sin(double noundef %150) #16
   %152 = fmul double %151, %149
   %153 = sitofp i32 %.169.lcssa.i.i.i to double
   %154 = tail call double @llvm.fmuladd.f64(double %153, double 0x4000C152382D7366, double %140)
-  %155 = tail call double @sin(double noundef %154) #15
+  %155 = tail call double @sin(double noundef %154) #16
   %156 = fmul double %155, %152
-  %157 = tail call double @cos(double noundef %154) #15
+  %157 = tail call double @cos(double noundef %154) #16
   %158 = fmul double %157, %152
   %159 = getelementptr inbounds i8, ptr %9, i64 48
   %160 = load double, ptr %159, align 8
@@ -570,7 +570,7 @@ _ZL14isea_transformPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoEPNS_7isea_ptE.exit.i:
   br i1 %184, label %switch.lookup, label %185
 
 185:                                              ; preds = %178
-  tail call void @exit(i32 noundef 1) #17
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 switch.lookup:                                    ; preds = %178
@@ -617,13 +617,13 @@ switch.lookup:                                    ; preds = %178
   %209 = and i32 %207, -2147483647
   %210 = icmp eq i32 %209, 1
   %211 = select i1 %210, double 0xC010C152382D7365, double 0xBFF0C152382D7365
-  %212 = tail call double @cos(double noundef %211) #15
-  %213 = tail call double @sin(double noundef %211) #15
+  %212 = tail call double @cos(double noundef %211) #16
+  %213 = tail call double @sin(double noundef %211) #16
   %214 = fmul double %204, %213
   %215 = tail call double @llvm.fmuladd.f64(double %203, double %212, double %214)
   %216 = fneg double %203
-  %217 = tail call double @sin(double noundef %211) #15
-  %218 = tail call double @cos(double noundef %211) #15
+  %217 = tail call double @sin(double noundef %211) #16
+  %218 = tail call double @cos(double noundef %211) #16
   %219 = fmul double %204, %218
   %220 = tail call double @llvm.fmuladd.f64(double %216, double %217, double %219)
   store double %215, ptr %5, align 8
@@ -652,13 +652,13 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit.i:   ; preds = %221, %205
   %233 = and i32 %231, -2147483647
   %234 = icmp eq i32 %233, 1
   %235 = select i1 %234, double 0xC010C152382D7365, double 0xBFF0C152382D7365
-  %236 = tail call double @cos(double noundef %235) #15
-  %237 = tail call double @sin(double noundef %235) #15
+  %236 = tail call double @cos(double noundef %235) #16
+  %237 = tail call double @sin(double noundef %235) #16
   %238 = fmul double %204, %237
   %239 = tail call double @llvm.fmuladd.f64(double %203, double %236, double %238)
   %240 = fneg double %203
-  %241 = tail call double @sin(double noundef %235) #15
-  %242 = tail call double @cos(double noundef %235) #15
+  %241 = tail call double @sin(double noundef %235) #16
+  %242 = tail call double @cos(double noundef %235) #16
   %243 = fmul double %204, %242
   %244 = tail call double @llvm.fmuladd.f64(double %240, double %241, double %243)
   store double %239, ptr %5, align 8
@@ -708,8 +708,8 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i: ; preds = %245, %229
   %265 = getelementptr inbounds i8, ptr %9, i64 40
   %266 = load i32, ptr %265, align 8
   %267 = sitofp i32 %266 to double
-  %268 = tail call double @pow(double noundef %264, double noundef %267) #15
-  %269 = tail call i64 @lround(double noundef %268) #15
+  %268 = tail call double @pow(double noundef %264, double noundef %267) #16
+  %269 = tail call i64 @lround(double noundef %268) #16
   %270 = icmp eq i32 %259, 11
   br i1 %270, label %271, label %274
 
@@ -731,9 +731,9 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i: ; preds = %245, %229
   %280 = add nsw i32 %.pre.i.i, -1
   %281 = uitofp nneg i32 %280 to double
   %282 = fmul double %281, 5.000000e-01
-  %283 = tail call noundef double @pow(double noundef 3.000000e+00, double noundef %282) #15
+  %283 = tail call noundef double @pow(double noundef 3.000000e+00, double noundef %282) #16
   %284 = tail call double @llvm.floor.f64(double %283)
-  %285 = tail call i64 @lround(double noundef %284) #15
+  %285 = tail call i64 @lround(double noundef %284) #16
   %286 = load double, ptr %6, align 8
   %287 = fptosi double %286 to i64
   %288 = mul nsw i64 %285, %287
@@ -753,8 +753,8 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i: ; preds = %245, %229
   %300 = sitofp i32 %.pre.i.i to double
   %301 = fmul double %300, 5.000000e-01
   %302 = sitofp i32 %275 to double
-  %303 = tail call noundef double @pow(double noundef %302, double noundef %301) #15
-  %304 = tail call i64 @lround(double noundef %303) #15
+  %303 = tail call noundef double @pow(double noundef %302, double noundef %301) #16
+  %304 = tail call i64 @lround(double noundef %303) #16
   %305 = add nsw i32 %259, -1
   %306 = sext i32 %305 to i64
   %307 = mul nsw i64 %269, %306
@@ -767,7 +767,7 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i: ; preds = %245, %229
   %314 = fadd double %311, %313
   %315 = fadd double %314, 2.000000e+00
   %316 = tail call double @llvm.floor.f64(double %315)
-  %317 = tail call i64 @lround(double noundef %316) #15
+  %317 = tail call i64 @lround(double noundef %316) #16
   br label %_ZL9isea_disnPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptE.exit.i
 
 _ZL9isea_disnPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptE.exit.i: ; preds = %299, %279, %271, %.noexc16
@@ -791,9 +791,9 @@ _ZL9isea_disnPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptE.exit.i: ; preds = %299, %2
   br i1 %or.cond.i36.i, label %324, label %_ZL8isea_hexPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i
 
 324:                                              ; preds = %.noexc17
-  %325 = tail call ptr @__cxa_allocate_exception(i64 8) #15
+  %325 = tail call ptr @__cxa_allocate_exception(i64 8) #16
   store ptr @.str.24, ptr %325, align 16
-  invoke void @__cxa_throw(ptr nonnull %325, ptr nonnull @_ZTIPKc, ptr null) #18
+  invoke void @__cxa_throw(ptr nonnull %325, ptr nonnull @_ZTIPKc, ptr null) #19
           to label %.noexc18 unwind label %333
 
 .noexc18:                                         ; preds = %324
@@ -822,13 +822,13 @@ _ZL8isea_hexPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i: ; preds = %.noex
   %334 = landingpad { ptr, i32 }
           catch ptr @_ZTIPKc
   %335 = extractvalue { ptr, i32 } %334, 1
-  %336 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIPKc) #15
+  %336 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIPKc) #16
   %337 = icmp eq i32 %335, %336
   br i1 %337, label %338, label %347
 
 338:                                              ; preds = %333
   %339 = extractvalue { ptr, i32 } %334, 0
-  %340 = tail call ptr @__cxa_begin_catch(ptr %339) #15
+  %340 = tail call ptr @__cxa_begin_catch(ptr %339) #16
   %341 = invoke i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
           to label %342 unwind label %344
 
@@ -840,13 +840,13 @@ _ZL8isea_hexPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i: ; preds = %.noex
   %.sroa.011.0.copyload = load double, ptr %7, align 8
   %.sroa.312.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   %.sroa.312.0.copyload = load double, ptr %.sroa.312.0..sroa_idx, align 8
-  call void @__cxa_end_catch() #15
+  call void @__cxa_end_catch() #16
   br label %346
 
 344:                                              ; preds = %342, %338
   %345 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_end_catch() #15
+  call void @__cxa_end_catch() #16
   br label %347
 
 346:                                              ; preds = %332, %343
@@ -891,13 +891,13 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit:
   %8 = and i32 %7, -2147483647
   %9 = icmp eq i32 %8, 1
   %10 = select i1 %9, double 0xC010C152382D7365, double 0xBFF0C152382D7365
-  %11 = tail call double @cos(double noundef %10) #15
-  %12 = tail call double @sin(double noundef %10) #15
+  %11 = tail call double @cos(double noundef %10) #16
+  %12 = tail call double @sin(double noundef %10) #16
   %13 = fmul double %.sroa.7.0.copyload, %12
   %14 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0.copyload, double %11, double %13)
   %15 = fneg double %.sroa.0.0.copyload
-  %16 = tail call double @sin(double noundef %10) #15
-  %17 = tail call double @cos(double noundef %10) #15
+  %16 = tail call double @sin(double noundef %10) #16
+  %17 = tail call double @cos(double noundef %10) #16
   %18 = fmul double %.sroa.7.0.copyload, %17
   %19 = tail call double @llvm.fmuladd.f64(double %15, double %16, double %18)
   %20 = fadd double %14, 5.000000e-01
@@ -929,7 +929,7 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit:
   %36 = fmul double %35, 5.000000e-01
   %37 = fdiv double 0x3FEBB67AE8584CAB, %36
   %38 = fmul double %36, 2.000000e+00
-  %39 = tail call i64 @lround(double noundef %38) #15
+  %39 = tail call i64 @lround(double noundef %38) #16
   %40 = getelementptr inbounds i8, ptr %4, i64 8
   %41 = getelementptr inbounds i8, ptr %4, i64 16
   call fastcc void @_ZL7hexbin2dddPlS_(double noundef %37, double noundef %.sroa.0.0, double noundef %.sroa.7.0, ptr noundef nonnull %40, ptr noundef nonnull %41)
@@ -1033,19 +1033,19 @@ _ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i: ; preds
   %86 = sitofp i32 %85 to double
   %87 = fmul double %86, 5.000000e-01
   %88 = uitofp nneg i32 %28 to double
-  %89 = tail call noundef double @pow(double noundef %88, double noundef %87) #15
+  %89 = tail call noundef double @pow(double noundef %88, double noundef %87) #16
   %90 = tail call double @llvm.fabs.f64(double %89)
   %91 = fcmp ogt double %90, 0x41DFFFFFFFC00000
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %.thread.i
-  %93 = tail call ptr @__cxa_allocate_exception(i64 8) #15
+  %93 = tail call ptr @__cxa_allocate_exception(i64 8) #16
   store ptr @.str.22, ptr %93, align 16
-  tail call void @__cxa_throw(ptr nonnull %93, ptr nonnull @_ZTIPKc, ptr null) #18
+  tail call void @__cxa_throw(ptr nonnull %93, ptr nonnull @_ZTIPKc, ptr null) #19
   unreachable
 
 94:                                               ; preds = %.thread.i
-  %95 = tail call i64 @lround(double noundef %89) #15
+  %95 = tail call i64 @lround(double noundef %89) #16
   br label %98
 
 96:                                               ; preds = %83
@@ -1058,9 +1058,9 @@ _ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i: ; preds
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %98
-  %101 = tail call ptr @__cxa_allocate_exception(i64 8) #15
+  %101 = tail call ptr @__cxa_allocate_exception(i64 8) #16
   store ptr @.str.23, ptr %101, align 16
-  tail call void @__cxa_throw(ptr nonnull %101, ptr nonnull @_ZTIPKc, ptr null) #18
+  tail call void @__cxa_throw(ptr nonnull %101, ptr nonnull @_ZTIPKc, ptr null) #19
   unreachable
 
 102:                                              ; preds = %98
@@ -1196,10 +1196,11 @@ declare double @llvm.fabs.f64(double) #5
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i64 @lround(double noundef) local_unnamed_addr #8
+declare i64 @lround(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL7hexbin2dddPlS_(double noundef %0, double noundef %1, double noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
@@ -1207,9 +1208,9 @@ define internal fastcc void @_ZL7hexbin2dddPlS_(double noundef %0, double nounde
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call ptr @__cxa_allocate_exception(i64 8) #15
+  %8 = tail call ptr @__cxa_allocate_exception(i64 8) #16
   store ptr @.str.23, ptr %8, align 16
-  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIPKc, ptr null) #18
+  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIPKc, ptr null) #19
   unreachable
 
 9:                                                ; preds = %5
@@ -1222,13 +1223,13 @@ define internal fastcc void @_ZL7hexbin2dddPlS_(double noundef %0, double nounde
   %16 = fsub double %15, %14
   %17 = fadd double %13, 5.000000e-01
   %18 = tail call double @llvm.floor.f64(double %17)
-  %19 = tail call i64 @lround(double noundef %18) #15
+  %19 = tail call i64 @lround(double noundef %18) #16
   %20 = fadd double %14, 5.000000e-01
   %21 = tail call double @llvm.floor.f64(double %20)
-  %22 = tail call i64 @lround(double noundef %21) #15
+  %22 = tail call i64 @lround(double noundef %21) #16
   %23 = fadd double %16, 5.000000e-01
   %24 = tail call double @llvm.floor.f64(double %23)
-  %25 = tail call i64 @lround(double noundef %24) #15
+  %25 = tail call i64 @lround(double noundef %24) #16
   %26 = sitofp i64 %19 to double
   %27 = sitofp i64 %22 to double
   %28 = fadd double %26, %27
@@ -1244,9 +1245,9 @@ define internal fastcc void @_ZL7hexbin2dddPlS_(double noundef %0, double nounde
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %31, %9
-  %37 = tail call ptr @__cxa_allocate_exception(i64 8) #15
+  %37 = tail call ptr @__cxa_allocate_exception(i64 8) #16
   store ptr @.str.22, ptr %37, align 16
-  tail call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIPKc, ptr null) #18
+  tail call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIPKc, ptr null) #19
   unreachable
 
 38:                                               ; preds = %31
@@ -1312,19 +1313,19 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #4
 declare double @llvm.floor.f64(double) #5
 
 ; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for.p0(ptr) #9
+declare i32 @llvm.eh.typeid.for.p0(ptr) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nofree willreturn
-declare double @ldexp(double, i32) local_unnamed_addr #11
+declare double @ldexp(double, i32) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1334,17 +1335,18 @@ attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "frame-p
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nosync nounwind memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nofree willreturn }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind allocsize(0,1) }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { nounwind }
-attributes #16 = { cold nounwind }
-attributes #17 = { cold noreturn nounwind }
-attributes #18 = { noreturn }
+attributes #8 = { cold noreturn }
+attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nosync nounwind memory(none) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nofree willreturn }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind allocsize(0,1) }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { nounwind }
+attributes #17 = { cold nounwind }
+attributes #18 = { cold noreturn nounwind }
+attributes #19 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

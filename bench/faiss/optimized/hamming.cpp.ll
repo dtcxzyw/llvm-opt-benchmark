@@ -533,7 +533,7 @@ define internal void @_ZN5faiss13bitvecs2fvecsEPKhPfmm.omp_outlined(ptr noalias 
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #22
+  call void @__clang_call_terminate(ptr %35) #24
   unreachable
 }
 
@@ -544,16 +544,17 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #4
-  tail call void @_ZSt9terminatev() #22
+  tail call void @_ZSt9terminatev() #24
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN5faiss12bitvec_printEPKhm(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define void @_ZN5faiss12bitvec_printEPKhm(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph19
 
@@ -606,10 +607,10 @@ _ZN5faissL19uint64_reverse_bitsEm.exit._crit_edge: ; preds = %_ZN5faissL19uint64
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noalias noundef %3, ptr noalias noundef %4, ptr noalias noundef %5) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noalias noundef %3, ptr noalias noundef %4, ptr noalias noundef %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
@@ -663,7 +664,7 @@ define void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh(i64 noundef %0, i64 noundef %
           to label %34 unwind label %37
 
 34:                                               ; preds = %30
-  invoke void @__cxa_throw(ptr nonnull %33, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
+  invoke void @__cxa_throw(ptr nonnull %33, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
           to label %48 unwind label %35
 
 35:                                               ; preds = %34, %28, %24
@@ -711,17 +712,17 @@ define void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh(i64 noundef %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #5
 
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #11
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -738,10 +739,11 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   ret void
 }
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
 
 ; Function Attrs: norecurse nounwind uwtable
 define internal void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8) #3 {
@@ -826,13 +828,13 @@ define internal void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh.omp_outlined(ptr noa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #10
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss8hammingsEPKhS1_mmmPi(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noalias nocapture noundef writeonly %5) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss8hammingsEPKhS1_mmmPi(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noalias nocapture noundef writeonly %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = and i64 %4, 7
   %9 = icmp eq i64 %8, 0
@@ -858,7 +860,7 @@ define void @_ZN5faiss8hammingsEPKhS1_mmmPi(ptr noalias nocapture noundef readon
           to label %20 unwind label %23
 
 20:                                               ; preds = %16
-  invoke void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
+  invoke void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
           to label %142 unwind label %21
 
 21:                                               ; preds = %20, %14, %10
@@ -1140,13 +1142,13 @@ _ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit:       ; preds = %._crit_edge.us.i57,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss12hammings_knnEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #9 {
+define void @_ZN5faiss12hammings_knnEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #10 {
   tail call void @_ZN5faiss15hammings_knn_hcEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi17ApproxTopK_mode_t(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss15hammings_knn_hcEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi17ApproxTopK_mode_t(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #9 {
+define void @_ZN5faiss15hammings_knn_hcEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi17ApproxTopK_mode_t(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #10 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -1691,7 +1693,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
 
 .invoke:                                          ; preds = %119, %100, %81, %61
   %66 = phi ptr [ %65, %61 ], [ %85, %81 ], [ %104, %100 ], [ %123, %119 ]
-  invoke void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
+  invoke void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -1938,14 +1940,14 @@ _ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer
 190:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %191 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %191) #22
+  call void @__clang_call_terminate(ptr %191) #24
   unreachable
 }
 
 declare void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7reorderEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -2438,10 +2440,10 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -2933,7 +2935,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -3489,7 +3491,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -4147,7 +4149,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
 
 .invoke:                                          ; preds = %119, %100, %81, %61
   %66 = phi ptr [ %65, %61 ], [ %85, %81 ], [ %104, %100 ], [ %123, %119 ]
-  invoke void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
+  invoke void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -4395,12 +4397,12 @@ _ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer
 191:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %192 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %192) #22
+  call void @__clang_call_terminate(ptr %192) #24
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -4895,7 +4897,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -5389,7 +5391,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -5947,7 +5949,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -6614,7 +6616,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
 
 .invoke:                                          ; preds = %123, %104, %85, %65
   %70 = phi ptr [ %69, %65 ], [ %89, %85 ], [ %108, %104 ], [ %127, %123 ]
-  invoke void @__cxa_throw(ptr nonnull %70, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
+  invoke void @__cxa_throw(ptr nonnull %70, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -6869,12 +6871,12 @@ _ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer
 202:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %203 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %203) #22
+  call void @__clang_call_terminate(ptr %203) #24
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -7383,7 +7385,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -7891,7 +7893,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -8463,7 +8465,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -9149,7 +9151,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
 
 .invoke:                                          ; preds = %127, %108, %89, %69
   %74 = phi ptr [ %73, %69 ], [ %93, %89 ], [ %112, %108 ], [ %131, %127 ]
-  invoke void @__cxa_throw(ptr nonnull %74, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
+  invoke void @__cxa_throw(ptr nonnull %74, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -9410,12 +9412,12 @@ _ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer
 212:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %213 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %213) #22
+  call void @__clang_call_terminate(ptr %213) #24
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -9936,7 +9938,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -10456,7 +10458,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -11040,7 +11042,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -11741,7 +11743,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
 
 .invoke:                                          ; preds = %129, %110, %91, %71
   %76 = phi ptr [ %75, %71 ], [ %95, %91 ], [ %114, %110 ], [ %133, %129 ]
-  invoke void @__cxa_throw(ptr nonnull %76, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
+  invoke void @__cxa_throw(ptr nonnull %76, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -12010,12 +12012,12 @@ _ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer
 222:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %223 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %223) #22
+  call void @__clang_call_terminate(ptr %223) #24
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -12552,7 +12554,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -13088,7 +13090,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -13688,7 +13690,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -14421,7 +14423,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
 
 .invoke:                                          ; preds = %141, %122, %103, %83
   %88 = phi ptr [ %87, %83 ], [ %107, %103 ], [ %126, %122 ], [ %145, %141 ]
-  invoke void @__cxa_throw(ptr nonnull %88, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
+  invoke void @__cxa_throw(ptr nonnull %88, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -14718,12 +14720,12 @@ _ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer
 262:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %263 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %263) #22
+  call void @__clang_call_terminate(ptr %263) #24
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -15316,7 +15318,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -15908,7 +15910,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -16564,7 +16566,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -17330,7 +17332,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingCompu
 
 .invoke:                                          ; preds = %123, %104, %85, %65
   %70 = phi ptr [ %69, %65 ], [ %89, %85 ], [ %108, %104 ], [ %127, %123 ]
-  invoke void @__cxa_throw(ptr nonnull %70, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
+  invoke void @__cxa_throw(ptr nonnull %70, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -17570,7 +17572,7 @@ _ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_22HammingComputer
 189:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %190 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %190) #22
+  call void @__clang_call_terminate(ptr %190) #24
   unreachable
 }
 
@@ -17849,7 +17851,7 @@ default.unreachable92:                            ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -18344,7 +18346,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit138: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -18838,7 +18840,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit138: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -19396,7 +19398,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit132: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -19959,7 +19961,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit132: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss15hammings_knn_mcEPKhS1_mmmmPiPl(ptr noalias noundef %0, ptr noalias noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noalias nocapture noundef writeonly %6, ptr noalias nocapture noundef writeonly %7) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss15hammings_knn_mcEPKhS1_mmmmPiPl(ptr noalias noundef %0, ptr noalias noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noalias nocapture noundef writeonly %6, ptr noalias nocapture noundef writeonly %7) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca i64, align 8
@@ -20030,7 +20032,7 @@ define void @_ZN5faiss15hammings_knn_mcEPKhS1_mmmmPiPl(ptr noalias noundef %0, p
   br i1 %54, label %.noexc.i.i.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %52
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #23, !noalias !469
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #25, !noalias !469
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %52
@@ -20039,7 +20041,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %52
 
 .noexc70.i.i.i:                                   ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
   %55 = mul i64 %2, 132
-  %56 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %55) #24, !noalias !469
+  %56 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %55) #26, !noalias !469
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %56, i8 0, i64 %55, i1 false), !noalias !469
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i.i
 
@@ -20049,7 +20051,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i.i:      ; preds = %.noexc70.i.i.i, %_Z
   %58 = icmp ugt i64 %57, 2305843009213693951
   %59 = shl nuw i64 %57, 3
   %60 = select i1 %58, i64 -1, i64 %59
-  %61 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %60) #24
+  %61 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %60) #26
           to label %62 unwind label %107, !noalias !469
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i.i
@@ -20108,7 +20110,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i.i:      ; preds = %.noexc70.i.i.i, %_Z
   br i1 %86, label %87, label %_ZNKSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
 
 87:                                               ; preds = %81
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #23
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #25
           to label %.noexc72.i.i.i unwind label %.loopexit.split-lp.i.i.i, !noalias !469
 
 .noexc72.i.i.i:                                   ; preds = %87
@@ -20126,7 +20128,7 @@ _ZNKSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE12_M_check
 
 93:                                               ; preds = %_ZNKSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %94 = mul nuw nsw i64 %92, 40
-  %95 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %94) #24
+  %95 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %94) #26
           to label %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i unwind label %.loopexit.i.i.i, !noalias !469
 
 _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %93, %_ZNKSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
@@ -20164,7 +20166,7 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_S_reloca
   br i1 %.not.i23.i.i.i.i.i.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %101
 
 101:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %82) #25, !noalias !469
+  tail call void @_ZdlPv(ptr noundef nonnull %82) #27, !noalias !469
   br label %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i: ; preds = %101, %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
@@ -20202,11 +20204,11 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE9push_backE
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i, label %110
 
 110:                                              ; preds = %109
-  tail call void @_ZdlPv(ptr noundef nonnull %82) #25, !noalias !469
+  tail call void @_ZdlPv(ptr noundef nonnull %82) #27, !noalias !469
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %110, %109
-  tail call void @_ZdaPv(ptr noundef nonnull %61) #25, !noalias !469
+  tail call void @_ZdaPv(ptr noundef nonnull %61) #27, !noalias !469
   br label %157
 
 ._crit_edge.i.i.i:                                ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %62
@@ -20338,16 +20340,16 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %110, %1
   br i1 %.not.i.i.i74.i.i.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i.i, label %155
 
 155:                                              ; preds = %._crit_edge131.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.pre160.i.i.i) #25, !noalias !469
+  call void @_ZdlPv(ptr noundef nonnull %.pre160.i.i.i) #27, !noalias !469
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i.i: ; preds = %155, %._crit_edge131.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %61) #25, !noalias !469
+  call void @_ZdaPv(ptr noundef nonnull %61) #27, !noalias !469
   %.not.i.i.i79.i.i.i = icmp eq ptr %.sroa.0102.0.i.i.i, null
   br i1 %.not.i.i.i79.i.i.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer4EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %156
 
 156:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0102.0.i.i.i) #25, !noalias !469
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0102.0.i.i.i) #27, !noalias !469
   br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer4EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 157:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i, %107
@@ -20358,7 +20360,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i.i: ; preds = %155, 
 common.resume.sink.split.i:                       ; preds = %833, %714, %594, %482, %371, %263, %157
   %.sroa.0104.0.i.i.sink.i = phi ptr [ %.sroa.0100.0.i.i.i, %263 ], [ %.sroa.0102.0.i.i126.i, %371 ], [ %.sroa.0107.0.i.i.i, %482 ], [ %.sroa.0106.0.i.i.i, %594 ], [ %.sroa.0114.0.i.i.i, %714 ], [ %.sroa.0104.0.i.i.i, %833 ], [ %.sroa.0102.0.i.i.i, %157 ]
   %common.resume.op.ph.i = phi { ptr, i32 } [ %.pn.i.i67.i, %263 ], [ %.pn.i.i127.i, %371 ], [ %.pn.i.i220.i, %482 ], [ %.pn.i.i277.i, %594 ], [ %.pn.i.i343.i, %714 ], [ %.pn.i.i411.i, %833 ], [ %.pn.i.i.i, %157 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.0.i.i.sink.i) #25, !noalias !485
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.0.i.i.sink.i) #27, !noalias !485
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %833, %714, %594, %482, %371, %263, %common.resume.sink.split.i, %157
@@ -20392,7 +20394,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer4EJmPKhS5_mmm
   br i1 %160, label %.noexc.i.i121.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i63.i
 
 .noexc.i.i121.i:                                  ; preds = %158
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #23, !noalias !495
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #25, !noalias !495
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i63.i: ; preds = %158
@@ -20401,7 +20403,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i63.i: ; preds = %158
 
 .noexc70.i.i65.i:                                 ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i63.i
   %161 = mul i64 %2, 260
-  %162 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %161) #24, !noalias !495
+  %162 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %161) #26, !noalias !495
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %162, i8 0, i64 %161, i1 false), !noalias !495
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i66.i
 
@@ -20411,7 +20413,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i66.i:    ; preds = %.noexc70.i.i65.i, %
   %164 = icmp ugt i64 %163, 2305843009213693951
   %165 = shl nuw i64 %163, 3
   %166 = select i1 %164, i64 -1, i64 %165
-  %167 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %166) #24
+  %167 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %166) #26
           to label %168 unwind label %213, !noalias !495
 
 168:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i66.i
@@ -20470,7 +20472,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i66.i:    ; preds = %.noexc70.i.i65.i, %
   br i1 %192, label %193, label %_ZNKSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
 
 193:                                              ; preds = %187
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #23
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #25
           to label %.noexc72.i.i120.i unwind label %.loopexit.split-lp.i.i118.i, !noalias !495
 
 .noexc72.i.i120.i:                                ; preds = %193
@@ -20488,7 +20490,7 @@ _ZNKSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE12_M_check
 
 199:                                              ; preds = %_ZNKSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %200 = mul nuw nsw i64 %198, 40
-  %201 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %200) #24
+  %201 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %200) #26
           to label %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i unwind label %.loopexit.i.i100.i, !noalias !495
 
 _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %199, %_ZNKSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
@@ -20526,7 +20528,7 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_S_reloca
   br i1 %.not.i23.i.i.i.i.i117.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %207
 
 207:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %188) #25, !noalias !495
+  tail call void @_ZdlPv(ptr noundef nonnull %188) #27, !noalias !495
   br label %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i: ; preds = %207, %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
@@ -20564,11 +20566,11 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE9push_backE
   br i1 %.not.i.i.i.i.i103.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i104.i, label %216
 
 216:                                              ; preds = %215
-  tail call void @_ZdlPv(ptr noundef nonnull %188) #25, !noalias !495
+  tail call void @_ZdlPv(ptr noundef nonnull %188) #27, !noalias !495
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i104.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i104.i: ; preds = %216, %215
-  tail call void @_ZdaPv(ptr noundef nonnull %167) #25, !noalias !495
+  tail call void @_ZdaPv(ptr noundef nonnull %167) #27, !noalias !495
   br label %263
 
 ._crit_edge.i.i80.i:                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %168
@@ -20700,16 +20702,16 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i104.i: ; preds = %216,
   br i1 %.not.i.i.i74.i.i87.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i88.i, label %261
 
 261:                                              ; preds = %._crit_edge128.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.pre157.i.i.i) #25, !noalias !495
+  call void @_ZdlPv(ptr noundef nonnull %.pre157.i.i.i) #27, !noalias !495
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i88.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i88.i: ; preds = %261, %._crit_edge128.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %167) #25, !noalias !495
+  call void @_ZdaPv(ptr noundef nonnull %167) #27, !noalias !495
   %.not.i.i.i79.i.i89.i = icmp eq ptr %.sroa.0100.0.i.i.i, null
   br i1 %.not.i.i.i79.i.i89.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer8EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %262
 
 262:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i88.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0100.0.i.i.i) #25, !noalias !495
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0100.0.i.i.i) #27, !noalias !495
   br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer8EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 263:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i104.i, %213
@@ -20744,7 +20746,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer8EJmPKhS5_mmm
   br i1 %266, label %.noexc.i.i215.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i122.i
 
 .noexc.i.i215.i:                                  ; preds = %264
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #23, !noalias !520
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #25, !noalias !520
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i122.i: ; preds = %264
@@ -20753,7 +20755,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i122.i: ; preds = %264
 
 .noexc70.i.i124.i:                                ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i122.i
   %267 = mul i64 %2, 516
-  %268 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %267) #24, !noalias !520
+  %268 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %267) #26, !noalias !520
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %268, i8 0, i64 %267, i1 false), !noalias !520
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i125.i
 
@@ -20763,7 +20765,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i125.i:   ; preds = %.noexc70.i.i124.i, 
   %270 = icmp ugt i64 %269, 2305843009213693951
   %271 = shl nuw i64 %269, 3
   %272 = select i1 %270, i64 -1, i64 %271
-  %273 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %272) #24
+  %273 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %272) #26
           to label %274 unwind label %321, !noalias !520
 
 274:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i125.i
@@ -20826,7 +20828,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i125.i:   ; preds = %.noexc70.i.i124.i, 
   br i1 %300, label %301, label %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
 
 301:                                              ; preds = %295
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #23
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #25
           to label %.noexc72.i.i214.i unwind label %.loopexit.split-lp.i.i212.i, !noalias !520
 
 .noexc72.i.i214.i:                                ; preds = %301
@@ -20844,7 +20846,7 @@ _ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE12_M_chec
 
 307:                                              ; preds = %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %308 = mul nuw nsw i64 %306, 48
-  %309 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %308) #24
+  %309 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %308) #26
           to label %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i unwind label %.loopexit.i.i194.i, !noalias !520
 
 _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %307, %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
@@ -20884,7 +20886,7 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_S_reloc
   br i1 %.not.i23.i.i.i.i.i211.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %315
 
 315:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %296) #25, !noalias !520
+  tail call void @_ZdlPv(ptr noundef nonnull %296) #27, !noalias !520
   br label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i: ; preds = %315, %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
@@ -20922,11 +20924,11 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE9push_back
   br i1 %.not.i.i.i.i.i197.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i198.i, label %324
 
 324:                                              ; preds = %323
-  tail call void @_ZdlPv(ptr noundef nonnull %296) #25, !noalias !520
+  tail call void @_ZdlPv(ptr noundef nonnull %296) #27, !noalias !520
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i198.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i198.i: ; preds = %324, %323
-  tail call void @_ZdaPv(ptr noundef nonnull %273) #25, !noalias !520
+  tail call void @_ZdaPv(ptr noundef nonnull %273) #27, !noalias !520
   br label %371
 
 ._crit_edge.i.i141.i:                             ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %274
@@ -21058,16 +21060,16 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i198.i: ; preds = %324,
   br i1 %.not.i.i.i74.i.i165.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i166.i, label %369
 
 369:                                              ; preds = %._crit_edge131.i.i164.i
-  call void @_ZdlPv(ptr noundef nonnull %.pre160.i.i150.i) #25, !noalias !520
+  call void @_ZdlPv(ptr noundef nonnull %.pre160.i.i150.i) #27, !noalias !520
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i166.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i166.i: ; preds = %369, %._crit_edge131.i.i164.i
-  call void @_ZdaPv(ptr noundef nonnull %273) #25, !noalias !520
+  call void @_ZdaPv(ptr noundef nonnull %273) #27, !noalias !520
   %.not.i.i.i79.i.i167.i = icmp eq ptr %.sroa.0102.0.i.i126.i, null
   br i1 %.not.i.i.i79.i.i167.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer16EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %370
 
 370:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i166.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0102.0.i.i126.i) #25, !noalias !520
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0102.0.i.i126.i) #27, !noalias !520
   br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer16EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 371:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i198.i, %321
@@ -21102,7 +21104,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer16EJmPKhS5_mm
   br i1 %374, label %.noexc.i.i272.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i216.i
 
 .noexc.i.i272.i:                                  ; preds = %372
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #23, !noalias !545
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #25, !noalias !545
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i216.i: ; preds = %372
@@ -21111,7 +21113,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i216.i: ; preds = %372
 
 .noexc70.i.i218.i:                                ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i216.i
   %375 = mul i64 %2, 644
-  %376 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %375) #24, !noalias !545
+  %376 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %375) #26, !noalias !545
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %376, i8 0, i64 %375, i1 false), !noalias !545
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i219.i
 
@@ -21121,7 +21123,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i219.i:   ; preds = %.noexc70.i.i218.i, 
   %378 = icmp ugt i64 %377, 2305843009213693951
   %379 = shl nuw i64 %377, 3
   %380 = select i1 %378, i64 -1, i64 %379
-  %381 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %380) #24
+  %381 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %380) #26
           to label %382 unwind label %432, !noalias !545
 
 382:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i219.i
@@ -21189,7 +21191,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i219.i:   ; preds = %.noexc70.i.i218.i, 
   br i1 %411, label %412, label %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
 
 412:                                              ; preds = %406
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #23
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #25
           to label %.noexc72.i.i271.i unwind label %.loopexit.split-lp.i.i269.i, !noalias !545
 
 .noexc72.i.i271.i:                                ; preds = %412
@@ -21207,7 +21209,7 @@ _ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE12_M_chec
 
 418:                                              ; preds = %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %419 = mul nuw nsw i64 %417, 56
-  %420 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %419) #24
+  %420 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %419) #26
           to label %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i unwind label %.loopexit.i.i253.i, !noalias !545
 
 _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %418, %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
@@ -21249,7 +21251,7 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_S_reloc
   br i1 %.not.i23.i.i.i.i.i268.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %426
 
 426:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %407) #25, !noalias !545
+  tail call void @_ZdlPv(ptr noundef nonnull %407) #27, !noalias !545
   br label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i: ; preds = %426, %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
@@ -21287,11 +21289,11 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE9push_back
   br i1 %.not.i.i.i.i.i256.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i257.i, label %435
 
 435:                                              ; preds = %434
-  tail call void @_ZdlPv(ptr noundef nonnull %407) #25, !noalias !545
+  tail call void @_ZdlPv(ptr noundef nonnull %407) #27, !noalias !545
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i257.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i257.i: ; preds = %435, %434
-  tail call void @_ZdaPv(ptr noundef nonnull %381) #25, !noalias !545
+  tail call void @_ZdaPv(ptr noundef nonnull %381) #27, !noalias !545
   br label %482
 
 ._crit_edge.i.i233.i:                             ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %382
@@ -21423,16 +21425,16 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i257.i: ; preds = %435,
   br i1 %.not.i.i.i74.i.i240.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i241.i, label %480
 
 480:                                              ; preds = %._crit_edge136.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.pre165.i.i.i) #25, !noalias !545
+  call void @_ZdlPv(ptr noundef nonnull %.pre165.i.i.i) #27, !noalias !545
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i241.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i241.i: ; preds = %480, %._crit_edge136.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %381) #25, !noalias !545
+  call void @_ZdaPv(ptr noundef nonnull %381) #27, !noalias !545
   %.not.i.i.i79.i.i242.i = icmp eq ptr %.sroa.0107.0.i.i.i, null
   br i1 %.not.i.i.i79.i.i242.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer20EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %481
 
 481:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i241.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0107.0.i.i.i) #25, !noalias !545
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0107.0.i.i.i) #27, !noalias !545
   br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer20EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 482:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i257.i, %432
@@ -21467,7 +21469,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer20EJmPKhS5_mm
   br i1 %485, label %.noexc.i.i338.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i273.i
 
 .noexc.i.i338.i:                                  ; preds = %483
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #23, !noalias !570
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #25, !noalias !570
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i273.i: ; preds = %483
@@ -21476,7 +21478,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i273.i: ; preds = %483
 
 .noexc70.i.i275.i:                                ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i273.i
   %486 = mul i64 %2, 1028
-  %487 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %486) #24, !noalias !570
+  %487 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %486) #26, !noalias !570
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %487, i8 0, i64 %486, i1 false), !noalias !570
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i276.i
 
@@ -21486,7 +21488,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i276.i:   ; preds = %.noexc70.i.i275.i, 
   %489 = icmp ugt i64 %488, 2305843009213693951
   %490 = shl nuw i64 %488, 3
   %491 = select i1 %489, i64 -1, i64 %490
-  %492 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %491) #24
+  %492 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %491) #26
           to label %493 unwind label %544, !noalias !570
 
 493:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i276.i
@@ -21557,7 +21559,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i276.i:   ; preds = %.noexc70.i.i275.i, 
   br i1 %523, label %524, label %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
 
 524:                                              ; preds = %518
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #23
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #25
           to label %.noexc72.i.i337.i unwind label %.loopexit.split-lp.i.i335.i, !noalias !570
 
 .noexc72.i.i337.i:                                ; preds = %524
@@ -21575,7 +21577,7 @@ _ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE12_M_chec
 
 530:                                              ; preds = %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %531 = shl nuw nsw i64 %529, 6
-  %532 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %531) #24
+  %532 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %531) #26
           to label %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i unwind label %.loopexit.i.i316.i, !noalias !570
 
 _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %530, %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
@@ -21619,7 +21621,7 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_S_reloc
   br i1 %.not.i23.i.i.i.i.i334.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %538
 
 538:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %519) #25, !noalias !570
+  tail call void @_ZdlPv(ptr noundef nonnull %519) #27, !noalias !570
   br label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i: ; preds = %538, %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
@@ -21657,11 +21659,11 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE9push_back
   br i1 %.not.i.i.i.i.i319.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i320.i, label %547
 
 547:                                              ; preds = %546
-  tail call void @_ZdlPv(ptr noundef nonnull %519) #25, !noalias !570
+  tail call void @_ZdlPv(ptr noundef nonnull %519) #27, !noalias !570
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i320.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i320.i: ; preds = %547, %546
-  tail call void @_ZdaPv(ptr noundef nonnull %492) #25, !noalias !570
+  tail call void @_ZdaPv(ptr noundef nonnull %492) #27, !noalias !570
   br label %594
 
 ._crit_edge.i.i292.i:                             ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %493
@@ -21793,16 +21795,16 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i320.i: ; preds = %547,
   br i1 %.not.i.i.i74.i.i302.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i303.i, label %592
 
 592:                                              ; preds = %._crit_edge135.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.pre164.i.i295.i) #25, !noalias !570
+  call void @_ZdlPv(ptr noundef nonnull %.pre164.i.i295.i) #27, !noalias !570
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i303.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i303.i: ; preds = %592, %._crit_edge135.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %492) #25, !noalias !570
+  call void @_ZdaPv(ptr noundef nonnull %492) #27, !noalias !570
   %.not.i.i.i79.i.i304.i = icmp eq ptr %.sroa.0106.0.i.i.i, null
   br i1 %.not.i.i.i79.i.i304.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer32EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %593
 
 593:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i303.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0106.0.i.i.i) #25, !noalias !570
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0106.0.i.i.i) #27, !noalias !570
   br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer32EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 594:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i320.i, %544
@@ -21837,7 +21839,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer32EJmPKhS5_mm
   br i1 %597, label %.noexc.i.i406.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i339.i
 
 .noexc.i.i406.i:                                  ; preds = %595
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #23, !noalias !595
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #25, !noalias !595
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i339.i: ; preds = %595
@@ -21846,7 +21848,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i339.i: ; preds = %595
 
 .noexc70.i.i341.i:                                ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i339.i
   %598 = mul i64 %2, 2052
-  %599 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %598) #24, !noalias !595
+  %599 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %598) #26, !noalias !595
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %599, i8 0, i64 %598, i1 false), !noalias !595
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i342.i
 
@@ -21856,7 +21858,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i342.i:   ; preds = %.noexc70.i.i341.i, 
   %601 = icmp ugt i64 %600, 2305843009213693951
   %602 = shl nuw i64 %600, 3
   %603 = select i1 %601, i64 -1, i64 %602
-  %604 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %603) #24
+  %604 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %603) #26
           to label %605 unwind label %664, !noalias !595
 
 605:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i342.i
@@ -21943,7 +21945,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i342.i:   ; preds = %.noexc70.i.i341.i, 
   br i1 %643, label %644, label %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
 
 644:                                              ; preds = %638
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #23
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #25
           to label %.noexc72.i.i405.i unwind label %.loopexit.split-lp.i.i403.i, !noalias !595
 
 .noexc72.i.i405.i:                                ; preds = %644
@@ -21961,7 +21963,7 @@ _ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE12_M_chec
 
 650:                                              ; preds = %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %651 = mul nuw nsw i64 %649, 96
-  %652 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %651) #24
+  %652 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %651) #26
           to label %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i unwind label %.loopexit.i.i382.i, !noalias !595
 
 _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %650, %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
@@ -22013,7 +22015,7 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_S_reloc
   br i1 %.not.i23.i.i.i.i.i402.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %658
 
 658:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %639) #25, !noalias !595
+  tail call void @_ZdlPv(ptr noundef nonnull %639) #27, !noalias !595
   br label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i: ; preds = %658, %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
@@ -22051,11 +22053,11 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE9push_back
   br i1 %.not.i.i.i.i.i385.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i386.i, label %667
 
 667:                                              ; preds = %666
-  tail call void @_ZdlPv(ptr noundef nonnull %639) #25, !noalias !595
+  tail call void @_ZdlPv(ptr noundef nonnull %639) #27, !noalias !595
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i386.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i386.i: ; preds = %667, %666
-  tail call void @_ZdaPv(ptr noundef nonnull %604) #25, !noalias !595
+  tail call void @_ZdaPv(ptr noundef nonnull %604) #27, !noalias !595
   br label %714
 
 ._crit_edge.i.i359.i:                             ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %605
@@ -22187,16 +22189,16 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i386.i: ; preds = %667,
   br i1 %.not.i.i.i74.i.i367.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i368.i, label %712
 
 712:                                              ; preds = %._crit_edge143.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.pre172.i.i.i) #25, !noalias !595
+  call void @_ZdlPv(ptr noundef nonnull %.pre172.i.i.i) #27, !noalias !595
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i368.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i368.i: ; preds = %712, %._crit_edge143.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %604) #25, !noalias !595
+  call void @_ZdaPv(ptr noundef nonnull %604) #27, !noalias !595
   %.not.i.i.i79.i.i369.i = icmp eq ptr %.sroa.0114.0.i.i.i, null
   br i1 %.not.i.i.i79.i.i369.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer64EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %713
 
 713:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i368.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0114.0.i.i.i) #25, !noalias !595
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0114.0.i.i.i) #27, !noalias !595
   br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer64EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 714:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i386.i, %664
@@ -22233,7 +22235,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer64EJmPKhS5_mm
   br i1 %720, label %.noexc.i.i477.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i407.i
 
 .noexc.i.i477.i:                                  ; preds = %715
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #23, !noalias !619
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #25, !noalias !619
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i407.i: ; preds = %715
@@ -22242,7 +22244,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i407.i: ; preds = %715
 
 .noexc70.i.i409.i:                                ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i407.i
   %721 = shl nuw nsw i64 %719, 2
-  %722 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %721) #24, !noalias !619
+  %722 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %721) #26, !noalias !619
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %722, i8 0, i64 %721, i1 false), !noalias !619
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i410.i
 
@@ -22252,7 +22254,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i410.i:   ; preds = %.noexc70.i.i409.i, 
   %724 = icmp ugt i64 %723, 2305843009213693951
   %725 = shl i64 %723, 3
   %726 = select i1 %724, i64 -1, i64 %725
-  %727 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %726) #24
+  %727 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %726) #26
           to label %728 unwind label %774, !noalias !619
 
 728:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i410.i
@@ -22316,7 +22318,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i410.i:   ; preds = %.noexc70.i.i409.i, 
   br i1 %753, label %754, label %_ZNKSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
 
 754:                                              ; preds = %748
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #23
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #25
           to label %.noexc72.i.i476.i unwind label %.loopexit.split-lp.i.i474.i, !noalias !619
 
 .noexc72.i.i476.i:                                ; preds = %754
@@ -22334,7 +22336,7 @@ _ZNKSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE12_M
 
 760:                                              ; preds = %_ZNKSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %761 = mul nuw nsw i64 %759, 48
-  %762 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %761) #24
+  %762 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %761) #26
           to label %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i unwind label %.loopexit.i.i454.i, !noalias !619
 
 _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %760, %_ZNKSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
@@ -22376,7 +22378,7 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE11_S_
   br i1 %.not.i23.i.i.i.i.i473.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %768
 
 768:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %749) #25, !noalias !619
+  tail call void @_ZdlPv(ptr noundef nonnull %749) #27, !noalias !619
   br label %_ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i: ; preds = %768, %_ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
@@ -22414,11 +22416,11 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE9push
   br i1 %.not.i.i.i.i.i457.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i458.i, label %777
 
 777:                                              ; preds = %776
-  tail call void @_ZdlPv(ptr noundef nonnull %749) #25, !noalias !619
+  tail call void @_ZdlPv(ptr noundef nonnull %749) #27, !noalias !619
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i458.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i458.i: ; preds = %777, %776
-  tail call void @_ZdaPv(ptr noundef nonnull %727) #25, !noalias !619
+  tail call void @_ZdaPv(ptr noundef nonnull %727) #27, !noalias !619
   br label %833
 
 ._crit_edge.i.i426.i:                             ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE9push_backEOS3_.exit.i.i.i, %728
@@ -22587,16 +22589,16 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i458.i: ; preds = %777,
   br i1 %.not.i.i.i74.i.i436.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i437.i, label %831
 
 831:                                              ; preds = %._crit_edge133.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.pre162.i.i.i) #25, !noalias !619
+  call void @_ZdlPv(ptr noundef nonnull %.pre162.i.i.i) #27, !noalias !619
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i437.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i437.i: ; preds = %831, %._crit_edge133.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %727) #25, !noalias !619
+  call void @_ZdaPv(ptr noundef nonnull %727) #27, !noalias !619
   %.not.i.i.i79.i.i438.i = icmp eq ptr %.sroa.0104.0.i.i.i, null
   br i1 %.not.i.i.i79.i.i438.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_22HammingComputerDefaultEJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %832
 
 832:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i437.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.0.i.i.i) #25, !noalias !619
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.0.i.i.i) #27, !noalias !619
   br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_22HammingComputerDefaultEJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 833:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i458.i, %774
@@ -22618,7 +22620,7 @@ _ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKh
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #13
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: norecurse nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_16HammingComputer4EEEviPKhS4_mmmPiPl.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #3 personality ptr @__gxx_personality_v0 {
@@ -22782,16 +22784,16 @@ _ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit: ; pr
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #15
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #15
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: norecurse nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_16HammingComputer8EEEviPKhS4_mmmPiPl.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #3 personality ptr @__gxx_personality_v0 {
@@ -24200,7 +24202,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_16Hamming
   br i1 %.not.i.i.i.i, label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, label %53
 
 53:                                               ; preds = %50
-  call void @_ZdlPv(ptr noundef nonnull %52) #25
+  call void @_ZdlPv(ptr noundef nonnull %52) #27
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %50, %53
@@ -24225,7 +24227,7 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %50, %53
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit30, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp31, %.loopexit.split-lp.loopexit.split-lp ]
   %54 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %54) #22
+  call void @__clang_call_terminate(ptr %54) #24
   unreachable
 }
 
@@ -24236,12 +24238,12 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5faiss24RangeSearchP
 declare void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24), float noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: convergent nounwind
-declare void @__kmpc_barrier(ptr, i32) local_unnamed_addr #16
+declare void @__kmpc_barrier(ptr, i32) local_unnamed_addr #18
 
 declare void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #10
+declare void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #11
 
 ; Function Attrs: norecurse nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_16HammingComputer8EEEvPKhS4_mmimPNS_17RangeSearchResultE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8) #3 personality ptr @__gxx_personality_v0 {
@@ -24342,7 +24344,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_16Hamming
   br i1 %.not.i.i.i.i, label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, label %54
 
 54:                                               ; preds = %51
-  call void @_ZdlPv(ptr noundef nonnull %53) #25
+  call void @_ZdlPv(ptr noundef nonnull %53) #27
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %51, %54
@@ -24367,7 +24369,7 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %51, %54
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit30, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp31, %.loopexit.split-lp.loopexit.split-lp ]
   %55 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %55) #22
+  call void @__clang_call_terminate(ptr %55) #24
   unreachable
 }
 
@@ -24478,7 +24480,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br i1 %.not.i.i.i.i, label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, label %62
 
 62:                                               ; preds = %59
-  call void @_ZdlPv(ptr noundef nonnull %61) #25
+  call void @_ZdlPv(ptr noundef nonnull %61) #27
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %59, %62
@@ -24503,7 +24505,7 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %59, %62
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit30, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp31, %.loopexit.split-lp.loopexit.split-lp ]
   %63 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %63) #22
+  call void @__clang_call_terminate(ptr %63) #24
   unreachable
 }
 
@@ -24622,7 +24624,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br i1 %.not.i.i.i.i, label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, label %70
 
 70:                                               ; preds = %67
-  call void @_ZdlPv(ptr noundef nonnull %69) #25
+  call void @_ZdlPv(ptr noundef nonnull %69) #27
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %67, %70
@@ -24647,7 +24649,7 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %67, %70
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit30, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp31, %.loopexit.split-lp.loopexit.split-lp ]
   %71 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %71) #22
+  call void @__clang_call_terminate(ptr %71) #24
   unreachable
 }
 
@@ -24774,7 +24776,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br i1 %.not.i.i.i.i, label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, label %78
 
 78:                                               ; preds = %75
-  call void @_ZdlPv(ptr noundef nonnull %77) #25
+  call void @_ZdlPv(ptr noundef nonnull %77) #27
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %75, %78
@@ -24799,7 +24801,7 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %75, %78
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit30, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp31, %.loopexit.split-lp.loopexit.split-lp ]
   %79 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %79) #22
+  call void @__clang_call_terminate(ptr %79) #24
   unreachable
 }
 
@@ -24958,7 +24960,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br i1 %.not.i.i.i.i, label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, label %110
 
 110:                                              ; preds = %107
-  call void @_ZdlPv(ptr noundef nonnull %109) #25
+  call void @_ZdlPv(ptr noundef nonnull %109) #27
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %107, %110
@@ -24983,7 +24985,7 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %107, %110
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit30, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp31, %.loopexit.split-lp.loopexit.split-lp ]
   %111 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %111) #22
+  call void @__clang_call_terminate(ptr %111) #24
   unreachable
 }
 
@@ -25089,7 +25091,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_22Hamming
   br i1 %.not.i.i.i.i, label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, label %56
 
 56:                                               ; preds = %53
-  call void @_ZdlPv(ptr noundef nonnull %55) #25
+  call void @_ZdlPv(ptr noundef nonnull %55) #27
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %53, %56
@@ -25114,12 +25116,12 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %53, %56
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit30, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp31, %.loopexit.split-lp.loopexit.split-lp ]
   %57 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %57) #22
+  call void @__clang_call_terminate(ptr %57) #24
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss19hamming_count_thresEPKhS1_mmimPm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss19hamming_count_thresEPKhS1_mmimPm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = add i64 %5, -8
   %10 = tail call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 61)
@@ -25343,7 +25345,7 @@ _ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i:      ; preds = %80
           to label %105 unwind label %108
 
 105:                                              ; preds = %101
-  invoke void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
+  invoke void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
           to label %111 unwind label %106
 
 106:                                              ; preds = %105, %99, %95
@@ -25372,7 +25374,7 @@ _ZN5faiss19hamming_count_thresILm64EEEvPKmS2_mmiPm.exit: ; preds = %._crit_edge.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss24crosshamming_count_thresEPKhmimPm(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss24crosshamming_count_thresEPKhmimPm(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = add i64 %3, -8
   %8 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 61)
@@ -25602,7 +25604,7 @@ _ZN5faiss7hammingILm512EEEiPKmS2_.exit.i:         ; preds = %88
           to label %113 unwind label %116
 
 113:                                              ; preds = %109
-  invoke void @__cxa_throw(ptr nonnull %112, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
+  invoke void @__cxa_throw(ptr nonnull %112, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
           to label %119 unwind label %114
 
 114:                                              ; preds = %113, %107, %103
@@ -25631,7 +25633,7 @@ _ZN5faiss24crosshamming_count_thresILm64EEEvPKmmiPm.exit: ; preds = %._crit_edge
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5faiss19match_hamming_thresEPKhS1_mmimPlPi(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN5faiss19match_hamming_thresEPKhS1_mmimPlPi(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = add i64 %5, -8
   %11 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 61)
@@ -25935,7 +25937,7 @@ _ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i:      ; preds = %96
           to label %126 unwind label %129
 
 126:                                              ; preds = %122
-  invoke void @__cxa_throw(ptr nonnull %125, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
+  invoke void @__cxa_throw(ptr nonnull %125, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
           to label %132 unwind label %127
 
 127:                                              ; preds = %126, %120, %116
@@ -25963,7 +25965,7 @@ _ZN5faiss19match_hamming_thresILm64EEEmPKmS2_mmiPlPi.exit: ; preds = %._crit_edg
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss27generalized_hammings_knn_hcEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #9 {
+define void @_ZN5faiss27generalized_hammings_knn_hcEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #10 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -26801,7 +26803,7 @@ _ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exi
 declare void @__kmpc_for_static_init_4(ptr, i32, i32, ptr, ptr, ptr, ptr, i32, i32) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss15pack_bitstringsEmmiPKiPhm(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss15pack_bitstringsEmmiPKiPhm(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
@@ -26844,7 +26846,7 @@ define void @_ZN5faiss15pack_bitstringsEmmiPKiPhm(i64 noundef %0, i64 noundef %1
           to label %30 unwind label %33
 
 30:                                               ; preds = %26
-  invoke void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
+  invoke void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
           to label %41 unwind label %31
 
 31:                                               ; preds = %30, %24, %20
@@ -27005,7 +27007,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %36, %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
@@ -27061,7 +27063,7 @@ define void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm(i64 noundef %0, i64 noundef 
           to label %32 unwind label %35
 
 32:                                               ; preds = %28
-  invoke void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
+  invoke void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
           to label %42 unwind label %33
 
 33:                                               ; preds = %32, %26, %22
@@ -27224,7 +27226,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %38, %46
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
@@ -27267,7 +27269,7 @@ define void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi(i64 noundef %0, i64 noundef 
           to label %30 unwind label %33
 
 30:                                               ; preds = %26
-  invoke void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
+  invoke void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
           to label %41 unwind label %31
 
 31:                                               ; preds = %30, %24, %20
@@ -27455,7 +27457,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %40, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
@@ -27511,7 +27513,7 @@ define void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi(i64 noundef %0, i64 nounde
           to label %32 unwind label %35
 
 32:                                               ; preds = %28
-  invoke void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
+  invoke void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
           to label %42 unwind label %33
 
 33:                                               ; preds = %32, %26, %22
@@ -27701,40 +27703,40 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %42, %._crit_edge.i
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #17
+declare i64 @llvm.fshl.i64(i64, i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #18
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #17
+declare i32 @llvm.smin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #20
+declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #17
+declare i32 @llvm.ctpop.i32(i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #17
+declare i32 @llvm.umin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+declare i32 @llvm.umax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -27743,25 +27745,27 @@ attributes #3 = { norecurse nounwind uwtable "frame-pointer"="all" "min-legal-ve
 attributes #4 = { nounwind }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { convergent nounwind }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nofree nounwind }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { noreturn nounwind }
-attributes #23 = { noreturn }
-attributes #24 = { builtin allocsize(0) }
-attributes #25 = { builtin nounwind }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold noreturn }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { convergent nounwind }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nofree nounwind }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #24 = { noreturn nounwind }
+attributes #25 = { noreturn }
+attributes #26 = { builtin allocsize(0) }
+attributes #27 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

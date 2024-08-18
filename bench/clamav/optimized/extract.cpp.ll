@@ -99,7 +99,7 @@ define void @_ZN10CmdExtractC2EP11CommandData(ptr noundef nonnull align 8 derefe
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 16768
-  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 376
@@ -108,7 +108,7 @@ define void @_ZN10CmdExtractC2EP11CommandData(ptr noundef nonnull align 8 derefe
   store i32 0, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %10, align 8
-  %11 = invoke noalias noundef nonnull dereferenceable(16400) ptr @_Znwm(i64 noundef 16400) #19
+  %11 = invoke noalias noundef nonnull dereferenceable(16400) ptr @_Znwm(i64 noundef 16400) #20
           to label %12 unwind label %22
 
 12:                                               ; preds = %5
@@ -119,7 +119,7 @@ define void @_ZN10CmdExtractC2EP11CommandData(ptr noundef nonnull align 8 derefe
   store i64 0, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 16765
   store i8 1, ptr %15, align 1
-  %16 = invoke noalias noundef nonnull dereferenceable(59688) ptr @_Znwm(i64 noundef 59688) #19
+  %16 = invoke noalias noundef nonnull dereferenceable(59688) ptr @_Znwm(i64 noundef 59688) #20
           to label %17 unwind label %22
 
 17:                                               ; preds = %12
@@ -144,13 +144,13 @@ define void @_ZN10CmdExtractC2EP11CommandData(ptr noundef nonnull align 8 derefe
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %16) #21
   br label %26
 
 26:                                               ; preds = %24, %22
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
-  tail call void @_ZN11ComprDataIOD1Ev(ptr noundef nonnull align 8 dereferenceable(266) %4) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  tail call void @_ZN11ComprDataIOD1Ev(ptr noundef nonnull align 8 dereferenceable(266) %4) #19
   br label %27
 
 27:                                               ; preds = %26, %20
@@ -160,7 +160,7 @@ define void @_ZN10CmdExtractC2EP11CommandData(ptr noundef nonnull align 8 derefe
   br i1 %.not.i, label %_ZN5ArrayIN10CmdExtract10ExtractRefEED2Ev.exit, label %29
 
 29:                                               ; preds = %27
-  tail call void @free(ptr noundef nonnull %28) #18
+  tail call void @free(ptr noundef nonnull %28) #19
   br label %_ZN5ArrayIN10CmdExtract10ExtractRefEED2Ev.exit
 
 _ZN5ArrayIN10CmdExtract10ExtractRefEED2Ev.exit:   ; preds = %27, %29
@@ -218,11 +218,11 @@ define void @_ZN10CmdExtractD2Ev(ptr noundef nonnull align 8 dereferenceable(168
   %10 = phi ptr [ %.pre.i, %.noexc ], [ %4, %.lr.ph.i ]
   %11 = getelementptr inbounds %"struct.CmdExtract::ExtractRef", ptr %10, i64 %.06.i
   %12 = load ptr, ptr %11, align 8
-  tail call void @free(ptr noundef %12) #18
+  tail call void @free(ptr noundef %12) #19
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds %"struct.CmdExtract::ExtractRef", ptr %13, i64 %.06.i, i32 1
   %15 = load ptr, ptr %14, align 8
-  tail call void @free(ptr noundef %15) #18
+  tail call void @free(ptr noundef %15) #19
   %16 = add nuw i64 %.06.i, 1
   %17 = load i64, ptr %2, align 8
   %18 = icmp ult i64 %16, %17
@@ -234,7 +234,7 @@ define void @_ZN10CmdExtractD2Ev(ptr noundef nonnull align 8 dereferenceable(168
   br i1 %.not.i.i, label %21, label %20
 
 20:                                               ; preds = %._crit_edge.i
-  tail call void @free(ptr noundef nonnull %19) #18
+  tail call void @free(ptr noundef nonnull %19) #19
   store ptr null, ptr %0, align 8
   br label %21
 
@@ -249,8 +249,8 @@ define void @_ZN10CmdExtractD2Ev(ptr noundef nonnull align 8 dereferenceable(168
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %21
-  tail call void @_ZN6UnpackD1Ev(ptr noundef nonnull align 8 dereferenceable(59688) %25) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %25) #20
+  tail call void @_ZN6UnpackD1Ev(ptr noundef nonnull align 8 dereferenceable(59688) %25) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %25) #21
   br label %28
 
 28:                                               ; preds = %27, %21
@@ -259,20 +259,20 @@ define void @_ZN10CmdExtractD2Ev(ptr noundef nonnull align 8 dereferenceable(168
   br i1 %30, label %32, label %31
 
 31:                                               ; preds = %28
-  tail call void @_ZdlPv(ptr noundef nonnull %29) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %29) #21
   br label %32
 
 32:                                               ; preds = %31, %28
   %33 = getelementptr inbounds i8, ptr %0, i64 16768
-  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #19
   %34 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @_ZN11ComprDataIOD1Ev(ptr noundef nonnull align 8 dereferenceable(266) %34) #18
+  tail call void @_ZN11ComprDataIOD1Ev(ptr noundef nonnull align 8 dereferenceable(266) %34) #19
   %35 = load ptr, ptr %0, align 8
   %.not.i2 = icmp eq ptr %35, null
   br i1 %.not.i2, label %_ZN5ArrayIN10CmdExtract10ExtractRefEED2Ev.exit, label %36
 
 36:                                               ; preds = %32
-  tail call void @free(ptr noundef nonnull %35) #18
+  tail call void @free(ptr noundef nonnull %35) #19
   br label %_ZN5ArrayIN10CmdExtract10ExtractRefEED2Ev.exit
 
 _ZN5ArrayIN10CmdExtract10ExtractRefEED2Ev.exit:   ; preds = %32, %36
@@ -282,7 +282,7 @@ _ZN5ArrayIN10CmdExtract10ExtractRefEED2Ev.exit:   ; preds = %32, %36
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #21
+  tail call void @__clang_call_terminate(ptr %39) #22
   unreachable
 }
 
@@ -310,11 +310,11 @@ define void @_ZN10CmdExtract15FreeAnalyzeDataEv(ptr nocapture noundef nonnull al
   %10 = phi ptr [ %.pre, %7 ], [ %4, %.lr.ph ]
   %11 = getelementptr inbounds %"struct.CmdExtract::ExtractRef", ptr %10, i64 %.06
   %12 = load ptr, ptr %11, align 8
-  tail call void @free(ptr noundef %12) #18
+  tail call void @free(ptr noundef %12) #19
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds %"struct.CmdExtract::ExtractRef", ptr %13, i64 %.06, i32 1
   %15 = load ptr, ptr %14, align 8
-  tail call void @free(ptr noundef %15) #18
+  tail call void @free(ptr noundef %15) #19
   %16 = add nuw i64 %.06, 1
   %17 = load i64, ptr %2, align 8
   %18 = icmp ult i64 %16, %17
@@ -326,7 +326,7 @@ define void @_ZN10CmdExtract15FreeAnalyzeDataEv(ptr nocapture noundef nonnull al
   br i1 %.not.i, label %_ZN5ArrayIN10CmdExtract10ExtractRefEE5ResetEv.exit, label %20
 
 20:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %19) #18
+  tail call void @free(ptr noundef nonnull %19) #19
   store ptr null, ptr %0, align 8
   br label %_ZN5ArrayIN10CmdExtract10ExtractRefEE5ResetEv.exit
 
@@ -340,14 +340,15 @@ _ZN5ArrayIN10CmdExtract10ExtractRefEE5ResetEv.exit: ; preds = %._crit_edge, %20
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
-  tail call void @_ZSt9terminatev() #21
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
+  tail call void @_ZSt9terminatev() #22
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare void @_ZN6UnpackD1Ev(ptr noundef nonnull align 8 dereferenceable(59688)) unnamed_addr #2
@@ -355,7 +356,7 @@ declare void @_ZN6UnpackD1Ev(ptr noundef nonnull align 8 dereferenceable(59688))
 declare noundef zeroext i1 @_Z7DelFilePKw(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10CmdExtract9DoExtractEv(ptr noundef nonnull align 8 dereferenceable(16800) %0) local_unnamed_addr #0 align 2 {
@@ -569,7 +570,7 @@ define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr nounde
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit15, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp16, %.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %2) #18
+  call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %2) #19
   resume { ptr, i32 } %lpad.phi
 
 14:                                               ; preds = %1
@@ -792,7 +793,7 @@ define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr nounde
 
 127:                                              ; preds = %119
   %128 = getelementptr inbounds i8, ptr %0, i64 16768
-  call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %128) #18
+  call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %128) #19
   %129 = load ptr, ptr %6, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 83476
   %131 = load i32, ptr %130, align 4
@@ -859,7 +860,7 @@ define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr nounde
 
 .loopexit14:                                      ; preds = %156, %58, %26, %24, %25, %17, %86
   %.0 = phi i32 [ 1, %86 ], [ 0, %17 ], [ 0, %25 ], [ 0, %24 ], [ 0, %26 ], [ 0, %58 ], [ 0, %156 ]
-  call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %2) #18
+  call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %2) #19
   ret i32 %.0
 }
 
@@ -902,7 +903,7 @@ define void @_ZN10CmdExtract18ExtractArchiveInitER7Archive(ptr noundef nonnull a
   %22 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @_ZN7RarTime14SetCurrentTimeEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
   %23 = getelementptr inbounds i8, ptr %0, i64 16768
-  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #19
   ret void
 }
 
@@ -959,11 +960,11 @@ define void @_ZN10CmdExtract14AnalyzeArchiveEPKwbb(ptr nocapture noundef nonnull
   %15 = phi ptr [ %.pre.i, %12 ], [ %9, %.lr.ph.i ]
   %16 = getelementptr inbounds %"struct.CmdExtract::ExtractRef", ptr %15, i64 %.06.i
   %17 = load ptr, ptr %16, align 8
-  tail call void @free(ptr noundef %17) #18
+  tail call void @free(ptr noundef %17) #19
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds %"struct.CmdExtract::ExtractRef", ptr %18, i64 %.06.i, i32 1
   %20 = load ptr, ptr %19, align 8
-  tail call void @free(ptr noundef %20) #18
+  tail call void @free(ptr noundef %20) #19
   %21 = add nuw i64 %.06.i, 1
   %22 = load i64, ptr %7, align 8
   %23 = icmp ult i64 %21, %22
@@ -975,7 +976,7 @@ define void @_ZN10CmdExtract14AnalyzeArchiveEPKwbb(ptr nocapture noundef nonnull
   br i1 %.not.i.i, label %_ZN10CmdExtract15FreeAnalyzeDataEv.exit, label %25
 
 25:                                               ; preds = %._crit_edge.i
-  tail call void @free(ptr noundef nonnull %24) #18
+  tail call void @free(ptr noundef nonnull %24) #19
   store ptr null, ptr %0, align 8
   br label %_ZN10CmdExtract15FreeAnalyzeDataEv.exit
 
@@ -995,12 +996,12 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %25
   br i1 %.not, label %40, label %34
 
 34:                                               ; preds = %_ZN10CmdExtract15FreeAnalyzeDataEv.exit
-  %35 = tail call i32 @wcscmp(ptr noundef nonnull %31, ptr noundef nonnull @.str.10) #22
+  %35 = tail call i32 @wcscmp(ptr noundef nonnull %31, ptr noundef nonnull @.str.10) #23
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %175, label %37
 
 37:                                               ; preds = %34
-  %38 = tail call i32 @wcscmp(ptr noundef nonnull %31, ptr noundef nonnull @.str.11) #22
+  %38 = tail call i32 @wcscmp(ptr noundef nonnull %31, ptr noundef nonnull @.str.11) #23
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %175, label %40
 
@@ -1081,7 +1082,7 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %25
 
 73:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %6) #18
+  call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %6) #19
   resume { ptr, i32 } %lpad.phi
 
 74:                                               ; preds = %.preheader72, %162
@@ -1186,7 +1187,7 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %25
   %.04084 = phi i64 [ 0, %.lr.ph ], [ %115, %114 ]
   %117 = getelementptr inbounds %"struct.CmdExtract::ExtractRef", ptr %113, i64 %.04084
   %118 = load ptr, ptr %117, align 8
-  %119 = call i32 @wcscmp(ptr noundef nonnull %52, ptr noundef %118) #22
+  %119 = call i32 @wcscmp(ptr noundef nonnull %52, ptr noundef %118) #23
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %121, label %114
 
@@ -1202,7 +1203,7 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %25
   br i1 %125, label %.critedge.thread, label %159
 
 .critedge.thread:                                 ; preds = %.preheader, %.critedge
-  %126 = call noalias ptr @wcsdup(ptr noundef nonnull %52) #18
+  %126 = call noalias ptr @wcsdup(ptr noundef nonnull %52) #19
   %127 = load i64, ptr %7, align 8
   %128 = add i64 %127, 1
   store i64 %128, ptr %7, align 8
@@ -1243,7 +1244,7 @@ _ZN10CmdExtract15FreeAnalyzeDataEv.exit:          ; preds = %._crit_edge.i, %25
   %..i.i = call i64 @llvm.umax.i64(i64 %136, i64 %140)
   %141 = load ptr, ptr %0, align 8
   %142 = mul i64 %..i.i, 24
-  %143 = call ptr @realloc(ptr noundef %141, i64 noundef %142) #23
+  %143 = call ptr @realloc(ptr noundef %141, i64 noundef %142) #24
   %144 = icmp eq ptr %143, null
   br i1 %144, label %145, label %.noexc61
 
@@ -1324,11 +1325,11 @@ _ZN5ArrayIN10CmdExtract10ExtractRefEE4PushES1_.exit: ; preds = %._ZN5ArrayIN10Cm
           to label %171 unwind label %.loopexit.split-lp
 
 171:                                              ; preds = %167
-  call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %6) #18
+  call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %6) #19
   br label %58
 
 .loopexit74:                                      ; preds = %165, %164, %68, %66
-  call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %6) #18
+  call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %6) #19
   %172 = load i64, ptr %7, align 8
   %.not57 = icmp eq i64 %172, 0
   br i1 %.not57, label %175, label %173
@@ -1423,7 +1424,7 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr 
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds i8, ptr %1, i64 52
-  %57 = tail call i32 @wcscmp(ptr noundef nonnull %52, ptr noundef nonnull %56) #22
+  %57 = tail call i32 @wcscmp(ptr noundef nonnull %52, ptr noundef nonnull %56) #23
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %807, label %93
 
@@ -1731,7 +1732,7 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr 
   %.0265423 = phi i64 [ 0, %.lr.ph ], [ %219, %218 ]
   %221 = getelementptr inbounds %"struct.CmdExtract::ExtractRef", ptr %217, i64 %.0265423
   %222 = load ptr, ptr %221, align 8
-  %223 = call i32 @wcscmp(ptr noundef nonnull %16, ptr noundef %222) #22
+  %223 = call i32 @wcscmp(ptr noundef nonnull %16, ptr noundef %222) #23
   %224 = icmp eq i32 %223, 0
   br i1 %224, label %225, label %218
 
@@ -1753,7 +1754,7 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr 
   call void @_Z11AddEndSlashPwm(ptr noundef nonnull %231, i64 noundef 2048)
   call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %231, ptr noundef nonnull @.str.2, i64 noundef 2048)
   %236 = call noundef ptr @_Z6MkTempPwm(ptr noundef nonnull %231, i64 noundef 2048)
-  %237 = call noalias ptr @wcsdup(ptr noundef nonnull %231) #18
+  %237 = call noalias ptr @wcsdup(ptr noundef nonnull %231) #19
   %238 = getelementptr inbounds i8, ptr %221, i64 8
   store ptr %237, ptr %238, align 8
   br label %.loopexit
@@ -1974,7 +1975,7 @@ _ZN10CmdExtract11CheckUnpVerER7ArchivePKw.exit.thread: ; preds = %306
 .thread376:                                       ; preds = %355
   %357 = getelementptr inbounds i8, ptr %356, i64 83424
   store i32 22, ptr %357, align 8
-  call void @_ZN16RarCheckPasswordD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %18) #18
+  call void @_ZN16RarCheckPasswordD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %18) #19
   br label %807
 
 358:                                              ; preds = %355
@@ -2059,7 +2060,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit340: ; preds = %_Z9uiMsgBaseIR
 398:                                              ; preds = %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i344, %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i, %416, %408, %360
   %399 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %19) #18
+  call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %19) #19
   br label %418
 
 400:                                              ; preds = %386
@@ -2112,13 +2113,13 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i344: ; preds = %401
 
 417:                                              ; preds = %376, %380, %384, %416
   %.3254 = phi i8 [ %.1252, %380 ], [ %.1252, %384 ], [ %.1252, %376 ], [ 0, %416 ]
-  call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %19) #18
-  call void @_ZN16RarCheckPasswordD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %18) #18
+  call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %19) #19
+  call void @_ZN16RarCheckPasswordD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %18) #19
   br label %420
 
 418:                                              ; preds = %398, %351
   %.pn = phi { ptr, i32 } [ %399, %398 ], [ %352, %351 ]
-  call void @_ZN16RarCheckPasswordD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %18) #18
+  call void @_ZN16RarCheckPasswordD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %18) #19
   br label %808
 
 419:                                              ; preds = %_ZN10CmdExtract11CheckUnpVerER7ArchivePKw.exit.thread
@@ -2188,7 +2189,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i344: ; preds = %401
 446:                                              ; preds = %.invoke, %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i369, %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i364, %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i359, %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i354, %578, %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i349, %786, %773, %758, %756, %754, %737, %735, %713, %664, %660, %631, %629, %599, %596, %589, %586, %581, %_Z13SlashToNativePKwPwm.exit, %561, %556, %531, %525, %516, %515, %502, %491, %476, %466, %461, %451, %441, %436
   %447 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %21) #18
+  call void @_ZN4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %21) #19
   br label %808
 
 448:                                              ; preds = %._crit_edge426, %439, %438
@@ -2521,7 +2522,7 @@ _Z13SlashToNativePKwPwm.exit:                     ; preds = %578
   %608 = or i8 %604, %607
   store i8 %608, ptr %605, align 1
   %609 = getelementptr inbounds i8, ptr %0, i64 16768
-  call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %609) #18
+  call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %609) #19
   br label %.thread392
 
 610:                                              ; preds = %593
@@ -2925,13 +2926,13 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i369: ; preds = %779
 .thread397:                                       ; preds = %472, %723, %722, %719, %726, %787
   %.2261.ph = phi i8 [ %.3262382, %787 ], [ %.3262382, %726 ], [ %.3262382, %719 ], [ %.3262382, %722 ], [ %.3262382, %723 ], [ %.0259, %472 ]
   %.6.ph = phi i8 [ %.7383, %787 ], [ %.7383, %726 ], [ %.7383, %719 ], [ %.7383, %722 ], [ %.7383, %723 ], [ %.5, %472 ]
-  call void @_ZN4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %21) #18
+  call void @_ZN4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %21) #19
   %788 = trunc nuw i8 %.6.ph to i1
   br label %790
 
 789:                                              ; preds = %478, %461, %456, %455, %switch.early.test, %switch.early.test, %switch.early.test
   %.3 = phi i1 [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %455 ], [ true, %456 ], [ true, %461 ], [ false, %478 ]
-  call void @_ZN4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %21) #18
+  call void @_ZN4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %21) #19
   br label %807
 
 790:                                              ; preds = %.thread397, %253
@@ -2986,7 +2987,7 @@ declare void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108)
 declare noundef zeroext i1 @_Z12MergeArchiveR7ArchiveP11ComprDataIObw(ptr noundef nonnull align 8 dereferenceable(57108), ptr noundef, i1 noundef zeroext, i32 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 declare void @_Z14SetExtraInfo20P11CommandDataR7ArchivePw(ptr noundef, ptr noundef nonnull align 8 dereferenceable(57108), ptr noundef) local_unnamed_addr #1
 
@@ -3097,12 +3098,12 @@ define void @_ZN10CmdExtract15ExtrPrepareNameER7ArchivePKwPwm(ptr nocapture noun
   %.not78 = icmp eq i32 %39, 0
   %40 = getelementptr inbounds i8, ptr %37, i64 32816
   %41 = select i1 %.not78, ptr %40, ptr %38
-  %42 = tail call i64 @wcslen(ptr noundef nonnull %41) #22
+  %42 = tail call i64 @wcslen(ptr noundef nonnull %41) #23
   %.not79 = icmp eq i64 %42, 0
   br i1 %.not79, label %70, label %43
 
 43:                                               ; preds = %36
-  %44 = tail call i64 @wcslen(ptr noundef %2) #22
+  %44 = tail call i64 @wcslen(ptr noundef %2) #23
   %.not80 = icmp ult i64 %44, %42
   br i1 %.not80, label %70, label %45
 
@@ -3290,7 +3291,7 @@ define linkonce_odr void @_ZN16RarCheckPassword3SetEPhS0_jS0_(ptr noundef nonnul
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %5
-  %10 = tail call noalias noundef nonnull dereferenceable(2520) ptr @_Znwm(i64 noundef 2520) #19
+  %10 = tail call noalias noundef nonnull dereferenceable(2520) ptr @_Znwm(i64 noundef 2520) #20
   invoke void @_ZN9CryptDataC1Ev(ptr noundef nonnull align 8 dereferenceable(2516) %10)
           to label %11 unwind label %12
 
@@ -3301,7 +3302,7 @@ define linkonce_odr void @_ZN16RarCheckPassword3SetEPhS0_jS0_(ptr noundef nonnul
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #21
   resume { ptr, i32 } %13
 
 14:                                               ; preds = %11, %5
@@ -3409,8 +3410,8 @@ define linkonce_odr void @_ZN16RarCheckPasswordD2Ev(ptr noundef nonnull align 8 
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 dereferenceable(2516) %3) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #20
+  tail call void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 dereferenceable(2516) %3) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -3869,7 +3870,7 @@ define noundef zeroext i1 @_ZN10CmdExtract15ExtractFileCopyER4FilePwPKwS2_S2_ml(
   %.03059 = phi i64 [ 0, %.lr.ph ], [ %62, %61 ]
   %18 = getelementptr inbounds %"struct.CmdExtract::ExtractRef", ptr %16, i64 %.03059
   %19 = load ptr, ptr %18, align 8
-  %20 = call i32 @wcscmp(ptr noundef %3, ptr noundef %19) #22
+  %20 = call i32 @wcscmp(ptr noundef %3, ptr noundef %19) #23
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %61
 
@@ -3934,7 +3935,7 @@ define noundef zeroext i1 @_ZN10CmdExtract15ExtractFileCopyER4FilePwPKwS2_S2_ml(
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr inbounds %"struct.CmdExtract::ExtractRef", ptr %54, i64 %.03059, i32 1
   %56 = load ptr, ptr %55, align 8
-  call void @free(ptr noundef %56) #18
+  call void @free(ptr noundef %56) #19
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr inbounds %"struct.CmdExtract::ExtractRef", ptr %57, i64 %.03059, i32 1
   store ptr null, ptr %58, align 8
@@ -4047,7 +4048,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %_ZN5ArrayIhEC2Em.ex
   br i1 %82, label %_ZN5ArrayIhED2Ev.exit, label %90
 
 90:                                               ; preds = %88
-  call void @free(ptr noundef nonnull %malloc.i) #18
+  call void @free(ptr noundef nonnull %malloc.i) #19
   br label %_ZN5ArrayIhED2Ev.exit
 
 91:                                               ; preds = %86
@@ -4067,17 +4068,17 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %_ZN5ArrayIhEC2Em.ex
   br i1 %82, label %_ZN5ArrayIhED2Ev.exit43, label %98
 
 98:                                               ; preds = %97
-  call void @free(ptr noundef nonnull %malloc.i) #18
+  call void @free(ptr noundef nonnull %malloc.i) #19
   br label %_ZN5ArrayIhED2Ev.exit43
 
 _ZN5ArrayIhED2Ev.exit43:                          ; preds = %98, %97, %40, %77, %53
   %.0 = phi i1 [ false, %77 ], [ true, %53 ], [ false, %40 ], [ true, %97 ], [ true, %98 ]
-  call void @_ZN4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %11) #18
+  call void @_ZN4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %11) #19
   ret i1 %.0
 
 _ZN5ArrayIhED2Ev.exit:                            ; preds = %90, %88, %41
   %.pn = phi { ptr, i32 } [ %42, %41 ], [ %89, %88 ], [ %89, %90 ]
-  call void @_ZN4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %11) #18
+  call void @_ZN4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %11) #19
   resume { ptr, i32 } %.pn
 }
 
@@ -4126,7 +4127,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %_ZN5ArrayIhEC2Em.ex
   br i1 %3, label %_ZN5ArrayIhED2Ev.exit, label %10
 
 10:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %malloc.i) #18
+  tail call void @free(ptr noundef nonnull %malloc.i) #19
   br label %_ZN5ArrayIhED2Ev.exit
 
 _ZN5ArrayIhED2Ev.exit:                            ; preds = %9, %10
@@ -4152,7 +4153,7 @@ _ZN5ArrayIhED2Ev.exit:                            ; preds = %9, %10
   br i1 %3, label %_ZN5ArrayIhED2Ev.exit15, label %21
 
 21:                                               ; preds = %20
-  tail call void @free(ptr noundef nonnull %malloc.i) #18
+  tail call void @free(ptr noundef nonnull %malloc.i) #19
   br label %_ZN5ArrayIhED2Ev.exit15
 
 _ZN5ArrayIhED2Ev.exit15:                          ; preds = %20, %21
@@ -4213,7 +4214,7 @@ declare void @_Z6SetExtPwPKwm(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare void @_Z18RemoveNameFromPathPw(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #11
 
 declare noundef i32 @_Z10wcsnicompcPKwS0_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -4255,7 +4256,7 @@ define void @_ZN10CmdExtract20GetFirstVolIfFullSetEPKwbPwm(ptr nocapture nonnull
   %9 = call noundef ptr @_Z18VolNameToFirstNamePKwPwmb(ptr noundef %1, ptr noundef nonnull %6, i64 noundef 2048, i1 noundef zeroext %2)
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef 2048)
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %8, ptr noundef %1, i64 noundef 2048)
-  %10 = call i32 @wcscmp(ptr noundef %1, ptr noundef nonnull %7) #22
+  %10 = call i32 @wcscmp(ptr noundef %1, ptr noundef nonnull %7) #23
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 
@@ -4273,7 +4274,7 @@ define void @_ZN10CmdExtract20GetFirstVolIfFullSetEPKwbPwm(ptr nocapture nonnull
 
 15:                                               ; preds = %13
   call void @_Z14NextVolumeNamePwjb(ptr noundef nonnull %7, i32 noundef 2048, i1 noundef zeroext %12)
-  %16 = call i32 @wcscmp(ptr noundef %1, ptr noundef nonnull %7) #22
+  %16 = call i32 @wcscmp(ptr noundef %1, ptr noundef nonnull %7) #23
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %._crit_edge, label %13, !llvm.loop !19
 
@@ -4285,7 +4286,7 @@ define void @_ZN10CmdExtract20GetFirstVolIfFullSetEPKwbPwm(ptr nocapture nonnull
 declare noundef zeroext i1 @_ZN7Archive4OpenEPKwj(ptr noundef nonnull align 8 dereferenceable(57108), ptr noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZN16RarCheckPassword13GetConfidenceEv(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #6 comdat align 2 {
@@ -4322,8 +4323,8 @@ define linkonce_odr void @_ZNSt6vectorIwSaIwEEC2ERKS1_(ptr noundef nonnull align
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  call void @_ZNSaIwEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %1) #18
-  call void @_ZNSaIwEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIwEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %1) #19
+  call void @_ZNSaIwEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i = icmp eq ptr %5, %6
   br i1 %.not.i.i.i, label %16, label %11
@@ -4333,21 +4334,21 @@ define linkonce_odr void @_ZNSt6vectorIwSaIwEEC2ERKS1_(ptr noundef nonnull align
   br i1 %12, label %13, label %_ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i
 
 13:                                               ; preds = %11
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #25
           to label %.noexc.i unwind label %.body
 
 .noexc.i:                                         ; preds = %13
   unreachable
 
 _ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i: ; preds = %11
-  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #19
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #20
           to label %16 unwind label %.body
 
 .body:                                            ; preds = %_ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i, %13
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIwED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #18
-  call void @_ZNSaIwED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIwED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #19
+  call void @_ZNSaIwED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   resume { ptr, i32 } %15
 
 16:                                               ; preds = %_ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i, %2
@@ -4358,7 +4359,7 @@ _ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i: ; preds = %11
   %19 = getelementptr inbounds i32, ptr %17, i64 %10
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %19, ptr %20, align 8
-  call void @_ZNSaIwED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIwED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   %21 = load ptr, ptr %1, align 8
   %22 = load ptr, ptr %4, align 8
   %23 = load ptr, ptr %0, align 8
@@ -4388,13 +4389,13 @@ declare void @_ZNSaIwEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 declare void @_ZNSaIwEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #12
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIwED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 dereferenceable(2516) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4432,11 +4433,11 @@ define linkonce_odr void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 derefere
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #21
+  tail call void @__clang_call_terminate(ptr %10) #22
   unreachable
 
 _ZN9CryptData13KDF5CacheItemD2Ev.exit:            ; preds = %.noexc3.i
-  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %.ptr1) #18
+  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %.ptr1) #19
   %11 = icmp eq i64 %.add, 328
   br i1 %11, label %12, label %2
 
@@ -4470,11 +4471,11 @@ _ZN9CryptData13KDF5CacheItemD2Ev.exit:            ; preds = %.noexc3.i
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #21
+  tail call void @__clang_call_terminate(ptr %23) #22
   unreachable
 
 _ZN9CryptData13KDF3CacheItemD2Ev.exit:            ; preds = %.noexc2.i5
-  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %16) #18
+  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %16) #19
   %24 = icmp eq ptr %16, %0
   br i1 %24, label %25, label %14
 
@@ -4491,22 +4492,22 @@ declare void @_ZN12ErrorHandler13GeneralErrMsgEPKwz(ptr noundef nonnull align 4 
 declare void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
+declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #17
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #18
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4516,23 +4517,24 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #18 = { nounwind }
-attributes #19 = { builtin allocsize(0) }
-attributes #20 = { builtin nounwind }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { nounwind willreturn memory(read) }
-attributes #23 = { nounwind allocsize(1) }
-attributes #24 = { noreturn }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #19 = { nounwind }
+attributes #20 = { builtin allocsize(0) }
+attributes #21 = { builtin nounwind }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { nounwind willreturn memory(read) }
+attributes #24 = { nounwind allocsize(1) }
+attributes #25 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

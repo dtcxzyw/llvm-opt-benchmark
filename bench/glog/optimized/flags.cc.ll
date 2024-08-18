@@ -234,7 +234,7 @@ declare void @_ZN6google14FlagRegistererC1IiEEPKcS3_S3_PT_S5_(ptr noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx11EPcPKc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
   %4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %13
 
@@ -247,7 +247,7 @@ define linkonce_odr hidden noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx1
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %.noexc3
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.188) #12
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.188) #13
           to label %7 unwind label %8
 
 7:                                                ; preds = %6
@@ -256,17 +256,17 @@ define linkonce_odr hidden noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx1
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #12
   br label %.body
 
 10:                                               ; preds = %.noexc3
-  %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %12 = getelementptr inbounds i8, ptr %1, i64 %11
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull %12)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %8
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %10
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
   ret ptr %0
 
 13:                                               ; preds = %.noexc, %2
@@ -276,7 +276,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .body:                                            ; preds = %8, %13
   %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %9, %8 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -287,10 +287,10 @@ declare void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3fLS20StringFlagDestructorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #11
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   ret void
 }
 
@@ -343,7 +343,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #13
+  tail call void @__clang_call_terminate(ptr %17) #14
   unreachable
 
 18:                                               ; preds = %13, %10
@@ -352,7 +352,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
           to label %20 unwind label %22
 
 20:                                               ; preds = %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #12
   store ptr null, ptr %5, align 8
   %21 = load i64, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %21)
@@ -364,7 +364,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 22:                                               ; preds = %20, %18
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
   resume { ptr, i32 } %23
 }
 
@@ -401,20 +401,21 @@ define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #13
+  tail call void @__clang_call_terminate(ptr %7) #14
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
@@ -425,13 +426,13 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_flags.cc() #10 section ".text.startup" {
-  %1 = tail call ptr @getenv(ptr noundef nonnull @.str) #11
+define internal void @_GLOBAL__sub_I_flags.cc() #11 section ".text.startup" {
+  %1 = tail call ptr @getenv(ptr noundef nonnull @.str) #12
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %2, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.1) #11
+  %3 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.1) #12
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %__cxx_global_var_init.exit, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i
 
@@ -439,7 +440,7 @@ _ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i: ; preds = %2, %0
   %.sink2.i = phi ptr [ %3, %2 ], [ %1, %0 ]
   %4 = load i8, ptr %.sink2.i, align 1
   %5 = sext i8 %4 to i32
-  %6 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %5, i64 noundef 6) #14
+  %6 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %5, i64 noundef 6) #15
   %7 = icmp ne ptr %6, null
   %8 = zext i1 %7 to i8
   br label %__cxx_global_var_init.exit
@@ -449,12 +450,12 @@ __cxx_global_var_init.exit:                       ; preds = %2, %_ZN12_GLOBAL__N
   store i8 %9, ptr @_ZN3fLB31FLAGS_timestamp_in_logfile_nameE, align 1
   store i8 %9, ptr @_ZN3fLBL33FLAGS_notimestamp_in_logfile_nameE, align 1
   tail call void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLBL27o_timestamp_in_logfile_nameE, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLB31FLAGS_timestamp_in_logfile_nameE, ptr noundef nonnull @_ZN3fLBL33FLAGS_notimestamp_in_logfile_nameE)
-  %10 = tail call ptr @getenv(ptr noundef nonnull @.str.9) #11
+  %10 = tail call ptr @getenv(ptr noundef nonnull @.str.9) #12
   %.not.i1 = icmp eq ptr %10, null
   br i1 %.not.i1, label %11, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i2
 
 11:                                               ; preds = %__cxx_global_var_init.exit
-  %12 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.10) #11
+  %12 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.10) #12
   %.not.i.i4 = icmp eq ptr %12, null
   br i1 %.not.i.i4, label %__cxx_global_var_init.8.exit, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i2
 
@@ -462,7 +463,7 @@ _ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i2: ; preds = %11, %__cxx_gl
   %.sink2.i3 = phi ptr [ %12, %11 ], [ %10, %__cxx_global_var_init.exit ]
   %13 = load i8, ptr %.sink2.i3, align 1
   %14 = sext i8 %13 to i32
-  %15 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %14, i64 noundef 6) #14
+  %15 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %14, i64 noundef 6) #15
   %16 = icmp ne ptr %15, null
   %17 = zext i1 %16 to i8
   br label %__cxx_global_var_init.8.exit
@@ -472,12 +473,12 @@ __cxx_global_var_init.8.exit:                     ; preds = %11, %_ZN12_GLOBAL__
   store i8 %18, ptr @_ZN3fLB17FLAGS_logtostderrE, align 1
   store i8 %18, ptr @_ZN3fLBL19FLAGS_nologtostderrE, align 1
   tail call void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLBL13o_logtostderrE, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLB17FLAGS_logtostderrE, ptr noundef nonnull @_ZN3fLBL19FLAGS_nologtostderrE)
-  %19 = tail call ptr @getenv(ptr noundef nonnull @.str.16) #11
+  %19 = tail call ptr @getenv(ptr noundef nonnull @.str.16) #12
   %.not.i5 = icmp eq ptr %19, null
   br i1 %.not.i5, label %20, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i6
 
 20:                                               ; preds = %__cxx_global_var_init.8.exit
-  %21 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.17) #11
+  %21 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.17) #12
   %.not.i.i8 = icmp eq ptr %21, null
   br i1 %.not.i.i8, label %__cxx_global_var_init.15.exit, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i6
 
@@ -485,7 +486,7 @@ _ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i6: ; preds = %20, %__cxx_gl
   %.sink2.i7 = phi ptr [ %21, %20 ], [ %19, %__cxx_global_var_init.8.exit ]
   %22 = load i8, ptr %.sink2.i7, align 1
   %23 = sext i8 %22 to i32
-  %24 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %23, i64 noundef 6) #14
+  %24 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %23, i64 noundef 6) #15
   %25 = icmp ne ptr %24, null
   %26 = zext i1 %25 to i8
   br label %__cxx_global_var_init.15.exit
@@ -495,14 +496,14 @@ __cxx_global_var_init.15.exit:                    ; preds = %20, %_ZN12_GLOBAL__
   store i8 %27, ptr @_ZN3fLB21FLAGS_alsologtostderrE, align 1
   store i8 %27, ptr @_ZN3fLBL23FLAGS_noalsologtostderrE, align 1
   tail call void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLBL17o_alsologtostderrE, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLB21FLAGS_alsologtostderrE, ptr noundef nonnull @_ZN3fLBL23FLAGS_noalsologtostderrE)
-  %28 = tail call ptr @getenv(ptr noundef nonnull @.str.23) #11
+  %28 = tail call ptr @getenv(ptr noundef nonnull @.str.23) #12
   %.not.i9 = icmp eq ptr %28, null
   br i1 %.not.i9, label %__cxx_global_var_init.22.exit, label %29
 
 29:                                               ; preds = %__cxx_global_var_init.15.exit
   %30 = load i8, ptr %28, align 1
   %31 = sext i8 %30 to i32
-  %32 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %31, i64 noundef 6) #14
+  %32 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %31, i64 noundef 6) #15
   %33 = icmp ne ptr %32, null
   %34 = zext i1 %33 to i8
   br label %__cxx_global_var_init.22.exit
@@ -512,14 +513,14 @@ __cxx_global_var_init.22.exit:                    ; preds = %__cxx_global_var_in
   store i8 %35, ptr @_ZN3fLB22FLAGS_colorlogtostderrE, align 1
   store i8 %35, ptr @_ZN3fLBL24FLAGS_nocolorlogtostderrE, align 1
   tail call void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLBL18o_colorlogtostderrE, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLB22FLAGS_colorlogtostderrE, ptr noundef nonnull @_ZN3fLBL24FLAGS_nocolorlogtostderrE)
-  %36 = tail call ptr @getenv(ptr noundef nonnull @.str.29) #11
+  %36 = tail call ptr @getenv(ptr noundef nonnull @.str.29) #12
   %.not.i10 = icmp eq ptr %36, null
   br i1 %.not.i10, label %__cxx_global_var_init.28.exit, label %37
 
 37:                                               ; preds = %__cxx_global_var_init.22.exit
   %38 = load i8, ptr %36, align 1
   %39 = sext i8 %38 to i32
-  %40 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %39, i64 noundef 6) #14
+  %40 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %39, i64 noundef 6) #15
   %41 = icmp ne ptr %40, null
   %42 = zext i1 %41 to i8
   br label %__cxx_global_var_init.28.exit
@@ -529,12 +530,12 @@ __cxx_global_var_init.28.exit:                    ; preds = %__cxx_global_var_in
   store i8 %43, ptr @_ZN3fLB22FLAGS_colorlogtostdoutE, align 1
   store i8 %43, ptr @_ZN3fLBL24FLAGS_nocolorlogtostdoutE, align 1
   tail call void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLBL18o_colorlogtostdoutE, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLB22FLAGS_colorlogtostdoutE, ptr noundef nonnull @_ZN3fLBL24FLAGS_nocolorlogtostdoutE)
-  %44 = tail call ptr @getenv(ptr noundef nonnull @.str.35) #11
+  %44 = tail call ptr @getenv(ptr noundef nonnull @.str.35) #12
   %.not.i11 = icmp eq ptr %44, null
   br i1 %.not.i11, label %45, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i12
 
 45:                                               ; preds = %__cxx_global_var_init.28.exit
-  %46 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.36) #11
+  %46 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.36) #12
   %.not.i.i14 = icmp eq ptr %46, null
   br i1 %.not.i.i14, label %__cxx_global_var_init.34.exit, label %_ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i12
 
@@ -542,7 +543,7 @@ _ZN12_GLOBAL__N_111BoolFromEnvEPKcb.exit.sink.split.i12: ; preds = %45, %__cxx_g
   %.sink2.i13 = phi ptr [ %46, %45 ], [ %44, %__cxx_global_var_init.28.exit ]
   %47 = load i8, ptr %.sink2.i13, align 1
   %48 = sext i8 %47 to i32
-  %49 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %48, i64 noundef 6) #14
+  %49 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %48, i64 noundef 6) #15
   %50 = icmp ne ptr %49, null
   %51 = zext i1 %50 to i8
   br label %__cxx_global_var_init.34.exit
@@ -552,14 +553,14 @@ __cxx_global_var_init.34.exit:                    ; preds = %45, %_ZN12_GLOBAL__
   store i8 %52, ptr @_ZN3fLB17FLAGS_logtostdoutE, align 1
   store i8 %52, ptr @_ZN3fLBL19FLAGS_nologtostdoutE, align 1
   tail call void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLBL13o_logtostdoutE, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLB17FLAGS_logtostdoutE, ptr noundef nonnull @_ZN3fLBL19FLAGS_nologtostdoutE)
-  %53 = tail call ptr @getenv(ptr noundef nonnull @.str.42) #11
+  %53 = tail call ptr @getenv(ptr noundef nonnull @.str.42) #12
   %.not.i15 = icmp eq ptr %53, null
   br i1 %.not.i15, label %__cxx_global_var_init.41.exit, label %54
 
 54:                                               ; preds = %__cxx_global_var_init.34.exit
   %55 = load i8, ptr %53, align 1
   %56 = sext i8 %55 to i32
-  %57 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %56, i64 noundef 6) #14
+  %57 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %56, i64 noundef 6) #15
   %58 = icmp ne ptr %57, null
   %59 = zext i1 %58 to i8
   br label %__cxx_global_var_init.41.exit
@@ -569,12 +570,12 @@ __cxx_global_var_init.41.exit:                    ; preds = %__cxx_global_var_in
   store i8 %60, ptr @_ZN3fLB21FLAGS_drop_log_memoryE, align 1
   store i8 %60, ptr @_ZN3fLBL23FLAGS_nodrop_log_memoryE, align 1
   tail call void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLBL17o_drop_log_memoryE, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLB21FLAGS_drop_log_memoryE, ptr noundef nonnull @_ZN3fLBL23FLAGS_nodrop_log_memoryE)
-  %61 = tail call ptr @getenv(ptr noundef nonnull @.str.48) #11
+  %61 = tail call ptr @getenv(ptr noundef nonnull @.str.48) #12
   %.not.i16 = icmp eq ptr %61, null
   br i1 %.not.i16, label %__cxx_global_var_init.47.exit, label %62
 
 62:                                               ; preds = %__cxx_global_var_init.41.exit
-  %63 = tail call i64 @strtol(ptr nocapture noundef nonnull %61, ptr noundef null, i32 noundef 10) #11
+  %63 = tail call i64 @strtol(ptr nocapture noundef nonnull %61, ptr noundef null, i32 noundef 10) #12
   %64 = trunc i64 %63 to i32
   br label %__cxx_global_var_init.47.exit
 
@@ -583,7 +584,7 @@ __cxx_global_var_init.47.exit:                    ; preds = %__cxx_global_var_in
   store i32 %65, ptr @_ZN3fLI21FLAGS_stderrthresholdE, align 4
   store i32 %65, ptr @_ZN3fLIL23FLAGS_nostderrthresholdE, align 4
   tail call void @_ZN6google14FlagRegistererC1IiEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLIL17o_stderrthresholdE, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLI21FLAGS_stderrthresholdE, ptr noundef nonnull @_ZN3fLIL23FLAGS_nostderrthresholdE)
-  %66 = tail call ptr @getenv(ptr noundef nonnull @.str.54) #11
+  %66 = tail call ptr @getenv(ptr noundef nonnull @.str.54) #12
   %.not.i17 = icmp eq ptr %66, null
   %spec.select.i = select i1 %.not.i17, ptr @.str.55, ptr %66
   %67 = tail call noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx11EPcPKc(ptr noundef nonnull @_ZN3fLSL16s_alsologtoemailE, ptr noundef nonnull %spec.select.i)
@@ -592,17 +593,17 @@ __cxx_global_var_init.47.exit:                    ; preds = %__cxx_global_var_in
   tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL16o_alsologtoemailE, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.7, ptr noundef nonnull %67, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3fLSL16s_alsologtoemailE, i64 32))
   store ptr @_ZN3fLSL16s_alsologtoemailE, ptr @_ZN3fLSL16d_alsologtoemailE, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN3fLSL16s_alsologtoemailE, i64 32), ptr getelementptr inbounds (i8, ptr @_ZN3fLSL16d_alsologtoemailE, i64 8), align 8
-  %68 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL16d_alsologtoemailE, ptr nonnull @__dso_handle) #11
+  %68 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL16d_alsologtoemailE, ptr nonnull @__dso_handle) #12
   %69 = load ptr, ptr @_ZN3fLSL22FLAGS_noalsologtoemailB5cxx11E, align 8
   store ptr %69, ptr @_ZN3fLS20FLAGS_alsologtoemailB5cxx11E, align 8
-  %70 = tail call ptr @getenv(ptr noundef nonnull @.str.62) #11
+  %70 = tail call ptr @getenv(ptr noundef nonnull @.str.62) #12
   %.not.i18 = icmp eq ptr %70, null
   br i1 %.not.i18, label %__cxx_global_var_init.61.exit, label %71
 
 71:                                               ; preds = %__cxx_global_var_init.47.exit
   %72 = load i8, ptr %70, align 1
   %73 = sext i8 %72 to i32
-  %74 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %73, i64 noundef 6) #14
+  %74 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %73, i64 noundef 6) #15
   %75 = icmp ne ptr %74, null
   %76 = zext i1 %75 to i8
   br label %__cxx_global_var_init.61.exit
@@ -612,14 +613,14 @@ __cxx_global_var_init.61.exit:                    ; preds = %__cxx_global_var_in
   store i8 %77, ptr @_ZN3fLB21FLAGS_log_file_headerE, align 1
   store i8 %77, ptr @_ZN3fLBL23FLAGS_nolog_file_headerE, align 1
   tail call void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLBL17o_log_file_headerE, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLB21FLAGS_log_file_headerE, ptr noundef nonnull @_ZN3fLBL23FLAGS_nolog_file_headerE)
-  %78 = tail call ptr @getenv(ptr noundef nonnull @.str.68) #11
+  %78 = tail call ptr @getenv(ptr noundef nonnull @.str.68) #12
   %.not.i19 = icmp eq ptr %78, null
   br i1 %.not.i19, label %__cxx_global_var_init.67.exit, label %79
 
 79:                                               ; preds = %__cxx_global_var_init.61.exit
   %80 = load i8, ptr %78, align 1
   %81 = sext i8 %80 to i32
-  %82 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %81, i64 noundef 6) #14
+  %82 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %81, i64 noundef 6) #15
   %83 = icmp ne ptr %82, null
   %84 = zext i1 %83 to i8
   br label %__cxx_global_var_init.67.exit
@@ -629,14 +630,14 @@ __cxx_global_var_init.67.exit:                    ; preds = %__cxx_global_var_in
   store i8 %85, ptr @_ZN3fLB16FLAGS_log_prefixE, align 1
   store i8 %85, ptr @_ZN3fLBL18FLAGS_nolog_prefixE, align 1
   tail call void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLBL12o_log_prefixE, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLB16FLAGS_log_prefixE, ptr noundef nonnull @_ZN3fLBL18FLAGS_nolog_prefixE)
-  %86 = tail call ptr @getenv(ptr noundef nonnull @.str.74) #11
+  %86 = tail call ptr @getenv(ptr noundef nonnull @.str.74) #12
   %.not.i20 = icmp eq ptr %86, null
   br i1 %.not.i20, label %__cxx_global_var_init.73.exit, label %87
 
 87:                                               ; preds = %__cxx_global_var_init.67.exit
   %88 = load i8, ptr %86, align 1
   %89 = sext i8 %88 to i32
-  %90 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %89, i64 noundef 6) #14
+  %90 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %89, i64 noundef 6) #15
   %91 = icmp ne ptr %90, null
   %92 = zext i1 %91 to i8
   br label %__cxx_global_var_init.73.exit
@@ -646,12 +647,12 @@ __cxx_global_var_init.73.exit:                    ; preds = %__cxx_global_var_in
   store i8 %93, ptr @_ZN3fLB24FLAGS_log_year_in_prefixE, align 1
   store i8 %93, ptr @_ZN3fLBL26FLAGS_nolog_year_in_prefixE, align 1
   tail call void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLBL20o_log_year_in_prefixE, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLB24FLAGS_log_year_in_prefixE, ptr noundef nonnull @_ZN3fLBL26FLAGS_nolog_year_in_prefixE)
-  %94 = tail call ptr @getenv(ptr noundef nonnull @.str.80) #11
+  %94 = tail call ptr @getenv(ptr noundef nonnull @.str.80) #12
   %.not.i21 = icmp eq ptr %94, null
   br i1 %.not.i21, label %__cxx_global_var_init.79.exit, label %95
 
 95:                                               ; preds = %__cxx_global_var_init.73.exit
-  %96 = tail call i64 @strtol(ptr nocapture noundef nonnull %94, ptr noundef null, i32 noundef 10) #11
+  %96 = tail call i64 @strtol(ptr nocapture noundef nonnull %94, ptr noundef null, i32 noundef 10) #12
   %97 = trunc i64 %96 to i32
   br label %__cxx_global_var_init.79.exit
 
@@ -660,12 +661,12 @@ __cxx_global_var_init.79.exit:                    ; preds = %__cxx_global_var_in
   store i32 %98, ptr @_ZN3fLI17FLAGS_minloglevelE, align 4
   store i32 %98, ptr @_ZN3fLIL19FLAGS_nominloglevelE, align 4
   tail call void @_ZN6google14FlagRegistererC1IiEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLIL13o_minloglevelE, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLI17FLAGS_minloglevelE, ptr noundef nonnull @_ZN3fLIL19FLAGS_nominloglevelE)
-  %99 = tail call ptr @getenv(ptr noundef nonnull @.str.86) #11
+  %99 = tail call ptr @getenv(ptr noundef nonnull @.str.86) #12
   %.not.i22 = icmp eq ptr %99, null
   br i1 %.not.i22, label %__cxx_global_var_init.85.exit, label %100
 
 100:                                              ; preds = %__cxx_global_var_init.79.exit
-  %101 = tail call i64 @strtol(ptr nocapture noundef nonnull %99, ptr noundef null, i32 noundef 10) #11
+  %101 = tail call i64 @strtol(ptr nocapture noundef nonnull %99, ptr noundef null, i32 noundef 10) #12
   %102 = trunc i64 %101 to i32
   br label %__cxx_global_var_init.85.exit
 
@@ -674,12 +675,12 @@ __cxx_global_var_init.85.exit:                    ; preds = %__cxx_global_var_in
   store i32 %103, ptr @_ZN3fLI17FLAGS_logbuflevelE, align 4
   store i32 %103, ptr @_ZN3fLIL19FLAGS_nologbuflevelE, align 4
   tail call void @_ZN6google14FlagRegistererC1IiEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLIL13o_logbuflevelE, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLI17FLAGS_logbuflevelE, ptr noundef nonnull @_ZN3fLIL19FLAGS_nologbuflevelE)
-  %104 = tail call ptr @getenv(ptr noundef nonnull @.str.92) #11
+  %104 = tail call ptr @getenv(ptr noundef nonnull @.str.92) #12
   %.not.i23 = icmp eq ptr %104, null
   br i1 %.not.i23, label %__cxx_global_var_init.91.exit, label %105
 
 105:                                              ; preds = %__cxx_global_var_init.85.exit
-  %106 = tail call i64 @strtol(ptr nocapture noundef nonnull %104, ptr noundef null, i32 noundef 10) #11
+  %106 = tail call i64 @strtol(ptr nocapture noundef nonnull %104, ptr noundef null, i32 noundef 10) #12
   %107 = trunc i64 %106 to i32
   br label %__cxx_global_var_init.91.exit
 
@@ -688,12 +689,12 @@ __cxx_global_var_init.91.exit:                    ; preds = %__cxx_global_var_in
   store i32 %108, ptr @_ZN3fLI16FLAGS_logbufsecsE, align 4
   store i32 %108, ptr @_ZN3fLIL18FLAGS_nologbufsecsE, align 4
   tail call void @_ZN6google14FlagRegistererC1IiEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLIL12o_logbufsecsE, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLI16FLAGS_logbufsecsE, ptr noundef nonnull @_ZN3fLIL18FLAGS_nologbufsecsE)
-  %109 = tail call ptr @getenv(ptr noundef nonnull @.str.98) #11
+  %109 = tail call ptr @getenv(ptr noundef nonnull @.str.98) #12
   %.not.i24 = icmp eq ptr %109, null
   br i1 %.not.i24, label %__cxx_global_var_init.97.exit, label %110
 
 110:                                              ; preds = %__cxx_global_var_init.91.exit
-  %111 = tail call i64 @strtol(ptr nocapture noundef nonnull %109, ptr noundef null, i32 noundef 10) #11
+  %111 = tail call i64 @strtol(ptr nocapture noundef nonnull %109, ptr noundef null, i32 noundef 10) #12
   %112 = trunc i64 %111 to i32
   br label %__cxx_global_var_init.97.exit
 
@@ -702,12 +703,12 @@ __cxx_global_var_init.97.exit:                    ; preds = %__cxx_global_var_in
   store i32 %113, ptr @_ZN3fLI18FLAGS_logcleansecsE, align 4
   store i32 %113, ptr @_ZN3fLIL20FLAGS_nologcleansecsE, align 4
   tail call void @_ZN6google14FlagRegistererC1IiEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLIL14o_logcleansecsE, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLI18FLAGS_logcleansecsE, ptr noundef nonnull @_ZN3fLIL20FLAGS_nologcleansecsE)
-  %114 = tail call ptr @getenv(ptr noundef nonnull @.str.104) #11
+  %114 = tail call ptr @getenv(ptr noundef nonnull @.str.104) #12
   %.not.i25 = icmp eq ptr %114, null
   br i1 %.not.i25, label %__cxx_global_var_init.103.exit, label %115
 
 115:                                              ; preds = %__cxx_global_var_init.97.exit
-  %116 = tail call i64 @strtol(ptr nocapture noundef nonnull %114, ptr noundef null, i32 noundef 10) #11
+  %116 = tail call i64 @strtol(ptr nocapture noundef nonnull %114, ptr noundef null, i32 noundef 10) #12
   %117 = trunc i64 %116 to i32
   br label %__cxx_global_var_init.103.exit
 
@@ -716,7 +717,7 @@ __cxx_global_var_init.103.exit:                   ; preds = %__cxx_global_var_in
   store i32 %118, ptr @_ZN3fLI19FLAGS_logemaillevelE, align 4
   store i32 %118, ptr @_ZN3fLIL21FLAGS_nologemaillevelE, align 4
   tail call void @_ZN6google14FlagRegistererC1IiEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLIL15o_logemaillevelE, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLI19FLAGS_logemaillevelE, ptr noundef nonnull @_ZN3fLIL21FLAGS_nologemaillevelE)
-  %119 = tail call ptr @getenv(ptr noundef nonnull @.str.110) #11
+  %119 = tail call ptr @getenv(ptr noundef nonnull @.str.110) #12
   %.not.i26 = icmp eq ptr %119, null
   %spec.select.i27 = select i1 %.not.i26, ptr @.str.55, ptr %119
   %120 = tail call noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx11EPcPKc(ptr noundef nonnull @_ZN3fLSL11s_logmailerE, ptr noundef nonnull %spec.select.i27)
@@ -725,15 +726,15 @@ __cxx_global_var_init.103.exit:                   ; preds = %__cxx_global_var_in
   tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL11o_logmailerE, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.7, ptr noundef nonnull %120, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3fLSL11s_logmailerE, i64 32))
   store ptr @_ZN3fLSL11s_logmailerE, ptr @_ZN3fLSL11d_logmailerE, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN3fLSL11s_logmailerE, i64 32), ptr getelementptr inbounds (i8, ptr @_ZN3fLSL11d_logmailerE, i64 8), align 8
-  %121 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL11d_logmailerE, ptr nonnull @__dso_handle) #11
+  %121 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL11d_logmailerE, ptr nonnull @__dso_handle) #12
   %122 = load ptr, ptr @_ZN3fLSL17FLAGS_nologmailerB5cxx11E, align 8
   store ptr %122, ptr @_ZN3fLS15FLAGS_logmailerB5cxx11E, align 8
-  %123 = tail call ptr @getenv(ptr noundef nonnull @.str.117) #11
+  %123 = tail call ptr @getenv(ptr noundef nonnull @.str.117) #12
   %.not.i28 = icmp eq ptr %123, null
   br i1 %.not.i28, label %__cxx_global_var_init.116.exit, label %124
 
 124:                                              ; preds = %__cxx_global_var_init.103.exit
-  %125 = tail call i64 @strtol(ptr nocapture noundef nonnull %123, ptr noundef null, i32 noundef 10) #11
+  %125 = tail call i64 @strtol(ptr nocapture noundef nonnull %123, ptr noundef null, i32 noundef 10) #12
   %126 = trunc i64 %125 to i32
   br label %__cxx_global_var_init.116.exit
 
@@ -742,7 +743,7 @@ __cxx_global_var_init.116.exit:                   ; preds = %__cxx_global_var_in
   store i32 %127, ptr @_ZN3fLI18FLAGS_logfile_modeE, align 4
   store i32 %127, ptr @_ZN3fLIL20FLAGS_nologfile_modeE, align 4
   tail call void @_ZN6google14FlagRegistererC1IiEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLIL14o_logfile_modeE, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLI18FLAGS_logfile_modeE, ptr noundef nonnull @_ZN3fLIL20FLAGS_nologfile_modeE)
-  %128 = tail call ptr @getenv(ptr noundef nonnull @.str.123) #11
+  %128 = tail call ptr @getenv(ptr noundef nonnull @.str.123) #12
   %.not.i29 = icmp eq ptr %128, null
   br i1 %.not.i29, label %.preheader.i, label %__cxx_global_var_init.122.exit
 
@@ -750,7 +751,7 @@ __cxx_global_var_init.116.exit:                   ; preds = %__cxx_global_var_in
   %.011.idx15.i.i = phi i64 [ %.011.add.i.i, %133 ], [ 0, %__cxx_global_var_init.116.exit ]
   %.011.ptr.i.i = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_113DefaultLogDirEv.names, i64 %.011.idx15.i.i
   %129 = load ptr, ptr %.011.ptr.i.i, align 8
-  %130 = tail call ptr @getenv(ptr noundef %129) #11
+  %130 = tail call ptr @getenv(ptr noundef %129) #12
   %.not13.i.i = icmp eq ptr %130, null
   br i1 %.not13.i.i, label %133, label %131
 
@@ -772,10 +773,10 @@ __cxx_global_var_init.122.exit:                   ; preds = %131, %133, %__cxx_g
   tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL9o_log_dirE, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.7, ptr noundef nonnull %135, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3fLSL9s_log_dirE, i64 32))
   store ptr @_ZN3fLSL9s_log_dirE, ptr @_ZN3fLSL9d_log_dirE, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN3fLSL9s_log_dirE, i64 32), ptr getelementptr inbounds (i8, ptr @_ZN3fLSL9d_log_dirE, i64 8), align 8
-  %136 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL9d_log_dirE, ptr nonnull @__dso_handle) #11
+  %136 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL9d_log_dirE, ptr nonnull @__dso_handle) #12
   %137 = load ptr, ptr @_ZN3fLSL15FLAGS_nolog_dirB5cxx11E, align 8
   store ptr %137, ptr @_ZN3fLS13FLAGS_log_dirB5cxx11E, align 8
-  %138 = tail call ptr @getenv(ptr noundef nonnull @.str.130) #11
+  %138 = tail call ptr @getenv(ptr noundef nonnull @.str.130) #12
   %.not.i31 = icmp eq ptr %138, null
   %spec.select.i32 = select i1 %.not.i31, ptr @.str.55, ptr %138
   %139 = tail call noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx11EPcPKc(ptr noundef nonnull @_ZN3fLSL10s_log_linkE, ptr noundef nonnull %spec.select.i32)
@@ -784,15 +785,15 @@ __cxx_global_var_init.122.exit:                   ; preds = %131, %133, %__cxx_g
   tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL10o_log_linkE, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.7, ptr noundef nonnull %139, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3fLSL10s_log_linkE, i64 32))
   store ptr @_ZN3fLSL10s_log_linkE, ptr @_ZN3fLSL10d_log_linkE, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN3fLSL10s_log_linkE, i64 32), ptr getelementptr inbounds (i8, ptr @_ZN3fLSL10d_log_linkE, i64 8), align 8
-  %140 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL10d_log_linkE, ptr nonnull @__dso_handle) #11
+  %140 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL10d_log_linkE, ptr nonnull @__dso_handle) #12
   %141 = load ptr, ptr @_ZN3fLSL16FLAGS_nolog_linkB5cxx11E, align 8
   store ptr %141, ptr @_ZN3fLS14FLAGS_log_linkB5cxx11E, align 8
-  %142 = tail call ptr @getenv(ptr noundef nonnull @.str.137) #11
+  %142 = tail call ptr @getenv(ptr noundef nonnull @.str.137) #12
   %.not.i33 = icmp eq ptr %142, null
   br i1 %.not.i33, label %__cxx_global_var_init.136.exit, label %143
 
 143:                                              ; preds = %__cxx_global_var_init.122.exit
-  %144 = tail call i64 @strtoul(ptr nocapture noundef nonnull %142, ptr noundef null, i32 noundef 10) #11
+  %144 = tail call i64 @strtoul(ptr nocapture noundef nonnull %142, ptr noundef null, i32 noundef 10) #12
   %145 = trunc i64 %144 to i32
   br label %__cxx_global_var_init.136.exit
 
@@ -801,14 +802,14 @@ __cxx_global_var_init.136.exit:                   ; preds = %__cxx_global_var_in
   store i32 %146, ptr @_ZN3fLU18FLAGS_max_log_sizeE, align 4
   store i32 %146, ptr @_ZN3fLUL20FLAGS_nomax_log_sizeE, align 4
   tail call void @_ZN6google14FlagRegistererC1IjEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLUL14o_max_log_sizeE, ptr noundef nonnull @.str.140, ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLU18FLAGS_max_log_sizeE, ptr noundef nonnull @_ZN3fLUL20FLAGS_nomax_log_sizeE)
-  %147 = tail call ptr @getenv(ptr noundef nonnull @.str.143) #11
+  %147 = tail call ptr @getenv(ptr noundef nonnull @.str.143) #12
   %.not.i34 = icmp eq ptr %147, null
   br i1 %.not.i34, label %__cxx_global_var_init.142.exit, label %148
 
 148:                                              ; preds = %__cxx_global_var_init.136.exit
   %149 = load i8, ptr %147, align 1
   %150 = sext i8 %149 to i32
-  %151 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %150, i64 noundef 6) #14
+  %151 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %150, i64 noundef 6) #15
   %152 = icmp ne ptr %151, null
   %153 = zext i1 %152 to i8
   br label %__cxx_global_var_init.142.exit
@@ -818,7 +819,7 @@ __cxx_global_var_init.142.exit:                   ; preds = %__cxx_global_var_in
   store i8 %154, ptr @_ZN3fLB31FLAGS_stop_logging_if_full_diskE, align 1
   store i8 %154, ptr @_ZN3fLBL33FLAGS_nostop_logging_if_full_diskE, align 1
   tail call void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLBL27o_stop_logging_if_full_diskE, ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLB31FLAGS_stop_logging_if_full_diskE, ptr noundef nonnull @_ZN3fLBL33FLAGS_nostop_logging_if_full_diskE)
-  %155 = tail call ptr @getenv(ptr noundef nonnull @.str.149) #11
+  %155 = tail call ptr @getenv(ptr noundef nonnull @.str.149) #12
   %.not.i35 = icmp eq ptr %155, null
   %spec.select.i36 = select i1 %.not.i35, ptr @.str.55, ptr %155
   %156 = tail call noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx11EPcPKc(ptr noundef nonnull @_ZN3fLSL18s_log_backtrace_atE, ptr noundef nonnull %spec.select.i36)
@@ -827,17 +828,17 @@ __cxx_global_var_init.142.exit:                   ; preds = %__cxx_global_var_in
   tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL18o_log_backtrace_atE, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.7, ptr noundef nonnull %156, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3fLSL18s_log_backtrace_atE, i64 32))
   store ptr @_ZN3fLSL18s_log_backtrace_atE, ptr @_ZN3fLSL18d_log_backtrace_atE, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN3fLSL18s_log_backtrace_atE, i64 32), ptr getelementptr inbounds (i8, ptr @_ZN3fLSL18d_log_backtrace_atE, i64 8), align 8
-  %157 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL18d_log_backtrace_atE, ptr nonnull @__dso_handle) #11
+  %157 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL18d_log_backtrace_atE, ptr nonnull @__dso_handle) #12
   %158 = load ptr, ptr @_ZN3fLSL24FLAGS_nolog_backtrace_atB5cxx11E, align 8
   store ptr %158, ptr @_ZN3fLS22FLAGS_log_backtrace_atB5cxx11E, align 8
-  %159 = tail call ptr @getenv(ptr noundef nonnull @.str.156) #11
+  %159 = tail call ptr @getenv(ptr noundef nonnull @.str.156) #12
   %.not.i37 = icmp eq ptr %159, null
   br i1 %.not.i37, label %__cxx_global_var_init.155.exit, label %160
 
 160:                                              ; preds = %__cxx_global_var_init.142.exit
   %161 = load i8, ptr %159, align 1
   %162 = sext i8 %161 to i32
-  %163 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %162, i64 noundef 6) #14
+  %163 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %162, i64 noundef 6) #15
   %164 = icmp ne ptr %163, null
   %165 = zext i1 %164 to i8
   br label %__cxx_global_var_init.155.exit
@@ -847,12 +848,12 @@ __cxx_global_var_init.155.exit:                   ; preds = %__cxx_global_var_in
   store i8 %166, ptr @_ZN3fLB18FLAGS_log_utc_timeE, align 1
   store i8 %166, ptr @_ZN3fLBL20FLAGS_nolog_utc_timeE, align 1
   tail call void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLBL14o_log_utc_timeE, ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLB18FLAGS_log_utc_timeE, ptr noundef nonnull @_ZN3fLBL20FLAGS_nolog_utc_timeE)
-  %167 = tail call ptr @getenv(ptr noundef nonnull @.str.162) #11
+  %167 = tail call ptr @getenv(ptr noundef nonnull @.str.162) #12
   %.not.i38 = icmp eq ptr %167, null
   br i1 %.not.i38, label %__cxx_global_var_init.161.exit, label %168
 
 168:                                              ; preds = %__cxx_global_var_init.155.exit
-  %169 = tail call i64 @strtol(ptr nocapture noundef nonnull %167, ptr noundef null, i32 noundef 10) #11
+  %169 = tail call i64 @strtol(ptr nocapture noundef nonnull %167, ptr noundef null, i32 noundef 10) #12
   %170 = trunc i64 %169 to i32
   br label %__cxx_global_var_init.161.exit
 
@@ -861,7 +862,7 @@ __cxx_global_var_init.161.exit:                   ; preds = %__cxx_global_var_in
   store i32 %171, ptr @_ZN3fLI7FLAGS_vE, align 4
   store i32 %171, ptr @_ZN3fLIL9FLAGS_novE, align 4
   tail call void @_ZN6google14FlagRegistererC1IiEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLIL3o_vE, ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.7, ptr noundef nonnull @_ZN3fLI7FLAGS_vE, ptr noundef nonnull @_ZN3fLIL9FLAGS_novE)
-  %172 = tail call ptr @getenv(ptr noundef nonnull @.str.168) #11
+  %172 = tail call ptr @getenv(ptr noundef nonnull @.str.168) #12
   %.not.i39 = icmp eq ptr %172, null
   %spec.select.i40 = select i1 %.not.i39, ptr @.str.55, ptr %172
   %173 = tail call noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx11EPcPKc(ptr noundef nonnull @_ZN3fLSL9s_vmoduleE, ptr noundef nonnull %spec.select.i40)
@@ -870,17 +871,17 @@ __cxx_global_var_init.161.exit:                   ; preds = %__cxx_global_var_in
   tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL9o_vmoduleE, ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.7, ptr noundef nonnull %173, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3fLSL9s_vmoduleE, i64 32))
   store ptr @_ZN3fLSL9s_vmoduleE, ptr @_ZN3fLSL9d_vmoduleE, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN3fLSL9s_vmoduleE, i64 32), ptr getelementptr inbounds (i8, ptr @_ZN3fLSL9d_vmoduleE, i64 8), align 8
-  %174 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL9d_vmoduleE, ptr nonnull @__dso_handle) #11
+  %174 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL9d_vmoduleE, ptr nonnull @__dso_handle) #12
   %175 = load ptr, ptr @_ZN3fLSL15FLAGS_novmoduleB5cxx11E, align 8
   store ptr %175, ptr @_ZN3fLS13FLAGS_vmoduleB5cxx11E, align 8
-  %176 = tail call ptr @getenv(ptr noundef nonnull @.str.175) #11
+  %176 = tail call ptr @getenv(ptr noundef nonnull @.str.175) #12
   %.not.i41 = icmp eq ptr %176, null
   br i1 %.not.i41, label %__cxx_global_var_init.174.exit, label %177
 
 177:                                              ; preds = %__cxx_global_var_init.161.exit
   %178 = load i8, ptr %176, align 1
   %179 = sext i8 %178 to i32
-  %180 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %179, i64 noundef 6) #14
+  %180 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %179, i64 noundef 6) #15
   %181 = icmp ne ptr %180, null
   %182 = zext i1 %181 to i8
   br label %__cxx_global_var_init.174.exit
@@ -903,11 +904,12 @@ attributes #6 = { nofree nounwind }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

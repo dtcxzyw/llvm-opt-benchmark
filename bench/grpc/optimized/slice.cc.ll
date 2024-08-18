@@ -89,7 +89,7 @@ if.then.i:                                        ; preds = %entry
 if.else.i:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %add.i.i = add i64 %cond, 16
-  %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i.i) #22, !noalias !13
+  %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i.i) #23, !noalias !13
   store i64 1, ptr %call.i.i, align 8, !noalias !13
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr @"_ZZ23grpc_slice_malloc_largeEN3$_08__invokeEP19grpc_slice_refcount", ptr %destroyer_fn_.i.i.i, align 8, !noalias !13
@@ -130,7 +130,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %add.i = add i64 %length, 16
-  %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #22, !noalias !14
+  %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #23, !noalias !14
   store i64 1, ptr %call.i, align 8, !noalias !14
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @"_ZZ23grpc_slice_malloc_largeEN3$_08__invokeEP19grpc_slice_refcount", ptr %destroyer_fn_.i.i, align 8, !noalias !14
@@ -174,7 +174,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define void @grpc_slice_from_static_string(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef %s) local_unnamed_addr #5 {
 entry:
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #23, !noalias !17
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #24, !noalias !17
   store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8
   %ref.tmp.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %call.i, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx, align 8
@@ -188,7 +188,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @grpc_slice_new_with_user_data(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef %p, i64 noundef %len, ptr noundef %destroy, ptr noundef %user_data) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
+  %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   store i64 1, ptr %call, align 8
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr @_ZN9grpc_core16NewSliceRefcount7DestroyEP19grpc_slice_refcount, ptr %destroyer_fn_.i.i, align 8
@@ -216,7 +216,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 define void @grpc_slice_new(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef %p, i64 noundef %len, ptr noundef %destroy) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22, !noalias !20
+  %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !20
   store i64 1, ptr %call.i, align 8, !noalias !20
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @_ZN9grpc_core16NewSliceRefcount7DestroyEP19grpc_slice_refcount, ptr %destroyer_fn_.i.i.i, align 8, !noalias !20
@@ -235,7 +235,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @grpc_slice_new_with_len(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef %p, i64 noundef %len, ptr noundef %destroy) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   store i64 1, ptr %call, align 8
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr @_ZN9grpc_core23NewWithLenSliceRefcount7DestroyEP19grpc_slice_refcount, ptr %destroyer_fn_.i.i, align 8
@@ -279,7 +279,7 @@ if.then.i:                                        ; preds = %if.end
 if.else.i:                                        ; preds = %if.end
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %add.i.i = add i64 %len, 16
-  %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i.i) #22, !noalias !34
+  %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i.i) #23, !noalias !34
   store i64 1, ptr %call.i.i, align 8, !noalias !34
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr @"_ZZ23grpc_slice_malloc_largeEN3$_08__invokeEP19grpc_slice_refcount", ptr %destroyer_fn_.i.i.i, align 8, !noalias !34
@@ -307,7 +307,7 @@ return:                                           ; preds = %grpc_slice_malloc.e
 ; Function Attrs: mustprogress uwtable
 define void @grpc_slice_from_copied_string(ptr noalias nocapture sret(%struct.grpc_slice) align 8 %agg.result, ptr nocapture noundef readonly %source) local_unnamed_addr #0 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %source) #23
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %source) #24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   %cmp.i = icmp eq i64 %call, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -332,7 +332,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 if.else.i.i:                                      ; preds = %if.end.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %add.i.i.i = add i64 %call, 16
-  %call.i.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i.i.i) #22, !noalias !50
+  %call.i.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i.i.i) #23, !noalias !50
   store i64 1, ptr %call.i.i.i, align 8, !noalias !50
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr @"_ZZ23grpc_slice_malloc_largeEN3$_08__invokeEP19grpc_slice_refcount", ptr %destroyer_fn_.i.i.i.i, align 8, !noalias !50
@@ -377,7 +377,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %1 = ptrtoint ptr %0 to i64
-  %call5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  %call5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   store i64 1, ptr %call5, align 8
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %call5, i64 8
   store ptr @_ZN9grpc_core24MovedStringSliceRefCount7DestroyEP19grpc_slice_refcount, ptr %destroyer_fn_.i.i, align 8
@@ -401,7 +401,7 @@ define void @_Z28grpc_slice_from_moved_stringSt10unique_ptrIcN9grpc_core17Defaul
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %0 = load ptr, ptr %p, align 8
-  %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
+  %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
   %.cast = ptrtoint ptr %0 to i64
   store i64 %.cast, ptr %agg.tmp, align 8
   store ptr null, ptr %p, align 8
@@ -410,7 +410,7 @@ entry:
   br i1 %cmp.i, label %invoke.cont, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  %call5.i1 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  %call5.i1 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %invoke.cont.thread unwind label %lpad
 
 invoke.cont.thread:                               ; preds = %if.else.i
@@ -444,7 +444,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #24
+  tail call void @__clang_call_terminate(ptr %2) #25
   unreachable
 
 _ZNSt10unique_ptrIcN9grpc_core17DefaultDeleteCharEED2Ev.exit: ; preds = %invoke.cont.thread, %invoke.cont, %if.end.i.i
@@ -453,7 +453,7 @@ _ZNSt10unique_ptrIcN9grpc_core17DefaultDeleteCharEED2Ev.exit: ; preds = %invoke.
 lpad:                                             ; preds = %if.else.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10unique_ptrIcN9grpc_core17DefaultDeleteCharEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #25
+  call void @_ZNSt10unique_ptrIcN9grpc_core17DefaultDeleteCharEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #26
   resume { ptr, i32 } %3
 }
 
@@ -476,40 +476,40 @@ terminate.lpad:                                   ; preds = %if.end.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #24
+  tail call void @__clang_call_terminate(ptr %2) #25
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z26grpc_slice_from_cpp_stringNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef nonnull %str) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #25
+  %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #26
   %cmp = icmp ult i64 %call, 24
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #25
+  %call1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #26
   %conv = trunc i64 %call1 to i8
   %data = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %conv, ptr %data, align 8
   %bytes5 = getelementptr inbounds i8, ptr %agg.result, i64 9
-  %call6 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #25
-  %call7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #25
+  %call6 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #26
+  %call7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #26
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes5, ptr align 1 %call6, i64 %call7, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %call9 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
+  %call9 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   store i64 1, ptr %call9, align 8
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %call9, i64 8
   store ptr @_ZN9grpc_core27MovedCppStringSliceRefCount7DestroyEP19grpc_slice_refcount, ptr %destroyer_fn_.i.i, align 8
   %str_.i = getelementptr inbounds i8, ptr %call9, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %str_.i, ptr noundef nonnull align 8 dereferenceable(32) %str) #25
-  %call.i = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %str_.i) #25
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %str_.i, ptr noundef nonnull align 8 dereferenceable(32) %str) #26
+  %call.i = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %str_.i) #26
   %data11 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %bytes12 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %call.i, ptr %bytes12, align 8
-  %call.i5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str_.i) #25
+  %call.i5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str_.i) #26
   store i64 %call.i5, ptr %data11, align 8
   br label %if.end
 
@@ -529,7 +529,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataE
 define void @grpc_slice_malloc_large(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %add = add i64 %length, 16
-  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add) #22
+  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add) #23
   store i64 1, ptr %call, align 8
   %destroyer_fn_.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr @"_ZZ23grpc_slice_malloc_largeEN3$_08__invokeEP19grpc_slice_refcount", ptr %destroyer_fn_.i, align 8
@@ -553,7 +553,7 @@ entry:
   br i1 %cmp.not.i, label %if.then.i, label %do.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 248, ptr noundef nonnull @.str.3) #26, !noalias !54
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 248, ptr noundef nonnull @.str.3) #27, !noalias !54
   unreachable
 
 do.end.i:                                         ; preds = %entry
@@ -568,7 +568,7 @@ do.body3.i:                                       ; preds = %do.end.i
   br i1 %cmp4.not.i, label %if.then6.i, label %do.end8.i
 
 if.then6.i:                                       ; preds = %do.body3.i
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 252, ptr noundef nonnull @.str.4) #26, !noalias !54
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 252, ptr noundef nonnull @.str.4) #27, !noalias !54
   unreachable
 
 do.end8.i:                                        ; preds = %do.body3.i
@@ -590,7 +590,7 @@ do.body16.i:                                      ; preds = %do.end.i
   br i1 %cmp19.not.i, label %if.then22.i, label %do.end24.i
 
 if.then22.i:                                      ; preds = %do.body16.i
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 261, ptr noundef nonnull @.str.5) #26, !noalias !54
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 261, ptr noundef nonnull @.str.5) #27, !noalias !54
   unreachable
 
 do.end24.i:                                       ; preds = %do.body16.i
@@ -643,7 +643,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.not.i.i, label %if.then.i.i, label %do.end.i.i
 
 if.then.i.i:                                      ; preds = %if.else
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 248, ptr noundef nonnull @.str.3) #26, !noalias !63
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 248, ptr noundef nonnull @.str.3) #27, !noalias !63
   unreachable
 
 do.end.i.i:                                       ; preds = %if.else
@@ -658,7 +658,7 @@ do.body3.i.i:                                     ; preds = %do.end.i.i
   br i1 %cmp4.not.i.i, label %if.then6.i.i, label %grpc_slice_sub_no_ref.exit
 
 if.then6.i.i:                                     ; preds = %do.body3.i.i
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 252, ptr noundef nonnull @.str.4) #26, !noalias !63
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 252, ptr noundef nonnull @.str.4) #27, !noalias !63
   unreachable
 
 do.body16.i.i:                                    ; preds = %do.end.i.i
@@ -668,7 +668,7 @@ do.body16.i.i:                                    ; preds = %do.end.i.i
   br i1 %cmp19.not.i.i, label %if.then22.i.i, label %grpc_slice_sub_no_ref.exit.thread
 
 if.then22.i.i:                                    ; preds = %do.body16.i.i
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 261, ptr noundef nonnull @.str.5) #26, !noalias !63
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 261, ptr noundef nonnull @.str.5) #27, !noalias !63
   unreachable
 
 grpc_slice_sub_no_ref.exit.thread:                ; preds = %do.body16.i.i
@@ -724,7 +724,7 @@ do.body:                                          ; preds = %entry
   br i1 %cmp1.not, label %if.then3, label %do.end
 
 if.then3:                                         ; preds = %do.body
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 298, ptr noundef nonnull @.str.1) #26
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 298, ptr noundef nonnull @.str.1) #27
   unreachable
 
 do.end:                                           ; preds = %do.body
@@ -764,7 +764,7 @@ if.else38:                                        ; preds = %entry
   br i1 %cmp45.not, label %if.then48, label %do.end50
 
 if.then48:                                        ; preds = %if.else38
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 313, ptr noundef nonnull @.str.2) #26
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 313, ptr noundef nonnull @.str.2) #27
   unreachable
 
 do.end50:                                         ; preds = %if.else38
@@ -846,7 +846,7 @@ do.body.i:                                        ; preds = %entry
   br i1 %cmp1.not.i, label %if.then3.i, label %do.end.i
 
 if.then3.i:                                       ; preds = %do.body.i
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 298, ptr noundef nonnull @.str.1) #26, !noalias !64
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 298, ptr noundef nonnull @.str.1) #27, !noalias !64
   unreachable
 
 do.end.i:                                         ; preds = %do.body.i
@@ -886,7 +886,7 @@ if.else38.i:                                      ; preds = %entry
   br i1 %cmp45.not.i, label %if.then48.i, label %do.end50.i
 
 if.then48.i:                                      ; preds = %if.else38.i
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 313, ptr noundef nonnull @.str.2) #26, !noalias !64
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 313, ptr noundef nonnull @.str.2) #27, !noalias !64
   unreachable
 
 do.end50.i:                                       ; preds = %if.else38.i
@@ -940,7 +940,7 @@ do.body:                                          ; preds = %entry
   br i1 %cmp1.not, label %if.then3, label %do.end
 
 if.then3:                                         ; preds = %do.body
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 357, ptr noundef nonnull @.str.1) #26
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 357, ptr noundef nonnull @.str.1) #27
   unreachable
 
 do.end:                                           ; preds = %do.body
@@ -969,7 +969,7 @@ do.body29:                                        ; preds = %if.else
   br i1 %cmp32.not, label %if.then35, label %do.end37
 
 if.then35:                                        ; preds = %do.body29
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 367, ptr noundef nonnull @.str.2) #26
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 367, ptr noundef nonnull @.str.2) #27
   unreachable
 
 do.end37:                                         ; preds = %do.body29
@@ -991,7 +991,7 @@ do.body54:                                        ; preds = %if.else
   br i1 %cmp32.not, label %if.then60, label %do.end62
 
 if.then60:                                        ; preds = %do.body54
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 375, ptr noundef nonnull @.str.2) #26
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 375, ptr noundef nonnull @.str.2) #27
   unreachable
 
 do.end62:                                         ; preds = %do.body54
@@ -1098,7 +1098,7 @@ if.end12:                                         ; preds = %if.end9
 if.end15:                                         ; preds = %if.end12
   %bytes17 = getelementptr inbounds i8, ptr %b_not_inline, i64 16
   %4 = load ptr, ptr %bytes17, align 8
-  %call = tail call i32 @memcmp(ptr noundef nonnull %a_ptr.0, ptr noundef %4, i64 noundef %a_len.0) #23
+  %call = tail call i32 @memcmp(ptr noundef nonnull %a_ptr.0, ptr noundef %4, i64 noundef %a_len.0) #24
   br label %return
 
 return:                                           ; preds = %if.end12, %if.end9, %entry, %if.end15
@@ -1135,7 +1135,7 @@ if.end:                                           ; preds = %entry
   %5 = load ptr, ptr %bytes28, align 8
   %bytes31 = getelementptr inbounds i8, ptr %b, i64 9
   %cond34 = select i1 %tobool4.not, ptr %bytes31, ptr %5
-  %call = call i32 @memcmp(ptr noundef %cond23, ptr noundef %cond34, i64 noundef %cond) #23
+  %call = call i32 @memcmp(ptr noundef %cond23, ptr noundef %cond34, i64 noundef %cond) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1146,7 +1146,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @grpc_slice_str_cmp(ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %a, ptr nocapture noundef readonly %b) local_unnamed_addr #12 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %b) #23
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %b) #24
   %0 = load ptr, ptr %a, align 8
   %tobool.not = icmp eq ptr %0, null
   %data = getelementptr inbounds i8, ptr %a, i64 8
@@ -1163,7 +1163,7 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %bytes, align 8
   %bytes10 = getelementptr inbounds i8, ptr %a, i64 9
   %cond12 = select i1 %tobool.not, ptr %bytes10, ptr %2
-  %call13 = call i32 @memcmp(ptr noundef %cond12, ptr noundef %b, i64 noundef %call) #23
+  %call13 = call i32 @memcmp(ptr noundef %cond12, ptr noundef %b, i64 noundef %call) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1317,7 +1317,7 @@ entry:
   %2 = load i64, ptr %data, align 8
   %conv10 = and i64 %2, 255
   %cond12 = select i1 %tobool.not, i64 %conv10, i64 %2
-  %call = call noundef ptr @memchr(ptr noundef %cond, i32 noundef %conv, i64 noundef %cond12) #23
+  %call = call noundef ptr @memchr(ptr noundef %cond, i32 noundef %conv, i64 noundef %cond12) #24
   %cmp = icmp eq ptr %call, null
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %cond to i64
@@ -1420,7 +1420,7 @@ if.then45:                                        ; preds = %if.end43
   %18 = load i64, ptr %data.i17, align 8
   %conv10.i = and i64 %18, 255
   %cond12.i = select i1 %tobool.not.i16, i64 %conv10.i, i64 %18
-  %call.i = call noundef ptr @memchr(ptr noundef %cond.i19, i32 noundef %conv.i20, i64 noundef %cond12.i) #23
+  %call.i = call noundef ptr @memchr(ptr noundef %cond.i19, i32 noundef %conv.i20, i64 noundef %cond12.i) #24
   %cmp.i = icmp eq ptr %call.i, null
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i19 to i64
@@ -1483,7 +1483,7 @@ if.then.i:                                        ; preds = %entry
 if.else.i:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %add.i.i = add i64 %cond, 16
-  %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i.i) #22, !noalias !76
+  %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i.i) #23, !noalias !76
   store i64 1, ptr %call.i.i, align 8, !noalias !76
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr @"_ZZ23grpc_slice_malloc_largeEN3$_08__invokeEP19grpc_slice_refcount", ptr %destroyer_fn_.i.i.i, align 8, !noalias !76
@@ -1568,11 +1568,11 @@ terminate.lpad.i:                                 ; preds = %delete.notnull
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #24
+  tail call void @__clang_call_terminate(ptr %3) #25
   unreachable
 
 _ZN9grpc_core16NewSliceRefcountD2Ev.exit:         ; preds = %delete.notnull
-  tail call void @_ZdlPv(ptr noundef nonnull %arg) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %arg) #28
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN9grpc_core16NewSliceRefcountD2Ev.exit, %entry
@@ -1581,14 +1581,15 @@ delete.end:                                       ; preds = %_ZN9grpc_core16NewS
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #18 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #25
-  tail call void @_ZSt9terminatev() #24
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
+  tail call void @_ZSt9terminatev() #25
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core23NewWithLenSliceRefcount7DestroyEP19grpc_slice_refcount(ptr noundef %arg) #9 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1610,11 +1611,11 @@ terminate.lpad.i:                                 ; preds = %delete.notnull
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #24
+  tail call void @__clang_call_terminate(ptr %4) #25
   unreachable
 
 _ZN9grpc_core23NewWithLenSliceRefcountD2Ev.exit:  ; preds = %delete.notnull
-  tail call void @_ZdlPv(ptr noundef nonnull %arg) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %arg) #28
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN9grpc_core23NewWithLenSliceRefcountD2Ev.exit, %entry
@@ -1641,11 +1642,11 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #24
+  tail call void @__clang_call_terminate(ptr %2) #25
   unreachable
 
 _ZN9grpc_core24MovedStringSliceRefCountD2Ev.exit: ; preds = %delete.notnull, %if.end.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %arg) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %arg) #28
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN9grpc_core24MovedStringSliceRefCountD2Ev.exit, %entry
@@ -1660,8 +1661,8 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %str_.i = getelementptr inbounds i8, ptr %arg, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %str_.i) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %arg) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %str_.i) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %arg) #28
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -1681,7 +1682,7 @@ entry:
   br i1 %isnull.i, label %"_ZZ23grpc_slice_malloc_largeENK3$_0clEP19grpc_slice_refcount.exit", label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %p) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %p) #28
   br label %"_ZZ23grpc_slice_malloc_largeENK3$_0clEP19grpc_slice_refcount.exit"
 
 "_ZZ23grpc_slice_malloc_largeENK3$_0clEP19grpc_slice_refcount.exit": ; preds = %entry, %delete.notnull.i
@@ -1694,16 +1695,16 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 declare void @gpr_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1724,15 +1725,16 @@ attributes #15 = { mustprogress nofree nounwind memory(read, argmem: readwrite, 
 attributes #16 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #18 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #22 = { builtin allocsize(0) }
-attributes #23 = { nounwind willreturn memory(read) }
-attributes #24 = { noreturn nounwind }
-attributes #25 = { nounwind }
-attributes #26 = { noreturn }
-attributes #27 = { builtin nounwind }
+attributes #19 = { cold nofree noreturn }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #22 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #23 = { builtin allocsize(0) }
+attributes #24 = { nounwind willreturn memory(read) }
+attributes #25 = { noreturn nounwind }
+attributes #26 = { nounwind }
+attributes #27 = { noreturn }
+attributes #28 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

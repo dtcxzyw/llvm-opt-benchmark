@@ -808,14 +808,14 @@ _ZL34dispatchKernelOnVdwInteractionTypeIL18KernelSoftcoreType2ELb1EEPFvRK8t_nbli
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
@@ -829,7 +829,7 @@ define linkonce_odr void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLoc
   %5 = alloca %"struct.std::type_index", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
+  %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
@@ -848,7 +848,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #23
+  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #25
   br label %_ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit
 
 14:                                               ; preds = %3
@@ -862,7 +862,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i: ; pred
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #23
+  call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #25
   br label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i
 
 _ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i: ; preds = %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i, %14
@@ -888,7 +888,7 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.23", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   %4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %14
 
@@ -901,7 +901,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %.noexc3
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.4) #21
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.4) #23
           to label %7 unwind label %8
 
 7:                                                ; preds = %6
@@ -910,17 +910,17 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #25
   br label %.body
 
 10:                                               ; preds = %.noexc3
-  %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
+  %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %12 = getelementptr inbounds i8, ptr %1, i64 %11
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull %12)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %8
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %10
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   ret void
@@ -932,7 +932,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .body:                                            ; preds = %8, %14
   %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %9, %8 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -960,7 +960,7 @@ define linkonce_odr void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull ali
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
 
 14:                                               ; preds = %4
@@ -986,7 +986,7 @@ define linkonce_odr void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull ali
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
   %26 = getelementptr inbounds i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
@@ -1011,19 +1011,20 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
   br label %_ZN3gmx14UserInputErrorD2Ev.exit
 
 _ZN3gmx14UserInputErrorD2Ev.exit:                 ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
   ret void
 }
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
   ret void
 }
 
@@ -1043,7 +1044,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull 
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i.i
-  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i) #23
+  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i) #25
   br label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
@@ -1061,84 +1062,85 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
   br i1 %.not.i.i.i, label %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit, label %10
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #26
   br label %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit
 
 _ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, %10
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   ret void
 }
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: noreturn
-declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
+declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.max.ps.256(<8 x float>, <8 x float>) #8
+declare <8 x float> @llvm.x86.avx.max.ps.256(<8 x float>, <8 x float>) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float>) #8
+declare <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float>) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #9
+declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.min.ps.256(<8 x float>, <8 x float>) #8
+declare <8 x float> @llvm.x86.avx.min.ps.256(<8 x float>, <8 x float>) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.rcp.ps.256(<8 x float>) #8
+declare <8 x float> @llvm.x86.avx.rcp.ps.256(<8 x float>) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i32> @llvm.smax.v8i32(<8 x i32>, <8 x i32>) #9
+declare <8 x i32> @llvm.smax.v8i32(<8 x i32>, <8 x i32>) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float>) #8
+declare <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float>) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.round.ps.256(<8 x float>, i32 immarg) #8
+declare <8 x float> @llvm.x86.avx.round.ps.256(<8 x float>, i32 immarg) #9
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 declare void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrINS_8internal14IExceptionInfoESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
-  tail call void @_ZSt9terminatev() #25
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #13 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #25
+  tail call void @_ZSt9terminatev() #27
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #14
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #13
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #13
+declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #13
+declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #15
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #7
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1166,7 +1168,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #25
+  tail call void @__clang_call_terminate(ptr %17) #27
   unreachable
 
 18:                                               ; preds = %13, %10
@@ -1175,7 +1177,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
           to label %20 unwind label %22
 
 20:                                               ; preds = %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #25
   store ptr null, ptr %5, align 8
   %21 = load i64, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %21)
@@ -1187,12 +1189,12 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 22:                                               ; preds = %20, %18
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #25
   resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #5
 
@@ -1201,7 +1203,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #15
 
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
@@ -1224,51 +1226,51 @@ define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #25
+  tail call void @__clang_call_terminate(ptr %7) #27
   unreachable
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #13
+declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #15
 
 declare void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #13
+declare void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #13
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #13
+declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #9
+declare float @llvm.fmuladd.f32(float, float, float) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sqrtf(float noundef) local_unnamed_addr #15
+declare float @sqrtf(float noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @expf(float noundef) local_unnamed_addr #15
+declare float @expf(float noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x i32], align 32
@@ -2989,7 +2991,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %295 = fmul float %196, %294
   %296 = fmul float %55, %.sroa.speculated.i
   %297 = fneg float %296
-  %298 = tail call noundef float @expf(float noundef %297) #23
+  %298 = tail call noundef float @expf(float noundef %297) #25
   %299 = fadd float %296, 1.000000e+00
   %300 = fmul float %296, 5.000000e-01
   %301 = tail call float @llvm.fmuladd.f32(float %300, float %296, float %299)
@@ -3165,7 +3167,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x float], align 32
@@ -4363,7 +4365,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %268 = fmul float %266, %267
   %269 = fmul float %54, %.sroa.speculated.i
   %270 = fneg float %269
-  %271 = tail call noundef float @expf(float noundef %270) #23
+  %271 = tail call noundef float @expf(float noundef %270) #25
   %272 = fadd float %269, 1.000000e+00
   %273 = fmul float %269, 5.000000e-01
   %274 = tail call float @llvm.fmuladd.f32(float %273, float %269, float %272)
@@ -4471,33 +4473,33 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb1ELb1ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb1ELb1ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x i32], align 32
@@ -5795,7 +5797,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %or.cond, label %976, label %987
 
 976:                                              ; preds = %967
-  %977 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %977 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull @.str)
           to label %978 unwind label %.thread
 
@@ -5816,7 +5818,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %981 unwind label %984
 
 981:                                              ; preds = %979
-  invoke void @__cxa_throw(ptr %977, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %977, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %989 unwind label %984
 
 .thread:                                          ; preds = %976
@@ -5827,21 +5829,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread813:                                       ; preds = %978
   %983 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %29) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %29) #25
   br label %986
 
 984:                                              ; preds = %979, %981
   %.0 = phi i1 [ false, %981 ], [ true, %979 ]
   %985 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %29) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %29) #25
   br i1 %.0, label %986, label %988
 
 986:                                              ; preds = %.thread813, %.thread, %984
   %.pn.pn812 = phi { ptr, i32 } [ %982, %.thread ], [ %985, %984 ], [ %983, %.thread813 ]
-  call void @__cxa_free_exception(ptr %977) #23
+  call void @__cxa_free_exception(ptr %977) #25
   br label %988
 
 987:                                              ; preds = %967
@@ -6291,7 +6293,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %288 = fmul float %207, %287
   %289 = fmul float %60, %.sroa.speculated.i
   %290 = fneg float %289
-  %291 = tail call noundef float @expf(float noundef %290) #23
+  %291 = tail call noundef float @expf(float noundef %290) #25
   %292 = fadd float %289, 1.000000e+00
   %293 = fmul float %289, 5.000000e-01
   %294 = tail call float @llvm.fmuladd.f32(float %293, float %289, float %292)
@@ -6471,7 +6473,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %393, label %394, label %405
 
 394:                                              ; preds = %.thread653
-  %395 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %395 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %396 unwind label %.thread527
 
@@ -6492,7 +6494,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %399 unwind label %402
 
 399:                                              ; preds = %397
-  invoke void @__cxa_throw(ptr %395, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %395, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %407 unwind label %402
 
 .thread527:                                       ; preds = %394
@@ -6503,21 +6505,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread532:                                       ; preds = %396
   %401 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %404
 
 402:                                              ; preds = %397, %399
   %.0 = phi i1 [ false, %399 ], [ true, %397 ]
   %403 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %404, label %406
 
 404:                                              ; preds = %.thread532, %.thread527, %402
   %.pn.pn531 = phi { ptr, i32 } [ %400, %.thread527 ], [ %403, %402 ], [ %401, %.thread532 ]
-  call void @__cxa_free_exception(ptr %395) #23
+  call void @__cxa_free_exception(ptr %395) #25
   br label %406
 
 405:                                              ; preds = %.thread653
@@ -6532,7 +6534,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x float], align 32
@@ -7364,7 +7366,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %or.cond, label %598, label %609
 
 598:                                              ; preds = %589
-  %599 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %599 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull @.str)
           to label %600 unwind label %.thread
 
@@ -7385,7 +7387,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %603 unwind label %606
 
 603:                                              ; preds = %601
-  invoke void @__cxa_throw(ptr %599, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %599, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %611 unwind label %606
 
 .thread:                                          ; preds = %598
@@ -7396,21 +7398,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread687:                                       ; preds = %600
   %605 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #25
   br label %608
 
 606:                                              ; preds = %601, %603
   %.0 = phi i1 [ false, %603 ], [ true, %601 ]
   %607 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #25
   br i1 %.0, label %608, label %610
 
 608:                                              ; preds = %.thread687, %.thread, %606
   %.pn.pn686 = phi { ptr, i32 } [ %604, %.thread ], [ %607, %606 ], [ %605, %.thread687 ]
-  call void @__cxa_free_exception(ptr %599) #23
+  call void @__cxa_free_exception(ptr %599) #25
   br label %610
 
 609:                                              ; preds = %589
@@ -7825,7 +7827,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %273 = fmul float %271, %272
   %274 = fmul float %59, %.sroa.speculated.i
   %275 = fneg float %274
-  %276 = tail call noundef float @expf(float noundef %275) #23
+  %276 = tail call noundef float @expf(float noundef %275) #25
   %277 = fadd float %274, 1.000000e+00
   %278 = fmul float %274, 5.000000e-01
   %279 = tail call float @llvm.fmuladd.f32(float %278, float %274, float %277)
@@ -7935,7 +7937,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %333, label %334, label %345
 
 334:                                              ; preds = %.thread554
-  %335 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %335 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %336 unwind label %.thread442
 
@@ -7956,7 +7958,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %339 unwind label %342
 
 339:                                              ; preds = %337
-  invoke void @__cxa_throw(ptr %335, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %335, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %347 unwind label %342
 
 .thread442:                                       ; preds = %334
@@ -7967,21 +7969,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread447:                                       ; preds = %336
   %341 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %344
 
 342:                                              ; preds = %337, %339
   %.0 = phi i1 [ false, %339 ], [ true, %337 ]
   %343 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %344, label %346
 
 344:                                              ; preds = %.thread447, %.thread442, %342
   %.pn.pn446 = phi { ptr, i32 } [ %340, %.thread442 ], [ %343, %342 ], [ %341, %.thread447 ]
-  call void @__cxa_free_exception(ptr %335) #23
+  call void @__cxa_free_exception(ptr %335) #25
   br label %346
 
 345:                                              ; preds = %.thread554
@@ -7996,7 +7998,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x i32], align 32
@@ -9758,7 +9760,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x float], align 32
@@ -10911,7 +10913,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x i32], align 32
@@ -12596,7 +12598,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x float], align 32
@@ -13700,7 +13702,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x i32], align 32
@@ -14910,7 +14912,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %or.cond, label %920, label %931
 
 920:                                              ; preds = %911
-  %921 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %921 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull @.str)
           to label %922 unwind label %.thread
 
@@ -14931,7 +14933,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %925 unwind label %928
 
 925:                                              ; preds = %923
-  invoke void @__cxa_throw(ptr %921, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %921, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %933 unwind label %928
 
 .thread:                                          ; preds = %920
@@ -14942,21 +14944,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread838:                                       ; preds = %922
   %927 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #25
   br label %930
 
 928:                                              ; preds = %923, %925
   %.0 = phi i1 [ false, %925 ], [ true, %923 ]
   %929 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #25
   br i1 %.0, label %930, label %932
 
 930:                                              ; preds = %.thread838, %.thread, %928
   %.pn.pn837 = phi { ptr, i32 } [ %926, %.thread ], [ %929, %928 ], [ %927, %.thread838 ]
-  call void @__cxa_free_exception(ptr %921) #23
+  call void @__cxa_free_exception(ptr %921) #25
   br label %932
 
 931:                                              ; preds = %911
@@ -15537,7 +15539,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %366, label %367, label %378
 
 367:                                              ; preds = %.thread650
-  %368 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %368 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %369 unwind label %.thread541
 
@@ -15558,7 +15560,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %372 unwind label %375
 
 372:                                              ; preds = %370
-  invoke void @__cxa_throw(ptr %368, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %368, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %380 unwind label %375
 
 .thread541:                                       ; preds = %367
@@ -15569,21 +15571,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread546:                                       ; preds = %369
   %374 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %377
 
 375:                                              ; preds = %370, %372
   %.0 = phi i1 [ false, %372 ], [ true, %370 ]
   %376 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %377, label %379
 
 377:                                              ; preds = %.thread546, %.thread541, %375
   %.pn.pn545 = phi { ptr, i32 } [ %373, %.thread541 ], [ %376, %375 ], [ %374, %.thread546 ]
-  call void @__cxa_free_exception(ptr %368) #23
+  call void @__cxa_free_exception(ptr %368) #25
   br label %379
 
 378:                                              ; preds = %.thread650
@@ -15598,7 +15600,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x float], align 32
@@ -16330,7 +16332,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %or.cond, label %528, label %539
 
 528:                                              ; preds = %519
-  %529 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %529 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull @.str)
           to label %530 unwind label %.thread
 
@@ -16351,7 +16353,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %533 unwind label %536
 
 533:                                              ; preds = %531
-  invoke void @__cxa_throw(ptr %529, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %529, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %541 unwind label %536
 
 .thread:                                          ; preds = %528
@@ -16362,21 +16364,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread696:                                       ; preds = %530
   %535 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #25
   br label %538
 
 536:                                              ; preds = %531, %533
   %.0 = phi i1 [ false, %533 ], [ true, %531 ]
   %537 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #25
   br i1 %.0, label %538, label %540
 
 538:                                              ; preds = %.thread696, %.thread, %536
   %.pn.pn695 = phi { ptr, i32 } [ %534, %.thread ], [ %537, %536 ], [ %535, %.thread696 ]
-  call void @__cxa_free_exception(ptr %529) #23
+  call void @__cxa_free_exception(ptr %529) #25
   br label %540
 
 539:                                              ; preds = %519
@@ -16846,7 +16848,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %300, label %301, label %312
 
 301:                                              ; preds = %.thread549
-  %302 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %302 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %303 unwind label %.thread452
 
@@ -16867,7 +16869,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %306 unwind label %309
 
 306:                                              ; preds = %304
-  invoke void @__cxa_throw(ptr %302, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %302, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %314 unwind label %309
 
 .thread452:                                       ; preds = %301
@@ -16878,21 +16880,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread457:                                       ; preds = %303
   %308 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %311
 
 309:                                              ; preds = %304, %306
   %.0 = phi i1 [ false, %306 ], [ true, %304 ]
   %310 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %311, label %313
 
 311:                                              ; preds = %.thread457, %.thread452, %309
   %.pn.pn456 = phi { ptr, i32 } [ %307, %.thread452 ], [ %310, %309 ], [ %308, %.thread457 ]
-  call void @__cxa_free_exception(ptr %302) #23
+  call void @__cxa_free_exception(ptr %302) #25
   br label %313
 
 312:                                              ; preds = %.thread549
@@ -16907,7 +16909,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x i32], align 32
@@ -18069,7 +18071,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %or.cond, label %872, label %883
 
 872:                                              ; preds = %863
-  %873 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %873 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull @.str)
           to label %874 unwind label %.thread
 
@@ -18090,7 +18092,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %877 unwind label %880
 
 877:                                              ; preds = %875
-  invoke void @__cxa_throw(ptr %873, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %873, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %885 unwind label %880
 
 .thread:                                          ; preds = %872
@@ -18101,21 +18103,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread733:                                       ; preds = %874
   %879 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #25
   br label %882
 
 880:                                              ; preds = %875, %877
   %.0 = phi i1 [ false, %877 ], [ true, %875 ]
   %881 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #25
   br i1 %.0, label %882, label %884
 
 882:                                              ; preds = %.thread733, %.thread, %880
   %.pn.pn732 = phi { ptr, i32 } [ %878, %.thread ], [ %881, %880 ], [ %879, %.thread733 ]
-  call void @__cxa_free_exception(ptr %873) #23
+  call void @__cxa_free_exception(ptr %873) #25
   br label %884
 
 883:                                              ; preds = %863
@@ -18667,7 +18669,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %337, label %338, label %349
 
 338:                                              ; preds = %.thread591
-  %339 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %339 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %340 unwind label %.thread482
 
@@ -18688,7 +18690,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %343 unwind label %346
 
 343:                                              ; preds = %341
-  invoke void @__cxa_throw(ptr %339, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %339, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %351 unwind label %346
 
 .thread482:                                       ; preds = %338
@@ -18699,21 +18701,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread487:                                       ; preds = %340
   %345 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %348
 
 346:                                              ; preds = %341, %343
   %.0 = phi i1 [ false, %343 ], [ true, %341 ]
   %347 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %348, label %350
 
 348:                                              ; preds = %.thread487, %.thread482, %346
   %.pn.pn486 = phi { ptr, i32 } [ %344, %.thread482 ], [ %347, %346 ], [ %345, %.thread487 ]
-  call void @__cxa_free_exception(ptr %339) #23
+  call void @__cxa_free_exception(ptr %339) #25
   br label %350
 
 349:                                              ; preds = %.thread591
@@ -18728,7 +18730,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x float], align 32
@@ -19430,7 +19432,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %or.cond, label %498, label %509
 
 498:                                              ; preds = %489
-  %499 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %499 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull @.str)
           to label %500 unwind label %.thread
 
@@ -19451,7 +19453,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %503 unwind label %506
 
 503:                                              ; preds = %501
-  invoke void @__cxa_throw(ptr %499, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %499, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %511 unwind label %506
 
 .thread:                                          ; preds = %498
@@ -19462,21 +19464,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread621:                                       ; preds = %500
   %505 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #25
   br label %508
 
 506:                                              ; preds = %501, %503
   %.0 = phi i1 [ false, %503 ], [ true, %501 ]
   %507 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #25
   br i1 %.0, label %508, label %510
 
 508:                                              ; preds = %.thread621, %.thread, %506
   %.pn.pn620 = phi { ptr, i32 } [ %504, %.thread ], [ %507, %506 ], [ %505, %.thread621 ]
-  call void @__cxa_free_exception(ptr %499) #23
+  call void @__cxa_free_exception(ptr %499) #25
   br label %510
 
 509:                                              ; preds = %489
@@ -19927,7 +19929,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %281, label %282, label %293
 
 282:                                              ; preds = %.thread503
-  %283 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %283 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %284 unwind label %.thread406
 
@@ -19948,7 +19950,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %287 unwind label %290
 
 287:                                              ; preds = %285
-  invoke void @__cxa_throw(ptr %283, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %283, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %295 unwind label %290
 
 .thread406:                                       ; preds = %282
@@ -19959,21 +19961,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread411:                                       ; preds = %284
   %289 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %292
 
 290:                                              ; preds = %285, %287
   %.0 = phi i1 [ false, %287 ], [ true, %285 ]
   %291 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %292, label %294
 
 292:                                              ; preds = %.thread411, %.thread406, %290
   %.pn.pn410 = phi { ptr, i32 } [ %288, %.thread406 ], [ %291, %290 ], [ %289, %.thread411 ]
-  call void @__cxa_free_exception(ptr %283) #23
+  call void @__cxa_free_exception(ptr %283) #25
   br label %294
 
 293:                                              ; preds = %.thread503
@@ -19990,33 +19992,33 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb0ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb1ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb0ELb1ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb1ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb1ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x i32], align 32
@@ -21737,7 +21739,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %295 = fmul float %196, %294
   %296 = fmul float %55, %.sroa.speculated.i
   %297 = fneg float %296
-  %298 = tail call noundef float @expf(float noundef %297) #23
+  %298 = tail call noundef float @expf(float noundef %297) #25
   %299 = fadd float %296, 1.000000e+00
   %300 = fmul float %296, 5.000000e-01
   %301 = tail call float @llvm.fmuladd.f32(float %300, float %296, float %299)
@@ -21913,7 +21915,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb1ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb1ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x float], align 32
@@ -23111,7 +23113,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %268 = fmul float %266, %267
   %269 = fmul float %54, %.sroa.speculated.i
   %270 = fneg float %269
-  %271 = tail call noundef float @expf(float noundef %270) #23
+  %271 = tail call noundef float @expf(float noundef %270) #25
   %272 = fadd float %269, 1.000000e+00
   %273 = fmul float %269, 5.000000e-01
   %274 = tail call float @llvm.fmuladd.f32(float %273, float %269, float %272)
@@ -23219,33 +23221,33 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb1ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb0ELb1ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb1ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb0ELb1ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x i32], align 32
@@ -24543,7 +24545,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %or.cond, label %976, label %987
 
 976:                                              ; preds = %967
-  %977 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %977 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull @.str)
           to label %978 unwind label %.thread
 
@@ -24564,7 +24566,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %981 unwind label %984
 
 981:                                              ; preds = %979
-  invoke void @__cxa_throw(ptr %977, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %977, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %989 unwind label %984
 
 .thread:                                          ; preds = %976
@@ -24575,21 +24577,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread813:                                       ; preds = %978
   %983 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %29) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %29) #25
   br label %986
 
 984:                                              ; preds = %979, %981
   %.0 = phi i1 [ false, %981 ], [ true, %979 ]
   %985 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %29) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %29) #25
   br i1 %.0, label %986, label %988
 
 986:                                              ; preds = %.thread813, %.thread, %984
   %.pn.pn812 = phi { ptr, i32 } [ %982, %.thread ], [ %985, %984 ], [ %983, %.thread813 ]
-  call void @__cxa_free_exception(ptr %977) #23
+  call void @__cxa_free_exception(ptr %977) #25
   br label %988
 
 987:                                              ; preds = %967
@@ -25039,7 +25041,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %288 = fmul float %207, %287
   %289 = fmul float %60, %.sroa.speculated.i
   %290 = fneg float %289
-  %291 = tail call noundef float @expf(float noundef %290) #23
+  %291 = tail call noundef float @expf(float noundef %290) #25
   %292 = fadd float %289, 1.000000e+00
   %293 = fmul float %289, 5.000000e-01
   %294 = tail call float @llvm.fmuladd.f32(float %293, float %289, float %292)
@@ -25219,7 +25221,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %393, label %394, label %405
 
 394:                                              ; preds = %.thread653
-  %395 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %395 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %396 unwind label %.thread527
 
@@ -25240,7 +25242,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %399 unwind label %402
 
 399:                                              ; preds = %397
-  invoke void @__cxa_throw(ptr %395, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %395, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %407 unwind label %402
 
 .thread527:                                       ; preds = %394
@@ -25251,21 +25253,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread532:                                       ; preds = %396
   %401 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %404
 
 402:                                              ; preds = %397, %399
   %.0 = phi i1 [ false, %399 ], [ true, %397 ]
   %403 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %404, label %406
 
 404:                                              ; preds = %.thread532, %.thread527, %402
   %.pn.pn531 = phi { ptr, i32 } [ %400, %.thread527 ], [ %403, %402 ], [ %401, %.thread532 ]
-  call void @__cxa_free_exception(ptr %395) #23
+  call void @__cxa_free_exception(ptr %395) #25
   br label %406
 
 405:                                              ; preds = %.thread653
@@ -25280,7 +25282,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x float], align 32
@@ -26112,7 +26114,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %or.cond, label %598, label %609
 
 598:                                              ; preds = %589
-  %599 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %599 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull @.str)
           to label %600 unwind label %.thread
 
@@ -26133,7 +26135,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %603 unwind label %606
 
 603:                                              ; preds = %601
-  invoke void @__cxa_throw(ptr %599, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %599, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %611 unwind label %606
 
 .thread:                                          ; preds = %598
@@ -26144,21 +26146,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread687:                                       ; preds = %600
   %605 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #25
   br label %608
 
 606:                                              ; preds = %601, %603
   %.0 = phi i1 [ false, %603 ], [ true, %601 ]
   %607 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #25
   br i1 %.0, label %608, label %610
 
 608:                                              ; preds = %.thread687, %.thread, %606
   %.pn.pn686 = phi { ptr, i32 } [ %604, %.thread ], [ %607, %606 ], [ %605, %.thread687 ]
-  call void @__cxa_free_exception(ptr %599) #23
+  call void @__cxa_free_exception(ptr %599) #25
   br label %610
 
 609:                                              ; preds = %589
@@ -26573,7 +26575,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %273 = fmul float %271, %272
   %274 = fmul float %59, %.sroa.speculated.i
   %275 = fneg float %274
-  %276 = tail call noundef float @expf(float noundef %275) #23
+  %276 = tail call noundef float @expf(float noundef %275) #25
   %277 = fadd float %274, 1.000000e+00
   %278 = fmul float %274, 5.000000e-01
   %279 = tail call float @llvm.fmuladd.f32(float %278, float %274, float %277)
@@ -26683,7 +26685,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %333, label %334, label %345
 
 334:                                              ; preds = %.thread554
-  %335 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %335 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %336 unwind label %.thread442
 
@@ -26704,7 +26706,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %339 unwind label %342
 
 339:                                              ; preds = %337
-  invoke void @__cxa_throw(ptr %335, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %335, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %347 unwind label %342
 
 .thread442:                                       ; preds = %334
@@ -26715,21 +26717,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread447:                                       ; preds = %336
   %341 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %344
 
 342:                                              ; preds = %337, %339
   %.0 = phi i1 [ false, %339 ], [ true, %337 ]
   %343 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %344, label %346
 
 344:                                              ; preds = %.thread447, %.thread442, %342
   %.pn.pn446 = phi { ptr, i32 } [ %340, %.thread442 ], [ %343, %342 ], [ %341, %.thread447 ]
-  call void @__cxa_free_exception(ptr %335) #23
+  call void @__cxa_free_exception(ptr %335) #25
   br label %346
 
 345:                                              ; preds = %.thread554
@@ -26744,7 +26746,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x i32], align 32
@@ -28506,7 +28508,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x float], align 32
@@ -29659,7 +29661,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x i32], align 32
@@ -31344,7 +31346,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x float], align 32
@@ -32448,7 +32450,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x i32], align 32
@@ -33658,7 +33660,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %or.cond, label %920, label %931
 
 920:                                              ; preds = %911
-  %921 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %921 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull @.str)
           to label %922 unwind label %.thread
 
@@ -33679,7 +33681,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %925 unwind label %928
 
 925:                                              ; preds = %923
-  invoke void @__cxa_throw(ptr %921, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %921, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %933 unwind label %928
 
 .thread:                                          ; preds = %920
@@ -33690,21 +33692,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread838:                                       ; preds = %922
   %927 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #25
   br label %930
 
 928:                                              ; preds = %923, %925
   %.0 = phi i1 [ false, %925 ], [ true, %923 ]
   %929 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #25
   br i1 %.0, label %930, label %932
 
 930:                                              ; preds = %.thread838, %.thread, %928
   %.pn.pn837 = phi { ptr, i32 } [ %926, %.thread ], [ %929, %928 ], [ %927, %.thread838 ]
-  call void @__cxa_free_exception(ptr %921) #23
+  call void @__cxa_free_exception(ptr %921) #25
   br label %932
 
 931:                                              ; preds = %911
@@ -34285,7 +34287,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %366, label %367, label %378
 
 367:                                              ; preds = %.thread650
-  %368 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %368 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %369 unwind label %.thread541
 
@@ -34306,7 +34308,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %372 unwind label %375
 
 372:                                              ; preds = %370
-  invoke void @__cxa_throw(ptr %368, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %368, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %380 unwind label %375
 
 .thread541:                                       ; preds = %367
@@ -34317,21 +34319,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread546:                                       ; preds = %369
   %374 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %377
 
 375:                                              ; preds = %370, %372
   %.0 = phi i1 [ false, %372 ], [ true, %370 ]
   %376 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %377, label %379
 
 377:                                              ; preds = %.thread546, %.thread541, %375
   %.pn.pn545 = phi { ptr, i32 } [ %373, %.thread541 ], [ %376, %375 ], [ %374, %.thread546 ]
-  call void @__cxa_free_exception(ptr %368) #23
+  call void @__cxa_free_exception(ptr %368) #25
   br label %379
 
 378:                                              ; preds = %.thread650
@@ -34346,7 +34348,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x float], align 32
@@ -35078,7 +35080,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %or.cond, label %528, label %539
 
 528:                                              ; preds = %519
-  %529 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %529 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull @.str)
           to label %530 unwind label %.thread
 
@@ -35099,7 +35101,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %533 unwind label %536
 
 533:                                              ; preds = %531
-  invoke void @__cxa_throw(ptr %529, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %529, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %541 unwind label %536
 
 .thread:                                          ; preds = %528
@@ -35110,21 +35112,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread696:                                       ; preds = %530
   %535 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #25
   br label %538
 
 536:                                              ; preds = %531, %533
   %.0 = phi i1 [ false, %533 ], [ true, %531 ]
   %537 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #25
   br i1 %.0, label %538, label %540
 
 538:                                              ; preds = %.thread696, %.thread, %536
   %.pn.pn695 = phi { ptr, i32 } [ %534, %.thread ], [ %537, %536 ], [ %535, %.thread696 ]
-  call void @__cxa_free_exception(ptr %529) #23
+  call void @__cxa_free_exception(ptr %529) #25
   br label %540
 
 539:                                              ; preds = %519
@@ -35594,7 +35596,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %300, label %301, label %312
 
 301:                                              ; preds = %.thread549
-  %302 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %302 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %303 unwind label %.thread452
 
@@ -35615,7 +35617,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %306 unwind label %309
 
 306:                                              ; preds = %304
-  invoke void @__cxa_throw(ptr %302, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %302, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %314 unwind label %309
 
 .thread452:                                       ; preds = %301
@@ -35626,21 +35628,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread457:                                       ; preds = %303
   %308 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %311
 
 309:                                              ; preds = %304, %306
   %.0 = phi i1 [ false, %306 ], [ true, %304 ]
   %310 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %311, label %313
 
 311:                                              ; preds = %.thread457, %.thread452, %309
   %.pn.pn456 = phi { ptr, i32 } [ %307, %.thread452 ], [ %310, %309 ], [ %308, %.thread457 ]
-  call void @__cxa_free_exception(ptr %302) #23
+  call void @__cxa_free_exception(ptr %302) #25
   br label %313
 
 312:                                              ; preds = %.thread549
@@ -35655,7 +35657,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x i32], align 32
@@ -36817,7 +36819,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %or.cond, label %872, label %883
 
 872:                                              ; preds = %863
-  %873 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %873 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull @.str)
           to label %874 unwind label %.thread
 
@@ -36838,7 +36840,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %877 unwind label %880
 
 877:                                              ; preds = %875
-  invoke void @__cxa_throw(ptr %873, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %873, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %885 unwind label %880
 
 .thread:                                          ; preds = %872
@@ -36849,21 +36851,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread733:                                       ; preds = %874
   %879 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #25
   br label %882
 
 880:                                              ; preds = %875, %877
   %.0 = phi i1 [ false, %877 ], [ true, %875 ]
   %881 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #25
   br i1 %.0, label %882, label %884
 
 882:                                              ; preds = %.thread733, %.thread, %880
   %.pn.pn732 = phi { ptr, i32 } [ %878, %.thread ], [ %881, %880 ], [ %879, %.thread733 ]
-  call void @__cxa_free_exception(ptr %873) #23
+  call void @__cxa_free_exception(ptr %873) #25
   br label %884
 
 883:                                              ; preds = %863
@@ -37415,7 +37417,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %337, label %338, label %349
 
 338:                                              ; preds = %.thread591
-  %339 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %339 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %340 unwind label %.thread482
 
@@ -37436,7 +37438,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %343 unwind label %346
 
 343:                                              ; preds = %341
-  invoke void @__cxa_throw(ptr %339, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %339, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %351 unwind label %346
 
 .thread482:                                       ; preds = %338
@@ -37447,21 +37449,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread487:                                       ; preds = %340
   %345 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %348
 
 346:                                              ; preds = %341, %343
   %.0 = phi i1 [ false, %343 ], [ true, %341 ]
   %347 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %348, label %350
 
 348:                                              ; preds = %.thread487, %.thread482, %346
   %.pn.pn486 = phi { ptr, i32 } [ %344, %.thread482 ], [ %347, %346 ], [ %345, %.thread487 ]
-  call void @__cxa_free_exception(ptr %339) #23
+  call void @__cxa_free_exception(ptr %339) #25
   br label %350
 
 349:                                              ; preds = %.thread591
@@ -37476,7 +37478,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %20 = alloca [8 x i32], align 32
   %21 = alloca [8 x float], align 32
@@ -38178,7 +38180,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %or.cond, label %498, label %509
 
 498:                                              ; preds = %489
-  %499 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %499 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull @.str)
           to label %500 unwind label %.thread
 
@@ -38199,7 +38201,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %503 unwind label %506
 
 503:                                              ; preds = %501
-  invoke void @__cxa_throw(ptr %499, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %499, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %511 unwind label %506
 
 .thread:                                          ; preds = %498
@@ -38210,21 +38212,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread621:                                       ; preds = %500
   %505 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #25
   br label %508
 
 506:                                              ; preds = %501, %503
   %.0 = phi i1 [ false, %503 ], [ true, %501 ]
   %507 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #25
   br i1 %.0, label %508, label %510
 
 508:                                              ; preds = %.thread621, %.thread, %506
   %.pn.pn620 = phi { ptr, i32 } [ %504, %.thread ], [ %507, %506 ], [ %505, %.thread621 ]
-  call void @__cxa_free_exception(ptr %499) #23
+  call void @__cxa_free_exception(ptr %499) #25
   br label %510
 
 509:                                              ; preds = %489
@@ -38675,7 +38677,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %281, label %282, label %293
 
 282:                                              ; preds = %.thread503
-  %283 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %283 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %284 unwind label %.thread406
 
@@ -38696,7 +38698,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %287 unwind label %290
 
 287:                                              ; preds = %285
-  invoke void @__cxa_throw(ptr %283, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %283, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %295 unwind label %290
 
 .thread406:                                       ; preds = %282
@@ -38707,21 +38709,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread411:                                       ; preds = %284
   %289 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %292
 
 290:                                              ; preds = %285, %287
   %.0 = phi i1 [ false, %287 ], [ true, %285 ]
   %291 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %292, label %294
 
 292:                                              ; preds = %.thread411, %.thread406, %290
   %.pn.pn410 = phi { ptr, i32 } [ %288, %.thread406 ], [ %291, %290 ], [ %289, %.thread411 ]
-  call void @__cxa_free_exception(ptr %283) #23
+  call void @__cxa_free_exception(ptr %283) #25
   br label %294
 
 293:                                              ; preds = %.thread503
@@ -38738,36 +38740,36 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare float @cbrtf(float noundef) local_unnamed_addr #17
+declare float @cbrtf(float noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb1ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb1ELb1ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb1ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb1ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01159 = alloca float, align 4
   %.sroa.5 = alloca float, align 4
@@ -40748,18 +40750,18 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %277 = load float, ptr %indvars.iv662.sroa.phi760, align 4
   %278 = tail call float @llvm.fmuladd.f32(float %276, float %277, float %260)
   %279 = fdiv float 1.000000e+00, %278
-  %280 = tail call noundef float @cbrtf(float noundef %279) #26
-  %281 = tail call noundef float @sqrtf(float noundef %280) #23
+  %280 = tail call noundef float @cbrtf(float noundef %279) #28
+  %281 = tail call noundef float @sqrtf(float noundef %280) #25
   %282 = load float, ptr %indvars.iv662.sroa.phi813, align 4
   %283 = fmul float %.sroa.0535.0, %282
   %284 = tail call float @llvm.fmuladd.f32(float %283, float %277, float %260)
   %285 = fdiv float 1.000000e+00, %284
-  %286 = tail call noundef float @cbrtf(float noundef %285) #26
+  %286 = tail call noundef float @cbrtf(float noundef %285) #28
   %287 = fcmp olt float %286, 0.000000e+00
   br i1 %287, label %cdce.call, label %cdce.end, !prof !348
 
 cdce.call:                                        ; preds = %274
-  %288 = tail call noundef float @sqrtf(float noundef %286) #23
+  %288 = tail call noundef float @sqrtf(float noundef %286) #25
   br label %cdce.end
 
 cdce.end:                                         ; preds = %274, %cdce.call
@@ -40940,7 +40942,7 @@ cdce.end:                                         ; preds = %274, %cdce.call
   %392 = fmul float %390, %391
   %393 = fmul float %67, %.sroa.speculated.i
   %394 = fneg float %393
-  %395 = tail call noundef float @expf(float noundef %394) #23
+  %395 = tail call noundef float @expf(float noundef %394) #25
   %396 = fadd float %393, 1.000000e+00
   %397 = fmul float %393, 5.000000e-01
   %398 = tail call float @llvm.fmuladd.f32(float %397, float %393, float %396)
@@ -41118,7 +41120,7 @@ cdce.end:                                         ; preds = %274, %cdce.call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb1ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb1ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0984 = alloca float, align 4
   %.sroa.5 = alloca float, align 4
@@ -42601,18 +42603,18 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %275 = load float, ptr %indvars.iv558.sroa.phi642, align 4
   %276 = tail call float @llvm.fmuladd.f32(float %274, float %275, float %258)
   %277 = fdiv float 1.000000e+00, %276
-  %278 = tail call noundef float @cbrtf(float noundef %277) #26
-  %279 = tail call noundef float @sqrtf(float noundef %278) #23
+  %278 = tail call noundef float @cbrtf(float noundef %277) #28
+  %279 = tail call noundef float @sqrtf(float noundef %278) #25
   %280 = load float, ptr %indvars.iv558.sroa.phi695, align 4
   %281 = fmul float %.sroa.0454.0, %280
   %282 = tail call float @llvm.fmuladd.f32(float %281, float %275, float %258)
   %283 = fdiv float 1.000000e+00, %282
-  %284 = tail call noundef float @cbrtf(float noundef %283) #26
+  %284 = tail call noundef float @cbrtf(float noundef %283) #28
   %285 = fcmp olt float %284, 0.000000e+00
   br i1 %285, label %cdce.call, label %cdce.end, !prof !348
 
 cdce.call:                                        ; preds = %272
-  %286 = tail call noundef float @sqrtf(float noundef %284) #23
+  %286 = tail call noundef float @sqrtf(float noundef %284) #25
   br label %cdce.end
 
 cdce.end:                                         ; preds = %272, %cdce.call
@@ -42751,7 +42753,7 @@ cdce.end:                                         ; preds = %272, %cdce.call
   %360 = fmul float %358, %359
   %361 = fmul float %66, %.sroa.speculated.i
   %362 = fneg float %361
-  %363 = tail call noundef float @expf(float noundef %362) #23
+  %363 = tail call noundef float @expf(float noundef %362) #25
   %364 = fadd float %361, 1.000000e+00
   %365 = fmul float %361, 5.000000e-01
   %366 = tail call float @llvm.fmuladd.f32(float %365, float %361, float %364)
@@ -42861,33 +42863,33 @@ cdce.end:                                         ; preds = %272, %cdce.call
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb1ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb1ELb1ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb1ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb1ELb1ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01202 = alloca float, align 4
   %.sroa.5 = alloca float, align 4
@@ -44446,7 +44448,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %or.cond919, label %1148, label %1159
 
 1148:                                             ; preds = %1139
-  %1149 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %1149 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull @.str)
           to label %1150 unwind label %.thread908
 
@@ -44467,7 +44469,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %1153 unwind label %1156
 
 1153:                                             ; preds = %1151
-  invoke void @__cxa_throw(ptr %1149, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %1149, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %1161 unwind label %1156
 
 .thread908:                                       ; preds = %1148
@@ -44478,21 +44480,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread913:                                       ; preds = %1150
   %1155 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #25
   br label %1158
 
 1156:                                             ; preds = %1151, %1153
   %.0 = phi i1 [ false, %1153 ], [ true, %1151 ]
   %1157 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #25
   br i1 %.0, label %1158, label %1160
 
 1158:                                             ; preds = %.thread913, %.thread908, %1156
   %.pn.pn912 = phi { ptr, i32 } [ %1154, %.thread908 ], [ %1157, %1156 ], [ %1155, %.thread913 ]
-  call void @__cxa_free_exception(ptr %1149) #23
+  call void @__cxa_free_exception(ptr %1149) #25
   br label %1160
 
 1159:                                             ; preds = %1139
@@ -44952,19 +44954,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %287 = load float, ptr %indvars.iv687.sroa.phi792, align 4
   %288 = tail call float @llvm.fmuladd.f32(float %286, float %287, float %271)
   %289 = fdiv float 1.000000e+00, %288
-  %290 = tail call noundef float @cbrtf(float noundef %289) #26
-  %291 = tail call noundef float @sqrtf(float noundef %290) #23
+  %290 = tail call noundef float @cbrtf(float noundef %289) #28
+  %291 = tail call noundef float @sqrtf(float noundef %290) #25
   %292 = fdiv float 1.000000e+00, %291
   %293 = load float, ptr %indvars.iv687.sroa.phi845, align 4
   %294 = fmul float %.sroa.0550.0, %293
   %295 = tail call float @llvm.fmuladd.f32(float %294, float %287, float %271)
   %296 = fdiv float 1.000000e+00, %295
-  %297 = tail call noundef float @cbrtf(float noundef %296) #26
+  %297 = tail call noundef float @cbrtf(float noundef %296) #28
   %298 = fcmp olt float %297, 0.000000e+00
   br i1 %298, label %cdce.call, label %cdce.end, !prof !348
 
 cdce.call:                                        ; preds = %284
-  %299 = tail call noundef float @sqrtf(float noundef %297) #23
+  %299 = tail call noundef float @sqrtf(float noundef %297) #25
   br label %cdce.end
 
 cdce.end:                                         ; preds = %284, %cdce.call
@@ -45133,7 +45135,7 @@ cdce.end:                                         ; preds = %284, %cdce.call
   %385 = fmul float %383, %384
   %386 = fmul float %72, %.sroa.speculated.i
   %387 = fneg float %386
-  %388 = tail call noundef float @expf(float noundef %387) #23
+  %388 = tail call noundef float @expf(float noundef %387) #25
   %389 = fadd float %386, 1.000000e+00
   %390 = fmul float %386, 5.000000e-01
   %391 = tail call float @llvm.fmuladd.f32(float %390, float %386, float %389)
@@ -45315,7 +45317,7 @@ cdce.end:                                         ; preds = %284, %cdce.call
   br i1 %492, label %493, label %504
 
 493:                                              ; preds = %.thread
-  %494 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %494 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %495 unwind label %.thread593
 
@@ -45336,7 +45338,7 @@ cdce.end:                                         ; preds = %284, %cdce.call
           to label %498 unwind label %501
 
 498:                                              ; preds = %496
-  invoke void @__cxa_throw(ptr %494, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %494, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %506 unwind label %501
 
 .thread593:                                       ; preds = %493
@@ -45347,21 +45349,21 @@ cdce.end:                                         ; preds = %284, %cdce.call
 .thread598:                                       ; preds = %495
   %500 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %503
 
 501:                                              ; preds = %496, %498
   %.0 = phi i1 [ false, %498 ], [ true, %496 ]
   %502 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %503, label %505
 
 503:                                              ; preds = %.thread598, %.thread593, %501
   %.pn.pn597 = phi { ptr, i32 } [ %499, %.thread593 ], [ %502, %501 ], [ %500, %.thread598 ]
-  call void @__cxa_free_exception(ptr %494) #23
+  call void @__cxa_free_exception(ptr %494) #25
   br label %505
 
 504:                                              ; preds = %.thread
@@ -45376,7 +45378,7 @@ cdce.end:                                         ; preds = %284, %cdce.call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01045 = alloca float, align 4
   %.sroa.5 = alloca float, align 4
@@ -46461,7 +46463,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %or.cond792, label %766, label %777
 
 766:                                              ; preds = %757
-  %767 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %767 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str)
           to label %768 unwind label %.thread781
 
@@ -46482,7 +46484,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %771 unwind label %774
 
 771:                                              ; preds = %769
-  invoke void @__cxa_throw(ptr %767, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %767, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %779 unwind label %774
 
 .thread781:                                       ; preds = %766
@@ -46493,21 +46495,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread786:                                       ; preds = %768
   %773 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br label %776
 
 774:                                              ; preds = %769, %771
   %.0 = phi i1 [ false, %771 ], [ true, %769 ]
   %775 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br i1 %.0, label %776, label %778
 
 776:                                              ; preds = %.thread786, %.thread781, %774
   %.pn.pn785 = phi { ptr, i32 } [ %772, %.thread781 ], [ %775, %774 ], [ %773, %.thread786 ]
-  call void @__cxa_free_exception(ptr %767) #23
+  call void @__cxa_free_exception(ptr %767) #25
   br label %778
 
 777:                                              ; preds = %757
@@ -46951,19 +46953,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %283 = load float, ptr %indvars.iv590.sroa.phi681, align 4
   %284 = tail call float @llvm.fmuladd.f32(float %282, float %283, float %267)
   %285 = fdiv float 1.000000e+00, %284
-  %286 = tail call noundef float @cbrtf(float noundef %285) #26
-  %287 = tail call noundef float @sqrtf(float noundef %286) #23
+  %286 = tail call noundef float @cbrtf(float noundef %285) #28
+  %287 = tail call noundef float @sqrtf(float noundef %286) #25
   %288 = fdiv float 1.000000e+00, %287
   %289 = load float, ptr %indvars.iv590.sroa.phi734, align 4
   %290 = fmul float %.sroa.0476.0, %289
   %291 = tail call float @llvm.fmuladd.f32(float %290, float %283, float %267)
   %292 = fdiv float 1.000000e+00, %291
-  %293 = tail call noundef float @cbrtf(float noundef %292) #26
+  %293 = tail call noundef float @cbrtf(float noundef %292) #28
   %294 = fcmp olt float %293, 0.000000e+00
   br i1 %294, label %cdce.call, label %cdce.end, !prof !348
 
 cdce.call:                                        ; preds = %280
-  %295 = tail call noundef float @sqrtf(float noundef %293) #23
+  %295 = tail call noundef float @sqrtf(float noundef %293) #25
   br label %cdce.end
 
 cdce.end:                                         ; preds = %280, %cdce.call
@@ -47104,7 +47106,7 @@ cdce.end:                                         ; preds = %280, %cdce.call
   %365 = fmul float %363, %364
   %366 = fmul float %71, %.sroa.speculated.i
   %367 = fneg float %366
-  %368 = tail call noundef float @expf(float noundef %367) #23
+  %368 = tail call noundef float @expf(float noundef %367) #25
   %369 = fadd float %366, 1.000000e+00
   %370 = fmul float %366, 5.000000e-01
   %371 = tail call float @llvm.fmuladd.f32(float %370, float %366, float %369)
@@ -47216,7 +47218,7 @@ cdce.end:                                         ; preds = %280, %cdce.call
   br i1 %427, label %428, label %439
 
 428:                                              ; preds = %.thread
-  %429 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %429 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %430 unwind label %.thread508
 
@@ -47237,7 +47239,7 @@ cdce.end:                                         ; preds = %280, %cdce.call
           to label %433 unwind label %436
 
 433:                                              ; preds = %431
-  invoke void @__cxa_throw(ptr %429, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %429, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %441 unwind label %436
 
 .thread508:                                       ; preds = %428
@@ -47248,21 +47250,21 @@ cdce.end:                                         ; preds = %280, %cdce.call
 .thread513:                                       ; preds = %430
   %435 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %438
 
 436:                                              ; preds = %431, %433
   %.0 = phi i1 [ false, %433 ], [ true, %431 ]
   %437 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %438, label %440
 
 438:                                              ; preds = %.thread513, %.thread508, %436
   %.pn.pn512 = phi { ptr, i32 } [ %434, %.thread508 ], [ %437, %436 ], [ %435, %.thread513 ]
-  call void @__cxa_free_exception(ptr %429) #23
+  call void @__cxa_free_exception(ptr %429) #25
   br label %440
 
 439:                                              ; preds = %.thread
@@ -47277,7 +47279,7 @@ cdce.end:                                         ; preds = %280, %cdce.call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01154 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -49221,14 +49223,14 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %276 = load float, ptr %indvars.iv666.sroa.phi746, align 4
   %277 = tail call float @llvm.fmuladd.f32(float %275, float %276, float %260)
   %278 = fdiv float 1.000000e+00, %277
-  %279 = tail call noundef float @cbrtf(float noundef %278) #26
-  %280 = tail call noundef float @sqrtf(float noundef %279) #23
+  %279 = tail call noundef float @cbrtf(float noundef %278) #28
+  %280 = tail call noundef float @sqrtf(float noundef %279) #25
   %281 = load float, ptr %indvars.iv666.sroa.phi794, align 4
   %282 = fmul float %.sroa.0549.0, %281
   %283 = tail call float @llvm.fmuladd.f32(float %282, float %276, float %260)
   %284 = fdiv float 1.000000e+00, %283
-  %285 = tail call noundef float @cbrtf(float noundef %284) #26
-  %286 = tail call noundef float @sqrtf(float noundef %285) #23
+  %285 = tail call noundef float @cbrtf(float noundef %284) #28
+  %286 = tail call noundef float @sqrtf(float noundef %285) #25
   %287 = fdiv float 1.000000e+00, %286
   %brmerge599 = or i1 %262, %266
   br i1 %brmerge599, label %.thread589, label %288
@@ -49544,7 +49546,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0969 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -50977,14 +50979,14 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %271 = load float, ptr %indvars.iv560.sroa.phi629, align 4
   %272 = tail call float @llvm.fmuladd.f32(float %270, float %271, float %255)
   %273 = fdiv float 1.000000e+00, %272
-  %274 = tail call noundef float @cbrtf(float noundef %273) #26
-  %275 = tail call noundef float @sqrtf(float noundef %274) #23
+  %274 = tail call noundef float @cbrtf(float noundef %273) #28
+  %275 = tail call noundef float @sqrtf(float noundef %274) #25
   %276 = load float, ptr %indvars.iv560.sroa.phi677, align 4
   %277 = fmul float %.sroa.0464.0, %276
   %278 = tail call float @llvm.fmuladd.f32(float %277, float %271, float %255)
   %279 = fdiv float 1.000000e+00, %278
-  %280 = tail call noundef float @cbrtf(float noundef %279) #26
-  %281 = tail call noundef float @sqrtf(float noundef %280) #23
+  %280 = tail call noundef float @cbrtf(float noundef %279) #28
+  %281 = tail call noundef float @sqrtf(float noundef %280) #25
   %282 = fdiv float 1.000000e+00, %281
   %brmerge503 = or i1 %257, %261
   br i1 %brmerge503, label %.thread493, label %283
@@ -51188,7 +51190,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01049 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -53071,14 +53073,14 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %263 = load float, ptr %indvars.iv608.sroa.phi688, align 4
   %264 = tail call float @llvm.fmuladd.f32(float %262, float %263, float %247)
   %265 = fdiv float 1.000000e+00, %264
-  %266 = tail call noundef float @cbrtf(float noundef %265) #26
-  %267 = tail call noundef float @sqrtf(float noundef %266) #23
+  %266 = tail call noundef float @cbrtf(float noundef %265) #28
+  %267 = tail call noundef float @sqrtf(float noundef %266) #25
   %268 = load float, ptr %indvars.iv608.sroa.phi736, align 4
   %269 = fmul float %.sroa.0491.0, %268
   %270 = tail call float @llvm.fmuladd.f32(float %269, float %263, float %247)
   %271 = fdiv float 1.000000e+00, %270
-  %272 = tail call noundef float @cbrtf(float noundef %271) #26
-  %273 = tail call noundef float @sqrtf(float noundef %272) #23
+  %272 = tail call noundef float @cbrtf(float noundef %271) #28
+  %273 = tail call noundef float @sqrtf(float noundef %272) #25
   %274 = fdiv float 1.000000e+00, %273
   %brmerge541 = or i1 %249, %253
   br i1 %brmerge541, label %.thread531, label %275
@@ -53378,7 +53380,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0894 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -54771,14 +54773,14 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %261 = load float, ptr %indvars.iv515.sroa.phi584, align 4
   %262 = tail call float @llvm.fmuladd.f32(float %260, float %261, float %245)
   %263 = fdiv float 1.000000e+00, %262
-  %264 = tail call noundef float @cbrtf(float noundef %263) #26
-  %265 = tail call noundef float @sqrtf(float noundef %264) #23
+  %264 = tail call noundef float @cbrtf(float noundef %263) #28
+  %265 = tail call noundef float @sqrtf(float noundef %264) #25
   %266 = load float, ptr %indvars.iv515.sroa.phi632, align 4
   %267 = fmul float %.sroa.0419.0, %266
   %268 = tail call float @llvm.fmuladd.f32(float %267, float %261, float %245)
   %269 = fdiv float 1.000000e+00, %268
-  %270 = tail call noundef float @cbrtf(float noundef %269) #26
-  %271 = tail call noundef float @sqrtf(float noundef %270) #23
+  %270 = tail call noundef float @cbrtf(float noundef %269) #28
+  %271 = tail call noundef float @sqrtf(float noundef %270) #25
   %272 = fdiv float 1.000000e+00, %271
   %brmerge458 = or i1 %247, %251
   br i1 %brmerge458, label %.thread448, label %273
@@ -54973,7 +54975,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01198 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -56501,7 +56503,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %or.cond945, label %1144, label %1155
 
 1144:                                             ; preds = %1135
-  %1145 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %1145 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str)
           to label %1146 unwind label %.thread934
 
@@ -56522,7 +56524,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %1149 unwind label %1152
 
 1149:                                             ; preds = %1147
-  invoke void @__cxa_throw(ptr %1145, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %1145, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %1157 unwind label %1152
 
 .thread934:                                       ; preds = %1144
@@ -56533,21 +56535,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread939:                                       ; preds = %1146
   %1151 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br label %1154
 
 1152:                                             ; preds = %1147, %1149
   %.0 = phi i1 [ false, %1149 ], [ true, %1147 ]
   %1153 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br i1 %.0, label %1154, label %1156
 
 1154:                                             ; preds = %.thread939, %.thread934, %1152
   %.pn.pn938 = phi { ptr, i32 } [ %1150, %.thread934 ], [ %1153, %1152 ], [ %1151, %.thread939 ]
-  call void @__cxa_free_exception(ptr %1145) #23
+  call void @__cxa_free_exception(ptr %1145) #25
   br label %1156
 
 1155:                                             ; preds = %1135
@@ -56989,15 +56991,15 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %283 = load float, ptr %indvars.iv690.sroa.phi777, align 4
   %284 = tail call float @llvm.fmuladd.f32(float %282, float %283, float %269)
   %285 = fdiv float 1.000000e+00, %284
-  %286 = tail call noundef float @cbrtf(float noundef %285) #26
-  %287 = tail call noundef float @sqrtf(float noundef %286) #23
+  %286 = tail call noundef float @cbrtf(float noundef %285) #28
+  %287 = tail call noundef float @sqrtf(float noundef %286) #25
   %288 = fdiv float 1.000000e+00, %287
   %289 = load float, ptr %indvars.iv690.sroa.phi825, align 4
   %290 = fmul float %.sroa.0563.0, %289
   %291 = tail call float @llvm.fmuladd.f32(float %290, float %283, float %269)
   %292 = fdiv float 1.000000e+00, %291
-  %293 = tail call noundef float @cbrtf(float noundef %292) #26
-  %294 = tail call noundef float @sqrtf(float noundef %293) #23
+  %293 = tail call noundef float @cbrtf(float noundef %292) #28
+  %294 = tail call noundef float @sqrtf(float noundef %293) #25
   %295 = fdiv float 1.000000e+00, %294
   %296 = fcmp uge float %288, %57
   %brmerge621 = or i1 %273, %296
@@ -57305,7 +57307,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %465, label %466, label %477
 
 466:                                              ; preds = %.thread
-  %467 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %467 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %468 unwind label %.thread606
 
@@ -57326,7 +57328,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %471 unwind label %474
 
 471:                                              ; preds = %469
-  invoke void @__cxa_throw(ptr %467, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %467, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %479 unwind label %474
 
 .thread606:                                       ; preds = %466
@@ -57337,21 +57339,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread611:                                       ; preds = %468
   %473 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %476
 
 474:                                              ; preds = %469, %471
   %.0 = phi i1 [ false, %471 ], [ true, %469 ]
   %475 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %476, label %478
 
 476:                                              ; preds = %.thread611, %.thread606, %474
   %.pn.pn610 = phi { ptr, i32 } [ %472, %.thread606 ], [ %475, %474 ], [ %473, %.thread611 ]
-  call void @__cxa_free_exception(ptr %467) #23
+  call void @__cxa_free_exception(ptr %467) #25
   br label %478
 
 477:                                              ; preds = %.thread
@@ -57366,7 +57368,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01030 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -58404,7 +58406,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %or.cond802, label %749, label %760
 
 749:                                              ; preds = %740
-  %750 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %750 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull @.str)
           to label %751 unwind label %.thread791
 
@@ -58425,7 +58427,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %754 unwind label %757
 
 754:                                              ; preds = %752
-  invoke void @__cxa_throw(ptr %750, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %750, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %762 unwind label %757
 
 .thread791:                                       ; preds = %749
@@ -58436,21 +58438,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread796:                                       ; preds = %751
   %756 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #25
   br label %759
 
 757:                                              ; preds = %752, %754
   %.0 = phi i1 [ false, %754 ], [ true, %752 ]
   %758 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #25
   br i1 %.0, label %759, label %761
 
 759:                                              ; preds = %.thread796, %.thread791, %757
   %.pn.pn795 = phi { ptr, i32 } [ %755, %.thread791 ], [ %758, %757 ], [ %756, %.thread796 ]
-  call void @__cxa_free_exception(ptr %750) #23
+  call void @__cxa_free_exception(ptr %750) #25
   br label %761
 
 760:                                              ; preds = %740
@@ -58873,15 +58875,15 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %276 = load float, ptr %indvars.iv591.sroa.phi667, align 4
   %277 = tail call float @llvm.fmuladd.f32(float %275, float %276, float %262)
   %278 = fdiv float 1.000000e+00, %277
-  %279 = tail call noundef float @cbrtf(float noundef %278) #26
-  %280 = tail call noundef float @sqrtf(float noundef %279) #23
+  %279 = tail call noundef float @cbrtf(float noundef %278) #28
+  %280 = tail call noundef float @sqrtf(float noundef %279) #25
   %281 = fdiv float 1.000000e+00, %280
   %282 = load float, ptr %indvars.iv591.sroa.phi715, align 4
   %283 = fmul float %.sroa.0485.0, %282
   %284 = tail call float @llvm.fmuladd.f32(float %283, float %276, float %262)
   %285 = fdiv float 1.000000e+00, %284
-  %286 = tail call noundef float @cbrtf(float noundef %285) #26
-  %287 = tail call noundef float @sqrtf(float noundef %286) #23
+  %286 = tail call noundef float @cbrtf(float noundef %285) #28
+  %287 = tail call noundef float @sqrtf(float noundef %286) #25
   %288 = fdiv float 1.000000e+00, %287
   %289 = fcmp uge float %281, %56
   %brmerge532 = or i1 %266, %289
@@ -59090,7 +59092,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %394, label %395, label %406
 
 395:                                              ; preds = %.thread
-  %396 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %396 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %397 unwind label %.thread517
 
@@ -59111,7 +59113,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %400 unwind label %403
 
 400:                                              ; preds = %398
-  invoke void @__cxa_throw(ptr %396, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %396, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %408 unwind label %403
 
 .thread517:                                       ; preds = %395
@@ -59122,21 +59124,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread522:                                       ; preds = %397
   %402 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %405
 
 403:                                              ; preds = %398, %400
   %.0 = phi i1 [ false, %400 ], [ true, %398 ]
   %404 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %405, label %407
 
 405:                                              ; preds = %.thread522, %.thread517, %403
   %.pn.pn521 = phi { ptr, i32 } [ %401, %.thread517 ], [ %404, %403 ], [ %402, %.thread522 ]
-  call void @__cxa_free_exception(ptr %396) #23
+  call void @__cxa_free_exception(ptr %396) #25
   br label %407
 
 406:                                              ; preds = %.thread
@@ -59151,7 +59153,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01093 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -60631,7 +60633,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %or.cond840, label %1096, label %1107
 
 1096:                                             ; preds = %1087
-  %1097 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %1097 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str)
           to label %1098 unwind label %.thread829
 
@@ -60652,7 +60654,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %1101 unwind label %1104
 
 1101:                                             ; preds = %1099
-  invoke void @__cxa_throw(ptr %1097, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %1097, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %1109 unwind label %1104
 
 .thread829:                                       ; preds = %1096
@@ -60663,21 +60665,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread834:                                       ; preds = %1098
   %1103 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br label %1106
 
 1104:                                             ; preds = %1099, %1101
   %.0 = phi i1 [ false, %1101 ], [ true, %1099 ]
   %1105 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br i1 %.0, label %1106, label %1108
 
 1106:                                             ; preds = %.thread834, %.thread829, %1104
   %.pn.pn833 = phi { ptr, i32 } [ %1102, %.thread829 ], [ %1105, %1104 ], [ %1103, %.thread834 ]
-  call void @__cxa_free_exception(ptr %1097) #23
+  call void @__cxa_free_exception(ptr %1097) #25
   br label %1108
 
 1107:                                             ; preds = %1087
@@ -61106,15 +61108,15 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %270 = load float, ptr %indvars.iv632.sroa.phi719, align 4
   %271 = tail call float @llvm.fmuladd.f32(float %269, float %270, float %256)
   %272 = fdiv float 1.000000e+00, %271
-  %273 = tail call noundef float @cbrtf(float noundef %272) #26
-  %274 = tail call noundef float @sqrtf(float noundef %273) #23
+  %273 = tail call noundef float @cbrtf(float noundef %272) #28
+  %274 = tail call noundef float @sqrtf(float noundef %273) #25
   %275 = fdiv float 1.000000e+00, %274
   %276 = load float, ptr %indvars.iv632.sroa.phi767, align 4
   %277 = fmul float %.sroa.0505.0, %276
   %278 = tail call float @llvm.fmuladd.f32(float %277, float %270, float %256)
   %279 = fdiv float 1.000000e+00, %278
-  %280 = tail call noundef float @cbrtf(float noundef %279) #26
-  %281 = tail call noundef float @sqrtf(float noundef %280) #23
+  %280 = tail call noundef float @cbrtf(float noundef %279) #28
+  %281 = tail call noundef float @sqrtf(float noundef %280) #25
   %282 = fdiv float 1.000000e+00, %281
   %283 = fcmp uge float %275, %57
   %brmerge563 = or i1 %260, %283
@@ -61406,7 +61408,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %436, label %437, label %448
 
 437:                                              ; preds = %.thread
-  %438 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %438 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %439 unwind label %.thread548
 
@@ -61427,7 +61429,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %442 unwind label %445
 
 442:                                              ; preds = %440
-  invoke void @__cxa_throw(ptr %438, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %438, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %450 unwind label %445
 
 .thread548:                                       ; preds = %437
@@ -61438,21 +61440,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread553:                                       ; preds = %439
   %444 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %447
 
 445:                                              ; preds = %440, %442
   %.0 = phi i1 [ false, %442 ], [ true, %440 ]
   %446 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %447, label %449
 
 447:                                              ; preds = %.thread553, %.thread548, %445
   %.pn.pn552 = phi { ptr, i32 } [ %443, %.thread548 ], [ %446, %445 ], [ %444, %.thread553 ]
-  call void @__cxa_free_exception(ptr %438) #23
+  call void @__cxa_free_exception(ptr %438) #25
   br label %449
 
 448:                                              ; preds = %.thread
@@ -61467,7 +61469,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0955 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -62475,7 +62477,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %or.cond727, label %719, label %730
 
 719:                                              ; preds = %710
-  %720 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %720 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull @.str)
           to label %721 unwind label %.thread716
 
@@ -62496,7 +62498,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %724 unwind label %727
 
 724:                                              ; preds = %722
-  invoke void @__cxa_throw(ptr %720, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %720, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %732 unwind label %727
 
 .thread716:                                       ; preds = %719
@@ -62507,21 +62509,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread721:                                       ; preds = %721
   %726 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #25
   br label %729
 
 727:                                              ; preds = %722, %724
   %.0 = phi i1 [ false, %724 ], [ true, %722 ]
   %728 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #25
   br i1 %.0, label %729, label %731
 
 729:                                              ; preds = %.thread721, %.thread716, %727
   %.pn.pn720 = phi { ptr, i32 } [ %725, %.thread716 ], [ %728, %727 ], [ %726, %.thread721 ]
-  call void @__cxa_free_exception(ptr %720) #23
+  call void @__cxa_free_exception(ptr %720) #25
   br label %731
 
 730:                                              ; preds = %710
@@ -62934,15 +62936,15 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %266 = load float, ptr %indvars.iv546.sroa.phi622, align 4
   %267 = tail call float @llvm.fmuladd.f32(float %265, float %266, float %252)
   %268 = fdiv float 1.000000e+00, %267
-  %269 = tail call noundef float @cbrtf(float noundef %268) #26
-  %270 = tail call noundef float @sqrtf(float noundef %269) #23
+  %269 = tail call noundef float @cbrtf(float noundef %268) #28
+  %270 = tail call noundef float @sqrtf(float noundef %269) #25
   %271 = fdiv float 1.000000e+00, %270
   %272 = load float, ptr %indvars.iv546.sroa.phi670, align 4
   %273 = fmul float %.sroa.0440.0, %272
   %274 = tail call float @llvm.fmuladd.f32(float %273, float %266, float %252)
   %275 = fdiv float 1.000000e+00, %274
-  %276 = tail call noundef float @cbrtf(float noundef %275) #26
-  %277 = tail call noundef float @sqrtf(float noundef %276) #23
+  %276 = tail call noundef float @cbrtf(float noundef %275) #28
+  %277 = tail call noundef float @sqrtf(float noundef %276) #25
   %278 = fdiv float 1.000000e+00, %277
   %279 = fcmp uge float %271, %56
   %brmerge487 = or i1 %256, %279
@@ -63142,7 +63144,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %375, label %376, label %387
 
 376:                                              ; preds = %.thread
-  %377 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %377 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %378 unwind label %.thread472
 
@@ -63163,7 +63165,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %381 unwind label %384
 
 381:                                              ; preds = %379
-  invoke void @__cxa_throw(ptr %377, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %377, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %389 unwind label %384
 
 .thread472:                                       ; preds = %376
@@ -63174,21 +63176,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread477:                                       ; preds = %378
   %383 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %386
 
 384:                                              ; preds = %379, %381
   %.0 = phi i1 [ false, %381 ], [ true, %379 ]
   %385 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %386, label %388
 
 386:                                              ; preds = %.thread477, %.thread472, %384
   %.pn.pn476 = phi { ptr, i32 } [ %382, %.thread472 ], [ %385, %384 ], [ %383, %.thread477 ]
-  call void @__cxa_free_exception(ptr %377) #23
+  call void @__cxa_free_exception(ptr %377) #25
   br label %388
 
 387:                                              ; preds = %.thread
@@ -63205,33 +63207,33 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb0ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb1ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb0ELb1ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb1ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb1ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01137 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -65178,8 +65180,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %272 = load float, ptr %indvars.iv655.sroa.phi753, align 4
   %273 = tail call float @llvm.fmuladd.f32(float %271, float %272, float %255)
   %274 = fdiv float 1.000000e+00, %273
-  %275 = tail call noundef float @cbrtf(float noundef %274) #26
-  %276 = tail call noundef float @sqrtf(float noundef %275) #23
+  %275 = tail call noundef float @cbrtf(float noundef %274) #28
+  %276 = tail call noundef float @sqrtf(float noundef %275) #25
   %brmerge578 = or i1 %257, %262
   br i1 %brmerge578, label %.thread568, label %277
 
@@ -65356,7 +65358,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %380 = fmul float %378, %379
   %381 = fmul float %67, %.sroa.speculated.i
   %382 = fneg float %381
-  %383 = tail call noundef float @expf(float noundef %382) #23
+  %383 = tail call noundef float @expf(float noundef %382) #25
   %384 = fadd float %381, 1.000000e+00
   %385 = fmul float %381, 5.000000e-01
   %386 = tail call float @llvm.fmuladd.f32(float %385, float %381, float %384)
@@ -65534,7 +65536,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb1ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb1ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0961 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -66983,8 +66985,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %270 = load float, ptr %indvars.iv551.sroa.phi635, align 4
   %271 = tail call float @llvm.fmuladd.f32(float %269, float %270, float %253)
   %272 = fdiv float 1.000000e+00, %271
-  %273 = tail call noundef float @cbrtf(float noundef %272) #26
-  %274 = tail call noundef float @sqrtf(float noundef %273) #23
+  %273 = tail call noundef float @cbrtf(float noundef %272) #28
+  %274 = tail call noundef float @sqrtf(float noundef %273) #25
   %brmerge486 = or i1 %255, %260
   br i1 %brmerge486, label %.thread476, label %275
 
@@ -67120,7 +67122,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %348 = fmul float %346, %347
   %349 = fmul float %66, %.sroa.speculated.i
   %350 = fneg float %349
-  %351 = tail call noundef float @expf(float noundef %350) #23
+  %351 = tail call noundef float @expf(float noundef %350) #25
   %352 = fadd float %349, 1.000000e+00
   %353 = fmul float %349, 5.000000e-01
   %354 = tail call float @llvm.fmuladd.f32(float %353, float %349, float %352)
@@ -67230,33 +67232,33 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb1ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb0ELb1ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb1ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb0ELb1ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01181 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -68793,7 +68795,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %or.cond908, label %1133, label %1144
 
 1133:                                             ; preds = %1124
-  %1134 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %1134 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull @.str)
           to label %1135 unwind label %.thread897
 
@@ -68814,7 +68816,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %1138 unwind label %1141
 
 1138:                                             ; preds = %1136
-  invoke void @__cxa_throw(ptr %1134, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %1134, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %1146 unwind label %1141
 
 .thread897:                                       ; preds = %1133
@@ -68825,21 +68827,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread902:                                       ; preds = %1135
   %1140 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #25
   br label %1143
 
 1141:                                             ; preds = %1136, %1138
   %.0 = phi i1 [ false, %1138 ], [ true, %1136 ]
   %1142 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #25
   br i1 %.0, label %1143, label %1145
 
 1143:                                             ; preds = %.thread902, %.thread897, %1141
   %.pn.pn901 = phi { ptr, i32 } [ %1139, %.thread897 ], [ %1142, %1141 ], [ %1140, %.thread902 ]
-  call void @__cxa_free_exception(ptr %1134) #23
+  call void @__cxa_free_exception(ptr %1134) #25
   br label %1145
 
 1144:                                             ; preds = %1124
@@ -69287,8 +69289,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %282 = load float, ptr %indvars.iv680.sroa.phi785, align 4
   %283 = tail call float @llvm.fmuladd.f32(float %281, float %282, float %266)
   %284 = fdiv float 1.000000e+00, %283
-  %285 = tail call noundef float @cbrtf(float noundef %284) #26
-  %286 = tail call noundef float @sqrtf(float noundef %285) #23
+  %285 = tail call noundef float @cbrtf(float noundef %284) #28
+  %286 = tail call noundef float @sqrtf(float noundef %285) #25
   %287 = fdiv float 1.000000e+00, %286
   %288 = fcmp uge float %287, %57
   %brmerge601 = or i1 %272, %288
@@ -69454,7 +69456,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %373 = fmul float %371, %372
   %374 = fmul float %72, %.sroa.speculated.i
   %375 = fneg float %374
-  %376 = tail call noundef float @expf(float noundef %375) #23
+  %376 = tail call noundef float @expf(float noundef %375) #25
   %377 = fadd float %374, 1.000000e+00
   %378 = fmul float %374, 5.000000e-01
   %379 = tail call float @llvm.fmuladd.f32(float %378, float %374, float %377)
@@ -69636,7 +69638,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %480, label %481, label %492
 
 481:                                              ; preds = %.thread
-  %482 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %482 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %483 unwind label %.thread586
 
@@ -69657,7 +69659,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %486 unwind label %489
 
 486:                                              ; preds = %484
-  invoke void @__cxa_throw(ptr %482, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %482, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %494 unwind label %489
 
 .thread586:                                       ; preds = %481
@@ -69668,21 +69670,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread591:                                       ; preds = %483
   %488 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %491
 
 489:                                              ; preds = %484, %486
   %.0 = phi i1 [ false, %486 ], [ true, %484 ]
   %490 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %491, label %493
 
 491:                                              ; preds = %.thread591, %.thread586, %489
   %.pn.pn590 = phi { ptr, i32 } [ %487, %.thread586 ], [ %490, %489 ], [ %488, %.thread591 ]
-  call void @__cxa_free_exception(ptr %482) #23
+  call void @__cxa_free_exception(ptr %482) #25
   br label %493
 
 492:                                              ; preds = %.thread
@@ -69697,7 +69699,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01023 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -70760,7 +70762,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %or.cond780, label %751, label %762
 
 751:                                              ; preds = %742
-  %752 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %752 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str)
           to label %753 unwind label %.thread769
 
@@ -70781,7 +70783,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %756 unwind label %759
 
 756:                                              ; preds = %754
-  invoke void @__cxa_throw(ptr %752, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %752, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %764 unwind label %759
 
 .thread769:                                       ; preds = %751
@@ -70792,21 +70794,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread774:                                       ; preds = %753
   %758 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br label %761
 
 759:                                              ; preds = %754, %756
   %.0 = phi i1 [ false, %756 ], [ true, %754 ]
   %760 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br i1 %.0, label %761, label %763
 
 761:                                              ; preds = %.thread774, %.thread769, %759
   %.pn.pn773 = phi { ptr, i32 } [ %757, %.thread769 ], [ %760, %759 ], [ %758, %.thread774 ]
-  call void @__cxa_free_exception(ptr %752) #23
+  call void @__cxa_free_exception(ptr %752) #25
   br label %763
 
 762:                                              ; preds = %742
@@ -71238,8 +71240,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %278 = load float, ptr %indvars.iv583.sroa.phi674, align 4
   %279 = tail call float @llvm.fmuladd.f32(float %277, float %278, float %262)
   %280 = fdiv float 1.000000e+00, %279
-  %281 = tail call noundef float @cbrtf(float noundef %280) #26
-  %282 = tail call noundef float @sqrtf(float noundef %281) #23
+  %281 = tail call noundef float @cbrtf(float noundef %280) #28
+  %282 = tail call noundef float @sqrtf(float noundef %281) #25
   %283 = fdiv float 1.000000e+00, %282
   %284 = fcmp uge float %283, %56
   %brmerge516 = or i1 %268, %284
@@ -71378,7 +71380,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %353 = fmul float %351, %352
   %354 = fmul float %71, %.sroa.speculated.i
   %355 = fneg float %354
-  %356 = tail call noundef float @expf(float noundef %355) #23
+  %356 = tail call noundef float @expf(float noundef %355) #25
   %357 = fadd float %354, 1.000000e+00
   %358 = fmul float %354, 5.000000e-01
   %359 = tail call float @llvm.fmuladd.f32(float %358, float %354, float %357)
@@ -71490,7 +71492,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %415, label %416, label %427
 
 416:                                              ; preds = %.thread
-  %417 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %417 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %418 unwind label %.thread501
 
@@ -71511,7 +71513,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %421 unwind label %424
 
 421:                                              ; preds = %419
-  invoke void @__cxa_throw(ptr %417, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %417, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %429 unwind label %424
 
 .thread501:                                       ; preds = %416
@@ -71522,21 +71524,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread506:                                       ; preds = %418
   %423 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %426
 
 424:                                              ; preds = %419, %421
   %.0 = phi i1 [ false, %421 ], [ true, %419 ]
   %425 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %426, label %428
 
 426:                                              ; preds = %.thread506, %.thread501, %424
   %.pn.pn505 = phi { ptr, i32 } [ %422, %.thread501 ], [ %425, %424 ], [ %423, %.thread506 ]
-  call void @__cxa_free_exception(ptr %417) #23
+  call void @__cxa_free_exception(ptr %417) #25
   br label %428
 
 427:                                              ; preds = %.thread
@@ -71551,7 +71553,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01132 = alloca float, align 4
   %.sroa.31133 = alloca float, align 4
@@ -73409,8 +73411,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %271 = load float, ptr %indvars.iv661.sroa.phi741, align 4
   %272 = tail call float @llvm.fmuladd.f32(float %270, float %271, float %255)
   %273 = fdiv float 1.000000e+00, %272
-  %274 = tail call noundef float @cbrtf(float noundef %273) #26
-  %275 = tail call noundef float @sqrtf(float noundef %274) #23
+  %274 = tail call noundef float @cbrtf(float noundef %273) #28
+  %275 = tail call noundef float @sqrtf(float noundef %274) #25
   %276 = fdiv float 1.000000e+00, %275
   %brmerge594 = or i1 %257, %261
   br i1 %brmerge594, label %.thread584, label %277
@@ -73725,7 +73727,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0946 = alloca float, align 4
   %.sroa.3947 = alloca float, align 4
@@ -75072,8 +75074,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %266 = load float, ptr %indvars.iv555.sroa.phi624, align 4
   %267 = tail call float @llvm.fmuladd.f32(float %265, float %266, float %250)
   %268 = fdiv float 1.000000e+00, %267
-  %269 = tail call noundef float @cbrtf(float noundef %268) #26
-  %270 = tail call noundef float @sqrtf(float noundef %269) #23
+  %269 = tail call noundef float @cbrtf(float noundef %268) #28
+  %270 = tail call noundef float @sqrtf(float noundef %269) #25
   %271 = fdiv float 1.000000e+00, %270
   %brmerge498 = or i1 %252, %256
   br i1 %brmerge498, label %.thread488, label %272
@@ -75276,7 +75278,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01027 = alloca float, align 4
   %.sroa.31028 = alloca float, align 4
@@ -77073,8 +77075,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %258 = load float, ptr %indvars.iv602.sroa.phi682, align 4
   %259 = tail call float @llvm.fmuladd.f32(float %257, float %258, float %242)
   %260 = fdiv float 1.000000e+00, %259
-  %261 = tail call noundef float @cbrtf(float noundef %260) #26
-  %262 = tail call noundef float @sqrtf(float noundef %261) #23
+  %261 = tail call noundef float @cbrtf(float noundef %260) #28
+  %262 = tail call noundef float @sqrtf(float noundef %261) #25
   %263 = fdiv float 1.000000e+00, %262
   %brmerge535 = or i1 %244, %248
   br i1 %brmerge535, label %.thread525, label %264
@@ -77373,7 +77375,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0871 = alloca float, align 4
   %.sroa.3872 = alloca float, align 4
@@ -78680,8 +78682,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %256 = load float, ptr %indvars.iv509.sroa.phi578, align 4
   %257 = tail call float @llvm.fmuladd.f32(float %255, float %256, float %240)
   %258 = fdiv float 1.000000e+00, %257
-  %259 = tail call noundef float @cbrtf(float noundef %258) #26
-  %260 = tail call noundef float @sqrtf(float noundef %259) #23
+  %259 = tail call noundef float @cbrtf(float noundef %258) #28
+  %260 = tail call noundef float @sqrtf(float noundef %259) #25
   %261 = fdiv float 1.000000e+00, %260
   %brmerge452 = or i1 %242, %246
   br i1 %brmerge452, label %.thread442, label %262
@@ -78875,7 +78877,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01177 = alloca float, align 4
   %.sroa.31178 = alloca float, align 4
@@ -80324,7 +80326,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %or.cond934, label %1077, label %1088
 
 1077:                                             ; preds = %1068
-  %1078 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %1078 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str)
           to label %1079 unwind label %.thread923
 
@@ -80345,7 +80347,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %1082 unwind label %1085
 
 1082:                                             ; preds = %1080
-  invoke void @__cxa_throw(ptr %1078, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %1078, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %1090 unwind label %1085
 
 .thread923:                                       ; preds = %1077
@@ -80356,21 +80358,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread928:                                       ; preds = %1079
   %1084 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br label %1087
 
 1085:                                             ; preds = %1080, %1082
   %.0 = phi i1 [ false, %1082 ], [ true, %1080 ]
   %1086 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br i1 %.0, label %1087, label %1089
 
 1087:                                             ; preds = %.thread928, %.thread923, %1085
   %.pn.pn927 = phi { ptr, i32 } [ %1083, %.thread923 ], [ %1086, %1085 ], [ %1084, %.thread928 ]
-  call void @__cxa_free_exception(ptr %1078) #23
+  call void @__cxa_free_exception(ptr %1078) #25
   br label %1089
 
 1088:                                             ; preds = %1068
@@ -80800,8 +80802,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %278 = load float, ptr %indvars.iv684.sroa.phi771, align 4
   %279 = tail call float @llvm.fmuladd.f32(float %277, float %278, float %264)
   %280 = fdiv float 1.000000e+00, %279
-  %281 = tail call noundef float @cbrtf(float noundef %280) #26
-  %282 = tail call noundef float @sqrtf(float noundef %281) #23
+  %281 = tail call noundef float @cbrtf(float noundef %280) #28
+  %282 = tail call noundef float @sqrtf(float noundef %281) #25
   %283 = fdiv float 1.000000e+00, %282
   %284 = fcmp uge float %283, %57
   %brmerge615 = or i1 %268, %284
@@ -81109,7 +81111,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %453, label %454, label %465
 
 454:                                              ; preds = %.thread
-  %455 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %455 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %456 unwind label %.thread600
 
@@ -81130,7 +81132,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %459 unwind label %462
 
 459:                                              ; preds = %457
-  invoke void @__cxa_throw(ptr %455, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %455, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %467 unwind label %462
 
 .thread600:                                       ; preds = %454
@@ -81141,21 +81143,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread605:                                       ; preds = %456
   %461 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %464
 
 462:                                              ; preds = %457, %459
   %.0 = phi i1 [ false, %459 ], [ true, %457 ]
   %463 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %464, label %466
 
 464:                                              ; preds = %.thread605, %.thread600, %462
   %.pn.pn604 = phi { ptr, i32 } [ %460, %.thread600 ], [ %463, %462 ], [ %461, %.thread605 ]
-  call void @__cxa_free_exception(ptr %455) #23
+  call void @__cxa_free_exception(ptr %455) #25
   br label %466
 
 465:                                              ; preds = %.thread
@@ -81170,7 +81172,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01008 = alloca float, align 4
   %.sroa.31009 = alloca float, align 4
@@ -82134,7 +82136,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %or.cond790, label %682, label %693
 
 682:                                              ; preds = %673
-  %683 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %683 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull @.str)
           to label %684 unwind label %.thread779
 
@@ -82155,7 +82157,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %687 unwind label %690
 
 687:                                              ; preds = %685
-  invoke void @__cxa_throw(ptr %683, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %683, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %695 unwind label %690
 
 .thread779:                                       ; preds = %682
@@ -82166,21 +82168,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread784:                                       ; preds = %684
   %689 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #25
   br label %692
 
 690:                                              ; preds = %685, %687
   %.0 = phi i1 [ false, %687 ], [ true, %685 ]
   %691 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #25
   br i1 %.0, label %692, label %694
 
 692:                                              ; preds = %.thread784, %.thread779, %690
   %.pn.pn783 = phi { ptr, i32 } [ %688, %.thread779 ], [ %691, %690 ], [ %689, %.thread784 ]
-  call void @__cxa_free_exception(ptr %683) #23
+  call void @__cxa_free_exception(ptr %683) #25
   br label %694
 
 693:                                              ; preds = %673
@@ -82591,8 +82593,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %271 = load float, ptr %indvars.iv585.sroa.phi661, align 4
   %272 = tail call float @llvm.fmuladd.f32(float %270, float %271, float %257)
   %273 = fdiv float 1.000000e+00, %272
-  %274 = tail call noundef float @cbrtf(float noundef %273) #26
-  %275 = tail call noundef float @sqrtf(float noundef %274) #23
+  %274 = tail call noundef float @cbrtf(float noundef %273) #28
+  %275 = tail call noundef float @sqrtf(float noundef %274) #25
   %276 = fdiv float 1.000000e+00, %275
   %277 = fcmp uge float %276, %56
   %brmerge526 = or i1 %261, %277
@@ -82801,7 +82803,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %382, label %383, label %394
 
 383:                                              ; preds = %.thread
-  %384 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %384 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %385 unwind label %.thread511
 
@@ -82822,7 +82824,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %388 unwind label %391
 
 388:                                              ; preds = %386
-  invoke void @__cxa_throw(ptr %384, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %384, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %396 unwind label %391
 
 .thread511:                                       ; preds = %383
@@ -82833,21 +82835,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread516:                                       ; preds = %385
   %390 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %393
 
 391:                                              ; preds = %386, %388
   %.0 = phi i1 [ false, %388 ], [ true, %386 ]
   %392 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %393, label %395
 
 393:                                              ; preds = %.thread516, %.thread511, %391
   %.pn.pn515 = phi { ptr, i32 } [ %389, %.thread511 ], [ %392, %391 ], [ %390, %.thread516 ]
-  call void @__cxa_free_exception(ptr %384) #23
+  call void @__cxa_free_exception(ptr %384) #25
   br label %395
 
 394:                                              ; preds = %.thread
@@ -82862,7 +82864,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01072 = alloca float, align 4
   %.sroa.31073 = alloca float, align 4
@@ -84263,7 +84265,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %or.cond829, label %1029, label %1040
 
 1029:                                             ; preds = %1020
-  %1030 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %1030 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str)
           to label %1031 unwind label %.thread818
 
@@ -84284,7 +84286,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %1034 unwind label %1037
 
 1034:                                             ; preds = %1032
-  invoke void @__cxa_throw(ptr %1030, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %1030, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %1042 unwind label %1037
 
 .thread818:                                       ; preds = %1029
@@ -84295,21 +84297,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread823:                                       ; preds = %1031
   %1036 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br label %1039
 
 1037:                                             ; preds = %1032, %1034
   %.0 = phi i1 [ false, %1034 ], [ true, %1032 ]
   %1038 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br i1 %.0, label %1039, label %1041
 
 1039:                                             ; preds = %.thread823, %.thread818, %1037
   %.pn.pn822 = phi { ptr, i32 } [ %1035, %.thread818 ], [ %1038, %1037 ], [ %1036, %.thread823 ]
-  call void @__cxa_free_exception(ptr %1030) #23
+  call void @__cxa_free_exception(ptr %1030) #25
   br label %1041
 
 1040:                                             ; preds = %1020
@@ -84726,8 +84728,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %265 = load float, ptr %indvars.iv625.sroa.phi712, align 4
   %266 = tail call float @llvm.fmuladd.f32(float %264, float %265, float %251)
   %267 = fdiv float 1.000000e+00, %266
-  %268 = tail call noundef float @cbrtf(float noundef %267) #26
-  %269 = tail call noundef float @sqrtf(float noundef %268) #23
+  %268 = tail call noundef float @cbrtf(float noundef %267) #28
+  %269 = tail call noundef float @sqrtf(float noundef %268) #25
   %270 = fdiv float 1.000000e+00, %269
   %271 = fcmp uge float %270, %57
   %brmerge556 = or i1 %255, %271
@@ -85019,7 +85021,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %424, label %425, label %436
 
 425:                                              ; preds = %.thread
-  %426 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %426 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %427 unwind label %.thread541
 
@@ -85040,7 +85042,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %430 unwind label %433
 
 430:                                              ; preds = %428
-  invoke void @__cxa_throw(ptr %426, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %426, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %438 unwind label %433
 
 .thread541:                                       ; preds = %425
@@ -85051,21 +85053,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread546:                                       ; preds = %427
   %432 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %435
 
 433:                                              ; preds = %428, %430
   %.0 = phi i1 [ false, %430 ], [ true, %428 ]
   %434 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %435, label %437
 
 435:                                              ; preds = %.thread546, %.thread541, %433
   %.pn.pn545 = phi { ptr, i32 } [ %431, %.thread541 ], [ %434, %433 ], [ %432, %.thread546 ]
-  call void @__cxa_free_exception(ptr %426) #23
+  call void @__cxa_free_exception(ptr %426) #25
   br label %437
 
 436:                                              ; preds = %.thread
@@ -85080,7 +85082,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0933 = alloca float, align 4
   %.sroa.3934 = alloca float, align 4
@@ -86014,7 +86016,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %or.cond715, label %652, label %663
 
 652:                                              ; preds = %643
-  %653 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %653 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull @.str)
           to label %654 unwind label %.thread704
 
@@ -86035,7 +86037,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %657 unwind label %660
 
 657:                                              ; preds = %655
-  invoke void @__cxa_throw(ptr %653, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %653, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %665 unwind label %660
 
 .thread704:                                       ; preds = %652
@@ -86046,21 +86048,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread709:                                       ; preds = %654
   %659 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #25
   br label %662
 
 660:                                              ; preds = %655, %657
   %.0 = phi i1 [ false, %657 ], [ true, %655 ]
   %661 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #25
   br i1 %.0, label %662, label %664
 
 662:                                              ; preds = %.thread709, %.thread704, %660
   %.pn.pn708 = phi { ptr, i32 } [ %658, %.thread704 ], [ %661, %660 ], [ %659, %.thread709 ]
-  call void @__cxa_free_exception(ptr %653) #23
+  call void @__cxa_free_exception(ptr %653) #25
   br label %664
 
 663:                                              ; preds = %643
@@ -86461,8 +86463,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %261 = load float, ptr %indvars.iv539.sroa.phi615, align 4
   %262 = tail call float @llvm.fmuladd.f32(float %260, float %261, float %247)
   %263 = fdiv float 1.000000e+00, %262
-  %264 = tail call noundef float @cbrtf(float noundef %263) #26
-  %265 = tail call noundef float @sqrtf(float noundef %264) #23
+  %264 = tail call noundef float @cbrtf(float noundef %263) #28
+  %265 = tail call noundef float @sqrtf(float noundef %264) #25
   %266 = fdiv float 1.000000e+00, %265
   %267 = fcmp uge float %266, %56
   %brmerge480 = or i1 %251, %267
@@ -86662,7 +86664,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %363, label %364, label %375
 
 364:                                              ; preds = %.thread
-  %365 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %365 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %366 unwind label %.thread465
 
@@ -86683,7 +86685,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %369 unwind label %372
 
 369:                                              ; preds = %367
-  invoke void @__cxa_throw(ptr %365, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %365, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %377 unwind label %372
 
 .thread465:                                       ; preds = %364
@@ -86694,21 +86696,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 .thread470:                                       ; preds = %366
   %371 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %374
 
 372:                                              ; preds = %367, %369
   %.0 = phi i1 [ false, %369 ], [ true, %367 ]
   %373 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %374, label %376
 
 374:                                              ; preds = %.thread470, %.thread465, %372
   %.pn.pn469 = phi { ptr, i32 } [ %370, %.thread465 ], [ %373, %372 ], [ %371, %.thread470 ]
-  call void @__cxa_free_exception(ptr %365) #23
+  call void @__cxa_free_exception(ptr %365) #25
   br label %376
 
 375:                                              ; preds = %.thread
@@ -86725,36 +86727,36 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #9
+declare float @llvm.fabs.f32(float) #10
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb1ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb1ELb1ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb1ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb1ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01113 = alloca float, align 4
   %.sroa.41114 = alloca float, align 4
@@ -88808,8 +88810,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 256:                                              ; preds = %248
   %257 = fsub float 1.000000e+00, %251
-  %258 = tail call noundef float @cbrtf(float noundef %257) #26
-  %259 = tail call noundef float @sqrtf(float noundef %258) #23
+  %258 = tail call noundef float @cbrtf(float noundef %257) #28
+  %259 = tail call noundef float @sqrtf(float noundef %258) #25
   %260 = fdiv float %239, %48
   %261 = tail call noundef float @llvm.fabs.f32(float %260)
   %262 = fadd float %261, 1.000000e+00
@@ -88880,8 +88882,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %308 = fsub float 1.000000e+00, %302
   %309 = fmul float %307, 0x400DB6DB60000000
   %310 = fmul float %308, %309
-  %311 = tail call noundef float @cbrtf(float noundef %310) #26
-  %312 = tail call noundef float @sqrtf(float noundef %311) #23
+  %311 = tail call noundef float @cbrtf(float noundef %310) #28
+  %312 = tail call noundef float @sqrtf(float noundef %311) #25
   %313 = fmul float %.sroa.0509.0, %312
   %314 = fcmp ogt float %313, %226
   br i1 %314, label %315, label %_ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.exit
@@ -89063,7 +89065,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %435 = fmul float %227, %434
   %436 = fmul float %63, %.sroa.speculated.i
   %437 = fneg float %436
-  %438 = tail call noundef float @expf(float noundef %437) #23
+  %438 = tail call noundef float @expf(float noundef %437) #25
   %439 = fadd float %436, 1.000000e+00
   %440 = fmul float %436, 5.000000e-01
   %441 = tail call float @llvm.fmuladd.f32(float %440, float %436, float %439)
@@ -89241,7 +89243,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb1ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb1ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0927 = alloca float, align 4
   %.sroa.4928 = alloca float, align 4
@@ -90795,8 +90797,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 253:                                              ; preds = %246
   %254 = fsub float 1.000000e+00, %248
-  %255 = tail call noundef float @cbrtf(float noundef %254) #26
-  %256 = tail call noundef float @sqrtf(float noundef %255) #23
+  %255 = tail call noundef float @cbrtf(float noundef %254) #28
+  %256 = tail call noundef float @sqrtf(float noundef %255) #25
   %257 = fdiv float %237, %47
   %258 = tail call noundef float @llvm.fabs.f32(float %257)
   %259 = fadd float %258, 1.000000e+00
@@ -90862,8 +90864,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %302 = fsub float 1.000000e+00, %296
   %303 = fmul float %301, 0x400DB6DB60000000
   %304 = fmul float %302, %303
-  %305 = tail call noundef float @cbrtf(float noundef %304) #26
-  %306 = tail call noundef float @sqrtf(float noundef %305) #23
+  %305 = tail call noundef float @cbrtf(float noundef %304) #28
+  %306 = tail call noundef float @sqrtf(float noundef %305) #25
   %307 = fmul float %.sroa.0429.0, %306
   %308 = fcmp ogt float %307, %224
   br i1 %308, label %309, label %_ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.exit
@@ -91014,7 +91016,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %405 = fmul float %403, %404
   %406 = fmul float %62, %.sroa.speculated.i
   %407 = fneg float %406
-  %408 = tail call noundef float @expf(float noundef %407) #23
+  %408 = tail call noundef float @expf(float noundef %407) #25
   %409 = fadd float %406, 1.000000e+00
   %410 = fmul float %406, 5.000000e-01
   %411 = tail call float @llvm.fmuladd.f32(float %410, float %406, float %409)
@@ -91124,33 +91126,33 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb1ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb1ELb1ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb1ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb1ELb1ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01157 = alloca float, align 4
   %.sroa.41158 = alloca float, align 4
@@ -92840,7 +92842,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
   br i1 %or.cond896, label %1292, label %1303
 
 1292:                                             ; preds = %1283
-  %1293 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %1293 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull @.str)
           to label %1294 unwind label %.thread
 
@@ -92861,7 +92863,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %1297 unwind label %1300
 
 1297:                                             ; preds = %1295
-  invoke void @__cxa_throw(ptr %1293, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %1293, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %1305 unwind label %1300
 
 .thread:                                          ; preds = %1292
@@ -92872,21 +92874,21 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
 .thread890:                                       ; preds = %1294
   %1299 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #25
   br label %1302
 
 1300:                                             ; preds = %1295, %1297
   %.0 = phi i1 [ false, %1297 ], [ true, %1295 ]
   %1301 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #25
   br i1 %.0, label %1302, label %1304
 
 1302:                                             ; preds = %.thread890, %.thread, %1300
   %.pn.pn889 = phi { ptr, i32 } [ %1298, %.thread ], [ %1301, %1300 ], [ %1299, %.thread890 ]
-  call void @__cxa_free_exception(ptr %1293) #23
+  call void @__cxa_free_exception(ptr %1293) #25
   br label %1304
 
 1303:                                             ; preds = %1283
@@ -93300,8 +93302,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 272:                                              ; preds = %264
   %273 = fsub float 1.000000e+00, %267
-  %274 = tail call noundef float @cbrtf(float noundef %273) #26
-  %275 = tail call noundef float @sqrtf(float noundef %274) #23
+  %274 = tail call noundef float @cbrtf(float noundef %273) #28
+  %275 = tail call noundef float @sqrtf(float noundef %274) #25
   %276 = fdiv float %255, %51
   %277 = tail call noundef float @llvm.fabs.f32(float %276)
   %278 = fadd float %277, 1.000000e+00
@@ -93375,8 +93377,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %327 = fsub float 1.000000e+00, %321
   %328 = fmul float %326, 0x400DB6DB60000000
   %329 = fmul float %327, %328
-  %330 = tail call noundef float @cbrtf(float noundef %329) #26
-  %331 = tail call noundef float @sqrtf(float noundef %330) #23
+  %330 = tail call noundef float @cbrtf(float noundef %329) #28
+  %331 = tail call noundef float @sqrtf(float noundef %330) #25
   %332 = fmul float %.sroa.0525.0, %331
   %333 = fcmp ogt float %332, %237
   br i1 %333, label %334, label %_ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.exit
@@ -93542,7 +93544,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %432 = fmul float %238, %431
   %433 = fmul float %68, %.sroa.speculated.i
   %434 = fneg float %433
-  %435 = tail call noundef float @expf(float noundef %434) #23
+  %435 = tail call noundef float @expf(float noundef %434) #25
   %436 = fadd float %433, 1.000000e+00
   %437 = fmul float %433, 5.000000e-01
   %438 = tail call float @llvm.fmuladd.f32(float %437, float %433, float %436)
@@ -93724,7 +93726,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   br i1 %539, label %540, label %551
 
 540:                                              ; preds = %.thread720
-  %541 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %541 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %542 unwind label %.thread592
 
@@ -93745,7 +93747,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
           to label %545 unwind label %548
 
 545:                                              ; preds = %543
-  invoke void @__cxa_throw(ptr %541, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %541, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %553 unwind label %548
 
 .thread592:                                       ; preds = %540
@@ -93756,21 +93758,21 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .thread597:                                       ; preds = %542
   %547 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %550
 
 548:                                              ; preds = %543, %545
   %.0 = phi i1 [ false, %545 ], [ true, %543 ]
   %549 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %550, label %552
 
 550:                                              ; preds = %.thread597, %.thread592, %548
   %.pn.pn596 = phi { ptr, i32 } [ %546, %.thread592 ], [ %549, %548 ], [ %547, %.thread597 ]
-  call void @__cxa_free_exception(ptr %541) #23
+  call void @__cxa_free_exception(ptr %541) #25
   br label %552
 
 551:                                              ; preds = %.thread720
@@ -93785,7 +93787,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0989 = alloca float, align 4
   %.sroa.4990 = alloca float, align 4
@@ -94996,7 +94998,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
   br i1 %or.cond770, label %903, label %914
 
 903:                                              ; preds = %894
-  %904 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %904 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str)
           to label %905 unwind label %.thread
 
@@ -95017,7 +95019,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %908 unwind label %911
 
 908:                                              ; preds = %906
-  invoke void @__cxa_throw(ptr %904, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %904, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %916 unwind label %911
 
 .thread:                                          ; preds = %903
@@ -95028,21 +95030,21 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
 .thread764:                                       ; preds = %905
   %910 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br label %913
 
 911:                                              ; preds = %906, %908
   %.0 = phi i1 [ false, %908 ], [ true, %906 ]
   %912 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br i1 %.0, label %913, label %915
 
 913:                                              ; preds = %.thread764, %.thread, %911
   %.pn.pn763 = phi { ptr, i32 } [ %909, %.thread ], [ %912, %911 ], [ %910, %.thread764 ]
-  call void @__cxa_free_exception(ptr %904) #23
+  call void @__cxa_free_exception(ptr %904) #25
   br label %915
 
 914:                                              ; preds = %894
@@ -95436,8 +95438,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 265:                                              ; preds = %258
   %266 = fsub float 1.000000e+00, %260
-  %267 = tail call noundef float @cbrtf(float noundef %266) #26
-  %268 = tail call noundef float @sqrtf(float noundef %267) #23
+  %267 = tail call noundef float @cbrtf(float noundef %266) #28
+  %268 = tail call noundef float @sqrtf(float noundef %267) #25
   %269 = fdiv float %249, %50
   %270 = tail call noundef float @llvm.fabs.f32(float %269)
   %271 = fadd float %270, 1.000000e+00
@@ -95502,8 +95504,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %313 = fsub float 1.000000e+00, %307
   %314 = fmul float %312, 0x400DB6DB60000000
   %315 = fmul float %313, %314
-  %316 = tail call noundef float @cbrtf(float noundef %315) #26
-  %317 = tail call noundef float @sqrtf(float noundef %316) #23
+  %316 = tail call noundef float @cbrtf(float noundef %315) #28
+  %317 = tail call noundef float @sqrtf(float noundef %316) #25
   %318 = fmul float %.sroa.0452.0, %317
   %319 = fcmp ogt float %318, %233
   br i1 %319, label %320, label %_ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.exit
@@ -95654,7 +95656,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %410 = fmul float %408, %409
   %411 = fmul float %67, %.sroa.speculated.i
   %412 = fneg float %411
-  %413 = tail call noundef float @expf(float noundef %412) #23
+  %413 = tail call noundef float @expf(float noundef %412) #25
   %414 = fadd float %411, 1.000000e+00
   %415 = fmul float %411, 5.000000e-01
   %416 = tail call float @llvm.fmuladd.f32(float %415, float %411, float %414)
@@ -95766,7 +95768,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   br i1 %472, label %473, label %484
 
 473:                                              ; preds = %.thread621
-  %474 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %474 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %475 unwind label %.thread507
 
@@ -95787,7 +95789,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
           to label %478 unwind label %481
 
 478:                                              ; preds = %476
-  invoke void @__cxa_throw(ptr %474, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %474, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %486 unwind label %481
 
 .thread507:                                       ; preds = %473
@@ -95798,21 +95800,21 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .thread512:                                       ; preds = %475
   %480 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %483
 
 481:                                              ; preds = %476, %478
   %.0 = phi i1 [ false, %478 ], [ true, %476 ]
   %482 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %483, label %485
 
 483:                                              ; preds = %.thread512, %.thread507, %481
   %.pn.pn511 = phi { ptr, i32 } [ %479, %.thread507 ], [ %482, %481 ], [ %480, %.thread512 ]
-  call void @__cxa_free_exception(ptr %474) #23
+  call void @__cxa_free_exception(ptr %474) #25
   br label %485
 
 484:                                              ; preds = %.thread621
@@ -95827,7 +95829,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01107 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -97806,8 +97808,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 268:                                              ; preds = %260
   %269 = fsub float 1.000000e+00, %263
-  %270 = tail call noundef float @cbrtf(float noundef %269) #26
-  %271 = tail call noundef float @sqrtf(float noundef %270) #23
+  %270 = tail call noundef float @cbrtf(float noundef %269) #28
+  %271 = tail call noundef float @sqrtf(float noundef %270) #25
   %272 = fdiv float %251, %48
   %273 = tail call noundef float @llvm.fabs.f32(float %272)
   %274 = fadd float %273, 1.000000e+00
@@ -97877,8 +97879,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %320 = fsub float 1.000000e+00, %314
   %321 = fmul float %319, 0x400DB6DB60000000
   %322 = fmul float %320, %321
-  %323 = tail call noundef float @cbrtf(float noundef %322) #26
-  %324 = tail call noundef float @sqrtf(float noundef %323) #23
+  %323 = tail call noundef float @cbrtf(float noundef %322) #28
+  %324 = tail call noundef float @sqrtf(float noundef %323) #25
   %325 = fmul float %.sroa.0527.0, %324
   %326 = fcmp ogt float %325, %226
   br i1 %326, label %327, label %_ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.exit
@@ -98187,7 +98189,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0912 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -99648,8 +99650,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 258:                                              ; preds = %251
   %259 = fsub float 1.000000e+00, %253
-  %260 = tail call noundef float @cbrtf(float noundef %259) #26
-  %261 = tail call noundef float @sqrtf(float noundef %260) #23
+  %260 = tail call noundef float @cbrtf(float noundef %259) #28
+  %261 = tail call noundef float @sqrtf(float noundef %260) #25
   %262 = fdiv float %242, %47
   %263 = tail call noundef float @llvm.fabs.f32(float %262)
   %264 = fadd float %263, 1.000000e+00
@@ -99715,8 +99717,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %307 = fsub float 1.000000e+00, %301
   %308 = fmul float %306, 0x400DB6DB60000000
   %309 = fmul float %307, %308
-  %310 = tail call noundef float @cbrtf(float noundef %309) #26
-  %311 = tail call noundef float @sqrtf(float noundef %310) #23
+  %310 = tail call noundef float @cbrtf(float noundef %309) #28
+  %311 = tail call noundef float @sqrtf(float noundef %310) #25
   %312 = fmul float %.sroa.0442.0, %311
   %313 = fcmp ogt float %312, %221
   br i1 %313, label %314, label %_ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.exit
@@ -99925,7 +99927,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01006 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -101831,8 +101833,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 243:                                              ; preds = %235
   %244 = fsub float 1.000000e+00, %238
-  %245 = tail call noundef float @cbrtf(float noundef %244) #26
-  %246 = tail call noundef float @sqrtf(float noundef %245) #23
+  %245 = tail call noundef float @cbrtf(float noundef %244) #28
+  %246 = tail call noundef float @sqrtf(float noundef %245) #25
   %247 = fdiv float %226, %48
   %248 = tail call noundef float @llvm.fabs.f32(float %247)
   %249 = fadd float %248, 1.000000e+00
@@ -101904,8 +101906,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %295 = fsub float 1.000000e+00, %289
   %296 = fmul float %294, 0x400DB6DB60000000
   %297 = fmul float %295, %296
-  %298 = tail call noundef float @cbrtf(float noundef %297) #26
-  %299 = tail call noundef float @sqrtf(float noundef %298) #23
+  %298 = tail call noundef float @cbrtf(float noundef %297) #28
+  %299 = tail call noundef float @sqrtf(float noundef %298) #25
   %300 = fmul float %.sroa.0468.0, %299
   %301 = fcmp ogt float %300, %213
   br i1 %301, label %302, label %.thread
@@ -102204,7 +102206,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0839 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -103617,8 +103619,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 240:                                              ; preds = %233
   %241 = fsub float 1.000000e+00, %235
-  %242 = tail call noundef float @cbrtf(float noundef %241) #26
-  %243 = tail call noundef float @sqrtf(float noundef %242) #23
+  %242 = tail call noundef float @cbrtf(float noundef %241) #28
+  %243 = tail call noundef float @sqrtf(float noundef %242) #25
   %244 = fdiv float %224, %47
   %245 = tail call noundef float @llvm.fabs.f32(float %244)
   %246 = fadd float %245, 1.000000e+00
@@ -103685,8 +103687,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %289 = fsub float 1.000000e+00, %283
   %290 = fmul float %288, 0x400DB6DB60000000
   %291 = fmul float %289, %290
-  %292 = tail call noundef float @cbrtf(float noundef %291) #26
-  %293 = tail call noundef float @sqrtf(float noundef %292) #23
+  %292 = tail call noundef float @cbrtf(float noundef %291) #28
+  %293 = tail call noundef float @sqrtf(float noundef %292) #25
   %294 = fmul float %.sroa.0396.0, %293
   %295 = fcmp ogt float %294, %211
   br i1 %295, label %296, label %.thread
@@ -103889,7 +103891,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01151 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -105501,7 +105503,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
   br i1 %or.cond921, label %1244, label %1255
 
 1244:                                             ; preds = %1235
-  %1245 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %1245 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str)
           to label %1246 unwind label %.thread
 
@@ -105522,7 +105524,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %1249 unwind label %1252
 
 1249:                                             ; preds = %1247
-  invoke void @__cxa_throw(ptr %1245, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %1245, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %1257 unwind label %1252
 
 .thread:                                          ; preds = %1244
@@ -105533,21 +105535,21 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
 .thread915:                                       ; preds = %1246
   %1251 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br label %1254
 
 1252:                                             ; preds = %1247, %1249
   %.0 = phi i1 [ false, %1249 ], [ true, %1247 ]
   %1253 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br i1 %.0, label %1254, label %1256
 
 1254:                                             ; preds = %.thread915, %.thread, %1252
   %.pn.pn914 = phi { ptr, i32 } [ %1250, %.thread ], [ %1253, %1252 ], [ %1251, %.thread915 ]
-  call void @__cxa_free_exception(ptr %1245) #23
+  call void @__cxa_free_exception(ptr %1245) #25
   br label %1256
 
 1255:                                             ; preds = %1235
@@ -105962,8 +105964,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 284:                                              ; preds = %276
   %285 = fsub float 1.000000e+00, %279
-  %286 = tail call noundef float @cbrtf(float noundef %285) #26
-  %287 = tail call noundef float @sqrtf(float noundef %286) #23
+  %286 = tail call noundef float @cbrtf(float noundef %285) #28
+  %287 = tail call noundef float @sqrtf(float noundef %286) #25
   %288 = fdiv float %267, %51
   %289 = tail call noundef float @llvm.fabs.f32(float %288)
   %290 = fadd float %289, 1.000000e+00
@@ -106036,8 +106038,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %339 = fsub float 1.000000e+00, %333
   %340 = fmul float %338, 0x400DB6DB60000000
   %341 = fmul float %339, %340
-  %342 = tail call noundef float @cbrtf(float noundef %341) #26
-  %343 = tail call noundef float @sqrtf(float noundef %342) #23
+  %342 = tail call noundef float @cbrtf(float noundef %341) #28
+  %343 = tail call noundef float @sqrtf(float noundef %342) #25
   %344 = fmul float %.sroa.0542.0, %343
   %345 = fcmp ogt float %344, %237
   br i1 %345, label %346, label %_ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.exit
@@ -106334,7 +106336,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   br i1 %517, label %518, label %529
 
 518:                                              ; preds = %.thread721
-  %519 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %519 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %520 unwind label %.thread606
 
@@ -106355,7 +106357,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
           to label %523 unwind label %526
 
 523:                                              ; preds = %521
-  invoke void @__cxa_throw(ptr %519, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %519, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %531 unwind label %526
 
 .thread606:                                       ; preds = %518
@@ -106366,21 +106368,21 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .thread611:                                       ; preds = %520
   %525 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %528
 
 526:                                              ; preds = %521, %523
   %.0 = phi i1 [ false, %523 ], [ true, %521 ]
   %527 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %528, label %530
 
 528:                                              ; preds = %.thread611, %.thread606, %526
   %.pn.pn610 = phi { ptr, i32 } [ %524, %.thread606 ], [ %527, %526 ], [ %525, %.thread611 ]
-  call void @__cxa_free_exception(ptr %519) #23
+  call void @__cxa_free_exception(ptr %519) #25
   br label %530
 
 529:                                              ; preds = %.thread721
@@ -106395,7 +106397,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0974 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -107516,7 +107518,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
   br i1 %or.cond779, label %841, label %852
 
 841:                                              ; preds = %832
-  %842 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %842 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull @.str)
           to label %843 unwind label %.thread
 
@@ -107537,7 +107539,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %846 unwind label %849
 
 846:                                              ; preds = %844
-  invoke void @__cxa_throw(ptr %842, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %842, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %854 unwind label %849
 
 .thread:                                          ; preds = %841
@@ -107548,21 +107550,21 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
 .thread773:                                       ; preds = %843
   %848 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #25
   br label %851
 
 849:                                              ; preds = %844, %846
   %.0 = phi i1 [ false, %846 ], [ true, %844 ]
   %850 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #25
   br i1 %.0, label %851, label %853
 
 851:                                              ; preds = %.thread773, %.thread, %849
   %.pn.pn772 = phi { ptr, i32 } [ %847, %.thread ], [ %850, %849 ], [ %848, %.thread773 ]
-  call void @__cxa_free_exception(ptr %842) #23
+  call void @__cxa_free_exception(ptr %842) #25
   br label %853
 
 852:                                              ; preds = %832
@@ -107950,8 +107952,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 270:                                              ; preds = %263
   %271 = fsub float 1.000000e+00, %265
-  %272 = tail call noundef float @cbrtf(float noundef %271) #26
-  %273 = tail call noundef float @sqrtf(float noundef %272) #23
+  %272 = tail call noundef float @cbrtf(float noundef %271) #28
+  %273 = tail call noundef float @sqrtf(float noundef %272) #25
   %274 = fdiv float %254, %50
   %275 = tail call noundef float @llvm.fabs.f32(float %274)
   %276 = fadd float %275, 1.000000e+00
@@ -108016,8 +108018,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %318 = fsub float 1.000000e+00, %312
   %319 = fmul float %317, 0x400DB6DB60000000
   %320 = fmul float %318, %319
-  %321 = tail call noundef float @cbrtf(float noundef %320) #26
-  %322 = tail call noundef float @sqrtf(float noundef %321) #23
+  %321 = tail call noundef float @cbrtf(float noundef %320) #28
+  %322 = tail call noundef float @sqrtf(float noundef %321) #25
   %323 = fmul float %.sroa.0464.0, %322
   %324 = fcmp ogt float %323, %230
   br i1 %324, label %325, label %_ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.exit
@@ -108229,7 +108231,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   br i1 %442, label %443, label %454
 
 443:                                              ; preds = %.thread618
-  %444 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %444 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %445 unwind label %.thread515
 
@@ -108250,7 +108252,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
           to label %448 unwind label %451
 
 448:                                              ; preds = %446
-  invoke void @__cxa_throw(ptr %444, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %444, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %456 unwind label %451
 
 .thread515:                                       ; preds = %443
@@ -108261,21 +108263,21 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .thread520:                                       ; preds = %445
   %450 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %453
 
 451:                                              ; preds = %446, %448
   %.0 = phi i1 [ false, %448 ], [ true, %446 ]
   %452 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %453, label %455
 
 453:                                              ; preds = %.thread520, %.thread515, %451
   %.pn.pn519 = phi { ptr, i32 } [ %449, %.thread515 ], [ %452, %451 ], [ %450, %.thread520 ]
-  call void @__cxa_free_exception(ptr %444) #23
+  call void @__cxa_free_exception(ptr %444) #25
   br label %455
 
 454:                                              ; preds = %.thread618
@@ -108290,7 +108292,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01050 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -109854,7 +109856,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
   br i1 %or.cond816, label %1196, label %1207
 
 1196:                                             ; preds = %1187
-  %1197 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %1197 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str)
           to label %1198 unwind label %.thread
 
@@ -109875,7 +109877,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %1201 unwind label %1204
 
 1201:                                             ; preds = %1199
-  invoke void @__cxa_throw(ptr %1197, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %1197, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %1209 unwind label %1204
 
 .thread:                                          ; preds = %1196
@@ -109886,21 +109888,21 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
 .thread810:                                       ; preds = %1198
   %1203 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br label %1206
 
 1204:                                             ; preds = %1199, %1201
   %.0 = phi i1 [ false, %1201 ], [ true, %1199 ]
   %1205 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br i1 %.0, label %1206, label %1208
 
 1206:                                             ; preds = %.thread810, %.thread, %1204
   %.pn.pn809 = phi { ptr, i32 } [ %1202, %.thread ], [ %1205, %1204 ], [ %1203, %.thread810 ]
-  call void @__cxa_free_exception(ptr %1197) #23
+  call void @__cxa_free_exception(ptr %1197) #25
   br label %1208
 
 1207:                                             ; preds = %1187
@@ -110290,8 +110292,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 259:                                              ; preds = %251
   %260 = fsub float 1.000000e+00, %254
-  %261 = tail call noundef float @cbrtf(float noundef %260) #26
-  %262 = tail call noundef float @sqrtf(float noundef %261) #23
+  %261 = tail call noundef float @cbrtf(float noundef %260) #28
+  %262 = tail call noundef float @sqrtf(float noundef %261) #25
   %263 = fdiv float %242, %51
   %264 = tail call noundef float @llvm.fabs.f32(float %263)
   %265 = fadd float %264, 1.000000e+00
@@ -110366,8 +110368,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %314 = fsub float 1.000000e+00, %308
   %315 = fmul float %313, 0x400DB6DB60000000
   %316 = fmul float %314, %315
-  %317 = tail call noundef float @cbrtf(float noundef %316) #26
-  %318 = tail call noundef float @sqrtf(float noundef %317) #23
+  %317 = tail call noundef float @cbrtf(float noundef %316) #28
+  %318 = tail call noundef float @sqrtf(float noundef %317) #25
   %319 = fmul float %.sroa.0483.0, %318
   %320 = fcmp ogt float %319, %224
   br i1 %320, label %321, label %.thread
@@ -110654,7 +110656,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %486, label %487, label %498
 
 487:                                              ; preds = %.thread662
-  %488 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %488 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %489 unwind label %.thread547
 
@@ -110675,7 +110677,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %492 unwind label %495
 
 492:                                              ; preds = %490
-  invoke void @__cxa_throw(ptr %488, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %488, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %500 unwind label %495
 
 .thread547:                                       ; preds = %487
@@ -110686,21 +110688,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread552:                                       ; preds = %489
   %494 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %497
 
 495:                                              ; preds = %490, %492
   %.0 = phi i1 [ false, %492 ], [ true, %490 ]
   %496 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %497, label %499
 
 497:                                              ; preds = %.thread552, %.thread547, %495
   %.pn.pn551 = phi { ptr, i32 } [ %493, %.thread547 ], [ %496, %495 ], [ %494, %.thread552 ]
-  call void @__cxa_free_exception(ptr %488) #23
+  call void @__cxa_free_exception(ptr %488) #25
   br label %499
 
 498:                                              ; preds = %.thread662
@@ -110715,7 +110717,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0901 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -111806,7 +111808,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
   br i1 %or.cond704, label %811, label %822
 
 811:                                              ; preds = %802
-  %812 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %812 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull @.str)
           to label %813 unwind label %.thread
 
@@ -111827,7 +111829,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %816 unwind label %819
 
 816:                                              ; preds = %814
-  invoke void @__cxa_throw(ptr %812, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %812, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %824 unwind label %819
 
 .thread:                                          ; preds = %811
@@ -111838,21 +111840,21 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
 .thread698:                                       ; preds = %813
   %818 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #25
   br label %821
 
 819:                                              ; preds = %814, %816
   %.0 = phi i1 [ false, %816 ], [ true, %814 ]
   %820 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #25
   br i1 %.0, label %821, label %823
 
 821:                                              ; preds = %.thread698, %.thread, %819
   %.pn.pn697 = phi { ptr, i32 } [ %817, %.thread ], [ %820, %819 ], [ %818, %.thread698 ]
-  call void @__cxa_free_exception(ptr %812) #23
+  call void @__cxa_free_exception(ptr %812) #25
   br label %823
 
 822:                                              ; preds = %802
@@ -112222,8 +112224,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 252:                                              ; preds = %245
   %253 = fsub float 1.000000e+00, %247
-  %254 = tail call noundef float @cbrtf(float noundef %253) #26
-  %255 = tail call noundef float @sqrtf(float noundef %254) #23
+  %254 = tail call noundef float @cbrtf(float noundef %253) #28
+  %255 = tail call noundef float @sqrtf(float noundef %254) #25
   %256 = fdiv float %236, %50
   %257 = tail call noundef float @llvm.fabs.f32(float %256)
   %258 = fadd float %257, 1.000000e+00
@@ -112289,8 +112291,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %300 = fsub float 1.000000e+00, %294
   %301 = fmul float %299, 0x400DB6DB60000000
   %302 = fmul float %300, %301
-  %303 = tail call noundef float @cbrtf(float noundef %302) #26
-  %304 = tail call noundef float @sqrtf(float noundef %303) #23
+  %303 = tail call noundef float @cbrtf(float noundef %302) #28
+  %304 = tail call noundef float @sqrtf(float noundef %303) #25
   %305 = fmul float %.sroa.0418.0, %304
   %306 = fcmp ogt float %305, %220
   br i1 %306, label %307, label %.thread
@@ -112496,7 +112498,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %422, label %423, label %434
 
 423:                                              ; preds = %.thread572
-  %424 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %424 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %425 unwind label %.thread469
 
@@ -112517,7 +112519,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %428 unwind label %431
 
 428:                                              ; preds = %426
-  invoke void @__cxa_throw(ptr %424, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %424, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %436 unwind label %431
 
 .thread469:                                       ; preds = %423
@@ -112528,21 +112530,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread474:                                       ; preds = %425
   %430 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %433
 
 431:                                              ; preds = %426, %428
   %.0 = phi i1 [ false, %428 ], [ true, %426 ]
   %432 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %433, label %435
 
 433:                                              ; preds = %.thread474, %.thread469, %431
   %.pn.pn473 = phi { ptr, i32 } [ %429, %.thread469 ], [ %432, %431 ], [ %430, %.thread474 ]
-  call void @__cxa_free_exception(ptr %424) #23
+  call void @__cxa_free_exception(ptr %424) #25
   br label %435
 
 434:                                              ; preds = %.thread572
@@ -112559,33 +112561,33 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb0ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb1ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb0ELb1ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb1ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb1ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01113 = alloca float, align 4
   %.sroa.41114 = alloca float, align 4
@@ -114639,8 +114641,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 256:                                              ; preds = %248
   %257 = fsub float 1.000000e+00, %251
-  %258 = tail call noundef float @cbrtf(float noundef %257) #26
-  %259 = tail call noundef float @sqrtf(float noundef %258) #23
+  %258 = tail call noundef float @cbrtf(float noundef %257) #28
+  %259 = tail call noundef float @sqrtf(float noundef %258) #25
   %260 = fdiv float %239, %48
   %261 = tail call noundef float @llvm.fabs.f32(float %260)
   %262 = fadd float %261, 1.000000e+00
@@ -114711,8 +114713,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %308 = fsub float 1.000000e+00, %302
   %309 = fmul float %307, 0x400DB6DB60000000
   %310 = fmul float %308, %309
-  %311 = tail call noundef float @cbrtf(float noundef %310) #26
-  %312 = tail call noundef float @sqrtf(float noundef %311) #23
+  %311 = tail call noundef float @cbrtf(float noundef %310) #28
+  %312 = tail call noundef float @sqrtf(float noundef %311) #25
   %313 = fmul float %.sroa.0509.0, %312
   %314 = fcmp ogt float %313, %226
   br i1 %314, label %315, label %_ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.exit
@@ -114894,7 +114896,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %435 = fmul float %227, %434
   %436 = fmul float %63, %.sroa.speculated.i
   %437 = fneg float %436
-  %438 = tail call noundef float @expf(float noundef %437) #23
+  %438 = tail call noundef float @expf(float noundef %437) #25
   %439 = fadd float %436, 1.000000e+00
   %440 = fmul float %436, 5.000000e-01
   %441 = tail call float @llvm.fmuladd.f32(float %440, float %436, float %439)
@@ -115072,7 +115074,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb1ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb1ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0927 = alloca float, align 4
   %.sroa.4928 = alloca float, align 4
@@ -116626,8 +116628,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 253:                                              ; preds = %246
   %254 = fsub float 1.000000e+00, %248
-  %255 = tail call noundef float @cbrtf(float noundef %254) #26
-  %256 = tail call noundef float @sqrtf(float noundef %255) #23
+  %255 = tail call noundef float @cbrtf(float noundef %254) #28
+  %256 = tail call noundef float @sqrtf(float noundef %255) #25
   %257 = fdiv float %237, %47
   %258 = tail call noundef float @llvm.fabs.f32(float %257)
   %259 = fadd float %258, 1.000000e+00
@@ -116693,8 +116695,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %302 = fsub float 1.000000e+00, %296
   %303 = fmul float %301, 0x400DB6DB60000000
   %304 = fmul float %302, %303
-  %305 = tail call noundef float @cbrtf(float noundef %304) #26
-  %306 = tail call noundef float @sqrtf(float noundef %305) #23
+  %305 = tail call noundef float @cbrtf(float noundef %304) #28
+  %306 = tail call noundef float @sqrtf(float noundef %305) #25
   %307 = fmul float %.sroa.0429.0, %306
   %308 = fcmp ogt float %307, %224
   br i1 %308, label %309, label %_ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.exit
@@ -116845,7 +116847,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %405 = fmul float %403, %404
   %406 = fmul float %62, %.sroa.speculated.i
   %407 = fneg float %406
-  %408 = tail call noundef float @expf(float noundef %407) #23
+  %408 = tail call noundef float @expf(float noundef %407) #25
   %409 = fadd float %406, 1.000000e+00
   %410 = fmul float %406, 5.000000e-01
   %411 = tail call float @llvm.fmuladd.f32(float %410, float %406, float %409)
@@ -116955,33 +116957,33 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb1ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb0ELb1ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readonly %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb1ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb0ELb1ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readonly align 8 %1, i32 %2, ptr nocapture nonnull readonly align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias nocapture readnone %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #21
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_ENKUlvE_clEv, ptr noundef nonnull @.str.1, i32 noundef 411) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01157 = alloca float, align 4
   %.sroa.41158 = alloca float, align 4
@@ -118671,7 +118673,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
   br i1 %or.cond896, label %1292, label %1303
 
 1292:                                             ; preds = %1283
-  %1293 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %1293 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull @.str)
           to label %1294 unwind label %.thread
 
@@ -118692,7 +118694,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %1297 unwind label %1300
 
 1297:                                             ; preds = %1295
-  invoke void @__cxa_throw(ptr %1293, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %1293, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %1305 unwind label %1300
 
 .thread:                                          ; preds = %1292
@@ -118703,21 +118705,21 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
 .thread890:                                       ; preds = %1294
   %1299 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #25
   br label %1302
 
 1300:                                             ; preds = %1295, %1297
   %.0 = phi i1 [ false, %1297 ], [ true, %1295 ]
   %1301 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #25
   br i1 %.0, label %1302, label %1304
 
 1302:                                             ; preds = %.thread890, %.thread, %1300
   %.pn.pn889 = phi { ptr, i32 } [ %1298, %.thread ], [ %1301, %1300 ], [ %1299, %.thread890 ]
-  call void @__cxa_free_exception(ptr %1293) #23
+  call void @__cxa_free_exception(ptr %1293) #25
   br label %1304
 
 1303:                                             ; preds = %1283
@@ -119131,8 +119133,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 272:                                              ; preds = %264
   %273 = fsub float 1.000000e+00, %267
-  %274 = tail call noundef float @cbrtf(float noundef %273) #26
-  %275 = tail call noundef float @sqrtf(float noundef %274) #23
+  %274 = tail call noundef float @cbrtf(float noundef %273) #28
+  %275 = tail call noundef float @sqrtf(float noundef %274) #25
   %276 = fdiv float %255, %51
   %277 = tail call noundef float @llvm.fabs.f32(float %276)
   %278 = fadd float %277, 1.000000e+00
@@ -119206,8 +119208,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %327 = fsub float 1.000000e+00, %321
   %328 = fmul float %326, 0x400DB6DB60000000
   %329 = fmul float %327, %328
-  %330 = tail call noundef float @cbrtf(float noundef %329) #26
-  %331 = tail call noundef float @sqrtf(float noundef %330) #23
+  %330 = tail call noundef float @cbrtf(float noundef %329) #28
+  %331 = tail call noundef float @sqrtf(float noundef %330) #25
   %332 = fmul float %.sroa.0525.0, %331
   %333 = fcmp ogt float %332, %237
   br i1 %333, label %334, label %_ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.exit
@@ -119373,7 +119375,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %432 = fmul float %238, %431
   %433 = fmul float %68, %.sroa.speculated.i
   %434 = fneg float %433
-  %435 = tail call noundef float @expf(float noundef %434) #23
+  %435 = tail call noundef float @expf(float noundef %434) #25
   %436 = fadd float %433, 1.000000e+00
   %437 = fmul float %433, 5.000000e-01
   %438 = tail call float @llvm.fmuladd.f32(float %437, float %433, float %436)
@@ -119555,7 +119557,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   br i1 %539, label %540, label %551
 
 540:                                              ; preds = %.thread720
-  %541 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %541 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %542 unwind label %.thread592
 
@@ -119576,7 +119578,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
           to label %545 unwind label %548
 
 545:                                              ; preds = %543
-  invoke void @__cxa_throw(ptr %541, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %541, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %553 unwind label %548
 
 .thread592:                                       ; preds = %540
@@ -119587,21 +119589,21 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .thread597:                                       ; preds = %542
   %547 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %550
 
 548:                                              ; preds = %543, %545
   %.0 = phi i1 [ false, %545 ], [ true, %543 ]
   %549 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %550, label %552
 
 550:                                              ; preds = %.thread597, %.thread592, %548
   %.pn.pn596 = phi { ptr, i32 } [ %546, %.thread592 ], [ %549, %548 ], [ %547, %.thread597 ]
-  call void @__cxa_free_exception(ptr %541) #23
+  call void @__cxa_free_exception(ptr %541) #25
   br label %552
 
 551:                                              ; preds = %.thread720
@@ -119616,7 +119618,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0989 = alloca float, align 4
   %.sroa.4990 = alloca float, align 4
@@ -120827,7 +120829,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
   br i1 %or.cond770, label %903, label %914
 
 903:                                              ; preds = %894
-  %904 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %904 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str)
           to label %905 unwind label %.thread
 
@@ -120848,7 +120850,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %908 unwind label %911
 
 908:                                              ; preds = %906
-  invoke void @__cxa_throw(ptr %904, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %904, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %916 unwind label %911
 
 .thread:                                          ; preds = %903
@@ -120859,21 +120861,21 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
 .thread764:                                       ; preds = %905
   %910 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br label %913
 
 911:                                              ; preds = %906, %908
   %.0 = phi i1 [ false, %908 ], [ true, %906 ]
   %912 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br i1 %.0, label %913, label %915
 
 913:                                              ; preds = %.thread764, %.thread, %911
   %.pn.pn763 = phi { ptr, i32 } [ %909, %.thread ], [ %912, %911 ], [ %910, %.thread764 ]
-  call void @__cxa_free_exception(ptr %904) #23
+  call void @__cxa_free_exception(ptr %904) #25
   br label %915
 
 914:                                              ; preds = %894
@@ -121267,8 +121269,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 265:                                              ; preds = %258
   %266 = fsub float 1.000000e+00, %260
-  %267 = tail call noundef float @cbrtf(float noundef %266) #26
-  %268 = tail call noundef float @sqrtf(float noundef %267) #23
+  %267 = tail call noundef float @cbrtf(float noundef %266) #28
+  %268 = tail call noundef float @sqrtf(float noundef %267) #25
   %269 = fdiv float %249, %50
   %270 = tail call noundef float @llvm.fabs.f32(float %269)
   %271 = fadd float %270, 1.000000e+00
@@ -121333,8 +121335,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %313 = fsub float 1.000000e+00, %307
   %314 = fmul float %312, 0x400DB6DB60000000
   %315 = fmul float %313, %314
-  %316 = tail call noundef float @cbrtf(float noundef %315) #26
-  %317 = tail call noundef float @sqrtf(float noundef %316) #23
+  %316 = tail call noundef float @cbrtf(float noundef %315) #28
+  %317 = tail call noundef float @sqrtf(float noundef %316) #25
   %318 = fmul float %.sroa.0452.0, %317
   %319 = fcmp ogt float %318, %233
   br i1 %319, label %320, label %_ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.exit
@@ -121485,7 +121487,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %410 = fmul float %408, %409
   %411 = fmul float %67, %.sroa.speculated.i
   %412 = fneg float %411
-  %413 = tail call noundef float @expf(float noundef %412) #23
+  %413 = tail call noundef float @expf(float noundef %412) #25
   %414 = fadd float %411, 1.000000e+00
   %415 = fmul float %411, 5.000000e-01
   %416 = tail call float @llvm.fmuladd.f32(float %415, float %411, float %414)
@@ -121597,7 +121599,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   br i1 %472, label %473, label %484
 
 473:                                              ; preds = %.thread621
-  %474 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %474 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %475 unwind label %.thread507
 
@@ -121618,7 +121620,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
           to label %478 unwind label %481
 
 478:                                              ; preds = %476
-  invoke void @__cxa_throw(ptr %474, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %474, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %486 unwind label %481
 
 .thread507:                                       ; preds = %473
@@ -121629,21 +121631,21 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .thread512:                                       ; preds = %475
   %480 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %483
 
 481:                                              ; preds = %476, %478
   %.0 = phi i1 [ false, %478 ], [ true, %476 ]
   %482 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %483, label %485
 
 483:                                              ; preds = %.thread512, %.thread507, %481
   %.pn.pn511 = phi { ptr, i32 } [ %479, %.thread507 ], [ %482, %481 ], [ %480, %.thread512 ]
-  call void @__cxa_free_exception(ptr %474) #23
+  call void @__cxa_free_exception(ptr %474) #25
   br label %485
 
 484:                                              ; preds = %.thread621
@@ -121658,7 +121660,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb1ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01107 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -123637,8 +123639,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 268:                                              ; preds = %260
   %269 = fsub float 1.000000e+00, %263
-  %270 = tail call noundef float @cbrtf(float noundef %269) #26
-  %271 = tail call noundef float @sqrtf(float noundef %270) #23
+  %270 = tail call noundef float @cbrtf(float noundef %269) #28
+  %271 = tail call noundef float @sqrtf(float noundef %270) #25
   %272 = fdiv float %251, %48
   %273 = tail call noundef float @llvm.fabs.f32(float %272)
   %274 = fadd float %273, 1.000000e+00
@@ -123708,8 +123710,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %320 = fsub float 1.000000e+00, %314
   %321 = fmul float %319, 0x400DB6DB60000000
   %322 = fmul float %320, %321
-  %323 = tail call noundef float @cbrtf(float noundef %322) #26
-  %324 = tail call noundef float @sqrtf(float noundef %323) #23
+  %323 = tail call noundef float @cbrtf(float noundef %322) #28
+  %324 = tail call noundef float @sqrtf(float noundef %323) #25
   %325 = fmul float %.sroa.0527.0, %324
   %326 = fcmp ogt float %325, %226
   br i1 %326, label %327, label %_ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.exit
@@ -124018,7 +124020,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb1ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0912 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -125479,8 +125481,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 258:                                              ; preds = %251
   %259 = fsub float 1.000000e+00, %253
-  %260 = tail call noundef float @cbrtf(float noundef %259) #26
-  %261 = tail call noundef float @sqrtf(float noundef %260) #23
+  %260 = tail call noundef float @cbrtf(float noundef %259) #28
+  %261 = tail call noundef float @sqrtf(float noundef %260) #25
   %262 = fdiv float %242, %47
   %263 = tail call noundef float @llvm.fabs.f32(float %262)
   %264 = fadd float %263, 1.000000e+00
@@ -125546,8 +125548,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %307 = fsub float 1.000000e+00, %301
   %308 = fmul float %306, 0x400DB6DB60000000
   %309 = fmul float %307, %308
-  %310 = tail call noundef float @cbrtf(float noundef %309) #26
-  %311 = tail call noundef float @sqrtf(float noundef %310) #23
+  %310 = tail call noundef float @cbrtf(float noundef %309) #28
+  %311 = tail call noundef float @sqrtf(float noundef %310) #25
   %312 = fmul float %.sroa.0442.0, %311
   %313 = fcmp ogt float %312, %221
   br i1 %313, label %314, label %_ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.exit
@@ -125756,7 +125758,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb1ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01006 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -127662,8 +127664,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 243:                                              ; preds = %235
   %244 = fsub float 1.000000e+00, %238
-  %245 = tail call noundef float @cbrtf(float noundef %244) #26
-  %246 = tail call noundef float @sqrtf(float noundef %245) #23
+  %245 = tail call noundef float @cbrtf(float noundef %244) #28
+  %246 = tail call noundef float @sqrtf(float noundef %245) #25
   %247 = fdiv float %226, %48
   %248 = tail call noundef float @llvm.fabs.f32(float %247)
   %249 = fadd float %248, 1.000000e+00
@@ -127735,8 +127737,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %295 = fsub float 1.000000e+00, %289
   %296 = fmul float %294, 0x400DB6DB60000000
   %297 = fmul float %295, %296
-  %298 = tail call noundef float @cbrtf(float noundef %297) #26
-  %299 = tail call noundef float @sqrtf(float noundef %298) #23
+  %298 = tail call noundef float @cbrtf(float noundef %297) #28
+  %299 = tail call noundef float @sqrtf(float noundef %298) #25
   %300 = fmul float %.sroa.0468.0, %299
   %301 = fcmp ogt float %300, %213
   br i1 %301, label %302, label %.thread
@@ -128035,7 +128037,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb1ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0839 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -129448,8 +129450,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 240:                                              ; preds = %233
   %241 = fsub float 1.000000e+00, %235
-  %242 = tail call noundef float @cbrtf(float noundef %241) #26
-  %243 = tail call noundef float @sqrtf(float noundef %242) #23
+  %242 = tail call noundef float @cbrtf(float noundef %241) #28
+  %243 = tail call noundef float @sqrtf(float noundef %242) #25
   %244 = fdiv float %224, %47
   %245 = tail call noundef float @llvm.fabs.f32(float %244)
   %246 = fadd float %245, 1.000000e+00
@@ -129516,8 +129518,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %289 = fsub float 1.000000e+00, %283
   %290 = fmul float %288, 0x400DB6DB60000000
   %291 = fmul float %289, %290
-  %292 = tail call noundef float @cbrtf(float noundef %291) #26
-  %293 = tail call noundef float @sqrtf(float noundef %292) #23
+  %292 = tail call noundef float @cbrtf(float noundef %291) #28
+  %293 = tail call noundef float @sqrtf(float noundef %292) #25
   %294 = fmul float %.sroa.0396.0, %293
   %295 = fcmp ogt float %294, %211
   br i1 %295, label %296, label %.thread
@@ -129720,7 +129722,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01151 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -131332,7 +131334,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
   br i1 %or.cond921, label %1244, label %1255
 
 1244:                                             ; preds = %1235
-  %1245 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %1245 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str)
           to label %1246 unwind label %.thread
 
@@ -131353,7 +131355,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %1249 unwind label %1252
 
 1249:                                             ; preds = %1247
-  invoke void @__cxa_throw(ptr %1245, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %1245, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %1257 unwind label %1252
 
 .thread:                                          ; preds = %1244
@@ -131364,21 +131366,21 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
 .thread915:                                       ; preds = %1246
   %1251 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br label %1254
 
 1252:                                             ; preds = %1247, %1249
   %.0 = phi i1 [ false, %1249 ], [ true, %1247 ]
   %1253 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br i1 %.0, label %1254, label %1256
 
 1254:                                             ; preds = %.thread915, %.thread, %1252
   %.pn.pn914 = phi { ptr, i32 } [ %1250, %.thread ], [ %1253, %1252 ], [ %1251, %.thread915 ]
-  call void @__cxa_free_exception(ptr %1245) #23
+  call void @__cxa_free_exception(ptr %1245) #25
   br label %1256
 
 1255:                                             ; preds = %1235
@@ -131793,8 +131795,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 284:                                              ; preds = %276
   %285 = fsub float 1.000000e+00, %279
-  %286 = tail call noundef float @cbrtf(float noundef %285) #26
-  %287 = tail call noundef float @sqrtf(float noundef %286) #23
+  %286 = tail call noundef float @cbrtf(float noundef %285) #28
+  %287 = tail call noundef float @sqrtf(float noundef %286) #25
   %288 = fdiv float %267, %51
   %289 = tail call noundef float @llvm.fabs.f32(float %288)
   %290 = fadd float %289, 1.000000e+00
@@ -131867,8 +131869,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %339 = fsub float 1.000000e+00, %333
   %340 = fmul float %338, 0x400DB6DB60000000
   %341 = fmul float %339, %340
-  %342 = tail call noundef float @cbrtf(float noundef %341) #26
-  %343 = tail call noundef float @sqrtf(float noundef %342) #23
+  %342 = tail call noundef float @cbrtf(float noundef %341) #28
+  %343 = tail call noundef float @sqrtf(float noundef %342) #25
   %344 = fmul float %.sroa.0542.0, %343
   %345 = fcmp ogt float %344, %237
   br i1 %345, label %346, label %_ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.exit
@@ -132165,7 +132167,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   br i1 %517, label %518, label %529
 
 518:                                              ; preds = %.thread721
-  %519 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %519 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %520 unwind label %.thread606
 
@@ -132186,7 +132188,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
           to label %523 unwind label %526
 
 523:                                              ; preds = %521
-  invoke void @__cxa_throw(ptr %519, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %519, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %531 unwind label %526
 
 .thread606:                                       ; preds = %518
@@ -132197,21 +132199,21 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .thread611:                                       ; preds = %520
   %525 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %528
 
 526:                                              ; preds = %521, %523
   %.0 = phi i1 [ false, %523 ], [ true, %521 ]
   %527 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %528, label %530
 
 528:                                              ; preds = %.thread611, %.thread606, %526
   %.pn.pn610 = phi { ptr, i32 } [ %524, %.thread606 ], [ %527, %526 ], [ %525, %.thread611 ]
-  call void @__cxa_free_exception(ptr %519) #23
+  call void @__cxa_free_exception(ptr %519) #25
   br label %530
 
 529:                                              ; preds = %.thread721
@@ -132226,7 +132228,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0974 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -133347,7 +133349,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
   br i1 %or.cond779, label %841, label %852
 
 841:                                              ; preds = %832
-  %842 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %842 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull @.str)
           to label %843 unwind label %.thread
 
@@ -133368,7 +133370,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %846 unwind label %849
 
 846:                                              ; preds = %844
-  invoke void @__cxa_throw(ptr %842, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %842, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %854 unwind label %849
 
 .thread:                                          ; preds = %841
@@ -133379,21 +133381,21 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
 .thread773:                                       ; preds = %843
   %848 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #25
   br label %851
 
 849:                                              ; preds = %844, %846
   %.0 = phi i1 [ false, %846 ], [ true, %844 ]
   %850 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #25
   br i1 %.0, label %851, label %853
 
 851:                                              ; preds = %.thread773, %.thread, %849
   %.pn.pn772 = phi { ptr, i32 } [ %847, %.thread ], [ %850, %849 ], [ %848, %.thread773 ]
-  call void @__cxa_free_exception(ptr %842) #23
+  call void @__cxa_free_exception(ptr %842) #25
   br label %853
 
 852:                                              ; preds = %832
@@ -133781,8 +133783,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 270:                                              ; preds = %263
   %271 = fsub float 1.000000e+00, %265
-  %272 = tail call noundef float @cbrtf(float noundef %271) #26
-  %273 = tail call noundef float @sqrtf(float noundef %272) #23
+  %272 = tail call noundef float @cbrtf(float noundef %271) #28
+  %273 = tail call noundef float @sqrtf(float noundef %272) #25
   %274 = fdiv float %254, %50
   %275 = tail call noundef float @llvm.fabs.f32(float %274)
   %276 = fadd float %275, 1.000000e+00
@@ -133847,8 +133849,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %318 = fsub float 1.000000e+00, %312
   %319 = fmul float %317, 0x400DB6DB60000000
   %320 = fmul float %318, %319
-  %321 = tail call noundef float @cbrtf(float noundef %320) #26
-  %322 = tail call noundef float @sqrtf(float noundef %321) #23
+  %321 = tail call noundef float @cbrtf(float noundef %320) #28
+  %322 = tail call noundef float @sqrtf(float noundef %321) #25
   %323 = fmul float %.sroa.0464.0, %322
   %324 = fcmp ogt float %323, %230
   br i1 %324, label %325, label %_ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.exit
@@ -134060,7 +134062,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   br i1 %442, label %443, label %454
 
 443:                                              ; preds = %.thread618
-  %444 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %444 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %445 unwind label %.thread515
 
@@ -134081,7 +134083,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
           to label %448 unwind label %451
 
 448:                                              ; preds = %446
-  invoke void @__cxa_throw(ptr %444, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %444, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %456 unwind label %451
 
 .thread515:                                       ; preds = %443
@@ -134092,21 +134094,21 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .thread520:                                       ; preds = %445
   %450 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %453
 
 451:                                              ; preds = %446, %448
   %.0 = phi i1 [ false, %448 ], [ true, %446 ]
   %452 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %453, label %455
 
 453:                                              ; preds = %.thread520, %.thread515, %451
   %.pn.pn519 = phi { ptr, i32 } [ %449, %.thread515 ], [ %452, %451 ], [ %450, %.thread520 ]
-  call void @__cxa_free_exception(ptr %444) #23
+  call void @__cxa_free_exception(ptr %444) #25
   br label %455
 
 454:                                              ; preds = %.thread618
@@ -134121,7 +134123,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture noundef readonly %15, ptr nocapture noundef %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.01050 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -135685,7 +135687,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
   br i1 %or.cond816, label %1196, label %1207
 
 1196:                                             ; preds = %1187
-  %1197 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %1197 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str)
           to label %1198 unwind label %.thread
 
@@ -135706,7 +135708,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %1201 unwind label %1204
 
 1201:                                             ; preds = %1199
-  invoke void @__cxa_throw(ptr %1197, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %1197, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %1209 unwind label %1204
 
 .thread:                                          ; preds = %1196
@@ -135717,21 +135719,21 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
 .thread810:                                       ; preds = %1198
   %1203 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br label %1206
 
 1204:                                             ; preds = %1199, %1201
   %.0 = phi i1 [ false, %1201 ], [ true, %1199 ]
   %1205 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #25
   br i1 %.0, label %1206, label %1208
 
 1206:                                             ; preds = %.thread810, %.thread, %1204
   %.pn.pn809 = phi { ptr, i32 } [ %1202, %.thread ], [ %1205, %1204 ], [ %1203, %.thread810 ]
-  call void @__cxa_free_exception(ptr %1197) #23
+  call void @__cxa_free_exception(ptr %1197) #25
   br label %1208
 
 1207:                                             ; preds = %1187
@@ -136121,8 +136123,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 259:                                              ; preds = %251
   %260 = fsub float 1.000000e+00, %254
-  %261 = tail call noundef float @cbrtf(float noundef %260) #26
-  %262 = tail call noundef float @sqrtf(float noundef %261) #23
+  %261 = tail call noundef float @cbrtf(float noundef %260) #28
+  %262 = tail call noundef float @sqrtf(float noundef %261) #25
   %263 = fdiv float %242, %51
   %264 = tail call noundef float @llvm.fabs.f32(float %263)
   %265 = fadd float %264, 1.000000e+00
@@ -136197,8 +136199,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %314 = fsub float 1.000000e+00, %308
   %315 = fmul float %313, 0x400DB6DB60000000
   %316 = fmul float %314, %315
-  %317 = tail call noundef float @cbrtf(float noundef %316) #26
-  %318 = tail call noundef float @sqrtf(float noundef %317) #23
+  %317 = tail call noundef float @cbrtf(float noundef %316) #28
+  %318 = tail call noundef float @sqrtf(float noundef %317) #25
   %319 = fmul float %.sroa.0483.0, %318
   %320 = fcmp ogt float %319, %224
   br i1 %320, label %321, label %.thread
@@ -136485,7 +136487,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %486, label %487, label %498
 
 487:                                              ; preds = %.thread662
-  %488 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %488 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %489 unwind label %.thread547
 
@@ -136506,7 +136508,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %492 unwind label %495
 
 492:                                              ; preds = %490
-  invoke void @__cxa_throw(ptr %488, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %488, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %500 unwind label %495
 
 .thread547:                                       ; preds = %487
@@ -136517,21 +136519,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread552:                                       ; preds = %489
   %494 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %497
 
 495:                                              ; preds = %490, %492
   %.0 = phi i1 [ false, %492 ], [ true, %490 ]
   %496 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %497, label %499
 
 497:                                              ; preds = %.thread552, %.thread547, %495
   %.pn.pn551 = phi { ptr, i32 } [ %493, %.thread547 ], [ %496, %495 ], [ %494, %.thread552 ]
-  call void @__cxa_free_exception(ptr %488) #23
+  call void @__cxa_free_exception(ptr %488) #25
   br label %499
 
 498:                                              ; preds = %.thread662
@@ -136546,7 +136548,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %3, ptr nocapture readonly %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %6, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %10, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.3") align 8 %11, i32 noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %13, ptr noalias noundef %14, ptr nocapture readnone %15, ptr nocapture readnone %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 %19) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 _ZL7usingRFRK22CoulombInteractionType.exit:
   %.sroa.0901 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
@@ -137637,7 +137639,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
   br i1 %or.cond704, label %811, label %822
 
 811:                                              ; preds = %802
-  %812 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %812 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull @.str)
           to label %813 unwind label %.thread
 
@@ -137658,7 +137660,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %816 unwind label %819
 
 816:                                              ; preds = %814
-  invoke void @__cxa_throw(ptr %812, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %812, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %824 unwind label %819
 
 .thread:                                          ; preds = %811
@@ -137669,21 +137671,21 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
 .thread698:                                       ; preds = %813
   %818 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #25
   br label %821
 
 819:                                              ; preds = %814, %816
   %.0 = phi i1 [ false, %816 ], [ true, %814 ]
   %820 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #25
   br i1 %.0, label %821, label %823
 
 821:                                              ; preds = %.thread698, %.thread, %819
   %.pn.pn697 = phi { ptr, i32 } [ %817, %.thread ], [ %820, %819 ], [ %818, %.thread698 ]
-  call void @__cxa_free_exception(ptr %812) #23
+  call void @__cxa_free_exception(ptr %812) #25
   br label %823
 
 822:                                              ; preds = %802
@@ -138053,8 +138055,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 252:                                              ; preds = %245
   %253 = fsub float 1.000000e+00, %247
-  %254 = tail call noundef float @cbrtf(float noundef %253) #26
-  %255 = tail call noundef float @sqrtf(float noundef %254) #23
+  %254 = tail call noundef float @cbrtf(float noundef %253) #28
+  %255 = tail call noundef float @sqrtf(float noundef %254) #25
   %256 = fdiv float %236, %50
   %257 = tail call noundef float @llvm.fabs.f32(float %256)
   %258 = fadd float %257, 1.000000e+00
@@ -138120,8 +138122,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %300 = fsub float 1.000000e+00, %294
   %301 = fmul float %299, 0x400DB6DB60000000
   %302 = fmul float %300, %301
-  %303 = tail call noundef float @cbrtf(float noundef %302) #26
-  %304 = tail call noundef float @sqrtf(float noundef %303) #23
+  %303 = tail call noundef float @cbrtf(float noundef %302) #28
+  %304 = tail call noundef float @sqrtf(float noundef %303) #25
   %305 = fmul float %.sroa.0418.0, %304
   %306 = fcmp ogt float %305, %220
   br i1 %306, label %307, label %.thread
@@ -138327,7 +138329,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br i1 %422, label %423, label %434
 
 423:                                              ; preds = %.thread572
-  %424 = tail call ptr @__cxa_allocate_exception(i64 24) #23
+  %424 = tail call ptr @__cxa_allocate_exception(i64 24) #25
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str)
           to label %425 unwind label %.thread469
 
@@ -138348,7 +138350,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %428 unwind label %431
 
 428:                                              ; preds = %426
-  invoke void @__cxa_throw(ptr %424, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr %424, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #23
           to label %436 unwind label %431
 
 .thread469:                                       ; preds = %423
@@ -138359,21 +138361,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .thread474:                                       ; preds = %425
   %430 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br label %433
 
 431:                                              ; preds = %426, %428
   %.0 = phi i1 [ false, %428 ], [ true, %426 ]
   %432 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #25
+  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #25
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #25
   br i1 %.0, label %433, label %435
 
 433:                                              ; preds = %.thread474, %.thread469, %431
   %.pn.pn473 = phi { ptr, i32 } [ %429, %.thread469 ], [ %432, %431 ], [ %430, %.thread474 ]
-  call void @__cxa_free_exception(ptr %424) #23
+  call void @__cxa_free_exception(ptr %424) #25
   br label %435
 
 434:                                              ; preds = %.thread572
@@ -138388,19 +138390,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x float> @llvm.fabs.v8f32(<8 x float>) #18
+declare <8 x float> @llvm.fabs.v8f32(<8 x float>) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #18
+declare float @llvm.sqrt.f32(float) #20
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -138409,26 +138411,28 @@ attributes #3 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal
 attributes #4 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #16 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { noreturn }
-attributes #22 = { builtin allocsize(0) }
-attributes #23 = { nounwind }
-attributes #24 = { builtin nounwind }
-attributes #25 = { noreturn nounwind }
-attributes #26 = { nounwind willreturn memory(none) }
+attributes #7 = { cold noreturn }
+attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #13 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #14 = { cold nofree noreturn }
+attributes #15 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #18 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { noreturn }
+attributes #24 = { builtin allocsize(0) }
+attributes #25 = { nounwind }
+attributes #26 = { builtin nounwind }
+attributes #27 = { noreturn nounwind }
+attributes #28 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

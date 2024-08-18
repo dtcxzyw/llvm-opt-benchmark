@@ -444,23 +444,23 @@ invoke.cont16:                                    ; preds = %invoke.cont14
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont16
-  %exception = call ptr @__cxa_allocate_exception(i64 16) #7
+  %exception = call ptr @__cxa_allocate_exception(i64 16) #8
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(112) %oss)
           to label %invoke.cont21 unwind label %ehcleanup.thread
 
 invoke.cont21:                                    ; preds = %invoke.cont18
-  %call22 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #7
+  %call22 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #8
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %call22)
           to label %invoke.cont24 unwind label %ehcleanup.thread16
 
 ehcleanup.thread16:                               ; preds = %invoke.cont21
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #8
   br label %cleanup.action
 
 invoke.cont24:                                    ; preds = %invoke.cont21
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #8
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #9
           to label %unreachable unwind label %ehcleanup
 
 lpad:                                             ; preds = %invoke.cont16, %invoke.cont14, %invoke.cont12, %invoke.cont, %if.then
@@ -476,17 +476,17 @@ ehcleanup.thread:                                 ; preds = %invoke.cont18
 ehcleanup:                                        ; preds = %invoke.cont24
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #8
   br label %ehcleanup25
 
 cleanup.action:                                   ; preds = %ehcleanup.thread16, %ehcleanup.thread
   %.pn415 = phi { ptr, i32 } [ %6, %ehcleanup.thread ], [ %4, %ehcleanup.thread16 ]
-  call void @__cxa_free_exception(ptr %exception) #7
+  call void @__cxa_free_exception(ptr %exception) #8
   br label %ehcleanup25
 
 ehcleanup25:                                      ; preds = %ehcleanup, %cleanup.action, %lpad
   %.pn4.pn = phi { ptr, i32 } [ %.pn415, %cleanup.action ], [ %7, %ehcleanup ], [ %5, %lpad ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss) #7
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss) #8
   br label %eh.resume
 
 land.lhs.true27:                                  ; preds = %entry
@@ -529,23 +529,23 @@ invoke.cont52:                                    ; preds = %invoke.cont50
           to label %invoke.cont54 unwind label %lpad44
 
 invoke.cont54:                                    ; preds = %invoke.cont52
-  %exception56 = call ptr @__cxa_allocate_exception(i64 16) #7
+  %exception56 = call ptr @__cxa_allocate_exception(i64 16) #8
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp57, ptr noundef nonnull align 8 dereferenceable(112) %oss43)
           to label %invoke.cont59 unwind label %ehcleanup65.thread
 
 invoke.cont59:                                    ; preds = %invoke.cont54
-  %call60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #7
+  %call60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #8
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception56, ptr noundef %call60)
           to label %invoke.cont62 unwind label %ehcleanup65.thread21
 
 ehcleanup65.thread21:                             ; preds = %invoke.cont59
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #8
   br label %cleanup.action67
 
 invoke.cont62:                                    ; preds = %invoke.cont59
-  invoke void @__cxa_throw(ptr nonnull %exception56, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #8
+  invoke void @__cxa_throw(ptr nonnull %exception56, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #9
           to label %unreachable unwind label %ehcleanup65
 
 lpad44:                                           ; preds = %invoke.cont52, %invoke.cont50, %invoke.cont48, %invoke.cont45, %if.then42
@@ -561,17 +561,17 @@ ehcleanup65.thread:                               ; preds = %invoke.cont54
 ehcleanup65:                                      ; preds = %invoke.cont62
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #8
   br label %ehcleanup69
 
 cleanup.action67:                                 ; preds = %ehcleanup65.thread21, %ehcleanup65.thread
   %.pn20 = phi { ptr, i32 } [ %14, %ehcleanup65.thread ], [ %12, %ehcleanup65.thread21 ]
-  call void @__cxa_free_exception(ptr %exception56) #7
+  call void @__cxa_free_exception(ptr %exception56) #8
   br label %ehcleanup69
 
 ehcleanup69:                                      ; preds = %ehcleanup65, %cleanup.action67, %lpad44
   %.pn.pn = phi { ptr, i32 } [ %.pn20, %cleanup.action67 ], [ %15, %ehcleanup65 ], [ %13, %lpad44 ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss43) #7
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss43) #8
   br label %eh.resume
 
 if.end70:                                         ; preds = %land.lhs.true, %land.lhs.true27
@@ -584,18 +584,18 @@ if.end70:                                         ; preds = %land.lhs.true, %lan
   br i1 %cmp71, label %if.then72, label %if.end77
 
 if.then72:                                        ; preds = %if.end70
-  %exception73 = tail call ptr @__cxa_allocate_exception(i64 16) #7
+  %exception73 = tail call ptr @__cxa_allocate_exception(i64 16) #8
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception73, ptr noundef nonnull @.str.4)
           to label %invoke.cont75 unwind label %lpad74
 
 invoke.cont75:                                    ; preds = %if.then72
-  tail call void @__cxa_throw(ptr nonnull %exception73, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #8
+  tail call void @__cxa_throw(ptr nonnull %exception73, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #9
   unreachable
 
 lpad74:                                           ; preds = %if.then72
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception73) #7
+  tail call void @__cxa_free_exception(ptr %exception73) #8
   br label %eh.resume
 
 if.end77:                                         ; preds = %if.end70
@@ -607,18 +607,18 @@ if.end77:                                         ; preds = %if.end70
   br i1 %cmp78, label %if.then79, label %if.end84
 
 if.then79:                                        ; preds = %if.end77
-  %exception80 = tail call ptr @__cxa_allocate_exception(i64 16) #7
+  %exception80 = tail call ptr @__cxa_allocate_exception(i64 16) #8
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception80, ptr noundef nonnull @.str.5)
           to label %invoke.cont82 unwind label %lpad81
 
 invoke.cont82:                                    ; preds = %if.then79
-  tail call void @__cxa_throw(ptr nonnull %exception80, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #8
+  tail call void @__cxa_throw(ptr nonnull %exception80, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #9
   unreachable
 
 lpad81:                                           ; preds = %if.then79
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception80) #7
+  tail call void @__cxa_free_exception(ptr %exception80) #8
   br label %eh.resume
 
 if.end84:                                         ; preds = %if.end77
@@ -654,7 +654,8 @@ declare void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align
 ; Function Attrs: nounwind
 declare void @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
@@ -665,7 +666,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev23GradingPrimaryPreRender6updateENS_12GradingStyleENS_18TransformDirectionERKNS_14GradingPrimaryE(ptr noundef nonnull align 8 dereferenceable(82) %this, i32 noundef %style, i32 noundef %dir, ptr noundef nonnull readonly align 8 dereferenceable(272) %v) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev23GradingPrimaryPreRender6updateENS_12GradingStyleENS_18TransformDirectionERKNS_14GradingPrimaryE(ptr noundef nonnull align 8 dereferenceable(82) %this, i32 noundef %style, i32 noundef %dir, ptr noundef nonnull readonly align 8 dereferenceable(272) %v) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_saturation = getelementptr inbounds i8, ptr %v, i64 224
   %0 = load double, ptr %m_saturation, align 8
@@ -959,7 +960,7 @@ sw.bb187:                                         ; preds = %sw.bb184
   %59 = load double, ptr %m_exposure, align 8
   %add208 = fadd double %58, %59
   %conv209 = fptrunc double %add208 to float
-  %exp2f281 = tail call float @exp2f(float %conv209) #7
+  %exp2f281 = tail call float @exp2f(float %conv209) #8
   %m_exposure211 = getelementptr inbounds i8, ptr %this, i64 36
   store float %exp2f281, ptr %m_exposure211, align 4
   %60 = load double, ptr %m_master206, align 8
@@ -967,7 +968,7 @@ sw.bb187:                                         ; preds = %sw.bb184
   %61 = load double, ptr %m_green214, align 8
   %add215 = fadd double %60, %61
   %conv216 = fptrunc double %add215 to float
-  %exp2f283 = tail call float @exp2f(float %conv216) #7
+  %exp2f283 = tail call float @exp2f(float %conv216) #8
   %arrayidx.i.i203 = getelementptr inbounds i8, ptr %this, i64 40
   store float %exp2f283, ptr %arrayidx.i.i203, align 8
   %62 = load double, ptr %m_master206, align 8
@@ -975,7 +976,7 @@ sw.bb187:                                         ; preds = %sw.bb184
   %63 = load double, ptr %m_blue222, align 8
   %add223 = fadd double %62, %63
   %conv224 = fptrunc double %add223 to float
-  %exp2f285 = tail call float @exp2f(float %conv224) #7
+  %exp2f285 = tail call float @exp2f(float %conv224) #8
   %arrayidx.i.i205 = getelementptr inbounds i8, ptr %this, i64 44
   store float %exp2f285, ptr %arrayidx.i.i205, align 4
   %m_master229 = getelementptr inbounds i8, ptr %v, i64 56
@@ -1031,7 +1032,7 @@ sw.bb247:                                         ; preds = %sw.bb184
   %77 = load double, ptr %m_exposure, align 8
   %add271 = fadd double %76, %77
   %conv272 = fptrunc double %add271 to float
-  %exp2f = tail call float @exp2f(float %conv272) #7
+  %exp2f = tail call float @exp2f(float %conv272) #8
   %div275 = fdiv float 1.000000e+00, %exp2f
   %m_exposure276 = getelementptr inbounds i8, ptr %this, i64 36
   store float %div275, ptr %m_exposure276, align 4
@@ -1040,7 +1041,7 @@ sw.bb247:                                         ; preds = %sw.bb184
   %79 = load double, ptr %m_green279, align 8
   %add280 = fadd double %78, %79
   %conv281 = fptrunc double %add280 to float
-  %exp2f277 = tail call float @exp2f(float %conv281) #7
+  %exp2f277 = tail call float @exp2f(float %conv281) #8
   %div284 = fdiv float 1.000000e+00, %exp2f277
   %arrayidx.i.i215 = getelementptr inbounds i8, ptr %this, i64 40
   store float %div284, ptr %arrayidx.i.i215, align 8
@@ -1049,7 +1050,7 @@ sw.bb247:                                         ; preds = %sw.bb184
   %81 = load double, ptr %m_blue288, align 8
   %add289 = fadd double %80, %81
   %conv290 = fptrunc double %add289 to float
-  %exp2f279 = tail call float @exp2f(float %conv290) #7
+  %exp2f279 = tail call float @exp2f(float %conv290) #8
   %div293 = fdiv float 1.000000e+00, %exp2f279
   %arrayidx.i.i217 = getelementptr inbounds i8, ptr %this, i64 44
   store float %div293, ptr %arrayidx.i.i217, align 4
@@ -1093,7 +1094,7 @@ sw.epilog317:                                     ; preds = %sw.bb184.sw.epilog3
   store i8 %frombool331, ptr %m_isPowerIdentity330, align 8
   %m_pivot332 = getelementptr inbounds i8, ptr %v, i64 232
   %91 = load double, ptr %m_pivot332, align 8
-  %exp2 = tail call double @exp2(double %91) #7
+  %exp2 = tail call double @exp2(double %91) #8
   %mul334 = fmul double %exp2, 1.800000e-01
   %m_pivot335 = getelementptr inbounds i8, ptr %this, i64 72
   store double %mul334, ptr %m_pivot335, align 8
@@ -1445,7 +1446,7 @@ sw.epilog654:                                     ; preds = %sw.epilog654.sink.s
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #6
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 declare double @exp2(double) local_unnamed_addr
 
@@ -1456,10 +1457,11 @@ attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn }
+attributes #5 = { cold noreturn }
+attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

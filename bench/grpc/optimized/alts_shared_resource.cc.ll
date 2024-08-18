@@ -53,7 +53,7 @@ entry:
   br i1 %lnot.i, label %if.then.i, label %_ZN9grpc_core6ThreadD2Ev.exit
 
 if.then.i:                                        ; preds = %entry
-  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.6, i32 noundef 139, ptr noundef nonnull @.str.7) #10
+  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.6, i32 noundef 139, ptr noundef nonnull @.str.7) #11
           to label %invoke.cont2.i unwind label %terminate.lpad.i
 
 invoke.cont2.i:                                   ; preds = %if.then.i
@@ -63,7 +63,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #11
+  tail call void @__clang_call_terminate(ptr %3) #12
   unreachable
 
 _ZN9grpc_core6ThreadD2Ev.exit:                    ; preds = %entry
@@ -144,7 +144,7 @@ do.body.i:                                        ; preds = %_ZN9grpc_core6Threa
   br i1 %cmp2.not.i, label %do.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %do.body.i
-  call void @gpr_assertion_failed(ptr noundef nonnull @.str.6, i32 noundef 143, ptr noundef nonnull @.str.8) #10
+  call void @gpr_assertion_failed(ptr noundef nonnull @.str.6, i32 noundef 143, ptr noundef nonnull @.str.8) #11
   unreachable
 
 do.end.i:                                         ; preds = %do.body.i
@@ -160,7 +160,7 @@ do.body6.i:                                       ; preds = %_ZN9grpc_core6Threa
   br i1 %cmp8.not.i, label %if.end, label %if.then10.i
 
 if.then10.i:                                      ; preds = %do.body6.i
-  call void @gpr_assertion_failed(ptr noundef nonnull @.str.6, i32 noundef 152, ptr noundef nonnull @.str.9) #10
+  call void @gpr_assertion_failed(ptr noundef nonnull @.str.6, i32 noundef 152, ptr noundef nonnull @.str.9) #11
   unreachable
 
 if.end:                                           ; preds = %do.body6.i, %do.end.i, %entry
@@ -200,11 +200,11 @@ while.body:                                       ; preds = %do.end12, %entry
   ]
 
 if.then:                                          ; preds = %while.body
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.3, i32 noundef 40, ptr noundef nonnull @.str.4) #10
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.3, i32 noundef 40, ptr noundef nonnull @.str.4) #11
   unreachable
 
 if.then10:                                        ; preds = %while.body
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.3, i32 noundef 44, ptr noundef nonnull @.str.5) #10
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.3, i32 noundef 44, ptr noundef nonnull @.str.5) #11
   unreachable
 
 do.end12:                                         ; preds = %while.body
@@ -257,7 +257,7 @@ delete.notnull.i:                                 ; preds = %if.then.i
   %vtable4.i = load ptr, ptr %5, align 8
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 8
   %6 = load ptr, ptr %vfn5.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %if.then.i
@@ -271,7 +271,7 @@ do.body.i:                                        ; preds = %if.then
   br i1 %cmp8.not.i, label %_ZN9grpc_core6Thread4JoinEv.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %do.body.i
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.6, i32 noundef 164, ptr noundef nonnull @.str.9) #10
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.6, i32 noundef 164, ptr noundef nonnull @.str.9) #11
   unreachable
 
 _ZN9grpc_core6Thread4JoinEv.exit:                 ; preds = %delete.end.i, %do.body.i
@@ -316,26 +316,27 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #11
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+  tail call void @_ZSt9terminatev() #12
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_alts_shared_resource.cc() #9 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_alts_shared_resource.cc() #10 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
   store i32 0, ptr @_ZL25g_alts_resource_dedicated, align 8
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 8), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 16), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 17), align 1
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL25g_alts_resource_dedicated, i64 24), align 8
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN30alts_shared_resource_dedicatedD2Ev, ptr nonnull @_ZL25g_alts_resource_dedicated, ptr nonnull @__dso_handle) #12
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN30alts_shared_resource_dedicatedD2Ev, ptr nonnull @_ZL25g_alts_resource_dedicated, ptr nonnull @__dso_handle) #13
   ret void
 }
 
@@ -348,10 +349,11 @@ attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

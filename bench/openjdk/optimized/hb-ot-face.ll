@@ -88,11 +88,11 @@ _ZN16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tL
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #7
+  tail call void @__clang_call_terminate(ptr %22) #8
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT18cmap_accelerator_tE21hb_face_lazy_loader_tIS1_Lj3EE9hb_face_tLj3ES1_E7destroyEPS1_.exit.i.i: ; preds = %17
-  tail call void @free(ptr noundef nonnull %16) #8
+  tail call void @free(ptr noundef nonnull %16) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18cmap_accelerator_tE21hb_face_lazy_loader_tIS1_Lj3EE9hb_face_tLj3ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT18cmap_accelerator_tE21hb_face_lazy_loader_tIS1_Lj3EE9hb_face_tLj3ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tE4finiEv.exit, %_ZN16hb_lazy_loader_tIN2OT18cmap_accelerator_tE21hb_face_lazy_loader_tIS1_Lj3EE9hb_face_tLj3ES1_E7destroyEPS1_.exit.i.i
@@ -139,11 +139,11 @@ _ZN16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tL
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #7
+  tail call void @__clang_call_terminate(ptr %40) #8
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT18hmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj5EE9hb_face_tLj5ES1_E7destroyEPS1_.exit.i.i: ; preds = %35
-  tail call void @free(ptr noundef nonnull %31) #8
+  tail call void @free(ptr noundef nonnull %31) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18hmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj5EE9hb_face_tLj5ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT18hmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj5EE9hb_face_tLj5ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE4finiEv.exit, %_ZN16hb_lazy_loader_tIN2OT18hmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj5EE9hb_face_tLj5ES1_E7destroyEPS1_.exit.i.i
@@ -177,7 +177,7 @@ _ZN16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj
   %51 = getelementptr inbounds i8, ptr %49, i64 48
   %52 = load atomic i64, ptr %51 acquire, align 8
   %53 = inttoptr i64 %52 to ptr
-  tail call void @free(ptr noundef %53) #8
+  tail call void @free(ptr noundef %53) #9
   %54 = load ptr, ptr %49, align 8
   invoke void @hb_blob_destroy(ptr noundef %54)
           to label %55 unwind label %62
@@ -194,18 +194,18 @@ _ZN16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj
   store i32 0, ptr %59, align 4
   %60 = getelementptr inbounds i8, ptr %49, i64 32
   %61 = load ptr, ptr %60, align 8
-  tail call void @free(ptr noundef %61) #8
+  tail call void @free(ptr noundef %61) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18post_accelerator_tE21hb_face_lazy_loader_tIS1_Lj7EE9hb_face_tLj7ES1_E7destroyEPS1_.exit.i.i
 
 62:                                               ; preds = %50
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  tail call void @__clang_call_terminate(ptr %64) #7
+  tail call void @__clang_call_terminate(ptr %64) #8
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT18post_accelerator_tE21hb_face_lazy_loader_tIS1_Lj7EE9hb_face_tLj7ES1_E7destroyEPS1_.exit.i.i: ; preds = %58, %55
-  tail call void @free(ptr noundef nonnull %49) #8
+  tail call void @free(ptr noundef nonnull %49) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18post_accelerator_tE21hb_face_lazy_loader_tIS1_Lj7EE9hb_face_tLj7ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT18post_accelerator_tE21hb_face_lazy_loader_tIS1_Lj7EE9hb_face_tLj7ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE4finiEv.exit, %_ZN16hb_lazy_loader_tIN2OT18post_accelerator_tE21hb_face_lazy_loader_tIS1_Lj7EE9hb_face_tLj7ES1_E7destroyEPS1_.exit.i.i
@@ -236,18 +236,18 @@ _ZN16hb_lazy_loader_tIN2OT18post_accelerator_tE21hb_face_lazy_loader_tIS1_Lj7EE9
   store i32 0, ptr %75, align 4
   %76 = getelementptr inbounds i8, ptr %67, i64 32
   %77 = load ptr, ptr %76, align 8
-  tail call void @free(ptr noundef %77) #8
+  tail call void @free(ptr noundef %77) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18name_accelerator_tE21hb_face_lazy_loader_tIS1_Lj8EE9hb_face_tLj8ES1_E7destroyEPS1_.exit.i.i
 
 78:                                               ; preds = %68
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  tail call void @__clang_call_terminate(ptr %80) #7
+  tail call void @__clang_call_terminate(ptr %80) #8
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT18name_accelerator_tE21hb_face_lazy_loader_tIS1_Lj8EE9hb_face_tLj8ES1_E7destroyEPS1_.exit.i.i: ; preds = %74, %71
-  tail call void @free(ptr noundef nonnull %67) #8
+  tail call void @free(ptr noundef nonnull %67) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18name_accelerator_tE21hb_face_lazy_loader_tIS1_Lj8EE9hb_face_tLj8ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT18name_accelerator_tE21hb_face_lazy_loader_tIS1_Lj8EE9hb_face_tLj8ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT18post_accelerator_tE21hb_face_lazy_loader_tIS1_Lj7EE9hb_face_tLj7ES1_E4finiEv.exit, %_ZN16hb_lazy_loader_tIN2OT18name_accelerator_tE21hb_face_lazy_loader_tIS1_Lj8EE9hb_face_tLj8ES1_E7destroyEPS1_.exit.i.i
@@ -286,11 +286,11 @@ _ZN16hb_lazy_loader_tIN2OT4STATE22hb_table_lazy_loader_tIS1_Lj9ELb1EE9hb_face_tL
   %93 = landingpad { ptr, i32 }
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0
-  tail call void @__clang_call_terminate(ptr %94) #7
+  tail call void @__clang_call_terminate(ptr %94) #8
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT18meta_accelerator_tE21hb_face_lazy_loader_tIS1_Lj10EE9hb_face_tLj10ES1_E7destroyEPS1_.exit.i.i: ; preds = %90
-  tail call void @free(ptr noundef nonnull %89) #8
+  tail call void @free(ptr noundef nonnull %89) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18meta_accelerator_tE21hb_face_lazy_loader_tIS1_Lj10EE9hb_face_tLj10ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT18meta_accelerator_tE21hb_face_lazy_loader_tIS1_Lj10EE9hb_face_tLj10ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT4STATE22hb_table_lazy_loader_tIS1_Lj9ELb1EE9hb_face_tLj9E9hb_blob_tE4finiEv.exit, %_ZN16hb_lazy_loader_tIN2OT18meta_accelerator_tE21hb_face_lazy_loader_tIS1_Lj10EE9hb_face_tLj10ES1_E7destroyEPS1_.exit.i.i
@@ -337,11 +337,11 @@ _ZN16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_t
   %111 = landingpad { ptr, i32 }
           catch ptr null
   %112 = extractvalue { ptr, i32 } %111, 0
-  tail call void @__clang_call_terminate(ptr %112) #7
+  tail call void @__clang_call_terminate(ptr %112) #8
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT18vmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12EE9hb_face_tLj12ES1_E7destroyEPS1_.exit.i.i: ; preds = %107
-  tail call void @free(ptr noundef nonnull %103) #8
+  tail call void @free(ptr noundef nonnull %103) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18vmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12EE9hb_face_tLj12ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT18vmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12EE9hb_face_tLj12ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE4finiEv.exit, %_ZN16hb_lazy_loader_tIN2OT18vmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12EE9hb_face_tLj12ES1_E7destroyEPS1_.exit.i.i
@@ -398,11 +398,11 @@ _ZN16hb_lazy_loader_tIN2OT4locaE22hb_table_lazy_loader_tIS1_Lj14ELb1EE9hb_face_t
   %132 = landingpad { ptr, i32 }
           catch ptr null
   %133 = extractvalue { ptr, i32 } %132, 0
-  tail call void @__clang_call_terminate(ptr %133) #7
+  tail call void @__clang_call_terminate(ptr %133) #8
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT18glyf_accelerator_tE21hb_face_lazy_loader_tIS1_Lj15EE9hb_face_tLj15ES1_E7destroyEPS1_.exit.i.i: ; preds = %128
-  tail call void @free(ptr noundef nonnull %127) #8
+  tail call void @free(ptr noundef nonnull %127) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18glyf_accelerator_tE21hb_face_lazy_loader_tIS1_Lj15EE9hb_face_tLj15ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT18glyf_accelerator_tE21hb_face_lazy_loader_tIS1_Lj15EE9hb_face_tLj15ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT4locaE22hb_table_lazy_loader_tIS1_Lj14ELb1EE9hb_face_tLj14E9hb_blob_tE4finiEv.exit, %_ZN16hb_lazy_loader_tIN2OT18glyf_accelerator_tE21hb_face_lazy_loader_tIS1_Lj15EE9hb_face_tLj15ES1_E7destroyEPS1_.exit.i.i
@@ -432,16 +432,16 @@ _ZN16hb_lazy_loader_tIN2OT18glyf_accelerator_tE21hb_face_lazy_loader_tIS1_Lj15EE
   store i32 0, ptr %144, align 4
   %145 = getelementptr inbounds i8, ptr %140, i64 8
   %146 = load ptr, ptr %145, align 8
-  tail call void @free(ptr noundef %146) #8
+  tail call void @free(ptr noundef %146) #9
   br label %147
 
 147:                                              ; preds = %143, %141
-  tail call void @free(ptr noundef nonnull %140) #8
+  tail call void @free(ptr noundef nonnull %140) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E7destroyEPS1_.exit.i.i
 
 _ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E7destroyEPS1_.exit.i.i: ; preds = %147, %137
-  tail call void @_ZN2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %136) #8
-  tail call void @free(ptr noundef nonnull %136) #8
+  tail call void @_ZN2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %136) #9
+  tail call void @free(ptr noundef nonnull %136) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT18glyf_accelerator_tE21hb_face_lazy_loader_tIS1_Lj15EE9hb_face_tLj15ES1_E4finiEv.exit, %_ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E7destroyEPS1_.exit.i.i
@@ -455,8 +455,8 @@ _ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE
   br i1 %or.cond.i.i41, label %_ZN16hb_lazy_loader_tIN2OT18cff2_accelerator_tE21hb_face_lazy_loader_tIS1_Lj17EE9hb_face_tLj17ES1_E4finiEv.exit, label %151
 
 151:                                              ; preds = %_ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E4finiEv.exit
-  tail call void @_ZN2OT4cff219accelerator_templ_tIN3CFF25cff2_private_dict_opset_tENS2_31cff2_private_dict_values_base_tINS2_10dict_val_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(196) %150) #8
-  tail call void @free(ptr noundef nonnull %150) #8
+  tail call void @_ZN2OT4cff219accelerator_templ_tIN3CFF25cff2_private_dict_opset_tENS2_31cff2_private_dict_values_base_tINS2_10dict_val_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(196) %150) #9
+  tail call void @free(ptr noundef nonnull %150) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18cff2_accelerator_tE21hb_face_lazy_loader_tIS1_Lj17EE9hb_face_tLj17ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT18cff2_accelerator_tE21hb_face_lazy_loader_tIS1_Lj17EE9hb_face_tLj17ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E4finiEv.exit, %151
@@ -537,18 +537,18 @@ _ZN16hb_lazy_loader_tIN2OT4cvarE22hb_table_lazy_loader_tIS1_Lj20ELb1EE9hb_face_t
   store i32 0, ptr %179, align 4
   %180 = getelementptr inbounds i8, ptr %172, i64 24
   %181 = load ptr, ptr %180, align 8
-  tail call void @free(ptr noundef %181) #8
+  tail call void @free(ptr noundef %181) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18gvar_accelerator_tE21hb_face_lazy_loader_tIS1_Lj21EE9hb_face_tLj21ES1_E7destroyEPS1_.exit.i.i
 
 182:                                              ; preds = %173
   %183 = landingpad { ptr, i32 }
           catch ptr null
   %184 = extractvalue { ptr, i32 } %183, 0
-  tail call void @__clang_call_terminate(ptr %184) #7
+  tail call void @__clang_call_terminate(ptr %184) #8
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT18gvar_accelerator_tE21hb_face_lazy_loader_tIS1_Lj21EE9hb_face_tLj21ES1_E7destroyEPS1_.exit.i.i: ; preds = %178, %175
-  tail call void @free(ptr noundef nonnull %172) #8
+  tail call void @free(ptr noundef nonnull %172) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18gvar_accelerator_tE21hb_face_lazy_loader_tIS1_Lj21EE9hb_face_tLj21ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT18gvar_accelerator_tE21hb_face_lazy_loader_tIS1_Lj21EE9hb_face_tLj21ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT4cvarE22hb_table_lazy_loader_tIS1_Lj20ELb1EE9hb_face_tLj20E9hb_blob_tE4finiEv.exit, %_ZN16hb_lazy_loader_tIN2OT18gvar_accelerator_tE21hb_face_lazy_loader_tIS1_Lj21EE9hb_face_tLj21ES1_E7destroyEPS1_.exit.i.i
@@ -612,18 +612,18 @@ _ZN16hb_lazy_loader_tIN2OT4kernE22hb_table_lazy_loader_tIS1_Lj23ELb1EE9hb_face_t
   store i32 0, ptr %206, align 4
   %207 = getelementptr inbounds i8, ptr %199, i64 16
   %208 = load ptr, ptr %207, align 8
-  tail call void @free(ptr noundef %208) #8
+  tail call void @free(ptr noundef %208) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E7destroyEPS1_.exit.i.i
 
 209:                                              ; preds = %200
   %210 = landingpad { ptr, i32 }
           catch ptr null
   %211 = extractvalue { ptr, i32 } %210, 0
-  tail call void @__clang_call_terminate(ptr %211) #7
+  tail call void @__clang_call_terminate(ptr %211) #8
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E7destroyEPS1_.exit.i.i: ; preds = %205, %202
-  tail call void @free(ptr noundef nonnull %199) #8
+  tail call void @free(ptr noundef nonnull %199) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT4kernE22hb_table_lazy_loader_tIS1_Lj23ELb1EE9hb_face_tLj23E9hb_blob_tE4finiEv.exit, %_ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E7destroyEPS1_.exit.i.i
@@ -652,7 +652,7 @@ _ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE
   %221 = getelementptr inbounds %struct.hb_atomic_ptr_t.164, ptr %220, i64 %indvars.iv.i.i.i.i.i
   %222 = load atomic i64, ptr %221 acquire, align 8
   %223 = inttoptr i64 %222 to ptr
-  tail call void @free(ptr noundef %223) #8
+  tail call void @free(ptr noundef %223) #9
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %224 = load i32, ptr %216, align 8
   %225 = zext i32 %224 to i64
@@ -662,7 +662,7 @@ _ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE
 ._crit_edge.i.i.i.i.i:                            ; preds = %219, %215
   %227 = getelementptr inbounds i8, ptr %214, i64 16
   %228 = load ptr, ptr %227, align 8
-  tail call void @free(ptr noundef %228) #8
+  tail call void @free(ptr noundef %228) #9
   %229 = load ptr, ptr %214, align 8
   invoke void @hb_blob_destroy(ptr noundef %229)
           to label %_ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE9hb_face_tLj25ES1_E7destroyEPS1_.exit.i.i unwind label %230
@@ -671,11 +671,11 @@ _ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE
   %231 = landingpad { ptr, i32 }
           catch ptr null
   %232 = extractvalue { ptr, i32 } %231, 0
-  tail call void @__clang_call_terminate(ptr %232) #7
+  tail call void @__clang_call_terminate(ptr %232) #8
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE9hb_face_tLj25ES1_E7destroyEPS1_.exit.i.i: ; preds = %._crit_edge.i.i.i.i.i
-  tail call void @free(ptr noundef nonnull %214) #8
+  tail call void @free(ptr noundef nonnull %214) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE9hb_face_tLj25ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE9hb_face_tLj25ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E4finiEv.exit, %_ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE9hb_face_tLj25ES1_E7destroyEPS1_.exit.i.i
@@ -704,7 +704,7 @@ _ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE
   %242 = getelementptr inbounds %struct.hb_atomic_ptr_t.164, ptr %241, i64 %indvars.iv.i.i.i.i.i69
   %243 = load atomic i64, ptr %242 acquire, align 8
   %244 = inttoptr i64 %243 to ptr
-  tail call void @free(ptr noundef %244) #8
+  tail call void @free(ptr noundef %244) #9
   %indvars.iv.next.i.i.i.i.i70 = add nuw nsw i64 %indvars.iv.i.i.i.i.i69, 1
   %245 = load i32, ptr %237, align 8
   %246 = zext i32 %245 to i64
@@ -714,7 +714,7 @@ _ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE
 ._crit_edge.i.i.i.i.i71:                          ; preds = %240, %236
   %248 = getelementptr inbounds i8, ptr %235, i64 16
   %249 = load ptr, ptr %248, align 8
-  tail call void @free(ptr noundef %249) #8
+  tail call void @free(ptr noundef %249) #9
   %250 = load ptr, ptr %235, align 8
   invoke void @hb_blob_destroy(ptr noundef %250)
           to label %_ZN16hb_lazy_loader_tIN2OT18GPOS_accelerator_tE21hb_face_lazy_loader_tIS1_Lj26EE9hb_face_tLj26ES1_E7destroyEPS1_.exit.i.i unwind label %251
@@ -723,11 +723,11 @@ _ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE
   %252 = landingpad { ptr, i32 }
           catch ptr null
   %253 = extractvalue { ptr, i32 } %252, 0
-  tail call void @__clang_call_terminate(ptr %253) #7
+  tail call void @__clang_call_terminate(ptr %253) #8
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT18GPOS_accelerator_tE21hb_face_lazy_loader_tIS1_Lj26EE9hb_face_tLj26ES1_E7destroyEPS1_.exit.i.i: ; preds = %._crit_edge.i.i.i.i.i71
-  tail call void @free(ptr noundef nonnull %235) #8
+  tail call void @free(ptr noundef nonnull %235) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18GPOS_accelerator_tE21hb_face_lazy_loader_tIS1_Lj26EE9hb_face_tLj26ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT18GPOS_accelerator_tE21hb_face_lazy_loader_tIS1_Lj26EE9hb_face_tLj26ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE9hb_face_tLj25ES1_E4finiEv.exit, %_ZN16hb_lazy_loader_tIN2OT18GPOS_accelerator_tE21hb_face_lazy_loader_tIS1_Lj26EE9hb_face_tLj26ES1_E7destroyEPS1_.exit.i.i
@@ -926,11 +926,11 @@ _ZN16hb_lazy_loader_tIN2OT4CPALE22hb_table_lazy_loader_tIS1_Lj36ELb1EE9hb_face_t
   %323 = landingpad { ptr, i32 }
           catch ptr null
   %324 = extractvalue { ptr, i32 } %323, 0
-  tail call void @__clang_call_terminate(ptr %324) #7
+  tail call void @__clang_call_terminate(ptr %324) #8
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT18CBDT_accelerator_tE21hb_face_lazy_loader_tIS1_Lj37EE9hb_face_tLj37ES1_E7destroyEPS1_.exit.i.i: ; preds = %319
-  tail call void @free(ptr noundef nonnull %316) #8
+  tail call void @free(ptr noundef nonnull %316) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18CBDT_accelerator_tE21hb_face_lazy_loader_tIS1_Lj37EE9hb_face_tLj37ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT18CBDT_accelerator_tE21hb_face_lazy_loader_tIS1_Lj37EE9hb_face_tLj37ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT4CPALE22hb_table_lazy_loader_tIS1_Lj36ELb1EE9hb_face_tLj36E9hb_blob_tE4finiEv.exit, %_ZN16hb_lazy_loader_tIN2OT18CBDT_accelerator_tE21hb_face_lazy_loader_tIS1_Lj37EE9hb_face_tLj37ES1_E7destroyEPS1_.exit.i.i
@@ -952,11 +952,11 @@ _ZN16hb_lazy_loader_tIN2OT18CBDT_accelerator_tE21hb_face_lazy_loader_tIS1_Lj37EE
   %331 = landingpad { ptr, i32 }
           catch ptr null
   %332 = extractvalue { ptr, i32 } %331, 0
-  tail call void @__clang_call_terminate(ptr %332) #7
+  tail call void @__clang_call_terminate(ptr %332) #8
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT18sbix_accelerator_tE21hb_face_lazy_loader_tIS1_Lj38EE9hb_face_tLj38ES1_E7destroyEPS1_.exit.i.i: ; preds = %328
-  tail call void @free(ptr noundef nonnull %327) #8
+  tail call void @free(ptr noundef nonnull %327) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18sbix_accelerator_tE21hb_face_lazy_loader_tIS1_Lj38EE9hb_face_tLj38ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT18sbix_accelerator_tE21hb_face_lazy_loader_tIS1_Lj38EE9hb_face_tLj38ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT18CBDT_accelerator_tE21hb_face_lazy_loader_tIS1_Lj37EE9hb_face_tLj37ES1_E4finiEv.exit, %_ZN16hb_lazy_loader_tIN2OT18sbix_accelerator_tE21hb_face_lazy_loader_tIS1_Lj38EE9hb_face_tLj38ES1_E7destroyEPS1_.exit.i.i
@@ -978,11 +978,11 @@ _ZN16hb_lazy_loader_tIN2OT18sbix_accelerator_tE21hb_face_lazy_loader_tIS1_Lj38EE
   %339 = landingpad { ptr, i32 }
           catch ptr null
   %340 = extractvalue { ptr, i32 } %339, 0
-  tail call void @__clang_call_terminate(ptr %340) #7
+  tail call void @__clang_call_terminate(ptr %340) #8
   unreachable
 
 _ZN16hb_lazy_loader_tIN2OT17SVG_accelerator_tE21hb_face_lazy_loader_tIS1_Lj39EE9hb_face_tLj39ES1_E7destroyEPS1_.exit.i.i: ; preds = %336
-  tail call void @free(ptr noundef nonnull %335) #8
+  tail call void @free(ptr noundef nonnull %335) #9
   br label %_ZN16hb_lazy_loader_tIN2OT17SVG_accelerator_tE21hb_face_lazy_loader_tIS1_Lj39EE9hb_face_tLj39ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT17SVG_accelerator_tE21hb_face_lazy_loader_tIS1_Lj39EE9hb_face_tLj39ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT18sbix_accelerator_tE21hb_face_lazy_loader_tIS1_Lj38EE9hb_face_tLj38ES1_E4finiEv.exit, %_ZN16hb_lazy_loader_tIN2OT17SVG_accelerator_tE21hb_face_lazy_loader_tIS1_Lj39EE9hb_face_tLj39ES1_E7destroyEPS1_.exit.i.i
@@ -1018,17 +1018,18 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
-  tail call void @_ZSt9terminatev() #7
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
+  tail call void @_ZSt9terminatev() #8
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE5_finiEv(ptr noundef nonnull align 8 dereferenceable(304) %0)
           to label %2 unwind label %52
 
@@ -1066,7 +1067,7 @@ define linkonce_odr hidden void @_ZN2OT4cff119accelerator_templ_tIN3CFF25cff1_pr
   store i32 0, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %.pn7.i.i.i, i64 -24
   %18 = load ptr, ptr %17, align 8
-  tail call void @free(ptr noundef %18) #8
+  tail call void @free(ptr noundef %18) #9
   br label %_ZN3CFF31cff1_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i.i
 
 _ZN3CFF31cff1_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i.i: ; preds = %15, %.lr.ph.i.i.i
@@ -1078,7 +1079,7 @@ _ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EE
   store i32 0, ptr %6, align 4
   %19 = getelementptr inbounds i8, ptr %0, i64 288
   %20 = load ptr, ptr %19, align 8
-  tail call void @free(ptr noundef %20) #8
+  tail call void @free(ptr noundef %20) #9
   br label %_ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EED2Ev.exit
 
 _ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EED2Ev.exit: ; preds = %2, %_ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i.i
@@ -1116,7 +1117,7 @@ _ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EE
   store i32 0, ptr %34, align 4
   %35 = getelementptr inbounds i8, ptr %.pn7.i.i.i5, i64 -24
   %36 = load ptr, ptr %35, align 8
-  tail call void @free(ptr noundef %36) #8
+  tail call void @free(ptr noundef %36) #9
   br label %_ZN3CFF23cff1_font_dict_values_tD2Ev.exit.i.i.i
 
 _ZN3CFF23cff1_font_dict_values_tD2Ev.exit.i.i.i:  ; preds = %33, %.lr.ph.i.i.i4
@@ -1128,7 +1129,7 @@ _ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE13shrink_vectorEj.exit.i.i:
   store i32 0, ptr %24, align 4
   %37 = getelementptr inbounds i8, ptr %0, i64 272
   %38 = load ptr, ptr %37, align 8
-  tail call void @free(ptr noundef %38) #8
+  tail call void @free(ptr noundef %38) #9
   br label %_ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EED2Ev.exit
 
 _ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EED2Ev.exit: ; preds = %_ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EED2Ev.exit, %_ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE13shrink_vectorEj.exit.i.i
@@ -1143,7 +1144,7 @@ _ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EED2Ev.exit: ; preds = %_ZN11
   store i32 0, ptr %42, align 4
   %43 = getelementptr inbounds i8, ptr %0, i64 168
   %44 = load ptr, ptr %43, align 8
-  tail call void @free(ptr noundef %44) #8
+  tail call void @free(ptr noundef %44) #9
   br label %_ZN3CFF22cff1_top_dict_values_tD2Ev.exit
 
 _ZN3CFF22cff1_top_dict_values_tD2Ev.exit:         ; preds = %_ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EED2Ev.exit, %41
@@ -1167,7 +1168,7 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit.i: ; preds = %47
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  tail call void @__clang_call_terminate(ptr %51) #7
+  tail call void @__clang_call_terminate(ptr %51) #8
   unreachable
 
 _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %_ZN3CFF22cff1_top_dict_values_tD2Ev.exit, %_ZN21hb_sanitize_context_t14end_processingEv.exit.i
@@ -1177,7 +1178,7 @@ _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %_ZN3CFF22cff1_top_d
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  tail call void @__clang_call_terminate(ptr %54) #7
+  tail call void @__clang_call_terminate(ptr %54) #8
   unreachable
 }
 
@@ -1199,7 +1200,7 @@ define linkonce_odr hidden void @_ZN2OT4cff119accelerator_templ_tIN3CFF25cff1_pr
   store i32 0, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 168
   %10 = load ptr, ptr %9, align 8
-  tail call void @free(ptr noundef %10) #8
+  tail call void @free(ptr noundef %10) #9
   br label %_ZN3CFF22cff1_top_dict_values_t4finiEv.exit
 
 _ZN3CFF22cff1_top_dict_values_t4finiEv.exit:      ; preds = %1, %7
@@ -1237,7 +1238,7 @@ _ZN3CFF22cff1_top_dict_values_t4finiEv.exit:      ; preds = %1, %7
   store i32 0, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %.pn7.i.i, i64 -24
   %26 = load ptr, ptr %25, align 8
-  tail call void @free(ptr noundef %26) #8
+  tail call void @free(ptr noundef %26) #9
   br label %_ZN3CFF23cff1_font_dict_values_tD2Ev.exit.i.i
 
 _ZN3CFF23cff1_font_dict_values_tD2Ev.exit.i.i:    ; preds = %23, %.lr.ph.i.i
@@ -1249,7 +1250,7 @@ _ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE13shrink_vectorEj.exit.i: ;
   store i32 0, ptr %14, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 272
   %28 = load ptr, ptr %27, align 8
-  tail call void @free(ptr noundef %28) #8
+  tail call void @free(ptr noundef %28) #9
   br label %_ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE4finiEv.exit
 
 _ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE4finiEv.exit: ; preds = %_ZN3CFF22cff1_top_dict_values_t4finiEv.exit, %_ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE13shrink_vectorEj.exit.i
@@ -1287,7 +1288,7 @@ _ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE4finiEv.exit: ; preds = %_Z
   store i32 0, ptr %42, align 4
   %43 = getelementptr inbounds i8, ptr %.pn7.i.i5, i64 -24
   %44 = load ptr, ptr %43, align 8
-  tail call void @free(ptr noundef %44) #8
+  tail call void @free(ptr noundef %44) #9
   br label %_ZN3CFF31cff1_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i
 
 _ZN3CFF31cff1_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i: ; preds = %41, %.lr.ph.i.i4
@@ -1299,7 +1300,7 @@ _ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EE
   store i32 0, ptr %32, align 4
   %45 = getelementptr inbounds i8, ptr %0, i64 288
   %46 = load ptr, ptr %45, align 8
-  tail call void @free(ptr noundef %46) #8
+  tail call void @free(ptr noundef %46) #9
   br label %_ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EE4finiEv.exit
 
 _ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EE4finiEv.exit: ; preds = %_ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE4finiEv.exit, %_ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i
@@ -1312,7 +1313,7 @@ _ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2OT4cff219accelerator_templ_tIN3CFF25cff2_private_dict_opset_tENS2_31cff2_private_dict_values_base_tINS2_10dict_val_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(196) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN2OT4cff219accelerator_templ_tIN3CFF25cff2_private_dict_opset_tENS2_31cff2_private_dict_values_base_tINS2_10dict_val_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(196) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN2OT4cff219accelerator_templ_tIN3CFF25cff2_private_dict_opset_tENS2_31cff2_private_dict_values_base_tINS2_10dict_val_tEEEE5_finiEv(ptr noundef nonnull align 8 dereferenceable(196) %0)
           to label %2 unwind label %52
 
@@ -1350,7 +1351,7 @@ define linkonce_odr hidden void @_ZN2OT4cff219accelerator_templ_tIN3CFF25cff2_pr
   store i32 0, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %.pn7.i.i.i, i64 -32
   %18 = load ptr, ptr %17, align 8
-  tail call void @free(ptr noundef %18) #8
+  tail call void @free(ptr noundef %18) #9
   br label %_ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i.i
 
 _ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i.i: ; preds = %15, %.lr.ph.i.i.i
@@ -1362,7 +1363,7 @@ _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE
   store i32 0, ptr %6, align 4
   %19 = getelementptr inbounds i8, ptr %0, i64 184
   %20 = load ptr, ptr %19, align 8
-  tail call void @free(ptr noundef %20) #8
+  tail call void @free(ptr noundef %20) #9
   br label %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EED2Ev.exit
 
 _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EED2Ev.exit: ; preds = %2, %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i.i
@@ -1400,7 +1401,7 @@ _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE
   store i32 0, ptr %34, align 4
   %35 = getelementptr inbounds i8, ptr %.pn7.i.i.i5, i64 -24
   %36 = load ptr, ptr %35, align 8
-  tail call void @free(ptr noundef %36) #8
+  tail call void @free(ptr noundef %36) #9
   br label %_ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i.i.i
 
 _ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i.i.i:  ; preds = %33, %.lr.ph.i.i.i4
@@ -1412,7 +1413,7 @@ _ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i.i:
   store i32 0, ptr %24, align 4
   %37 = getelementptr inbounds i8, ptr %0, i64 168
   %38 = load ptr, ptr %37, align 8
-  tail call void @free(ptr noundef %38) #8
+  tail call void @free(ptr noundef %38) #9
   br label %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EED2Ev.exit
 
 _ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EED2Ev.exit: ; preds = %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EED2Ev.exit, %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i.i
@@ -1427,7 +1428,7 @@ _ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EED2Ev.exit: ; preds = %_ZN11
   store i32 0, ptr %42, align 4
   %43 = getelementptr inbounds i8, ptr %0, i64 88
   %44 = load ptr, ptr %43, align 8
-  tail call void @free(ptr noundef %44) #8
+  tail call void @free(ptr noundef %44) #9
   br label %_ZN3CFF22cff2_top_dict_values_tD2Ev.exit
 
 _ZN3CFF22cff2_top_dict_values_tD2Ev.exit:         ; preds = %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EED2Ev.exit, %41
@@ -1451,7 +1452,7 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit.i: ; preds = %47
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  tail call void @__clang_call_terminate(ptr %51) #7
+  tail call void @__clang_call_terminate(ptr %51) #8
   unreachable
 
 _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %_ZN3CFF22cff2_top_dict_values_tD2Ev.exit, %_ZN21hb_sanitize_context_t14end_processingEv.exit.i
@@ -1461,7 +1462,7 @@ _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %_ZN3CFF22cff2_top_d
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  tail call void @__clang_call_terminate(ptr %54) #7
+  tail call void @__clang_call_terminate(ptr %54) #8
   unreachable
 }
 
@@ -1483,7 +1484,7 @@ define linkonce_odr hidden void @_ZN2OT4cff219accelerator_templ_tIN3CFF25cff2_pr
   store i32 0, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
-  tail call void @free(ptr noundef %10) #8
+  tail call void @free(ptr noundef %10) #9
   br label %_ZN3CFF22cff2_top_dict_values_t4finiEv.exit
 
 _ZN3CFF22cff2_top_dict_values_t4finiEv.exit:      ; preds = %1, %7
@@ -1521,7 +1522,7 @@ _ZN3CFF22cff2_top_dict_values_t4finiEv.exit:      ; preds = %1, %7
   store i32 0, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %.pn7.i.i, i64 -24
   %26 = load ptr, ptr %25, align 8
-  tail call void @free(ptr noundef %26) #8
+  tail call void @free(ptr noundef %26) #9
   br label %_ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i.i
 
 _ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i.i:    ; preds = %23, %.lr.ph.i.i
@@ -1533,7 +1534,7 @@ _ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i: ;
   store i32 0, ptr %14, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 168
   %28 = load ptr, ptr %27, align 8
-  tail call void @free(ptr noundef %28) #8
+  tail call void @free(ptr noundef %28) #9
   br label %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE4finiEv.exit
 
 _ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE4finiEv.exit: ; preds = %_ZN3CFF22cff2_top_dict_values_t4finiEv.exit, %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i
@@ -1571,7 +1572,7 @@ _ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE4finiEv.exit: ; preds = %_Z
   store i32 0, ptr %42, align 4
   %43 = getelementptr inbounds i8, ptr %.pn7.i.i5, i64 -32
   %44 = load ptr, ptr %43, align 8
-  tail call void @free(ptr noundef %44) #8
+  tail call void @free(ptr noundef %44) #9
   br label %_ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i
 
 _ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i: ; preds = %41, %.lr.ph.i.i4
@@ -1583,7 +1584,7 @@ _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE
   store i32 0, ptr %32, align 4
   %45 = getelementptr inbounds i8, ptr %0, i64 184
   %46 = load ptr, ptr %45, align 8
-  tail call void @free(ptr noundef %46) #8
+  tail call void @free(ptr noundef %46) #9
   br label %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE4finiEv.exit
 
 _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE4finiEv.exit: ; preds = %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE4finiEv.exit, %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i
@@ -1596,17 +1597,18 @@ _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { noreturn nounwind }
-attributes #8 = { nounwind }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { noreturn nounwind }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

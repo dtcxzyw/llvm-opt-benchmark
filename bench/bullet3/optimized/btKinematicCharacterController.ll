@@ -316,7 +316,7 @@ lpad10:                                           ; preds = %if.end.i, %if.then.
   %10 = landingpad { ptr, i32 }
           cleanup
   %m_manifoldArray = getelementptr inbounds i8, ptr %this, i64 216
-  tail call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_manifoldArray) #26
+  tail call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_manifoldArray) #27
   resume { ptr, i32 } %10
 }
 
@@ -408,7 +408,7 @@ define dso_local void @_ZN30btKinematicCharacterController11setMaxSlopeEf(ptr no
 entry:
   %m_maxSlopeRadians = getelementptr inbounds i8, ptr %this, i64 60
   store float %slopeRadians, ptr %m_maxSlopeRadians, align 4
-  %call.i = tail call noundef float @cosf(float noundef %slopeRadians) #26
+  %call.i = tail call noundef float @cosf(float noundef %slopeRadians) #27
   %m_maxSlopeCosine = getelementptr inbounds i8, ptr %this, i64 64
   store float %call.i, ptr %m_maxSlopeCosine, align 8
   ret void
@@ -446,7 +446,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #27
+  tail call void @__clang_call_terminate(ptr %3) #28
   unreachable
 }
 
@@ -473,7 +473,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #27
+  tail call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit: ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
@@ -510,7 +510,7 @@ terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #27
+  tail call void @__clang_call_terminate(ptr %3) #28
   unreachable
 
 _ZN30btKinematicCharacterControllerD2Ev.exit:     ; preds = %entry, %if.then.i.i.i.i, %if.then3.i.i.i.i
@@ -528,7 +528,7 @@ terminate.lpad.i:                                 ; preds = %_ZN30btKinematicCha
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #27
+  tail call void @__clang_call_terminate(ptr %5) #28
   unreachable
 
 _ZN30btKinematicCharacterControllerdlEPv.exit:    ; preds = %_ZN30btKinematicCharacterControllerD2Ev.exit
@@ -2505,9 +2505,9 @@ if.then6:                                         ; preds = %if.then
   %x.addr.0.i = select i1 %cmp.i, float -1.000000e+00, float %11
   %cmp1.i = fcmp ogt float %x.addr.0.i, 1.000000e+00
   %x.addr.1.i = select i1 %cmp1.i, float 1.000000e+00, float %x.addr.0.i
-  %call.i = tail call noundef float @acosf(float noundef %x.addr.1.i) #26
+  %call.i = tail call noundef float @acosf(float noundef %x.addr.1.i) #27
   %sub = fsub float 0x3FF921FB60000000, %call.i
-  %call.i5 = tail call noundef float @sinf(float noundef %sub) #26
+  %call.i5 = tail call noundef float @sinf(float noundef %sub) #27
   %12 = load float, ptr %m_walkDirection, align 4
   %13 = load float, ptr %arrayidx5.i.i, align 8
   %mul8.i.i.i = fmul float %13, %13
@@ -2738,7 +2738,7 @@ if.then:                                          ; preds = %entry
   %m_angularDamping = getelementptr inbounds i8, ptr %this, i64 272
   %5 = load float, ptr %m_angularDamping, align 8
   %sub = fsub float 1.000000e+00, %5
-  %call.i = tail call noundef float @powf(float noundef %sub, float noundef %dt) #26
+  %call.i = tail call noundef float @powf(float noundef %sub, float noundef %dt) #27
   %6 = load float, ptr %m_AngVel, align 4
   %mul.i = fmul float %call.i, %6
   store float %mul.i, ptr %m_AngVel, align 4
@@ -2797,12 +2797,12 @@ if.then8:                                         ; preds = %if.end
   %17 = tail call noundef float @llvm.fmuladd.f32(float %mul7.i.i.i.i, float %mul7.i.i.i.i, float %16)
   %sqrt.i.i.i21 = tail call noundef float @llvm.sqrt.f32(float %17)
   %mul.i.i = fmul float %mul, 5.000000e-01
-  %call.i.i.i = tail call noundef float @sinf(float noundef %mul.i.i) #26
+  %call.i.i.i = tail call noundef float @sinf(float noundef %mul.i.i) #27
   %div.i.i = fdiv float %call.i.i.i, %sqrt.i.i.i21
   %mul4.i.i = fmul float %mul.i.i.i.i, %div.i.i
   %mul7.i.i = fmul float %mul4.i.i.i.i, %div.i.i
   %mul10.i.i = fmul float %mul7.i.i.i.i, %div.i.i
-  %call.i8.i.i = tail call noundef float @cosf(float noundef %mul.i.i) #26
+  %call.i8.i.i = tail call noundef float @cosf(float noundef %mul.i.i) #27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %xform, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
@@ -2965,7 +2965,7 @@ if.then45:                                        ; preds = %if.end40
   %m_linearDamping = getelementptr inbounds i8, ptr %this, i64 268
   %49 = load float, ptr %m_linearDamping, align 4
   %sub47 = fsub float 1.000000e+00, %49
-  %call.i54 = call noundef float @powf(float noundef %sub47, float noundef %dt) #26
+  %call.i54 = call noundef float @powf(float noundef %sub47, float noundef %dt) #27
   %50 = load float, ptr %m_walkDirection42, align 4
   %mul.i55 = fmul float %call.i54, %50
   store float %mul.i55, ptr %m_walkDirection42, align 4
@@ -2981,7 +2981,7 @@ if.end51:                                         ; preds = %if.then45, %if.end4
   %m_linearDamping52 = getelementptr inbounds i8, ptr %this, i64 268
   %53 = load float, ptr %m_linearDamping52, align 4
   %sub53 = fsub float 1.000000e+00, %53
-  %call.i60 = call noundef float @powf(float noundef %sub53, float noundef %dt) #26
+  %call.i60 = call noundef float @powf(float noundef %sub53, float noundef %dt) #27
   %m_verticalVelocity = getelementptr inbounds i8, ptr %this, i64 36
   %54 = load float, ptr %m_verticalVelocity, align 4
   %mul55 = fmul float %call.i60, %54
@@ -3554,7 +3554,7 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !14
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection) #26
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection) #27
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
@@ -3565,7 +3565,7 @@ init:                                             ; preds = %init.check
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection, i64 24), i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection, i64 40), align 8
   store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection, i64 44), align 4
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection) #26
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection) #27
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
@@ -3721,7 +3721,7 @@ if.end.i:                                         ; preds = %entry
   %23 = tail call float @llvm.fmuladd.f32(float %10, float %mul7.i.i.i10, float %neg.i.i)
   %add.i = fadd float %16, 1.000000e+00
   %mul.i = fmul float %add.i, 2.000000e+00
-  %call.i.i = tail call noundef float @sqrtf(float noundef %mul.i) #26
+  %call.i.i = tail call noundef float @sqrtf(float noundef %mul.i) #27
   %div.i = fdiv float 1.000000e+00, %call.i.i
   %mul8.i = fmul float %23, %div.i
   %mul11.i = fmul float %22, %div.i
@@ -3759,19 +3759,20 @@ declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #19 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
-  tail call void @_ZSt9terminatev() #27
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
+  tail call void @_ZSt9terminatev() #28
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN43btKinematicClosestNotMeConvexResultCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(124) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
 
@@ -3957,16 +3958,16 @@ return:                                           ; preds = %if.end11, %if.end, 
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #20
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sqrtf(float noundef) local_unnamed_addr #21
+declare float @sqrtf(float noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sinf(float noundef) local_unnamed_addr #21
+declare float @sinf(float noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @acosf(float noundef) local_unnamed_addr #21
+declare float @acosf(float noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(16) %q) local_unnamed_addr #13 comdat align 2 {
@@ -3986,7 +3987,7 @@ if.then:                                          ; preds = %entry
   %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
   %add9 = fadd float %add8, 1.000000e+00
-  %call.i = tail call noundef float @sqrtf(float noundef %add9) #26
+  %call.i = tail call noundef float @sqrtf(float noundef %add9) #27
   %mul = fmul float %call.i, 5.000000e-01
   %div = fdiv float 5.000000e-01, %call.i
   %arrayidx.i31 = getelementptr inbounds i8, ptr %this, i64 36
@@ -4035,7 +4036,7 @@ if.else:                                          ; preds = %entry
   %12 = load float, ptr %arrayidx82, align 4
   %sub83 = fsub float %sub76, %12
   %add84 = fadd float %sub83, 1.000000e+00
-  %call.i39 = tail call noundef float @sqrtf(float noundef %add84) #26
+  %call.i39 = tail call noundef float @sqrtf(float noundef %add84) #27
   %mul86 = fmul float %call.i39, 5.000000e-01
   %arrayidx88 = getelementptr inbounds [4 x float], ptr %temp, i64 0, i64 %idxprom
   store float %mul86, ptr %arrayidx88, align 4
@@ -4088,28 +4089,28 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @powf(float noundef, float noundef) local_unnamed_addr #21
+declare float @powf(float noundef, float noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @cosf(float noundef) local_unnamed_addr #21
+declare float @cosf(float noundef) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #22
+declare float @llvm.sqrt.f32(float) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #25
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #26
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4131,15 +4132,16 @@ attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #17 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nofree nounwind }
 attributes #19 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #26 = { nounwind }
-attributes #27 = { noreturn nounwind }
-attributes #28 = { builtin nounwind }
+attributes #20 = { cold nofree noreturn }
+attributes #21 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #26 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #27 = { nounwind }
+attributes #28 = { noreturn nounwind }
+attributes #29 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -46,7 +46,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #13
+  tail call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #14
   resume { ptr, i32 } %0
 }
 
@@ -67,7 +67,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #14
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #15
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -77,7 +77,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #14
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #15
   br label %delete.end4
 
 delete.end4:                                      ; preds = %delete.notnull3, %delete.end
@@ -87,11 +87,11 @@ delete.end4:                                      ; preds = %delete.notnull3, %d
   br i1 %isnull5, label %delete.end7, label %delete.notnull6
 
 delete.notnull6:                                  ; preds = %delete.end4
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #14
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #15
   br label %delete.end7
 
 delete.end7:                                      ; preds = %delete.notnull6, %delete.end4
-  tail call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #13
+  tail call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #14
   ret void
 }
 
@@ -101,8 +101,8 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_218SampleCountChannelD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN7Imf_3_218SampleCountChannelD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZN7Imf_3_218SampleCountChannelD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -259,7 +259,7 @@ if.end46:                                         ; preds = %_ZN7Imf_3_212_GLOBA
   %21 = icmp ugt i64 %20, 4611686018427387903
   %22 = shl i64 %20, 2
   %23 = select i1 %21, i64 -1, i64 %22
-  %call56 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %23) #15
+  %call56 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %23) #16
           to label %invoke.cont58 unwind label %lpad
 
 invoke.cont58:                                    ; preds = %if.end46
@@ -283,7 +283,7 @@ invoke.cont58:                                    ; preds = %if.end46
   %28 = icmp ugt i64 %20, 2305843009213693951
   %29 = shl i64 %20, 3
   %30 = select i1 %28, i64 -1, i64 %29
-  %call63 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %30) #15
+  %call63 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %30) #16
           to label %invoke.cont62 unwind label %lpad
 
 invoke.cont62:                                    ; preds = %invoke.cont58
@@ -308,12 +308,12 @@ lpad:                                             ; preds = %invoke.cont95, %inv
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  %34 = tail call ptr @__cxa_begin_catch(ptr %33) #13
+  %34 = tail call ptr @__cxa_begin_catch(ptr %33) #14
   %isnull103 = icmp eq ptr %2, null
   br i1 %isnull103, label %delete.end105, label %delete.notnull104
 
 delete.notnull104:                                ; preds = %lpad
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #14
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #15
   br label %delete.end105
 
 delete.end105:                                    ; preds = %delete.notnull104, %lpad
@@ -321,7 +321,7 @@ delete.end105:                                    ; preds = %delete.notnull104, 
   br i1 %isnull106, label %delete.end108, label %delete.notnull107
 
 delete.notnull107:                                ; preds = %delete.end105
-  tail call void @_ZdaPv(ptr noundef nonnull %oldSampleListPositions.0) #14
+  tail call void @_ZdaPv(ptr noundef nonnull %oldSampleListPositions.0) #15
   br label %delete.end108
 
 delete.end108:                                    ; preds = %delete.notnull107, %delete.end105
@@ -340,7 +340,7 @@ delete.end108:                                    ; preds = %delete.notnull107, 
           to label %invoke.cont116 unwind label %lpad109
 
 invoke.cont116:                                   ; preds = %delete.end108
-  invoke void @__cxa_rethrow() #16
+  invoke void @__cxa_rethrow() #17
           to label %unreachable unwind label %lpad109
 
 if.else:                                          ; preds = %for.body
@@ -407,7 +407,7 @@ invoke.cont99:                                    ; preds = %invoke.cont95
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont99
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #14
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #15
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont99
@@ -415,7 +415,7 @@ delete.end:                                       ; preds = %delete.notnull, %in
   br i1 %isnull100, label %try.cont, label %delete.notnull101
 
 delete.notnull101:                                ; preds = %delete.end
-  tail call void @_ZdaPv(ptr noundef nonnull %27) #14
+  tail call void @_ZdaPv(ptr noundef nonnull %27) #15
   br label %try.cont
 
 lpad109:                                          ; preds = %invoke.cont116, %delete.end108
@@ -434,7 +434,7 @@ terminate.lpad:                                   ; preds = %lpad109
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #17
+  call void @__clang_call_terminate(ptr %54) #18
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont116
@@ -485,12 +485,13 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #17
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #18
   unreachable
 }
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_218SampleCountChannel3setEiPj(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %r, ptr nocapture noundef readonly %newNumSamples) local_unnamed_addr #3 align 2 {
@@ -557,7 +558,7 @@ lpad:                                             ; preds = %invoke.cont7
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #13
+  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #14
   %8 = load ptr, ptr %_level.i.i, align 8
   %_image.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %_image.i, align 8
@@ -572,7 +573,7 @@ lpad:                                             ; preds = %invoke.cont7
           to label %invoke.cont17 unwind label %lpad10
 
 invoke.cont17:                                    ; preds = %lpad
-  invoke void @__cxa_rethrow() #16
+  invoke void @__cxa_rethrow() #17
           to label %unreachable unwind label %lpad10
 
 invoke.cont7:                                     ; preds = %for.body, %entry
@@ -599,7 +600,7 @@ terminate.lpad:                                   ; preds = %lpad10
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #17
+  call void @__clang_call_terminate(ptr %13) #18
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont17
@@ -680,7 +681,7 @@ lpad:                                             ; preds = %invoke.cont18
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  %14 = tail call ptr @__cxa_begin_catch(ptr %13) #13
+  %14 = tail call ptr @__cxa_begin_catch(ptr %13) #14
   %15 = load ptr, ptr %_level.i.i, align 8
   %_image.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %_image.i, align 8
@@ -695,7 +696,7 @@ lpad:                                             ; preds = %invoke.cont18
           to label %invoke.cont28 unwind label %lpad21
 
 invoke.cont28:                                    ; preds = %lpad
-  invoke void @__cxa_rethrow() #16
+  invoke void @__cxa_rethrow() #17
           to label %unreachable unwind label %lpad21
 
 invoke.cont18:                                    ; preds = %_ZN7Imf_3_212_GLOBAL__N_115roundListSizeUpEj.exit, %entry
@@ -725,7 +726,7 @@ terminate.lpad:                                   ; preds = %lpad21
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #17
+  call void @__clang_call_terminate(ptr %21) #18
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont28
@@ -742,7 +743,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #14
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #15
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -752,7 +753,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #14
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #15
   br label %delete.end4
 
 delete.end4:                                      ; preds = %delete.notnull3, %delete.end
@@ -762,7 +763,7 @@ delete.end4:                                      ; preds = %delete.notnull3, %d
   br i1 %isnull5, label %delete.end7, label %delete.notnull6
 
 delete.notnull6:                                  ; preds = %delete.end4
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #14
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #15
   br label %delete.end7
 
 delete.end7:                                      ; preds = %delete.notnull6, %delete.end4
@@ -773,14 +774,14 @@ delete.end7:                                      ; preds = %delete.notnull6, %d
   %4 = icmp ugt i64 %3, 4611686018427387903
   %5 = shl i64 %3, 2
   %6 = select i1 %4, i64 -1, i64 %5
-  %call11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #15
+  %call11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #16
   store ptr %call11, ptr %_numSamples, align 8
-  %call14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #15
+  %call14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #16
   store ptr %call14, ptr %_sampleListSizes, align 8
   %7 = icmp ugt i64 %3, 2305843009213693951
   %8 = shl i64 %3, 3
   %9 = select i1 %7, i64 -1, i64 %8
-  %call17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #15
+  %call17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #16
   store ptr %call17, ptr %_sampleListPositions, align 8
   %_level.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load ptr, ptr %_level.i.i, align 8
@@ -827,15 +828,15 @@ for.end:                                          ; preds = %for.body, %delete.e
 declare void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_ImfSampleCountChannel.cpp() #11 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_ImfSampleCountChannel.cpp() #12 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -848,13 +849,14 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nounwind }
-attributes #14 = { builtin nounwind }
-attributes #15 = { builtin allocsize(0) }
-attributes #16 = { noreturn }
-attributes #17 = { noreturn nounwind }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nounwind }
+attributes #15 = { builtin nounwind }
+attributes #16 = { builtin allocsize(0) }
+attributes #17 = { noreturn }
+attributes #18 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -92,15 +92,15 @@ _ZN12NavmeshFlags9TileFlags5purgeEv.exit.i:       ; preds = %10
 19:                                               ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %20 = extractvalue { ptr, i32 } %lpad.phi.i, 0
-  tail call void @__clang_call_terminate(ptr %20) #14
+  tail call void @__clang_call_terminate(ptr %20) #15
   unreachable
 
 _ZN12NavmeshFlagsD2Ev.exit:                       ; preds = %._crit_edge.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #16
   br label %21
 
 21:                                               ; preds = %_ZN12NavmeshFlagsD2Ev.exit, %1
-  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   ret void
 }
 
@@ -162,16 +162,16 @@ _ZN12NavmeshFlags9TileFlags5purgeEv.exit.i.i:     ; preds = %10
 19:                                               ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   %20 = extractvalue { ptr, i32 } %lpad.phi.i.i, 0
-  tail call void @__clang_call_terminate(ptr %20) #14
+  tail call void @__clang_call_terminate(ptr %20) #15
   unreachable
 
 _ZN12NavmeshFlagsD2Ev.exit.i:                     ; preds = %._crit_edge.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #16
   br label %_ZN16NavMeshPruneToolD2Ev.exit
 
 _ZN16NavMeshPruneToolD2Ev.exit:                   ; preds = %1, %_ZN12NavmeshFlagsD2Ev.exit.i
-  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
 
@@ -235,11 +235,11 @@ _ZN12NavmeshFlags9TileFlags5purgeEv.exit.i:       ; preds = %11
 20:                                               ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %21 = extractvalue { ptr, i32 } %lpad.phi.i, 0
-  tail call void @__clang_call_terminate(ptr %21) #14
+  tail call void @__clang_call_terminate(ptr %21) #15
   unreachable
 
 _ZN12NavmeshFlagsD2Ev.exit:                       ; preds = %._crit_edge.i
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #16
   br label %22
 
 22:                                               ; preds = %_ZN12NavmeshFlagsD2Ev.exit, %1
@@ -457,11 +457,11 @@ _ZN12NavmeshFlags9TileFlags5purgeEv.exit.i:       ; preds = %98
 107:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i9
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i9 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %108 = extractvalue { ptr, i32 } %lpad.phi.i, 0
-  call void @__clang_call_terminate(ptr %108) #14
+  call void @__clang_call_terminate(ptr %108) #15
   unreachable
 
 _ZN12NavmeshFlagsD2Ev.exit:                       ; preds = %._crit_edge.i
-  call void @_ZdlPv(ptr noundef nonnull %91) #15
+  call void @_ZdlPv(ptr noundef nonnull %91) #16
   br label %109
 
 109:                                              ; preds = %_ZN12NavmeshFlagsD2Ev.exit, %_ZL21disableUnvisitedPolysP9dtNavMeshP12NavmeshFlags.exit
@@ -532,7 +532,7 @@ define dso_local void @_ZN16NavMeshPruneTool11handleClickEPKfS1_b(ptr nocapture 
   br i1 %.not14, label %41, label %44
 
 41:                                               ; preds = %29
-  %42 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
+  %42 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %42, i8 0, i64 20, i1 false)
   store ptr %42, ptr %39, align 8
   %43 = tail call noundef zeroext i1 @_ZN12NavmeshFlags4initEPK9dtNavMesh(ptr noundef nonnull align 8 dereferenceable(20) %42, ptr noundef nonnull %22)
@@ -639,7 +639,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %85, %81
   %100 = zext nneg i32 %95 to i64
   %101 = getelementptr inbounds i8, ptr %99, i64 %100
   store i8 1, ptr %101, align 1
-  %102 = call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #17
+  %102 = call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #18
   store i32 %47, ptr %102, align 4
   %103 = getelementptr inbounds i8, ptr %102, i64 4
   br label %104
@@ -761,7 +761,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %85, %81
   br i1 %.not.i.i.i34.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit.i, label %140
 
 140:                                              ; preds = %.loopexit.split-lp.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0.i) #15
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0.i) #16
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit.i
 
 _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %140, %.loopexit.split-lp.i
@@ -833,7 +833,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %140, %.loopexit.spl
   br i1 %173, label %174, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i47.i
 
 174:                                              ; preds = %169
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #18
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #19
           to label %.noexc54.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc54.i:                                       ; preds = %174
@@ -851,7 +851,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i47.i: ; preds = %169
 
 180:                                              ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i47.i
   %181 = shl nuw nsw i64 %179, 2
-  %182 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %181) #17
+  %182 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %181) #18
           to label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i50.i unwind label %.loopexit77.i
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i50.i: ; preds = %180, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i47.i
@@ -872,7 +872,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i51.i: ; preds = %186, %
   br i1 %.not.i17.i.i52.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i53.i, label %189
 
 189:                                              ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i51.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.294.i) #15
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.294.i) #16
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i53.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i53.i: ; preds = %189, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i51.i
@@ -896,7 +896,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i:      ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %.not.i.i.i57.i, label %_ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit, label %196
 
 196:                                              ; preds = %195
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2.lcssa.i) #15
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2.lcssa.i) #16
   br label %_ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit
 
 _ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit: ; preds = %_ZN12NavmeshFlags8getFlagsEj.exit.i, %195, %196
@@ -1223,19 +1223,20 @@ define linkonce_odr dso_local noundef i32 @_ZN16NavMeshPruneTool4typeEv(ptr noun
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
-  tail call void @_ZSt9terminatev() #14
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  tail call void @_ZSt9terminatev() #15
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 declare void @_Z6dtFreePv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 declare noundef i32 @_ZNK9dtNavMesh12getPolyFlagsEjPt(ptr noundef nonnull align 8 dereferenceable(100), i32 noundef, ptr noundef) local_unnamed_addr #5
 
@@ -1248,22 +1249,22 @@ declare void @_ZNK9dtNavMesh25getTileAndPolyByRefUnsafeEjPPK10dtMeshTilePPK6dtPo
 declare noundef ptr @_Z21dtAssertFailGetCustomv() local_unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #12
+declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1275,15 +1276,16 @@ attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { builtin nounwind }
-attributes #16 = { nounwind }
-attributes #17 = { builtin allocsize(0) }
-attributes #18 = { noreturn }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { builtin nounwind }
+attributes #17 = { nounwind }
+attributes #18 = { builtin allocsize(0) }
+attributes #19 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

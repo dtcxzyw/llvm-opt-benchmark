@@ -234,14 +234,14 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call.i1) #6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call.i1) #7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #7
   ret void
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #7
   resume { ptr, i32 } %0
 }
 
@@ -255,7 +255,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #6
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #7
   %call.i5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc unwind label %lpad
 
@@ -270,7 +270,7 @@ call.i.noexc:                                     ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #6
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #7
   br label %eh.resume
 
 lpad:                                             ; preds = %call.i.noexc, %if.then
@@ -1100,7 +1100,7 @@ sw.default:                                       ; preds = %if.end
 
 sw.epilog:                                        ; preds = %if.end, %sw.default, %sw.bb203, %sw.bb202, %sw.bb201, %sw.bb200, %sw.bb199, %sw.bb198, %sw.bb197, %sw.bb196, %sw.bb195, %sw.bb194, %sw.bb193, %sw.bb192, %sw.bb191, %sw.bb190, %sw.bb189, %sw.bb188, %sw.bb187, %sw.bb186, %sw.bb185, %sw.bb184, %sw.bb183, %sw.bb182, %sw.bb181, %sw.bb180, %sw.bb179, %sw.bb178, %sw.bb177, %sw.bb176, %sw.bb175, %sw.bb174, %sw.bb173, %sw.bb172, %sw.bb171, %sw.bb170, %sw.bb169, %sw.bb168, %sw.bb167, %sw.bb166, %sw.bb165, %sw.bb164, %sw.bb163, %sw.bb162, %sw.bb161, %sw.bb160, %sw.bb159, %sw.bb158, %sw.bb157, %sw.bb156, %sw.bb155, %sw.bb154, %sw.bb153, %sw.bb152, %sw.bb151, %sw.bb150, %sw.bb149, %sw.bb148, %sw.bb147, %sw.bb146, %sw.bb145, %sw.bb144, %sw.bb143, %sw.bb142, %sw.bb141, %sw.bb140, %sw.bb139, %sw.bb138, %sw.bb137, %sw.bb136, %sw.bb135, %sw.bb134, %sw.bb133, %sw.bb132, %sw.bb131, %sw.bb130, %sw.bb129, %sw.bb128, %sw.bb127, %sw.bb126, %sw.bb125, %sw.bb124, %sw.bb123, %sw.bb122, %sw.bb121, %sw.bb120, %sw.bb119, %sw.bb118, %sw.bb117, %sw.bb116, %sw.bb115, %sw.bb114, %sw.bb113, %sw.bb112, %sw.bb111, %sw.bb110, %sw.bb109, %sw.bb108, %sw.bb107, %sw.bb106, %sw.bb105, %sw.bb104, %sw.bb103, %sw.bb102, %sw.bb101, %sw.bb100, %sw.bb99, %sw.bb98, %sw.bb97, %sw.bb96, %sw.bb95, %sw.bb94, %sw.bb93, %sw.bb92, %sw.bb91, %sw.bb90, %sw.bb89, %sw.bb88, %sw.bb87, %sw.bb86, %sw.bb85, %sw.bb84, %sw.bb83, %sw.bb82, %sw.bb81, %sw.bb80, %sw.bb79, %sw.bb78, %sw.bb77, %sw.bb76, %sw.bb75, %sw.bb74, %sw.bb73, %sw.bb72, %sw.bb71, %sw.bb70, %sw.bb69, %sw.bb68, %sw.bb67, %sw.bb66, %sw.bb65, %sw.bb64, %sw.bb63, %sw.bb62, %sw.bb61, %sw.bb60, %sw.bb59, %sw.bb58, %sw.bb57, %sw.bb56, %sw.bb55, %sw.bb54, %sw.bb53, %sw.bb52, %sw.bb51, %sw.bb50, %sw.bb49, %sw.bb48, %sw.bb47, %sw.bb46, %sw.bb45, %sw.bb44, %sw.bb43, %sw.bb42, %sw.bb41, %sw.bb40, %sw.bb39, %sw.bb38, %sw.bb37, %sw.bb36, %sw.bb35, %sw.bb34, %sw.bb33, %sw.bb32, %sw.bb31, %sw.bb30, %sw.bb29, %sw.bb28, %sw.bb27, %sw.bb26, %sw.bb25, %sw.bb24, %sw.bb23, %sw.bb22, %sw.bb21, %sw.bb20, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
   %error_string.0 = phi ptr [ @.str.206, %sw.default ], [ @.str.205, %sw.bb203 ], [ @.str.204, %sw.bb202 ], [ @.str.203, %sw.bb201 ], [ @.str.202, %sw.bb200 ], [ @.str.201, %sw.bb199 ], [ @.str.200, %sw.bb198 ], [ @.str.199, %sw.bb197 ], [ @.str.198, %sw.bb196 ], [ @.str.197, %sw.bb195 ], [ @.str.196, %sw.bb194 ], [ @.str.195, %sw.bb193 ], [ @.str.194, %sw.bb192 ], [ @.str.193, %sw.bb191 ], [ @.str.192, %sw.bb190 ], [ @.str.191, %sw.bb189 ], [ @.str.190, %sw.bb188 ], [ @.str.189, %sw.bb187 ], [ @.str.188, %sw.bb186 ], [ @.str.187, %sw.bb185 ], [ @.str.186, %sw.bb184 ], [ @.str.185, %sw.bb183 ], [ @.str.184, %sw.bb182 ], [ @.str.183, %sw.bb181 ], [ @.str.182, %sw.bb180 ], [ @.str.181, %sw.bb179 ], [ @.str.180, %sw.bb178 ], [ @.str.179, %sw.bb177 ], [ @.str.178, %sw.bb176 ], [ @.str.177, %sw.bb175 ], [ @.str.176, %sw.bb174 ], [ @.str.175, %sw.bb173 ], [ @.str.174, %sw.bb172 ], [ @.str.173, %sw.bb171 ], [ @.str.172, %sw.bb170 ], [ @.str.171, %sw.bb169 ], [ @.str.170, %sw.bb168 ], [ @.str.169, %sw.bb167 ], [ @.str.168, %sw.bb166 ], [ @.str.167, %sw.bb165 ], [ @.str.166, %sw.bb164 ], [ @.str.165, %sw.bb163 ], [ @.str.164, %sw.bb162 ], [ @.str.163, %sw.bb161 ], [ @.str.162, %sw.bb160 ], [ @.str.161, %sw.bb159 ], [ @.str.160, %sw.bb158 ], [ @.str.159, %sw.bb157 ], [ @.str.158, %sw.bb156 ], [ @.str.157, %sw.bb155 ], [ @.str.156, %sw.bb154 ], [ @.str.155, %sw.bb153 ], [ @.str.154, %sw.bb152 ], [ @.str.153, %sw.bb151 ], [ @.str.152, %sw.bb150 ], [ @.str.151, %sw.bb149 ], [ @.str.150, %sw.bb148 ], [ @.str.149, %sw.bb147 ], [ @.str.148, %sw.bb146 ], [ @.str.147, %sw.bb145 ], [ @.str.146, %sw.bb144 ], [ @.str.145, %sw.bb143 ], [ @.str.144, %sw.bb142 ], [ @.str.143, %sw.bb141 ], [ @.str.142, %sw.bb140 ], [ @.str.141, %sw.bb139 ], [ @.str.140, %sw.bb138 ], [ @.str.139, %sw.bb137 ], [ @.str.138, %sw.bb136 ], [ @.str.137, %sw.bb135 ], [ @.str.136, %sw.bb134 ], [ @.str.135, %sw.bb133 ], [ @.str.134, %sw.bb132 ], [ @.str.133, %sw.bb131 ], [ @.str.132, %sw.bb130 ], [ @.str.131, %sw.bb129 ], [ @.str.130, %sw.bb128 ], [ @.str.129, %sw.bb127 ], [ @.str.128, %sw.bb126 ], [ @.str.127, %sw.bb125 ], [ @.str.126, %sw.bb124 ], [ @.str.125, %sw.bb123 ], [ @.str.124, %sw.bb122 ], [ @.str.123, %sw.bb121 ], [ @.str.122, %sw.bb120 ], [ @.str.121, %sw.bb119 ], [ @.str.120, %sw.bb118 ], [ @.str.119, %sw.bb117 ], [ @.str.118, %sw.bb116 ], [ @.str.117, %sw.bb115 ], [ @.str.116, %sw.bb114 ], [ @.str.115, %sw.bb113 ], [ @.str.114, %sw.bb112 ], [ @.str.113, %sw.bb111 ], [ @.str.112, %sw.bb110 ], [ @.str.111, %sw.bb109 ], [ @.str.110, %sw.bb108 ], [ @.str.109, %sw.bb107 ], [ @.str.108, %sw.bb106 ], [ @.str.107, %sw.bb105 ], [ @.str.106, %sw.bb104 ], [ @.str.105, %sw.bb103 ], [ @.str.104, %sw.bb102 ], [ @.str.103, %sw.bb101 ], [ @.str.102, %sw.bb100 ], [ @.str.101, %sw.bb99 ], [ @.str.100, %sw.bb98 ], [ @.str.99, %sw.bb97 ], [ @.str.98, %sw.bb96 ], [ @.str.97, %sw.bb95 ], [ @.str.96, %sw.bb94 ], [ @.str.95, %sw.bb93 ], [ @.str.94, %sw.bb92 ], [ @.str.93, %sw.bb91 ], [ @.str.92, %sw.bb90 ], [ @.str.91, %sw.bb89 ], [ @.str.90, %sw.bb88 ], [ @.str.89, %sw.bb87 ], [ @.str.88, %sw.bb86 ], [ @.str.87, %sw.bb85 ], [ @.str.86, %sw.bb84 ], [ @.str.85, %sw.bb83 ], [ @.str.84, %sw.bb82 ], [ @.str.83, %sw.bb81 ], [ @.str.82, %sw.bb80 ], [ @.str.81, %sw.bb79 ], [ @.str.80, %sw.bb78 ], [ @.str.79, %sw.bb77 ], [ @.str.78, %sw.bb76 ], [ @.str.77, %sw.bb75 ], [ @.str.76, %sw.bb74 ], [ @.str.75, %sw.bb73 ], [ @.str.74, %sw.bb72 ], [ @.str.73, %sw.bb71 ], [ @.str.72, %sw.bb70 ], [ @.str.71, %sw.bb69 ], [ @.str.70, %sw.bb68 ], [ @.str.69, %sw.bb67 ], [ @.str.68, %sw.bb66 ], [ @.str.67, %sw.bb65 ], [ @.str.66, %sw.bb64 ], [ @.str.65, %sw.bb63 ], [ @.str.64, %sw.bb62 ], [ @.str.63, %sw.bb61 ], [ @.str.62, %sw.bb60 ], [ @.str.61, %sw.bb59 ], [ @.str.60, %sw.bb58 ], [ @.str.59, %sw.bb57 ], [ @.str.58, %sw.bb56 ], [ @.str.57, %sw.bb55 ], [ @.str.56, %sw.bb54 ], [ @.str.55, %sw.bb53 ], [ @.str.54, %sw.bb52 ], [ @.str.53, %sw.bb51 ], [ @.str.52, %sw.bb50 ], [ @.str.51, %sw.bb49 ], [ @.str.50, %sw.bb48 ], [ @.str.49, %sw.bb47 ], [ @.str.48, %sw.bb46 ], [ @.str.47, %sw.bb45 ], [ @.str.46, %sw.bb44 ], [ @.str.45, %sw.bb43 ], [ @.str.44, %sw.bb42 ], [ @.str.43, %sw.bb41 ], [ @.str.42, %sw.bb40 ], [ @.str.41, %sw.bb39 ], [ @.str.40, %sw.bb38 ], [ @.str.39, %sw.bb37 ], [ @.str.38, %sw.bb36 ], [ @.str.37, %sw.bb35 ], [ @.str.36, %sw.bb34 ], [ @.str.35, %sw.bb33 ], [ @.str.34, %sw.bb32 ], [ @.str.33, %sw.bb31 ], [ @.str.32, %sw.bb30 ], [ @.str.31, %sw.bb29 ], [ @.str.30, %sw.bb28 ], [ @.str.29, %sw.bb27 ], [ @.str.28, %sw.bb26 ], [ @.str.27, %sw.bb25 ], [ @.str.26, %sw.bb24 ], [ @.str.25, %sw.bb23 ], [ @.str.24, %sw.bb22 ], [ @.str.23, %sw.bb21 ], [ @.str.22, %sw.bb20 ], [ @.str.21, %sw.bb19 ], [ @.str.20, %sw.bb18 ], [ @.str.19, %sw.bb17 ], [ @.str.18, %sw.bb16 ], [ @.str.17, %sw.bb15 ], [ @.str.16, %sw.bb14 ], [ @.str.15, %sw.bb13 ], [ @.str.14, %sw.bb12 ], [ @.str.13, %sw.bb11 ], [ @.str.12, %sw.bb10 ], [ @.str.11, %sw.bb9 ], [ @.str.10, %sw.bb8 ], [ @.str.9, %sw.bb7 ], [ @.str.8, %sw.bb6 ], [ @.str.7, %sw.bb5 ], [ @.str.6, %sw.bb4 ], [ @.str.5, %sw.bb3 ], [ @.str.4, %sw.bb2 ], [ @.str.3, %sw.bb1 ], [ @.str.2, %if.end ]
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp205) #6
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp205) #7
   %call.i10 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204)
           to label %call.i.noexc9 unwind label %lpad206
 
@@ -1115,7 +1115,7 @@ call.i.noexc9:                                    ; preds = %sw.epilog
 lpad.i8:                                          ; preds = %.noexc11
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp204) #6
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp204) #7
   br label %eh.resume
 
 invoke.cont207:                                   ; preds = %.noexc11
@@ -1123,8 +1123,8 @@ invoke.cont207:                                   ; preds = %.noexc11
           to label %invoke.cont209 unwind label %lpad208
 
 invoke.cont209:                                   ; preds = %invoke.cont207
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call.i15) #6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call.i15) #7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204) #7
   br label %return
 
 lpad206:                                          ; preds = %call.i.noexc9, %sw.epilog
@@ -1135,18 +1135,18 @@ lpad206:                                          ; preds = %call.i.noexc9, %sw.
 lpad208:                                          ; preds = %invoke.cont207
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204) #7
   br label %eh.resume
 
 return:                                           ; preds = %.noexc, %invoke.cont209
   %ref.tmp205.sink = phi ptr [ %ref.tmp205, %invoke.cont209 ], [ %ref.tmp, %.noexc ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp205.sink) #6
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp205.sink) #7
   ret void
 
 eh.resume:                                        ; preds = %lpad208, %lpad.i8, %lpad206, %lpad, %lpad.i
   %ref.tmp205.sink16 = phi ptr [ %ref.tmp, %lpad.i ], [ %ref.tmp, %lpad ], [ %ref.tmp205, %lpad206 ], [ %ref.tmp205, %lpad.i8 ], [ %ref.tmp205, %lpad208 ]
   %.pn3 = phi { ptr, i32 } [ %0, %lpad.i ], [ %1, %lpad ], [ %3, %lpad206 ], [ %2, %lpad.i8 ], [ %4, %lpad208 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp205.sink16) #6
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp205.sink16) #7
   resume { ptr, i32 } %.pn3
 }
 
@@ -1246,7 +1246,7 @@ terminate.lpad.i:                                 ; preds = %if.else
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #7
+  tail call void @__clang_call_terminate(ptr %2) #8
   unreachable
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1255,7 +1255,7 @@ if.end:                                           ; preds = %if.else, %if.then
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #7
   store ptr null, ptr %__guard, align 8
   %3 = load i64, ptr %__dnew, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %3)
@@ -1267,7 +1267,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 lpad:                                             ; preds = %invoke.cont, %if.end
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #6
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #7
   resume { ptr, i32 } %4
 }
 
@@ -1302,20 +1302,21 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #7
+  tail call void @__clang_call_terminate(ptr %2) #8
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #6
-  tail call void @_ZSt9terminatev() #7
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
+  tail call void @_ZSt9terminatev() #8
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
@@ -1330,8 +1331,9 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

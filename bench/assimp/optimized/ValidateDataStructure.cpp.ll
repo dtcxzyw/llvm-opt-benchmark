@@ -219,7 +219,7 @@ $_ZTV17DeadlyImportError = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6Assimp17ValidateDSProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #19
+  tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17ValidateDSProcessE, i64 16), ptr %this, align 8
   %mScene = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %mScene, align 8
@@ -246,11 +246,11 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::allocator", align 1
   call void @llvm.va_start.p0(ptr nonnull %args)
-  %call = call i32 @vsnprintf(ptr noundef nonnull %szBuffer, i64 noundef 3000, ptr noundef %msg, ptr noundef nonnull %args) #19
+  %call = call i32 @vsnprintf(ptr noundef nonnull %szBuffer, i64 noundef 3000, ptr noundef %msg, ptr noundef nonnull %args) #21
   call void @llvm.va_end.p0(ptr nonnull %args)
-  %exception = call ptr @__cxa_allocate_exception(i64 16) #19
+  %exception = call ptr @__cxa_allocate_exception(i64 16) #21
   %conv = sext i32 %call to i64
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #19
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %szBuffer, i64 noundef %conv, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6)
           to label %invoke.cont unwind label %ehcleanup.thread
 
@@ -266,20 +266,20 @@ invoke.cont:                                      ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp.i) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp.i) #21
   br label %ehcleanup
 
 invoke.cont8:                                     ; preds = %.noexc
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp.i) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp.i) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %exception, align 8
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %agg.tmp.i)
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #22
           to label %unreachable unwind label %lpad7
 
 ehcleanup.thread:                                 ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #21
   br label %cleanup.action
 
 lpad7:                                            ; preds = %invoke.cont, %invoke.cont8
@@ -291,13 +291,13 @@ lpad7:                                            ; preds = %invoke.cont, %invok
 ehcleanup:                                        ; preds = %lpad7, %lpad.i
   %cleanup.isactive.0.lpad-body = phi i1 [ %cleanup.isactive.0, %lpad7 ], [ true, %lpad.i ]
   %eh.lpad-body = phi { ptr, i32 } [ %2, %lpad7 ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #21
   br i1 %cleanup.isactive.0.lpad-body, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %ehcleanup.thread, %ehcleanup
   %.pn5 = phi { ptr, i32 } [ %1, %ehcleanup.thread ], [ %eh.lpad-body, %ehcleanup ]
-  call void @__cxa_free_exception(ptr %exception) #19
+  call void @__cxa_free_exception(ptr %exception) #21
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action
@@ -323,11 +323,12 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17DeadlyImportErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #19
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
   ret void
 }
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
@@ -338,18 +339,18 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess13ReportWarningEPKcz(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %msg, ...) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp17ValidateDSProcess13ReportWarningEPKcz(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %msg, ...) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %szBuffer = alloca [3000 x i8], align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator", align 1
   call void @llvm.va_start.p0(ptr nonnull %args)
-  %call = call i32 @vsnprintf(ptr noundef nonnull %szBuffer, i64 noundef 3000, ptr noundef %msg, ptr noundef nonnull %args) #19
+  %call = call i32 @vsnprintf(ptr noundef nonnull %szBuffer, i64 noundef 3000, ptr noundef %msg, ptr noundef nonnull %args) #21
   call void @llvm.va_end.p0(ptr nonnull %args)
   %call5 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   %conv = sext i32 %call to i64
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #19
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %szBuffer, i64 noundef %conv, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
           to label %invoke.cont unwind label %lpad
 
@@ -358,8 +359,8 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #21
   ret void
 
 lpad:                                             ; preds = %entry
@@ -370,19 +371,19 @@ lpad:                                             ; preds = %entry
 lpad8:                                            ; preds = %invoke.cont
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad8, %lpad
   %.pn = phi { ptr, i32 } [ %1, %lpad8 ], [ %0, %lpad ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #21
   resume { ptr, i32 } %.pn
 }
 
 declare noundef ptr @_ZN6Assimp13DefaultLogger3getEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6Assimp6Logger4warnIJRA21_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 1 dereferenceable(21) %args, ptr noundef nonnull align 8 dereferenceable(32) %args1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6Assimp6Logger4warnIJRA21_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 1 dereferenceable(21) %args, ptr noundef nonnull align 8 dereferenceable(32) %args1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.Assimp::Formatter::basic_formatter", align 8
@@ -392,7 +393,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %lpad4, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %2, %lpad4 ], [ %1, %lpad ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #21
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -405,13 +406,13 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA21_cEERKT_.ex
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA21_cEERKT_.exit
-  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   invoke void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %call)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #21
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA21_cEERKT_.exit
@@ -422,12 +423,12 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 lpad4:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %pScene) unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %pScene) unnamed_addr #7 align 2 {
 entry:
   %mScene = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %pScene, ptr %mScene, align 8
@@ -452,7 +453,7 @@ for.body.preheader.i:                             ; preds = %if.end.i
   br label %for.body.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef %1) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef %1) #22
   unreachable
 
 for.body.i:                                       ; preds = %if.end7.i, %for.body.preheader.i
@@ -464,7 +465,7 @@ for.body.i:                                       ; preds = %if.end7.i, %for.bod
 
 if.then6.i:                                       ; preds = %for.body.i
   %4 = trunc nuw i64 %indvars.iv.i to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.4, i32 noundef %1) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.4, i32 noundef %1) #22
   unreachable
 
 if.end7.i:                                        ; preds = %for.body.i
@@ -481,7 +482,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool4.not, label %if.then5, label %if.else6
 
 if.then5:                                         ; preds = %if.else
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.5) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.5) #22
   unreachable
 
 if.else6:                                         ; preds = %if.else
@@ -491,7 +492,7 @@ if.else6:                                         ; preds = %if.else
   br i1 %tobool8.not, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %if.else6
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.6) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.6) #22
   unreachable
 
 if.end11:                                         ; preds = %if.end7.i, %if.else6
@@ -511,7 +512,7 @@ for.body.preheader.i34:                           ; preds = %if.end.i32
   br label %for.body.i36
 
 if.then2.i44:                                     ; preds = %if.end.i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef %8) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef %8) #22
   unreachable
 
 for.body.i36:                                     ; preds = %if.end7.i40, %for.body.preheader.i34
@@ -523,7 +524,7 @@ for.body.i36:                                     ; preds = %if.end7.i40, %for.b
 
 if.then6.i43:                                     ; preds = %for.body.i36
   %11 = trunc nuw i64 %indvars.iv.i37 to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.7, i32 noundef %11, ptr noundef nonnull @.str.8, i32 noundef %8) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.7, i32 noundef %11, ptr noundef nonnull @.str.8, i32 noundef %8) #22
   unreachable
 
 if.end7.i40:                                      ; preds = %for.body.i36
@@ -536,7 +537,7 @@ if.else15:                                        ; preds = %if.end11
   br i1 %tobool17.not, label %if.end20, label %if.then18
 
 if.then18:                                        ; preds = %if.else15
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.9) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.9) #22
   unreachable
 
 if.end20:                                         ; preds = %if.end7.i40, %if.else15
@@ -556,7 +557,7 @@ if.else24:                                        ; preds = %if.end20
   br i1 %tobool26.not, label %if.end29, label %if.then27
 
 if.then27:                                        ; preds = %if.else24
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.12) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.12) #22
   unreachable
 
 if.end29:                                         ; preds = %if.else24, %if.then22
@@ -576,7 +577,7 @@ if.else33:                                        ; preds = %if.end29
   br i1 %tobool35.not, label %if.end38, label %if.then36
 
 if.then36:                                        ; preds = %if.else33
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.15) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.15) #22
   unreachable
 
 if.end38:                                         ; preds = %if.else33, %if.then31
@@ -596,7 +597,7 @@ for.body.preheader.i48:                           ; preds = %if.end.i46
   br label %for.body.i50
 
 if.then2.i58:                                     ; preds = %if.end.i46
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef %16) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef %16) #22
   unreachable
 
 for.body.i50:                                     ; preds = %if.end7.i54, %for.body.preheader.i48
@@ -608,7 +609,7 @@ for.body.i50:                                     ; preds = %if.end7.i54, %for.b
 
 if.then6.i57:                                     ; preds = %for.body.i50
   %19 = trunc nuw i64 %indvars.iv.i51 to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.16, i32 noundef %19, ptr noundef nonnull @.str.17, i32 noundef %16) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.16, i32 noundef %19, ptr noundef nonnull @.str.17, i32 noundef %16) #22
   unreachable
 
 if.end7.i54:                                      ; preds = %for.body.i50
@@ -621,7 +622,7 @@ if.else42:                                        ; preds = %if.end38
   br i1 %tobool44.not, label %if.end47, label %if.then45
 
 if.then45:                                        ; preds = %if.else42
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.18) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.18) #22
   unreachable
 
 if.end47:                                         ; preds = %if.end7.i54, %if.else42
@@ -641,7 +642,7 @@ for.body.preheader.i62:                           ; preds = %if.end.i60
   br label %for.body.i64
 
 if.then2.i72:                                     ; preds = %if.end.i60
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef %20) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef %20) #22
   unreachable
 
 for.body.i64:                                     ; preds = %if.end7.i68, %for.body.preheader.i62
@@ -653,7 +654,7 @@ for.body.i64:                                     ; preds = %if.end7.i68, %for.b
 
 if.then6.i71:                                     ; preds = %for.body.i64
   %23 = trunc nuw i64 %indvars.iv.i65 to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.19, i32 noundef %23, ptr noundef nonnull @.str.20, i32 noundef %20) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.19, i32 noundef %23, ptr noundef nonnull @.str.20, i32 noundef %20) #22
   unreachable
 
 if.end7.i68:                                      ; preds = %for.body.i64
@@ -666,7 +667,7 @@ if.else51:                                        ; preds = %if.end47
   br i1 %tobool53.not, label %if.end56, label %if.then54
 
 if.then54:                                        ; preds = %if.else51
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.21) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.21) #22
   unreachable
 
 if.end56:                                         ; preds = %if.end7.i68, %if.else51
@@ -678,14 +679,14 @@ if.end56:                                         ; preds = %if.end7.i68, %if.el
 declare void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiNode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %pNode) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiNode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %pNode) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %abHadMesh = alloca %"class.std::vector", align 8
   %tobool.not = icmp eq ptr %pNode, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.106) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.106) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -700,7 +701,7 @@ while.body.preheader.i:                           ; preds = %if.end
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #22
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -714,7 +715,7 @@ if.then5.i:                                       ; preds = %if.then5.loopexit.i
   br i1 %cmp10.not.i, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #22
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -723,7 +724,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #22
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -748,7 +749,7 @@ land.lhs.true:                                    ; preds = %_ZN6Assimp17Validat
   br i1 %tobool3.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %land.lhs.true
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.107, ptr noundef nonnull %sz.0.ptr10.i) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.107, ptr noundef nonnull %sz.0.ptr10.i) #22
   unreachable
 
 if.end5:                                          ; preds = %land.lhs.true, %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit
@@ -764,7 +765,7 @@ if.then7:                                         ; preds = %if.end5
   br i1 %tobool8.not, label %if.then9, label %if.else.i44
 
 if.then9:                                         ; preds = %if.then7
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.108, ptr noundef nonnull %sz.0.ptr10.i, i32 noundef %8) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.108, ptr noundef nonnull %sz.0.ptr10.i, i32 noundef %8) #22
   unreachable
 
 if.else.i44:                                      ; preds = %if.then7
@@ -818,7 +819,7 @@ if.then.i.i.i:                                    ; preds = %lpad
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i49, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %18, i64 %idx.neg.i.i.i
-  call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #21
+  call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #23
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %lpad, %if.then.i.i.i
@@ -845,7 +846,7 @@ if.then35.invoke:                                 ; preds = %if.then20, %if.then
   %23 = phi ptr [ @.str.110, %if.then35 ], [ @.str.109, %if.then20 ]
   %24 = phi i32 [ %22, %if.then35 ], [ %13, %if.then20 ]
   %25 = phi i32 [ %13, %if.then35 ], [ %sub, %if.then20 ]
-  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull %23, i32 noundef %24, ptr noundef nonnull %sz.0.ptr10.i, i32 noundef %25) #20
+  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull %23, i32 noundef %24, ptr noundef nonnull %sz.0.ptr10.i, i32 noundef %25) #22
           to label %if.then35.cont unwind label %lpad
 
 if.then35.cont:                                   ; preds = %if.then35.invoke
@@ -873,7 +874,7 @@ if.then.i.i.i62:                                  ; preds = %for.end
   %sub.ptr.div.i.i.i67 = ashr exact i64 %sub.ptr.sub.i.i.i66, 3
   %idx.neg.i.i.i68 = sub nsw i64 0, %sub.ptr.div.i.i.i67
   %add.ptr.i.i.i69 = getelementptr inbounds i64, ptr %29, i64 %idx.neg.i.i.i68
-  call void @_ZdlPv(ptr noundef %add.ptr.i.i.i69) #21
+  call void @_ZdlPv(ptr noundef %add.ptr.i.i.i69) #23
   store ptr null, ptr %abHadMesh, align 8
   store i32 0, ptr %_M_offset.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_finish.i.i.i.i, align 8
@@ -894,7 +895,7 @@ if.then51:                                        ; preds = %if.end49
   br i1 %tobool52.not, label %if.then53, label %for.body60
 
 if.then53:                                        ; preds = %if.then51
-  call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.111, ptr noundef nonnull %sz.0.ptr10.i, i32 noundef %30) #20
+  call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.111, ptr noundef nonnull %sz.0.ptr10.i, i32 noundef %30) #22
   unreachable
 
 for.body60:                                       ; preds = %if.then51, %for.inc77
@@ -914,7 +915,7 @@ if.then66:                                        ; preds = %for.body60
   %data.i74 = getelementptr inbounds i8, ptr %34, i64 4
   %spec.select = select i1 %cmp68.not, ptr @.str.112, ptr %data.i74
   %data.i76 = getelementptr inbounds i8, ptr %33, i64 4
-  call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.113, ptr noundef nonnull %sz.0.ptr10.i, i32 noundef %35, ptr noundef nonnull %data.i76, ptr noundef nonnull %spec.select) #20
+  call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.113, ptr noundef nonnull %sz.0.ptr10.i, i32 noundef %35, ptr noundef nonnull %data.i76, ptr noundef nonnull %spec.select) #22
   unreachable
 
 for.inc77:                                        ; preds = %for.body60
@@ -929,7 +930,7 @@ if.end80:                                         ; preds = %for.inc77, %if.end4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6Assimp17ValidateDSProcess25DoValidationWithNameCheckI8aiCameraEEvPPT_jPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %array, i32 noundef %size, ptr noundef %firstName, ptr noundef %secondName) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6Assimp17ValidateDSProcess25DoValidationWithNameCheckI8aiCameraEEvPPT_jPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %array, i32 noundef %size, ptr noundef %firstName, ptr noundef %secondName) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -961,15 +962,15 @@ if.then:                                          ; preds = %for.body
   %arrayidx.le = getelementptr inbounds ptr, ptr %array, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx.le, align 8
   %data = getelementptr inbounds i8, ptr %3, i64 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %data, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
   %4 = trunc nuw i64 %indvars.iv to i32
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
-  %call6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #19
-  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.119, ptr noundef %firstName, i32 noundef %4, ptr noundef %call6) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
+  %call6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #21
+  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.119, ptr noundef %firstName, i32 noundef %4, ptr noundef %call6) #22
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont
@@ -978,28 +979,28 @@ invoke.cont8:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %if.then
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   br label %eh.resume
 
 lpad7:                                            ; preds = %invoke.cont
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #21
   br label %eh.resume
 
 if.then10:                                        ; preds = %for.body
   %arrayidx.le32 = getelementptr inbounds ptr, ptr %array, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx.le32, align 8
   %data15 = getelementptr inbounds i8, ptr %7, i64 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #19
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %name11, ptr noundef nonnull %data15, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %if.then10
   %8 = trunc nuw i64 %indvars.iv to i32
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #19
-  %call20 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name11) #19
-  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.120, ptr noundef %firstName, i32 noundef %8, ptr noundef %call20) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #21
+  %call20 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name11) #21
+  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.120, ptr noundef %firstName, i32 noundef %8, ptr noundef %call20) #22
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont19
@@ -1008,13 +1009,13 @@ invoke.cont22:                                    ; preds = %invoke.cont19
 lpad18:                                           ; preds = %if.then10
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #21
   br label %eh.resume
 
 lpad21:                                           ; preds = %invoke.cont19
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name11) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name11) #21
   br label %eh.resume
 
 for.inc:                                          ; preds = %for.body
@@ -1031,7 +1032,7 @@ eh.resume:                                        ; preds = %lpad21, %lpad18, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6Assimp17ValidateDSProcess25DoValidationWithNameCheckI7aiLightEEvPPT_jPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %array, i32 noundef %size, ptr noundef %firstName, ptr noundef %secondName) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6Assimp17ValidateDSProcess25DoValidationWithNameCheckI7aiLightEEvPPT_jPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %array, i32 noundef %size, ptr noundef %firstName, ptr noundef %secondName) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -1063,15 +1064,15 @@ if.then:                                          ; preds = %for.body
   %arrayidx.le = getelementptr inbounds ptr, ptr %array, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx.le, align 8
   %data = getelementptr inbounds i8, ptr %3, i64 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %data, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
   %4 = trunc nuw i64 %indvars.iv to i32
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
-  %call6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #19
-  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.119, ptr noundef %firstName, i32 noundef %4, ptr noundef %call6) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
+  %call6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #21
+  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.119, ptr noundef %firstName, i32 noundef %4, ptr noundef %call6) #22
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont
@@ -1080,28 +1081,28 @@ invoke.cont8:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %if.then
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   br label %eh.resume
 
 lpad7:                                            ; preds = %invoke.cont
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #21
   br label %eh.resume
 
 if.then10:                                        ; preds = %for.body
   %arrayidx.le32 = getelementptr inbounds ptr, ptr %array, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx.le32, align 8
   %data15 = getelementptr inbounds i8, ptr %7, i64 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #19
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %name11, ptr noundef nonnull %data15, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %if.then10
   %8 = trunc nuw i64 %indvars.iv to i32
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #19
-  %call20 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name11) #19
-  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.120, ptr noundef %firstName, i32 noundef %8, ptr noundef %call20) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #21
+  %call20 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name11) #21
+  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.120, ptr noundef %firstName, i32 noundef %8, ptr noundef %call20) #22
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont19
@@ -1110,13 +1111,13 @@ invoke.cont22:                                    ; preds = %invoke.cont19
 lpad18:                                           ; preds = %if.then10
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #21
   br label %eh.resume
 
 lpad21:                                           ; preds = %invoke.cont19
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name11) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name11) #21
   br label %eh.resume
 
 for.inc:                                          ; preds = %for.body
@@ -1133,7 +1134,7 @@ eh.resume:                                        ; preds = %lpad21, %lpad18, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK7aiLight(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %pLight) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK7aiLight(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %pLight) local_unnamed_addr #7 align 2 {
 entry:
   %mType = getelementptr inbounds i8, ptr %pLight, i64 1028
   %0 = load i32, ptr %mType, align 4
@@ -1175,7 +1176,7 @@ if.end6:                                          ; preds = %if.then5, %land.lhs
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end6
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.25) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.25) #22
   unreachable
 
 if.end9:                                          ; preds = %if.end6
@@ -1250,7 +1251,7 @@ if.end15:                                         ; preds = %land.lhs.true12, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiCamera(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %pCamera) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiCamera(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %pCamera) local_unnamed_addr #7 align 2 {
 entry:
   %mClipPlaneFar = getelementptr inbounds i8, ptr %pCamera, i64 1072
   %0 = load float, ptr %mClipPlaneFar, align 4
@@ -1260,7 +1261,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.27) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.27) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1281,7 +1282,7 @@ if.end6:                                          ; preds = %if.end, %if.then4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiMesh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %pMesh) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiMesh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %pMesh) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %abRefList = alloca %"class.std::vector", align 8
   %mScene = getelementptr inbounds i8, ptr %this, i64 24
@@ -1299,7 +1300,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %sub = add i32 %1, -1
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.29, i32 noundef %2, i32 noundef %sub) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.29, i32 noundef %2, i32 noundef %sub) #22
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -1315,7 +1316,7 @@ while.body.preheader.i:                           ; preds = %if.end
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %3, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %3, i64 noundef 1024) #22
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -1371,7 +1372,7 @@ for.inc.us:                                       ; preds = %for.body.us
   br i1 %exitcond310.not, label %for.end, label %for.body.us, !llvm.loop !14
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #22
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -1380,7 +1381,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #22
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -1403,7 +1404,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 sw.bb:                                            ; preds = %for.body
   %13 = trunc nuw i64 %indvars.iv to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.30, i32 noundef %13) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.30, i32 noundef %13) #22
   unreachable
 
 sw.bb10:                                          ; preds = %for.body
@@ -1411,7 +1412,7 @@ sw.bb10:                                          ; preds = %for.body
 
 if.then13:                                        ; preds = %sw.bb10
   %14 = trunc nuw i64 %indvars.iv to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.31, i32 noundef %14) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.31, i32 noundef %14) #22
   unreachable
 
 sw.bb15:                                          ; preds = %for.body
@@ -1419,7 +1420,7 @@ sw.bb15:                                          ; preds = %for.body
 
 if.then19:                                        ; preds = %sw.bb15
   %15 = trunc nuw i64 %indvars.iv to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.32, i32 noundef %15) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.32, i32 noundef %15) #22
   unreachable
 
 sw.bb21:                                          ; preds = %for.body
@@ -1427,7 +1428,7 @@ sw.bb21:                                          ; preds = %for.body
 
 if.then25:                                        ; preds = %sw.bb21
   %16 = trunc nuw i64 %indvars.iv to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.33, i32 noundef %16) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.33, i32 noundef %16) #22
   unreachable
 
 sw.default:                                       ; preds = %for.body
@@ -1435,7 +1436,7 @@ sw.default:                                       ; preds = %for.body
 
 if.then30:                                        ; preds = %sw.default
   %17 = trunc nuw i64 %indvars.iv to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.34, i32 noundef %17) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.34, i32 noundef %17) #22
   unreachable
 
 if.end32:                                         ; preds = %sw.bb10, %sw.bb15, %sw.bb21, %sw.default
@@ -1447,7 +1448,7 @@ if.end32:                                         ; preds = %sw.bb10, %sw.bb15, 
 if.then34:                                        ; preds = %if.end32, %for.body.us
   %.us-phi.in = phi i64 [ %indvars.iv306, %for.body.us ], [ %indvars.iv, %if.end32 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.35, i32 noundef %.us-phi) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.35, i32 noundef %.us-phi) #22
   unreachable
 
 for.inc:                                          ; preds = %if.end32
@@ -1473,7 +1474,7 @@ land.lhs.true38:                                  ; preds = %lor.lhs.false
   br i1 %tobool40.not, label %if.then41, label %if.end43
 
 if.then41:                                        ; preds = %land.lhs.true38, %for.end
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.36, ptr noundef nonnull %sz.0.ptr10.i) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.36, ptr noundef nonnull %sz.0.ptr10.i) #22
   unreachable
 
 if.end43:                                         ; preds = %land.lhs.true38, %lor.lhs.false
@@ -1481,7 +1482,7 @@ if.end43:                                         ; preds = %land.lhs.true38, %l
   br i1 %cmp45, label %if.then46, label %if.end48
 
 if.then46:                                        ; preds = %if.end43
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.37, i32 noundef %19, i32 noundef 2147483647) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.37, i32 noundef %19, i32 noundef 2147483647) #22
   unreachable
 
 if.end48:                                         ; preds = %if.end43
@@ -1489,7 +1490,7 @@ if.end48:                                         ; preds = %if.end43
   br i1 %cmp50, label %if.then51, label %if.end53
 
 if.then51:                                        ; preds = %if.end48
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.38, i32 noundef %7, i32 noundef 2147483647) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.38, i32 noundef %7, i32 noundef 2147483647) #22
   unreachable
 
 if.end53:                                         ; preds = %if.end48
@@ -1503,7 +1504,7 @@ if.end53:                                         ; preds = %if.end48
   br i1 %cmp57.not, label %if.end59, label %if.then58
 
 if.then58:                                        ; preds = %if.end53
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.39) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.39) #22
   unreachable
 
 if.end59:                                         ; preds = %if.end53
@@ -1521,7 +1522,7 @@ land.lhs.true65:                                  ; preds = %lor.lhs.false62
   br i1 %tobool68.not, label %if.then69, label %if.else.i122
 
 if.then69:                                        ; preds = %land.lhs.true65, %if.end59
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.40, ptr noundef nonnull %sz.0.ptr10.i) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.40, ptr noundef nonnull %sz.0.ptr10.i) #22
   unreachable
 
 if.else.i122:                                     ; preds = %lor.lhs.false62, %land.lhs.true65
@@ -1568,7 +1569,7 @@ for.body93.lr.ph:                                 ; preds = %for.cond90.preheade
   br label %for.body93
 
 if.then86:                                        ; preds = %for.body79
-  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.41, i32 noundef %i75.0254, i32 noundef %32, i32 noundef 32767) #20
+  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.41, i32 noundef %i75.0254, i32 noundef %32, i32 noundef 32767) #22
           to label %invoke.cont88 unwind label %lpad
 
 invoke.cont88:                                    ; preds = %if.then86
@@ -1590,7 +1591,7 @@ for.body93:                                       ; preds = %for.body93.lr.ph, %
 
 if.then99:                                        ; preds = %for.body93
   %37 = trunc nuw i64 %indvars.iv311 to i32
-  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.42, i32 noundef %i75.0254, i32 noundef %37) #20
+  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.42, i32 noundef %i75.0254, i32 noundef %37) #22
           to label %invoke.cont100 unwind label %lpad
 
 invoke.cont100:                                   ; preds = %if.then99
@@ -1758,7 +1759,7 @@ if.then179:                                       ; preds = %for.end177
 if.then181.invoke:                                ; preds = %if.then179, %if.then150, %if.then172
   %55 = phi ptr [ @.str.45, %if.then172 ], [ @.str.44, %if.then150 ], [ @.str.46, %if.then179 ]
   %56 = phi i32 [ %52, %if.then172 ], [ %49, %if.then150 ], [ %53, %if.then179 ]
-  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull %55, i32 noundef %56) #20
+  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull %55, i32 noundef %56) #22
           to label %if.then181.cont unwind label %lpad
 
 if.then181.cont:                                  ; preds = %if.then181.invoke
@@ -1771,7 +1772,7 @@ if.end184:                                        ; preds = %if.then179
 if.then187:                                       ; preds = %if.end184
   %conv189 = zext i32 %.fr352363381395 to i64
   %57 = shl nuw nsw i64 %conv189, 2
-  %call192 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %57) #22
+  %call192 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %57) #24
           to label %for.body197.preheader unwind label %lpad190.thread
 
 for.body197.preheader:                            ; preds = %if.then187
@@ -1800,7 +1801,7 @@ lpad190:                                          ; preds = %lpad190.loopexit.sp
 
 _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %lpad190.thread205, %lpad190
   %59 = phi { ptr, i32 } [ %76, %lpad190.thread205 ], [ %lpad.phi, %lpad190 ]
-  call void @_ZdaPv(ptr noundef nonnull %afSum.sroa.0.0) #21
+  call void @_ZdaPv(ptr noundef nonnull %afSum.sroa.0.0) #23
   br label %ehcleanup
 
 for.body209.preheader:                            ; preds = %if.end184, %for.body197.preheader
@@ -1829,7 +1830,7 @@ for.body209:                                      ; preds = %for.body209.prehead
 
 if.then214:                                       ; preds = %for.body209
   %63 = trunc nuw i64 %indvars.iv340 to i32
-  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.47, i32 noundef %63, i32 noundef %62, i32 noundef 2147483647) #20
+  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.47, i32 noundef %63, i32 noundef %62, i32 noundef 2147483647) #22
           to label %invoke.cont216 unwind label %lpad190.loopexit.split-lp
 
 invoke.cont216:                                   ; preds = %if.then214
@@ -1872,7 +1873,7 @@ _ZNK8aiStringeqERKS_.exit:                        ; preds = %for.body235
 if.end261:                                        ; preds = %_ZNK8aiStringeqERKS_.exit
   %71 = trunc nuw i64 %indvars.iv340 to i32
   %72 = trunc nuw i64 %indvars.iv336 to i32
-  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.50, i32 noundef %71, ptr noundef nonnull %data.i167, i32 noundef %72) #20
+  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.50, i32 noundef %71, ptr noundef nonnull %data.i167, i32 noundef %72) #22
           to label %invoke.cont262 unwind label %lpad190.loopexit.split-lp
 
 invoke.cont262:                                   ; preds = %if.end261
@@ -1925,14 +1926,14 @@ for.end300:                                       ; preds = %for.cond271.prehead
   br i1 %cmp.not.i174, label %if.end306, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i175
 
 _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i175: ; preds = %for.inc298, %for.end300
-  call void @_ZdaPv(ptr noundef nonnull %afSum.sroa.0.0) #21
+  call void @_ZdaPv(ptr noundef nonnull %afSum.sroa.0.0) #23
   br label %if.end306
 
 if.else:                                          ; preds = %for.end177
   br i1 %tobool302.not, label %if.end306, label %if.then303
 
 if.then303:                                       ; preds = %if.else
-  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.52) #20
+  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.52) #22
           to label %invoke.cont304 unwind label %lpad
 
 invoke.cont304:                                   ; preds = %if.then303
@@ -1951,7 +1952,7 @@ if.then.i.i.i:                                    ; preds = %if.end306
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i181, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %80, i64 %idx.neg.i.i.i
-  call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #21
+  call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #23
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %if.end306, %if.then.i.i.i
@@ -1971,7 +1972,7 @@ if.then.i.i.i183:                                 ; preds = %ehcleanup
   %sub.ptr.div.i.i.i188 = ashr exact i64 %sub.ptr.sub.i.i.i187, 3
   %idx.neg.i.i.i189 = sub nsw i64 0, %sub.ptr.div.i.i.i188
   %add.ptr.i.i.i190 = getelementptr inbounds i64, ptr %82, i64 %idx.neg.i.i.i189
-  call void @_ZdlPv(ptr noundef %add.ptr.i.i.i190) #21
+  call void @_ZdlPv(ptr noundef %add.ptr.i.i.i190) #23
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit194
 
 _ZNSt6vectorIbSaIbEED2Ev.exit194:                 ; preds = %ehcleanup, %if.then.i.i.i183
@@ -1979,7 +1980,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit194:                 ; preds = %ehcleanup, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %pString) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %pString) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %pString, align 4
   %cmp = icmp ugt i32 %0, 1024
@@ -1992,7 +1993,7 @@ while.body.preheader:                             ; preds = %entry
   br i1 %cmp411, label %if.then5, label %if.else
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #22
   unreachable
 
 if.then5.loopexit:                                ; preds = %if.end17
@@ -2006,7 +2007,7 @@ if.then5:                                         ; preds = %if.then5.loopexit, 
   br i1 %cmp10.not, label %while.end, label %if.then11
 
 if.then11:                                        ; preds = %if.then5
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.115) #22
   unreachable
 
 if.else:                                          ; preds = %while.body.preheader, %if.end17
@@ -2015,7 +2016,7 @@ if.else:                                          ; preds = %while.body.preheade
   br i1 %exitcond.not, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.else
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.116) #22
   unreachable
 
 if.end17:                                         ; preds = %if.else
@@ -2030,10 +2031,10 @@ while.end:                                        ; preds = %if.then5
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #7
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiMeshPK6aiBonePf(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %pMesh, ptr nocapture noundef readonly %pBone, ptr nocapture noundef %afSum) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiMeshPK6aiBonePf(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %pMesh, ptr nocapture noundef readonly %pBone, ptr nocapture noundef %afSum) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %pBone, align 4
   %cmp.i = icmp ugt i32 %0, 1024
@@ -2046,7 +2047,7 @@ while.body.preheader.i:                           ; preds = %entry
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #22
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -2060,7 +2061,7 @@ if.then5.i:                                       ; preds = %if.then5.loopexit.i
   br i1 %cmp10.not.i, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #22
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -2069,7 +2070,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #22
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -2107,7 +2108,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 
 if.then4:                                         ; preds = %for.body
   %10 = trunc nuw i64 %indvars.iv to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.54, i32 noundef %10) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.54, i32 noundef %10) #22
   unreachable
 
 if.else:                                          ; preds = %for.body
@@ -2147,7 +2148,7 @@ for.end:                                          ; preds = %if.end16, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK11aiAnimation(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %pAnimation) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK11aiAnimation(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %pAnimation) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %pAnimation, align 4
   %cmp.i = icmp ugt i32 %0, 1024
@@ -2160,7 +2161,7 @@ while.body.preheader.i:                           ; preds = %entry
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #22
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -2174,7 +2175,7 @@ if.then5.i:                                       ; preds = %if.then5.loopexit.i
   br i1 %cmp10.not.i, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #22
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -2183,7 +2184,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #22
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -2216,7 +2217,7 @@ if.then.thread:                                   ; preds = %_ZN6Assimp17Validat
   br i1 %tobool3.not33, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then.thread
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.56, i32 noundef %5) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.56, i32 noundef %5) #22
   unreachable
 
 if.end:                                           ; preds = %if.then, %if.then.thread
@@ -2233,7 +2234,7 @@ land.lhs.true9:                                   ; preds = %if.end
   br i1 %tobool11.not, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true9
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.57, i32 noundef %9) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.57, i32 noundef %9) #22
   unreachable
 
 if.end14:                                         ; preds = %land.lhs.true9, %if.end
@@ -2271,7 +2272,7 @@ for.body.if.then18_crit_edge:                     ; preds = %for.body
 if.then18:                                        ; preds = %for.body.if.then18_crit_edge, %for.body.preheader
   %indvars.iv.lcssa = phi i32 [ %17, %for.body.if.then18_crit_edge ], [ 0, %for.body.preheader ]
   %.lcssa61 = phi i32 [ %19, %for.body.if.then18_crit_edge ], [ %5, %for.body.preheader ]
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.58, i32 noundef %indvars.iv.lcssa, i32 noundef %.lcssa61) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.58, i32 noundef %indvars.iv.lcssa, i32 noundef %.lcssa61) #22
   unreachable
 
 if.end20:                                         ; preds = %for.body.preheader, %for.body
@@ -2298,7 +2299,7 @@ for.body28.if.then33_crit_edge:                   ; preds = %for.body28
 if.then33:                                        ; preds = %for.body28.if.then33_crit_edge, %for.body28.preheader
   %indvars.iv51.lcssa = phi i32 [ %23, %for.body28.if.then33_crit_edge ], [ 0, %for.body28.preheader ]
   %.lcssa = phi i32 [ %25, %for.body28.if.then33_crit_edge ], [ %12, %for.body28.preheader ]
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.59, i32 noundef %indvars.iv51.lcssa, i32 noundef %.lcssa) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.59, i32 noundef %indvars.iv51.lcssa, i32 noundef %.lcssa) #22
   unreachable
 
 if.end35:                                         ; preds = %for.body28.preheader, %for.body28
@@ -2312,7 +2313,7 @@ if.end35:                                         ; preds = %for.body28.preheade
   br i1 %cmp27, label %for.body28, label %if.end42, !llvm.loop !27
 
 if.else:                                          ; preds = %lor.lhs.false
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.60) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.60) #22
   unreachable
 
 if.end42:                                         ; preds = %if.end35, %for.cond25.preheader
@@ -2320,7 +2321,7 @@ if.end42:                                         ; preds = %if.end35, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK11aiAnimationPK10aiNodeAnim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %pAnimation, ptr nocapture noundef readonly %pNodeAnim) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK11aiAnimationPK10aiNodeAnim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %pAnimation, ptr nocapture noundef readonly %pNodeAnim) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %pNodeAnim, align 4
   %cmp.i = icmp ugt i32 %0, 1024
@@ -2333,7 +2334,7 @@ while.body.preheader.i:                           ; preds = %entry
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #22
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -2347,7 +2348,7 @@ if.then5.i:                                       ; preds = %if.then5.loopexit.i
   br i1 %cmp10.not.i, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #22
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -2356,7 +2357,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #22
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -2385,7 +2386,7 @@ land.lhs.true3:                                   ; preds = %land.lhs.true
   br i1 %tobool4.not, label %if.then, label %if.end49
 
 if.then:                                          ; preds = %land.lhs.true3
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.91) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.91) #22
   unreachable
 
 if.then7:                                         ; preds = %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit
@@ -2399,7 +2400,7 @@ for.body.lr.ph:                                   ; preds = %if.then7
   br label %for.body
 
 if.then9:                                         ; preds = %if.then7
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.92, i32 noundef %5) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.92, i32 noundef %5) #22
   unreachable
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end44
@@ -2424,7 +2425,7 @@ if.then18:                                        ; preds = %land.lhs.true14
   %conv23 = fpext float %conv to double
   %conv25 = fptrunc double %11 to float
   %conv26 = fpext float %conv25 to double
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.93, i32 noundef %13, double noundef %conv23, double noundef %conv26) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.93, i32 noundef %13, double noundef %conv23, double noundef %conv26) #22
   unreachable
 
 if.end27:                                         ; preds = %land.lhs.true14, %for.body
@@ -2476,7 +2477,7 @@ for.body62.lr.ph:                                 ; preds = %if.then52
   br label %for.body62
 
 if.then54:                                        ; preds = %if.then52
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.95, i32 noundef %20) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.95, i32 noundef %20) #22
   unreachable
 
 for.body62:                                       ; preds = %for.body62.lr.ph, %if.end101
@@ -2501,7 +2502,7 @@ if.then73:                                        ; preds = %land.lhs.true65
   %conv79 = fpext float %conv78 to double
   %conv81 = fptrunc double %24 to float
   %conv82 = fpext float %conv81 to double
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.96, i32 noundef %26, double noundef %conv79, double noundef %conv82) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.96, i32 noundef %26, double noundef %conv79, double noundef %conv82) #22
   unreachable
 
 if.end83:                                         ; preds = %land.lhs.true65, %for.body62
@@ -2554,7 +2555,7 @@ for.body122.lr.ph:                                ; preds = %if.then111
   br label %for.body122
 
 if.then114:                                       ; preds = %if.then111
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.98, i32 noundef %34) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.98, i32 noundef %34) #22
   unreachable
 
 for.body122:                                      ; preds = %for.body122.lr.ph, %if.end161
@@ -2579,7 +2580,7 @@ if.then133:                                       ; preds = %land.lhs.true125
   %conv139 = fpext float %conv138 to double
   %conv141 = fptrunc double %38 to float
   %conv142 = fpext float %conv141 to double
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.99, i32 noundef %40, double noundef %conv139, double noundef %conv142) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.99, i32 noundef %40, double noundef %conv139, double noundef %conv142) #22
   unreachable
 
 if.end143:                                        ; preds = %land.lhs.true125, %for.body122
@@ -2633,7 +2634,7 @@ land.lhs.true175:                                 ; preds = %land.lhs.true172
   br i1 %tobool177.not, label %if.then178, label %if.end179
 
 if.then178:                                       ; preds = %land.lhs.true175
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.101) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.101) #22
   unreachable
 
 if.end179:                                        ; preds = %land.lhs.true175, %land.lhs.true172, %if.end169
@@ -2641,7 +2642,7 @@ if.end179:                                        ; preds = %land.lhs.true175, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK11aiAnimationPK15aiMeshMorphAnim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %pAnimation, ptr nocapture noundef readonly %pMeshMorphAnim) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK11aiAnimationPK15aiMeshMorphAnim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %pAnimation, ptr nocapture noundef readonly %pMeshMorphAnim) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %pMeshMorphAnim, align 4
   %cmp.i = icmp ugt i32 %0, 1024
@@ -2654,7 +2655,7 @@ while.body.preheader.i:                           ; preds = %entry
   br i1 %cmp411.i, label %if.then5.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.114, i32 noundef %0, i64 noundef 1024) #22
   unreachable
 
 if.then5.loopexit.i:                              ; preds = %if.end17.i
@@ -2668,7 +2669,7 @@ if.then5.i:                                       ; preds = %if.then5.loopexit.i
   br i1 %cmp10.not.i, label %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then5.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.115) #22
   unreachable
 
 if.else.i:                                        ; preds = %while.body.preheader.i, %if.end17.i
@@ -2677,7 +2678,7 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %exitcond.not.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.116) #22
   unreachable
 
 if.end17.i:                                       ; preds = %if.else.i
@@ -2708,7 +2709,7 @@ for.body.lr.ph:                                   ; preds = %if.then4
   br label %for.body
 
 if.then6:                                         ; preds = %if.then4
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.103, i32 noundef %5) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.103, i32 noundef %5) #22
   unreachable
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end40
@@ -2733,7 +2734,7 @@ if.then14:                                        ; preds = %land.lhs.true
   %conv19 = fpext float %conv to double
   %conv21 = fptrunc double %9 to float
   %conv22 = fpext float %conv21 to double
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.104, i32 noundef %11, double noundef %conv19, double noundef %conv22) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.104, i32 noundef %11, double noundef %conv19, double noundef %conv22) #22
   unreachable
 
 if.end23:                                         ; preds = %land.lhs.true, %for.body
@@ -2773,7 +2774,7 @@ if.end45:                                         ; preds = %if.end40, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess24SearchForInvalidTexturesEPK10aiMaterial13aiTextureType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %pMaterial, i32 noundef %type) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp17ValidateDSProcess24SearchForInvalidTexturesEPK10aiMaterial13aiTextureType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %pMaterial, i32 noundef %type) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call ptr @aiTextureTypeToString(i32 noundef %type)
   %mNumProperties = getelementptr inbounds i8, ptr %pMaterial, i64 8
@@ -2793,7 +2794,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %data = getelementptr inbounds i8, ptr %2, i64 4
-  %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data, ptr noundef nonnull dereferenceable(10) @.str.61) #23
+  %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data, ptr noundef nonnull dereferenceable(10) @.str.61) #25
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %land.lhs.true, label %for.inc
 
@@ -2814,7 +2815,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp5.not, label %for.inc, label %if.then6
 
 if.then6:                                         ; preds = %if.then
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.62, ptr noundef nonnull %data) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.62, ptr noundef nonnull %data) #22
   unreachable
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then
@@ -2830,7 +2831,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %for.end
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.63, ptr noundef %call, i32 noundef %iIndex.1, i32 noundef %iNumIndices.1, ptr noundef %call) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.63, ptr noundef %call, i32 noundef %iIndex.1, i32 noundef %iNumIndices.1, ptr noundef %call) #22
   unreachable
 
 if.end14:                                         ; preds = %for.end
@@ -2842,13 +2843,13 @@ if.end17:                                         ; preds = %if.end14
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i:                                      ; preds = %if.end17
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.125) #20
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.125) #22
   unreachable
 
 if.then.i.i.i.i.i:                                ; preds = %if.end17
   %conv = zext nneg i32 %iNumIndices.1 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv, 2
-  %call5.i.i.i.i2.i.i59 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #22
+  %call5.i.i.i.i2.i.i59 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #24
   store i32 0, ptr %call5.i.i.i.i2.i.i59, align 4
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %iNumIndices.1, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i.i.i.i
@@ -2886,7 +2887,7 @@ if.end31:                                         ; preds = %for.body23
   br i1 %cmp33.not, label %if.end38, label %if.then34
 
 if.then34:                                        ; preds = %if.end31
-  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.64, i32 noundef %11, i32 noundef %iNumIndices.1, ptr noundef %call) #20
+  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.64, i32 noundef %11, i32 noundef %iNumIndices.1, ptr noundef %call) #22
           to label %invoke.cont37 unwind label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont37:                                    ; preds = %if.then34
@@ -2909,12 +2910,12 @@ _ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit.split-lp.loopexit.spli
 
 _ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit.split-lp.loopexit, %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp, %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit ], [ %lpad.loopexit77, %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp78, %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i59) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i59) #23
   resume { ptr, i32 } %lpad.phi
 
 if.end38:                                         ; preds = %if.end31
   %data40 = getelementptr inbounds i8, ptr %9, i64 4
-  %call42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data40, ptr noundef nonnull dereferenceable(13) @.str.65) #23
+  %call42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data40, ptr noundef nonnull dereferenceable(13) @.str.65) #25
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.then44, label %if.else
 
@@ -2940,7 +2941,7 @@ if.end56:                                         ; preds = %lor.lhs.false
   br label %for.inc127
 
 if.else:                                          ; preds = %if.end38
-  %call63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data40, ptr noundef nonnull dereferenceable(13) @.str.67) #23
+  %call63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data40, ptr noundef nonnull dereferenceable(13) @.str.67) #25
   %tobool64.not = icmp eq i32 %call63, 0
   br i1 %tobool64.not, label %if.then65, label %if.else80
 
@@ -2957,7 +2958,7 @@ lor.lhs.false68:                                  ; preds = %if.then65
   br i1 %cmp71, label %if.then93.invoke, label %for.inc127
 
 if.else80:                                        ; preds = %if.else
-  %call84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data40, ptr noundef nonnull dereferenceable(12) @.str.69) #23
+  %call84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data40, ptr noundef nonnull dereferenceable(12) @.str.69) #25
   %tobool85.not = icmp eq i32 %call84, 0
   br i1 %tobool85.not, label %if.then86, label %for.inc127
 
@@ -2982,7 +2983,7 @@ if.then93.invoke.sink.split:                      ; preds = %if.then86, %if.then
 if.then93.invoke:                                 ; preds = %lor.lhs.false89, %lor.lhs.false68, %lor.lhs.false, %if.then93.invoke.sink.split
   %20 = phi ptr [ %.ph, %if.then93.invoke.sink.split ], [ @.str.66, %lor.lhs.false ], [ @.str.68, %lor.lhs.false68 ], [ @.str.66, %lor.lhs.false89 ]
   %21 = phi i32 [ %.pre150, %if.then93.invoke.sink.split ], [ %13, %lor.lhs.false ], [ %17, %lor.lhs.false68 ], [ %19, %lor.lhs.false89 ]
-  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull %20, ptr noundef nonnull %data40, i32 noundef %11, i32 noundef %21) #20
+  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull %20, ptr noundef nonnull %data40, i32 noundef %11, i32 noundef %21) #22
           to label %if.then93.cont unwind label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
 if.then93.cont:                                   ; preds = %if.then93.invoke
@@ -3124,7 +3125,7 @@ for.inc155:                                       ; preds = %if.then151.for.inc1
   br i1 %cmp136, label %for.body137, label %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit64, !llvm.loop !36
 
 _ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit64: ; preds = %for.inc155, %for.cond133.preheader, %for.end129
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i59) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i59) #23
   br label %return
 
 return:                                           ; preds = %entry, %if.end14, %_ZNSt6vectorI16aiTextureMappingSaIS0_EED2Ev.exit64
@@ -3134,10 +3135,10 @@ return:                                           ; preds = %entry, %if.end14, %
 declare ptr @aiTextureTypeToString(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK10aiMaterial(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %pMaterial) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK10aiMaterial(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %pMaterial) local_unnamed_addr #7 align 2 {
 entry:
   %fTemp = alloca float, align 4
   %iShading = alloca i32, align 4
@@ -3160,7 +3161,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then:                                          ; preds = %for.body
   %3 = trunc nuw i64 %indvars.iv to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.72, i32 noundef %3, i32 noundef %0) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.72, i32 noundef %3, i32 noundef %0) #22
   unreachable
 
 if.end:                                           ; preds = %for.body
@@ -3177,7 +3178,7 @@ lor.lhs.false:                                    ; preds = %if.end
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.end
   %6 = trunc nuw i64 %indvars.iv to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.73, i32 noundef %6, i32 noundef %6) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.73, i32 noundef %6, i32 noundef %6) #22
   unreachable
 
 if.end6:                                          ; preds = %lor.lhs.false
@@ -3201,7 +3202,7 @@ lor.lhs.false11:                                  ; preds = %if.then8
 
 if.then16:                                        ; preds = %lor.lhs.false11, %if.then8
   %9 = trunc nuw i64 %indvars.iv to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.74, i32 noundef %9, i32 noundef %4, i32 noundef 1028) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.74, i32 noundef %9, i32 noundef %4, i32 noundef 1028) #22
   unreachable
 
 if.end18:                                         ; preds = %lor.lhs.false11
@@ -3213,7 +3214,7 @@ if.end18:                                         ; preds = %lor.lhs.false11
   br i1 %tobool23.not, label %for.inc, label %if.then24
 
 if.then24:                                        ; preds = %if.end18
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.75) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.75) #22
   unreachable
 
 if.then28:                                        ; preds = %if.end6
@@ -3222,7 +3223,7 @@ if.then28:                                        ; preds = %if.end6
 
 if.then31:                                        ; preds = %if.then28
   %11 = trunc nuw i64 %indvars.iv to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.76, i32 noundef %11, i32 noundef %4, i32 noundef 4) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.76, i32 noundef %11, i32 noundef %4, i32 noundef 4) #22
   unreachable
 
 if.then37:                                        ; preds = %if.end6
@@ -3231,7 +3232,7 @@ if.then37:                                        ; preds = %if.end6
 
 if.then41:                                        ; preds = %if.then37
   %12 = trunc nuw i64 %indvars.iv to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.77, i32 noundef %12, i32 noundef %4, i32 noundef 4) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.77, i32 noundef %12, i32 noundef %4, i32 noundef 4) #22
   unreachable
 
 for.inc:                                          ; preds = %if.end6, %if.end18, %if.then37, %if.then28
@@ -3312,7 +3313,7 @@ if.end67:                                         ; preds = %land.lhs.true61, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK9aiTexture(ptr nocapture nonnull readnone align 8 %this, ptr noundef %pTexture) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK9aiTexture(ptr nocapture nonnull readnone align 8 %this, ptr noundef %pTexture) local_unnamed_addr #7 align 2 {
 entry:
   %pcData = getelementptr inbounds i8, ptr %pTexture, i64 24
   %0 = load ptr, ptr %pcData, align 8
@@ -3320,7 +3321,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.85) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.85) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -3335,14 +3336,14 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool8.not, label %if.then4, label %if.end22
 
 if.then4:                                         ; preds = %if.then2
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.86, i32 noundef %1) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.86, i32 noundef %1) #22
   unreachable
 
 if.else:                                          ; preds = %if.end
   br i1 %tobool8.not, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.else
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.87) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.87) #22
   unreachable
 
 if.end10:                                         ; preds = %if.else
@@ -3394,7 +3395,7 @@ lor.lhs.false46:                                  ; preds = %lor.lhs.false38
   br i1 %or.cond18, label %if.then54, label %if.end55
 
 if.then54:                                        ; preds = %lor.lhs.false46, %lor.lhs.false38, %lor.lhs.false, %if.end22
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.90) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.90) #22
   unreachable
 
 if.end55:                                         ; preds = %lor.lhs.false46
@@ -3404,15 +3405,15 @@ if.end55:                                         ; preds = %lor.lhs.false46
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp17ValidateDSProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #19
+  tail call void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp17ValidateDSProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -3424,21 +3425,22 @@ declare void @_ZN6Assimp11BaseProcess15SetupPropertiesEPKNS_8ImporterE(ptr nound
 declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #9
+declare float @llvm.fabs.f32(float) #10
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
-  tail call void @_ZSt9terminatev() #24
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
+  tail call void @_ZSt9terminatev() #26
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 declare i32 @aiGetMaterialIntegerArray(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
@@ -3448,10 +3450,10 @@ declare i32 @aiGetMaterialFloatArray(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN15DeadlyErrorBaseC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERA20_KcEEN6Assimp9Formatter15basic_formatterIcS4_S5_EEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %f, ptr noundef nonnull align 1 dereferenceable(20) %u, ptr noundef nonnull align 8 dereferenceable(32) %args) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN15DeadlyErrorBaseC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERA20_KcEEN6Assimp9Formatter15basic_formatterIcS4_S5_EEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %f, ptr noundef nonnull align 1 dereferenceable(20) %u, ptr noundef nonnull align 8 dereferenceable(32) %args) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.Assimp::Formatter::basic_formatter", align 8
@@ -3473,22 +3475,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #21
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #21
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN6Assimp9Formatter15basic_formatterIcS4_S5_EEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #21
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -3500,8 +3502,8 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17DeadlyImportErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -3511,7 +3513,7 @@ declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 de
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN15DeadlyErrorBaseC2IJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN6Assimp9Formatter15basic_formatterIcS4_S5_EEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %f, ptr noundef nonnull align 8 dereferenceable(32) %u) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN15DeadlyErrorBaseC2IJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN6Assimp9Formatter15basic_formatterIcS4_S5_EEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %f, ptr noundef nonnull align 8 dereferenceable(32) %u) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.Assimp::Formatter::basic_formatter", align 8
@@ -3533,22 +3535,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #21
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #21
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2EN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #21
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -3571,7 +3573,7 @@ declare void @_ZN15DeadlyErrorBaseC2EN6Assimp9Formatter15basic_formatterIcSt11ch
 declare void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6Assimp6Logger13formatMessageIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_NS_9Formatter15basic_formatterIcS5_S6_EEOT0_DpOT_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %f, ptr noundef nonnull align 8 dereferenceable(32) %u) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6Assimp6Logger13formatMessageIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_NS_9Formatter15basic_formatterIcS5_S6_EEOT0_DpOT_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %f, ptr noundef nonnull align 8 dereferenceable(32) %u) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.Assimp::Formatter::basic_formatter", align 8
@@ -3593,22 +3595,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #21
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #21
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #21
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -3621,7 +3623,7 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6Assimp17ValidateDSProcess14DoValidationExI8aiCameraEEvPPT_jPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %parray, i32 noundef %size, ptr noundef %firstName, ptr noundef %secondName) local_unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN6Assimp17ValidateDSProcess14DoValidationExI8aiCameraEEvPPT_jPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %parray, i32 noundef %size, ptr noundef %firstName, ptr noundef %secondName) local_unnamed_addr #7 comdat align 2 {
 entry:
   %cmp = icmp eq i32 %size, 0
   br i1 %cmp, label %for.end22, label %if.end
@@ -3635,7 +3637,7 @@ for.body.preheader:                               ; preds = %if.end
   br label %for.body
 
 if.then2:                                         ; preds = %if.end
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.117, ptr noundef %firstName, ptr noundef %secondName, i32 noundef %size) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.117, ptr noundef %firstName, ptr noundef %secondName, i32 noundef %size) #22
   unreachable
 
 for.cond.loopexit:                                ; preds = %for.inc, %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiCamera.exit
@@ -3653,7 +3655,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then6:                                         ; preds = %for.body
   %2 = trunc nuw i64 %indvars.iv39 to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.121, ptr noundef %firstName, i32 noundef %2, ptr noundef %secondName, i32 noundef %size) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.121, ptr noundef %firstName, i32 noundef %2, ptr noundef %secondName, i32 noundef %size) #22
   unreachable
 
 if.end7:                                          ; preds = %for.body
@@ -3665,7 +3667,7 @@ if.end7:                                          ; preds = %for.body
   br i1 %cmp.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end7
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.27) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 poison, ptr noundef nonnull @.str.27) #22
   unreachable
 
 if.end.i:                                         ; preds = %if.end7
@@ -3710,7 +3712,7 @@ _ZNK8aiStringeqERKS_.exit:                        ; preds = %for.body12
 if.then18:                                        ; preds = %_ZNK8aiStringeqERKS_.exit
   %10 = trunc nuw i64 %indvars.iv39 to i32
   %11 = trunc nuw i64 %indvars.iv36 to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.122, ptr noundef %firstName, i32 noundef %10, ptr noundef %secondName, i32 noundef %11) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.122, ptr noundef %firstName, i32 noundef %10, ptr noundef %secondName, i32 noundef %11) #22
   unreachable
 
 for.inc:                                          ; preds = %for.body12, %_ZNK8aiStringeqERKS_.exit
@@ -3724,7 +3726,7 @@ for.end22:                                        ; preds = %for.cond.loopexit, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_Z12HasNameMatchRK8aiStringP6aiNode(ptr noundef nonnull align 4 dereferenceable(1028) %in, ptr noundef %node) local_unnamed_addr #6 comdat {
+define linkonce_odr hidden noundef i32 @_Z12HasNameMatchRK8aiStringP6aiNode(ptr noundef nonnull align 4 dereferenceable(1028) %in, ptr noundef %node) local_unnamed_addr #7 comdat {
 entry:
   %0 = load i32, ptr %node, align 4
   %1 = load i32, ptr %in, align 4
@@ -3771,7 +3773,7 @@ for.end:                                          ; preds = %for.body, %_ZNK8aiS
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %__a)
@@ -3779,7 +3781,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.123) #20
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.123) #22
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -3788,11 +3790,11 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #21
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #19
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #21
   %add.ptr = getelementptr inbounds i8, ptr %__s, i64 %call.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__s, ptr noundef nonnull %add.ptr)
           to label %invoke.cont4 unwind label %lpad
@@ -3806,10 +3808,10 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew = alloca i64, align 8
   %__guard = alloca %struct._Guard, align 8
@@ -3835,7 +3837,7 @@ terminate.lpad.i:                                 ; preds = %if.else
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #24
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -3844,7 +3846,7 @@ if.end:                                           ; preds = %if.else, %if.then
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #21
   store ptr null, ptr %__guard, align 8
   %3 = load i64, ptr %__dnew, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %3)
@@ -3856,12 +3858,12 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 lpad:                                             ; preds = %invoke.cont, %if.end
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #19
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #21
   resume { ptr, i32 } %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #5
 
@@ -3894,7 +3896,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #24
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 }
 
@@ -3904,7 +3906,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6Assimp17ValidateDSProcess14DoValidationExI7aiLightEEvPPT_jPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %parray, i32 noundef %size, ptr noundef %firstName, ptr noundef %secondName) local_unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN6Assimp17ValidateDSProcess14DoValidationExI7aiLightEEvPPT_jPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %parray, i32 noundef %size, ptr noundef %firstName, ptr noundef %secondName) local_unnamed_addr #7 comdat align 2 {
 entry:
   %cmp = icmp eq i32 %size, 0
   br i1 %cmp, label %for.end22, label %if.end
@@ -3918,7 +3920,7 @@ for.body.preheader:                               ; preds = %if.end
   br label %for.body
 
 if.then2:                                         ; preds = %if.end
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.117, ptr noundef %firstName, ptr noundef %secondName, i32 noundef %size) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.117, ptr noundef %firstName, ptr noundef %secondName, i32 noundef %size) #22
   unreachable
 
 for.cond.loopexit:                                ; preds = %for.inc, %if.end7
@@ -3936,7 +3938,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then6:                                         ; preds = %for.body
   %2 = trunc nuw i64 %indvars.iv35 to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.121, ptr noundef %firstName, i32 noundef %2, ptr noundef %secondName, i32 noundef %size) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.121, ptr noundef %firstName, i32 noundef %2, ptr noundef %secondName, i32 noundef %size) #22
   unreachable
 
 if.end7:                                          ; preds = %for.body
@@ -3969,7 +3971,7 @@ _ZNK8aiStringeqERKS_.exit:                        ; preds = %for.body12
 if.then18:                                        ; preds = %_ZNK8aiStringeqERKS_.exit
   %7 = trunc nuw i64 %indvars.iv35 to i32
   %8 = trunc nuw i64 %indvars.iv32 to i32
-  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.122, ptr noundef %firstName, i32 noundef %7, ptr noundef %secondName, i32 noundef %8) #20
+  tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.122, ptr noundef %firstName, i32 noundef %7, ptr noundef %secondName, i32 noundef %8) #22
   unreachable
 
 for.inc:                                          ; preds = %for.body12, %_ZNK8aiStringeqERKS_.exit
@@ -3983,7 +3985,7 @@ for.end22:                                        ; preds = %for.cond.loopexit, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %__position.coerce0, i32 %__position.coerce1, i64 noundef %__n, i1 noundef zeroext %__x) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %__position.coerce0, i32 %__position.coerce1, i64 noundef %__n, i1 noundef zeroext %__x) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool.neg = sext i1 %__x to i8
   %cmp = icmp eq i64 %__n, 0
@@ -4195,7 +4197,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.124) #20
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.124) #22
   unreachable
 
 _ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
@@ -4207,7 +4209,7 @@ _ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %sub.i.i = select i1 %cmp7.i, i64 9223372036854775807, i64 %22
   %23 = lshr i64 %sub.i.i, 3
   %mul.i.i.i37 = and i64 %23, 1152921504606846968
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i37) #22
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i37) #24
   %sub.ptr.lhs.cast.i.i.i.i.i.i45 = ptrtoint ptr %__position.coerce0 to i64
   %sub.ptr.sub.i.i.i.i.i.i47 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i45, %sub.ptr.rhs.cast.i.i
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %1, %__position.coerce0
@@ -4440,7 +4442,7 @@ if.then.i172:                                     ; preds = %_ZSt4copyISt13_Bit_
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %idx.neg.i = sub nsw i64 0, %sub.ptr.div.i
   %add.ptr.i = getelementptr inbounds i64, ptr %39, i64 %idx.neg.i
-  tail call void @_ZdlPv(ptr noundef %add.ptr.i) #21
+  tail call void @_ZdlPv(ptr noundef %add.ptr.i) #23
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %if.then.i172
@@ -4463,40 +4465,40 @@ if.end37:                                         ; preds = %if.end37.sink.split
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #16
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #12
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #15
+declare void @llvm.va_start.p0(ptr) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #15
+declare void @llvm.va_end.p0(ptr) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
+declare i32 @llvm.smax.i32(i32, i32) #19
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4504,25 +4506,27 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #19 = { nounwind }
-attributes #20 = { noreturn }
-attributes #21 = { builtin nounwind }
-attributes #22 = { builtin allocsize(0) }
-attributes #23 = { nounwind willreturn memory(read) }
-attributes #24 = { noreturn nounwind }
+attributes #6 = { cold noreturn }
+attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold nofree noreturn }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #21 = { nounwind }
+attributes #22 = { noreturn }
+attributes #23 = { builtin nounwind }
+attributes #24 = { builtin allocsize(0) }
+attributes #25 = { nounwind willreturn memory(read) }
+attributes #26 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

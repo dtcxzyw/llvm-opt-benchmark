@@ -143,7 +143,7 @@ if.then3:                                         ; preds = %invoke.cont
 lpad:                                             ; preds = %if.then.i.i, %if.then3, %if.end
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   resume { ptr, i32 } %1
 
 if.end5:                                          ; preds = %if.then3, %invoke.cont
@@ -161,7 +161,7 @@ if.then.i.i:                                      ; preds = %if.end5
 
 invoke.cont9:                                     ; preds = %.noexc, %if.end5
   store i32 -1, ptr %this, align 8
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   br label %return
 
 return:                                           ; preds = %entry, %invoke.cont9
@@ -197,13 +197,13 @@ if.then:                                          ; preds = %invoke.cont
 lpad:                                             ; preds = %if.then, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %if.then, %invoke.cont
   %1 = load i32, ptr %this, align 8
-  %call5 = call i64 @lseek(i32 noundef %1, i64 noundef %offset, i32 noundef %whence) #13
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  %call5 = call i64 @lseek(i32 noundef %1, i64 noundef %offset, i32 noundef %whence) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   ret i64 %call5
 }
 
@@ -245,7 +245,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.end, %if.then2
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   resume { ptr, i32 } %lpad.phi
 
 do.body:                                          ; preds = %do.body.preheader, %if.end18
@@ -267,7 +267,7 @@ invoke.cont10:                                    ; preds = %do.body5
   br i1 %cmp12, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %invoke.cont10
-  %call13 = tail call ptr @__errno_location() #14
+  %call13 = tail call ptr @__errno_location() #15
   %1 = load i32, ptr %call13, align 4
   %cmp14 = icmp eq i32 %1, 4
   br i1 %cmp14, label %do.body5, label %do.end22, !llvm.loop !5
@@ -287,7 +287,7 @@ do.end22:                                         ; preds = %do.end, %if.end18, 
   %bytes_read.1 = phi i32 [ %bytes_read.0, %land.rhs ], [ %bytes_read.0, %do.end ], [ %add19, %if.end18 ]
   %tobool.not = icmp eq i32 %bytes_read.1, 0
   %cond = select i1 %tobool.not, i32 %conv1515, i32 %bytes_read.1
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   br label %return
 
 return:                                           ; preds = %entry, %do.end22
@@ -336,7 +336,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.end, %if.then2
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit15, %lpad.loopexit ], [ %lpad.loopexit.split-lp16, %lpad.loopexit.split-lp ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   resume { ptr, i32 } %lpad.phi
 
 do.body:                                          ; preds = %do.body.preheader, %if.end17
@@ -357,7 +357,7 @@ invoke.cont9:                                     ; preds = %do.body5
   br i1 %cmp11, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %invoke.cont9
-  %call12 = tail call ptr @__errno_location() #14
+  %call12 = tail call ptr @__errno_location() #15
   %1 = load i32, ptr %call12, align 4
   %cmp13 = icmp eq i32 %1, 4
   br i1 %cmp13, label %do.body5, label %do.end20, !llvm.loop !8
@@ -377,7 +377,7 @@ do.end20:                                         ; preds = %do.end, %if.end17, 
   %bytes_read.1 = phi i32 [ %bytes_read.0, %land.rhs ], [ %bytes_read.0, %do.end ], [ %add, %if.end17 ]
   %tobool.not = icmp eq i32 %bytes_read.1, 0
   %cond = select i1 %tobool.not, i32 %conv1414, i32 %bytes_read.1
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   br label %return
 
 return:                                           ; preds = %entry, %do.end20
@@ -419,7 +419,7 @@ lpad.loopexit.split-lp:                           ; preds = %entry, %if.then
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit3, %lpad.loopexit ], [ %lpad.loopexit.split-lp4, %lpad.loopexit.split-lp ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   resume { ptr, i32 } %lpad.phi
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
@@ -432,14 +432,14 @@ invoke.cont6:                                     ; preds = %do.body
   br i1 %cmp, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %invoke.cont6
-  %call8 = tail call ptr @__errno_location() #14
+  %call8 = tail call ptr @__errno_location() #15
   %1 = load i32, ptr %call8, align 4
   %cmp9 = icmp eq i32 %1, 4
   br i1 %cmp9, label %do.body, label %do.end, !llvm.loop !10
 
 do.end:                                           ; preds = %invoke.cont6, %land.rhs
   %conv10 = trunc i64 %call7 to i32
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   ret i32 %conv10
 }
 
@@ -478,7 +478,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.end, %if.then2
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit4, %lpad.loopexit ], [ %lpad.loopexit.split-lp5, %lpad.loopexit.split-lp ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   resume { ptr, i32 } %lpad.phi
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
@@ -491,14 +491,14 @@ invoke.cont8:                                     ; preds = %do.body
   br i1 %cmp10, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %invoke.cont8
-  %call11 = tail call ptr @__errno_location() #14
+  %call11 = tail call ptr @__errno_location() #15
   %1 = load i32, ptr %call11, align 4
   %cmp12 = icmp eq i32 %1, 4
   br i1 %cmp12, label %do.body, label %do.end, !llvm.loop !11
 
 do.end:                                           ; preds = %invoke.cont8, %land.rhs
   %conv13 = trunc i64 %call9 to i32
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   br label %return
 
 return:                                           ; preds = %entry, %do.end
@@ -552,7 +552,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.end5, %if.then7
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit18, %lpad.loopexit ], [ %lpad.loopexit.split-lp19, %lpad.loopexit.split-lp ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   resume { ptr, i32 } %lpad.phi
 
 do.body:                                          ; preds = %do.body.preheader, %if.end24
@@ -574,7 +574,7 @@ invoke.cont16:                                    ; preds = %do.body10
   br i1 %cmp18, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %invoke.cont16
-  %call19 = tail call ptr @__errno_location() #14
+  %call19 = tail call ptr @__errno_location() #15
   %2 = load i32, ptr %call19, align 4
   %cmp20 = icmp eq i32 %2, 4
   br i1 %cmp20, label %do.body10, label %do.end28, !llvm.loop !12
@@ -594,7 +594,7 @@ do.end28:                                         ; preds = %do.end, %if.end24, 
   %bytes_written.1 = phi i32 [ %bytes_written.0, %land.rhs ], [ %bytes_written.0, %do.end ], [ %add25, %if.end24 ]
   %tobool.not = icmp eq i32 %bytes_written.1, 0
   %cond = select i1 %tobool.not, i32 %conv2117, i32 %bytes_written.1
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   br label %return
 
 return:                                           ; preds = %if.end, %do.end28, %if.then
@@ -637,7 +637,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.end, %if.then2
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit15, %lpad.loopexit ], [ %lpad.loopexit.split-lp16, %lpad.loopexit.split-lp ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   resume { ptr, i32 } %lpad.phi
 
 do.body:                                          ; preds = %do.body.preheader, %if.end17
@@ -658,7 +658,7 @@ invoke.cont9:                                     ; preds = %do.body5
   br i1 %cmp11, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %invoke.cont9
-  %call12 = tail call ptr @__errno_location() #14
+  %call12 = tail call ptr @__errno_location() #15
   %1 = load i32, ptr %call12, align 4
   %cmp13 = icmp eq i32 %1, 4
   br i1 %cmp13, label %do.body5, label %do.end20, !llvm.loop !14
@@ -678,7 +678,7 @@ do.end20:                                         ; preds = %do.end, %if.end17, 
   %bytes_written.1 = phi i32 [ %bytes_written.0, %land.rhs ], [ %bytes_written.0, %do.end ], [ %add, %if.end17 ]
   %tobool.not = icmp eq i32 %bytes_written.1, 0
   %cond = select i1 %tobool.not, i32 %conv1414, i32 %bytes_written.1
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   br label %return
 
 return:                                           ; preds = %entry, %do.end20
@@ -727,7 +727,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.end, %if.then2
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit4, %lpad.loopexit ], [ %lpad.loopexit.split-lp5, %lpad.loopexit.split-lp ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   resume { ptr, i32 } %lpad.phi
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
@@ -740,14 +740,14 @@ invoke.cont8:                                     ; preds = %do.body
   br i1 %cmp10, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %invoke.cont8
-  %call11 = tail call ptr @__errno_location() #14
+  %call11 = tail call ptr @__errno_location() #15
   %1 = load i32, ptr %call11, align 4
   %cmp12 = icmp eq i32 %1, 4
   br i1 %cmp12, label %do.body, label %do.end, !llvm.loop !16
 
 do.end:                                           ; preds = %invoke.cont8, %land.rhs
   %conv13 = trunc i64 %call9 to i32
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   br label %return
 
 return:                                           ; preds = %entry, %do.end
@@ -774,17 +774,17 @@ if.then:                                          ; preds = %invoke.cont
 lpad:                                             ; preds = %if.then, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %if.then, %invoke.cont
   %1 = load i32, ptr %this, align 8
-  %call.i = call noundef i32 @fstat64(i32 noundef %1, ptr noundef nonnull %file_info) #13
+  %call.i = call noundef i32 @fstat64(i32 noundef %1, ptr noundef nonnull %file_info) #14
   %tobool.not = icmp eq i32 %call.i, 0
   %st_size = getelementptr inbounds i8, ptr %file_info, i64 48
   %2 = load i64, ptr %st_size, align 8
   %retval.0 = select i1 %tobool.not, i64 %2, i64 0
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   ret i64 %retval.0
 }
 
@@ -806,7 +806,7 @@ if.then:                                          ; preds = %invoke.cont
 lpad:                                             ; preds = %if.then, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %if.then, %invoke.cont
@@ -814,19 +814,19 @@ if.end:                                           ; preds = %if.then, %invoke.co
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.end
-  %call.i = call i32 @ftruncate(i32 noundef %1, i64 noundef %length) #13
+  %call.i = call i32 @ftruncate(i32 noundef %1, i64 noundef %length) #14
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %land.rhs.i, label %_ZN4base12_GLOBAL__N_113CallFtruncateEil.exit
 
 land.rhs.i:                                       ; preds = %do.body.i
-  %call1.i = tail call ptr @__errno_location() #14
+  %call1.i = tail call ptr @__errno_location() #15
   %2 = load i32, ptr %call1.i, align 4
   %cmp2.i = icmp eq i32 %2, 4
   br i1 %cmp2.i, label %do.body.i, label %_ZN4base12_GLOBAL__N_113CallFtruncateEil.exit, !llvm.loop !17
 
 _ZN4base12_GLOBAL__N_113CallFtruncateEil.exit:    ; preds = %do.body.i, %land.rhs.i
   %tobool.not = icmp eq i32 %call.i, 0
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   ret i1 %tobool.not
 }
 
@@ -853,7 +853,7 @@ if.then:                                          ; preds = %invoke.cont
 lpad:                                             ; preds = %invoke.cont6, %if.end, %if.then, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %if.then, %invoke.cont
@@ -880,10 +880,10 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   %mul11.i = mul nsw i64 %4, 1000
   %tv_nsec13.i = getelementptr inbounds i8, ptr %ts_times.i, i64 24
   store i64 %mul11.i, ptr %tv_nsec13.i, align 8
-  %call.i = call noundef i32 @futimens(i32 noundef %5, ptr noundef nonnull %ts_times.i) #13
+  %call.i = call noundef i32 @futimens(i32 noundef %5, ptr noundef nonnull %ts_times.i) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ts_times.i)
   %tobool.not = icmp eq i32 %call.i, 0
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   ret i1 %tobool.not
 }
 
@@ -908,12 +908,12 @@ if.then:                                          ; preds = %invoke.cont
 lpad:                                             ; preds = %call36.i.noexc, %call.i9.i.noexc, %call23.i.noexc, %call.i.i.noexc, %call.i1.noexc, %if.end8, %if.then, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %if.then, %invoke.cont
   %1 = load i32, ptr %this, align 8
-  %call.i = call noundef i32 @fstat64(i32 noundef %1, ptr noundef nonnull %file_info) #13
+  %call.i = call noundef i32 @fstat64(i32 noundef %1, ptr noundef nonnull %file_info) #14
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %if.end8, label %cleanup
 
@@ -980,7 +980,7 @@ _ZN4base4File4Info8FromStatERK6stat64.exit:       ; preds = %call36.i.noexc
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4base4File4Info8FromStatERK6stat64.exit, %if.end
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   ret i1 %tobool.not
 }
 
@@ -1012,7 +1012,7 @@ lpad.loopexit.split-lp:                           ; preds = %entry, %if.then, %i
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit3, %lpad.loopexit ], [ %lpad.loopexit.split-lp4, %lpad.loopexit.split-lp ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %if.then, %invoke.cont
@@ -1034,7 +1034,7 @@ call.i.noexc:                                     ; preds = %do.body.i
   br i1 %cmp.i, label %land.rhs.i, label %invoke.cont5
 
 land.rhs.i:                                       ; preds = %call.i.noexc
-  %call1.i = tail call ptr @__errno_location() #14
+  %call1.i = tail call ptr @__errno_location() #15
   %1 = load i32, ptr %call1.i, align 4
   %cmp2.i = icmp eq i32 %1, 4
   br i1 %cmp2.i, label %do.body.i, label %if.then.i, !llvm.loop !18
@@ -1046,7 +1046,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 invoke.cont5:                                     ; preds = %call.i.noexc, %if.then.i
   %retval.0.i = phi i32 [ %call5.i2, %if.then.i ], [ 0, %call.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %lock.i)
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   ret i32 %retval.0.i
 }
 
@@ -1078,7 +1078,7 @@ lpad.loopexit.split-lp:                           ; preds = %entry, %if.then, %i
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit3, %lpad.loopexit ], [ %lpad.loopexit.split-lp4, %lpad.loopexit.split-lp ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %if.then, %invoke.cont
@@ -1100,7 +1100,7 @@ call.i.noexc:                                     ; preds = %do.body.i
   br i1 %cmp.i, label %land.rhs.i, label %invoke.cont5
 
 land.rhs.i:                                       ; preds = %call.i.noexc
-  %call1.i = tail call ptr @__errno_location() #14
+  %call1.i = tail call ptr @__errno_location() #15
   %1 = load i32, ptr %call1.i, align 4
   %cmp2.i = icmp eq i32 %1, 4
   br i1 %cmp2.i, label %do.body.i, label %if.then.i, !llvm.loop !18
@@ -1112,7 +1112,7 @@ if.then.i:                                        ; preds = %land.rhs.i
 invoke.cont5:                                     ; preds = %call.i.noexc, %if.then.i
   %retval.0.i = phi i32 [ %call5.i2, %if.then.i ], [ 0, %call.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %lock.i)
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   ret i32 %retval.0.i
 }
 
@@ -1143,17 +1143,17 @@ if.then3:                                         ; preds = %invoke.cont
 lpad:                                             ; preds = %if.end14, %invoke.cont11, %if.then9, %if.then3, %if.end
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   resume { ptr, i32 } %1
 
 invoke.cont6:                                     ; preds = %invoke.cont, %if.then3
   %2 = load i32, ptr %this, align 8
-  %call8 = call i32 @dup(i32 noundef %2) #13
+  %call8 = call i32 @dup(i32 noundef %2) #14
   %cmp = icmp eq i32 %call8, -1
   br i1 %cmp, label %if.then9, label %if.end14
 
 if.then9:                                         ; preds = %invoke.cont6
-  %call10 = tail call ptr @__errno_location() #14
+  %call10 = tail call ptr @__errno_location() #15
   %3 = load i32, ptr %call10, align 4
   %call12 = invoke noundef i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 noundef %3)
           to label %invoke.cont11 unwind label %lpad
@@ -1178,7 +1178,7 @@ if.then19:                                        ; preds = %invoke.cont15
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont15, %if.then19, %invoke.cont11
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then
@@ -1200,7 +1200,7 @@ entry:
   br i1 %0, label %switch.hole_check, label %do.body
 
 do.body:                                          ; preds = %switch.hole_check, %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #13
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #14
   %call.i3 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call.i.noexc unwind label %lpad
 
@@ -1215,7 +1215,7 @@ call.i.noexc:                                     ; preds = %do.body
 lpad.i:                                           ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
@@ -1223,8 +1223,8 @@ invoke.cont:                                      ; preds = %.noexc
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #14
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
@@ -1239,12 +1239,12 @@ lpad:                                             ; preds = %call.i.noexc, %do.b
 lpad10:                                           ; preds = %invoke.cont
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad10
   %.pn = phi { ptr, i32 } [ %4, %lpad10 ], [ %3, %lpad ], [ %1, %lpad.i ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #13
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #14
   resume { ptr, i32 } %.pn
 
 switch.hole_check:                                ; preds = %entry
@@ -1299,7 +1299,7 @@ entry:
   br i1 %or.cond33, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %entry
-  %call = tail call ptr @__errno_location() #14
+  %call = tail call ptr @__errno_location() #15
   store i32 95, ptr %call, align 4
   %error_details_ = getelementptr inbounds i8, ptr %this, i64 44
   store i32 -1, ptr %error_details_, align 4
@@ -1327,13 +1327,13 @@ if.end17:                                         ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.end17
-  %call64 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #13
+  %call64 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #14
   %call65 = tail call i32 (ptr, i32, ...) @open(ptr noundef %call64, i32 noundef %open_flags.4, i32 noundef 384)
   %cmp = icmp eq i32 %call65, -1
   br i1 %cmp, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %do.body
-  %call66 = tail call ptr @__errno_location() #14
+  %call66 = tail call ptr @__errno_location() #15
   %5 = load i32, ptr %call66, align 4
   %cmp67 = icmp eq i32 %5, 4
   br i1 %cmp67, label %do.body, label %do.end, !llvm.loop !19
@@ -1364,13 +1364,13 @@ if.end80:                                         ; preds = %if.then78, %lor.lhs
   br label %do.body82
 
 do.body82:                                        ; preds = %land.rhs88, %if.end80
-  %call84 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #13
+  %call84 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #14
   %call85 = tail call i32 (ptr, i32, ...) @open(ptr noundef %call84, i32 noundef %open_flags.5, i32 noundef 384)
   %cmp87 = icmp eq i32 %call85, -1
   br i1 %cmp87, label %land.rhs88, label %do.end92
 
 land.rhs88:                                       ; preds = %do.body82
-  %call89 = tail call ptr @__errno_location() #14
+  %call89 = tail call ptr @__errno_location() #15
   %6 = load i32, ptr %call89, align 4
   %cmp90 = icmp eq i32 %6, 4
   br i1 %cmp90, label %do.body82, label %if.then101, !llvm.loop !20
@@ -1387,7 +1387,7 @@ if.end99:                                         ; preds = %do.end
   br i1 %cmp71, label %if.then101, label %if.end105
 
 if.then101:                                       ; preds = %land.rhs88, %do.end92, %if.end99
-  %call102 = tail call ptr @__errno_location() #14
+  %call102 = tail call ptr @__errno_location() #15
   %7 = load i32, ptr %call102, align 4
   %call103 = tail call noundef i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 noundef %7)
   %error_details_104 = getelementptr inbounds i8, ptr %this, i64 44
@@ -1410,8 +1410,8 @@ if.end110:                                        ; preds = %if.then108, %if.end
   br i1 %tobool112.not, label %if.end117, label %if.then113
 
 if.then113:                                       ; preds = %if.end110
-  %call115 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #13
-  %call116 = tail call i32 @unlink(ptr noundef %call115) #13
+  %call115 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #14
+  %call116 = tail call i32 @unlink(ptr noundef %call115) #14
   br label %if.end117
 
 if.end117:                                        ; preds = %if.then113, %if.end110
@@ -1431,7 +1431,7 @@ land.lhs.true.i:                                  ; preds = %if.end117
   br i1 %cmp4.i, label %if.then.i, label %if.then.i.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @abort() #15
+  tail call void @abort() #16
   unreachable
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i
@@ -1485,7 +1485,7 @@ lpad.loopexit.split-lp:                           ; preds = %entry, %if.then
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit2, %lpad.loopexit ], [ %lpad.loopexit.split-lp3, %lpad.loopexit.split-lp ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   resume { ptr, i32 } %lpad.phi
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
@@ -1498,14 +1498,14 @@ invoke.cont5:                                     ; preds = %do.body
   br i1 %cmp, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %invoke.cont5
-  %call7 = tail call ptr @__errno_location() #14
+  %call7 = tail call ptr @__errno_location() #15
   %1 = load i32, ptr %call7, align 4
   %cmp8 = icmp eq i32 %1, 4
   br i1 %cmp8, label %do.body, label %do.end, !llvm.loop !21
 
 do.end:                                           ; preds = %invoke.cont5, %land.rhs
   %tobool.not = icmp eq i32 %call6, 0
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
   ret i1 %tobool.not
 }
 
@@ -1523,7 +1523,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %cmp4.i, label %if.then.i, label %if.then.i.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @abort() #15
+  tail call void @abort() #16
   unreachable
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i
@@ -1584,7 +1584,7 @@ terminate.lpad.i:                                 ; preds = %if.else
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #15
+  tail call void @__clang_call_terminate(ptr %2) #16
   unreachable
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1593,7 +1593,7 @@ if.end:                                           ; preds = %if.else, %if.then
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #14
   store ptr null, ptr %__guard, align 8
   %3 = load i64, ptr %__dnew, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %3)
@@ -1605,7 +1605,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 lpad:                                             ; preds = %invoke.cont, %if.end
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #13
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #14
   resume { ptr, i32 } %4
 }
 
@@ -1640,20 +1640,21 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #15
+  tail call void @__clang_call_terminate(ptr %2) #16
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #15
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
@@ -1661,13 +1662,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1680,11 +1681,12 @@ attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #8 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(none) }
-attributes #15 = { noreturn nounwind }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(none) }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -81,25 +81,26 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #1 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
-  tail call void @_ZSt9terminatev() #19
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
-declare void @_ZN6google14FlagRegistererC1IlEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #4
+declare void @_ZN6google14FlagRegistererC1IlEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly13MemoryMappingC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13MemoryMappingC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i = alloca %"struct.folly::MemoryMapping::Options", align 8
   store i32 -1, ptr %this, align 8, !tbaa !7
@@ -119,7 +120,7 @@ entry:
   store i8 0, ptr %locked_, align 8, !tbaa !20
   %data_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_, i8 0, i64 16, i1 false)
-  tail call void @_ZN5folly4swapERNS_4FileES1_(ptr noundef nonnull align 4 dereferenceable(5) %this, ptr noundef nonnull align 4 dereferenceable(5) %other) #18
+  tail call void @_ZN5folly4swapERNS_4FileES1_(ptr noundef nonnull align 4 dereferenceable(5) %this, ptr noundef nonnull align 4 dereferenceable(5) %other) #19
   %mapStart_3.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %mapStart_, align 8, !tbaa !23
   %1 = load ptr, ptr %mapStart_3.i, align 8, !tbaa !23
@@ -156,10 +157,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly13MemoryMapping4swapERS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13MemoryMapping4swapERS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %__tmp.i = alloca %"struct.folly::MemoryMapping::Options", align 8
-  tail call void @_ZN5folly4swapERNS_4FileES1_(ptr noundef nonnull align 4 dereferenceable(5) %this, ptr noundef nonnull align 4 dereferenceable(5) %other) #18
+  tail call void @_ZN5folly4swapERNS_4FileES1_(ptr noundef nonnull align 4 dereferenceable(5) %this, ptr noundef nonnull align 4 dereferenceable(5) %other) #19
   %mapStart_ = getelementptr inbounds i8, ptr %this, i64 8
   %mapStart_3 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %mapStart_, align 8, !tbaa !23
@@ -201,10 +202,10 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13MemoryMappingC2ENS_4FileEllNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %file, i64 noundef %offset, i64 noundef %length, ptr nocapture noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 %options) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13MemoryMappingC2ENS_4FileEllNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %file, i64 noundef %offset, i64 noundef %length, ptr nocapture noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 %options) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.google::LogMessageFatal", align 8
-  tail call void @_ZN5folly4FileC1EOS0_(ptr noundef nonnull align 4 dereferenceable(5) %this, ptr noundef nonnull align 4 dereferenceable(5) %file) #18
+  tail call void @_ZN5folly4FileC1EOS0_(ptr noundef nonnull align 4 dereferenceable(5) %this, ptr noundef nonnull align 4 dereferenceable(5) %file) #19
   %mapStart_ = getelementptr inbounds i8, ptr %this, i64 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mapStart_, i8 0, i64 16, i1 false)
@@ -218,7 +219,7 @@ entry:
   br i1 %cmp.i.not, label %cond.false, label %cleanup.done21, !prof !28
 
 cond.false:                                       ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp6) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp6) #19
   invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6, ptr noundef nonnull @.str.3, i32 noundef 77)
           to label %invoke.cont8 unwind label %lpad7
 
@@ -231,7 +232,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
           to label %cleanup.action unwind label %lpad10
 
 cleanup.action:                                   ; preds = %invoke.cont11
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #20
   unreachable
 
 lpad:                                             ; preds = %cleanup.done21
@@ -242,13 +243,13 @@ lpad:                                             ; preds = %cleanup.done21
 lpad7:                                            ; preds = %cond.false
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp6) #18
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp6) #19
   br label %ehcleanup27
 
 lpad10:                                           ; preds = %invoke.cont11, %invoke.cont8
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #20
   unreachable
 
 cleanup.done21:                                   ; preds = %entry
@@ -260,22 +261,22 @@ invoke.cont26:                                    ; preds = %cleanup.done21
 
 ehcleanup27:                                      ; preds = %lpad7, %lpad
   %.pn = phi { ptr, i32 } [ %1, %lpad ], [ %2, %lpad7 ]
-  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %this) #18
+  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %this) #19
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN5folly4FileC1EOS0_(ptr noundef nonnull align 4 dereferenceable(5), ptr noundef nonnull align 4 dereferenceable(5)) unnamed_addr #7
+declare void @_ZN5folly4FileC1EOS0_(ptr noundef nonnull align 4 dereferenceable(5), ptr noundef nonnull align 4 dereferenceable(5)) unnamed_addr #8
 
-declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef) unnamed_addr #4
+declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef) unnamed_addr #5
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #5
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #8
+declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13MemoryMapping4initEll(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13MemoryMapping4initEll(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9 = alloca %"class.google::LogMessageFatal", align 8
   %st = alloca %struct.stat, align 8
@@ -315,7 +316,7 @@ entry:
   br i1 %.not, label %cleanup.done19, label %cond.false, !prof !30
 
 cond.false:                                       ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp9) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp9) #19
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9, ptr noundef nonnull @.str.3, i32 noundef 117)
   %call11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9)
           to label %invoke.cont unwind label %lpad
@@ -325,26 +326,26 @@ invoke.cont:                                      ; preds = %cond.false
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9) #20
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %cond.false
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9) #20
   unreachable
 
 cleanup.done19:                                   ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st) #18
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st) #19
   br i1 %cmp.i, label %if.then, label %while.cond105
 
 if.then:                                          ; preds = %cleanup.done19
-  %call28 = call i32 @fstat(i32 noundef %1, ptr noundef nonnull %st) #18
+  %call28 = call i32 @fstat(i32 noundef %1, ptr noundef nonnull %st) #19
   %cmp = icmp eq i32 %call28, -1
   br i1 %cmp, label %cond.false33, label %cleanup.done52, !prof !28
 
 cond.false33:                                     ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp35) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp35) #19
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !31
   %.fca.1.gep358 = getelementptr inbounds i8, ptr %indirect-arg-temp, i64 8
   store i64 0, ptr %.fca.1.gep358, align 8, !tbaa !31
@@ -357,8 +358,8 @@ invoke.cont39:                                    ; preds = %cond.false33
           to label %cleanup.action45 unwind label %lpad38
 
 cleanup.action45:                                 ; preds = %invoke.cont39
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp35) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp35) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp35) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp35) #19
   br label %cleanup.done52
 
 cleanup.done52:                                   ; preds = %cleanup.action45, %if.then
@@ -380,90 +381,90 @@ if.then.i:                                        ; preds = %if.then57
 lpad38:                                           ; preds = %invoke.cont39, %cond.false33
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp35) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp35) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp35) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp35) #19
   br label %ehcleanup339
 
 while.cond105:                                    ; preds = %cleanup.done19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result106) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp107) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result106) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp107) #19
   %7 = load i64, ptr %options_, align 8, !tbaa !24
   store i64 %7, ptr %ref.tmp107, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp109) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp109) #19
   store i32 0, ptr %ref.tmp109, align 4, !tbaa !40
   %cmp.i395 = icmp eq i64 %7, 0
   br i1 %cmp.i395, label %_ZN6google12Check_EQImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, label %_ZN6google12Check_EQImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, !prof !30
 
 _ZN6google12Check_EQImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread: ; preds = %while.cond105
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp109) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp107) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp109) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp107) #19
   br label %while.exit113
 
 _ZN6google12Check_EQImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %while.cond105
   %call.i396 = call noundef ptr @_ZN6google17MakeCheckOpStringIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp107, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp109, ptr noundef nonnull @.str.9)
   store ptr %call.i396, ptr %_result106, align 8, !tbaa !41
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp109) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp107) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp109) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp107) #19
   %cmp.i397.not = icmp eq ptr %call.i396, null
   br i1 %cmp.i397.not, label %while.exit113, label %while.body114
 
 while.exit113:                                    ; preds = %_ZN6google12Check_EQImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, %_ZN6google12Check_EQImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result106) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result121) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp122) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result106) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result121) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp122) #19
   store i64 %length, ptr %ref.tmp122, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp124) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp124) #19
   store i32 0, ptr %ref.tmp124, align 4, !tbaa !40
   %cmp.not.i = icmp slt i64 %length, 0
   br i1 %cmp.not.i, label %_ZN6google12Check_GEImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, label %_ZN6google12Check_GEImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, !prof !28
 
 _ZN6google12Check_GEImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread: ; preds = %while.exit113
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp124) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp122) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp124) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp122) #19
   br label %while.exit128
 
 _ZN6google12Check_GEImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %while.exit113
   %call.i401 = call noundef ptr @_ZN6google17MakeCheckOpStringIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp122, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp124, ptr noundef nonnull @.str.10)
   store ptr %call.i401, ptr %_result121, align 8, !tbaa !41
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp124) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp122) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp124) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp122) #19
   %cmp.i402.not = icmp eq ptr %call.i401, null
   br i1 %cmp.i402.not, label %while.exit128, label %while.body129
 
 while.body114:                                    ; preds = %_ZN6google12Check_EQImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp115) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp115) #19
   call void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp115, ptr noundef nonnull @.str.3, i32 noundef 146, ptr noundef nonnull align 8 dereferenceable(8) %_result106)
   %call118 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp115)
           to label %invoke.cont117 unwind label %lpad116
 
 invoke.cont117:                                   ; preds = %while.body114
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp115) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp115) #20
   unreachable
 
 lpad116:                                          ; preds = %while.body114
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp115) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp115) #20
   unreachable
 
 while.exit128:                                    ; preds = %_ZN6google12Check_GEImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, %_ZN6google12Check_GEImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result121) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result121) #19
   br label %if.end135thread-pre-split
 
 while.body129:                                    ; preds = %_ZN6google12Check_GEImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp130) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp130) #19
   call void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp130, ptr noundef nonnull @.str.3, i32 noundef 147, ptr noundef nonnull align 8 dereferenceable(8) %_result121)
   %call133 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp130)
           to label %invoke.cont132 unwind label %lpad131
 
 invoke.cont132:                                   ; preds = %while.body129
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp130) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp130) #20
   unreachable
 
 lpad131:                                          ; preds = %while.body129
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp130) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp130) #20
   unreachable
 
 if.end135thread-pre-split:                        ; preds = %while.exit128, %if.then57
@@ -477,31 +478,31 @@ if.end135:                                        ; preds = %if.end135thread-pre
   br i1 %cmp136, label %if.then137, label %while.cond140
 
 if.then137:                                       ; preds = %if.end135
-  %call138 = call i64 @sysconf(i32 noundef 30) #18
+  %call138 = call i64 @sysconf(i32 noundef 30) #19
   store i64 %call138, ptr %options_, align 8, !tbaa !24
   br label %while.cond140
 
 while.cond140:                                    ; preds = %if.then137, %if.end135, %cleanup.done52
   %10 = phi i64 [ %call138, %if.then137 ], [ %3, %cleanup.done52 ], [ %.pr458, %if.end135 ]
   %autoExtend.1457 = phi i8 [ %autoExtend.1, %if.then137 ], [ 0, %cleanup.done52 ], [ %autoExtend.1, %if.end135 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result141) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp142) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result141) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp142) #19
   store i64 %10, ptr %ref.tmp142, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp144) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp144) #19
   store i32 0, ptr %ref.tmp144, align 4, !tbaa !40
   %cmp.i404 = icmp sgt i64 %10, 0
   br i1 %cmp.i404, label %_ZN6google12Check_GTImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, label %_ZN6google12Check_GTImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, !prof !30
 
 _ZN6google12Check_GTImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread: ; preds = %while.cond140
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp144) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp142) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp144) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp142) #19
   br label %while.exit148
 
 _ZN6google12Check_GTImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %while.cond140
   %call.i406 = call noundef ptr @_ZN6google17MakeCheckOpStringIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp142, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp144, ptr noundef nonnull @.str.11)
   store ptr %call.i406, ptr %_result141, align 8, !tbaa !41
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp144) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp142) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp144) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp142) #19
   %cmp.i408.not = icmp eq ptr %call.i406, null
   br i1 %cmp.i408.not, label %_ZN6google12Check_GTImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.exit148_crit_edge, label %while.body149
 
@@ -511,87 +512,87 @@ _ZN6google12Check_GTImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 while.exit148:                                    ; preds = %_ZN6google12Check_GTImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.exit148_crit_edge, %_ZN6google12Check_GTImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
   %11 = phi i64 [ %.pre, %_ZN6google12Check_GTImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.exit148_crit_edge ], [ %10, %_ZN6google12Check_GTImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result141) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result156) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp157) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result141) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result156) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp157) #19
   %sub = add nsw i64 %11, -1
   %and = and i64 %sub, %11
   store i64 %and, ptr %ref.tmp157, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp159) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp159) #19
   store i32 0, ptr %ref.tmp159, align 4, !tbaa !40
   %cmp.i410 = icmp eq i64 %and, 0
   br i1 %cmp.i410, label %_ZN6google12Check_EQImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit414.thread, label %_ZN6google12Check_EQImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit414, !prof !30
 
 _ZN6google12Check_EQImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit414.thread: ; preds = %while.exit148
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp159) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp157) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp159) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp157) #19
   br label %while.exit163
 
 _ZN6google12Check_EQImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit414: ; preds = %while.exit148
   %call.i412 = call noundef ptr @_ZN6google17MakeCheckOpStringIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp157, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp159, ptr noundef nonnull @.str.12)
   store ptr %call.i412, ptr %_result156, align 8, !tbaa !41
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp159) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp157) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp159) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp157) #19
   %cmp.i415.not = icmp eq ptr %call.i412, null
   br i1 %cmp.i415.not, label %while.exit163, label %while.body164
 
 while.body149:                                    ; preds = %_ZN6google12Check_GTImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp150) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp150) #19
   call void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp150, ptr noundef nonnull @.str.3, i32 noundef 154, ptr noundef nonnull align 8 dereferenceable(8) %_result141)
   %call153 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp150)
           to label %invoke.cont152 unwind label %lpad151
 
 invoke.cont152:                                   ; preds = %while.body149
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp150) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp150) #20
   unreachable
 
 lpad151:                                          ; preds = %while.body149
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp150) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp150) #20
   unreachable
 
 while.exit163:                                    ; preds = %_ZN6google12Check_EQImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit414, %_ZN6google12Check_EQImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit414.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result156) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result171) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp172) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result156) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result171) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp172) #19
   store i64 %offset, ptr %ref.tmp172, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp174) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp174) #19
   store i32 0, ptr %ref.tmp174, align 4, !tbaa !40
   %cmp.not.i417 = icmp slt i64 %offset, 0
   br i1 %cmp.not.i417, label %_ZN6google12Check_GEImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit421, label %_ZN6google12Check_GEImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit421.thread, !prof !28
 
 _ZN6google12Check_GEImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit421.thread: ; preds = %while.exit163
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp174) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp172) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp174) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp172) #19
   br label %while.exit178
 
 _ZN6google12Check_GEImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit421: ; preds = %while.exit163
   %call.i420 = call noundef ptr @_ZN6google17MakeCheckOpStringIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp172, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp174, ptr noundef nonnull @.str.13)
   store ptr %call.i420, ptr %_result171, align 8, !tbaa !41
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp174) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp172) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp174) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp172) #19
   %cmp.i422.not = icmp eq ptr %call.i420, null
   br i1 %cmp.i422.not, label %while.exit178, label %while.body179
 
 while.body164:                                    ; preds = %_ZN6google12Check_EQImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit414
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp165) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp165) #19
   call void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp165, ptr noundef nonnull @.str.3, i32 noundef 155, ptr noundef nonnull align 8 dereferenceable(8) %_result156)
   %call168 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp165)
           to label %invoke.cont167 unwind label %lpad166
 
 invoke.cont167:                                   ; preds = %while.body164
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp165) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp165) #20
   unreachable
 
 lpad166:                                          ; preds = %while.body164
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp165) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp165) #20
   unreachable
 
 while.exit178:                                    ; preds = %_ZN6google12Check_GEImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit421, %_ZN6google12Check_GEImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit421.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result171) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result171) #19
   %14 = load i64, ptr %options_, align 8, !tbaa !24
   %rem = srem i64 %offset, %14
   %sub185 = sub nsw i64 %offset, %rem
@@ -608,19 +609,19 @@ if.end194.thread:                                 ; preds = %while.exit178
   br label %if.end261.sink.split
 
 while.body179:                                    ; preds = %_ZN6google12Check_GEImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit421
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp180) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp180) #19
   call void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp180, ptr noundef nonnull @.str.3, i32 noundef 156, ptr noundef nonnull align 8 dereferenceable(8) %_result171)
   %call183 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp180)
           to label %invoke.cont182 unwind label %lpad181
 
 invoke.cont182:                                   ; preds = %while.body179
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp180) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp180) #20
   unreachable
 
 lpad181:                                          ; preds = %while.body179
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp180) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp180) #20
   unreachable
 
 if.end194:                                        ; preds = %while.exit178
@@ -651,12 +652,12 @@ if.then208:                                       ; preds = %if.else204
 if.then210:                                       ; preds = %if.then208
   %19 = load i32, ptr %this, align 8, !tbaa !7
   %add213 = add nsw i64 %sub185, %length
-  %call214 = call i32 @ftruncate(i32 noundef %19, i64 noundef %add213) #18
+  %call214 = call i32 @ftruncate(i32 noundef %19, i64 noundef %add213) #19
   %cmp215.not.not = icmp eq i32 %call214, 0
   br i1 %cmp215.not.not, label %if.end255, label %cond.false221, !prof !30
 
 cond.false221:                                    ; preds = %if.then210
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp223) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp223) #19
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp225, align 8, !tbaa !31
   %.fca.1.gep350 = getelementptr inbounds i8, ptr %indirect-arg-temp225, i64 8
   store i64 0, ptr %.fca.1.gep350, align 8, !tbaa !31
@@ -677,15 +678,15 @@ invoke.cont232:                                   ; preds = %invoke.cont230
           to label %cleanup.action239 unwind label %lpad227
 
 cleanup.action239:                                ; preds = %invoke.cont232
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp223) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp223) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp223) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp223) #19
   br label %if.end255
 
 lpad227:                                          ; preds = %invoke.cont232, %invoke.cont230, %invoke.cont228, %cond.false221
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp223) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp223) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp223) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp223) #19
   br label %ehcleanup339
 
 if.end255:                                        ; preds = %cleanup.action239, %if.then210, %if.then208, %if.else204
@@ -738,12 +739,12 @@ if.else265:                                       ; preds = %if.end261
   %address = getelementptr inbounds i8, ptr %this, i64 40
   %27 = load ptr, ptr %address, align 8, !tbaa !47
   %28 = load i32, ptr %this, align 8, !tbaa !7
-  %call296 = call ptr @mmap(ptr noundef %27, i64 noundef %22, i32 noundef %prot.0, i32 noundef %flags.1, i32 noundef %28, i64 noundef %sub185) #18
+  %call296 = call ptr @mmap(ptr noundef %27, i64 noundef %22, i32 noundef %prot.0, i32 noundef %flags.1, i32 noundef %28, i64 noundef %sub185) #19
   %cmp297.not = icmp eq ptr %call296, inttoptr (i64 -1 to ptr)
   br i1 %cmp297.not, label %cond.false303, label %cleanup.done332, !prof !28
 
 cond.false303:                                    ; preds = %if.else265
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp305) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp305) #19
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp307, align 8, !tbaa !31
   %.fca.1.gep = getelementptr inbounds i8, ptr %indirect-arg-temp307, i64 8
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !31
@@ -773,8 +774,8 @@ invoke.cont318:                                   ; preds = %invoke.cont316
           to label %cleanup.action325 unwind label %lpad309
 
 cleanup.action325:                                ; preds = %invoke.cont318
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp305) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp305) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp305) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp305) #19
   br label %cleanup.done332
 
 cleanup.done332:                                  ; preds = %cleanup.action325, %if.else265
@@ -791,27 +792,27 @@ cleanup.done332:                                  ; preds = %cleanup.action325, 
 lpad309:                                          ; preds = %invoke.cont318, %invoke.cont316, %invoke.cont314, %invoke.cont312, %invoke.cont310, %cond.false303
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp305) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp305) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp305) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp305) #19
   br label %ehcleanup339
 
 if.end337:                                        ; preds = %cleanup.done332, %if.then263
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st) #18
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st) #19
   ret void
 
 ehcleanup339:                                     ; preds = %lpad309, %lpad227, %lpad38
   %.pn.pn = phi { ptr, i32 } [ %6, %lpad38 ], [ %30, %lpad309 ], [ %20, %lpad227 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st) #18
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st) #19
   resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5)) unnamed_addr #7
+declare void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5)) unnamed_addr #8
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13MemoryMappingC2EPKcllNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %name, i64 noundef %offset, i64 noundef %length, ptr nocapture noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 %options) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13MemoryMappingC2EPKcllNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %name, i64 noundef %offset, i64 noundef %length, ptr nocapture noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 %options) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::File", align 4
   %writable = getelementptr inbounds i8, ptr %options, i64 11
@@ -823,42 +824,42 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp) #18
+  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp) #18
+  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp) #19
   resume { ptr, i32 } %1
 }
 
-declare void @_ZN5folly4FileC1EPKcij(ptr noundef nonnull align 4 dereferenceable(5), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #4
+declare void @_ZN5folly4FileC1EPKcij(ptr noundef nonnull align 4 dereferenceable(5), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13MemoryMappingC2EillNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %fd, i64 noundef %offset, i64 noundef %length, ptr nocapture noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 %options) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13MemoryMappingC2EillNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %fd, i64 noundef %offset, i64 noundef %length, ptr nocapture noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 %options) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::File", align 4
-  call void @_ZN5folly4FileC1Eib(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp, i32 noundef %fd, i1 noundef zeroext false) #18
+  call void @_ZN5folly4FileC1Eib(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp, i32 noundef %fd, i1 noundef zeroext false) #19
   invoke void @_ZN5folly13MemoryMappingC2ENS_4FileEllNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %agg.tmp, i64 noundef %offset, i64 noundef %length, ptr noundef nonnull byval(%"struct.folly::MemoryMapping::Options") align 8 %options)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp) #18
+  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp) #18
+  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp) #19
   resume { ptr, i32 } %0
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN5folly4FileC1Eib(ptr noundef nonnull align 4 dereferenceable(5), i32 noundef, i1 noundef zeroext) unnamed_addr #7
+declare void @_ZN5folly4FileC1Eib(ptr noundef nonnull align 4 dereferenceable(5), i32 noundef, i1 noundef zeroext) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13MemoryMappingC2ENS0_13AnonymousTypeElNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 %0, i64 noundef %length, ptr nocapture noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 %options) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13MemoryMappingC2ENS0_13AnonymousTypeElNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 %0, i64 noundef %length, ptr nocapture noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 %options) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -1, ptr %this, align 8, !tbaa !7
   %ownsFd_.i = getelementptr inbounds i8, ptr %this, i64 4
@@ -880,41 +881,41 @@ invoke.cont2:                                     ; preds = %entry
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %this) #18
+  tail call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %this) #19
   resume { ptr, i32 } %1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
-declare void @_ZN6google10LogMessage9SendToLogEv(ptr noundef nonnull align 8 dereferenceable(96)) #4
+declare void @_ZN6google10LogMessage9SendToLogEv(ptr noundef nonnull align 8 dereferenceable(96)) #5
 
-declare void @_ZN6google15ErrnoLogMessageC1EPKciilMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef byval({ i64, i64 }) align 8) unnamed_addr #4
-
-; Function Attrs: nounwind
-declare void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #7
-
-declare void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
+declare void @_ZN6google15ErrnoLogMessageC1EPKciilMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef byval({ i64, i64 }) align 8) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) local_unnamed_addr #7
+declare void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #8
+
+declare void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #7
+declare i64 @sysconf(i32 noundef) local_unnamed_addr #8
+
+; Function Attrs: nounwind
+declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6 align 2
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #7 align 2
 
 ; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
 
-declare noundef ptr @_ZN5folly24getHugePageSizeForDeviceEm(i64 noundef) local_unnamed_addr #4
+declare noundef ptr @_ZN5folly24getHugePageSizeForDeviceEm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN6google17MakeCheckOpStringIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 8 dereferenceable(8) %v1, ptr noundef nonnull align 4 dereferenceable(4) %v2, ptr noundef %exprtext) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN6google17MakeCheckOpStringIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 8 dereferenceable(8) %v1, ptr noundef nonnull align 4 dereferenceable(4) %v2, ptr noundef %exprtext) local_unnamed_addr #7 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %comb = alloca %"class.google::base::CheckOpMessageBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb) #19
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb, ptr noundef %exprtext)
   %0 = load ptr, ptr %comb, align 8, !tbaa !52
   %1 = load i64, ptr %v1, align 8, !tbaa !24
@@ -935,45 +936,45 @@ invoke.cont4:                                     ; preds = %invoke.cont2
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb) #18
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb) #19
   ret ptr %call6
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont2, %invoke.cont1, %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb) #18
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb) #19
   resume { ptr, i32 } %3
 }
 
-declare void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #4
+declare void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #5
 
-declare noundef ptr @_ZN6google4base21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
+declare noundef ptr @_ZN6google4base21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
 
-declare noundef ptr @_ZN6google4base21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
+declare noundef ptr @_ZN6google4base21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
+declare void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #5
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN5folly13mlock2wrapperEPKvmNS_13MemoryMapping9LockFlagsE(ptr noundef %addr, i64 noundef %len, i8 %flags.coerce) local_unnamed_addr #5 {
+define noundef i32 @_ZN5folly13mlock2wrapperEPKvmNS_13MemoryMapping9LockFlagsE(ptr noundef %addr, i64 noundef %len, i8 %flags.coerce) local_unnamed_addr #6 {
 entry:
   %0 = and i8 %flags.coerce, 1
   %spec.select = zext nneg i8 %0 to i32
-  %call = tail call i32 @mlock2(ptr noundef %addr, i64 noundef %len, i32 noundef %spec.select) #18
+  %call = tail call i32 @mlock2(ptr noundef %addr, i64 noundef %len, i32 noundef %spec.select) #19
   ret i32 %call
 }
 
 ; Function Attrs: nounwind
-declare i32 @mlock2(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
+declare i32 @mlock2(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsE(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %mode, i8 %flags.coerce) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsE(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %mode, i8 %flags.coerce) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v9::format_arg_store", align 16
   %msg = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1015,7 +1016,7 @@ while.body.lr.ph.i:                               ; preds = %_ZN5folly12_GLOBAL_
   br i1 %cmp.i.i.i, label %while.body.lr.ph.split.us.i, label %while.body.lr.ph.split.i
 
 while.body.lr.ph.split.us.i:                      ; preds = %while.body.lr.ph.i
-  %call2.i.us28.i = tail call i32 @mlock(ptr noundef %0, i64 noundef %.sroa.speculated.us27.i) #18
+  %call2.i.us28.i = tail call i32 @mlock(ptr noundef %0, i64 noundef %.sroa.speculated.us27.i) #19
   %cmp4.not.us29.i = icmp eq i32 %call2.i.us28.i, 0
   br i1 %cmp4.not.us29.i, label %if.end.us.i, label %if.end
 
@@ -1023,7 +1024,7 @@ while.body.us.i:                                  ; preds = %if.end.us.i
   %sub.us.i = sub nuw i64 %1, %add.us.i
   %.sroa.speculated.us.i = tail call i64 @llvm.umin.i64(i64 %sub.us.i, i64 %retval.0.i.i)
   %add.ptr.us.i = getelementptr inbounds i8, ptr %0, i64 %add.us.i
-  %call2.i.us.i = tail call i32 @mlock(ptr noundef %add.ptr.us.i, i64 noundef %.sroa.speculated.us.i) #18
+  %call2.i.us.i = tail call i32 @mlock(ptr noundef %add.ptr.us.i, i64 noundef %.sroa.speculated.us.i) #19
   %cmp4.not.us.i = icmp eq i32 %call2.i.us.i, 0
   br i1 %cmp4.not.us.i, label %if.end.us.i, label %if.end, !llvm.loop !55
 
@@ -1035,7 +1036,7 @@ if.end.us.i:                                      ; preds = %while.body.lr.ph.sp
   br i1 %cmp.us.not.not.i, label %while.body.us.i, label %"_ZN5folly12_GLOBAL__N_113memOpInChunksIZNS_13MemoryMapping5mlockENS2_8LockModeENS2_9LockFlagsEE3$_0EEbT_PvmlRm.exit", !llvm.loop !57
 
 while.body.lr.ph.split.i:                         ; preds = %while.body.lr.ph.i
-  %call.i.i23.i = tail call noundef i32 @mlock2(ptr noundef %0, i64 noundef %.sroa.speculated.us27.i, i32 noundef %spec.select.i.i.i) #18
+  %call.i.i23.i = tail call noundef i32 @mlock2(ptr noundef %0, i64 noundef %.sroa.speculated.us27.i, i32 noundef %spec.select.i.i.i) #19
   %cmp4.not24.i = icmp eq i32 %call.i.i23.i, 0
   br i1 %cmp4.not24.i, label %if.end.i, label %if.end
 
@@ -1043,7 +1044,7 @@ while.body.i:                                     ; preds = %if.end.i
   %sub.i = sub nuw i64 %1, %add.i
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %retval.0.i.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %add.i
-  %call.i.i.i = tail call noundef i32 @mlock2(ptr noundef %add.ptr.i, i64 noundef %.sroa.speculated.i, i32 noundef %spec.select.i.i.i) #18
+  %call.i.i.i = tail call noundef i32 @mlock2(ptr noundef %add.ptr.i, i64 noundef %.sroa.speculated.i, i32 noundef %spec.select.i.i.i) #19
   %cmp4.not.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp4.not.i, label %if.end.i, label %if.end, !llvm.loop !58
 
@@ -1063,20 +1064,20 @@ if.end:                                           ; preds = %while.body.i, %whil
   %amountSucceeded.2.ph = phi i64 [ 0, %while.body.lr.ph.split.i ], [ 0, %while.body.lr.ph.split.us.i ], [ %add.us.i, %while.body.us.i ], [ %add.i, %while.body.i ]
   %locked_145 = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %locked_145, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %msg) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %msg) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #19, !noalias !60
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   %5 = load i64, ptr %mapLength_, align 8, !tbaa !24, !noalias !66
   store i64 %5, ptr %ref.tmp.i, align 16, !tbaa.struct !67, !alias.scope !63, !noalias !60
   %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 %amountSucceeded.2.ph, ptr %arrayinit.element.i.i, align 16, !tbaa.struct !67, !alias.scope !63, !noalias !60
   call void @_ZN3fmt2v97vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %msg, ptr nonnull @.str.19, i64 22, i64 67, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #18, !noalias !60
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19, !noalias !60
   %cmp = icmp eq i32 %mode, 0
   br i1 %cmp, label %land.lhs.true, label %if.else55
 
 land.lhs.true:                                    ; preds = %if.end
-  %call7 = tail call ptr @__errno_location() #20
+  %call7 = tail call ptr @__errno_location() #21
   %6 = load i32, ptr %call7, align 4, !tbaa !40
   switch i32 %6, label %if.else55 [
     i32 1, label %if.then9
@@ -1084,7 +1085,7 @@ land.lhs.true:                                    ; preds = %if.end
   ]
 
 if.then9:                                         ; preds = %land.lhs.true
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #19
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !31
   %.fca.1.gep96 = getelementptr inbounds i8, ptr %indirect-arg-temp, i64 8
   store i64 0, ptr %.fca.1.gep96, align 8, !tbaa !31
@@ -1103,8 +1104,8 @@ invoke.cont11:                                    ; preds = %invoke.cont
           to label %invoke.cont13 unwind label %lpad10
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #19
   br label %if.end68
 
 lpad:                                             ; preds = %if.then9
@@ -1115,12 +1116,12 @@ lpad:                                             ; preds = %if.then9
 lpad10:                                           ; preds = %invoke.cont11, %invoke.cont
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad10, %lpad
   %.pn101 = phi { ptr, i32 } [ %10, %lpad10 ], [ %9, %lpad ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #18
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #19
   br label %ehcleanup88
 
 if.then19:                                        ; preds = %land.lhs.true
@@ -1141,7 +1142,7 @@ cond.end:                                         ; preds = %cond.true
   br i1 %call23, label %cond.false29, label %if.end68
 
 cond.false29:                                     ; preds = %cond.end, %cond.false
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp33) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp33) #19
   invoke void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp33, ptr noundef nonnull @.str.3, i32 noundef 332)
           to label %invoke.cont35 unwind label %lpad34
 
@@ -1157,8 +1158,8 @@ invoke.cont38:                                    ; preds = %invoke.cont35
           to label %cleanup.action unwind label %lpad37
 
 cleanup.action:                                   ; preds = %invoke.cont38
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp33) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp33) #18
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp33) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp33) #19
   br label %if.end68
 
 lpad21:                                           ; preds = %cond.true
@@ -1174,16 +1175,16 @@ lpad34:                                           ; preds = %cond.false29
 lpad37:                                           ; preds = %invoke.cont38, %invoke.cont35
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp33) #18
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp33) #19
   br label %cleanup.action52
 
 cleanup.action52:                                 ; preds = %lpad37, %lpad34
   %.pn99 = phi { ptr, i32 } [ %17, %lpad37 ], [ %16, %lpad34 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp33) #18
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp33) #19
   br label %ehcleanup88
 
 if.else55:                                        ; preds = %land.lhs.true, %if.end
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp56) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp56) #19
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp57, align 8, !tbaa !31
   %.fca.1.gep93 = getelementptr inbounds i8, ptr %indirect-arg-temp57, i64 8
   store i64 0, ptr %.fca.1.gep93, align 8, !tbaa !31
@@ -1202,8 +1203,8 @@ invoke.cont61:                                    ; preds = %invoke.cont59
           to label %invoke.cont63 unwind label %lpad60
 
 invoke.cont63:                                    ; preds = %invoke.cont61
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp56) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp56) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp56) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp56) #19
   br label %if.end68
 
 lpad58:                                           ; preds = %if.else55
@@ -1214,12 +1215,12 @@ lpad58:                                           ; preds = %if.else55
 lpad60:                                           ; preds = %invoke.cont61, %invoke.cont59
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp56) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp56) #19
   br label %ehcleanup66
 
 ehcleanup66:                                      ; preds = %lpad60, %lpad58
   %.pn = phi { ptr, i32 } [ %21, %lpad60 ], [ %20, %lpad58 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp56) #18
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp56) #19
   br label %ehcleanup88
 
 if.end68:                                         ; preds = %invoke.cont63, %cleanup.action, %cond.end, %cond.false, %invoke.cont13
@@ -1247,7 +1248,7 @@ while.body.i123:                                  ; preds = %_ZN5folly12_GLOBAL_
   %sub.i124 = sub i64 %amountSucceeded.2.ph, %amountSucceeded.3
   %.sroa.speculated.i125 = call i64 @llvm.umin.i64(i64 %sub.i124, i64 %retval.0.i.i122)
   %add.ptr.i126 = getelementptr inbounds i8, ptr %22, i64 %amountSucceeded.3
-  %call2.i = call noundef i32 @munlock(ptr noundef %add.ptr.i126, i64 noundef %.sroa.speculated.i125) #18
+  %call2.i = call noundef i32 @munlock(ptr noundef %add.ptr.i126, i64 noundef %.sroa.speculated.i125) #19
   %cmp3.not.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.not.i, label %if.end.i128, label %if.then75
 
@@ -1257,7 +1258,7 @@ if.end.i128:                                      ; preds = %while.body.i123
   br i1 %cmp.not.i, label %while.body.i123, label %if.end87, !llvm.loop !72
 
 if.then75:                                        ; preds = %while.body.i123
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp76) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp76) #19
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp77, align 8, !tbaa !31
   %.fca.1.gep = getelementptr inbounds i8, ptr %indirect-arg-temp77, i64 8
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !31
@@ -1273,8 +1274,8 @@ invoke.cont81:                                    ; preds = %invoke.cont79
           to label %invoke.cont83 unwind label %lpad80
 
 invoke.cont83:                                    ; preds = %invoke.cont81
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp76) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp76) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp76) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp76) #19
   br label %if.end87
 
 lpad78:                                           ; preds = %if.then75
@@ -1285,12 +1286,12 @@ lpad78:                                           ; preds = %if.then75
 lpad80:                                           ; preds = %invoke.cont81, %invoke.cont79
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp76) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp76) #19
   br label %ehcleanup86
 
 ehcleanup86:                                      ; preds = %lpad80, %lpad78
   %.pn103 = phi { ptr, i32 } [ %26, %lpad80 ], [ %25, %lpad78 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp76) #18
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp76) #19
   br label %ehcleanup88
 
 if.end87:                                         ; preds = %if.end.i128, %invoke.cont83, %_ZN5folly12_GLOBAL__N_114memOpChunkSizeEll.exit.i121
@@ -1307,11 +1308,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %if.end87
-  call void @_ZdlPv(ptr noundef %27) #21
+  call void @_ZdlPv(ptr noundef %27) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %msg) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %msg) #19
   br label %cleanup
 
 ehcleanup88:                                      ; preds = %ehcleanup86, %ehcleanup66, %cleanup.action52, %lpad21, %ehcleanup
@@ -1329,11 +1330,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138
 
 if.then.i.i134:                                   ; preds = %ehcleanup88
-  call void @_ZdlPv(ptr noundef %30) #21
+  call void @_ZdlPv(ptr noundef %30) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138: ; preds = %if.then.i.i134, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i135
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %msg) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %msg) #19
   resume { ptr, i32 } %.pn103.pn
 
 cleanup:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %"_ZN5folly12_GLOBAL__N_113memOpInChunksIZNS_13MemoryMapping5mlockENS2_8LockModeENS2_9LockFlagsEE3$_0EEbT_PvmlRm.exit"
@@ -1342,20 +1343,20 @@ cleanup:                                          ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #10
+declare ptr @__errno_location() local_unnamed_addr #11
 
-declare noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef) unnamed_addr #4
-
-; Function Attrs: nounwind
-declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #7
+declare void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @munlock(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #8
+
+; Function Attrs: nounwind
+declare i32 @munlock(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5folly13MemoryMapping9LockFlagseqERKS1_(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %other) local_unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK5folly13MemoryMapping9LockFlagseqERKS1_(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %other) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load i8, ptr %this, align 1, !tbaa !73, !range !26, !noundef !27
   %1 = load i8, ptr %other, align 1, !tbaa !73, !range !26, !noundef !27
@@ -1364,12 +1365,12 @@ entry:
 }
 
 ; Function Attrs: nounwind
-declare i32 @mlock(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @mlock(ptr noundef, i64 noundef) local_unnamed_addr #8
 
-declare void @_ZN3fmt2v97vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64, i64, ptr) local_unnamed_addr #4
+declare void @_ZN3fmt2v97vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64, i64, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13MemoryMapping7munlockEb(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, i1 noundef zeroext %dontneed) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13MemoryMapping7munlockEb(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, i1 noundef zeroext %dontneed) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::ErrnoLogMessage", align 8
   %indirect-arg-temp = alloca { i64, i64 }, align 8
@@ -1409,7 +1410,7 @@ while.body.i:                                     ; preds = %_ZN5folly12_GLOBAL_
   %sub.i = sub i64 %2, %amountSucceeded.0
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %retval.0.i.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %amountSucceeded.0
-  %call2.i = tail call noundef i32 @munlock(ptr noundef %add.ptr.i, i64 noundef %.sroa.speculated.i) #18
+  %call2.i = tail call noundef i32 @munlock(ptr noundef %add.ptr.i, i64 noundef %.sroa.speculated.i) #19
   %cmp3.not.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.not.i, label %if.end.i, label %if.then2
 
@@ -1419,7 +1420,7 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp.not.i, label %while.body.i, label %if.end6, !llvm.loop !75
 
 if.then2:                                         ; preds = %while.body.i
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #19
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !31
   %.fca.1.gep27 = getelementptr inbounds i8, ptr %indirect-arg-temp, i64 8
   store i64 0, ptr %.fca.1.gep27, align 8, !tbaa !31
@@ -1432,15 +1433,15 @@ invoke.cont:                                      ; preds = %if.then2
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #19
   br label %if.end6
 
 lpad:                                             ; preds = %invoke.cont, %if.then2
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #19
   br label %ehcleanup
 
 if.end6:                                          ; preds = %if.end.i, %invoke.cont4, %_ZN5folly12_GLOBAL__N_114memOpChunkSizeEll.exit.i
@@ -1451,12 +1452,12 @@ if.end6:                                          ; preds = %if.end.i, %invoke.c
 
 land.lhs.true10:                                  ; preds = %if.end6
   %7 = load ptr, ptr %mapStart_, align 8, !tbaa !48
-  %call13 = call i32 @madvise(ptr noundef %7, i64 noundef %6, i32 noundef 4) #18
+  %call13 = call i32 @madvise(ptr noundef %7, i64 noundef %6, i32 noundef 4) #19
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %land.lhs.true10
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp16) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp16) #19
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp17, align 8, !tbaa !31
   %.fca.1.gep = getelementptr inbounds i8, ptr %indirect-arg-temp17, i64 8
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !31
@@ -1469,15 +1470,15 @@ invoke.cont19:                                    ; preds = %if.then15
           to label %invoke.cont21 unwind label %lpad18
 
 invoke.cont21:                                    ; preds = %invoke.cont19
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp16) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp16) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp16) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp16) #19
   br label %if.end23
 
 lpad18:                                           ; preds = %invoke.cont19, %if.then15
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp16) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp16) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp16) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp16) #19
   br label %ehcleanup
 
 if.end23:                                         ; preds = %invoke.cont21, %land.lhs.true10, %if.end6
@@ -1493,10 +1494,10 @@ ehcleanup:                                        ; preds = %lpad18, %lpad
 }
 
 ; Function Attrs: nounwind
-declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
+declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13MemoryMapping14hintLinearScanEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN5folly13MemoryMapping14hintLinearScanEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #7 align 2 {
 entry:
   %mapLength_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mapLength_.i, align 8, !tbaa !43
@@ -1505,7 +1506,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly13MemoryMapping6adviseEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %advice) local_unnamed_addr #6 align 2 {
+define void @_ZNK5folly13MemoryMapping6adviseEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %advice) local_unnamed_addr #7 align 2 {
 entry:
   %mapLength_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mapLength_, align 8, !tbaa !43
@@ -1514,7 +1515,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly13MemoryMappingD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13MemoryMappingD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v9::format_arg_store", align 16
   %ref.tmp = alloca %"class.google::ErrnoLogMessage", align 8
@@ -1551,7 +1552,7 @@ while.body.i:                                     ; preds = %if.end.i, %_ZN5foll
   %sub.i = sub i64 %0, %amountSucceeded.0
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %retval.0.i.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %amountSucceeded.0
-  %call2.i = tail call noundef i32 @munmap(ptr noundef %add.ptr.i, i64 noundef %.sroa.speculated.i) #18
+  %call2.i = tail call noundef i32 @munmap(ptr noundef %add.ptr.i, i64 noundef %.sroa.speculated.i) #19
   %cmp3.not.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.not.i, label %if.end.i, label %if.then3
 
@@ -1561,7 +1562,7 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp.not.i, label %while.body.i, label %if.end13, !llvm.loop !76
 
 if.then3:                                         ; preds = %while.body.i
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp) #19
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !31
   %.fca.1.gep = getelementptr inbounds i8, ptr %indirect-arg-temp, i64 8
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !31
@@ -1573,8 +1574,8 @@ invoke.cont4:                                     ; preds = %if.then3
           to label %.noexc14 unwind label %terminate.lpad
 
 .noexc14:                                         ; preds = %invoke.cont4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp7) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #18, !noalias !77
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp7) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #19, !noalias !77
   call void @llvm.experimental.noalias.scope.decl(metadata !80)
   %4 = load i64, ptr %mapLength_, align 8, !tbaa !24, !noalias !80
   store i64 %4, ptr %ref.tmp.i, align 16, !tbaa.struct !67, !alias.scope !80
@@ -1584,7 +1585,7 @@ invoke.cont4:                                     ; preds = %if.then3
           to label %invoke.cont10 unwind label %terminate.lpad
 
 invoke.cont10:                                    ; preds = %.noexc14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #18, !noalias !77
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19, !noalias !77
   %5 = load ptr, ptr %ref.tmp7, align 8, !tbaa !68
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   %6 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !69
@@ -1604,32 +1605,32 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %invoke.cont11
-  call void @_ZdlPv(ptr noundef %7) #21
+  call void @_ZdlPv(ptr noundef %7) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7) #18
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7) #19
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #19
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %entry
-  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %this) #18
+  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %this) #19
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont10, %.noexc14, %invoke.cont4, %if.then3
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #19
+  call void @__clang_call_terminate(ptr %11) #20
   unreachable
 }
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly13MemoryMapping6adviseEimm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %advice, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly13MemoryMapping6adviseEimm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %advice, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp = alloca i64, align 8
@@ -1637,11 +1638,11 @@ entry:
   %ref.tmp6 = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp33 = alloca %"class.google::ErrnoLogMessage", align 8
   %indirect-arg-temp = alloca { i64, i64 }, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #19
   %add = add i64 %length, %offset
   store i64 %add, ptr %ref.tmp, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2) #19
   %mapLength_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mapLength_, align 8, !tbaa !43
   store i64 %0, ptr %ref.tmp2, align 8, !tbaa !24
@@ -1649,15 +1650,15 @@ entry:
   br i1 %cmp.not.i, label %_ZN6google12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, label %_ZN6google12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, !prof !28
 
 _ZN6google12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #19
   br label %while.exit
 
 _ZN6google12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %entry
   %call.i = call noundef ptr @_ZN6google17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull @.str.23)
   store ptr %call.i, ptr %_result, align 8, !tbaa !41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #19
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %_ZN6google12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.exit_crit_edge, label %while.body
 
@@ -1667,7 +1668,7 @@ _ZN6google12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 while.exit:                                       ; preds = %_ZN6google12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.exit_crit_edge, %_ZN6google12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
   %1 = phi i64 [ %.pre, %_ZN6google12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.exit_crit_edge ], [ %0, %_ZN6google12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result) #19
   %options_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %options_, align 8, !tbaa !54
   %rem = urem i64 %offset, %2
@@ -1677,7 +1678,7 @@ while.exit:                                       ; preds = %_ZN6google12Check_L
   br i1 %cmp.not, label %if.end, label %if.then
 
 while.body:                                       ; preds = %_ZN6google12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp6) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp6) #19
   call void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6, ptr noundef nonnull @.str.3, i32 noundef 395, ptr noundef nonnull align 8 dereferenceable(8) %_result)
   %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6)
           to label %invoke.cont unwind label %lpad
@@ -1708,13 +1709,13 @@ invoke.cont16:                                    ; preds = %invoke.cont14
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont16
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #20
   unreachable
 
 lpad:                                             ; preds = %invoke.cont16, %invoke.cont14, %invoke.cont12, %invoke.cont10, %invoke.cont8, %invoke.cont, %while.body
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #20
   unreachable
 
 if.then:                                          ; preds = %while.exit
@@ -1731,12 +1732,12 @@ if.end30:                                         ; preds = %if.end
   %mapStart_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %mapStart_, align 8, !tbaa !48
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %sub
-  %call31 = call i32 @madvise(ptr noundef %add.ptr, i64 noundef %length.addr.0, i32 noundef %advice) #18
+  %call31 = call i32 @madvise(ptr noundef %add.ptr, i64 noundef %length.addr.0, i32 noundef %advice) #19
   %tobool.not.not = icmp eq i32 %call31, 0
   br i1 %tobool.not.not, label %cleanup, label %cond.false
 
 cond.false:                                       ; preds = %if.end30
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp33) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp33) #19
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !31
   %.fca.1.gep = getelementptr inbounds i8, ptr %indirect-arg-temp, i64 8
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !31
@@ -1749,8 +1750,8 @@ invoke.cont36:                                    ; preds = %cond.false
           to label %cleanup.action unwind label %lpad35
 
 cleanup.action:                                   ; preds = %invoke.cont36
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp33) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp33) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp33) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp33) #19
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.action, %if.end30, %if.end
@@ -1759,16 +1760,16 @@ cleanup:                                          ; preds = %cleanup.action, %if
 lpad35:                                           ; preds = %invoke.cont36, %cond.false
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp33) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp33) #18
+  call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp33) #19
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp33) #19
   resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN6google17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 8 dereferenceable(8) %v1, ptr noundef nonnull align 8 dereferenceable(8) %v2, ptr noundef %exprtext) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN6google17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 8 dereferenceable(8) %v1, ptr noundef nonnull align 8 dereferenceable(8) %v2, ptr noundef %exprtext) local_unnamed_addr #7 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %comb = alloca %"class.google::base::CheckOpMessageBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb) #19
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb, ptr noundef %exprtext)
   %0 = load ptr, ptr %comb, align 8, !tbaa !52
   %1 = load i64, ptr %v1, align 8, !tbaa !24
@@ -1789,25 +1790,25 @@ invoke.cont3:                                     ; preds = %invoke.cont1
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb) #18
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb) #19
   ret ptr %call5
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont1, %invoke.cont, %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb) #18
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb) #19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb) #19
   resume { ptr, i32 } %3
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN5folly13MemoryMappingaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN5folly13MemoryMappingaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i = alloca %"struct.folly::MemoryMapping::Options", align 8
-  tail call void @_ZN5folly4swapERNS_4FileES1_(ptr noundef nonnull align 4 dereferenceable(5) %this, ptr noundef nonnull align 4 dereferenceable(5) %other) #18
+  tail call void @_ZN5folly4swapERNS_4FileES1_(ptr noundef nonnull align 4 dereferenceable(5) %this, ptr noundef nonnull align 4 dereferenceable(5) %other) #19
   %mapStart_.i = getelementptr inbounds i8, ptr %this, i64 8
   %mapStart_3.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %mapStart_.i, align 8, !tbaa !23
@@ -1849,13 +1850,13 @@ entry:
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN5folly4swapERNS_4FileES1_(ptr noundef nonnull align 4 dereferenceable(5), ptr noundef nonnull align 4 dereferenceable(5)) local_unnamed_addr #7
+declare void @_ZN5folly4swapERNS_4FileES1_(ptr noundef nonnull align 4 dereferenceable(5), ptr noundef nonnull align 4 dereferenceable(5)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly4swapERNS_13MemoryMappingES1_(ptr noundef nonnull align 8 dereferenceable(72) %a, ptr noundef nonnull align 8 dereferenceable(72) %b) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly4swapERNS_13MemoryMappingES1_(ptr noundef nonnull align 8 dereferenceable(72) %a, ptr noundef nonnull align 8 dereferenceable(72) %b) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i = alloca %"struct.folly::MemoryMapping::Options", align 8
-  tail call void @_ZN5folly4swapERNS_4FileES1_(ptr noundef nonnull align 4 dereferenceable(5) %a, ptr noundef nonnull align 4 dereferenceable(5) %b) #18
+  tail call void @_ZN5folly4swapERNS_4FileES1_(ptr noundef nonnull align 4 dereferenceable(5) %a, ptr noundef nonnull align 4 dereferenceable(5) %b) #19
   %mapStart_.i = getelementptr inbounds i8, ptr %a, i64 8
   %mapStart_3.i = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load ptr, ptr %mapStart_.i, align 8, !tbaa !23
@@ -1897,7 +1898,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly20alignedForwardMemcpyEPvPKvm(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %size) local_unnamed_addr #12 {
+define void @_ZN5folly20alignedForwardMemcpyEPvPKvm(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %size) local_unnamed_addr #13 {
 entry:
   %cmp13 = icmp ugt i64 %size, 7
   br i1 %cmp13, label %while.body.preheader, label %while.cond2.preheader
@@ -2108,14 +2109,14 @@ while.end7:                                       ; preds = %while.body4, %while
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12mmapFileCopyEPKcS1_j(ptr noundef %src, ptr noundef %dest, i32 noundef %mode) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12mmapFileCopyEPKcS1_j(ptr noundef %src, ptr noundef %dest, i32 noundef %mode) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %srcMap = alloca %"class.folly::MemoryMapping", align 8
   %agg.tmp = alloca %"struct.folly::MemoryMapping::Options", align 8
   %destMap = alloca %"class.folly::MemoryMapping", align 8
   %agg.tmp1 = alloca %"class.folly::File", align 4
   %agg.tmp8 = alloca %"struct.folly::MemoryMapping::Options", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %srcMap) #18
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %srcMap) #19
   store i64 0, ptr %agg.tmp, align 8, !tbaa !92
   %shared.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store <4 x i8> <i8 1, i8 0, i8 1, i8 0>, ptr %shared.i, align 8, !tbaa !14
@@ -2130,7 +2131,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %destMap) #18
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %destMap) #19
   invoke void @_ZN5folly4FileC1EPKcij(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp1, ptr noundef %dest, i32 noundef 578, i32 noundef %mode)
           to label %invoke.cont9 unwind label %lpad2
 
@@ -2153,7 +2154,7 @@ invoke.cont9:                                     ; preds = %invoke.cont
           to label %invoke.cont25 unwind label %lpad4
 
 invoke.cont25:                                    ; preds = %invoke.cont9
-  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp1) #18
+  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp1) #19
   %data_.i38 = getelementptr inbounds i8, ptr %destMap, i64 56
   %retval.sroa.0.0.copyload.i = load ptr, ptr %data_.i38, align 8, !tbaa !23
   %3 = load ptr, ptr %data_.i, align 8, !tbaa !49
@@ -2365,10 +2366,10 @@ while.body4.i:                                    ; preds = %while.body4.i.prol.
   br i1 %cmp3.not.i.7, label %_ZN5folly20alignedForwardMemcpyEPvPKvm.exit, label %while.body4.i, !llvm.loop !101
 
 _ZN5folly20alignedForwardMemcpyEPvPKvm.exit:      ; preds = %while.body4.i, %while.body4.i.prol.loopexit, %vec.epilog.middle.block, %middle.block68, %while.cond2.preheader.i
-  call void @_ZN5folly13MemoryMappingD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %destMap) #18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %destMap) #18
-  call void @_ZN5folly13MemoryMappingD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %srcMap) #18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %srcMap) #18
+  call void @_ZN5folly13MemoryMappingD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %destMap) #19
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %destMap) #19
+  call void @_ZN5folly13MemoryMappingD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %srcMap) #19
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %srcMap) #19
   ret void
 
 lpad:                                             ; preds = %entry
@@ -2384,65 +2385,66 @@ lpad2:                                            ; preds = %invoke.cont
 lpad4:                                            ; preds = %invoke.cont9
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp1) #18
+  call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp1) #19
   br label %ehcleanup31
 
 ehcleanup31:                                      ; preds = %lpad4, %lpad2
   %.pn.pn = phi { ptr, i32 } [ %33, %lpad4 ], [ %32, %lpad2 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %destMap) #18
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %destMap) #19
   br label %ehcleanup32
 
 ehcleanup32:                                      ; preds = %ehcleanup31, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup31 ], [ %31, %lpad ]
-  call void @_ZN5folly13MemoryMappingD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %srcMap) #18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %srcMap) #18
+  call void @_ZN5folly13MemoryMappingD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %srcMap) #19
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %srcMap) #19
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_MemoryMapping.cpp() #13 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_MemoryMapping.cpp() #14 section ".text.startup" {
 entry:
   tail call void @_ZN6google14FlagRegistererC1IlEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5fLI64L18o_mlock_chunk_sizeE, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @_ZN5fLI6422FLAGS_mlock_chunk_sizeE, ptr noundef nonnull @_ZN5fLI64L24FLAGS_nomlock_chunk_sizeE)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
+declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #15
+declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #17
+declare i64 @llvm.smin.i64(i64, i64) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { nounwind willreturn memory(none) }
-attributes #21 = { builtin nounwind }
+attributes #2 = { cold nofree noreturn }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nounwind }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { nounwind willreturn memory(none) }
+attributes #22 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

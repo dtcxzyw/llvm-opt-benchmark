@@ -281,14 +281,14 @@ define void @_ZN5Gluco10SimpSolverC2Ev(ptr noundef nonnull align 8 dereferenceab
   br i1 %41, label %42, label %_ZN5Gluco3vecINS_3LitEEC2EiRKS1_.exit
 
 42:                                               ; preds = %34
-  %43 = tail call ptr @__errno_location() #22
+  %43 = tail call ptr @__errno_location() #23
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 12
   br i1 %45, label %46, label %_ZN5Gluco3vecINS_3LitEEC2EiRKS1_.exit
 
 46:                                               ; preds = %42
-  %47 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  invoke void @__cxa_throw(ptr %47, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %47 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  invoke void @__cxa_throw(ptr %47, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
           to label %.noexc unwind label %56
 
 .noexc:                                           ; preds = %46
@@ -313,7 +313,7 @@ _ZN5Gluco3vecINS_3LitEEC2EiRKS1_.exit:            ; preds = %34, %42
 
 .preheader.i.i:                                   ; preds = %50
   store i32 0, ptr %39, align 8
-  call void @free(ptr noundef nonnull %53) #23
+  call void @free(ptr noundef nonnull %53) #24
   br label %_ZN5Gluco3vecINS_3LitEED2Ev.exit
 
 _ZN5Gluco3vecINS_3LitEED2Ev.exit:                 ; preds = %50, %.preheader.i.i
@@ -338,7 +338,7 @@ _ZN5Gluco3vecINS_3LitEED2Ev.exit:                 ; preds = %50, %.preheader.i.i
 
 .preheader.i.i11:                                 ; preds = %58
   store i32 0, ptr %39, align 8
-  call void @free(ptr noundef nonnull %60) #23
+  call void @free(ptr noundef nonnull %60) #24
   store ptr null, ptr %2, align 8
   %61 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 0, ptr %61, align 4
@@ -353,7 +353,7 @@ _ZN5Gluco3vecINS_3LitEED2Ev.exit12:               ; preds = %.preheader.i.i11, %
 .preheader.i.i14:                                 ; preds = %_ZN5Gluco3vecINS_3LitEED2Ev.exit12
   %63 = getelementptr inbounds i8, ptr %0, i64 1464
   store i32 0, ptr %63, align 8
-  call void @free(ptr noundef nonnull %62) #23
+  call void @free(ptr noundef nonnull %62) #24
   store ptr null, ptr %37, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 1468
   store i32 0, ptr %64, align 4
@@ -367,7 +367,7 @@ _ZN5Gluco3vecIcED2Ev.exit:                        ; preds = %_ZN5Gluco3vecINS_3L
 .preheader.i.i16:                                 ; preds = %_ZN5Gluco3vecIcED2Ev.exit
   %66 = getelementptr inbounds i8, ptr %0, i64 1448
   store i32 0, ptr %66, align 8
-  call void @free(ptr noundef nonnull %65) #23
+  call void @free(ptr noundef nonnull %65) #24
   store ptr null, ptr %36, align 8
   %67 = getelementptr inbounds i8, ptr %0, i64 1452
   store i32 0, ptr %67, align 4
@@ -381,7 +381,7 @@ _ZN5Gluco3vecIcED2Ev.exit17:                      ; preds = %_ZN5Gluco3vecIcED2E
 .preheader.i.i.i:                                 ; preds = %_ZN5Gluco3vecIcED2Ev.exit17
   %69 = getelementptr inbounds i8, ptr %0, i64 1424
   store i32 0, ptr %69, align 8
-  call void @free(ptr noundef nonnull %68) #23
+  call void @free(ptr noundef nonnull %68) #24
   store ptr null, ptr %33, align 8
   %70 = getelementptr inbounds i8, ptr %0, i64 1428
   store i32 0, ptr %70, align 4
@@ -389,7 +389,7 @@ _ZN5Gluco3vecIcED2Ev.exit17:                      ; preds = %_ZN5Gluco3vecIcED2E
 
 _ZN5Gluco5QueueIjED2Ev.exit:                      ; preds = %.preheader.i.i.i, %_ZN5Gluco3vecIcED2Ev.exit17, %54
   %.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %.pn, %_ZN5Gluco3vecIcED2Ev.exit17 ], [ %.pn, %.preheader.i.i.i ]
-  call void @_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %30) #23
+  call void @_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %30) #24
   %71 = load ptr, ptr %29, align 8
   %.not.i.i18 = icmp eq ptr %71, null
   br i1 %.not.i.i18, label %_ZN5Gluco3vecIiED2Ev.exit, label %.preheader.i.i19
@@ -397,14 +397,14 @@ _ZN5Gluco5QueueIjED2Ev.exit:                      ; preds = %.preheader.i.i.i, %
 .preheader.i.i19:                                 ; preds = %_ZN5Gluco5QueueIjED2Ev.exit
   %72 = getelementptr inbounds i8, ptr %0, i64 1368
   store i32 0, ptr %72, align 8
-  call void @free(ptr noundef nonnull %71) #23
+  call void @free(ptr noundef nonnull %71) #24
   store ptr null, ptr %29, align 8
   %73 = getelementptr inbounds i8, ptr %0, i64 1372
   store i32 0, ptr %73, align 4
   br label %_ZN5Gluco3vecIiED2Ev.exit
 
 _ZN5Gluco3vecIiED2Ev.exit:                        ; preds = %_ZN5Gluco5QueueIjED2Ev.exit, %.preheader.i.i19
-  call void @_ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #23
+  call void @_ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #24
   %74 = load ptr, ptr %24, align 8
   %.not.i.i20 = icmp eq ptr %74, null
   br i1 %.not.i.i20, label %_ZN5Gluco3vecIcED2Ev.exit22, label %.preheader.i.i21
@@ -412,7 +412,7 @@ _ZN5Gluco3vecIiED2Ev.exit:                        ; preds = %_ZN5Gluco5QueueIjED
 .preheader.i.i21:                                 ; preds = %_ZN5Gluco3vecIiED2Ev.exit
   %75 = getelementptr inbounds i8, ptr %0, i64 1296
   store i32 0, ptr %75, align 8
-  call void @free(ptr noundef nonnull %74) #23
+  call void @free(ptr noundef nonnull %74) #24
   store ptr null, ptr %24, align 8
   %76 = getelementptr inbounds i8, ptr %0, i64 1300
   store i32 0, ptr %76, align 4
@@ -426,14 +426,14 @@ _ZN5Gluco3vecIcED2Ev.exit22:                      ; preds = %_ZN5Gluco3vecIiED2E
 .preheader.i.i24:                                 ; preds = %_ZN5Gluco3vecIcED2Ev.exit22
   %78 = getelementptr inbounds i8, ptr %0, i64 1280
   store i32 0, ptr %78, align 8
-  call void @free(ptr noundef nonnull %77) #23
+  call void @free(ptr noundef nonnull %77) #24
   store ptr null, ptr %23, align 8
   %79 = getelementptr inbounds i8, ptr %0, i64 1284
   store i32 0, ptr %79, align 4
   br label %_ZN5Gluco3vecIjED2Ev.exit
 
 _ZN5Gluco3vecIjED2Ev.exit:                        ; preds = %_ZN5Gluco3vecIcED2Ev.exit22, %.preheader.i.i24
-  call void @_ZN5Gluco6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1216) %0) #23
+  call void @_ZN5Gluco6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1216) %0) #24
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -465,8 +465,8 @@ define linkonce_odr noundef i32 @_ZN5Gluco15ClauseAllocator5allocINS_3vecINS_3Li
   br i1 %19, label %20, label %_ZN5Gluco15RegionAllocatorIjE5allocEi.exit
 
 20:                                               ; preds = %3
-  %21 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %21, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %21 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %21, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco15RegionAllocatorIjE5allocEi.exit:       ; preds = %3
@@ -570,7 +570,7 @@ define linkonce_odr void @_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEED2Ev(ptr nounde
 .preheader.i.i:                                   ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %4, align 8
-  tail call void @free(ptr noundef nonnull %3) #23
+  tail call void @free(ptr noundef nonnull %3) #24
   store ptr null, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %5, align 4
@@ -585,7 +585,7 @@ _ZN5Gluco3vecIiED2Ev.exit:                        ; preds = %1, %.preheader.i.i
 .preheader.i.i2:                                  ; preds = %_ZN5Gluco3vecIiED2Ev.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %8, align 8
-  tail call void @free(ptr noundef nonnull %7) #23
+  tail call void @free(ptr noundef nonnull %7) #24
   store ptr null, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 0, ptr %9, align 4
@@ -605,7 +605,7 @@ define linkonce_odr void @_ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13Clause
 .preheader.i.i:                                   ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %4, align 8
-  tail call void @free(ptr noundef nonnull %3) #23
+  tail call void @free(ptr noundef nonnull %3) #24
   store ptr null, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 0, ptr %5, align 4
@@ -620,7 +620,7 @@ _ZN5Gluco3vecIiED2Ev.exit:                        ; preds = %1, %.preheader.i.i
 .preheader.i.i2:                                  ; preds = %_ZN5Gluco3vecIiED2Ev.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %8, align 8
-  tail call void @free(ptr noundef nonnull %7) #23
+  tail call void @free(ptr noundef nonnull %7) #24
   store ptr null, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %9, align 4
@@ -649,7 +649,7 @@ _ZN5Gluco3vecIcED2Ev.exit:                        ; preds = %_ZN5Gluco3vecIiED2E
 .preheader.i.i.i.i:                               ; preds = %.lr.ph.i.i
   %18 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 0, ptr %18, align 8
-  tail call void @free(ptr noundef nonnull %17) #23
+  tail call void @free(ptr noundef nonnull %17) #24
   store ptr null, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 12
   store i32 0, ptr %19, align 4
@@ -670,7 +670,7 @@ _ZN5Gluco3vecIjED2Ev.exit.i.i:                    ; preds = %.preheader.i.i.i.i,
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %.preheader.i.i4
   %23 = phi ptr [ %.pre.i, %._crit_edge.i.loopexit.i ], [ %10, %.preheader.i.i4 ]
   store i32 0, ptr %11, align 8
-  tail call void @free(ptr noundef %23) #23
+  tail call void @free(ptr noundef %23) #24
   store ptr null, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %24, align 4
@@ -694,7 +694,7 @@ define void @_ZN5Gluco10SimpSolverD2Ev(ptr noundef nonnull align 8 dereferenceab
 .preheader.i.i:                                   ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 1464
   store i32 0, ptr %4, align 8
-  tail call void @free(ptr noundef nonnull %3) #23
+  tail call void @free(ptr noundef nonnull %3) #24
   store ptr null, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1468
   store i32 0, ptr %5, align 4
@@ -709,7 +709,7 @@ _ZN5Gluco3vecIcED2Ev.exit:                        ; preds = %1, %.preheader.i.i
 .preheader.i.i2:                                  ; preds = %_ZN5Gluco3vecIcED2Ev.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 1448
   store i32 0, ptr %8, align 8
-  tail call void @free(ptr noundef nonnull %7) #23
+  tail call void @free(ptr noundef nonnull %7) #24
   store ptr null, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 1452
   store i32 0, ptr %9, align 4
@@ -724,7 +724,7 @@ _ZN5Gluco3vecIcED2Ev.exit3:                       ; preds = %_ZN5Gluco3vecIcED2E
 .preheader.i.i.i:                                 ; preds = %_ZN5Gluco3vecIcED2Ev.exit3
   %12 = getelementptr inbounds i8, ptr %0, i64 1424
   store i32 0, ptr %12, align 8
-  tail call void @free(ptr noundef nonnull %11) #23
+  tail call void @free(ptr noundef nonnull %11) #24
   store ptr null, ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 1428
   store i32 0, ptr %13, align 4
@@ -739,7 +739,7 @@ _ZN5Gluco5QueueIjED2Ev.exit:                      ; preds = %_ZN5Gluco3vecIcED2E
 .preheader.i.i.i5:                                ; preds = %_ZN5Gluco5QueueIjED2Ev.exit
   %16 = getelementptr inbounds i8, ptr %0, i64 1408
   store i32 0, ptr %16, align 8
-  tail call void @free(ptr noundef nonnull %15) #23
+  tail call void @free(ptr noundef nonnull %15) #24
   store ptr null, ptr %14, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 1412
   store i32 0, ptr %17, align 4
@@ -754,7 +754,7 @@ _ZN5Gluco3vecIiED2Ev.exit.i:                      ; preds = %.preheader.i.i.i5, 
 .preheader.i.i2.i:                                ; preds = %_ZN5Gluco3vecIiED2Ev.exit.i
   %20 = getelementptr inbounds i8, ptr %0, i64 1392
   store i32 0, ptr %20, align 8
-  tail call void @free(ptr noundef nonnull %19) #23
+  tail call void @free(ptr noundef nonnull %19) #24
   store ptr null, ptr %18, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 1396
   store i32 0, ptr %21, align 4
@@ -769,7 +769,7 @@ _ZN5Gluco4HeapINS_10SimpSolver6ElimLtEED2Ev.exit: ; preds = %_ZN5Gluco3vecIiED2E
 .preheader.i.i7:                                  ; preds = %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEED2Ev.exit
   %24 = getelementptr inbounds i8, ptr %0, i64 1368
   store i32 0, ptr %24, align 8
-  tail call void @free(ptr noundef nonnull %23) #23
+  tail call void @free(ptr noundef nonnull %23) #24
   store ptr null, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 1372
   store i32 0, ptr %25, align 4
@@ -777,7 +777,7 @@ _ZN5Gluco4HeapINS_10SimpSolver6ElimLtEED2Ev.exit: ; preds = %_ZN5Gluco3vecIiED2E
 
 _ZN5Gluco3vecIiED2Ev.exit:                        ; preds = %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEED2Ev.exit, %.preheader.i.i7
   %26 = getelementptr inbounds i8, ptr %0, i64 1304
-  tail call void @_ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %26) #23
+  tail call void @_ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %26) #24
   %27 = getelementptr inbounds i8, ptr %0, i64 1288
   %28 = load ptr, ptr %27, align 8
   %.not.i.i8 = icmp eq ptr %28, null
@@ -786,7 +786,7 @@ _ZN5Gluco3vecIiED2Ev.exit:                        ; preds = %_ZN5Gluco4HeapINS_1
 .preheader.i.i9:                                  ; preds = %_ZN5Gluco3vecIiED2Ev.exit
   %29 = getelementptr inbounds i8, ptr %0, i64 1296
   store i32 0, ptr %29, align 8
-  tail call void @free(ptr noundef nonnull %28) #23
+  tail call void @free(ptr noundef nonnull %28) #24
   store ptr null, ptr %27, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 1300
   store i32 0, ptr %30, align 4
@@ -801,21 +801,21 @@ _ZN5Gluco3vecIcED2Ev.exit10:                      ; preds = %_ZN5Gluco3vecIiED2E
 .preheader.i.i12:                                 ; preds = %_ZN5Gluco3vecIcED2Ev.exit10
   %33 = getelementptr inbounds i8, ptr %0, i64 1280
   store i32 0, ptr %33, align 8
-  tail call void @free(ptr noundef nonnull %32) #23
+  tail call void @free(ptr noundef nonnull %32) #24
   store ptr null, ptr %31, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 1284
   store i32 0, ptr %34, align 4
   br label %_ZN5Gluco3vecIjED2Ev.exit
 
 _ZN5Gluco3vecIjED2Ev.exit:                        ; preds = %_ZN5Gluco3vecIcED2Ev.exit10, %.preheader.i.i12
-  tail call void @_ZN5Gluco6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1216) %0) #23
+  tail call void @_ZN5Gluco6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1216) %0) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Gluco10SimpSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(1484) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN5Gluco10SimpSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %0) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
+  tail call void @_ZN5Gluco10SimpSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
 
@@ -852,7 +852,7 @@ define noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 
   %21 = add nsw i32 %16, %8
   store i32 %21, ptr %9, align 4
   %22 = sext i32 %21 to i64
-  %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #26
+  %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #27
   store ptr %23, ptr %6, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %._ZN5Gluco3vecIcE4pushERKc.exit_crit_edge
@@ -862,15 +862,15 @@ define noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 
   br label %_ZN5Gluco3vecIcE4pushERKc.exit
 
 25:                                               ; preds = %19
-  %26 = tail call ptr @__errno_location() #22
+  %26 = tail call ptr @__errno_location() #23
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 12
   tail call void @llvm.assume(i1 %28)
   br label %29
 
 29:                                               ; preds = %25, %12
-  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %30, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %30, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIcE4pushERKc.exit:                   ; preds = %._ZN5Gluco3vecIcE4pushERKc.exit_crit_edge, %._ZN5Gluco3vecIcE8capacityEi.exit_crit_edge.i
@@ -907,7 +907,7 @@ _ZN5Gluco3vecIcE4pushERKc.exit:                   ; preds = %._ZN5Gluco3vecIcE4p
   %51 = add nsw i32 %46, %38
   store i32 %51, ptr %39, align 4
   %52 = sext i32 %51 to i64
-  %53 = tail call ptr @realloc(ptr noundef %50, i64 noundef %52) #26
+  %53 = tail call ptr @realloc(ptr noundef %50, i64 noundef %52) #27
   store ptr %53, ptr %36, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %._ZN5Gluco3vecIcE4pushERKc.exit4_crit_edge
@@ -917,15 +917,15 @@ _ZN5Gluco3vecIcE4pushERKc.exit:                   ; preds = %._ZN5Gluco3vecIcE4p
   br label %_ZN5Gluco3vecIcE4pushERKc.exit4
 
 55:                                               ; preds = %49
-  %56 = tail call ptr @__errno_location() #22
+  %56 = tail call ptr @__errno_location() #23
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 12
   tail call void @llvm.assume(i1 %58)
   br label %59
 
 59:                                               ; preds = %55, %42
-  %60 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %60, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %60 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %60, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIcE4pushERKc.exit4:                  ; preds = %._ZN5Gluco3vecIcE4pushERKc.exit4_crit_edge, %._ZN5Gluco3vecIcE8capacityEi.exit_crit_edge.i2
@@ -969,7 +969,7 @@ _ZN5Gluco3vecIcE4pushERKc.exit4:                  ; preds = %._ZN5Gluco3vecIcE4p
   store i32 %85, ptr %73, align 4
   %86 = sext i32 %85 to i64
   %87 = shl nsw i64 %86, 2
-  %88 = tail call ptr @realloc(ptr noundef %84, i64 noundef %87) #26
+  %88 = tail call ptr @realloc(ptr noundef %84, i64 noundef %87) #27
   store ptr %88, ptr %70, align 8
   %89 = icmp eq ptr %88, null
   br i1 %89, label %90, label %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge
@@ -979,15 +979,15 @@ _ZN5Gluco3vecIcE4pushERKc.exit4:                  ; preds = %._ZN5Gluco3vecIcE4p
   br label %_ZN5Gluco3vecIiE4pushERKi.exit
 
 90:                                               ; preds = %83
-  %91 = tail call ptr @__errno_location() #22
+  %91 = tail call ptr @__errno_location() #23
   %92 = load i32, ptr %91, align 4
   %93 = icmp eq i32 %92, 12
   tail call void @llvm.assume(i1 %93)
   br label %94
 
 94:                                               ; preds = %90, %76
-  %95 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %95, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %95 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %95, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i
@@ -1022,7 +1022,7 @@ _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %._ZN5Gluco3vecIiE4p
   store i32 %113, ptr %73, align 4
   %114 = sext i32 %113 to i64
   %115 = shl nsw i64 %114, 2
-  %116 = tail call ptr @realloc(ptr noundef %112, i64 noundef %115) #26
+  %116 = tail call ptr @realloc(ptr noundef %112, i64 noundef %115) #27
   store ptr %116, ptr %70, align 8
   %117 = icmp eq ptr %116, null
   br i1 %117, label %118, label %._ZN5Gluco3vecIiE4pushERKi.exit8_crit_edge
@@ -1032,15 +1032,15 @@ _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %._ZN5Gluco3vecIiE4p
   br label %_ZN5Gluco3vecIiE4pushERKi.exit8
 
 118:                                              ; preds = %111
-  %119 = tail call ptr @__errno_location() #22
+  %119 = tail call ptr @__errno_location() #23
   %120 = load i32, ptr %119, align 4
   %121 = icmp eq i32 %120, 12
   tail call void @llvm.assume(i1 %121)
   br label %122
 
 122:                                              ; preds = %118, %104
-  %123 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %123, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %123 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %123, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIiE4pushERKi.exit8:                  ; preds = %._ZN5Gluco3vecIiE4pushERKi.exit8_crit_edge, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i6
@@ -1085,7 +1085,7 @@ _ZN5Gluco3vecIiE4pushERKi.exit8:                  ; preds = %._ZN5Gluco3vecIiE4p
   %147 = add nsw i32 %142, %134
   store i32 %147, ptr %135, align 4
   %148 = sext i32 %147 to i64
-  %149 = call ptr @realloc(ptr noundef %146, i64 noundef %148) #26
+  %149 = call ptr @realloc(ptr noundef %146, i64 noundef %148) #27
   store ptr %149, ptr %132, align 8
   %150 = icmp eq ptr %149, null
   br i1 %150, label %151, label %._ZN5Gluco3vecIcE4pushERKc.exit11_crit_edge
@@ -1095,15 +1095,15 @@ _ZN5Gluco3vecIiE4pushERKi.exit8:                  ; preds = %._ZN5Gluco3vecIiE4p
   br label %_ZN5Gluco3vecIcE4pushERKc.exit11
 
 151:                                              ; preds = %145
-  %152 = tail call ptr @__errno_location() #22
+  %152 = tail call ptr @__errno_location() #23
   %153 = load i32, ptr %152, align 4
   %154 = icmp eq i32 %153, 12
   call void @llvm.assume(i1 %154)
   br label %155
 
 155:                                              ; preds = %151, %138
-  %156 = call ptr @__cxa_allocate_exception(i64 1) #23
-  call void @__cxa_throw(ptr %156, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %156 = call ptr @__cxa_allocate_exception(i64 1) #24
+  call void @__cxa_throw(ptr %156, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIcE4pushERKc.exit11:                 ; preds = %._ZN5Gluco3vecIcE4pushERKc.exit11_crit_edge, %._ZN5Gluco3vecIcE8capacityEi.exit_crit_edge.i9
@@ -1162,7 +1162,7 @@ define linkonce_odr void @_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE6insertEi(ptr n
   store i32 %24, ptr %12, align 4
   %25 = sext i32 %24 to i64
   %26 = shl nsw i64 %25, 2
-  %27 = call ptr @realloc(ptr noundef %23, i64 noundef %26) #26
+  %27 = call ptr @realloc(ptr noundef %23, i64 noundef %26) #27
   store ptr %27, ptr %6, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge
@@ -1172,15 +1172,15 @@ define linkonce_odr void @_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE6insertEi(ptr n
   br label %_ZN5Gluco3vecIiE4pushERKi.exit
 
 29:                                               ; preds = %22
-  %30 = tail call ptr @__errno_location() #22
+  %30 = tail call ptr @__errno_location() #23
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 12
   call void @llvm.assume(i1 %32)
   br label %33
 
 33:                                               ; preds = %29, %15
-  %34 = call ptr @__cxa_allocate_exception(i64 1) #23
-  call void @__cxa_throw(ptr %34, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %34 = call ptr @__cxa_allocate_exception(i64 1) #24
+  call void @__cxa_throw(ptr %34, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i
@@ -1323,12 +1323,12 @@ define i8 @_ZN5Gluco10SimpSolver6solve_Ebb(ptr noundef nonnull align 8 dereferen
   %31 = add nsw i32 %27, %.sroa.9.157
   %32 = sext i32 %31 to i64
   %33 = shl nsw i64 %32, 2
-  %34 = tail call ptr @realloc(ptr noundef %.sroa.026.258, i64 noundef %33) #26
+  %34 = tail call ptr @realloc(ptr noundef %.sroa.026.258, i64 noundef %33) #27
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %_ZN5Gluco3vecIiE4pushERKi.exit
 
 36:                                               ; preds = %30
-  %37 = tail call ptr @__errno_location() #22
+  %37 = tail call ptr @__errno_location() #23
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 12
   tail call void @llvm.assume(i1 %39)
@@ -1336,8 +1336,8 @@ define i8 @_ZN5Gluco10SimpSolver6solve_Ebb(ptr noundef nonnull align 8 dereferen
 
 .loopexit49:                                      ; preds = %23, %36
   %.sroa.026.4 = phi ptr [ null, %36 ], [ %.sroa.026.258, %23 ]
-  %40 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  invoke void @__cxa_throw(ptr %40, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %40 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  invoke void @__cxa_throw(ptr %40, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
           to label %.noexc unwind label %44
 
 .noexc:                                           ; preds = %.loopexit49
@@ -1363,7 +1363,7 @@ _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %21, %30
 .preheader.i.i:                                   ; preds = %.thread, %44
   %46 = phi { ptr, i32 } [ %136, %.thread ], [ %45, %44 ]
   %.sroa.026.039 = phi ptr [ %.sroa.026.14675, %.thread ], [ %.sroa.026.0, %44 ]
-  tail call void @free(ptr noundef nonnull %.sroa.026.039) #23
+  tail call void @free(ptr noundef nonnull %.sroa.026.039) #24
   br label %_ZN5Gluco3vecIiED2Ev.exit
 
 _ZN5Gluco3vecIiED2Ev.exit:                        ; preds = %44, %.preheader.i.i
@@ -1575,7 +1575,7 @@ _ZN5Gluco10SimpSolver9setFrozenEib.exit:          ; preds = %_ZNK5Gluco10SimpSol
   br i1 %.not.i.i20, label %_ZN5Gluco3vecIiED2Ev.exit22, label %.preheader.i.i21
 
 .preheader.i.i21:                                 ; preds = %_ZN5Gluco10SimpSolver9setFrozenEib.exit, %.loopexit
-  tail call void @free(ptr noundef nonnull %.sroa.026.14675) #23
+  tail call void @free(ptr noundef nonnull %.sroa.026.14675) #24
   br label %_ZN5Gluco3vecIiED2Ev.exit22
 
 _ZN5Gluco3vecIiED2Ev.exit22:                      ; preds = %.loopexit, %.preheader.i.i21
@@ -1867,7 +1867,7 @@ _ZNK5Gluco10SimpSolver12isEliminatedEi.exit.thread: ; preds = %95, %_ZNK5Gluco10
 .preheader.i:                                     ; preds = %156
   %159 = getelementptr inbounds i8, ptr %0, i64 1296
   store i32 0, ptr %159, align 8
-  tail call void @free(ptr noundef nonnull %158) #23
+  tail call void @free(ptr noundef nonnull %158) #24
   store ptr null, ptr %157, align 8
   %160 = getelementptr inbounds i8, ptr %0, i64 1300
   store i32 0, ptr %160, align 4
@@ -1884,7 +1884,7 @@ _ZN5Gluco3vecIcE5clearEb.exit:                    ; preds = %156, %.preheader.i
 .preheader.i28:                                   ; preds = %_ZN5Gluco3vecIcE5clearEb.exit
   %164 = getelementptr inbounds i8, ptr %0, i64 1368
   store i32 0, ptr %164, align 8
-  tail call void @free(ptr noundef nonnull %163) #23
+  tail call void @free(ptr noundef nonnull %163) #24
   store ptr null, ptr %162, align 8
   %165 = getelementptr inbounds i8, ptr %0, i64 1372
   store i32 0, ptr %165, align 4
@@ -1923,7 +1923,7 @@ _ZN5Gluco3vecIiE5clearEb.exit:                    ; preds = %_ZN5Gluco3vecIcE5cl
 
 .preheader.i.i31:                                 ; preds = %._crit_edge.i29
   store i32 0, ptr %167, align 8
-  tail call void @free(ptr noundef nonnull %181) #23
+  tail call void @free(ptr noundef nonnull %181) #24
   store ptr null, ptr %166, align 8
   %182 = getelementptr inbounds i8, ptr %0, i64 1396
   store i32 0, ptr %182, align 4
@@ -1938,7 +1938,7 @@ _ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE5clearEb.exit35: ; preds = %._crit_edge.i
 .preheader.i.i37:                                 ; preds = %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE5clearEb.exit35
   %185 = getelementptr inbounds i8, ptr %0, i64 1424
   store i32 0, ptr %185, align 8
-  tail call void @free(ptr noundef nonnull %184) #23
+  tail call void @free(ptr noundef nonnull %184) #24
   store ptr null, ptr %183, align 8
   %186 = getelementptr inbounds i8, ptr %0, i64 1428
   store i32 0, ptr %186, align 4
@@ -2153,7 +2153,7 @@ define noundef zeroext i1 @_ZN5Gluco10SimpSolver10addClause_ERNS_3vecINS_3LitEEE
   %.not38 = icmp eq i32 %30, 0
   %31 = xor i32 %28, -1
   %32 = select i1 %.not38, i32 %29, i32 %31
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.21, i32 noundef %32) #23
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.21, i32 noundef %32) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %20, align 8
   %35 = sext i32 %34 to i64
@@ -2241,7 +2241,7 @@ define noundef zeroext i1 @_ZN5Gluco10SimpSolver10addClause_ERNS_3vecINS_3LitEEE
   store i32 %91, ptr %79, align 4
   %92 = sext i32 %91 to i64
   %93 = shl nsw i64 %92, 2
-  %94 = tail call ptr @realloc(ptr noundef %90, i64 noundef %93) #26
+  %94 = tail call ptr @realloc(ptr noundef %90, i64 noundef %93) #27
   store ptr %94, ptr %76, align 8
   %95 = icmp eq ptr %94, null
   br i1 %95, label %96, label %._ZN5Gluco3vecIjE4pushERKj.exit_crit_edge
@@ -2251,15 +2251,15 @@ define noundef zeroext i1 @_ZN5Gluco10SimpSolver10addClause_ERNS_3vecINS_3LitEEE
   br label %_ZN5Gluco3vecIjE4pushERKj.exit
 
 96:                                               ; preds = %89
-  %97 = tail call ptr @__errno_location() #22
+  %97 = tail call ptr @__errno_location() #23
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %98, 12
   tail call void @llvm.assume(i1 %99)
   br label %.loopexit39
 
 .loopexit39:                                      ; preds = %82, %96
-  %100 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %100, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %100 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %100, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIjE4pushERKj.exit:                   ; preds = %._ZN5Gluco3vecIjE4pushERKj.exit_crit_edge, %._ZN5Gluco3vecIjE8capacityEi.exit_crit_edge.i
@@ -2348,7 +2348,7 @@ define noundef zeroext i1 @_ZN5Gluco10SimpSolver7impliedERKNS_3vecINS_3LitEEE(pt
   store i32 %20, ptr %8, align 4
   %21 = sext i32 %20 to i64
   %22 = shl nsw i64 %21, 2
-  %23 = tail call ptr @realloc(ptr noundef %19, i64 noundef %22) #26
+  %23 = tail call ptr @realloc(ptr noundef %19, i64 noundef %22) #27
   store ptr %23, ptr %3, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge
@@ -2358,15 +2358,15 @@ define noundef zeroext i1 @_ZN5Gluco10SimpSolver7impliedERKNS_3vecINS_3LitEEE(pt
   br label %_ZN5Gluco3vecIiE4pushERKi.exit
 
 25:                                               ; preds = %18
-  %26 = tail call ptr @__errno_location() #22
+  %26 = tail call ptr @__errno_location() #23
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 12
   tail call void @llvm.assume(i1 %28)
   br label %29
 
 29:                                               ; preds = %25, %11
-  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %30, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %30, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i
@@ -2536,7 +2536,7 @@ define linkonce_odr void @_ZN5Gluco5QueueIjE6insertEj(ptr noundef nonnull align 
 
 .preheader.i.i:                                   ; preds = %._crit_edge
   store i32 0, ptr %11, align 8
-  call void @free(ptr noundef nonnull %49) #23
+  call void @free(ptr noundef nonnull %49) #24
   br label %_ZN5Gluco3vecIjED2Ev.exit
 
 _ZN5Gluco3vecIjED2Ev.exit:                        ; preds = %._crit_edge, %.preheader.i.i
@@ -2686,7 +2686,7 @@ _ZN5Gluco10SimpSolver14updateElimHeapEi.exit:     ; preds = %_ZNK5Gluco4HeapINS_
   store i32 %72, ptr %26, align 4
   %73 = sext i32 %72 to i64
   %74 = shl nsw i64 %73, 2
-  %75 = tail call ptr @realloc(ptr noundef %71, i64 noundef %74) #26
+  %75 = tail call ptr @realloc(ptr noundef %71, i64 noundef %74) #27
   store ptr %75, ptr %24, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge.i
@@ -2696,15 +2696,15 @@ _ZN5Gluco10SimpSolver14updateElimHeapEi.exit:     ; preds = %_ZNK5Gluco4HeapINS_
   br label %_ZN5Gluco3vecIiE4pushERKi.exit.i
 
 77:                                               ; preds = %70
-  %78 = tail call ptr @__errno_location() #22
+  %78 = tail call ptr @__errno_location() #23
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, 12
   tail call void @llvm.assume(i1 %80)
   br label %.loopexit17
 
 .loopexit17:                                      ; preds = %63, %77
-  %81 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %81, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %81 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %81, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIiE4pushERKi.exit.i:                 ; preds = %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge.i, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i.i
@@ -2775,7 +2775,7 @@ define noundef zeroext i1 @_ZN5Gluco10SimpSolver16strengthenClauseEjNS_3LitE(ptr
   %.not75 = icmp eq i32 %25, 0
   %26 = xor i32 %23, -1
   %27 = select i1 %.not75, i32 %24, i32 %26
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.21, i32 noundef %27) #23
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.21, i32 noundef %27) #24
   %.pre = load i96, ptr %7, align 4
   %extract97 = lshr i96 %.pre, 32
   %extract.t98 = trunc i96 %extract97 to i32
@@ -2939,7 +2939,7 @@ _ZN5Gluco6Clause10strengthenENS_3LitE.exit:       ; preds = %78, %_ZN5GlucoL6rem
   %.not = icmp eq i32 %104, 0
   %105 = xor i32 %102, -1
   %106 = select i1 %.not, i32 %103, i32 %105
-  %107 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.21, i32 noundef %106) #23
+  %107 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.21, i32 noundef %106) #24
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %108 = load i96, ptr %7, align 4
   %109 = trunc i96 %108 to i64
@@ -3348,7 +3348,7 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %5, %.preheader.i
   store i32 %60, ptr %28, align 4
   %61 = sext i32 %60 to i64
   %62 = shl nsw i64 %61, 2
-  %63 = tail call ptr @realloc(ptr noundef %59, i64 noundef %62) #26
+  %63 = tail call ptr @realloc(ptr noundef %59, i64 noundef %62) #27
   store ptr %63, ptr %4, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge
@@ -3358,15 +3358,15 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %5, %.preheader.i
   br label %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit
 
 65:                                               ; preds = %58
-  %66 = tail call ptr @__errno_location() #22
+  %66 = tail call ptr @__errno_location() #23
   %67 = load i32, ptr %66, align 4
   %68 = icmp eq i32 %67, 12
   tail call void @llvm.assume(i1 %68)
   br label %.loopexit61
 
 .loopexit61:                                      ; preds = %51, %65
-  %69 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %69, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %69 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %69, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit:          ; preds = %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge, %._ZN5Gluco3vecINS_3LitEE8capacityEi.exit_crit_edge.i
@@ -3423,7 +3423,7 @@ _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit:          ; preds = %._ZN5Gluco3vecINS_3
   store i32 %93, ptr %32, align 4
   %94 = sext i32 %93 to i64
   %95 = shl nsw i64 %94, 2
-  %96 = tail call ptr @realloc(ptr noundef %92, i64 noundef %95) #26
+  %96 = tail call ptr @realloc(ptr noundef %92, i64 noundef %95) #27
   store ptr %96, ptr %4, align 8
   %97 = icmp eq ptr %96, null
   br i1 %97, label %98, label %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit56_crit_edge
@@ -3433,15 +3433,15 @@ _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit:          ; preds = %._ZN5Gluco3vecINS_3
   br label %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit56
 
 98:                                               ; preds = %91
-  %99 = tail call ptr @__errno_location() #22
+  %99 = tail call ptr @__errno_location() #23
   %100 = load i32, ptr %99, align 4
   %101 = icmp eq i32 %100, 12
   tail call void @llvm.assume(i1 %101)
   br label %.loopexit59
 
 .loopexit59:                                      ; preds = %84, %98
-  %102 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %102, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %102 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %102, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit56:        ; preds = %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit56_crit_edge, %._ZN5Gluco3vecINS_3LitEE8capacityEi.exit_crit_edge.i54
@@ -3803,14 +3803,14 @@ _ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit:
   br i1 %143, label %144, label %.lr.ph.preheader.i16
 
 144:                                              ; preds = %137
-  %145 = tail call ptr @__errno_location() #22
+  %145 = tail call ptr @__errno_location() #23
   %146 = load i32, ptr %145, align 4
   %147 = icmp eq i32 %146, 12
   br i1 %147, label %148, label %.lr.ph.preheader.i16
 
 148:                                              ; preds = %144
-  %149 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %149, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %149 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %149, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 .lr.ph.preheader.i16:                             ; preds = %137, %144
@@ -3882,7 +3882,7 @@ _ZN5Gluco3vecIjE6growToEi.exit:                   ; preds = %.lr.ph.preheader.i1
 
 .preheader.i.i.i:                                 ; preds = %._crit_edge.i.thread, %._crit_edge.i
   store i32 0, ptr %8, align 8
-  tail call void @free(ptr noundef nonnull %.pre80.pre) #23
+  tail call void @free(ptr noundef nonnull %.pre80.pre) #24
   br label %_ZN5Gluco3vecIjED2Ev.exit.i
 
 _ZN5Gluco3vecIjED2Ev.exit.i:                      ; preds = %.preheader.i.i.i, %._crit_edge.i
@@ -4452,7 +4452,7 @@ define noundef zeroext i1 @_ZN5Gluco10SimpSolver5asymmEij(ptr noundef nonnull al
   store i32 %30, ptr %18, align 4
   %31 = sext i32 %30 to i64
   %32 = shl nsw i64 %31, 2
-  %33 = tail call ptr @realloc(ptr noundef %29, i64 noundef %32) #26
+  %33 = tail call ptr @realloc(ptr noundef %29, i64 noundef %32) #27
   store ptr %33, ptr %13, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge
@@ -4462,15 +4462,15 @@ define noundef zeroext i1 @_ZN5Gluco10SimpSolver5asymmEij(ptr noundef nonnull al
   br label %_ZN5Gluco3vecIiE4pushERKi.exit
 
 35:                                               ; preds = %28
-  %36 = tail call ptr @__errno_location() #22
+  %36 = tail call ptr @__errno_location() #23
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 12
   tail call void @llvm.assume(i1 %38)
   br label %39
 
 39:                                               ; preds = %35, %21
-  %40 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %40, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %40 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %40, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i
@@ -4974,11 +4974,11 @@ _ZN5GlucoL4findINS_6ClauseENS_3LitEEEbRT_RKT0_.exit: ; preds = %_ZN5GlucoL4findI
   br i1 %.lcssa.i151155, label %.cont.then, label %.cont.else
 
 .cont.then:                                       ; preds = %138
-  %142 = tail call ptr @realloc(ptr noundef %.sroa.0114.0227, i64 noundef %141) #26
+  %142 = tail call ptr @realloc(ptr noundef %.sroa.0114.0227, i64 noundef %141) #27
   br label %.cont.cont
 
 .cont.else:                                       ; preds = %138
-  %143 = tail call ptr @realloc(ptr noundef %.sroa.092.0224, i64 noundef %141) #26
+  %143 = tail call ptr @realloc(ptr noundef %.sroa.092.0224, i64 noundef %141) #27
   br label %.cont.cont
 
 .cont.cont:                                       ; preds = %.cont.else, %.cont.then
@@ -4995,7 +4995,7 @@ _ZN5GlucoL4findINS_6ClauseENS_3LitEEEbRT_RKT0_.exit: ; preds = %_ZN5GlucoL4findI
   br label %_ZN5Gluco3vecIjE4pushERKj.exit
 
 146:                                              ; preds = %.cont.cont
-  %147 = tail call ptr @__errno_location() #22
+  %147 = tail call ptr @__errno_location() #23
   %148 = load i32, ptr %147, align 4
   %149 = icmp eq i32 %148, 12
   tail call void @llvm.assume(i1 %149)
@@ -5004,8 +5004,8 @@ _ZN5GlucoL4findINS_6ClauseENS_3LitEEEbRT_RKT0_.exit: ; preds = %_ZN5GlucoL4findI
 .loopexit198:                                     ; preds = %131, %146
   %.sroa.092.2 = phi ptr [ %.sroa.092.4, %146 ], [ %.sroa.092.0224, %131 ]
   %.sroa.0114.2 = phi ptr [ %.sroa.0114.4, %146 ], [ %.sroa.0114.0227, %131 ]
-  %150 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  invoke void @__cxa_throw(ptr %150, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %150 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  invoke void @__cxa_throw(ptr %150, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %.loopexit198
@@ -5063,7 +5063,7 @@ _ZN5Gluco3vecIjE4pushERKj.exit:                   ; preds = %.cont.cont._ZN5Gluc
   %lpad.phi172 = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.loopexit186.us, %.thread164.loopexit.split.us ], [ %lpad.loopexit.split-lp187, %.thread164.loopexit.split-lp ]
   %.sroa.0114.1170 = phi ptr [ %.sroa.0114.1.ph, %.loopexit.split-lp ], [ %.sroa.0114.0.lcssa306, %.thread164.loopexit.split.us ], [ %.sroa.0114.0.lcssa306, %.thread164.loopexit.split-lp ]
   %.sroa.092.1169 = phi ptr [ %.sroa.092.1.ph, %.loopexit.split-lp ], [ %.sroa.092.0.lcssa302, %.thread164.loopexit.split.us ], [ %.sroa.092.0.lcssa302, %.thread164.loopexit.split-lp ]
-  tail call void @free(ptr noundef nonnull %.sroa.092.1169) #23
+  tail call void @free(ptr noundef nonnull %.sroa.092.1169) #24
   br label %_ZN5Gluco3vecIjED2Ev.exit
 
 _ZN5Gluco3vecIjED2Ev.exit:                        ; preds = %.loopexit.split-lp, %.preheader.i.i
@@ -5073,7 +5073,7 @@ _ZN5Gluco3vecIjED2Ev.exit:                        ; preds = %.loopexit.split-lp,
   br i1 %.not.i.i53, label %_ZN5Gluco3vecIjED2Ev.exit55, label %.preheader.i.i54
 
 .preheader.i.i54:                                 ; preds = %_ZN5Gluco3vecIjED2Ev.exit
-  tail call void @free(ptr noundef nonnull %.sroa.0114.1171) #23
+  tail call void @free(ptr noundef nonnull %.sroa.0114.1171) #24
   br label %_ZN5Gluco3vecIjED2Ev.exit55
 
 _ZN5Gluco3vecIjED2Ev.exit55:                      ; preds = %_ZN5Gluco3vecIjED2Ev.exit, %.preheader.i.i54
@@ -5292,7 +5292,7 @@ _ZN5Gluco6Solver14setDecisionVarEib.exit:         ; preds = %_ZNK5Gluco4HeapINS_
 .preheader.i69:                                   ; preds = %._crit_edge252
   %247 = getelementptr inbounds i8, ptr %245, i64 8
   store i32 0, ptr %247, align 8
-  tail call void @free(ptr noundef nonnull %246) #23
+  tail call void @free(ptr noundef nonnull %246) #24
   store ptr null, ptr %245, align 8
   %248 = getelementptr inbounds i8, ptr %245, i64 12
   store i32 0, ptr %248, align 4
@@ -5316,7 +5316,7 @@ _ZN5Gluco6Solver14setDecisionVarEib.exit:         ; preds = %_ZNK5Gluco4HeapINS_
 
 .preheader.i72:                                   ; preds = %258
   store i32 0, ptr %255, align 8
-  tail call void @free(ptr noundef nonnull %259) #23
+  tail call void @free(ptr noundef nonnull %259) #24
   store ptr null, ptr %254, align 8
   %260 = getelementptr inbounds i8, ptr %254, i64 12
   store i32 0, ptr %260, align 4
@@ -5340,7 +5340,7 @@ _ZN5Gluco6Solver14setDecisionVarEib.exit:         ; preds = %_ZNK5Gluco4HeapINS_
 
 .preheader.i76:                                   ; preds = %269
   store i32 0, ptr %266, align 8
-  tail call void @free(ptr noundef nonnull %270) #23
+  tail call void @free(ptr noundef nonnull %270) #24
   store ptr null, ptr %265, align 8
   %271 = getelementptr inbounds i8, ptr %265, i64 12
   store i32 0, ptr %271, align 4
@@ -5361,7 +5361,7 @@ _ZN5Gluco3vecINS_6Solver7WatcherEE5clearEb.exit77: ; preds = %.preheader.i76, %2
   %.sroa.0114.0.lcssa308 = phi ptr [ %.sroa.0114.0.lcssa309, %.loopexit196 ], [ %.sroa.0114.0.lcssa306, %233 ]
   %.sroa.092.0.lcssa304 = phi ptr [ %.sroa.092.0.lcssa303, %.loopexit196 ], [ %.sroa.092.0.lcssa302, %233 ]
   %.0180 = phi i1 [ %.0, %.loopexit196 ], [ false, %233 ]
-  tail call void @free(ptr noundef nonnull %.sroa.092.0.lcssa304) #23
+  tail call void @free(ptr noundef nonnull %.sroa.092.0.lcssa304) #24
   br label %_ZN5Gluco3vecIjED2Ev.exit80
 
 _ZN5Gluco3vecIjED2Ev.exit80:                      ; preds = %.loopexit196, %.preheader.i.i79
@@ -5371,7 +5371,7 @@ _ZN5Gluco3vecIjED2Ev.exit80:                      ; preds = %.loopexit196, %.pre
   br i1 %.not.i.i81, label %_ZN5Gluco3vecIjED2Ev.exit83, label %.preheader.i.i82
 
 .preheader.i.i82:                                 ; preds = %_ZN5Gluco3vecIjED2Ev.exit80
-  tail call void @free(ptr noundef nonnull %.sroa.0114.0.lcssa307) #23
+  tail call void @free(ptr noundef nonnull %.sroa.0114.0.lcssa307) #24
   br label %_ZN5Gluco3vecIjED2Ev.exit83
 
 _ZN5Gluco3vecIjED2Ev.exit83:                      ; preds = %_ZN5Gluco3vecIjED2Ev.exit80, %.preheader.i.i82
@@ -5422,7 +5422,7 @@ define internal fastcc void @_ZL12mkElimClauseRN5Gluco3vecIjEEiRNS_6ClauseE(ptr 
   store i32 %26, ptr %11, align 4
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 2
-  %29 = tail call ptr @realloc(ptr noundef %25, i64 noundef %28) #26
+  %29 = tail call ptr @realloc(ptr noundef %25, i64 noundef %28) #27
   store ptr %29, ptr %0, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %._ZN5Gluco3vecIjE4pushERKj.exit_crit_edge
@@ -5432,15 +5432,15 @@ define internal fastcc void @_ZL12mkElimClauseRN5Gluco3vecIjEEiRNS_6ClauseE(ptr 
   br label %_ZN5Gluco3vecIjE4pushERKj.exit
 
 31:                                               ; preds = %24
-  %32 = tail call ptr @__errno_location() #22
+  %32 = tail call ptr @__errno_location() #23
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 12
   tail call void @llvm.assume(i1 %34)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %31
-  %35 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %35, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %35 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %35, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIjE4pushERKj.exit:                   ; preds = %._ZN5Gluco3vecIjE4pushERKj.exit_crit_edge, %._ZN5Gluco3vecIjE8capacityEi.exit_crit_edge.i
@@ -5506,7 +5506,7 @@ _ZN5Gluco3vecIjE4pushERKj.exit:                   ; preds = %._ZN5Gluco3vecIjE4p
   store i32 %71, ptr %59, align 4
   %72 = sext i32 %71 to i64
   %73 = shl nsw i64 %72, 2
-  %74 = tail call ptr @realloc(ptr noundef %70, i64 noundef %73) #26
+  %74 = tail call ptr @realloc(ptr noundef %70, i64 noundef %73) #27
   store ptr %74, ptr %0, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %._ZN5Gluco3vecIjE4pushERKj.exit26_crit_edge
@@ -5516,15 +5516,15 @@ _ZN5Gluco3vecIjE4pushERKj.exit:                   ; preds = %._ZN5Gluco3vecIjE4p
   br label %_ZN5Gluco3vecIjE4pushERKj.exit26
 
 76:                                               ; preds = %69
-  %77 = tail call ptr @__errno_location() #22
+  %77 = tail call ptr @__errno_location() #23
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %78, 12
   tail call void @llvm.assume(i1 %79)
   br label %80
 
 80:                                               ; preds = %76, %62
-  %81 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %81, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %81 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %81, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIjE4pushERKj.exit26:                 ; preds = %._ZN5Gluco3vecIjE4pushERKj.exit26_crit_edge, %._ZN5Gluco3vecIjE8capacityEi.exit_crit_edge.i24
@@ -5568,7 +5568,7 @@ define internal fastcc void @_ZL12mkElimClauseRN5Gluco3vecIjEENS_3LitE(ptr nocap
   store i32 %17, ptr %5, align 4
   %18 = sext i32 %17 to i64
   %19 = shl nsw i64 %18, 2
-  %20 = tail call ptr @realloc(ptr noundef %16, i64 noundef %19) #26
+  %20 = tail call ptr @realloc(ptr noundef %16, i64 noundef %19) #27
   store ptr %20, ptr %0, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %._ZN5Gluco3vecIjE4pushERKj.exit_crit_edge
@@ -5578,15 +5578,15 @@ define internal fastcc void @_ZL12mkElimClauseRN5Gluco3vecIjEENS_3LitE(ptr nocap
   br label %_ZN5Gluco3vecIjE4pushERKj.exit
 
 22:                                               ; preds = %15
-  %23 = tail call ptr @__errno_location() #22
+  %23 = tail call ptr @__errno_location() #23
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 12
   tail call void @llvm.assume(i1 %25)
   br label %26
 
 26:                                               ; preds = %22, %8
-  %27 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %27, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %27 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %27, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIjE4pushERKj.exit:                   ; preds = %._ZN5Gluco3vecIjE4pushERKj.exit_crit_edge, %._ZN5Gluco3vecIjE8capacityEi.exit_crit_edge.i
@@ -5621,7 +5621,7 @@ _ZN5Gluco3vecIjE4pushERKj.exit:                   ; preds = %._ZN5Gluco3vecIjE4p
   store i32 %45, ptr %5, align 4
   %46 = sext i32 %45 to i64
   %47 = shl nsw i64 %46, 2
-  %48 = tail call ptr @realloc(ptr noundef %44, i64 noundef %47) #26
+  %48 = tail call ptr @realloc(ptr noundef %44, i64 noundef %47) #27
   store ptr %48, ptr %0, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %._ZN5Gluco3vecIjE4pushERKj.exit5_crit_edge
@@ -5631,15 +5631,15 @@ _ZN5Gluco3vecIjE4pushERKj.exit:                   ; preds = %._ZN5Gluco3vecIjE4p
   br label %_ZN5Gluco3vecIjE4pushERKj.exit5
 
 50:                                               ; preds = %43
-  %51 = tail call ptr @__errno_location() #22
+  %51 = tail call ptr @__errno_location() #23
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 12
   tail call void @llvm.assume(i1 %53)
   br label %54
 
 54:                                               ; preds = %50, %36
-  %55 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %55, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %55 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %55, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIjE4pushERKj.exit5:                  ; preds = %._ZN5Gluco3vecIjE4pushERKj.exit5_crit_edge, %._ZN5Gluco3vecIjE8capacityEi.exit_crit_edge.i3
@@ -5852,7 +5852,7 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %80, %.preheader.i
   store i32 %111, ptr %79, align 4
   %112 = sext i32 %111 to i64
   %113 = shl nsw i64 %112, 2
-  %114 = tail call ptr @realloc(ptr noundef %110, i64 noundef %113) #26
+  %114 = tail call ptr @realloc(ptr noundef %110, i64 noundef %113) #27
   store ptr %114, ptr %73, align 8
   %115 = icmp eq ptr %114, null
   br i1 %115, label %116, label %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge
@@ -5862,15 +5862,15 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %80, %.preheader.i
   br label %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit
 
 116:                                              ; preds = %109
-  %117 = tail call ptr @__errno_location() #22
+  %117 = tail call ptr @__errno_location() #23
   %118 = load i32, ptr %117, align 4
   %119 = icmp eq i32 %118, 12
   tail call void @llvm.assume(i1 %119)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %102, %116
-  %120 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %120, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %120 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %120, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit:          ; preds = %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge, %._ZN5Gluco3vecINS_3LitEE8capacityEi.exit_crit_edge.i
@@ -5941,7 +5941,7 @@ define linkonce_odr void @_ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13Clause
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i
   %12 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 0, ptr %12, align 8
-  tail call void @free(ptr noundef nonnull %11) #23
+  tail call void @free(ptr noundef nonnull %11) #24
   store ptr null, ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 12
   store i32 0, ptr %13, align 4
@@ -5962,7 +5962,7 @@ _ZN5Gluco3vecIjED2Ev.exit.i:                      ; preds = %.preheader.i.i.i, %
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.preheader.i
   %17 = phi ptr [ %.pre, %._crit_edge.i.loopexit ], [ %4, %.preheader.i ]
   store i32 0, ptr %5, align 8
-  tail call void @free(ptr noundef %17) #23
+  tail call void @free(ptr noundef %17) #24
   store ptr null, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %18, align 4
@@ -5977,7 +5977,7 @@ _ZN5Gluco3vecINS0_IjEEE5clearEb.exit:             ; preds = %3, %._crit_edge.i
 .preheader.i5:                                    ; preds = %_ZN5Gluco3vecINS0_IjEEE5clearEb.exit
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %21, align 8
-  tail call void @free(ptr noundef nonnull %20) #23
+  tail call void @free(ptr noundef nonnull %20) #24
   store ptr null, ptr %19, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %22, align 4
@@ -5992,7 +5992,7 @@ _ZN5Gluco3vecIcE5clearEb.exit:                    ; preds = %_ZN5Gluco3vecINS0_I
 .preheader.i7:                                    ; preds = %_ZN5Gluco3vecIcE5clearEb.exit
   %25 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %25, align 8
-  tail call void @free(ptr noundef nonnull %24) #23
+  tail call void @free(ptr noundef nonnull %24) #24
   store ptr null, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 0, ptr %26, align 4
@@ -6279,27 +6279,27 @@ define void @_ZN5Gluco10SimpSolver8relocAllERNS_15ClauseAllocatorE(ptr noundef n
   br i1 %.not6.i, label %.preheader.i, label %67, !llvm.loop !58
 
 67:                                               ; preds = %60
-  %68 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %68, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %68 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %68, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 69:                                               ; preds = %.preheader.i
   %70 = load ptr, ptr %1, align 8
   %71 = zext i32 %58 to i64
   %72 = shl nuw nsw i64 %71, 2
-  %73 = tail call ptr @realloc(ptr noundef %70, i64 noundef %72) #26
+  %73 = tail call ptr @realloc(ptr noundef %70, i64 noundef %72) #27
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %_ZN5GlucoL8xreallocEPvm.exit.i
 
 75:                                               ; preds = %69
-  %76 = tail call ptr @__errno_location() #22
+  %76 = tail call ptr @__errno_location() #23
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, 12
   br i1 %78, label %79, label %_ZN5GlucoL8xreallocEPvm.exit.i
 
 79:                                               ; preds = %75
-  %80 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %80, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %80 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %80, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5GlucoL8xreallocEPvm.exit.i:                   ; preds = %75, %69
@@ -6316,8 +6316,8 @@ _ZN5Gluco15RegionAllocatorIjE8capacityEj.exit:    ; preds = %44, %_ZN5GlucoL8xre
   br i1 %82, label %83, label %_ZN5Gluco15RegionAllocatorIjE5allocEi.exit.i
 
 83:                                               ; preds = %_ZN5Gluco15RegionAllocatorIjE8capacityEj.exit
-  %84 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %84, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %84 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %84, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco15RegionAllocatorIjE5allocEi.exit.i:     ; preds = %_ZN5Gluco15RegionAllocatorIjE8capacityEj.exit
@@ -6743,7 +6743,7 @@ define void @_ZN5Gluco10SimpSolver14garbageCollectEv(ptr noundef nonnull align 8
   br i1 %.not.i.i, label %_ZN5Gluco15ClauseAllocatorD2Ev.exit, label %28
 
 28:                                               ; preds = %25
-  call void @free(ptr noundef nonnull %27) #23
+  call void @free(ptr noundef nonnull %27) #24
   br label %_ZN5Gluco15ClauseAllocatorD2Ev.exit
 
 _ZN5Gluco15ClauseAllocatorD2Ev.exit:              ; preds = %25, %28
@@ -6758,7 +6758,7 @@ _ZN5Gluco15ClauseAllocatorD2Ev.exit:              ; preds = %25, %28
   br i1 %.not.i.i2, label %_ZN5Gluco15ClauseAllocatorD2Ev.exit4, label %33
 
 33:                                               ; preds = %29
-  call void @free(ptr noundef nonnull %32) #23
+  call void @free(ptr noundef nonnull %32) #24
   br label %_ZN5Gluco15ClauseAllocatorD2Ev.exit4
 
 _ZN5Gluco15ClauseAllocatorD2Ev.exit4:             ; preds = %29, %33
@@ -6915,14 +6915,14 @@ _ZN5Gluco3vecIcE5clearEb.exit10:                  ; preds = %_ZN5Gluco5QueueIjE5
   br i1 %51, label %52, label %_ZN5Gluco3vecINS_3LitEE6growToEiRKS1_.exit
 
 52:                                               ; preds = %48
-  %53 = tail call ptr @__errno_location() #22
+  %53 = tail call ptr @__errno_location() #23
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 12
   br i1 %55, label %56, label %_ZN5Gluco3vecINS_3LitEE6growToEiRKS1_.exit
 
 56:                                               ; preds = %52
-  %57 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %57, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %57 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %57, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecINS_3LitEE6growToEiRKS1_.exit:       ; preds = %48, %52
@@ -6945,7 +6945,7 @@ _ZN5Gluco3vecINS_3LitEE6growToEiRKS1_.exit:       ; preds = %48, %52
 
 .preheader.i.i15:                                 ; preds = %61
   store i32 0, ptr %49, align 8
-  call void @free(ptr noundef nonnull %64) #23
+  call void @free(ptr noundef nonnull %64) #24
   br label %_ZN5Gluco3vecINS_3LitEED2Ev.exit
 
 _ZN5Gluco3vecINS_3LitEED2Ev.exit:                 ; preds = %61, %.preheader.i.i15
@@ -6960,7 +6960,7 @@ _ZN5Gluco3vecINS_3LitEED2Ev.exit:                 ; preds = %61, %.preheader.i.i
 
 .preheader.i.i17:                                 ; preds = %65
   store i32 0, ptr %49, align 8
-  call void @free(ptr noundef nonnull %67) #23
+  call void @free(ptr noundef nonnull %67) #24
   br label %_ZN5Gluco3vecINS_3LitEED2Ev.exit18
 
 _ZN5Gluco3vecINS_3LitEED2Ev.exit18:               ; preds = %65, %.preheader.i.i17
@@ -6985,14 +6985,14 @@ define linkonce_odr void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull al
   br i1 %11, label %12, label %_ZN5Gluco6Option13getOptionListEv.exit, !prof !63
 
 12:                                               ; preds = %5
-  %13 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5Gluco6Option13getOptionListEvE7options) #23
+  %13 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5Gluco6Option13getOptionListEvE7options) #24
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %_ZN5Gluco6Option13getOptionListEv.exit, label %14
 
 14:                                               ; preds = %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN5Gluco6Option13getOptionListEvE7options, i8 0, i64 16, i1 false)
-  %15 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5Gluco3vecIPNS_6OptionEED2Ev, ptr nonnull @_ZZN5Gluco6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #23
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5Gluco6Option13getOptionListEvE7options) #23
+  %15 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5Gluco3vecIPNS_6OptionEED2Ev, ptr nonnull @_ZZN5Gluco6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #24
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5Gluco6Option13getOptionListEvE7options) #24
   br label %_ZN5Gluco6Option13getOptionListEv.exit
 
 _ZN5Gluco6Option13getOptionListEv.exit:           ; preds = %5, %12, %14
@@ -7020,7 +7020,7 @@ _ZN5Gluco6Option13getOptionListEv.exit:           ; preds = %5, %12, %14
   store i32 %28, ptr getelementptr inbounds (i8, ptr @_ZZN5Gluco6Option13getOptionListEvE7options, i64 12), align 4
   %29 = sext i32 %28 to i64
   %30 = shl nsw i64 %29, 3
-  %31 = tail call ptr @realloc(ptr noundef %27, i64 noundef %30) #26
+  %31 = tail call ptr @realloc(ptr noundef %27, i64 noundef %30) #27
   store ptr %31, ptr @_ZZN5Gluco6Option13getOptionListEvE7options, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %._ZN5Gluco3vecIPNS_6OptionEE4pushERKS2_.exit_crit_edge
@@ -7030,15 +7030,15 @@ _ZN5Gluco6Option13getOptionListEv.exit:           ; preds = %5, %12, %14
   br label %_ZN5Gluco3vecIPNS_6OptionEE4pushERKS2_.exit
 
 33:                                               ; preds = %26
-  %34 = tail call ptr @__errno_location() #22
+  %34 = tail call ptr @__errno_location() #23
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 12
   tail call void @llvm.assume(i1 %36)
   br label %37
 
 37:                                               ; preds = %33, %19
-  %38 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %38, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %38 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %38, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIPNS_6OptionEE4pushERKS2_.exit:      ; preds = %._ZN5Gluco3vecIPNS_6OptionEE4pushERKS2_.exit_crit_edge, %._ZN5Gluco3vecIPNS_6OptionEE8capacityEi.exit_crit_edge.i
@@ -7054,7 +7054,7 @@ _ZN5Gluco3vecIPNS_6OptionEE4pushERKS2_.exit:      ; preds = %._ZN5Gluco3vecIPNS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Gluco10BoolOptionD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
 
@@ -7092,7 +7092,7 @@ _ZN5GlucoL5matchIPKcEEbRT_S2_.exit11:             ; preds = %.lr.ph.i4, %._crit_
   %.1 = phi ptr [ %11, %._crit_edge.i10 ], [ %4, %.lr.ph.i4 ]
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(1) %13) #27
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(1) %13) #28
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %_ZN5GlucoL5matchIPKcEEbRT_S2_.exit
 
@@ -7112,9 +7112,9 @@ define linkonce_odr void @_ZN5Gluco10BoolOption4helpEb(ptr noundef nonnull align
   %3 = load ptr, ptr @stderr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.33, ptr noundef %5, ptr noundef %5) #28
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.33, ptr noundef %5, ptr noundef %5) #29
   %7 = load ptr, ptr %4, align 8
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #27
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #28
   %.mask = and i64 %8, 9223372036854775807
   %.not = icmp eq i64 %.mask, 16
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -7126,7 +7126,7 @@ define linkonce_odr void @_ZN5Gluco10BoolOption4helpEb(ptr noundef nonnull align
   %10 = add i32 %.05, 1
   %11 = zext i32 %10 to i64
   %12 = load ptr, ptr %4, align 8
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #27
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #28
   %14 = shl i64 %13, 1
   %15 = sub i64 32, %14
   %16 = icmp ugt i64 %15, %11
@@ -7140,14 +7140,14 @@ define linkonce_odr void @_ZN5Gluco10BoolOption4helpEb(ptr noundef nonnull align
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
   %22 = select i1 %21, ptr @.str.36, ptr @.str.37
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.35, ptr noundef nonnull %22) #28
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.35, ptr noundef nonnull %22) #29
   br i1 %1, label %24, label %30
 
 24:                                               ; preds = %._crit_edge
   %25 = load ptr, ptr @stderr, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.38, ptr noundef %27) #28
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.38, ptr noundef %27) #29
   %29 = load ptr, ptr @stderr, align 8
   %fputc3 = tail call i32 @fputc(i32 10, ptr %29)
   br label %30
@@ -7163,7 +7163,7 @@ define linkonce_odr void @_ZN5Gluco6OptionD2Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Gluco6OptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @llvm.trap() #29
+  tail call void @llvm.trap() #30
   unreachable
 }
 
@@ -7181,7 +7181,7 @@ define linkonce_odr void @_ZN5Gluco3vecIPNS_6OptionEED2Ev(ptr noundef nonnull al
 .preheader.i:                                     ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  tail call void @free(ptr noundef nonnull %2) #23
+  tail call void @free(ptr noundef nonnull %2) #24
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %4, align 4
@@ -7205,20 +7205,21 @@ declare ptr @__errno_location() local_unnamed_addr #11
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #12
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #12
+declare void @llvm.trap() #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Gluco9IntOptionD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
 
@@ -7262,7 +7263,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Gluco9IntOption5parseEPKc(ptr nounde
 
 17:                                               ; preds = %.loopexit
   %18 = getelementptr inbounds i8, ptr %15, i64 1
-  %19 = call i64 @strtol(ptr noundef nonnull %18, ptr noundef nonnull %2, i32 noundef 10) #23
+  %19 = call i64 @strtol(ptr noundef nonnull %18, ptr noundef nonnull %2, i32 noundef 10) #24
   %20 = trunc i64 %19 to i32
   %21 = load ptr, ptr %2, align 8
   %22 = icmp eq ptr %21, null
@@ -7277,8 +7278,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5Gluco9IntOption5parseEPKc(ptr nounde
 27:                                               ; preds = %23
   %28 = load ptr, ptr @stderr, align 8
   %29 = load ptr, ptr %6, align 8
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.42, ptr noundef nonnull %18, ptr noundef %29) #28
-  tail call void @exit(i32 noundef 1) #30
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.42, ptr noundef nonnull %18, ptr noundef %29) #29
+  tail call void @exit(i32 noundef 1) #31
   unreachable
 
 31:                                               ; preds = %23
@@ -7290,8 +7291,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5Gluco9IntOption5parseEPKc(ptr nounde
 35:                                               ; preds = %31
   %36 = load ptr, ptr @stderr, align 8
   %37 = load ptr, ptr %6, align 8
-  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.43, ptr noundef nonnull %18, ptr noundef %37) #28
-  tail call void @exit(i32 noundef 1) #30
+  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.43, ptr noundef nonnull %18, ptr noundef %37) #29
+  tail call void @exit(i32 noundef 1) #31
   unreachable
 
 39:                                               ; preds = %31
@@ -7311,7 +7312,7 @@ define linkonce_odr void @_ZN5Gluco9IntOption4helpEb(ptr noundef nonnull align 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.44, ptr noundef %5, ptr noundef %7) #28
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.44, ptr noundef %5, ptr noundef %7) #29
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, -2147483648
@@ -7319,16 +7320,16 @@ define linkonce_odr void @_ZN5Gluco9IntOption4helpEb(ptr noundef nonnull align 8
   br i1 %11, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 4, i64 1, ptr %12) #31
+  %14 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 4, i64 1, ptr %12) #32
   br label %17
 
 15:                                               ; preds = %2
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.46, i32 noundef %10) #28
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.46, i32 noundef %10) #29
   br label %17
 
 17:                                               ; preds = %15, %13
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 4, i64 1, ptr %18) #31
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 4, i64 1, ptr %18) #32
   %20 = getelementptr inbounds i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 2147483647
@@ -7336,25 +7337,25 @@ define linkonce_odr void @_ZN5Gluco9IntOption4helpEb(ptr noundef nonnull align 8
   br i1 %22, label %24, label %26
 
 24:                                               ; preds = %17
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 4, i64 1, ptr %23) #31
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 4, i64 1, ptr %23) #32
   br label %28
 
 26:                                               ; preds = %17
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.46, i32 noundef %21) #28
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.46, i32 noundef %21) #29
   br label %28
 
 28:                                               ; preds = %26, %24
   %29 = load ptr, ptr @stderr, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 48
   %31 = load i32, ptr %30, align 8
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.49, i32 noundef %31) #28
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.49, i32 noundef %31) #29
   br i1 %1, label %33, label %39
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr @stderr, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.38, ptr noundef %36) #28
+  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.38, ptr noundef %36) #29
   %38 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %38)
   br label %39
@@ -7364,14 +7365,14 @@ define linkonce_odr void @_ZN5Gluco9IntOption4helpEb(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #14
+declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #15
+declare void @exit(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Gluco12DoubleOptionD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
 
@@ -7415,7 +7416,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Gluco12DoubleOption5parseEPKc(ptr no
 
 17:                                               ; preds = %.loopexit
   %18 = getelementptr inbounds i8, ptr %15, i64 1
-  %19 = call double @strtod(ptr noundef nonnull %18, ptr noundef nonnull %2) #23
+  %19 = call double @strtod(ptr noundef nonnull %18, ptr noundef nonnull %2) #24
   %20 = load ptr, ptr %2, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %_ZN5GlucoL5matchIPKcEEbRT_S2_.exit, label %22
@@ -7438,8 +7439,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5Gluco12DoubleOption5parseEPKc(ptr no
 32:                                               ; preds = %27
   %33 = load ptr, ptr @stderr, align 8
   %34 = load ptr, ptr %6, align 8
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.42, ptr noundef nonnull %18, ptr noundef %34) #28
-  tail call void @exit(i32 noundef 1) #30
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.42, ptr noundef nonnull %18, ptr noundef %34) #29
+  tail call void @exit(i32 noundef 1) #31
   unreachable
 
 36:                                               ; preds = %27, %22
@@ -7458,8 +7459,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5Gluco12DoubleOption5parseEPKc(ptr no
 44:                                               ; preds = %39
   %45 = load ptr, ptr @stderr, align 8
   %46 = load ptr, ptr %6, align 8
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.43, ptr noundef nonnull %18, ptr noundef %46) #28
-  tail call void @exit(i32 noundef 1) #30
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.43, ptr noundef nonnull %18, ptr noundef %46) #29
+  tail call void @exit(i32 noundef 1) #31
   unreachable
 
 48:                                               ; preds = %39, %36
@@ -7493,14 +7494,14 @@ define linkonce_odr void @_ZN5Gluco12DoubleOption4helpEb(ptr noundef nonnull ali
   %19 = select i1 %18, i32 93, i32 41
   %20 = getelementptr inbounds i8, ptr %0, i64 64
   %21 = load double, ptr %20, align 8
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.51, ptr noundef %5, ptr noundef %7, i32 noundef %12, double noundef %13, double noundef %15, i32 noundef %19, double noundef %21) #28
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.51, ptr noundef %5, ptr noundef %7, i32 noundef %12, double noundef %13, double noundef %15, i32 noundef %19, double noundef %21) #29
   br i1 %1, label %23, label %29
 
 23:                                               ; preds = %2
   %24 = load ptr, ptr @stderr, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.38, ptr noundef %26) #28
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.38, ptr noundef %26) #29
   %28 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %28)
   br label %29
@@ -7510,7 +7511,7 @@ define linkonce_odr void @_ZN5Gluco12DoubleOption4helpEb(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #14
+declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE6updateEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
@@ -7798,7 +7799,7 @@ define linkonce_odr void @_ZN5Gluco4HeapINS_6Solver10VarOrderLtEE6insertEi(ptr n
   store i32 %24, ptr %12, align 4
   %25 = sext i32 %24 to i64
   %26 = shl nsw i64 %25, 2
-  %27 = call ptr @realloc(ptr noundef %23, i64 noundef %26) #26
+  %27 = call ptr @realloc(ptr noundef %23, i64 noundef %26) #27
   store ptr %27, ptr %6, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge
@@ -7808,15 +7809,15 @@ define linkonce_odr void @_ZN5Gluco4HeapINS_6Solver10VarOrderLtEE6insertEi(ptr n
   br label %_ZN5Gluco3vecIiE4pushERKi.exit
 
 29:                                               ; preds = %22
-  %30 = tail call ptr @__errno_location() #22
+  %30 = tail call ptr @__errno_location() #23
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 12
   call void @llvm.assume(i1 %32)
   br label %33
 
 33:                                               ; preds = %29, %15
-  %34 = call ptr @__cxa_allocate_exception(i64 1) #23
-  call void @__cxa_throw(ptr %34, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %34 = call ptr @__cxa_allocate_exception(i64 1) #24
+  call void @__cxa_throw(ptr %34, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i
@@ -7915,20 +7916,20 @@ define linkonce_odr void @_ZN5Gluco3vecIiE6growToEiRKi(ptr noundef nonnull align
   store i32 %21, ptr %7, align 4
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 2
-  %24 = tail call ptr @realloc(ptr noundef %20, i64 noundef %23) #26
+  %24 = tail call ptr @realloc(ptr noundef %20, i64 noundef %23) #27
   store ptr %24, ptr %0, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %_ZN5Gluco3vecIiE8capacityEi.exit
 
 26:                                               ; preds = %19
-  %27 = tail call ptr @__errno_location() #22
+  %27 = tail call ptr @__errno_location() #23
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 12
   br i1 %29, label %30, label %_ZN5Gluco3vecIiE8capacityEi.exit
 
 30:                                               ; preds = %26, %9
-  %31 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %31, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %31 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %31, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIiE8capacityEi.exit:                 ; preds = %6, %19, %26
@@ -7984,8 +7985,8 @@ define linkonce_odr noundef i32 @_ZN5Gluco15ClauseAllocator5allocINS_6ClauseEEEj
   br i1 %20, label %21, label %_ZN5Gluco15RegionAllocatorIjE5allocEi.exit
 
 21:                                               ; preds = %3
-  %22 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %22, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %22 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %22, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco15RegionAllocatorIjE5allocEi.exit:       ; preds = %3
@@ -8105,27 +8106,27 @@ define linkonce_odr void @_ZN5Gluco15RegionAllocatorIjE8capacityEj(ptr noundef n
   br i1 %.not6, label %.preheader, label %14, !llvm.loop !58
 
 14:                                               ; preds = %7
-  %15 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %15, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %15 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %15, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 16:                                               ; preds = %.preheader
   %17 = load ptr, ptr %0, align 8
   %18 = zext i32 %5 to i64
   %19 = shl nuw nsw i64 %18, 2
-  %20 = tail call ptr @realloc(ptr noundef %17, i64 noundef %19) #26
+  %20 = tail call ptr @realloc(ptr noundef %17, i64 noundef %19) #27
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %_ZN5GlucoL8xreallocEPvm.exit
 
 22:                                               ; preds = %16
-  %23 = tail call ptr @__errno_location() #22
+  %23 = tail call ptr @__errno_location() #23
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 12
   br i1 %25, label %26, label %_ZN5GlucoL8xreallocEPvm.exit
 
 26:                                               ; preds = %22
-  %27 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %27, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %27 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %27, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5GlucoL8xreallocEPvm.exit:                     ; preds = %16, %22
@@ -8167,20 +8168,20 @@ define linkonce_odr void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 
   store i32 %20, ptr %6, align 4
   %21 = sext i32 %20 to i64
   %22 = shl nsw i64 %21, 2
-  %23 = tail call ptr @realloc(ptr noundef %19, i64 noundef %22) #26
+  %23 = tail call ptr @realloc(ptr noundef %19, i64 noundef %22) #27
   store ptr %23, ptr %0, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %_ZN5Gluco3vecIjE8capacityEi.exit
 
 25:                                               ; preds = %18
-  %26 = tail call ptr @__errno_location() #22
+  %26 = tail call ptr @__errno_location() #23
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 12
   br i1 %28, label %29, label %_ZN5Gluco3vecIjE8capacityEi.exit
 
 29:                                               ; preds = %25, %8
-  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %30, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %30, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIjE8capacityEi.exit:                 ; preds = %5, %18, %25
@@ -8241,20 +8242,20 @@ define linkonce_odr void @_ZN5Gluco3vecINS0_IjEEE6growToEi(ptr noundef nonnull a
   store i32 %20, ptr %6, align 4
   %21 = sext i32 %20 to i64
   %22 = shl nsw i64 %21, 4
-  %23 = tail call ptr @realloc(ptr noundef %19, i64 noundef %22) #26
+  %23 = tail call ptr @realloc(ptr noundef %19, i64 noundef %22) #27
   store ptr %23, ptr %0, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %_ZN5Gluco3vecINS0_IjEEE8capacityEi.exit
 
 25:                                               ; preds = %18
-  %26 = tail call ptr @__errno_location() #22
+  %26 = tail call ptr @__errno_location() #23
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 12
   br i1 %28, label %29, label %_ZN5Gluco3vecINS0_IjEEE8capacityEi.exit
 
 29:                                               ; preds = %25, %8
-  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %30, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %30, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecINS0_IjEEE8capacityEi.exit:          ; preds = %5, %18, %25
@@ -8314,20 +8315,20 @@ define linkonce_odr void @_ZN5Gluco3vecIcE6growToEiRKc(ptr noundef nonnull align
   %21 = add nsw i32 %16, %8
   store i32 %21, ptr %7, align 4
   %22 = sext i32 %21 to i64
-  %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #26
+  %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #27
   store ptr %23, ptr %0, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %_ZN5Gluco3vecIcE8capacityEi.exit
 
 25:                                               ; preds = %19
-  %26 = tail call ptr @__errno_location() #22
+  %26 = tail call ptr @__errno_location() #23
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 12
   br i1 %28, label %29, label %_ZN5Gluco3vecIcE8capacityEi.exit
 
 29:                                               ; preds = %25, %9
-  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #23
-  tail call void @__cxa_throw(ptr %30, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #24
+  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #24
+  tail call void @__cxa_throw(ptr %30, ptr nonnull @_ZTIN5Gluco20OutOfMemoryExceptionE, ptr null) #25
   unreachable
 
 _ZN5Gluco3vecIcE8capacityEi.exit:                 ; preds = %6, %19, %25
@@ -8359,7 +8360,7 @@ _ZN5Gluco3vecIcE8capacityEi.exit:                 ; preds = %6, %19, %25
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_SimpSolver.cpp() #16 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_SimpSolver.cpp() #17 section ".text.startup" {
   tail call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL13opt_use_asymm, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco10BoolOptionE, i64 16), ptr @_ZL13opt_use_asymm, align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL13opt_use_asymm, i64 40), align 8
@@ -8401,28 +8402,28 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
+declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #19
+declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #20
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+declare i32 @llvm.umax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #18
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
@@ -8436,26 +8437,27 @@ attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(read, arg
 attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #20 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { nounwind willreturn memory(none) }
-attributes #23 = { nounwind }
-attributes #24 = { noreturn }
-attributes #25 = { builtin nounwind }
-attributes #26 = { nounwind allocsize(1) }
-attributes #27 = { nounwind willreturn memory(read) }
-attributes #28 = { cold nounwind }
-attributes #29 = { noreturn nounwind }
-attributes #30 = { cold noreturn nounwind }
-attributes #31 = { cold }
+attributes #12 = { cold noreturn }
+attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #21 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { nounwind willreturn memory(none) }
+attributes #24 = { nounwind }
+attributes #25 = { noreturn }
+attributes #26 = { builtin nounwind }
+attributes #27 = { nounwind allocsize(1) }
+attributes #28 = { nounwind willreturn memory(read) }
+attributes #29 = { cold nounwind }
+attributes #30 = { noreturn nounwind }
+attributes #31 = { cold noreturn nounwind }
+attributes #32 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

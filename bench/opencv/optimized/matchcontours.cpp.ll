@@ -94,9 +94,9 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %32 = fcmp olt double %19, 0.000000e+00
   %. = select i1 %32, double -1.000000e+00, double 0.000000e+00
   %.094 = select i1 %31, double 1.000000e+00, double %.
-  %33 = call double @log10(double noundef %20) #9
+  %33 = call double @log10(double noundef %20) #10
   %34 = fmul double %.094, %33
-  %35 = call double @log10(double noundef %23) #9
+  %35 = call double @log10(double noundef %23) #10
   %36 = fmul double %.097, %35
   %37 = fdiv double 1.000000e+00, %36
   %38 = fdiv double 1.000000e+00, %34
@@ -140,8 +140,8 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %57 = fcmp olt double %44, 0.000000e+00
   %.116 = select i1 %57, double -1.000000e+00, double 0.000000e+00
   %.195 = select i1 %56, double 1.000000e+00, double %.116
-  %58 = call double @log10(double noundef %45) #9
-  %59 = call double @log10(double noundef %48) #9
+  %58 = call double @log10(double noundef %45) #10
+  %59 = call double @log10(double noundef %48) #10
   %60 = fmul double %.198, %59
   %61 = fmul double %.195, %58
   %62 = fsub double %60, %61
@@ -184,9 +184,9 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %80 = fcmp olt double %67, 0.000000e+00
   %.119 = select i1 %80, double -1.000000e+00, double 0.000000e+00
   %.296 = select i1 %79, double 1.000000e+00, double %.119
-  %81 = call double @log10(double noundef %68) #9
+  %81 = call double @log10(double noundef %68) #10
   %82 = fmul double %.296, %81
-  %83 = call double @log10(double noundef %71) #9
+  %83 = call double @log10(double noundef %71) #10
   %84 = fmul double %.299, %83
   %85 = fsub double %82, %84
   %86 = fdiv double %85, %82
@@ -204,12 +204,12 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   br i1 %exitcond.not, label %.loopexit, label %.preheader124, !llvm.loop !7
 
 91:                                               ; preds = %15
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %92 unwind label %94
 
 92:                                               ; preds = %91
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -5, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv11matchShapesERKNS_11_InputArrayES2_id, ptr noundef nonnull @.str.1, i32 noundef 161) #10
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -5, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv11matchShapesERKNS_11_InputArrayES2_id, ptr noundef nonnull @.str.1, i32 noundef 161) #11
           to label %93 unwind label %96
 
 93:                                               ; preds = %92
@@ -223,12 +223,12 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
 96:                                               ; preds = %92
   %97 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #10
   br label %98
 
 98:                                               ; preds = %96, %94
   %.pn = phi { ptr, i32 } [ %97, %96 ], [ %95, %94 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #10
   br label %107
 
 .loopexit:                                        ; preds = %90, %65, %42
@@ -248,7 +248,7 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #11
+  call void @__clang_call_terminate(ptr %104) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %101
@@ -260,7 +260,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %101
 
 107:                                              ; preds = %98, %16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %98 ], [ %17, %16 ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #9
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #10
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -310,7 +310,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #11
+  tail call void @__clang_call_terminate(ptr %8) #12
   unreachable
 }
 
@@ -356,8 +356,8 @@ define noundef double @cvMatchShapes(ptr noundef %0, ptr noundef %1, i32 noundef
           to label %24 unwind label %37
 
 24:                                               ; preds = %16
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #9
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #9
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #10
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #10
   %25 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %25, %13
   br i1 %.not.i.i, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit, label %26
@@ -367,7 +367,7 @@ define noundef double @cvMatchShapes(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %26
-  call void @_ZdaPv(ptr noundef nonnull %25) #12
+  call void @_ZdaPv(ptr noundef nonnull %25) #13
   br label %29
 
 29:                                               ; preds = %28, %26
@@ -383,7 +383,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %24, %29
   br i1 %or.cond, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit14, label %32
 
 32:                                               ; preds = %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %30) #12
+  call void @_ZdaPv(ptr noundef nonnull %30) #13
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit14
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit14:           ; preds = %32, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
@@ -402,12 +402,12 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit14:           ; preds = %32, %_ZN2cv10AutoBu
 37:                                               ; preds = %16
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #9
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #10
   br label %39
 
 39:                                               ; preds = %37, %35
   %.pn.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %36, %35 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #9
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #10
   br label %40
 
 40:                                               ; preds = %39, %33
@@ -421,7 +421,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit14:           ; preds = %32, %_ZN2cv10AutoBu
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #12
+  call void @_ZdaPv(ptr noundef nonnull %41) #13
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -437,7 +437,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit16:           ; preds = %40, %45
   br i1 %or.cond19, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit18, label %48
 
 48:                                               ; preds = %_ZN2cv10AutoBufferIdLm136EED2Ev.exit16
-  call void @_ZdaPv(ptr noundef nonnull %46) #12
+  call void @_ZdaPv(ptr noundef nonnull %46) #13
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit18
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit18:           ; preds = %48, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit16
@@ -453,17 +453,18 @@ declare void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull al
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
-  tail call void @_ZSt9terminatev() #11
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
+  tail call void @_ZSt9terminatev() #12
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -473,11 +474,12 @@ attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { builtin nounwind }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

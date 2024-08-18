@@ -289,7 +289,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %while.cond.preheade
   %segment.013.i = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit.i ], [ %0, %while.cond.preheader.i ]
   %2 = getelementptr inbounds i8, ptr %segment.013.i, i64 8
   %3 = load ptr, ptr %2, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #9
   %4 = load ptr, ptr %mLastSegment.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %while.end.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, !llvm.loop !5
@@ -300,7 +300,7 @@ while.end.i:                                      ; preds = %_ZN5eastl9allocator
 
 delete.notnull.i10.i:                             ; preds = %while.end.i, %while.cond.preheader.i
   %segment.0.lcssa16.i = phi ptr [ %3, %while.end.i ], [ %0, %while.cond.preheader.i ]
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit11.i:     ; preds = %delete.notnull.i10.i, %while.end.i
@@ -329,7 +329,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %while.cond.preheade
   %segment.013 = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit ], [ %0, %while.cond.preheader ]
   %2 = getelementptr inbounds i8, ptr %segment.013, i64 8
   %3 = load ptr, ptr %2, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.013) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.013) #9
   %4 = load ptr, ptr %mLastSegment, align 8
   %cmp.not = icmp eq ptr %3, %4
   br i1 %cmp.not, label %while.end, label %_ZN5eastl9allocator10deallocateEPvm.exit, !llvm.loop !5
@@ -340,7 +340,7 @@ while.end:                                        ; preds = %_ZN5eastl9allocator
 
 delete.notnull.i10:                               ; preds = %while.cond.preheader, %while.end
   %segment.0.lcssa16 = phi ptr [ %3, %while.end ], [ %0, %while.cond.preheader ]
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11
 
 _ZN5eastl9allocator10deallocateEPvm.exit11:       ; preds = %while.end, %delete.notnull.i10
@@ -355,14 +355,15 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
-  tail call void @_ZSt9terminatev() #10
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
+  tail call void @_ZSt9terminatev() #11
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE13get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
@@ -418,7 +419,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE5beginEv(ptr noalias sret(%"struct.eastl::segmented_vector_iterator.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
@@ -791,7 +792,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %entry
   %and = and i64 %4, -2
   %5 = inttoptr i64 %and to ptr
   store ptr %5, ptr %mLastSegment, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #9
   %6 = load ptr, ptr %mLastSegment, align 8
   %tobool5.not = icmp eq ptr %6, null
   br i1 %tobool5.not, label %if.else, label %if.then6
@@ -844,7 +845,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %entry
   %and.i = and i64 %8, -2
   %9 = inttoptr i64 %and.i to ptr
   store ptr %9, ptr %mLastSegment.i, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #9
   %10 = load ptr, ptr %mLastSegment.i, align 8
   %tobool5.not.i = icmp eq ptr %10, null
   br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
@@ -914,7 +915,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %if.end.thread, %if.
   %and.i = and i64 %12, -2
   %13 = inttoptr i64 %and.i to ptr
   store ptr %13, ptr %mLastSegment.i, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %6) #9
   %14 = load ptr, ptr %mLastSegment.i, align 8
   %tobool5.not.i = icmp eq ptr %14, null
   br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
@@ -1003,7 +1004,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %while.cond.preheade
   %segment.013.i = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit.i ], [ %0, %while.cond.preheader.i ]
   %2 = getelementptr inbounds i8, ptr %segment.013.i, i64 8
   %3 = load ptr, ptr %2, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #9
   %4 = load ptr, ptr %mLastSegment.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %while.end.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, !llvm.loop !7
@@ -1014,7 +1015,7 @@ while.end.i:                                      ; preds = %_ZN5eastl9allocator
 
 delete.notnull.i10.i:                             ; preds = %while.end.i, %while.cond.preheader.i
   %segment.0.lcssa16.i = phi ptr [ %3, %while.end.i ], [ %0, %while.cond.preheader.i ]
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit11.i:     ; preds = %delete.notnull.i10.i, %while.end.i
@@ -1043,7 +1044,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %while.cond.preheade
   %segment.013 = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit ], [ %0, %while.cond.preheader ]
   %2 = getelementptr inbounds i8, ptr %segment.013, i64 8
   %3 = load ptr, ptr %2, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.013) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.013) #9
   %4 = load ptr, ptr %mLastSegment, align 8
   %cmp.not = icmp eq ptr %3, %4
   br i1 %cmp.not, label %while.end, label %_ZN5eastl9allocator10deallocateEPvm.exit, !llvm.loop !7
@@ -1054,7 +1055,7 @@ while.end:                                        ; preds = %_ZN5eastl9allocator
 
 delete.notnull.i10:                               ; preds = %while.cond.preheader, %while.end
   %segment.0.lcssa16 = phi ptr [ %3, %while.end ], [ %0, %while.cond.preheader ]
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11
 
 _ZN5eastl9allocator10deallocateEPvm.exit11:       ; preds = %while.end, %delete.notnull.i10
@@ -1488,7 +1489,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %entry
   %and = and i64 %4, -2
   %5 = inttoptr i64 %and to ptr
   store ptr %5, ptr %mLastSegment, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #9
   %6 = load ptr, ptr %mLastSegment, align 8
   %tobool5.not = icmp eq ptr %6, null
   br i1 %tobool5.not, label %if.else, label %if.then6
@@ -1540,7 +1541,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %entry
   %and.i = and i64 %8, -2
   %9 = inttoptr i64 %and.i to ptr
   store ptr %9, ptr %mLastSegment.i, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #9
   %10 = load ptr, ptr %mLastSegment.i, align 8
   %tobool5.not.i = icmp eq ptr %10, null
   br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
@@ -1609,7 +1610,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %if.end.thread, %if.
   %and.i = and i64 %12, -2
   %13 = inttoptr i64 %and.i to ptr
   store ptr %13, ptr %mLastSegment.i, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %6) #9
   %14 = load ptr, ptr %mLastSegment.i, align 8
   %tobool5.not.i = icmp eq ptr %14, null
   br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
@@ -1698,7 +1699,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %while.cond.preheade
   %segment.013.i = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit.i ], [ %0, %while.cond.preheader.i ]
   %2 = getelementptr inbounds i8, ptr %segment.013.i, i64 8
   %3 = load ptr, ptr %2, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #9
   %4 = load ptr, ptr %mLastSegment.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %while.end.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, !llvm.loop !8
@@ -1709,7 +1710,7 @@ while.end.i:                                      ; preds = %_ZN5eastl9allocator
 
 delete.notnull.i10.i:                             ; preds = %while.end.i, %while.cond.preheader.i
   %segment.0.lcssa16.i = phi ptr [ %3, %while.end.i ], [ %0, %while.cond.preheader.i ]
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit11.i:     ; preds = %delete.notnull.i10.i, %while.end.i
@@ -1738,7 +1739,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %while.cond.preheade
   %segment.013 = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit ], [ %0, %while.cond.preheader ]
   %2 = getelementptr inbounds i8, ptr %segment.013, i64 8
   %3 = load ptr, ptr %2, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.013) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.013) #9
   %4 = load ptr, ptr %mLastSegment, align 8
   %cmp.not = icmp eq ptr %3, %4
   br i1 %cmp.not, label %while.end, label %_ZN5eastl9allocator10deallocateEPvm.exit, !llvm.loop !8
@@ -1749,7 +1750,7 @@ while.end:                                        ; preds = %_ZN5eastl9allocator
 
 delete.notnull.i10:                               ; preds = %while.cond.preheader, %while.end
   %segment.0.lcssa16 = phi ptr [ %3, %while.end ], [ %0, %while.cond.preheader ]
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11
 
 _ZN5eastl9allocator10deallocateEPvm.exit11:       ; preds = %while.end, %delete.notnull.i10
@@ -2182,7 +2183,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %entry
   %and = and i64 %4, -2
   %5 = inttoptr i64 %and to ptr
   store ptr %5, ptr %mLastSegment, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #9
   %6 = load ptr, ptr %mLastSegment, align 8
   %tobool5.not = icmp eq ptr %6, null
   br i1 %tobool5.not, label %if.else, label %if.then6
@@ -2234,7 +2235,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %entry
   %and.i = and i64 %8, -2
   %9 = inttoptr i64 %and.i to ptr
   store ptr %9, ptr %mLastSegment.i, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #9
   %10 = load ptr, ptr %mLastSegment.i, align 8
   %tobool5.not.i = icmp eq ptr %10, null
   br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
@@ -2303,7 +2304,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %if.end.thread, %if.
   %and.i = and i64 %12, -2
   %13 = inttoptr i64 %and.i to ptr
   store ptr %13, ptr %mLastSegment.i, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %6) #9
   %14 = load ptr, ptr %mLastSegment.i, align 8
   %tobool5.not.i = icmp eq ptr %14, null
   br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
@@ -2387,7 +2388,7 @@ terminate.lpad:                                   ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #10
+  tail call void @__clang_call_terminate(ptr %1) #11
   unreachable
 }
 
@@ -2438,7 +2439,7 @@ _ZN10TestObjectD2Ev.exit.i:                       ; preds = %if.then.i.i, %array
   br i1 %arraydestroy.done.i, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %arraydestroy.body.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN10TestObjectD2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.015) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.015) #9
   %8 = load ptr, ptr %mLastSegment, align 8
   %cmp.not = icmp eq ptr %3, %8
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !9
@@ -2493,7 +2494,7 @@ for.end:                                          ; preds = %_ZN10TestObjectD2Ev
   br i1 %isnull.i11, label %_ZN5eastl9allocator10deallocateEPvm.exit13, label %delete.notnull.i12
 
 delete.notnull.i12:                               ; preds = %while.end, %for.end
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit13
 
 _ZN5eastl9allocator10deallocateEPvm.exit13:       ; preds = %for.end, %delete.notnull.i12
@@ -2983,7 +2984,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN10TestObjectD2Ev
   %and = and i64 %9, -2
   %10 = inttoptr i64 %and to ptr
   store ptr %10, ptr %mLastSegment, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #9
   %11 = load ptr, ptr %mLastSegment, align 8
   %tobool5.not = icmp eq ptr %11, null
   br i1 %tobool5.not, label %if.else, label %if.then6
@@ -3078,7 +3079,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %_ZN10TestObjectD2Ev
   %and.i = and i64 %15, -2
   %16 = inttoptr i64 %and.i to ptr
   store ptr %16, ptr %mLastSegment.i, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %7) #9
   %17 = load ptr, ptr %mLastSegment.i, align 8
   %tobool5.not.i = icmp eq ptr %17, null
   br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
@@ -3187,7 +3188,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %_ZN10TestObjectD2Ev
   %and.i = and i64 %20, -2
   %21 = inttoptr i64 %and.i to ptr
   store ptr %21, ptr %mLastSegment.i, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #9
   %22 = load ptr, ptr %mLastSegment.i, align 8
   %tobool5.not.i = icmp eq ptr %22, null
   br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
@@ -3664,13 +3665,13 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %while.cond.preheade
   %segment.013.i.i = phi ptr [ %69, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ], [ %22, %while.cond.preheader.i.i ]
   %68 = getelementptr inbounds i8, ptr %segment.013.i.i, i64 8
   %69 = load ptr, ptr %68, align 8
-  call void @_ZdaPv(ptr noundef nonnull %segment.013.i.i) #8
+  call void @_ZdaPv(ptr noundef nonnull %segment.013.i.i) #9
   %cmp.not.i.i = icmp eq ptr %69, %21
   br i1 %cmp.not.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit11.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, !llvm.loop !26
 
 _ZN5eastl9allocator10deallocateEPvm.exit11.i.i:   ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %while.cond.preheader.i.i
   %segment.0.lcssa16.i.i = phi ptr [ %22, %while.cond.preheader.i.i ], [ %69, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ]
-  call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i.i) #8
+  call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i.i) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mFirstSegment.i, i8 0, i64 24, i1 false)
   br label %invoke.cont80
 
@@ -3946,7 +3947,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %invoke.cont146
   %and.i369 = and i64 %114, -2
   %115 = inttoptr i64 %and.i369 to ptr
   store ptr %115, ptr %mLastSegment.i.i223, align 8
-  call void @_ZdaPv(ptr noundef nonnull %102) #8
+  call void @_ZdaPv(ptr noundef nonnull %102) #9
   %116 = load ptr, ptr %mLastSegment.i.i223, align 8
   %tobool5.not.i = icmp eq ptr %116, null
   br i1 %tobool5.not.i, label %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit.thread, label %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit.thread445
@@ -4004,7 +4005,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i385:    ; preds = %while.cond.preheade
   %segment.013.i = phi ptr [ %127, %_ZN5eastl9allocator10deallocateEPvm.exit.i385 ], [ %125, %while.cond.preheader.i ]
   %126 = getelementptr inbounds i8, ptr %segment.013.i, i64 8
   %127 = load ptr, ptr %126, align 8
-  call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #8
+  call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #9
   %cmp.not.i = icmp eq ptr %127, %123
   br i1 %cmp.not.i, label %while.end.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i385, !llvm.loop !27
 
@@ -4014,7 +4015,7 @@ while.end.i:                                      ; preds = %_ZN5eastl9allocator
 
 delete.notnull.i10.i:                             ; preds = %while.end.i, %while.cond.preheader.i
   %segment.0.lcssa16.i = phi ptr [ %127, %while.end.i ], [ %125, %while.cond.preheader.i ]
-  call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #8
+  call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit11.i:     ; preds = %delete.notnull.i10.i, %while.end.i
@@ -4057,7 +4058,7 @@ _ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEED2Ev.exit: ; preds = %invoke.con
 lpad:                                             ; preds = %if.else8.i.i72, %if.else.i.i61, %if.else.i.i36, %if.else.i.i11, %if.else8.i.i, %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit195, %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit179, %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit, %invoke.cont45, %invoke.cont35, %invoke.cont31, %invoke.cont24, %invoke.cont17, %invoke.cont11
   %133 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16segmented_vectorIiLm8ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %sv) #9
+  call void @_ZN5eastl16segmented_vectorIiLm8ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %sv) #10
   br label %eh.resume
 
 lpad81:                                           ; preds = %invoke.cont88, %invoke.cont84, %invoke.cont80
@@ -4065,13 +4066,13 @@ lpad81:                                           ; preds = %invoke.cont88, %inv
           cleanup
   call void @_ZN5eastl16segmented_vectorINS_4listI10TestObjectNS_9allocatorEEELm8ES3_E5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %vectorOfListOfTO)
   call void @_ZN5eastl16segmented_vectorI10TestObjectLm8ENS_9allocatorEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %vectorOfTO)
-  call void @_ZN5eastl16segmented_vectorIiLm8ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %vectorOfInt) #9
+  call void @_ZN5eastl16segmented_vectorIiLm8ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %vectorOfInt) #10
   br label %eh.resume
 
 lpad98:                                           ; preds = %if.else.i.i331, %if.else8.i.i317, %if.else.i.i306, %if.else.i.i281, %if.else.i.i256, %if.else8.i.i238, %invoke.cont167, %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit396, %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE5clearEv.exit, %invoke.cont152, %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit380, %invoke.cont141, %invoke.cont136, %invoke.cont131, %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit360, %invoke.cont109, %invoke.cont104, %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit
   %135 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %vectorOfInt95) #9
+  call void @_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %vectorOfInt95) #10
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad98, %lpad81, %lpad
@@ -4079,7 +4080,7 @@ eh.resume:                                        ; preds = %lpad98, %lpad81, %l
   resume { ptr, i32 } %.pn3
 }
 
-declare noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5eastl16segmented_vectorIiLm8ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4099,7 +4100,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %while.cond.preheade
   %segment.013.i = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit.i ], [ %0, %while.cond.preheader.i ]
   %2 = getelementptr inbounds i8, ptr %segment.013.i, i64 8
   %3 = load ptr, ptr %2, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #9
   %4 = load ptr, ptr %mLastSegment.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %while.end.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, !llvm.loop !26
@@ -4110,7 +4111,7 @@ while.end.i:                                      ; preds = %_ZN5eastl9allocator
 
 delete.notnull.i10.i:                             ; preds = %while.end.i, %while.cond.preheader.i
   %segment.0.lcssa16.i = phi ptr [ %3, %while.end.i ], [ %0, %while.cond.preheader.i ]
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit11.i:     ; preds = %delete.notnull.i10.i, %while.end.i
@@ -4139,7 +4140,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %while.cond.preheade
   %segment.013.i = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit.i ], [ %0, %while.cond.preheader.i ]
   %2 = getelementptr inbounds i8, ptr %segment.013.i, i64 8
   %3 = load ptr, ptr %2, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #9
   %4 = load ptr, ptr %mLastSegment.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %while.end.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, !llvm.loop !27
@@ -4150,7 +4151,7 @@ while.end.i:                                      ; preds = %_ZN5eastl9allocator
 
 delete.notnull.i10.i:                             ; preds = %while.end.i, %while.cond.preheader.i
   %segment.0.lcssa16.i = phi ptr [ %3, %while.end.i ], [ %0, %while.cond.preheader.i ]
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit11.i:     ; preds = %delete.notnull.i10.i, %while.end.i
@@ -4162,11 +4163,11 @@ _ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE5clearEv.exit: ; preds = %entry,
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
-declare noundef ptr @_ZnamPKcijS0_i(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare noundef ptr @_ZnamPKcijS0_i(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare noundef ptr @_ZnammmPKcijS0_i(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare noundef ptr @_ZnammmPKcijS0_i(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5eastl16segmented_vectorI10TestObjectLm8ENS_9allocatorEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
@@ -4215,7 +4216,7 @@ _ZN10TestObjectD2Ev.exit.i:                       ; preds = %if.then.i.i, %array
   br i1 %arraydestroy.done.i, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %arraydestroy.body.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN10TestObjectD2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.015) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.015) #9
   %8 = load ptr, ptr %mLastSegment, align 8
   %cmp.not = icmp eq ptr %3, %8
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !28
@@ -4270,7 +4271,7 @@ for.end:                                          ; preds = %_ZN10TestObjectD2Ev
   br i1 %isnull.i11, label %_ZN5eastl9allocator10deallocateEPvm.exit13, label %delete.notnull.i12
 
 delete.notnull.i12:                               ; preds = %while.end, %for.end
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit13
 
 _ZN5eastl9allocator10deallocateEPvm.exit13:       ; preds = %for.end, %delete.notnull.i12
@@ -4331,7 +4332,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i
   %9 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %inc3.i.i.i.i.i.i = add nsw i64 %9, 1
   store i64 %inc3.i.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %p.05.i.i.i.i) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %p.05.i.i.i.i) #9
   %cmp.not.i.i.i.i = icmp eq ptr %5, %arraydestroy.element.ptr.i
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit.i, label %while.body.i.i.i.i, !llvm.loop !30
 
@@ -4344,7 +4345,7 @@ _ZN5eastl7segmentINS_4listI10TestObjectNS_9allocatorEEELm8ES3_ED2Ev.exit: ; pred
   br i1 %isnull.i, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %_ZN5eastl7segmentINS_4listI10TestObjectNS_9allocatorEEELm8ES3_ED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.015) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.015) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN5eastl7segmentINS_4listI10TestObjectNS_9allocatorEEELm8ES3_ED2Ev.exit, %delete.notnull.i
@@ -4394,7 +4395,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %if.then.i.i.i.i.i, 
   %18 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %inc3.i.i.i.i.i = add nsw i64 %18, 1
   store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %p.05.i.i.i) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %p.05.i.i.i) #9
   %cmp.not.i.i.i = icmp eq ptr %14, %i.017
   br i1 %cmp.not.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit, label %while.body.i.i.i, !llvm.loop !30
 
@@ -4408,7 +4409,7 @@ for.end:                                          ; preds = %_ZN5eastl4listI10Te
   br i1 %isnull.i11, label %_ZN5eastl9allocator10deallocateEPvm.exit13, label %delete.notnull.i12
 
 delete.notnull.i12:                               ; preds = %while.end, %for.end
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa) #8
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit13
 
 _ZN5eastl9allocator10deallocateEPvm.exit13:       ; preds = %for.end, %delete.notnull.i12
@@ -4420,22 +4421,23 @@ if.end:                                           ; preds = %_ZN5eastl9allocator
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { builtin nounwind }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #3 = { cold nofree noreturn }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { builtin nounwind }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

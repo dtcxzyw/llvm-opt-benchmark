@@ -51,7 +51,7 @@ define void @_ZN10BigIntegeraSERKS_(ptr noundef nonnull align 8 dereferenceable(
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %12
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #7
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #8
   %.pre.pre.i.i = load i32, ptr %9, align 4
   br label %17
 
@@ -60,7 +60,7 @@ define void @_ZN10BigIntegeraSERKS_(ptr noundef nonnull align 8 dereferenceable(
   store i32 %8, ptr %6, align 8
   %18 = zext i32 %8 to i64
   %19 = shl nuw nsw i64 %18, 3
-  %20 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #8
+  %20 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #9
   store ptr %20, ptr %13, align 8
   br label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
@@ -100,7 +100,7 @@ define void @_ZN10BigIntegerC2EPKmjNS_4SignE(ptr nocapture noundef nonnull align
   store i32 %2, ptr %6, align 4
   %7 = zext i32 %2 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #8
+  %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #9
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8
   %.not.i.i = icmp eq i32 %2, 0
@@ -161,7 +161,7 @@ _ZN11BigUnsignedC2EPKmj.exit:                     ; preds = %19, %24, %4, %_ZN15
   br i1 %30, label %_ZN11BigUnsignedD2Ev.exit, label %31
 
 31:                                               ; preds = %27
-  tail call void @_ZdaPv(ptr noundef nonnull %29) #7
+  tail call void @_ZdaPv(ptr noundef nonnull %29) #8
   br label %_ZN11BigUnsignedD2Ev.exit
 
 _ZN11BigUnsignedD2Ev.exit:                        ; preds = %27, %31
@@ -173,9 +173,9 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %27, %31
 
 .invoke:                                          ; preds = %_ZN11BigUnsignedC2EPKmj.exit, %26
   %.str.sink = phi ptr [ @.str, %26 ], [ @.str.1, %_ZN11BigUnsignedC2EPKmj.exit ]
-  %34 = tail call ptr @__cxa_allocate_exception(i64 8) #9
+  %34 = tail call ptr @__cxa_allocate_exception(i64 8) #10
   store ptr %.str.sink, ptr %34, align 16
-  invoke void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTIPKc, ptr null) #10
+  invoke void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTIPKc, ptr null) #11
           to label %.cont unwind label %27
 
 .cont:                                            ; preds = %.invoke
@@ -191,7 +191,8 @@ declare i32 @__gxx_personality_v0(...)
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10BigIntegerC2ERK11BigUnsignedNS_4SignE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -203,7 +204,7 @@ define void @_ZN10BigIntegerC2ERK11BigUnsignedNS_4SignE(ptr nocapture noundef no
   store i32 %7, ptr %4, align 8
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 3
-  %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #8
+  %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #9
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8
   %.not.i.i = icmp eq i32 %7, 0
@@ -250,7 +251,7 @@ _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %_ZN11BigUnsignedC2E
   br i1 %28, label %_ZN11BigUnsignedD2Ev.exit, label %29
 
 29:                                               ; preds = %25
-  tail call void @_ZdaPv(ptr noundef nonnull %27) #7
+  tail call void @_ZdaPv(ptr noundef nonnull %27) #8
   br label %_ZN11BigUnsignedD2Ev.exit
 
 _ZN11BigUnsignedD2Ev.exit:                        ; preds = %25, %29
@@ -262,9 +263,9 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %25, %29
 
 .invoke:                                          ; preds = %_ZN11BigUnsignedC2ERKS_.exit, %24
   %.str.2.sink = phi ptr [ @.str.2, %24 ], [ @.str.3, %_ZN11BigUnsignedC2ERKS_.exit ]
-  %32 = tail call ptr @__cxa_allocate_exception(i64 8) #9
+  %32 = tail call ptr @__cxa_allocate_exception(i64 8) #10
   store ptr %.str.2.sink, ptr %32, align 16
-  invoke void @__cxa_throw(ptr nonnull %32, ptr nonnull @_ZTIPKc, ptr null) #10
+  invoke void @__cxa_throw(ptr nonnull %32, ptr nonnull @_ZTIPKc, ptr null) #11
           to label %.cont unwind label %25
 
 .cont:                                            ; preds = %.invoke
@@ -288,7 +289,7 @@ define void @_ZN10BigIntegerC2Em(ptr noundef nonnull align 8 dereferenceable(24)
   ret void
 }
 
-declare void @_ZN11BigUnsignedC1Em(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) unnamed_addr #1
+declare void @_ZN11BigUnsignedC1Em(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10BigIntegerC2Ej(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -302,7 +303,7 @@ define void @_ZN10BigIntegerC2Ej(ptr noundef nonnull align 8 dereferenceable(24)
   ret void
 }
 
-declare void @_ZN11BigUnsignedC1Ej(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #1
+declare void @_ZN11BigUnsignedC1Ej(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10BigIntegerC2Et(ptr noundef nonnull align 8 dereferenceable(24) %0, i16 noundef zeroext %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -316,7 +317,7 @@ define void @_ZN10BigIntegerC2Et(ptr noundef nonnull align 8 dereferenceable(24)
   ret void
 }
 
-declare void @_ZN11BigUnsignedC1Et(ptr noundef nonnull align 8 dereferenceable(16), i16 noundef zeroext) unnamed_addr #1
+declare void @_ZN11BigUnsignedC1Et(ptr noundef nonnull align 8 dereferenceable(16), i16 noundef zeroext) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10BigIntegerC2El(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
@@ -366,9 +367,9 @@ define noundef i64 @_ZNK10BigInteger14toUnsignedLongEv(ptr nocapture noundef non
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @__cxa_allocate_exception(i64 8) #9
+  %5 = tail call ptr @__cxa_allocate_exception(i64 8) #10
   store ptr @.str.6, ptr %5, align 16
-  tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIPKc, ptr null) #10
+  tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIPKc, ptr null) #11
   unreachable
 
 6:                                                ; preds = %1
@@ -386,9 +387,9 @@ define noundef i64 @_ZNK10BigInteger14toUnsignedLongEv(ptr nocapture noundef non
   br label %_ZNK10BigInteger26convertToUnsignedPrimitiveImEET_v.exit
 
 13:                                               ; preds = %6
-  %14 = tail call ptr @__cxa_allocate_exception(i64 8) #9
+  %14 = tail call ptr @__cxa_allocate_exception(i64 8) #10
   store ptr @.str.7, ptr %14, align 16
-  tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTIPKc, ptr null) #10
+  tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTIPKc, ptr null) #11
   unreachable
 
 _ZNK10BigInteger26convertToUnsignedPrimitiveImEET_v.exit: ; preds = %6, %9
@@ -403,9 +404,9 @@ define noundef i32 @_ZNK10BigInteger13toUnsignedIntEv(ptr nocapture noundef nonn
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @__cxa_allocate_exception(i64 8) #9
+  %5 = tail call ptr @__cxa_allocate_exception(i64 8) #10
   store ptr @.str.6, ptr %5, align 16
-  tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIPKc, ptr null) #10
+  tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIPKc, ptr null) #11
   unreachable
 
 6:                                                ; preds = %1
@@ -428,9 +429,9 @@ define noundef i32 @_ZNK10BigInteger13toUnsignedIntEv(ptr nocapture noundef nonn
   br label %_ZNK10BigInteger26convertToUnsignedPrimitiveIjEET_v.exit
 
 16:                                               ; preds = %9, %6
-  %17 = tail call ptr @__cxa_allocate_exception(i64 8) #9
+  %17 = tail call ptr @__cxa_allocate_exception(i64 8) #10
   store ptr @.str.7, ptr %17, align 16
-  tail call void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTIPKc, ptr null) #10
+  tail call void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTIPKc, ptr null) #11
   unreachable
 
 _ZNK10BigInteger26convertToUnsignedPrimitiveIjEET_v.exit: ; preds = %6, %14
@@ -445,9 +446,9 @@ define noundef zeroext i16 @_ZNK10BigInteger15toUnsignedShortEv(ptr nocapture no
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @__cxa_allocate_exception(i64 8) #9
+  %5 = tail call ptr @__cxa_allocate_exception(i64 8) #10
   store ptr @.str.6, ptr %5, align 16
-  tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIPKc, ptr null) #10
+  tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIPKc, ptr null) #11
   unreachable
 
 6:                                                ; preds = %1
@@ -470,9 +471,9 @@ define noundef zeroext i16 @_ZNK10BigInteger15toUnsignedShortEv(ptr nocapture no
   br label %_ZNK10BigInteger26convertToUnsignedPrimitiveItEET_v.exit
 
 16:                                               ; preds = %9, %6
-  %17 = tail call ptr @__cxa_allocate_exception(i64 8) #9
+  %17 = tail call ptr @__cxa_allocate_exception(i64 8) #10
   store ptr @.str.7, ptr %17, align 16
-  tail call void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTIPKc, ptr null) #10
+  tail call void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTIPKc, ptr null) #11
   unreachable
 
 _ZNK10BigInteger26convertToUnsignedPrimitiveItEET_v.exit: ; preds = %6, %14
@@ -509,9 +510,9 @@ _ZNK11BigUnsigned8getBlockEj.exit.i:              ; preds = %4
   br i1 %16, label %_ZNK10BigInteger24convertToSignedPrimitiveIlmEET_v.exit, label %17
 
 17:                                               ; preds = %14, %12, %4
-  %18 = tail call ptr @__cxa_allocate_exception(i64 8) #9
+  %18 = tail call ptr @__cxa_allocate_exception(i64 8) #10
   store ptr @.str.8, ptr %18, align 16
-  tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIPKc, ptr null) #10
+  tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIPKc, ptr null) #11
   unreachable
 
 _ZNK10BigInteger24convertToSignedPrimitiveIlmEET_v.exit: ; preds = %1, %12, %14
@@ -551,9 +552,9 @@ _ZNK11BigUnsigned8getBlockEj.exit.i:              ; preds = %4
   br i1 %or.cond13.i, label %_ZNK10BigInteger24convertToSignedPrimitiveIijEET_v.exit, label %18
 
 18:                                               ; preds = %14, %13, %4
-  %19 = tail call ptr @__cxa_allocate_exception(i64 8) #9
+  %19 = tail call ptr @__cxa_allocate_exception(i64 8) #10
   store ptr @.str.8, ptr %19, align 16
-  tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIPKc, ptr null) #10
+  tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIPKc, ptr null) #11
   unreachable
 
 _ZNK10BigInteger24convertToSignedPrimitiveIijEET_v.exit: ; preds = %1, %13, %14
@@ -593,9 +594,9 @@ _ZNK11BigUnsigned8getBlockEj.exit.i:              ; preds = %4
   br i1 %or.cond12.i, label %_ZNK10BigInteger24convertToSignedPrimitiveIstEET_v.exit, label %18
 
 18:                                               ; preds = %14, %13, %4
-  %19 = tail call ptr @__cxa_allocate_exception(i64 8) #9
+  %19 = tail call ptr @__cxa_allocate_exception(i64 8) #10
   store ptr @.str.8, ptr %19, align 16
-  tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIPKc, ptr null) #10
+  tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIPKc, ptr null) #11
   unreachable
 
 _ZNK10BigInteger24convertToSignedPrimitiveIstEET_v.exit: ; preds = %1, %13, %14
@@ -635,9 +636,9 @@ define noundef i32 @_ZNK10BigInteger9compareToERKS_(ptr noundef nonnull align 8 
   br label %20
 
 18:                                               ; preds = %8
-  %19 = tail call ptr @__cxa_allocate_exception(i64 8) #9
+  %19 = tail call ptr @__cxa_allocate_exception(i64 8) #10
   store ptr @.str.4, ptr %19, align 16
-  tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIPKc, ptr null) #10
+  tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIPKc, ptr null) #11
   unreachable
 
 20:                                               ; preds = %8, %6, %2, %13, %9
@@ -645,7 +646,7 @@ define noundef i32 @_ZNK10BigInteger9compareToERKS_(ptr noundef nonnull align 8 
   ret i32 %.0
 }
 
-declare noundef i32 @_ZNK11BigUnsigned9compareToERKS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
+declare noundef i32 @_ZNK11BigUnsigned9compareToERKS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10BigInteger3addERKS_S1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -686,7 +687,7 @@ define void @_ZN10BigInteger3addERKS_S1_(ptr noundef nonnull align 8 dereference
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %20
-  call void @_ZdaPv(ptr noundef nonnull %22) #7
+  call void @_ZdaPv(ptr noundef nonnull %22) #8
   %.pre.pre.i.i.i = load i32, ptr %17, align 4
   br label %25
 
@@ -695,7 +696,7 @@ define void @_ZN10BigInteger3addERKS_S1_(ptr noundef nonnull align 8 dereference
   store i32 %16, ptr %14, align 8
   %26 = zext i32 %16 to i64
   %27 = shl nuw nsw i64 %26, 3
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #8
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #9
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %25
@@ -733,7 +734,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
   br i1 %43, label %_ZN10BigIntegerD2Ev.exit, label %44
 
 44:                                               ; preds = %_ZN10BigIntegeraSERKS_.exit
-  call void @_ZdaPv(ptr noundef nonnull %42) #7
+  call void @_ZdaPv(ptr noundef nonnull %42) #8
   br label %_ZN10BigIntegerD2Ev.exit
 
 45:                                               ; preds = %25, %8
@@ -768,7 +769,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
   br i1 %64, label %66, label %65
 
 65:                                               ; preds = %61
-  tail call void @_ZdaPv(ptr noundef nonnull %63) #7
+  tail call void @_ZdaPv(ptr noundef nonnull %63) #8
   %.pre.pre.i.i.i37 = load i32, ptr %58, align 4
   br label %66
 
@@ -777,7 +778,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
   store i32 %57, ptr %55, align 8
   %67 = zext i32 %57 to i64
   %68 = shl nuw nsw i64 %67, 3
-  %69 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %68) #8
+  %69 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %68) #9
   store ptr %69, ptr %62, align 8
   br label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i32
 
@@ -827,7 +828,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i32:  ; preds = %66, %54
   br i1 %94, label %96, label %95
 
 95:                                               ; preds = %91
-  tail call void @_ZdaPv(ptr noundef nonnull %93) #7
+  tail call void @_ZdaPv(ptr noundef nonnull %93) #8
   %.pre.pre.i.i.i45 = load i32, ptr %88, align 4
   br label %96
 
@@ -836,7 +837,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i32:  ; preds = %66, %54
   store i32 %87, ptr %85, align 8
   %97 = zext i32 %87 to i64
   %98 = shl nuw nsw i64 %97, 3
-  %99 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %98) #8
+  %99 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %98) #9
   store ptr %99, ptr %92, align 8
   br label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i40
 
@@ -908,7 +909,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i40:  ; preds = %96, %84
   br i1 %134, label %136, label %135
 
 135:                                              ; preds = %131
-  call void @_ZdaPv(ptr noundef nonnull %133) #7
+  call void @_ZdaPv(ptr noundef nonnull %133) #8
   %.pre.pre.i.i = load i32, ptr %128, align 4
   br label %136
 
@@ -917,7 +918,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i40:  ; preds = %96, %84
   store i32 %127, ptr %123, align 8
   %137 = zext i32 %127 to i64
   %138 = shl nuw nsw i64 %137, 3
-  %139 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %138) #8
+  %139 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %138) #9
           to label %.noexc48 unwind label %156
 
 .noexc48:                                         ; preds = %136
@@ -955,7 +956,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %143, %_ZN15Numberli
   br i1 %154, label %_ZN11BigUnsignedD2Ev.exit, label %155
 
 155:                                              ; preds = %_ZN11BigUnsignedaSERKS_.exit
-  call void @_ZdaPv(ptr noundef nonnull %153) #7
+  call void @_ZdaPv(ptr noundef nonnull %153) #8
   br label %_ZN11BigUnsignedD2Ev.exit
 
 _ZN11BigUnsignedD2Ev.exit:                        ; preds = %_ZN11BigUnsignedaSERKS_.exit, %155
@@ -990,7 +991,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %103, %73, %_ZN15Num
 _ZN10BigIntegerD2Ev.exit31.sink.split:            ; preds = %156, %45
   %.sink = phi ptr [ %48, %45 ], [ %159, %156 ]
   %.pn.ph = phi { ptr, i32 } [ %46, %45 ], [ %157, %156 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #7
+  call void @_ZdaPv(ptr noundef nonnull %.sink) #8
   br label %_ZN10BigIntegerD2Ev.exit31
 
 _ZN10BigIntegerD2Ev.exit31:                       ; preds = %_ZN10BigIntegerD2Ev.exit31.sink.split, %156, %45
@@ -998,11 +999,11 @@ _ZN10BigIntegerD2Ev.exit31:                       ; preds = %_ZN10BigIntegerD2Ev
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZN11BigUnsigned3addERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
+declare void @_ZN11BigUnsigned3addERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
-declare void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #1
+declare void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #2
 
-declare void @_ZN11BigUnsigned8subtractERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
+declare void @_ZN11BigUnsigned8subtractERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10BigInteger8subtractERKS_S1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1043,7 +1044,7 @@ define void @_ZN10BigInteger8subtractERKS_S1_(ptr noundef nonnull align 8 derefe
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %20
-  call void @_ZdaPv(ptr noundef nonnull %22) #7
+  call void @_ZdaPv(ptr noundef nonnull %22) #8
   %.pre.pre.i.i.i = load i32, ptr %17, align 4
   br label %25
 
@@ -1052,7 +1053,7 @@ define void @_ZN10BigInteger8subtractERKS_S1_(ptr noundef nonnull align 8 derefe
   store i32 %16, ptr %14, align 8
   %26 = zext i32 %16 to i64
   %27 = shl nuw nsw i64 %26, 3
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #8
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #9
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %25
@@ -1090,7 +1091,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
   br i1 %43, label %_ZN10BigIntegerD2Ev.exit, label %44
 
 44:                                               ; preds = %_ZN10BigIntegeraSERKS_.exit
-  call void @_ZdaPv(ptr noundef nonnull %42) #7
+  call void @_ZdaPv(ptr noundef nonnull %42) #8
   br label %_ZN10BigIntegerD2Ev.exit
 
 45:                                               ; preds = %25, %8
@@ -1123,7 +1124,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
   br i1 %63, label %65, label %64
 
 64:                                               ; preds = %60
-  tail call void @_ZdaPv(ptr noundef nonnull %62) #7
+  tail call void @_ZdaPv(ptr noundef nonnull %62) #8
   %.pre.pre.i.i = load i32, ptr %57, align 4
   br label %65
 
@@ -1132,7 +1133,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
   store i32 %56, ptr %54, align 8
   %66 = zext i32 %56 to i64
   %67 = shl nuw nsw i64 %66, 3
-  %68 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %67) #8
+  %68 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %67) #9
   store ptr %68, ptr %61, align 8
   br label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
@@ -1189,7 +1190,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %72, %_ZN15Numberlik
   br i1 %96, label %98, label %97
 
 97:                                               ; preds = %93
-  tail call void @_ZdaPv(ptr noundef nonnull %95) #7
+  tail call void @_ZdaPv(ptr noundef nonnull %95) #8
   %.pre.pre.i.i.i38 = load i32, ptr %90, align 4
   br label %98
 
@@ -1198,7 +1199,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %72, %_ZN15Numberlik
   store i32 %89, ptr %87, align 8
   %99 = zext i32 %89 to i64
   %100 = shl nuw nsw i64 %99, 3
-  %101 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %100) #8
+  %101 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %100) #9
   store ptr %101, ptr %94, align 8
   br label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i33
 
@@ -1270,7 +1271,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i33:  ; preds = %98, %86
   br i1 %135, label %137, label %136
 
 136:                                              ; preds = %132
-  call void @_ZdaPv(ptr noundef nonnull %134) #7
+  call void @_ZdaPv(ptr noundef nonnull %134) #8
   %.pre.pre.i.i46 = load i32, ptr %129, align 4
   br label %137
 
@@ -1279,7 +1280,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i33:  ; preds = %98, %86
   store i32 %128, ptr %124, align 8
   %138 = zext i32 %128 to i64
   %139 = shl nuw nsw i64 %138, 3
-  %140 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %139) #8
+  %140 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %139) #9
           to label %.noexc48 unwind label %157
 
 .noexc48:                                         ; preds = %137
@@ -1317,7 +1318,7 @@ _ZN11BigUnsignedaSERKS_.exit49:                   ; preds = %144, %_ZN15Numberli
   br i1 %155, label %_ZN11BigUnsignedD2Ev.exit, label %156
 
 156:                                              ; preds = %_ZN11BigUnsignedaSERKS_.exit49
-  call void @_ZdaPv(ptr noundef nonnull %154) #7
+  call void @_ZdaPv(ptr noundef nonnull %154) #8
   br label %_ZN11BigUnsignedD2Ev.exit
 
 _ZN11BigUnsignedD2Ev.exit:                        ; preds = %_ZN11BigUnsignedaSERKS_.exit49, %156
@@ -1353,7 +1354,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %105, %_ZN15Numberli
 _ZN10BigIntegerD2Ev.exit32.sink.split:            ; preds = %157, %45
   %.sink = phi ptr [ %48, %45 ], [ %160, %157 ]
   %.pn.ph = phi { ptr, i32 } [ %46, %45 ], [ %158, %157 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #7
+  call void @_ZdaPv(ptr noundef nonnull %.sink) #8
   br label %_ZN10BigIntegerD2Ev.exit32
 
 _ZN10BigIntegerD2Ev.exit32:                       ; preds = %_ZN10BigIntegerD2Ev.exit32.sink.split, %157, %45
@@ -1400,7 +1401,7 @@ define void @_ZN10BigInteger8multiplyERKS_S1_(ptr noundef nonnull align 8 derefe
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %20
-  call void @_ZdaPv(ptr noundef nonnull %22) #7
+  call void @_ZdaPv(ptr noundef nonnull %22) #8
   %.pre.pre.i.i.i = load i32, ptr %17, align 4
   br label %25
 
@@ -1409,7 +1410,7 @@ define void @_ZN10BigInteger8multiplyERKS_S1_(ptr noundef nonnull align 8 derefe
   store i32 %16, ptr %14, align 8
   %26 = zext i32 %16 to i64
   %27 = shl nuw nsw i64 %26, 3
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #8
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #9
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %25
@@ -1447,7 +1448,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
   br i1 %43, label %_ZN10BigIntegerD2Ev.exit, label %44
 
 44:                                               ; preds = %_ZN10BigIntegeraSERKS_.exit
-  call void @_ZdaPv(ptr noundef nonnull %42) #7
+  call void @_ZdaPv(ptr noundef nonnull %42) #8
   br label %_ZN10BigIntegerD2Ev.exit
 
 45:                                               ; preds = %25, %8
@@ -1491,7 +1492,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
   br i1 %68, label %70, label %69
 
 69:                                               ; preds = %65
-  call void @_ZdaPv(ptr noundef nonnull %67) #7
+  call void @_ZdaPv(ptr noundef nonnull %67) #8
   %.pre.pre.i.i = load i32, ptr %62, align 4
   br label %70
 
@@ -1500,7 +1501,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
   store i32 %61, ptr %57, align 8
   %71 = zext i32 %61 to i64
   %72 = shl nuw nsw i64 %71, 3
-  %73 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %72) #8
+  %73 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %72) #9
           to label %.noexc21 unwind label %90
 
 .noexc21:                                         ; preds = %70
@@ -1538,7 +1539,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %77, %_ZN15Numberlik
   br i1 %88, label %_ZN10BigIntegerD2Ev.exit, label %89
 
 89:                                               ; preds = %_ZN11BigUnsignedaSERKS_.exit
-  call void @_ZdaPv(ptr noundef nonnull %87) #7
+  call void @_ZdaPv(ptr noundef nonnull %87) #8
   br label %_ZN10BigIntegerD2Ev.exit
 
 90:                                               ; preds = %70
@@ -1565,7 +1566,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %89, %_ZN11BigUnsign
 _ZN10BigIntegerD2Ev.exit20.sink.split:            ; preds = %90, %45
   %.sink = phi ptr [ %48, %45 ], [ %93, %90 ]
   %.pn.ph = phi { ptr, i32 } [ %46, %45 ], [ %91, %90 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #7
+  call void @_ZdaPv(ptr noundef nonnull %.sink) #8
   br label %_ZN10BigIntegerD2Ev.exit20
 
 _ZN10BigIntegerD2Ev.exit20:                       ; preds = %_ZN10BigIntegerD2Ev.exit20.sink.split, %90, %45
@@ -1573,7 +1574,7 @@ _ZN10BigIntegerD2Ev.exit20:                       ; preds = %_ZN10BigIntegerD2Ev
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZN11BigUnsigned8multiplyERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
+declare void @_ZN11BigUnsigned8multiplyERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10BigInteger19divideWithRemainderERKS_RS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1584,9 +1585,9 @@ define void @_ZN10BigInteger19divideWithRemainderERKS_RS_(ptr noundef nonnull al
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @__cxa_allocate_exception(i64 8) #9
+  %9 = tail call ptr @__cxa_allocate_exception(i64 8) #10
   store ptr @.str.5, ptr %9, align 16
-  tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIPKc, ptr null) #10
+  tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIPKc, ptr null) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -1606,7 +1607,7 @@ define void @_ZN10BigInteger19divideWithRemainderERKS_RS_(ptr noundef nonnull al
   store i32 %18, ptr %15, align 8
   %19 = zext i32 %18 to i64
   %20 = shl nuw nsw i64 %19, 3
-  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #8
+  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #9
   %22 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %21, ptr %22, align 8
   %.not.i.i.i = icmp eq i32 %18, 0
@@ -1637,7 +1638,7 @@ _ZN10BigIntegerC2ERKS_.exit:                      ; preds = %25, %14
   br i1 %32, label %_ZN10BigIntegerD2Ev.exit, label %33
 
 33:                                               ; preds = %30
-  call void @_ZdaPv(ptr noundef nonnull %31) #7
+  call void @_ZdaPv(ptr noundef nonnull %31) #8
   br label %_ZN10BigIntegerD2Ev.exit
 
 34:                                               ; preds = %_ZN10BigIntegerC2ERKS_.exit
@@ -1673,7 +1674,7 @@ _ZN10BigIntegerC2ERKS_.exit:                      ; preds = %25, %14
   br i1 %52, label %54, label %53
 
 53:                                               ; preds = %49
-  call void @_ZdaPv(ptr noundef nonnull %51) #7
+  call void @_ZdaPv(ptr noundef nonnull %51) #8
   %.pre.pre.i.i = load i32, ptr %46, align 4
   br label %54
 
@@ -1682,7 +1683,7 @@ _ZN10BigIntegerC2ERKS_.exit:                      ; preds = %25, %14
   store i32 %45, ptr %41, align 8
   %55 = zext i32 %45 to i64
   %56 = shl nuw nsw i64 %55, 3
-  %57 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %56) #8
+  %57 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %56) #9
           to label %.noexc unwind label %74
 
 .noexc:                                           ; preds = %54
@@ -1720,7 +1721,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %61, %_ZN15Numberlik
   br i1 %72, label %_ZN11BigUnsignedD2Ev.exit, label %73
 
 73:                                               ; preds = %_ZN11BigUnsignedaSERKS_.exit
-  call void @_ZdaPv(ptr noundef nonnull %71) #7
+  call void @_ZdaPv(ptr noundef nonnull %71) #8
   br label %_ZN11BigUnsignedD2Ev.exit
 
 _ZN11BigUnsignedD2Ev.exit:                        ; preds = %_ZN11BigUnsignedaSERKS_.exit, %73
@@ -1762,7 +1763,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %_ZN11BigUnsignedaSE
   br i1 %94, label %96, label %95
 
 95:                                               ; preds = %91
-  call void @_ZdaPv(ptr noundef nonnull %93) #7
+  call void @_ZdaPv(ptr noundef nonnull %93) #8
   %.pre.pre.i.i38 = load i32, ptr %88, align 4
   br label %96
 
@@ -1771,7 +1772,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %_ZN11BigUnsignedaSE
   store i32 %87, ptr %83, align 8
   %97 = zext i32 %87 to i64
   %98 = shl nuw nsw i64 %97, 3
-  %99 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %98) #8
+  %99 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %98) #9
           to label %.noexc40 unwind label %116
 
 .noexc40:                                         ; preds = %96
@@ -1809,7 +1810,7 @@ _ZN11BigUnsignedaSERKS_.exit41:                   ; preds = %103, %_ZN15Numberli
   br i1 %114, label %_ZN11BigUnsignedD2Ev.exit42, label %115
 
 115:                                              ; preds = %_ZN11BigUnsignedaSERKS_.exit41
-  call void @_ZdaPv(ptr noundef nonnull %113) #7
+  call void @_ZdaPv(ptr noundef nonnull %113) #8
   br label %_ZN11BigUnsignedD2Ev.exit42
 
 _ZN11BigUnsignedD2Ev.exit42:                      ; preds = %_ZN11BigUnsignedaSERKS_.exit41, %115
@@ -1877,7 +1878,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %33, %30, %141, %133
 _ZN10BigIntegerD2Ev.exit31.sink.split:            ; preds = %116, %74, %34
   %.sink = phi ptr [ %36, %34 ], [ %77, %74 ], [ %119, %116 ]
   %.pn.ph = phi { ptr, i32 } [ %35, %34 ], [ %75, %74 ], [ %117, %116 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #7
+  call void @_ZdaPv(ptr noundef nonnull %.sink) #8
   br label %_ZN10BigIntegerD2Ev.exit31
 
 _ZN10BigIntegerD2Ev.exit31:                       ; preds = %_ZN10BigIntegerD2Ev.exit31.sink.split, %116, %74, %34
@@ -1885,11 +1886,11 @@ _ZN10BigIntegerD2Ev.exit31:                       ; preds = %_ZN10BigIntegerD2Ev
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZN11BigUnsignedmmEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #1
+declare void @_ZN11BigUnsignedmmEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN11BigUnsigned19divideWithRemainderERKS_RS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
+declare void @_ZN11BigUnsigned19divideWithRemainderERKS_RS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
-declare void @_ZN11BigUnsignedppEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #1
+declare void @_ZN11BigUnsignedppEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1927,7 +1928,7 @@ define void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 dereference
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %17
-  call void @_ZdaPv(ptr noundef nonnull %19) #7
+  call void @_ZdaPv(ptr noundef nonnull %19) #8
   %.pre.pre.i.i.i = load i32, ptr %14, align 4
   br label %22
 
@@ -1936,7 +1937,7 @@ define void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 dereference
   store i32 %13, ptr %11, align 8
   %23 = zext i32 %13 to i64
   %24 = shl nuw nsw i64 %23, 3
-  %25 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %24) #8
+  %25 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %24) #9
           to label %.noexc unwind label %42
 
 .noexc:                                           ; preds = %22
@@ -1974,7 +1975,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %29, %_ZN15Numberlik
   br i1 %40, label %_ZN10BigIntegerD2Ev.exit, label %41
 
 41:                                               ; preds = %_ZN10BigIntegeraSERKS_.exit
-  call void @_ZdaPv(ptr noundef nonnull %39) #7
+  call void @_ZdaPv(ptr noundef nonnull %39) #8
   br label %_ZN10BigIntegerD2Ev.exit
 
 42:                                               ; preds = %22, %5
@@ -1986,7 +1987,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %29, %_ZN15Numberlik
   br i1 %46, label %_ZN10BigIntegerD2Ev.exit8, label %47
 
 47:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %45) #7
+  call void @_ZdaPv(ptr noundef nonnull %45) #8
   br label %_ZN10BigIntegerD2Ev.exit8
 
 _ZN10BigIntegerD2Ev.exit8:                        ; preds = %42, %47
@@ -2009,7 +2010,7 @@ _ZN10BigIntegerD2Ev.exit8:                        ; preds = %42, %47
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %55
-  tail call void @_ZdaPv(ptr noundef nonnull %57) #7
+  tail call void @_ZdaPv(ptr noundef nonnull %57) #8
   %.pre.pre.i.i = load i32, ptr %52, align 4
   br label %60
 
@@ -2018,7 +2019,7 @@ _ZN10BigIntegerD2Ev.exit8:                        ; preds = %42, %47
   store i32 %51, ptr %49, align 8
   %61 = zext i32 %51 to i64
   %62 = shl nuw nsw i64 %61, 3
-  %63 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %62) #8
+  %63 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %62) #9
   store ptr %63, ptr %56, align 8
   br label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
@@ -2106,7 +2107,7 @@ _ZNK11BigUnsignedeqERKS_.exit:                    ; preds = %15, %.preheader.i.i
   br i1 %22, label %_ZN11BigUnsignedD2Ev.exit, label %23
 
 23:                                               ; preds = %_ZNK11BigUnsignedeqERKS_.exit
-  call void @_ZdaPv(ptr noundef nonnull %21) #7
+  call void @_ZdaPv(ptr noundef nonnull %21) #8
   br label %_ZN11BigUnsignedD2Ev.exit
 
 _ZN11BigUnsignedD2Ev.exit:                        ; preds = %_ZNK11BigUnsignedeqERKS_.exit, %23
@@ -2176,7 +2177,7 @@ _ZNK11BigUnsignedeqERKS_.exit.i:                  ; preds = %16, %.preheader.i.i
   br i1 %23, label %_ZN11BigUnsignedD2Ev.exit.i, label %24
 
 24:                                               ; preds = %_ZNK11BigUnsignedeqERKS_.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %22) #7
+  call void @_ZdaPv(ptr noundef nonnull %22) #8
   br label %_ZN11BigUnsignedD2Ev.exit.i
 
 _ZN11BigUnsignedD2Ev.exit.i:                      ; preds = %24, %_ZNK11BigUnsignedeqERKS_.exit.i
@@ -2246,7 +2247,7 @@ _ZNK11BigUnsignedeqERKS_.exit:                    ; preds = %15, %.preheader.i.i
   br i1 %22, label %_ZN11BigUnsignedD2Ev.exit, label %23
 
 23:                                               ; preds = %_ZNK11BigUnsignedeqERKS_.exit
-  call void @_ZdaPv(ptr noundef nonnull %21) #7
+  call void @_ZdaPv(ptr noundef nonnull %21) #8
   br label %_ZN11BigUnsignedD2Ev.exit
 
 _ZN11BigUnsignedD2Ev.exit:                        ; preds = %_ZNK11BigUnsignedeqERKS_.exit, %23
@@ -2316,7 +2317,7 @@ _ZNK11BigUnsignedeqERKS_.exit.i:                  ; preds = %16, %.preheader.i.i
   br i1 %23, label %_ZN11BigUnsignedD2Ev.exit.i, label %24
 
 24:                                               ; preds = %_ZNK11BigUnsignedeqERKS_.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %22) #7
+  call void @_ZdaPv(ptr noundef nonnull %22) #8
   br label %_ZN11BigUnsignedD2Ev.exit.i
 
 _ZN11BigUnsignedD2Ev.exit.i:                      ; preds = %24, %_ZNK11BigUnsignedeqERKS_.exit.i
@@ -2337,40 +2338,41 @@ _ZN10BigIntegermmEv.exit:                         ; preds = %_ZN11BigUnsignedD2E
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #2
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #4
+declare i64 @llvm.abs.i64(i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #4
+declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.abs.i16(i16, i1 immarg) #4
+declare i16 @llvm.abs.i16(i16, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { builtin nounwind }
-attributes #8 = { builtin allocsize(0) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn }
+attributes #1 = { cold noreturn }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { builtin nounwind }
+attributes #9 = { builtin allocsize(0) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

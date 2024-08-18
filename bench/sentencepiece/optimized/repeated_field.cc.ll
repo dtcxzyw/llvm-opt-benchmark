@@ -1164,7 +1164,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %14, %
 
 20:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
   %21 = add nuw nsw i64 %18, 8
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #14
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #15
   br label %36
 
 .critedge47:                                      ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
@@ -1219,7 +1219,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
 48:                                               ; preds = %45
   %49 = sext i32 %37 to i64
   %50 = add nsw i64 %49, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %50) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %50) #16
   br label %_ZN6google8protobuf13RepeatedFieldIbE18InternalDeallocateEPNS2_3RepEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIbE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %48, %45, %44, %2
@@ -1287,7 +1287,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIbED2Ev(ptr noundef nonn
 11:                                               ; preds = %5
   %narrow = add nuw i32 %3, 8
   %12 = zext i32 %narrow to i64
-  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %12) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %12) #16
   br label %_ZN6google8protobuf13RepeatedFieldIbE18InternalDeallocateEPNS2_3RepEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIbE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %11, %5, %1
@@ -1307,7 +1307,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIbE18InternalDeallocateE
 7:                                                ; preds = %4
   %8 = sext i32 %2 to i64
   %9 = add nsw i64 %8, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %9) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %9) #16
   br label %10
 
 10:                                               ; preds = %4, %7, %3
@@ -1326,14 +1326,15 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8protobuf13RepeatedFieldIbEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1447,7 +1448,7 @@ _ZN6google8protobuf13RepeatedFieldIbE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #16
+  tail call void @__clang_call_terminate(ptr %26) #17
   unreachable
 }
 
@@ -1532,7 +1533,7 @@ _ZN6google8protobuf13RepeatedFieldIbE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #16
+  tail call void @__clang_call_terminate(ptr %31) #17
   unreachable
 }
 
@@ -1596,7 +1597,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6google8prot
           to label %11 unwind label %21
 
 11:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %11
@@ -1614,7 +1615,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6google8prot
           to label %16 unwind label %23
 
 16:                                               ; preds = %15
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge, %16
@@ -1637,7 +1638,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6google8prot
 25:                                               ; preds = %23, %21
   %.sink = phi ptr [ %5, %23 ], [ %3, %21 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -1660,7 +1661,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZN6google8proto
           to label %11 unwind label %21
 
 11:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %11
@@ -1678,7 +1679,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZN6google8proto
           to label %16 unwind label %23
 
 16:                                               ; preds = %15
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge, %16
@@ -1701,7 +1702,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZN6google8proto
 25:                                               ; preds = %23, %21
   %.sink = phi ptr [ %5, %23 ], [ %3, %21 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -1903,7 +1904,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIbE9MergeFromERKS2_(ptr 
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIbE9MoveArrayEPbS3_i(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 comdat align 2 {
@@ -2087,13 +2088,13 @@ _ZN6google8protobuf13RepeatedFieldIbE8CopyFromERKS2_.exit: ; preds = %.noexc11, 
   br label %_ZN6google8protobuf13RepeatedFieldIbE15UnsafeArenaSwapEPS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIbE15UnsafeArenaSwapEPS2_.exit: ; preds = %46, %_ZN6google8protobuf13RepeatedFieldIbE8CopyFromERKS2_.exit
-  call void @_ZN6google8protobuf13RepeatedFieldIbED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  call void @_ZN6google8protobuf13RepeatedFieldIbED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %49
 
 47:                                               ; preds = %37, %24
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf13RepeatedFieldIbED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  call void @_ZN6google8protobuf13RepeatedFieldIbED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   resume { ptr, i32 } %48
 
 49:                                               ; preds = %2, %_ZN6google8protobuf13RepeatedFieldIbE15UnsafeArenaSwapEPS2_.exit, %21
@@ -2345,7 +2346,7 @@ _ZN6google8protobuf13RepeatedFieldIbE8TruncateEi.exit: ; preds = %._ZN6google8pr
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat($_ZN6google8protobuf13RepeatedFieldIiEC5Ev) align 2 {
@@ -2427,7 +2428,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %14, %
 
 21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
   %22 = add nuw nsw i64 %19, 8
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #14
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #15
   br label %37
 
 .critedge47:                                      ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
@@ -2484,7 +2485,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   %51 = sext i32 %38 to i64
   %52 = shl nsw i64 %51, 2
   %53 = add nsw i64 %52, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #16
   br label %_ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateEPNS2_3RepEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %50, %47, %46, %2
@@ -2554,7 +2555,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiED2Ev(ptr noundef nonn
   %12 = zext nneg i32 %3 to i64
   %13 = shl nuw nsw i64 %12, 2
   %14 = add nuw nsw i64 %13, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %14) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %14) #16
   br label %_ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateEPNS2_3RepEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %11, %5, %1
@@ -2575,7 +2576,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateE
   %8 = sext i32 %2 to i64
   %9 = shl nsw i64 %8, 2
   %10 = add nsw i64 %9, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %10) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %10) #16
   br label %11
 
 11:                                               ; preds = %4, %7, %3
@@ -2705,7 +2706,7 @@ _ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #16
+  tail call void @__clang_call_terminate(ptr %27) #17
   unreachable
 }
 
@@ -2791,7 +2792,7 @@ _ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #16
+  tail call void @__clang_call_terminate(ptr %32) #17
   unreachable
 }
 
@@ -2846,7 +2847,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
           to label %11 unwind label %21
 
 11:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %11
@@ -2864,7 +2865,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
           to label %16 unwind label %23
 
 16:                                               ; preds = %15
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge, %16
@@ -2887,7 +2888,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
 25:                                               ; preds = %23, %21
   %.sink = phi ptr [ %5, %23 ], [ %3, %21 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -2910,7 +2911,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
           to label %11 unwind label %21
 
 11:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %11
@@ -2928,7 +2929,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
           to label %16 unwind label %23
 
 16:                                               ; preds = %15
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge, %16
@@ -2951,7 +2952,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
 25:                                               ; preds = %23, %21
   %.sink = phi ptr [ %5, %23 ], [ %3, %21 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -3337,13 +3338,13 @@ _ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit: ; preds = %.noexc11, 
   br label %_ZN6google8protobuf13RepeatedFieldIiE15UnsafeArenaSwapEPS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIiE15UnsafeArenaSwapEPS2_.exit: ; preds = %48, %_ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit
-  call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %51
 
 49:                                               ; preds = %38, %24
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   resume { ptr, i32 } %50
 
 51:                                               ; preds = %2, %_ZN6google8protobuf13RepeatedFieldIiE15UnsafeArenaSwapEPS2_.exit, %21
@@ -3676,7 +3677,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %14, %
 
 21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
   %22 = add nuw nsw i64 %19, 8
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #14
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #15
   br label %37
 
 .critedge47:                                      ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
@@ -3733,7 +3734,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   %51 = sext i32 %38 to i64
   %52 = shl nsw i64 %51, 2
   %53 = add nsw i64 %52, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #16
   br label %_ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateEPNS2_3RepEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %50, %47, %46, %2
@@ -3803,7 +3804,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjED2Ev(ptr noundef nonn
   %12 = zext nneg i32 %3 to i64
   %13 = shl nuw nsw i64 %12, 2
   %14 = add nuw nsw i64 %13, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %14) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %14) #16
   br label %_ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateEPNS2_3RepEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %11, %5, %1
@@ -3824,7 +3825,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateE
   %8 = sext i32 %2 to i64
   %9 = shl nsw i64 %8, 2
   %10 = add nsw i64 %9, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %10) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %10) #16
   br label %11
 
 11:                                               ; preds = %4, %7, %3
@@ -3954,7 +3955,7 @@ _ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #16
+  tail call void @__clang_call_terminate(ptr %27) #17
   unreachable
 }
 
@@ -4040,7 +4041,7 @@ _ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #16
+  tail call void @__clang_call_terminate(ptr %32) #17
   unreachable
 }
 
@@ -4095,7 +4096,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
           to label %11 unwind label %21
 
 11:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %11
@@ -4113,7 +4114,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
           to label %16 unwind label %23
 
 16:                                               ; preds = %15
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge, %16
@@ -4136,7 +4137,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
 25:                                               ; preds = %23, %21
   %.sink = phi ptr [ %5, %23 ], [ %3, %21 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -4159,7 +4160,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
           to label %11 unwind label %21
 
 11:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %11
@@ -4177,7 +4178,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
           to label %16 unwind label %23
 
 16:                                               ; preds = %15
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge, %16
@@ -4200,7 +4201,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
 25:                                               ; preds = %23, %21
   %.sink = phi ptr [ %5, %23 ], [ %3, %21 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -4586,13 +4587,13 @@ _ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit: ; preds = %.noexc11, 
   br label %_ZN6google8protobuf13RepeatedFieldIjE15UnsafeArenaSwapEPS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIjE15UnsafeArenaSwapEPS2_.exit: ; preds = %48, %_ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit
-  call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %51
 
 49:                                               ; preds = %38, %24
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   resume { ptr, i32 } %50
 
 51:                                               ; preds = %2, %_ZN6google8protobuf13RepeatedFieldIjE15UnsafeArenaSwapEPS2_.exit, %21
@@ -4925,7 +4926,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %14, %
 
 21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
   %22 = add nuw nsw i64 %19, 8
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #14
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #15
   br label %37
 
 .critedge47:                                      ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
@@ -4982,7 +4983,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   %51 = sext i32 %38 to i64
   %52 = shl nsw i64 %51, 3
   %53 = add nsw i64 %52, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #16
   br label %_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %50, %47, %46, %2
@@ -5052,7 +5053,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlED2Ev(ptr noundef nonn
   %12 = zext nneg i32 %3 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = add nuw nsw i64 %13, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %14) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %14) #16
   br label %_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %11, %5, %1
@@ -5073,7 +5074,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateE
   %8 = sext i32 %2 to i64
   %9 = shl nsw i64 %8, 3
   %10 = add nsw i64 %9, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %10) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %10) #16
   br label %11
 
 11:                                               ; preds = %4, %7, %3
@@ -5203,7 +5204,7 @@ _ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #16
+  tail call void @__clang_call_terminate(ptr %27) #17
   unreachable
 }
 
@@ -5289,7 +5290,7 @@ _ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #16
+  tail call void @__clang_call_terminate(ptr %32) #17
   unreachable
 }
 
@@ -5344,7 +5345,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
           to label %11 unwind label %21
 
 11:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %11
@@ -5362,7 +5363,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
           to label %16 unwind label %23
 
 16:                                               ; preds = %15
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge, %16
@@ -5385,7 +5386,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
 25:                                               ; preds = %23, %21
   %.sink = phi ptr [ %5, %23 ], [ %3, %21 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -5408,7 +5409,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
           to label %11 unwind label %21
 
 11:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %11
@@ -5426,7 +5427,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
           to label %16 unwind label %23
 
 16:                                               ; preds = %15
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge, %16
@@ -5449,7 +5450,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
 25:                                               ; preds = %23, %21
   %.sink = phi ptr [ %5, %23 ], [ %3, %21 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -5835,13 +5836,13 @@ _ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit: ; preds = %.noexc11, 
   br label %_ZN6google8protobuf13RepeatedFieldIlE15UnsafeArenaSwapEPS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIlE15UnsafeArenaSwapEPS2_.exit: ; preds = %48, %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit
-  call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %51
 
 49:                                               ; preds = %38, %24
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   resume { ptr, i32 } %50
 
 51:                                               ; preds = %2, %_ZN6google8protobuf13RepeatedFieldIlE15UnsafeArenaSwapEPS2_.exit, %21
@@ -6174,7 +6175,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %14, %
 
 21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
   %22 = add nuw nsw i64 %19, 8
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #14
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #15
   br label %37
 
 .critedge47:                                      ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
@@ -6231,7 +6232,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   %51 = sext i32 %38 to i64
   %52 = shl nsw i64 %51, 3
   %53 = add nsw i64 %52, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #16
   br label %_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit
 
 _ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %50, %47, %46, %2
@@ -6301,7 +6302,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImED2Ev(ptr noundef nonn
   %12 = zext nneg i32 %3 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = add nuw nsw i64 %13, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %14) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %14) #16
   br label %_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit
 
 _ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %11, %5, %1
@@ -6322,7 +6323,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateE
   %8 = sext i32 %2 to i64
   %9 = shl nsw i64 %8, 3
   %10 = add nsw i64 %9, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %10) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %10) #16
   br label %11
 
 11:                                               ; preds = %4, %7, %3
@@ -6452,7 +6453,7 @@ _ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #16
+  tail call void @__clang_call_terminate(ptr %27) #17
   unreachable
 }
 
@@ -6538,7 +6539,7 @@ _ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #16
+  tail call void @__clang_call_terminate(ptr %32) #17
   unreachable
 }
 
@@ -6593,7 +6594,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
           to label %11 unwind label %21
 
 11:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %11
@@ -6611,7 +6612,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
           to label %16 unwind label %23
 
 16:                                               ; preds = %15
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge, %16
@@ -6634,7 +6635,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
 25:                                               ; preds = %23, %21
   %.sink = phi ptr [ %5, %23 ], [ %3, %21 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -6657,7 +6658,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
           to label %11 unwind label %21
 
 11:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %11
@@ -6675,7 +6676,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
           to label %16 unwind label %23
 
 16:                                               ; preds = %15
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge, %16
@@ -6698,7 +6699,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
 25:                                               ; preds = %23, %21
   %.sink = phi ptr [ %5, %23 ], [ %3, %21 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -7084,13 +7085,13 @@ _ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit: ; preds = %.noexc11, 
   br label %_ZN6google8protobuf13RepeatedFieldImE15UnsafeArenaSwapEPS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldImE15UnsafeArenaSwapEPS2_.exit: ; preds = %48, %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit
-  call void @_ZN6google8protobuf13RepeatedFieldImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  call void @_ZN6google8protobuf13RepeatedFieldImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %51
 
 49:                                               ; preds = %38, %24
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf13RepeatedFieldImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  call void @_ZN6google8protobuf13RepeatedFieldImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   resume { ptr, i32 } %50
 
 51:                                               ; preds = %2, %_ZN6google8protobuf13RepeatedFieldImE15UnsafeArenaSwapEPS2_.exit, %21
@@ -7423,7 +7424,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %14, %
 
 21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
   %22 = add nuw nsw i64 %19, 8
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #14
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #15
   br label %37
 
 .critedge47:                                      ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
@@ -7480,7 +7481,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   %51 = sext i32 %38 to i64
   %52 = shl nsw i64 %51, 2
   %53 = add nsw i64 %52, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #16
   br label %_ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateEPNS2_3RepEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %50, %47, %46, %2
@@ -7550,7 +7551,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfED2Ev(ptr noundef nonn
   %12 = zext nneg i32 %3 to i64
   %13 = shl nuw nsw i64 %12, 2
   %14 = add nuw nsw i64 %13, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %14) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %14) #16
   br label %_ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateEPNS2_3RepEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %11, %5, %1
@@ -7571,7 +7572,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateE
   %8 = sext i32 %2 to i64
   %9 = shl nsw i64 %8, 2
   %10 = add nsw i64 %9, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %10) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %10) #16
   br label %11
 
 11:                                               ; preds = %4, %7, %3
@@ -7701,7 +7702,7 @@ _ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #16
+  tail call void @__clang_call_terminate(ptr %27) #17
   unreachable
 }
 
@@ -7787,7 +7788,7 @@ _ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #16
+  tail call void @__clang_call_terminate(ptr %32) #17
   unreachable
 }
 
@@ -7842,7 +7843,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
           to label %11 unwind label %21
 
 11:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %11
@@ -7860,7 +7861,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
           to label %16 unwind label %23
 
 16:                                               ; preds = %15
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge, %16
@@ -7883,7 +7884,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
 25:                                               ; preds = %23, %21
   %.sink = phi ptr [ %5, %23 ], [ %3, %21 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -7906,7 +7907,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
           to label %11 unwind label %21
 
 11:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %11
@@ -7924,7 +7925,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
           to label %16 unwind label %23
 
 16:                                               ; preds = %15
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge, %16
@@ -7947,7 +7948,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
 25:                                               ; preds = %23, %21
   %.sink = phi ptr [ %5, %23 ], [ %3, %21 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -8333,13 +8334,13 @@ _ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit: ; preds = %.noexc11, 
   br label %_ZN6google8protobuf13RepeatedFieldIfE15UnsafeArenaSwapEPS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIfE15UnsafeArenaSwapEPS2_.exit: ; preds = %48, %_ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit
-  call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %51
 
 49:                                               ; preds = %38, %24
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   resume { ptr, i32 } %50
 
 51:                                               ; preds = %2, %_ZN6google8protobuf13RepeatedFieldIfE15UnsafeArenaSwapEPS2_.exit, %21
@@ -8672,7 +8673,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %14, %
 
 21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
   %22 = add nuw nsw i64 %19, 8
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #14
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #15
   br label %37
 
 .critedge47:                                      ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
@@ -8729,7 +8730,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   %51 = sext i32 %38 to i64
   %52 = shl nsw i64 %51, 3
   %53 = add nsw i64 %52, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #16
   br label %_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %50, %47, %46, %2
@@ -8799,7 +8800,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdED2Ev(ptr noundef nonn
   %12 = zext nneg i32 %3 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = add nuw nsw i64 %13, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %14) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %14) #16
   br label %_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %11, %5, %1
@@ -8820,7 +8821,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateE
   %8 = sext i32 %2 to i64
   %9 = shl nsw i64 %8, 3
   %10 = add nsw i64 %9, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %10) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %10) #16
   br label %11
 
 11:                                               ; preds = %4, %7, %3
@@ -8950,7 +8951,7 @@ _ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #16
+  tail call void @__clang_call_terminate(ptr %27) #17
   unreachable
 }
 
@@ -9036,7 +9037,7 @@ _ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #16
+  tail call void @__clang_call_terminate(ptr %32) #17
   unreachable
 }
 
@@ -9091,7 +9092,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
           to label %11 unwind label %21
 
 11:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %11
@@ -9109,7 +9110,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
           to label %16 unwind label %23
 
 16:                                               ; preds = %15
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge, %16
@@ -9132,7 +9133,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
 25:                                               ; preds = %23, %21
   %.sink = phi ptr [ %5, %23 ], [ %3, %21 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -9155,7 +9156,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
           to label %11 unwind label %21
 
 11:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %11
@@ -9173,7 +9174,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
           to label %16 unwind label %23
 
 16:                                               ; preds = %15
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge, %16
@@ -9196,7 +9197,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
 25:                                               ; preds = %23, %21
   %.sink = phi ptr [ %5, %23 ], [ %3, %21 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -9582,13 +9583,13 @@ _ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit: ; preds = %.noexc11, 
   br label %_ZN6google8protobuf13RepeatedFieldIdE15UnsafeArenaSwapEPS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIdE15UnsafeArenaSwapEPS2_.exit: ; preds = %48, %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit
-  call void @_ZN6google8protobuf13RepeatedFieldIdED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  call void @_ZN6google8protobuf13RepeatedFieldIdED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %51
 
 49:                                               ; preds = %38, %24
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf13RepeatedFieldIdED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
+  call void @_ZN6google8protobuf13RepeatedFieldIdED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   resume { ptr, i32 } %50
 
 51:                                               ; preds = %2, %_ZN6google8protobuf13RepeatedFieldIdE15UnsafeArenaSwapEPS2_.exit, %21
@@ -9954,8 +9955,8 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   br i1 %12, label %_ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i, label %13
 
 13:                                               ; preds = %.lr.ph.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 32) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 32) #18
   br label %_ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i
 
 _ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i: ; preds = %13, %.lr.ph.i
@@ -9974,7 +9975,7 @@ _ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_strin
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 3
   %19 = add nsw i64 %18, 8
-  tail call void @_ZdlPvm(ptr noundef %14, i64 noundef %19) #15
+  tail call void @_ZdlPvm(ptr noundef %14, i64 noundef %19) #16
   br label %20
 
 20:                                               ; preds = %._crit_edge.i, %1
@@ -10005,7 +10006,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8prot
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %12 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.i.i.i
   %13 = load ptr, ptr %12, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #16
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %14, label %11, !llvm.loop !26
 
@@ -10069,7 +10070,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %13 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %13, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #16
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %15, label %12, !llvm.loop !26
 
@@ -10171,7 +10172,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #16
+  tail call void @__clang_call_terminate(ptr %29) #17
   unreachable
 }
 
@@ -10220,7 +10221,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8prot
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %15 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv.i.i.i
   %16 = load ptr, ptr %15, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #16
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %17, label %14, !llvm.loop !26
 
@@ -10277,7 +10278,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #16
+  tail call void @__clang_call_terminate(ptr %41) #17
   unreachable
 }
 
@@ -10383,7 +10384,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit: ; preds = %22
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
-  %32 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  %32 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
   br label %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit
 
 33:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
@@ -10410,7 +10411,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ;
 
 _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit: ; preds = %31, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i
   %.sink.i.i = phi ptr [ %45, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %32, %31 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i) #16
   %46 = load ptr, ptr %3, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10461,7 +10462,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase3Add
   %13 = sext i32 %7 to i64
   %14 = getelementptr inbounds [268435454 x ptr], ptr %11, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %1) #15
+  %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %1) #16
   br label %54
 
 17:                                               ; preds = %5
@@ -10493,7 +10494,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit: ; preds = %23
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
-  %33 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  %33 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
   br label %_ZN6google8protobuf8internal17StringTypeHandler3NewEPNS0_5ArenaEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 34:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
@@ -10520,7 +10521,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; p
 
 _ZN6google8protobuf8internal17StringTypeHandler3NewEPNS0_5ArenaEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %32, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
   %.sink.i = phi ptr [ %46, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %33, %32 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i, ptr noundef nonnull align 8 dereferenceable(32) %1) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i, ptr noundef nonnull align 8 dereferenceable(32) %1) #16
   %47 = load ptr, ptr %3, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10583,7 +10584,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google
           to label %11 unwind label %24
 
 11:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %11
@@ -10602,7 +10603,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google
           to label %17 unwind label %26
 
 17:                                               ; preds = %16
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge, %17
@@ -10627,7 +10628,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google
 28:                                               ; preds = %26, %24
   %.sink = phi ptr [ %5, %26 ], [ %3, %24 ]
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -10656,7 +10657,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8
           to label %11 unwind label %24
 
 11:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %11
@@ -10675,7 +10676,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8
           to label %17 unwind label %26
 
 17:                                               ; preds = %16
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge, %17
@@ -10700,7 +10701,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8
 28:                                               ; preds = %26, %24
   %.sink = phi ptr [ %5, %26 ], [ %3, %24 ]
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -10716,7 +10717,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [268435454 x ptr], ptr %4, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
   ret void
 }
 
@@ -10745,8 +10746,8 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   br i1 %or.cond.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit, label %16
 
 16:                                               ; preds = %7
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 32) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 32) #18
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit: ; preds = %7, %16
@@ -10830,7 +10831,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #16
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %12, label %9, !llvm.loop !26
 
@@ -11315,8 +11316,8 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase22UnsafeArenaReleaseLastINS0_1
   br i1 %25, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase11ReleaseLastINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEPNT_4TypeEv.exit, label %26
 
 26:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase22UnsafeArenaReleaseLastINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEPNT_4TypeEv.exit.i.i
-  %27 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #15
+  %27 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #16
   %28 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %10)
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase11ReleaseLastINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEPNT_4TypeEv.exit
 
@@ -11384,8 +11385,8 @@ define linkonce_odr void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase23Un
   br i1 %or.cond.i, label %_ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit, label %30
 
 30:                                               ; preds = %22
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef 32) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef 32) #18
   br label %_ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit
 
 31:                                               ; preds = %19
@@ -11483,8 +11484,8 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = getelementptr inbounds [268435454 x ptr], ptr %13, i64 0, i64 %11
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #15
+  %16 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #16
   %17 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %15)
   %18 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   store ptr %16, ptr %18, align 8
@@ -11630,7 +11631,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase8CloseGapEii.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase8CloseGapEii(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase8CloseGapEii(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -11803,8 +11804,8 @@ define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_st
   br i1 %or.cond.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit.i, label %28
 
 28:                                               ; preds = %19
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 32) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 32) #18
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit.i
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit.i: ; preds = %28, %19
@@ -11866,7 +11867,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE23ExtractSubrangeInternalEiiPPS7_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11968,7 +11969,7 @@ define noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14Internal
 
 17:                                               ; preds = %.critedge
   %18 = add nuw nsw i64 %15, 8
-  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #14
+  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #15
   br label %33
 
 .critedge52:                                      ; preds = %.critedge
@@ -12030,7 +12031,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   %48 = sext i32 %34 to i64
   %49 = shl nsw i64 %48, 3
   %50 = add nsw i64 %49, 8
-  tail call void @_ZdlPvm(ptr noundef %9, i64 noundef %50) #15
+  tail call void @_ZdlPvm(ptr noundef %9, i64 noundef %50) #16
   br label %51
 
 51:                                               ; preds = %47, %46
@@ -12117,12 +12118,12 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit: ; preds = %22
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %35
-  %38 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
+  %38 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   store ptr null, ptr %39, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %38, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #16
   br label %56
 
 41:                                               ; preds = %35
@@ -12149,7 +12150,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   store ptr %29, ptr %54, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %53, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #16
   br label %56
 
 56:                                               ; preds = %37, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %30
@@ -12177,7 +12178,7 @@ declare noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv(ptr noundef %0) #3 comdat {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   ret void
 }
 
@@ -12192,12 +12193,12 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINS1_19ImplicitWeakMessageEEEvPv(ptr noundef %0) #3 comdat {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(48) %0) #15
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -12249,8 +12250,8 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %indvars.iv36 = phi i64 [ %17, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us.preheader ], [ %indvars.iv.next37, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us ]
   %18 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv36
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #15
+  %20 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #16
   %21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %19)
   %22 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv36
   store ptr %20, ptr %22, align 8
@@ -12279,7 +12280,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %27, %.lr.ph28.split
   %34 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %12, i64 noundef 32, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #16
   %35 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %24)
   %36 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv32
   store ptr %34, ptr %36, align 8
@@ -12343,7 +12344,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %29 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #16
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %31, label %28, !llvm.loop !26
 
@@ -12414,8 +12415,8 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   br i1 %65, label %_ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i, label %66
 
 66:                                               ; preds = %.lr.ph.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #15
-  call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef 32) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #16
+  call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef 32) #18
   br label %_ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i
 
 _ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i: ; preds = %66, %.lr.ph.i
@@ -12435,7 +12436,7 @@ _ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_strin
   %69 = sext i32 %67 to i64
   %70 = shl nsw i64 %69, 3
   %71 = add nsw i64 %70, 8
-  call void @_ZdlPvm(ptr noundef %68, i64 noundef %71) #15
+  call void @_ZdlPvm(ptr noundef %68, i64 noundef %71) #16
   br label %72
 
 72:                                               ; preds = %._crit_edge.i, %50
@@ -12468,7 +12469,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase24Ad
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
-  %13 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  %13 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
   br label %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit
 
 14:                                               ; preds = %10
@@ -12495,13 +12496,13 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ;
 
 _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit: ; preds = %12, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i
   %.sink.i.i = phi ptr [ %26, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %13, %12 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i) #16
   %27 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %6, label %28, label %_ZN6google8protobuf5Arena3OwnINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit
 
 28:                                               ; preds = %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 32) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 32) #18
   br label %_ZN6google8protobuf5Arena3OwnINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit
 
 _ZN6google8protobuf5Arena3OwnINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit: ; preds = %28, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit, %8, %7, %9
@@ -12518,8 +12519,8 @@ define linkonce_odr void @_ZN6google8protobuf8internal19arena_delete_objectINSt7
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #18
   br label %4
 
 4:                                                ; preds = %3, %1
@@ -12527,23 +12528,23 @@ define linkonce_odr void @_ZN6google8protobuf8internal19arena_delete_objectINSt7
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_repeated_field.cc() #10 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_repeated_field.cc() #11 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+declare void @llvm.assume(i1 noundef) #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -12551,19 +12552,20 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { allocsize(0) }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { builtin nounwind }
-attributes #18 = { builtin allocsize(0) }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { allocsize(0) }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { builtin nounwind }
+attributes #19 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

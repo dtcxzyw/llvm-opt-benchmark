@@ -114,7 +114,7 @@ terminate.lpad:                                   ; preds = %invoke.cont7, %invo
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #12
+  tail call void @__clang_call_terminate(ptr %11) #13
   unreachable
 }
 
@@ -124,17 +124,18 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #12
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #13
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8b2Island5SolveEP9b2ProfileRK10b2TimeStepRK6b2Vec2b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef writeonly %profile, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %step, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %gravity, i1 noundef zeroext %allowSleep) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8b2Island5SolveEP9b2ProfileRK10b2TimeStepRK6b2Vec2b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef writeonly %profile, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %step, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %gravity, i1 noundef zeroext %allowSleep) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %impulse.i = alloca %struct.b2ContactImpulse, align 4
   %timer = alloca %class.b2Timer, align 8
@@ -322,7 +323,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loo
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit144, %lpad.loopexit ], [ %lpad.loopexit146, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit149, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit152, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit155, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit158, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp159, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN15b2ContactSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(76) %contactSolver) #13
+  call void @_ZN15b2ContactSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(76) %contactSolver) #14
   resume { ptr, i32 } %lpad.phi
 
 if.end47:                                         ; preds = %if.then45, %invoke.cont
@@ -591,9 +592,9 @@ for.inc220:                                       ; preds = %for.inc220.lr.ph, %
   %m_xf.i = getelementptr inbounds i8, ptr %78, i64 12
   %q.i = getelementptr inbounds i8, ptr %78, i64 20
   %m_sweep.i = getelementptr inbounds i8, ptr %78, i64 28
-  %call.i.i = call float @sinf(float noundef %82) #13
+  %call.i.i = call float @sinf(float noundef %82) #14
   store float %call.i.i, ptr %q.i, align 4
-  %call2.i.i = call float @cosf(float noundef %82) #13
+  %call2.i.i = call float @cosf(float noundef %82) #14
   %c.i.i = getelementptr inbounds i8, ptr %78, i64 24
   store float %call2.i.i, ptr %c.i.i, align 4
   %87 = load float, ptr %m_sweep.i, align 4
@@ -796,17 +797,17 @@ for.inc276:                                       ; preds = %if.end.i, %for.body
   br i1 %cmp269, label %for.body270, label %if.end280, !llvm.loop !16
 
 if.end280:                                        ; preds = %for.inc276, %for.end261, %invoke.cont225
-  call void @_ZN15b2ContactSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(76) %contactSolver) #13
+  call void @_ZN15b2ContactSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(76) %contactSolver) #14
   ret void
 }
 
 declare void @_ZN7b2TimerC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #6
+declare float @llvm.fmuladd.f32(float, float, float) #7
 
 declare void @_ZN7b2Timer5ResetEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
@@ -893,10 +894,10 @@ for.end19:                                        ; preds = %for.end, %for.cond.
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN15b2ContactSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(76)) unnamed_addr #7
+declare void @_ZN15b2ContactSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(76)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8b2Island8SolveTOIERK10b2TimeStepii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %subStep, i32 noundef %toiIndexA, i32 noundef %toiIndexB) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8b2Island8SolveTOIERK10b2TimeStepii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %subStep, i32 noundef %toiIndexA, i32 noundef %toiIndexB) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %impulse.i = alloca %struct.b2ContactImpulse, align 4
   %contactSolverDef = alloca %struct.b2ContactSolverDef, align 8
@@ -1006,7 +1007,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %for.end23
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit79, %lpad.loopexit ], [ %lpad.loopexit81, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit84, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp85, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN15b2ContactSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(76) %contactSolver) #13
+  call void @_ZN15b2ContactSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(76) %contactSolver) #14
   resume { ptr, i32 } %lpad.phi
 
 for.end23:                                        ; preds = %for.cond18, %invoke.cont, %for.end
@@ -1155,9 +1156,9 @@ for.inc141:                                       ; preds = %if.then104, %if.end
   %m_xf.i = getelementptr inbounds i8, ptr %54, i64 12
   %q.i = getelementptr inbounds i8, ptr %54, i64 20
   %m_sweep.i = getelementptr inbounds i8, ptr %54, i64 28
-  %call.i.i = call float @sinf(float noundef %49) #13
+  %call.i.i = call float @sinf(float noundef %49) #14
   store float %call.i.i, ptr %q.i, align 4
-  %call2.i.i = call float @cosf(float noundef %49) #13
+  %call2.i.i = call float @cosf(float noundef %49) #14
   %c.i.i = getelementptr inbounds i8, ptr %54, i64 24
   store float %call2.i.i, ptr %c.i.i, align 4
   %55 = load float, ptr %m_sweep.i, align 4
@@ -1247,44 +1248,45 @@ for.end.i:                                        ; preds = %for.body6.i, %for.b
 
 invoke.cont144:                                   ; preds = %.noexc, %for.end143
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %impulse.i)
-  call void @_ZN15b2ContactSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(76) %contactSolver) #13
+  call void @_ZN15b2ContactSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(76) %contactSolver) #14
   ret void
 }
 
 declare noundef zeroext i1 @_ZN15b2ContactSolver27SolveTOIPositionConstraintsEii(ptr noundef nonnull align 8 dereferenceable(76), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sinf(float noundef) local_unnamed_addr #8
+declare float @sinf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @cosf(float noundef) local_unnamed_addr #8
+declare float @cosf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #9
+declare float @llvm.sqrt.f32(float) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

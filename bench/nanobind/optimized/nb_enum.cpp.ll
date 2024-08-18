@@ -1399,7 +1399,7 @@ define void @_ZN8nanobind6detail15nb_enum_prepareEPKNS0_14type_init_dataERP11PyT
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #9
+  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #10
   unreachable
 
 6:                                                ; preds = %3
@@ -1581,7 +1581,7 @@ define void @_ZN8nanobind6detail15nb_enum_prepareEPKNS0_14type_init_dataERP11PyT
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  tail call void @__clang_call_terminate(ptr %77) #9
+  tail call void @__clang_call_terminate(ptr %77) #10
   unreachable
 }
 
@@ -1724,17 +1724,18 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #9
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
+  tail call void @_ZSt9terminatev() #10
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 declare hidden noundef ptr @_ZN8nanobind6detail12strdup_checkEPKc(ptr noundef) local_unnamed_addr #1
 
@@ -1761,7 +1762,7 @@ define internal noundef ptr @_ZN8nanobind6detailL11nb_enum_newEP11_typeobjectP7_
   br i1 %.not27, label %31, label %14
 
 14:                                               ; preds = %7
-  %15 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail18nb_type_supplementEP7_object(ptr noundef %0) #10
+  %15 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail18nb_type_supplementEP7_object(ptr noundef %0) #11
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not28 = icmp eq ptr %17, null
@@ -1827,7 +1828,7 @@ define internal noundef ptr @_ZN8nanobind6detailL12nb_enum_reprEP7_object(ptr no
   br i1 %.not, label %_ZL10_Py_DECREFP7_object.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call noundef ptr @_ZN8nanobind6detail12nb_inst_nameEP7_object(ptr noundef %0) #10
+  %4 = tail call noundef ptr @_ZN8nanobind6detail12nb_inst_nameEP7_object(ptr noundef %0) #11
   %5 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.9, ptr noundef %4, ptr noundef %6)
@@ -1848,7 +1849,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %10, %3, %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8nanobind6detail11nb_enum_putEP7_objectPKcPKvS4_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %5 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail18nb_type_supplementEP7_object(ptr noundef %0) #10
+  %5 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail18nb_type_supplementEP7_object(ptr noundef %0) #11
   %6 = invoke ptr @PyUnicode_InternFromString(ptr noundef %1)
           to label %7 unwind label %118
 
@@ -2099,14 +2100,14 @@ _ZL10_Py_DECREFP7_object.exit71:                  ; preds = %_ZL10_Py_DECREFP7_o
   ret void
 
 _ZN8nanobind6detailL18nb_enum_int_signedEP7_object.exit.thread: ; preds = %.invoke, %110, %103, %100, %_ZN8nanobind6detailL18nb_enum_int_signedEP7_object.exit, %44, %15
-  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #9
+  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #10
   unreachable
 
 118:                                              ; preds = %.invoke, %117, %114, %107, %92, %73, %_ZL10_Py_DECREFP7_object.exit, %101, %98, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit, %19, %13, %8, %4
   %119 = landingpad { ptr, i32 }
           catch ptr null
   %120 = extractvalue { ptr, i32 } %119, 0
-  tail call void @__clang_call_terminate(ptr %120) #9
+  tail call void @__clang_call_terminate(ptr %120) #10
   unreachable
 }
 
@@ -2131,7 +2132,7 @@ define void @_ZN8nanobind6detail14nb_enum_exportEP7_object(ptr noundef %0) local
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  %5 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail18nb_type_supplementEP7_object(ptr noundef %0) #10
+  %5 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail18nb_type_supplementEP7_object(ptr noundef %0) #11
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2142,7 +2143,7 @@ define void @_ZN8nanobind6detail14nb_enum_exportEP7_object(ptr noundef %0) local
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %1
-  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #9
+  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #10
   unreachable
 
 13:                                               ; preds = %1
@@ -2165,7 +2166,7 @@ define void @_ZN8nanobind6detail14nb_enum_exportEP7_object(ptr noundef %0) local
   br i1 %20, label %21, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %17
-  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #9
+  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #10
   unreachable
 
 21:                                               ; preds = %17
@@ -2236,7 +2237,7 @@ define internal noundef ptr @_ZN8nanobind6detailL16nb_enum_get_nameEP7_objectPv(
 define internal noundef ptr @_ZN8nanobind6detailL17nb_enum_get_valueEP7_objectPv(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail18nb_type_supplementEP7_object(ptr noundef %4) #10
+  %5 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail18nb_type_supplementEP7_object(ptr noundef %4) #11
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = load ptr, ptr %3, align 8
@@ -2354,7 +2355,7 @@ _ZN8nanobind6detailL18nb_enum_int_signedEP7_object.exit: ; preds = %57, %55, %37
 define internal fastcc noundef ptr @_ZN8nanobind6detailL14nb_enum_lookupEP7_object(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail18nb_type_supplementEP7_object(ptr noundef %3) #10
+  %4 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail18nb_type_supplementEP7_object(ptr noundef %3) #11
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   %7 = load ptr, ptr %2, align 8
@@ -2519,15 +2520,15 @@ declare void @PyErr_Clear() local_unnamed_addr #1
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN8nanobind6detail12nb_inst_nameEP7_object(ptr noundef) local_unnamed_addr #7
+declare noundef ptr @_ZN8nanobind6detail12nb_inst_nameEP7_object(ptr noundef) local_unnamed_addr #8
 
 declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN8nanobind6detail18nb_type_supplementEP7_object(ptr noundef) local_unnamed_addr #7
+declare noundef ptr @_ZN8nanobind6detail18nb_type_supplementEP7_object(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #8
+declare i64 @llvm.umin.i64(i64, i64) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2535,11 +2536,12 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

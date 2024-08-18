@@ -26,7 +26,7 @@ entry:
   store i32 0, ptr %waiter_count_, align 8
   %wakeup_count_ = getelementptr inbounds i8, ptr %this, i64 92
   store i32 0, ptr %wakeup_count_, align 4
-  %call = tail call i32 @pthread_mutex_init(ptr noundef nonnull %this, ptr noundef null) #6
+  %call = tail call i32 @pthread_mutex_init(ptr noundef nonnull %this, ptr noundef null) #7
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %do.body
 
@@ -36,7 +36,7 @@ do.body:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %cv_5 = getelementptr inbounds i8, ptr %this, i64 40
-  %call6 = tail call i32 @pthread_cond_init(ptr noundef nonnull %cv_5, ptr noundef null) #6
+  %call6 = tail call i32 @pthread_cond_init(ptr noundef nonnull %cv_5, ptr noundef null) #7
   %cmp7.not = icmp eq i32 %call6, 0
   br i1 %cmp7.not, label %if.end14, label %do.body9
 
@@ -108,7 +108,7 @@ entry:
   %abs_clock_timeout.i = alloca %struct.timespec, align 8
   %abs_timeout.i = alloca %struct.timespec, align 8
   %t.coerce.fr = freeze i64 %t.coerce
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %this) #6
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %this) #7
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit, label %do.body.i
 
@@ -215,7 +215,7 @@ lpad.loopexit.split-lp:                           ; preds = %do.body.invoke
 
 lpad:                                             ; preds = %lpad.loopexit.split.us, %lpad.loopexit.split.split.us, %lpad.loopexit.split.split, %lpad.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp15, %lpad.loopexit.split-lp ], [ %lpad.loopexit14.us, %lpad.loopexit.split.us ], [ %lpad.loopexit14, %lpad.loopexit.split.split ], [ %lpad.loopexit14.us44, %lpad.loopexit.split.split.us ]
-  call fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr nonnull %this) #6
+  call fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr nonnull %this) #7
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %while.body.lr.ph.split, %if.then.critedge
@@ -269,7 +269,7 @@ cleanup:                                          ; preds = %invoke.cont16, %inv
   %storemerge.in = load i32, ptr %waiter_count_, align 8
   %storemerge = add nsw i32 %storemerge.in, -1
   store i32 %storemerge, ptr %waiter_count_, align 8
-  %call.i9 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #6
+  %call.i9 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #7
   %cmp.not.i10 = icmp eq i32 %call.i9, 0
   br i1 %cmp.not.i10, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit, label %do.body.i11
 
@@ -284,7 +284,7 @@ terminate.lpad.i:                                 ; preds = %do.body.i11
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #7
+  call void @__clang_call_terminate(ptr %15) #8
   unreachable
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit: ; preds = %cleanup
@@ -300,7 +300,7 @@ declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr %this.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call i32 @pthread_mutex_unlock(ptr noundef %this.0.val) #6
+  %call = tail call i32 @pthread_mutex_unlock(ptr noundef %this.0.val) #7
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %do.body
 
@@ -318,14 +318,14 @@ terminate.lpad:                                   ; preds = %do.body
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #7
+  tail call void @__clang_call_terminate(ptr %1) #8
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl24synchronization_internal13PthreadWaiter4PostEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %this) #6
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %this) #7
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit, label %do.body.i
 
@@ -345,7 +345,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
 
 if.then.i:                                        ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit
   %cv_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %call.i3 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cv_.i) #6
+  %call.i3 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cv_.i) #7
   %cmp2.not.i = icmp eq i32 %call.i3, 0
   br i1 %cmp2.not.i, label %invoke.cont, label %do.body.i4
 
@@ -357,7 +357,7 @@ do.body.i4:                                       ; preds = %if.then.i
   unreachable
 
 invoke.cont:                                      ; preds = %if.then.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit
-  %call.i5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #6
+  %call.i5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #7
   %cmp.not.i6 = icmp eq i32 %call.i5, 0
   br i1 %cmp.not.i6, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit, label %do.body.i7
 
@@ -372,7 +372,7 @@ terminate.lpad.i:                                 ; preds = %do.body.i7
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #7
+  tail call void @__clang_call_terminate(ptr %3) #8
   unreachable
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit: ; preds = %invoke.cont
@@ -381,7 +381,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit: ;
 lpad:                                             ; preds = %do.body.i4
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr nonnull %this) #6
+  tail call fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr nonnull %this) #7
   resume { ptr, i32 } %4
 }
 
@@ -395,7 +395,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %cv_ = getelementptr inbounds i8, ptr %this, i64 40
-  %call = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cv_) #6
+  %call = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cv_) #7
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %if.end6, label %do.body
 
@@ -410,7 +410,7 @@ if.end6:                                          ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl24synchronization_internal13PthreadWaiter4PokeEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %this) #6
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %this) #7
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit, label %do.body.i
 
@@ -426,7 +426,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
 
 if.then.i:                                        ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit
   %cv_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %call.i3 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cv_.i) #6
+  %call.i3 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cv_.i) #7
   %cmp2.not.i = icmp eq i32 %call.i3, 0
   br i1 %cmp2.not.i, label %invoke.cont, label %do.body.i4
 
@@ -438,7 +438,7 @@ do.body.i4:                                       ; preds = %if.then.i
   unreachable
 
 invoke.cont:                                      ; preds = %if.then.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit
-  %call.i5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #6
+  %call.i5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #7
   %cmp.not.i6 = icmp eq i32 %call.i5, 0
   br i1 %cmp.not.i6, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit, label %do.body.i7
 
@@ -453,7 +453,7 @@ terminate.lpad.i:                                 ; preds = %do.body.i7
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #7
+  tail call void @__clang_call_terminate(ptr %2) #8
   unreachable
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit: ; preds = %invoke.cont
@@ -462,7 +462,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit: ;
 lpad:                                             ; preds = %do.body.i4
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr nonnull %this) #6
+  tail call fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr nonnull %this) #7
   resume { ptr, i32 } %3
 }
 
@@ -477,29 +477,31 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #6
-  tail call void @_ZSt9terminatev() #7
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
+  tail call void @_ZSt9terminatev() #8
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -77,7 +77,7 @@ if.end.i:                                         ; preds = %if.then6.i, %if.the
   store i8 %frombool.i, ptr %mbIntraProcess12.i, align 8
   %cond.i = zext nneg i8 %frombool.i to i32
   %5 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %call20.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef %cond.i, i32 noundef %5) #12
+  %call20.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef %cond.i, i32 noundef %5) #13
   %cmp21.i = icmp eq i32 %call20.i, -1
   br i1 %cmp21.i, label %land.lhs.true.i, label %if.end
 
@@ -88,7 +88,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 if.then25.i:                                      ; preds = %land.lhs.true.i
   %7 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %call31.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %7) #12
+  %call31.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %7) #13
   %cmp32.i = icmp eq i32 %call31.i, -1
   br i1 %cmp32.i, label %if.then33.i, label %if.else.i
 
@@ -118,7 +118,7 @@ if.end.i15:                                       ; preds = %if.then6.i30, %if.t
   %mbIntraProcess12.i17 = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %mbIntraProcess12.i17, align 8
   %9 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %call20.i20 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 1, i32 noundef %9) #12
+  %call20.i20 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 1, i32 noundef %9) #13
   %cmp21.i21 = icmp eq i32 %call20.i20, -1
   br i1 %cmp21.i21, label %land.lhs.true.i23, label %if.end
 
@@ -129,7 +129,7 @@ land.lhs.true.i23:                                ; preds = %if.end.i15
 
 if.then25.i25:                                    ; preds = %land.lhs.true.i23
   %11 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %call31.i26 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %11) #12
+  %call31.i26 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %11) #13
   %cmp32.i27 = icmp eq i32 %call31.i26, -1
   br i1 %cmp32.i27, label %if.then33.i29, label %if.else.i28
 
@@ -175,7 +175,7 @@ if.end:                                           ; preds = %if.then6, %if.then
   store i8 %frombool, ptr %mbIntraProcess12, align 8
   %cond = zext nneg i8 %frombool to i32
   %4 = load atomic i32, ptr %mnCount seq_cst, align 8
-  %call20 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef %cond, i32 noundef %4) #12
+  %call20 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef %cond, i32 noundef %4) #13
   %cmp21 = icmp eq i32 %call20, -1
   br i1 %cmp21, label %land.lhs.true, label %return
 
@@ -186,7 +186,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.then25:                                        ; preds = %land.lhs.true
   %6 = load atomic i32, ptr %mnCount seq_cst, align 8
-  %call31 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %6) #12
+  %call31 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %6) #13
   %cmp32 = icmp eq i32 %call31, -1
   br i1 %cmp32, label %if.then33, label %if.else
 
@@ -225,7 +225,7 @@ if.end.i:                                         ; preds = %if.then6.i, %entry
   %mbIntraProcess12.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %mbIntraProcess12.i, align 8
   %2 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %call20.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 1, i32 noundef %2) #12
+  %call20.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 1, i32 noundef %2) #13
   %cmp21.i = icmp eq i32 %call20.i, -1
   br i1 %cmp21.i, label %land.lhs.true.i, label %_ZN2EA6Thread9Semaphore4InitEPKNS0_19SemaphoreParametersE.exit
 
@@ -236,7 +236,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 if.then25.i:                                      ; preds = %land.lhs.true.i
   %4 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %call31.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %4) #12
+  %call31.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %4) #13
   %cmp32.i = icmp eq i32 %call31.i, -1
   br i1 %cmp32.i, label %if.then33.i, label %if.else.i
 
@@ -258,12 +258,12 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %if.then, %entry
-  %call = tail call i32 @sem_destroy(ptr noundef nonnull %this) #12
+  %call = tail call i32 @sem_destroy(ptr noundef nonnull %this) #13
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %land.lhs.true, label %for.end
 
 land.lhs.true:                                    ; preds = %for.cond
-  %call2 = tail call ptr @__errno_location() #13
+  %call2 = tail call ptr @__errno_location() #14
   %0 = load i32, ptr %call2, align 4
   %cmp3 = icmp eq i32 %0, 16
   br i1 %cmp3, label %if.then, label %for.end
@@ -279,7 +279,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #14
+  tail call void @__clang_call_terminate(ptr %2) #15
   unreachable
 }
 
@@ -295,20 +295,21 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #14
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+  tail call void @_ZSt9terminatev() #15
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare i32 @sem_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2EA6Thread9Semaphore4WaitERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %timeoutAbsolute) local_unnamed_addr #8 align 2 {
+define dso_local noundef i32 @_ZN2EA6Thread9Semaphore4WaitERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %timeoutAbsolute) local_unnamed_addr #9 align 2 {
 entry:
   %tv_nsec.i = getelementptr inbounds i8, ptr %timeoutAbsolute, i64 8
   %0 = load i64, ptr %tv_nsec.i, align 8
@@ -324,7 +325,7 @@ while.cond:                                       ; preds = %entry, %land.rhs
   br i1 %cmp, label %land.rhs, label %if.end39
 
 land.rhs:                                         ; preds = %while.cond
-  %call3 = tail call ptr @__errno_location() #13
+  %call3 = tail call ptr @__errno_location() #14
   %3 = load i32, ptr %call3, align 4
   %cmp4 = icmp eq i32 %3, 4
   br i1 %cmp4, label %while.cond, label %return, !llvm.loop !7
@@ -336,12 +337,12 @@ if.else:                                          ; preds = %entry
   br i1 %4, label %if.then8, label %while.cond20
 
 if.then8:                                         ; preds = %if.else
-  %call11 = tail call i32 @sem_trywait(ptr noundef nonnull %this) #12
+  %call11 = tail call i32 @sem_trywait(ptr noundef nonnull %this) #13
   %cmp12 = icmp eq i32 %call11, -1
   br i1 %cmp12, label %if.then13, label %if.end39
 
 if.then13:                                        ; preds = %if.then8
-  %call14 = tail call ptr @__errno_location() #13
+  %call14 = tail call ptr @__errno_location() #14
   %5 = load i32, ptr %call14, align 4
   %cmp15 = icmp eq i32 %5, 11
   %. = select i1 %cmp15, i32 -2, i32 -1
@@ -353,7 +354,7 @@ while.cond20:                                     ; preds = %if.else, %land.rhs2
   br i1 %cmp24, label %land.rhs25, label %if.end39
 
 land.rhs25:                                       ; preds = %while.cond20
-  %call26 = tail call ptr @__errno_location() #13
+  %call26 = tail call ptr @__errno_location() #14
   %6 = load i32, ptr %call26, align 4
   %cmp27 = icmp eq i32 %6, 4
   br i1 %cmp27, label %while.cond20, label %if.then32, !llvm.loop !8
@@ -404,7 +405,7 @@ while.cond:                                       ; preds = %while.body, %if.end
 while.body:                                       ; preds = %while.cond
   %dec = add nsw i32 %count.addr.0, -1
   %2 = atomicrmw add ptr %mnCount, i32 1 seq_cst, align 4
-  %call8 = tail call i32 @sem_post(ptr noundef nonnull %this) #12
+  %call8 = tail call i32 @sem_post(ptr noundef nonnull %this) #13
   %cmp9 = icmp eq i32 %call8, -1
   br i1 %cmp9, label %if.then10, label %while.cond, !llvm.loop !9
 
@@ -429,7 +430,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN2EA6Thread16SemaphoreFactory15CreateSemaphoreEv() local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN2EA6Thread16SemaphoreFactory15CreateSemaphoreEv() local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -459,7 +460,7 @@ if.end.i15.i:                                     ; preds = %if.then6.i30.i, %if
   %mbIntraProcess12.i17.i = getelementptr inbounds i8, ptr %call, i64 40
   store i8 1, ptr %mbIntraProcess12.i17.i, align 8
   %4 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
-  %call20.i20.i = tail call i32 @sem_init(ptr noundef nonnull %call, i32 noundef 1, i32 noundef %4) #12
+  %call20.i20.i = tail call i32 @sem_init(ptr noundef nonnull %call, i32 noundef 1, i32 noundef %4) #13
   %cmp21.i21.i = icmp eq i32 %call20.i20.i, -1
   br i1 %cmp21.i21.i, label %land.lhs.true.i23.i, label %return
 
@@ -470,7 +471,7 @@ land.lhs.true.i23.i:                              ; preds = %if.end.i15.i
 
 if.then25.i25.i:                                  ; preds = %land.lhs.true.i23.i
   %6 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
-  %call31.i26.i = tail call i32 @sem_init(ptr noundef nonnull %call, i32 noundef 0, i32 noundef %6) #12
+  %call31.i26.i = tail call i32 @sem_init(ptr noundef nonnull %call, i32 noundef 0, i32 noundef %6) #13
   %cmp32.i27.i = icmp eq i32 %call31.i26.i, -1
   br i1 %cmp32.i27.i, label %if.then33.i29.i, label %if.else.i28.i
 
@@ -483,7 +484,7 @@ if.else.i28.i:                                    ; preds = %if.then25.i25.i
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call1 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
+  %call1 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
   %mnCount.i.i1 = getelementptr inbounds i8, ptr %call1, i64 32
   %7 = atomicrmw xchg ptr %mnCount.i.i1, i32 0 seq_cst, align 4
   %mnMaxCount.i.i2 = getelementptr inbounds i8, ptr %call1, i64 36
@@ -503,7 +504,7 @@ if.end.i15.i4:                                    ; preds = %if.then6.i30.i15, %
   %mbIntraProcess12.i17.i5 = getelementptr inbounds i8, ptr %call1, i64 40
   store i8 1, ptr %mbIntraProcess12.i17.i5, align 8
   %9 = load atomic i32, ptr %mnCount.i.i1 seq_cst, align 4
-  %call20.i20.i6 = tail call i32 @sem_init(ptr noundef nonnull %call1, i32 noundef 1, i32 noundef %9) #12
+  %call20.i20.i6 = tail call i32 @sem_init(ptr noundef nonnull %call1, i32 noundef 1, i32 noundef %9) #13
   %cmp21.i21.i7 = icmp eq i32 %call20.i20.i6, -1
   br i1 %cmp21.i21.i7, label %land.lhs.true.i23.i8, label %return
 
@@ -514,7 +515,7 @@ land.lhs.true.i23.i8:                             ; preds = %if.end.i15.i4
 
 if.then25.i25.i10:                                ; preds = %land.lhs.true.i23.i8
   %11 = load atomic i32, ptr %mnCount.i.i1 seq_cst, align 4
-  %call31.i26.i11 = tail call i32 @sem_init(ptr noundef nonnull %call1, i32 noundef 0, i32 noundef %11) #12
+  %call31.i26.i11 = tail call i32 @sem_init(ptr noundef nonnull %call1, i32 noundef 0, i32 noundef %11) #13
   %cmp32.i27.i12 = icmp eq i32 %call31.i26.i11, -1
   br i1 %cmp32.i27.i12, label %if.then33.i29.i14, label %if.else.i28.i13
 
@@ -532,25 +533,25 @@ return:                                           ; preds = %if.else.i28.i13, %i
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA6Thread16SemaphoreFactory16DestroySemaphoreEPNS0_9SemaphoreE(ptr noundef %pSemaphore) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2EA6Thread16SemaphoreFactory16DestroySemaphoreEPNS0_9SemaphoreE(ptr noundef %pSemaphore) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %for.cond.i
 
 for.cond.i:                                       ; preds = %entry, %if.then.i
-  %call.i = tail call i32 @sem_destroy(ptr noundef nonnull %pSemaphore) #12
+  %call.i = tail call i32 @sem_destroy(ptr noundef nonnull %pSemaphore) #13
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN2EA6Thread9SemaphoreD2Ev.exit
 
 land.lhs.true.i:                                  ; preds = %for.cond.i
-  %call2.i = tail call ptr @__errno_location() #13
+  %call2.i = tail call ptr @__errno_location() #14
   %1 = load i32, ptr %call2.i, align 4
   %cmp3.i = icmp eq i32 %1, 16
   br i1 %cmp3.i, label %if.then.i, label %_ZN2EA6Thread9SemaphoreD2Ev.exit
@@ -563,7 +564,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #14
+  tail call void @__clang_call_terminate(ptr %3) #15
   unreachable
 
 _ZN2EA6Thread9SemaphoreD2Ev.exit:                 ; preds = %for.cond.i, %land.lhs.true.i
@@ -579,12 +580,12 @@ if.else:                                          ; preds = %entry
   br i1 %isnull, label %if.end, label %for.cond.i3
 
 for.cond.i3:                                      ; preds = %if.else, %if.then.i9
-  %call.i4 = tail call i32 @sem_destroy(ptr noundef nonnull %pSemaphore) #12
+  %call.i4 = tail call i32 @sem_destroy(ptr noundef nonnull %pSemaphore) #13
   %cmp.i5 = icmp eq i32 %call.i4, -1
   br i1 %cmp.i5, label %land.lhs.true.i6, label %_ZN2EA6Thread9SemaphoreD2Ev.exit11
 
 land.lhs.true.i6:                                 ; preds = %for.cond.i3
-  %call2.i7 = tail call ptr @__errno_location() #13
+  %call2.i7 = tail call ptr @__errno_location() #14
   %6 = load i32, ptr %call2.i7, align 4
   %cmp3.i8 = icmp eq i32 %6, 16
   br i1 %cmp3.i8, label %if.then.i9, label %_ZN2EA6Thread9SemaphoreD2Ev.exit11
@@ -597,11 +598,11 @@ terminate.lpad.i10:                               ; preds = %if.then.i9
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #14
+  tail call void @__clang_call_terminate(ptr %8) #15
   unreachable
 
 _ZN2EA6Thread9SemaphoreD2Ev.exit11:               ; preds = %for.cond.i3, %land.lhs.true.i6
-  tail call void @_ZdlPv(ptr noundef %pSemaphore) #16
+  tail call void @_ZdlPv(ptr noundef %pSemaphore) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %_ZN2EA6Thread9SemaphoreD2Ev.exit11, %_ZN2EA6Thread9SemaphoreD2Ev.exit
@@ -609,7 +610,7 @@ if.end:                                           ; preds = %if.else, %_ZN2EA6Th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN2EA6Thread16SemaphoreFactory16GetSemaphoreSizeEv() local_unnamed_addr #11 align 2 {
+define dso_local noundef i64 @_ZN2EA6Thread16SemaphoreFactory16GetSemaphoreSizeEv() local_unnamed_addr #12 align 2 {
 entry:
   ret i64 48
 }
@@ -636,7 +637,7 @@ if.end.i15.i:                                     ; preds = %if.then6.i30.i, %en
   %mbIntraProcess12.i17.i = getelementptr inbounds i8, ptr %pMemory, i64 40
   store i8 1, ptr %mbIntraProcess12.i17.i, align 8
   %2 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
-  %call20.i20.i = tail call i32 @sem_init(ptr noundef nonnull %pMemory, i32 noundef 1, i32 noundef %2) #12
+  %call20.i20.i = tail call i32 @sem_init(ptr noundef nonnull %pMemory, i32 noundef 1, i32 noundef %2) #13
   %cmp21.i21.i = icmp eq i32 %call20.i20.i, -1
   br i1 %cmp21.i21.i, label %land.lhs.true.i23.i, label %_ZN2EA6Thread9SemaphoreC2EPKNS0_19SemaphoreParametersEb.exit
 
@@ -647,7 +648,7 @@ land.lhs.true.i23.i:                              ; preds = %if.end.i15.i
 
 if.then25.i25.i:                                  ; preds = %land.lhs.true.i23.i
   %4 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
-  %call31.i26.i = tail call i32 @sem_init(ptr noundef nonnull %pMemory, i32 noundef 0, i32 noundef %4) #12
+  %call31.i26.i = tail call i32 @sem_init(ptr noundef nonnull %pMemory, i32 noundef 0, i32 noundef %4) #13
   %cmp32.i27.i = icmp eq i32 %call31.i26.i, -1
   br i1 %cmp32.i27.i, label %if.then33.i29.i, label %if.else.i28.i
 
@@ -669,12 +670,12 @@ entry:
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.then.i, %entry
-  %call.i = tail call i32 @sem_destroy(ptr noundef nonnull %pSemaphore) #12
+  %call.i = tail call i32 @sem_destroy(ptr noundef nonnull %pSemaphore) #13
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN2EA6Thread9SemaphoreD2Ev.exit
 
 land.lhs.true.i:                                  ; preds = %for.cond.i
-  %call2.i = tail call ptr @__errno_location() #13
+  %call2.i = tail call ptr @__errno_location() #14
   %0 = load i32, ptr %call2.i, align 4
   %cmp3.i = icmp eq i32 %0, 16
   br i1 %cmp3.i, label %if.then.i, label %_ZN2EA6Thread9SemaphoreD2Ev.exit
@@ -687,7 +688,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #14
+  tail call void @__clang_call_terminate(ptr %2) #15
   unreachable
 
 _ZN2EA6Thread9SemaphoreD2Ev.exit:                 ; preds = %for.cond.i, %land.lhs.true.i
@@ -702,15 +703,16 @@ attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(none) }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { builtin allocsize(0) }
-attributes #16 = { builtin nounwind }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(none) }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { builtin allocsize(0) }
+attributes #17 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

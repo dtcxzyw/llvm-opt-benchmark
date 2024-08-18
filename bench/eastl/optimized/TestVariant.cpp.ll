@@ -315,7 +315,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #15
+  call void @__clang_call_terminate(ptr %2) #16
   unreachable
 
 invoke.cont15:                                    ; preds = %if.then.i.i.i, %invoke.cont11
@@ -340,7 +340,7 @@ terminate.lpad.i.i12:                             ; preds = %if.then.i.i.i10
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #15
+  call void @__clang_call_terminate(ptr %5) #16
   unreachable
 
 invoke.cont25:                                    ; preds = %if.then.i.i.i10, %invoke.cont19
@@ -367,7 +367,7 @@ terminate.lpad.i.i22:                             ; preds = %if.then.i.i.i20
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #15
+  call void @__clang_call_terminate(ptr %9) #16
   unreachable
 
 invoke.cont34:                                    ; preds = %if.then.i.i.i20, %invoke.cont29
@@ -392,7 +392,7 @@ terminate.lpad.i.i32:                             ; preds = %if.then.i.i.i30
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #15
+  call void @__clang_call_terminate(ptr %12) #16
   unreachable
 
 invoke.cont48:                                    ; preds = %if.then.i.i.i30, %invoke.cont38
@@ -460,7 +460,7 @@ terminate.lpad.i.i47:                             ; preds = %if.then.i.i.i45
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #15
+  call void @__clang_call_terminate(ptr %23) #16
   unreachable
 
 _ZN5eastl7variantIJ10TestObjectEED2Ev.exit:       ; preds = %invoke.cont59, %if.then.i.i.i45
@@ -476,7 +476,7 @@ terminate.lpad.i.i52:                             ; preds = %if.then.i.i.i50
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #15
+  call void @__clang_call_terminate(ptr %26) #16
   unreachable
 
 _ZN5eastl7variantIJ10TestObjectEED2Ev.exit53:     ; preds = %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit, %if.then.i.i.i50
@@ -656,7 +656,7 @@ terminate.lpad.i.i120:                            ; preds = %if.then.i.i.i118
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #15
+  call void @__clang_call_terminate(ptr %56) #16
   unreachable
 
 _ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %invoke.cont90, %if.then.i.i.i118
@@ -678,7 +678,7 @@ terminate.lpad.i.i125:                            ; preds = %if.then.i.i.i123
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #15
+  call void @__clang_call_terminate(ptr %61) #16
   unreachable
 
 lpad14:                                           ; preds = %invoke.cont15
@@ -696,7 +696,7 @@ terminate.lpad.i.i131:                            ; preds = %if.then.i.i.i129
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #15
+  call void @__clang_call_terminate(ptr %65) #16
   unreachable
 
 lpad24:                                           ; preds = %invoke.cont25
@@ -714,7 +714,7 @@ terminate.lpad.i.i137:                            ; preds = %if.then.i.i.i135
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #15
+  call void @__clang_call_terminate(ptr %69) #16
   unreachable
 
 lpad33:                                           ; preds = %invoke.cont34
@@ -732,7 +732,7 @@ terminate.lpad.i.i143:                            ; preds = %if.then.i.i.i141
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #15
+  call void @__clang_call_terminate(ptr %73) #16
   unreachable
 
 lpad47:                                           ; preds = %if.then10.i.i.i, %invoke.cont48
@@ -755,7 +755,7 @@ terminate.lpad.i.i156:                            ; preds = %if.then.i.i.i154
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #15
+  call void @__clang_call_terminate(ptr %78) #16
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i.i154, %lpad54, %lpad47
@@ -772,7 +772,7 @@ terminate.lpad.i.i162:                            ; preds = %if.then.i.i.i160
   %80 = landingpad { ptr, i32 }
           catch ptr null
   %81 = extractvalue { ptr, i32 } %80, 0
-  call void @__clang_call_terminate(ptr %81) #15
+  call void @__clang_call_terminate(ptr %81) #16
   unreachable
 
 lpad65:                                           ; preds = %if.then.i.i.i.i, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit115, %invoke.cont77, %invoke.cont72, %invoke.cont68, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit
@@ -790,7 +790,7 @@ terminate.lpad.i.i168:                            ; preds = %if.then.i.i.i166
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #15
+  call void @__clang_call_terminate(ptr %85) #16
   unreachable
 
 eh.resume:                                        ; preds = %if.then.i.i.i166, %lpad65, %if.then.i.i.i160, %ehcleanup, %if.then.i.i.i141, %lpad33, %if.then.i.i.i135, %lpad24, %if.then.i.i.i129, %lpad14, %if.then.i.i.i123, %lpad
@@ -857,7 +857,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i7
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #15
+  call void @__clang_call_terminate(ptr %6) #16
   unreachable
 
 invoke.cont20:                                    ; preds = %invoke.cont16, %if.then.i.i.i7
@@ -970,7 +970,7 @@ terminate.lpad.i.i69:                             ; preds = %if.then.i.i.i67
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #15
+  call void @__clang_call_terminate(ptr %24) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSIiiLl0EvEERS4_OT_.exit80: ; preds = %invoke.cont49, %if.then.i.i.i67
@@ -1019,7 +1019,7 @@ terminate.lpad.i.i89:                             ; preds = %if.then.i.i.i87
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #15
+  call void @__clang_call_terminate(ptr %31) #16
   unreachable
 
 invoke.cont77:                                    ; preds = %invoke.cont73, %if.then.i.i.i87
@@ -1089,7 +1089,7 @@ terminate.lpad.i.i178:                            ; preds = %if.then.i.i.i176
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #15
+  call void @__clang_call_terminate(ptr %40) #16
   unreachable
 
 invoke.cont103:                                   ; preds = %invoke.cont99, %if.then.i.i.i176
@@ -1130,7 +1130,7 @@ terminate.lpad.i.i247:                            ; preds = %if.then.i.i.i245
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #15
+  call void @__clang_call_terminate(ptr %44) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit248: ; preds = %invoke.cont116, %if.then.i.i.i245
@@ -1154,7 +1154,7 @@ terminate.lpad.i.i253:                            ; preds = %if.then.i.i.i251
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #15
+  call void @__clang_call_terminate(ptr %49) #16
   unreachable
 
 lpad19:                                           ; preds = %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit64, %invoke.cont39, %invoke.cont35, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit41, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit, %invoke.cont20
@@ -1172,7 +1172,7 @@ terminate.lpad.i.i259:                            ; preds = %if.then.i.i.i257
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #15
+  call void @__clang_call_terminate(ptr %53) #16
   unreachable
 
 lpad56:                                           ; preds = %invoke.cont69, %invoke.cont66, %invoke.cont61, %invoke.cont57, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSIiiLl0EvEERS4_OT_.exit80
@@ -1190,7 +1190,7 @@ terminate.lpad.i.i265:                            ; preds = %if.then.i.i.i263
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #15
+  call void @__clang_call_terminate(ptr %57) #16
   unreachable
 
 lpad76:                                           ; preds = %invoke.cont96, %invoke.cont92, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit171, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit150, %invoke.cont77
@@ -1208,7 +1208,7 @@ terminate.lpad.i.i271:                            ; preds = %if.then.i.i.i269
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #15
+  call void @__clang_call_terminate(ptr %61) #16
   unreachable
 
 lpad102:                                          ; preds = %invoke.cont112, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit239, %invoke.cont103
@@ -1226,7 +1226,7 @@ terminate.lpad.i.i277:                            ; preds = %if.then.i.i.i275
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #15
+  call void @__clang_call_terminate(ptr %65) #16
   unreachable
 
 eh.resume:                                        ; preds = %if.then.i.i.i275, %lpad102, %if.then.i.i.i269, %lpad76, %if.then.i.i.i263, %lpad56, %if.then.i.i.i257, %lpad19, %if.then.i.i.i251, %lpad
@@ -1423,7 +1423,7 @@ terminate.lpad.i.i56:                             ; preds = %if.then.i.i.i54
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #15
+  call void @__clang_call_terminate(ptr %18) #16
   unreachable
 
 _ZN5eastl7variantIJi10TestObjectEED2Ev.exit:      ; preds = %invoke.cont80, %if.then.i.i.i54
@@ -1494,7 +1494,7 @@ terminate.lpad.i.i82:                             ; preds = %if.then.i.i.i80
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #15
+  call void @__clang_call_terminate(ptr %31) #16
   unreachable
 
 eh.resume:                                        ; preds = %_ZN5eastl15variant_storageILb0EJ10TestObjectEE8DoOpImplIS1_EEvNS2_9StorageOpEPT_S6_.exit124, %if.then.i.i.i80, %lpad54
@@ -1644,7 +1644,7 @@ terminate.lpad.i.i111:                            ; preds = %if.then.i.i.i109
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #15
+  call void @__clang_call_terminate(ptr %20) #16
   unreachable
 
 _ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %invoke.cont38, %if.then.i.i.i109
@@ -1660,7 +1660,7 @@ terminate.lpad.i.i117:                            ; preds = %if.then.i.i.i115
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #15
+  call void @__clang_call_terminate(ptr %23) #16
   unreachable
 
 _ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit119: ; preds = %_ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit, %if.then.i.i.i115
@@ -1682,7 +1682,7 @@ terminate.lpad.i.i124:                            ; preds = %if.then.i.i.i122
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #15
+  call void @__clang_call_terminate(ptr %28) #16
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i.i122, %lpad14
@@ -1698,7 +1698,7 @@ terminate.lpad.i.i131:                            ; preds = %if.then.i.i.i129
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #15
+  call void @__clang_call_terminate(ptr %31) #16
   unreachable
 }
 
@@ -1819,7 +1819,7 @@ lpad.i:                                           ; preds = %if.then10.i.i.i.i.i
   br i1 %tobool.not.i.i, label %lpad.body, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %lpad.i
-  call void @_ZdaPv(ptr noundef nonnull %.pre) #16
+  call void @_ZdaPv(ptr noundef nonnull %.pre) #17
   br label %lpad.body
 
 arraydestroy.body:                                ; preds = %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEC2ERKS4_.exit.i.i.i.i.i.i, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit
@@ -1839,7 +1839,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #15
+  call void @__clang_call_terminate(ptr %4) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %arraydestroy.body, %if.then.i.i.i
@@ -1948,7 +1948,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #15
+  call void @__clang_call_terminate(ptr %16) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i45
@@ -1966,7 +1966,7 @@ invoke.cont.i:                                    ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i46, label %_ZN5eastl6vectorINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEES3_ED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i47
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i47:   ; preds = %invoke.cont.i
-  call void @_ZdaPv(ptr noundef nonnull %17) #16
+  call void @_ZdaPv(ptr noundef nonnull %17) #17
   br label %_ZN5eastl6vectorINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEES3_ED2Ev.exit
 
 _ZN5eastl6vectorINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEES3_ED2Ev.exit: ; preds = %invoke.cont.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i47
@@ -1994,7 +1994,7 @@ terminate.lpad.i.i53:                             ; preds = %if.then.i.i.i51
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #15
+  call void @__clang_call_terminate(ptr %21) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit54: ; preds = %arraydestroy.body30, %if.then.i.i.i51
@@ -2013,7 +2013,7 @@ lpad37.loopexit.split-lp:                         ; preds = %invoke.cont41, %for
 
 lpad37:                                           ; preds = %lpad37.loopexit.split-lp, %lpad37.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad37.loopexit ], [ %lpad.loopexit.split-lp, %lpad37.loopexit.split-lp ]
-  call void @_ZN5eastl6vectorINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEES3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %v) #17
+  call void @_ZN5eastl6vectorINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEES3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %v) #18
   br label %eh.resume
 
 eh.resume:                                        ; preds = %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit54, %lpad37
@@ -2046,7 +2046,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #15
+  tail call void @__clang_call_terminate(ptr %4) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i, %for.body.i.i
@@ -2064,7 +2064,7 @@ invoke.cont:                                      ; preds = %invoke.contthread-p
   br i1 %tobool.not.i, label %_ZN5eastl10VectorBaseINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEES3_ED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %invoke.cont
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #17
   br label %_ZN5eastl10VectorBaseINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEES3_ED2Ev.exit
 
 _ZN5eastl10VectorBaseINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEES3_ED2Ev.exit: ; preds = %invoke.cont, %_ZN5eastl9allocator10deallocateEPvm.exit.i
@@ -2107,7 +2107,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #15
+  call void @__clang_call_terminate(ptr %2) #16
   unreachable
 
 common.resume:                                    ; preds = %lpad, %if.then.i.i.i18, %lpad24, %if.then.i.i.i24
@@ -2148,7 +2148,7 @@ terminate.lpad.i.i14:                             ; preds = %if.then.i.i.i12
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #15
+  call void @__clang_call_terminate(ptr %6) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit15: ; preds = %invoke.cont33, %if.then.i.i.i12
@@ -2170,7 +2170,7 @@ terminate.lpad.i.i20:                             ; preds = %if.then.i.i.i18
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #15
+  call void @__clang_call_terminate(ptr %11) #16
   unreachable
 
 lpad24:                                           ; preds = %invoke.cont29, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEC2IS3_JRA6_KcES3_EERFNS_12in_place_tagENS_8Internal17in_place_type_tagIT_EEEDpOT0_.exit
@@ -2188,7 +2188,7 @@ terminate.lpad.i.i26:                             ; preds = %if.then.i.i.i24
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #15
+  call void @__clang_call_terminate(ptr %15) #16
   unreachable
 }
 
@@ -2357,7 +2357,7 @@ terminate.lpad.i.i25:                             ; preds = %if.then.i.i.i23
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #15
+  call void @__clang_call_terminate(ptr %8) #16
   unreachable
 
 for.end:                                          ; preds = %for.inc
@@ -2446,7 +2446,7 @@ terminate.lpad.i.i35:                             ; preds = %if.then.i.i.i33
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #15
+  call void @__clang_call_terminate(ptr %27) #16
   unreachable
 
 arraydestroy.body68:                              ; preds = %arraydestroy.body68.preheader, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit44
@@ -2466,7 +2466,7 @@ terminate.lpad.i.i42:                             ; preds = %if.then.i.i.i40
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #15
+  call void @__clang_call_terminate(ptr %30) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit44: ; preds = %arraydestroy.body68, %if.then.i.i.i40
@@ -2493,7 +2493,7 @@ terminate.lpad.i.i49:                             ; preds = %if.then.i.i.i47
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #15
+  call void @__clang_call_terminate(ptr %33) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit51: ; preds = %arraydestroy.body74, %if.then.i.i.i47
@@ -2646,7 +2646,7 @@ terminate.lpad.i.i44:                             ; preds = %if.then.i.i.i42
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #15
+  call void @__clang_call_terminate(ptr %8) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit46: ; preds = %arraydestroy.body31, %if.then.i.i.i42
@@ -2679,7 +2679,7 @@ terminate.lpad.i.i55:                             ; preds = %if.then.i.i.i53
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #15
+  call void @__clang_call_terminate(ptr %11) #16
   unreachable
 
 _ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i: ; preds = %invoke.cont51, %if.then.i.i.i53
@@ -2800,7 +2800,7 @@ terminate.lpad.i.i185:                            ; preds = %if.then.i.i.i183
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #15
+  call void @__clang_call_terminate(ptr %17) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %invoke.cont159, %if.then.i.i.i183
@@ -2816,7 +2816,7 @@ terminate.lpad.i.i191:                            ; preds = %if.then.i.i.i189
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #15
+  call void @__clang_call_terminate(ptr %20) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit193: ; preds = %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit, %if.then.i.i.i189
@@ -2844,7 +2844,7 @@ terminate.lpad.i.i225:                            ; preds = %if.then.i.i.i223
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #15
+  call void @__clang_call_terminate(ptr %24) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit227: ; preds = %arraydestroy.body37, %if.then.i.i.i223
@@ -2866,7 +2866,7 @@ terminate.lpad.i.i232:                            ; preds = %if.then.i.i.i230
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #15
+  call void @__clang_call_terminate(ptr %28) #16
   unreachable
 
 lpad148:                                          ; preds = %invoke.cont152, %invoke.cont156, %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i
@@ -2884,7 +2884,7 @@ terminate.lpad.i.i238:                            ; preds = %if.then.i.i.i236
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #15
+  call void @__clang_call_terminate(ptr %32) #16
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i.i236, %lpad148
@@ -2900,7 +2900,7 @@ terminate.lpad.i.i245:                            ; preds = %if.then.i.i.i243
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #15
+  call void @__clang_call_terminate(ptr %35) #16
   unreachable
 
 eh.resume:                                        ; preds = %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit227, %if.then.i.i.i243, %ehcleanup, %if.then.i.i.i230, %lpad44
@@ -3007,7 +3007,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i10
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #15
+  call void @__clang_call_terminate(ptr %8) #16
   unreachable
 
 _ZN5eastl7variantIJi10TestObjectEED2Ev.exit:      ; preds = %invoke.cont14, %if.then.i.i.i10
@@ -3029,7 +3029,7 @@ terminate.lpad.i.i23:                             ; preds = %if.then.i.i.i21
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #15
+  call void @__clang_call_terminate(ptr %13) #16
   unreachable
 
 eh.resume:                                        ; preds = %if.then.i.i.i21, %lpad1
@@ -3176,7 +3176,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #15
+  call void @__clang_call_terminate(ptr %18) #16
   unreachable
 
 _ZN5eastl7variantIJ10TestObjectEED2Ev.exit:       ; preds = %invoke.cont28, %if.then.i.i.i
@@ -3192,7 +3192,7 @@ terminate.lpad.i.i46:                             ; preds = %if.then.i.i.i44
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #15
+  call void @__clang_call_terminate(ptr %21) #16
   unreachable
 
 _ZN5eastl7variantIJ10TestObjectEED2Ev.exit47:     ; preds = %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit, %if.then.i.i.i44
@@ -3317,7 +3317,7 @@ terminate.lpad.i.i119:                            ; preds = %if.then.i.i.i117
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #15
+  call void @__clang_call_terminate(ptr %39) #16
   unreachable
 
 _ZN5eastl7variantIJ10TestObjectEED2Ev.exit120:    ; preds = %invoke.cont64, %if.then.i.i.i117
@@ -3333,7 +3333,7 @@ terminate.lpad.i.i125:                            ; preds = %if.then.i.i.i123
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #15
+  call void @__clang_call_terminate(ptr %42) #16
   unreachable
 
 _ZN5eastl7variantIJ10TestObjectEED2Ev.exit126:    ; preds = %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit120, %if.then.i.i.i123
@@ -3414,7 +3414,7 @@ terminate.lpad.i.i193:                            ; preds = %if.then.i.i.i191
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #15
+  call void @__clang_call_terminate(ptr %54) #16
   unreachable
 
 _ZN5eastl7variantIJ10TestObjectEED2Ev.exit194:    ; preds = %invoke.cont91, %if.then.i.i.i191
@@ -3469,7 +3469,7 @@ terminate.lpad.i.i219:                            ; preds = %if.then.i.i.i217
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #15
+  call void @__clang_call_terminate(ptr %65) #16
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i.i217, %lpad9, %lpad1
@@ -3486,7 +3486,7 @@ terminate.lpad.i.i225:                            ; preds = %if.then.i.i.i223
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #15
+  call void @__clang_call_terminate(ptr %68) #16
   unreachable
 
 lpad37:                                           ; preds = %invoke.cont38
@@ -3509,7 +3509,7 @@ terminate.lpad.i.i245:                            ; preds = %if.then.i.i.i243
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #15
+  call void @__clang_call_terminate(ptr %73) #16
   unreachable
 
 ehcleanup67:                                      ; preds = %if.then.i.i.i243, %lpad50, %lpad37
@@ -3526,7 +3526,7 @@ terminate.lpad.i.i251:                            ; preds = %if.then.i.i.i249
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #15
+  call void @__clang_call_terminate(ptr %76) #16
   unreachable
 
 lpad75:                                           ; preds = %invoke.cont87, %invoke.cont76
@@ -3544,7 +3544,7 @@ terminate.lpad.i.i270:                            ; preds = %if.then.i.i.i268
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #15
+  call void @__clang_call_terminate(ptr %80) #16
   unreachable
 
 eh.resume:                                        ; preds = %if.then.i.i.i268, %lpad75, %if.then.i.i.i249, %ehcleanup67, %if.then.i.i.i223, %ehcleanup
@@ -3667,17 +3667,18 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
-  tail call void @_ZSt9terminatev() #15
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5eastl15variant_storageILb0EJZ16TestVariantBasicvE5MyObjZ16TestVariantBasicvE6MyObj2EE8DoOpImplIS1_EEvNS3_9StorageOpEPT_S7_(i32 noundef %op, ptr nocapture noundef writeonly %pThis, ptr nocapture noundef readonly %pOther) #7 align 2 {
+define internal void @_ZN5eastl15variant_storageILb0EJZ16TestVariantBasicvE5MyObjZ16TestVariantBasicvE6MyObj2EE8DoOpImplIS1_EEvNS3_9StorageOpEPT_S7_(i32 noundef %op, ptr nocapture noundef writeonly %pThis, ptr nocapture noundef readonly %pOther) #8 align 2 {
 entry:
   switch i32 %op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -3699,7 +3700,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5eastl15variant_storageILb0EJZ16TestVariantBasicvE5MyObjZ16TestVariantBasicvE6MyObj2EE8DoOpImplIS2_EEvNS3_9StorageOpEPT_S7_(i32 noundef %op, ptr nocapture noundef writeonly %pThis, ptr nocapture noundef readonly %pOther) #7 align 2 {
+define internal void @_ZN5eastl15variant_storageILb0EJZ16TestVariantBasicvE5MyObjZ16TestVariantBasicvE6MyObj2EE8DoOpImplIS2_EEvNS3_9StorageOpEPT_S7_(i32 noundef %op, ptr nocapture noundef writeonly %pThis, ptr nocapture noundef readonly %pOther) #8 align 2 {
 entry:
   %0 = and i32 %op, -2
   %switch = icmp eq i32 %0, 2
@@ -3849,7 +3850,7 @@ if.then.i.i.i:                                    ; preds = %sw.bb1
   br i1 %tobool.not.i.i.i.i, label %sw.epilog, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i: ; preds = %if.then.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #17
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
@@ -3926,7 +3927,7 @@ sw.epilog:                                        ; preds = %_ZN5eastl9allocator
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 declare noundef ptr @_ZnamPKcijS0_i(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -3984,7 +3985,7 @@ if.then.i.i.i:                                    ; preds = %sw.bb1
   br i1 %tobool.not.i.i.i.i, label %sw.epilog, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i: ; preds = %if.then.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #17
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
@@ -4189,7 +4190,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb3, %sw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5eastl18visitor_caller_one14invoke_visitorIZ24TestVariantVisitNoInlineRKNS_7variantIJibjEEEE9MyVisitorS5_Lm0EEEDcOT_OT0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #9 align 2 {
+define internal void @_ZN5eastl18visitor_caller_one14invoke_visitorIZ24TestVariantVisitNoInlineRKNS_7variantIJibjEEEE9MyVisitorS5_Lm0EEEDcOT_OT0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   store i8 1, ptr %call.val, align 1
@@ -4197,7 +4198,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5eastl18visitor_caller_one14invoke_visitorIZ24TestVariantVisitNoInlineRKNS_7variantIJibjEEEE9MyVisitorS5_Lm1EEEDcOT_OT0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #9 align 2 {
+define internal void @_ZN5eastl18visitor_caller_one14invoke_visitorIZ24TestVariantVisitNoInlineRKNS_7variantIJibjEEEE9MyVisitorS5_Lm1EEEDcOT_OT0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   store i8 1, ptr %call.val, align 1
@@ -4205,7 +4206,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5eastl18visitor_caller_one14invoke_visitorIZ24TestVariantVisitNoInlineRKNS_7variantIJibjEEEE9MyVisitorS5_Lm2EEEDcOT_OT0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #9 align 2 {
+define internal void @_ZN5eastl18visitor_caller_one14invoke_visitorIZ24TestVariantVisitNoInlineRKNS_7variantIJibjEEEE9MyVisitorS5_Lm2EEEDcOT_OT0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   store i8 1, ptr %call.val, align 1
@@ -4233,7 +4234,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE19invoke_visitor_leafIJLm0ELm0EEEEvOS7_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1) #9 align 2 {
+define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE19invoke_visitor_leafIJLm0ELm0EEEEvOS7_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   store i8 1, ptr %call.val, align 1
@@ -4241,7 +4242,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE19invoke_visitor_leafIJLm0ELm1EEEEvOS7_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1) #9 align 2 {
+define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE19invoke_visitor_leafIJLm0ELm1EEEEvOS7_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   store i8 1, ptr %call.val, align 1
@@ -4249,7 +4250,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE19invoke_visitor_leafIJLm1ELm0EEEEvOS7_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1) #9 align 2 {
+define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE19invoke_visitor_leafIJLm1ELm0EEEEvOS7_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   store i8 1, ptr %call.val, align 1
@@ -4257,7 +4258,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE19invoke_visitor_leafIJLm1ELm1EEEEvOS7_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1) #9 align 2 {
+define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE19invoke_visitor_leafIJLm1ELm1EEEEvOS7_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   store i8 1, ptr %call.val, align 1
@@ -4305,7 +4306,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm0ELm0ELm0EEEEvOS7_S6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1, ptr nocapture nonnull readonly align 8 %variants3) #9 align 2 {
+define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm0ELm0ELm0EEEEvOS7_S6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1, ptr nocapture nonnull readonly align 8 %variants3) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   store i8 1, ptr %call.val, align 1
@@ -4313,7 +4314,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm0ELm0ELm1EEEEvOS7_S6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1, ptr nocapture nonnull readonly align 8 %variants3) #9 align 2 {
+define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm0ELm0ELm1EEEEvOS7_S6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1, ptr nocapture nonnull readonly align 8 %variants3) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   store i8 1, ptr %call.val, align 1
@@ -4321,7 +4322,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm0ELm1ELm0EEEEvOS7_S6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1, ptr nocapture nonnull readonly align 8 %variants3) #9 align 2 {
+define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm0ELm1ELm0EEEEvOS7_S6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1, ptr nocapture nonnull readonly align 8 %variants3) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   store i8 1, ptr %call.val, align 1
@@ -4329,7 +4330,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm0ELm1ELm1EEEEvOS7_S6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1, ptr nocapture nonnull readonly align 8 %variants3) #9 align 2 {
+define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm0ELm1ELm1EEEEvOS7_S6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1, ptr nocapture nonnull readonly align 8 %variants3) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   store i8 1, ptr %call.val, align 1
@@ -4357,7 +4358,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm1ELm0ELm0EEEEvOS7_S6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1, ptr nocapture nonnull readonly align 8 %variants3) #9 align 2 {
+define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm1ELm0ELm0EEEEvOS7_S6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1, ptr nocapture nonnull readonly align 8 %variants3) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   store i8 1, ptr %call.val, align 1
@@ -4365,7 +4366,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm1ELm0ELm1EEEEvOS7_S6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1, ptr nocapture nonnull readonly align 8 %variants3) #9 align 2 {
+define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm1ELm0ELm1EEEEvOS7_S6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1, ptr nocapture nonnull readonly align 8 %variants3) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   store i8 1, ptr %call.val, align 1
@@ -4373,7 +4374,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm1ELm1ELm0EEEEvOS7_S6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1, ptr nocapture nonnull readonly align 8 %variants3) #9 align 2 {
+define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm1ELm1ELm0EEEEvOS7_S6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1, ptr nocapture nonnull readonly align 8 %variants3) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   store i8 1, ptr %call.val, align 1
@@ -4381,7 +4382,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm1ELm1ELm1EEEEvOS7_S6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1, ptr nocapture nonnull readonly align 8 %variants3) #9 align 2 {
+define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm1ELm1ELm1EEEEvOS7_S6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr nocapture nonnull readonly align 8 %variants1, ptr nocapture nonnull readonly align 8 %variants3) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   store i8 1, ptr %call.val, align 1
@@ -4439,7 +4440,7 @@ if.then.i.i.i:                                    ; preds = %sw.bb1
   br i1 %tobool.not.i.i.i.i, label %sw.epilog, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i: ; preds = %if.then.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #17
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
@@ -4560,7 +4561,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_0Z28TestVariantVisitorOverloadedvE3$_1Z28TestVariantVisitorOverloadedvE3$_2Z28TestVariantVisitorOverloadedvE3$_3EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm0EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %visitor, ptr nocapture nonnull readonly align 8 %variant) #10 align 2 {
+define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_0Z28TestVariantVisitorOverloadedvE3$_1Z28TestVariantVisitorOverloadedvE3$_2Z28TestVariantVisitorOverloadedvE3$_3EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm0EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %visitor, ptr nocapture nonnull readonly align 8 %variant) #11 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   %0 = load i32, ptr %call.val, align 4
@@ -4641,7 +4642,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN5eastl12basic_st
   br i1 %tobool.not.i.i.i.i.i, label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_0Z28TestVariantVisitorOverloadedvE3$_1Z28TestVariantVisitorOverloadedvE3$_2Z28TestVariantVisitorOverloadedvE3$_3EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit", label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %9) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %9) #17
   br label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_0Z28TestVariantVisitorOverloadedvE3$_1Z28TestVariantVisitorOverloadedvE3$_2Z28TestVariantVisitorOverloadedvE3$_3EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit"
 
 "_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_0Z28TestVariantVisitorOverloadedvE3$_1Z28TestVariantVisitorOverloadedvE3$_2Z28TestVariantVisitorOverloadedvE3$_3EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit": ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
@@ -4650,7 +4651,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_0Z28TestVariantVisitorOverloadedvE3$_1Z28TestVariantVisitorOverloadedvE3$_2Z28TestVariantVisitorOverloadedvE3$_3EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %visitor, ptr nocapture nonnull readonly align 8 %variant) #10 align 2 {
+define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_0Z28TestVariantVisitorOverloadedvE3$_1Z28TestVariantVisitorOverloadedvE3$_2Z28TestVariantVisitorOverloadedvE3$_3EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %visitor, ptr nocapture nonnull readonly align 8 %variant) #11 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %visitor, i64 16
   %call.val = load ptr, ptr %0, align 8
@@ -4661,7 +4662,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_0Z28TestVariantVisitorOverloadedvE3$_1Z28TestVariantVisitorOverloadedvE3$_2Z28TestVariantVisitorOverloadedvE3$_3EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm3EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %visitor, ptr nocapture nonnull readonly align 8 %variant) #10 align 2 {
+define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_0Z28TestVariantVisitorOverloadedvE3$_1Z28TestVariantVisitorOverloadedvE3$_2Z28TestVariantVisitorOverloadedvE3$_3EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm3EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %visitor, ptr nocapture nonnull readonly align 8 %variant) #11 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %visitor, i64 24
   %call.val = load ptr, ptr %0, align 8
@@ -4744,7 +4745,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN5eastl12basic_st
   br i1 %tobool.not.i.i.i.i.i, label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit", label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #17
   br label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit"
 
 "_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit": ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
@@ -4753,7 +4754,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %variant) #9 align 2 {
+define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %variant) #10 align 2 {
 entry:
   %mStorage.i = getelementptr inbounds i8, ptr %variant, i64 8
   %call.val = load ptr, ptr %visitor, align 8
@@ -4769,7 +4770,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm0EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %visitor, ptr nocapture nonnull readonly align 8 %variant) #10 align 2 {
+define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm0EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %visitor, ptr nocapture nonnull readonly align 8 %variant) #11 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   %0 = load i32, ptr %call.val, align 4
@@ -4850,7 +4851,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN5eastl12basic_st
   br i1 %tobool.not.i.i.i.i.i, label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit", label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %9) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %9) #17
   br label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit"
 
 "_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit": ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
@@ -4859,7 +4860,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %visitor, ptr nocapture nonnull readonly align 8 %variant) #10 align 2 {
+define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %visitor, ptr nocapture nonnull readonly align 8 %variant) #11 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %visitor, i64 16
   %call.val = load ptr, ptr %0, align 8
@@ -4870,7 +4871,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm3EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %visitor, ptr nocapture nonnull readonly align 8 %variant) #10 align 2 {
+define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm3EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %visitor, ptr nocapture nonnull readonly align 8 %variant) #11 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %visitor, i64 24
   %call.val = load ptr, ptr %0, align 8
@@ -4953,7 +4954,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN5eastl12basic_st
   br i1 %tobool.not.i.i.i.i.i, label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit", label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #17
   br label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit"
 
 "_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit": ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
@@ -4962,7 +4963,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %variant) #9 align 2 {
+define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %variant) #10 align 2 {
 entry:
   %mStorage.i = getelementptr inbounds i8, ptr %variant, i64 8
   %call.val = load ptr, ptr %visitor, align 8
@@ -4978,7 +4979,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorIZ18TestVariantVisitorvE3$_0RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm0EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #10 align 2 {
+define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorIZ18TestVariantVisitorvE3$_0RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm0EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #11 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   %0 = load i32, ptr %call.val, align 4
@@ -5058,7 +5059,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN5eastl12basic_st
   br i1 %tobool.not.i.i.i.i.i, label %"_ZN5eastl6invokeIZ18TestVariantVisitorvE3$_0JRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit", label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %9) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %9) #17
   br label %"_ZN5eastl6invokeIZ18TestVariantVisitorvE3$_0JRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit"
 
 "_ZN5eastl6invokeIZ18TestVariantVisitorvE3$_0JRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit": ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
@@ -5067,7 +5068,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorIZ18TestVariantVisitorvE3$_0RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #10 align 2 {
+define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorIZ18TestVariantVisitorvE3$_0RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #11 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   %0 = load i32, ptr %call.val, align 4
@@ -5077,7 +5078,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorIZ18TestVariantVisitorvE3$_0RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm3EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #10 align 2 {
+define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorIZ18TestVariantVisitorvE3$_0RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm3EEEDcOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #11 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   %0 = load i32, ptr %call.val, align 4
@@ -5087,7 +5088,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl9visitor_rIvE16invoke_visitor_rIZ18TestVariantVisitorvE3$_1RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm0EEEvOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #10 align 2 {
+define internal void @"_ZN5eastl9visitor_rIvE16invoke_visitor_rIZ18TestVariantVisitorvE3$_1RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm0EEEvOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #11 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   %0 = load i32, ptr %call.val, align 4
@@ -5167,7 +5168,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN5eastl12basic_st
   br i1 %tobool.not.i.i.i.i.i, label %"_ZN5eastl6invokeIZ18TestVariantVisitorvE3$_1JRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit", label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %9) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %9) #17
   br label %"_ZN5eastl6invokeIZ18TestVariantVisitorvE3$_1JRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit"
 
 "_ZN5eastl6invokeIZ18TestVariantVisitorvE3$_1JRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit": ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
@@ -5176,7 +5177,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl9visitor_rIvE16invoke_visitor_rIZ18TestVariantVisitorvE3$_1RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEvOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #10 align 2 {
+define internal void @"_ZN5eastl9visitor_rIvE16invoke_visitor_rIZ18TestVariantVisitorvE3$_1RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEvOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #11 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   %0 = load i32, ptr %call.val, align 4
@@ -5186,7 +5187,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl9visitor_rIvE16invoke_visitor_rIZ18TestVariantVisitorvE3$_1RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm3EEEvOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #10 align 2 {
+define internal void @"_ZN5eastl9visitor_rIvE16invoke_visitor_rIZ18TestVariantVisitorvE3$_1RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm3EEEvOT_OT0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %visitor, ptr nocapture nonnull readonly align 8 %variant) #11 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
   %0 = load i32, ptr %call.val, align 4
@@ -5285,7 +5286,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN5eastl12basic_st
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #17
   br label %_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit
 
 _ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit: ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
@@ -5294,7 +5295,7 @@ _ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %n) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5380,7 +5381,7 @@ if.then21:                                        ; preds = %if.then19
   br i1 %tobool.not.i, label %if.end47, label %_ZN5eastl9allocator10deallocateEPvm.exit.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %if.then21
-  tail call void @_ZdaPv(ptr noundef nonnull %spec.select.i) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %spec.select.i) #17
   br label %if.end47
 
 if.end32:                                         ; preds = %if.then19
@@ -5414,7 +5415,7 @@ if.then.i:                                        ; preds = %if.end32
   br i1 %tobool.not.i.i, label %_ZN5eastl12basic_stringIcNS_9allocatorEE14DeallocateSelfEv.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %if.then.i
-  tail call void @_ZdaPv(ptr noundef nonnull %16) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %16) #17
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEE14DeallocateSelfEv.exit
 
 _ZN5eastl12basic_stringIcNS_9allocatorEE14DeallocateSelfEv.exit: ; preds = %if.end32, %if.then.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
@@ -5430,7 +5431,7 @@ if.then.i68:                                      ; preds = %if.then17
   br i1 %tobool.not.i.i69, label %_ZN5eastl12basic_stringIcNS_9allocatorEE14DeallocateSelfEv.exit71, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i70
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i70:   ; preds = %if.then.i68
-  tail call void @_ZdaPv(ptr noundef nonnull %17) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %17) #17
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEE14DeallocateSelfEv.exit71
 
 _ZN5eastl12basic_stringIcNS_9allocatorEE14DeallocateSelfEv.exit71: ; preds = %if.then.i68, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i70
@@ -5525,7 +5526,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #15
+  call void @__clang_call_terminate(ptr %6) #16
   unreachable
 
 _ZN5eastl15variant_storageILb0EJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %if.end7.i.i15, %invoke.cont4, %if.then.i.i
@@ -5546,7 +5547,7 @@ terminate.lpad.i26:                               ; preds = %if.then.i.i25
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #15
+  call void @__clang_call_terminate(ptr %10) #16
   unreachable
 
 _ZN5eastl15variant_storageILb0EJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit27: ; preds = %lpad, %if.then.i.i25
@@ -5593,7 +5594,7 @@ terminate.lpad.i:                                 ; preds = %if.then10.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #15
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 
 for.cond1:                                        ; preds = %for.cond1.backedge, %for.cond1.preheader
@@ -5678,7 +5679,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #15
+  call void @__clang_call_terminate(ptr %13) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %lpad, %if.then.i.i.i
@@ -5733,7 +5734,7 @@ terminate.lpad.i.i44:                             ; preds = %if.then.i.i.i42
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #15
+  call void @__clang_call_terminate(ptr %19) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit45: ; preds = %if.end7.i.i.i34, %invoke.cont10, %if.then.i.i.i42
@@ -6013,7 +6014,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #15
+  call void @__clang_call_terminate(ptr %12) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i.i
@@ -6049,7 +6050,7 @@ terminate.lpad.i.i8:                              ; preds = %if.then.i.i.i6
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #15
+  call void @__clang_call_terminate(ptr %15) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit9: ; preds = %lpad, %if.then.i.i.i6
@@ -6111,7 +6112,7 @@ _ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i:  ; preds = %entry
   br label %_ZN5eastl6invokeINS_4lessIvEEJRKNS_12basic_stringIcNS_9allocatorEEES7_EEEDcOT_DpOT0_.exit
 
 _ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i:         ; preds = %entry
-  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %spec.select.i.i.i.i.i.i, ptr noundef %spec.select.i.i7.i.i.i.i, i64 noundef %cond.i.i16.i.i.i.i) #18
+  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %spec.select.i.i.i.i.i.i, ptr noundef %spec.select.i.i7.i.i.i.i, i64 noundef %cond.i.i16.i.i.i.i) #19
   %call.i.fr.i.i.i.i.i = freeze i32 %call.i.i.i.i.i.i
   %cmp5.not.i.i.i.i.i = icmp eq i32 %call.i.fr.i.i.i.i.i, 0
   %cmp6.i.i.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i.i.i, %sub.ptr.sub3.i.i.i.i.i
@@ -6207,7 +6208,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #15
+  call void @__clang_call_terminate(ptr %6) #16
   unreachable
 
 _ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %if.end7.i.i15, %invoke.cont4, %if.then.i.i
@@ -6228,7 +6229,7 @@ terminate.lpad.i26:                               ; preds = %if.then.i.i25
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #15
+  call void @__clang_call_terminate(ptr %10) #16
   unreachable
 
 _ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit27: ; preds = %lpad, %if.then.i.i25
@@ -6281,7 +6282,7 @@ terminate.lpad.i:                                 ; preds = %if.then10.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #15
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEC2ILb1EvEEOS4_.exit: ; preds = %do.body, %if.end.i.i.i, %if.then10.i.i.i
@@ -6301,7 +6302,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #15
+  call void @__clang_call_terminate(ptr %6) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i.i
@@ -6323,7 +6324,7 @@ terminate.lpad.i.i14:                             ; preds = %if.then.i.i.i12
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #15
+  call void @__clang_call_terminate(ptr %10) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit15: ; preds = %lpad, %if.then.i.i.i12
@@ -6610,7 +6611,7 @@ terminate.lpad.i:                                 ; preds = %if.then10.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #15
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEC2ILb1EvEEOS4_.exit: ; preds = %entry, %if.end.i.i.i, %if.then10.i.i.i
@@ -6673,7 +6674,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #15
+  call void @__clang_call_terminate(ptr %10) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %invoke.cont5, %if.then.i.i.i
@@ -6694,7 +6695,7 @@ terminate.lpad.i.i21:                             ; preds = %if.then.i.i.i19
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #15
+  call void @__clang_call_terminate(ptr %14) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit22: ; preds = %lpad, %if.then.i.i.i19
@@ -6747,7 +6748,7 @@ terminate.lpad.i:                                 ; preds = %if.then10.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #15
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %for.inc
@@ -6833,7 +6834,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #15
+  call void @__clang_call_terminate(ptr %13) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %lpad, %if.then.i.i.i
@@ -6889,7 +6890,7 @@ terminate.lpad.i.i47:                             ; preds = %if.then.i.i.i45
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #15
+  call void @__clang_call_terminate(ptr %19) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit48: ; preds = %if.end7.i.i.i37, %invoke.cont12, %if.then.i.i.i45
@@ -6902,19 +6903,19 @@ if.end:                                           ; preds = %_ZN5eastl7variantIJ
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
+declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #13
+declare i64 @llvm.smin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6923,18 +6924,19 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { builtin nounwind }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { builtin nounwind }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

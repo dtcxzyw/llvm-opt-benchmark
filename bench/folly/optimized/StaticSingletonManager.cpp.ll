@@ -35,24 +35,24 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !7
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance) #10
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance) #11
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
   tail call fastcc void @_ZN5folly14IndestructibleINS_6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImplEEC2IS3_S3_EEv()
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance) #10
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance) #11
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
   %key = getelementptr inbounds i8, ptr %arg, i64 8
   %2 = load ptr, ptr %key, align 8, !tbaa !8
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 56)) #10
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 56)) #11
   %tobool.not.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %init.end
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #11
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i) #12
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %init.end
@@ -82,7 +82,7 @@ lor.lhs.false.i.i.i.i.i.i.i.i:                    ; preds = %while.body.i.i.i.i.
   br i1 %cmp5.not.i.i.i.i.i.i.i.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i
-  %call.i.i.i.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %4) #10
+  %call.i.i.i.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %4) #11
   %cmp8.i.i.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i.i.i, 0
   br i1 %cmp8.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
@@ -120,7 +120,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %lor.rhs.i.i
   br i1 %cmp5.not.i.i.i.i.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %lor.lhs.false.i.i.i.i.i, %lor.rhs.i.i
-  %call.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %12) #10
+  %call.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %12) #11
   %cmp8.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i, 0
   br i1 %cmp8.i.i.i.i.i, label %if.then.i.i, label %_ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5entryERKSt9type_info.exit
 
@@ -131,7 +131,7 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i:  ; preds = %lor.lhs.false.i.i.i
 if.then.i.i:                                      ; preds = %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i, %if.then.i.i.i.i.i, %_ZNSt3mapISt10type_indexN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryESt4lessIS0_ENS1_19reentrant_allocatorISt4pairIKS0_S5_EEEE11lower_boundERSA_.exit.i.i, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
   %cmp.i5.i.i = phi i1 [ false, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i ], [ false, %if.then.i.i.i.i.i ], [ true, %_ZNSt3mapISt10type_indexN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryESt4lessIS0_ENS1_19reentrant_allocatorISt4pairIKS0_S5_EEEE11lower_boundERSA_.exit.i.i ], [ true, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i ]
   %__y.addr.0.lcssa.i.i.i3.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i ], [ %__y.addr.1.i.i.i.i.i, %if.then.i.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 16), %_ZNSt3mapISt10type_indexN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryESt4lessIS0_ENS1_19reentrant_allocatorISt4pairIKS0_S5_EEEE11lower_boundERSA_.exit.i.i ], [ getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 16), %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i ]
-  %call.i.i.i.i.i.i22.i.i = tail call noundef ptr @_ZN5folly6detail24reentrant_allocator_base8allocateEmm(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 noundef 88, i64 noundef 8) #10
+  %call.i.i.i.i.i.i22.i.i = tail call noundef ptr @_ZN5folly6detail24reentrant_allocator_base8allocateEmm(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 noundef 88, i64 noundef 8) #11
   %_M_storage.i.i.i.i.i23.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i22.i.i, i64 32
   %14 = ptrtoint ptr %2 to i64
   store i64 %14, ptr %_M_storage.i.i.i.i.i23.i.i, align 8, !tbaa !25
@@ -162,7 +162,7 @@ lor.lhs.false.i.i.i.i.i.i.i:                      ; preds = %land.lhs.true.i.i.i
   br i1 %cmp5.not.i.i.i.i.i.i.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %lor.lhs.false.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i
-  %call.i.i.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %20) #10
+  %call.i.i.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %20) #11
   %cmp8.i.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i.i, 0
   br i1 %cmp8.i.i.i.i.i.i.i, label %if.then.i.i.i, label %invoke.cont7.i.i.i
 
@@ -187,7 +187,7 @@ lor.lhs.false.i.i.i104.i.i.i.i:                   ; preds = %if.else12.i.i.i.i
   br i1 %cmp5.not.i.i.i105.i.i.i.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit108.i.i.i.i, label %if.then.i.i.i100.i.i.i.i
 
 if.then.i.i.i100.i.i.i.i:                         ; preds = %lor.lhs.false.i.i.i104.i.i.i.i, %if.else12.i.i.i.i
-  %call.i.i.i101.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %25) #10
+  %call.i.i.i101.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %25) #11
   %cmp8.i.i.i102.i.i.i.i = icmp slt i32 %call.i.i.i101.i.i.i.i, 0
   br i1 %cmp8.i.i.i102.i.i.i.i, label %if.then19.i.i.i.i, label %if.else46.i.i.i.i
 
@@ -201,7 +201,7 @@ if.then19.i.i.i.i:                                ; preds = %_ZNKSt4lessISt10typ
   br i1 %cmp22.i.i.i.i, label %cleanup.i.i.i, label %if.else26.i.i.i.i
 
 if.else26.i.i.i.i:                                ; preds = %if.then19.i.i.i.i
-  %call.i.i.i33.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.addr.0.lcssa.i.i.i3.i.i) #12
+  %call.i.i.i33.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.addr.0.lcssa.i.i.i3.i.i) #13
   %_M_storage.i.i.i110.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i33.i.i, i64 32
   %28 = load ptr, ptr %_M_storage.i.i.i110.i.i.i.i, align 8, !tbaa !22
   %__name.i.i.i111.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
@@ -212,7 +212,7 @@ if.else26.i.i.i.i:                                ; preds = %if.then19.i.i.i.i
   br i1 %brmerge.i.i.i.i, label %if.then.i.i.i114.i.i.i.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit122.i.i.i.i
 
 if.then.i.i.i114.i.i.i.i:                         ; preds = %if.else26.i.i.i.i
-  %call.i.i.i115.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %23) #10
+  %call.i.i.i115.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %23) #11
   %cmp8.i.i.i116.i.i.i.i = icmp slt i32 %call.i.i.i115.i.i.i.i, 0
   br i1 %cmp8.i.i.i116.i.i.i.i, label %if.then34.i.i.i.i, label %invoke.cont7.i.i.i
 
@@ -233,7 +233,7 @@ if.else46.i.i.i.i:                                ; preds = %if.then.i.i.i100.i.
   br i1 %brmerge17.i.i.i.i, label %if.then.i.i.i129.i.i.i.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit137.i.i.i.i
 
 if.then.i.i.i129.i.i.i.i:                         ; preds = %if.else46.i.i.i.i
-  %call.i.i.i130.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %23) #10
+  %call.i.i.i130.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %23) #11
   %cmp8.i.i.i131.i.i.i.i = icmp slt i32 %call.i.i.i130.i.i.i.i, 0
   br i1 %cmp8.i.i.i131.i.i.i.i, label %if.then53.i.i.i.i, label %if.then.i27.i.i.i
 
@@ -247,7 +247,7 @@ if.then53.i.i.i.i:                                ; preds = %_ZNKSt4lessISt10typ
   br i1 %cmp56.i.i.i.i, label %if.then.i.i.i, label %if.else60.i.i.i.i
 
 if.else60.i.i.i.i:                                ; preds = %if.then53.i.i.i.i
-  %call.i139.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.addr.0.lcssa.i.i.i3.i.i) #12
+  %call.i139.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.addr.0.lcssa.i.i.i3.i.i) #13
   %_M_storage.i.i.i140.i.i.i.i = getelementptr inbounds i8, ptr %call.i139.i.i.i.i, i64 32
   %33 = load ptr, ptr %_M_storage.i.i.i140.i.i.i.i, align 8, !tbaa !22
   %__name2.i.i.i143.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 8
@@ -260,7 +260,7 @@ lor.lhs.false.i.i.i148.i.i.i.i:                   ; preds = %if.else60.i.i.i.i
   br i1 %cmp5.not.i.i.i149.i.i.i.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit152.i.i.i.i, label %if.then.i.i.i144.i.i.i.i
 
 if.then.i.i.i144.i.i.i.i:                         ; preds = %lor.lhs.false.i.i.i148.i.i.i.i, %if.else60.i.i.i.i
-  %call.i.i.i145.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %34) #10
+  %call.i.i.i145.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %34) #11
   %cmp8.i.i.i146.i.i.i.i = icmp slt i32 %call.i.i.i145.i.i.i.i, 0
   br i1 %cmp8.i.i.i146.i.i.i.i, label %if.then68.i.i.i.i, label %invoke.cont7.i.i.i
 
@@ -297,7 +297,7 @@ while.body.us.i:                                  ; preds = %while.body.lr.ph.i,
   br i1 %cmp5.not.i.i.i.us.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.us.i, label %if.then.i.i.i.us.i
 
 if.then.i.i.i.us.i:                               ; preds = %while.body.us.i
-  %call.i.i.i.us.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %40) #10
+  %call.i.i.i.us.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %40) #11
   %cmp8.i.i.i.us.i = icmp slt i32 %call.i.i.i.us.i, 0
   br i1 %cmp8.i.i.i.us.i, label %cond.true.us.i, label %cond.end.us.i
 
@@ -322,7 +322,7 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
   %43 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !22
   %__name2.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 8
   %44 = load ptr, ptr %__name2.i.i.i.i, align 8, !tbaa !20
-  %call.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %44) #10
+  %call.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %44) #11
   %cmp8.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   %cond.in.v.i = select i1 %cmp8.i.i.i.i, i64 16, i64 24
   %cond.in.i = getelementptr i8, ptr %__x.013.i, i64 %cond.in.v.i
@@ -342,7 +342,7 @@ if.then.i:                                        ; preds = %while.end.i, %invok
   br i1 %cmp.i.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryEESt10_Select1stIS8_ESt4lessIS0_ENS3_19reentrant_allocatorIS8_EEE24_M_get_insert_unique_posERS2_.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa20.i) #12
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa20.i) #13
   %__name2.i.i.i31.i.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
   %.pre = load ptr, ptr %__name2.i.i.i31.i.phi.trans.insert, align 8, !tbaa !20
   br label %if.end12.i
@@ -365,7 +365,7 @@ lor.lhs.false.i.i.i36.i:                          ; preds = %if.end12.i
   br i1 %cmp5.not.i.i.i37.i, label %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit40.i, label %if.then.i.i.i32.i
 
 if.then.i.i.i32.i:                                ; preds = %lor.lhs.false.i.i.i36.i, %if.end12.i
-  %call.i.i.i33.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %46) #10
+  %call.i.i.i33.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %46) #11
   %cmp8.i.i.i34.i = icmp slt i32 %call.i.i.i33.i, 0
   br i1 %cmp8.i.i.i34.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryEESt10_Select1stIS8_ESt4lessIS0_ENS3_19reentrant_allocatorIS8_EEE24_M_get_insert_unique_posERS2_.exit, label %if.then.i27.i.i.i
 
@@ -400,7 +400,7 @@ lor.lhs.false.i.i.i.i.i.i30.i.i:                  ; preds = %lor.rhs.i.i.i.i.i
   br i1 %cmp5.not.i.i.i.i.i.i31.i.i, label %if.end.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i28.i.i
 
 if.then.i.i.i.i.i.i28.i.i:                        ; preds = %lor.lhs.false.i.i.i.i.i.i30.i.i, %lor.rhs.i.i.i.i.i
-  %call.i.i.i.i.i24.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %54) #10
+  %call.i.i.i.i.i24.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %54) #11
   %cmp8.i.i.i.i.i.i29.i.i = icmp slt i32 %call.i.i.i.i.i24.i.i.i, 0
   br label %cleanup.i.i.i
 
@@ -411,7 +411,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %lor.lhs.false.i.i.i
 cleanup.i.i.i:                                    ; preds = %if.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i28.i.i, %if.then.i.i.i, %if.then68.i.i.i.i, %if.then34.i.i.i.i, %if.then19.i.i.i.i
   %retval.sroa.12.2.i828.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 16), %if.then.i.i.i ], [ %retval.sroa.12.2.i8.i.i.i, %if.then.i.i.i.i.i.i28.i.i ], [ %retval.sroa.12.2.i8.i.i.i, %if.end.i.i.i.i.i.i.i.i ], [ %call.i139.i.i.i.i, %if.then68.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i3.i.i, %if.then19.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i3.i.i, %if.then34.i.i.i.i ]
   %56 = phi i1 [ true, %if.then.i.i.i ], [ %cmp8.i.i.i.i.i.i29.i.i, %if.then.i.i.i.i.i.i28.i.i ], [ %cmp11.i.i.i.i.i.i32.i.i, %if.end.i.i.i.i.i.i.i.i ], [ true, %if.then68.i.i.i.i ], [ true, %if.then19.i.i.i.i ], [ true, %if.then34.i.i.i.i ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %56, ptr noundef nonnull %call.i.i.i.i.i.i22.i.i, ptr noundef nonnull %retval.sroa.12.2.i828.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 16)) #10
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %56, ptr noundef nonnull %call.i.i.i.i.i.i22.i.i, ptr noundef nonnull %retval.sroa.12.2.i828.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 16)) #11
   %57 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 48), align 8, !tbaa !28
   %inc.i.i.i.i.i = add i64 %57, 1
   store i64 %inc.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 48), align 8, !tbaa !28
@@ -419,24 +419,24 @@ cleanup.i.i.i:                                    ; preds = %if.end.i.i.i.i.i.i.
 
 if.then.i27.i.i.i:                                ; preds = %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryEESt10_Select1stIS8_ESt4lessIS0_ENS3_19reentrant_allocatorIS8_EEE24_M_get_insert_unique_posERS2_.exit, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit40.i, %if.then.i.i.i32.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit137.i.i.i.i, %if.then.i.i.i129.i.i.i.i
   %retval.sroa.0.0.ph.i.i.i = phi ptr [ null, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5EntryEESt10_Select1stIS8_ESt4lessIS0_ENS3_19reentrant_allocatorIS8_EEE24_M_get_insert_unique_posERS2_.exit ], [ %__y.addr.0.lcssa.i.i.i3.i.i, %if.then.i.i.i129.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i3.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit137.i.i.i.i ], [ %__j.sroa.0.0.i, %if.then.i.i.i32.i ], [ %__j.sroa.0.0.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit40.i ]
-  tail call void @_ZN5folly6detail24reentrant_allocator_base10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, ptr noundef nonnull %call.i.i.i.i.i.i22.i.i, i64 noundef 88) #10
+  tail call void @_ZN5folly6detail24reentrant_allocator_base10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, ptr noundef nonnull %call.i.i.i.i.i.i22.i.i, i64 noundef 88) #11
   br label %_ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5entryERKSt9type_info.exit
 
 _ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5entryERKSt9type_info.exit: ; preds = %if.then.i27.i.i.i, %cleanup.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i, %if.then.i.i.i.i.i
   %__i.sroa.0.0.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %_ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.i.i ], [ %__y.addr.1.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call.i.i.i.i.i.i22.i.i, %cleanup.i.i.i ], [ %retval.sroa.0.0.ph.i.i.i, %if.then.i27.i.i.i ]
   %second.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i.i, i64 40
-  %call1.i.i.i.i5.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 56)) #10
+  %call1.i.i.i.i5.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 56)) #11
   %make = getelementptr inbounds i8, ptr %arg, i64 16
   %58 = load ptr, ptr %make, align 8, !tbaa !33
   %debug = getelementptr inbounds i8, ptr %arg, i64 24
   %59 = load ptr, ptr %debug, align 8, !tbaa !34
   %mutex.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i.i, i64 48
-  %call1.i.i.i.i.i8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #10
+  %call1.i.i.i.i.i8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #11
   %tobool.not.i.i.i.i9 = icmp eq i32 %call1.i.i.i.i.i8, 0
   br i1 %tobool.not.i.i.i.i9, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i11, label %if.then.i.i.i.i10
 
 if.then.i.i.i.i10:                                ; preds = %_ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5entryERKSt9type_info.exit
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i8) #11
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.i8) #12
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i11:     ; preds = %_ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5entryERKSt9type_info.exit
@@ -456,12 +456,12 @@ invoke.cont.i:                                    ; preds = %cond.false.i
 _ZNSt11unique_lockISt5mutexED2Ev.exit13.i:        ; preds = %cond.false.i
   %61 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i.i12.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #10
+  %call1.i.i.i.i12.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #11
   resume { ptr, i32 } %61
 
 _ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl5Entry3getERFPvvEPS4_.exit: ; preds = %invoke.cont.i, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i11
   %cond.i = phi ptr [ %call.i, %invoke.cont.i ], [ %60, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i11 ]
-  %call1.i.i.i.i6.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #10
+  %call1.i.i.i.i6.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #11
   %62 = ptrtoint ptr %cond.i to i64
   store atomic i64 %62, ptr %arg release, align 8
   ret ptr %cond.i
@@ -478,29 +478,29 @@ entry:
   %ref.tmp.i.i = alloca %"class.folly::reentrant_allocator.0", align 8
   %ref.tmp2.i.i = alloca %"class.folly::reentrant_allocator_options", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i8 0, i64 96, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i) #11
   store i64 16, ptr %ref.tmp2.i.i, align 8, !tbaa !39
   %large_size_lg_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i, i64 8
   store i64 12, ptr %large_size_lg_.i.i.i, align 8, !tbaa !41
-  call void @_ZN5folly6detail24reentrant_allocator_baseC2ERKNS_27reentrant_allocator_optionsE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i) #10
-  call void @_ZN5folly6detail24reentrant_allocator_baseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i) #10
-  call void @_ZN5folly6detail24reentrant_allocator_baseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i) #10
-  call void @_ZN5folly6detail24reentrant_allocator_baseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i) #10
+  call void @_ZN5folly6detail24reentrant_allocator_baseC2ERKNS_27reentrant_allocator_optionsE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i) #11
+  call void @_ZN5folly6detail24reentrant_allocator_baseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i) #11
+  call void @_ZN5folly6detail24reentrant_allocator_baseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i) #11
+  call void @_ZN5folly6detail24reentrant_allocator_baseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i) #11
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 16), align 8, !tbaa !42
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 24), align 8, !tbaa !15
   store ptr getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 32), align 8, !tbaa !32
   store ptr getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 40), align 8, !tbaa !43
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 48), align 8, !tbaa !28
-  call void @_ZN5folly6detail24reentrant_allocator_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i) #10
-  call void @_ZN5folly6detail24reentrant_allocator_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i) #10
-  call void @_ZN5folly6detail24reentrant_allocator_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i) #10
+  call void @_ZN5folly6detail24reentrant_allocator_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i) #11
+  call void @_ZN5folly6detail24reentrant_allocator_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i) #11
+  call void @_ZN5folly6detail24reentrant_allocator_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl6createINS0_30StaticSingletonManagerWithRtti3ArgEEEPvRT_E8instance, i64 56), i8 0, i64 40, i1 false)
   ret void
 }
@@ -530,23 +530,24 @@ declare void @_ZN5folly6detail24reentrant_allocator_baseC2ERKS1_(ptr noundef non
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #7
+declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZN5folly6detail24reentrant_allocator_base8allocateEmm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef, i64 noundef) local_unnamed_addr #5
@@ -555,10 +556,10 @@ declare noundef ptr @_ZN5folly6detail24reentrant_allocator_base8allocateEmm(ptr 
 declare void @_ZN5folly6detail24reentrant_allocator_base10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #9
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #9
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
@@ -579,7 +580,7 @@ terminate.lpad:                                   ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #13
+  tail call void @__clang_call_terminate(ptr %1) #14
   unreachable
 }
 
@@ -590,13 +591,14 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { noreturn nounwind }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

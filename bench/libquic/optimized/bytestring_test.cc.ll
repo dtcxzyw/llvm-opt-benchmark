@@ -578,14 +578,14 @@ _ZL12TestCBBBasicv.exit.thread64:                 ; preds = %land.end.i.thread
   br label %return
 
 if.then.i.i.thread:                               ; preds = %land.end.i.thread
-  call void @free(ptr noundef nonnull %17) #11
+  call void @free(ptr noundef nonnull %17) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf_len.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cbb.i)
   br label %return
 
 if.then.i.i:                                      ; preds = %land.end.i
-  call void @free(ptr noundef nonnull %17) #11
+  call void @free(ptr noundef nonnull %17) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf_len.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cbb.i)
@@ -767,7 +767,7 @@ land.end:                                         ; preds = %if.end9
 
 if.then.i:                                        ; preds = %land.end.thread, %land.end
   %3 = phi i1 [ %cmp10, %land.end.thread ], [ false, %land.end ]
-  call void @free(ptr noundef nonnull %0) #11
+  call void @free(ptr noundef nonnull %0) #12
   br label %return
 
 return:                                           ; preds = %if.then.i, %land.end, %entry, %if.then8
@@ -843,7 +843,7 @@ lor.lhs.false27:                                  ; preds = %lor.lhs.false24
 
 if.then30:                                        ; preds = %lor.lhs.false27, %lor.lhs.false24, %lor.lhs.false21, %lor.lhs.false18, %lor.lhs.false15, %lor.lhs.false12, %if.end9
   %0 = load ptr, ptr @stderr, align 8
-  %1 = call i64 @fwrite(ptr nonnull @.str.5, i64 43, i64 1, ptr %0) #12
+  %1 = call i64 @fwrite(ptr nonnull @.str.5, i64 43, i64 1, ptr %0) #13
   call void @CBB_cleanup(ptr noundef nonnull %cbb)
   br label %return
 
@@ -873,7 +873,7 @@ cleanup:                                          ; preds = %lor.lhs.false37, %i
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup
-  call void @free(ptr noundef nonnull %2) #11
+  call void @free(ptr noundef nonnull %2) #12
   br label %return
 
 return:                                           ; preds = %if.then.i, %cleanup, %entry, %if.then35, %if.then30, %if.then8
@@ -1000,7 +1000,7 @@ land.end:                                         ; preds = %land.rhs, %if.end
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %land.end
-  call void @free(ptr noundef nonnull %0) #11
+  call void @free(ptr noundef nonnull %0) #12
   br label %return
 
 return:                                           ; preds = %if.then.i, %land.end, %if.then
@@ -1043,7 +1043,7 @@ terminate.lpad.i:                                 ; preds = %lpad
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #13
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 
 _ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit: ; preds = %lpad
@@ -1186,7 +1186,7 @@ land.end:                                         ; preds = %land.rhs, %if.end81
   br i1 %cmp.not.i, label %cleanup, label %if.then.i
 
 if.then.i:                                        ; preds = %land.end
-  call void @free(ptr noundef nonnull %3) #11
+  call void @free(ptr noundef nonnull %3) #12
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i, %land.end, %invoke.cont77, %invoke.cont13, %invoke.cont19, %invoke.cont23, %invoke.cont29, %invoke.cont33, %invoke.cont39, %invoke.cont43, %invoke.cont49, %invoke.cont53, %invoke.cont57, %invoke.cont61, %invoke.cont65, %invoke.cont69, %invoke.cont1, %invoke.cont5
@@ -1198,7 +1198,7 @@ terminate.lpad.i1:                                ; preds = %cleanup
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #13
+  call void @__clang_call_terminate(ptr %7) #14
   unreachable
 
 _ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit2: ; preds = %cleanup
@@ -1248,7 +1248,7 @@ lor.lhs.false10:                                  ; preds = %if.end9
   br i1 %cmp12.not, label %if.end14, label %cleanup113
 
 if.end14:                                         ; preds = %lor.lhs.false10
-  %call5.i.i.i.i1.i.i8 = invoke noalias noundef nonnull dereferenceable(100000) ptr @_Znwm(i64 noundef 100000) #14
+  %call5.i.i.i.i1.i.i8 = invoke noalias noundef nonnull dereferenceable(100000) ptr @_Znwm(i64 noundef 100000) #15
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end14
@@ -1269,7 +1269,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %if.then99, %lor.lhs
   %scoper.sroa.0.1 = phi ptr [ %0, %if.then34 ], [ %4, %if.then64 ], [ %7, %if.then99 ], [ %7, %lor.lhs.false95 ], [ %7, %lor.lhs.false90 ], [ %7, %lor.lhs.false86 ], [ %7, %if.end82 ], [ %7, %if.end77 ], [ %4, %lor.lhs.false60 ], [ %4, %lor.lhs.false55 ], [ %4, %if.end51 ], [ %4, %if.end46 ], [ %0, %lor.lhs.false30 ], [ %0, %lor.lhs.false25 ], [ %0, %if.end21 ], [ %0, %invoke.cont ]
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i8) #15
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i8) #16
   br label %ehcleanup
 
 if.end21:                                         ; preds = %invoke.cont17
@@ -1306,7 +1306,7 @@ if.end36:                                         ; preds = %invoke.cont31
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end36
-  call void @free(ptr noundef nonnull %0) #11
+  call void @free(ptr noundef nonnull %0) #12
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit: ; preds = %if.end36, %if.then.i.i
@@ -1368,7 +1368,7 @@ if.end66:                                         ; preds = %invoke.cont61
   br i1 %tobool.not.i.i9, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %if.end66
-  call void @free(ptr noundef nonnull %4) #11
+  call void @free(ptr noundef nonnull %4) #12
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11: ; preds = %if.end66, %if.then.i.i10
@@ -1438,7 +1438,7 @@ if.end101:                                        ; preds = %invoke.cont96
   br i1 %tobool.not.i.i12, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %if.end101
-  call void @free(ptr noundef nonnull %7) #11
+  call void @free(ptr noundef nonnull %7) #12
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14: ; preds = %if.end101, %if.then.i.i13
@@ -1461,7 +1461,7 @@ lor.lhs.false106:                                 ; preds = %lor.lhs.false103
 _ZNSt6vectorIhSaIhEED2Ev.exit17:                  ; preds = %lor.lhs.false106, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14, %lor.lhs.false103, %if.then99, %invoke.cont78, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11, %lor.lhs.false68, %lor.lhs.false71, %if.then64, %invoke.cont47, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit, %lor.lhs.false38, %lor.lhs.false41, %if.then34, %invoke.cont17
   %scoper.sroa.0.2 = phi ptr [ %0, %invoke.cont17 ], [ %0, %if.then34 ], [ %4, %invoke.cont47 ], [ %4, %if.then64 ], [ %7, %invoke.cont78 ], [ %7, %if.then99 ], [ %10, %lor.lhs.false106 ], [ %10, %lor.lhs.false103 ], [ %10, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14 ], [ %7, %lor.lhs.false71 ], [ %7, %lor.lhs.false68 ], [ %7, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11 ], [ %4, %lor.lhs.false41 ], [ %4, %lor.lhs.false38 ], [ %4, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit ]
   %retval.2 = phi i1 [ false, %invoke.cont17 ], [ false, %if.then34 ], [ false, %invoke.cont47 ], [ false, %if.then64 ], [ false, %invoke.cont78 ], [ false, %if.then99 ], [ %tobool110.not, %lor.lhs.false106 ], [ false, %lor.lhs.false103 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14 ], [ false, %lor.lhs.false71 ], [ false, %lor.lhs.false68 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false38 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit ]
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i8) #15
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i8) #16
   br label %cleanup113
 
 cleanup113:                                       ; preds = %if.end9, %lor.lhs.false10, %_ZNSt6vectorIhSaIhEED2Ev.exit17
@@ -1471,7 +1471,7 @@ cleanup113:                                       ; preds = %if.end9, %lor.lhs.f
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup113
-  call void @free(ptr noundef nonnull %scoper.sroa.0.0) #11
+  call void @free(ptr noundef nonnull %scoper.sroa.0.0) #12
   br label %return
 
 ehcleanup:                                        ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %lpad
@@ -1481,7 +1481,7 @@ ehcleanup:                                        ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %cmp.not.i18, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit20, label %if.then.i19
 
 if.then.i19:                                      ; preds = %ehcleanup
-  call void @free(ptr noundef nonnull %scoper.sroa.0.3) #11
+  call void @free(ptr noundef nonnull %scoper.sroa.0.3) #12
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit20
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit20:  ; preds = %ehcleanup, %if.then.i19
@@ -1547,7 +1547,7 @@ for.body:                                         ; preds = %_ZNSt10unique_ptrIh
 if.then:                                          ; preds = %for.body
   %6 = load ptr, ptr @stderr, align 8
   %cond = select i1 %tobool, ptr @.str.21, ptr @.str.22
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.20, ptr noundef nonnull %cond) #12
+  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.20, ptr noundef nonnull %cond) #13
   br label %cleanup
 
 lpad:                                             ; preds = %lor.lhs.false, %land.lhs.true
@@ -1557,7 +1557,7 @@ lpad:                                             ; preds = %lor.lhs.false, %lan
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lpad
-  call void @free(ptr noundef nonnull %2) #11
+  call void @free(ptr noundef nonnull %2) #12
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %lpad, %if.then.i
@@ -1589,7 +1589,7 @@ invoke.cont12:                                    ; preds = %lor.lhs.false
 
 if.then18:                                        ; preds = %invoke.cont12, %invoke.cont9
   %10 = load ptr, ptr @stderr, align 8
-  %11 = call i64 @fwrite(ptr nonnull @.str.23, i64 51, i64 1, ptr %10) #12
+  %11 = call i64 @fwrite(ptr nonnull @.str.23, i64 51, i64 1, ptr %10) #13
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %invoke.cont12, %if.then18, %if.then
@@ -1598,7 +1598,7 @@ cleanup:                                          ; preds = %if.end, %invoke.con
   br i1 %cmp.not.i10, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12, label %if.then.i11
 
 if.then.i11:                                      ; preds = %cleanup
-  call void @free(ptr noundef nonnull %2) #11
+  call void @free(ptr noundef nonnull %2) #12
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12:  ; preds = %cleanup, %if.then.i11
@@ -1687,7 +1687,7 @@ cleanup:                                          ; preds = %lor.lhs.false20, %i
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup
-  call void @free(ptr noundef nonnull %4) #11
+  call void @free(ptr noundef nonnull %4) #12
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %cleanup, %if.then.i
@@ -1829,7 +1829,7 @@ terminate.lpad.i:                                 ; preds = %lpad
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #13
+  call void @__clang_call_terminate(ptr %4) #14
   unreachable
 
 _ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit: ; preds = %lpad
@@ -1844,7 +1844,7 @@ terminate.lpad.i2:                                ; preds = %cleanup
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #13
+  call void @__clang_call_terminate(ptr %6) #14
   unreachable
 
 _ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit3: ; preds = %cleanup
@@ -1901,17 +1901,18 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 declare i32 @CBB_init_fixed(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1922,7 +1923,7 @@ declare i32 @CBB_add_u16_length_prefixed(ptr noundef, ptr noundef) local_unnamed
 declare i32 @CBB_add_asn1(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 declare i64 @CBB_len(ptr noundef) local_unnamed_addr #1
 
@@ -1935,13 +1936,13 @@ declare void @CBB_discard_child(ptr noundef) local_unnamed_addr #1
 declare void @CBB_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef zeroext i1 @_ZL12DoBerConvertPKcPKhmS2_m(ptr noundef %name, ptr nocapture noundef readonly %der_expected, i64 noundef %der_len, ptr noundef %ber, i64 noundef %ber_len) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -1956,7 +1957,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
-  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef %name) #12
+  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef %name) #13
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1975,7 +1976,7 @@ lor.lhs.false:                                    ; preds = %if.then2
 
 if.then6:                                         ; preds = %lor.lhs.false, %if.then2
   %2 = load ptr, ptr @stderr, align 8
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.18, ptr noundef %name) #12
+  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.18, ptr noundef %name) #13
   br label %return
 
 if.end9:                                          ; preds = %if.end
@@ -1990,12 +1991,12 @@ lor.lhs.false11:                                  ; preds = %if.end9
 
 if.then14:                                        ; preds = %lor.lhs.false11, %if.end9
   %4 = load ptr, ptr @stderr, align 8
-  %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.19, ptr noundef %name) #12
+  %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.19, ptr noundef %name) #13
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.then14, %lor.lhs.false11
   %retval.1 = phi i1 [ false, %if.then14 ], [ true, %lor.lhs.false11 ]
-  call void @free(ptr noundef nonnull %1) #11
+  call void @free(ptr noundef nonnull %1) #12
   br label %return
 
 return:                                           ; preds = %if.then6, %lor.lhs.false, %if.then.i, %if.then
@@ -2018,36 +2019,37 @@ declare i32 @CBB_reserve(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare i32 @CBB_did_write(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind }
-attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { cold }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { builtin allocsize(0) }
-attributes #15 = { builtin nounwind }
+attributes #3 = { cold nofree noreturn }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind }
+attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { cold }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { builtin allocsize(0) }
+attributes #16 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

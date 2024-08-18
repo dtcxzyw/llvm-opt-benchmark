@@ -31,7 +31,7 @@ $__clang_call_terminate = comdat any
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZNK14NumpyAllocator8allocateEP7_objectiPKiiPm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %7 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #8
+  %7 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #9
   invoke void @_ZN2cv8UMatDataC1EPKNS_12MatAllocatorE(ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull %0)
           to label %8 unwind label %18
 
@@ -65,7 +65,7 @@ define hidden noundef nonnull ptr @_ZNK14NumpyAllocator8allocateEP7_objectiPKiiP
 18:                                               ; preds = %6
   %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #9
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #10
   resume { ptr, i32 } %19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
@@ -155,7 +155,7 @@ switch.lookup:                                    ; preds = %18
   %38 = icmp slt i32 %1, -1
   %39 = shl nuw nsw i64 %34, 3
   %40 = select i1 %38, i64 -1, i64 %39
-  %41 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %40) #8
+  %41 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %40) #9
           to label %.noexc unwind label %48
 
 .noexc:                                           ; preds = %37
@@ -230,7 +230,7 @@ _ZN2cv10AutoBufferIlLm136EEC2Em.exit:             ; preds = %31, %.noexc
           to label %66 unwind label %50
 
 66:                                               ; preds = %65
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZNK14NumpyAllocator8allocateEiPKiiPvPmN2cv10AccessFlagENS4_14UMatUsageFlagsE, ptr noundef nonnull @.str.1, i32 noundef 49) #10
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZNK14NumpyAllocator8allocateEiPKiiPvPmN2cv10AccessFlagENS4_14UMatUsageFlagsE, ptr noundef nonnull @.str.1, i32 noundef 49) #11
           to label %67 unwind label %68
 
 67:                                               ; preds = %66
@@ -239,11 +239,11 @@ _ZN2cv10AutoBufferIlLm136EEC2Em.exit:             ; preds = %31, %.noexc
 68:                                               ; preds = %66
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #12
   br label %.body
 
 70:                                               ; preds = %64
-  %71 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #8
+  %71 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #9
           to label %.noexc60 unwind label %50
 
 .noexc60:                                         ; preds = %70
@@ -280,7 +280,7 @@ _ZN2cv10AutoBufferIlLm136EEC2Em.exit:             ; preds = %31, %.noexc
 82:                                               ; preds = %.noexc60
   %83 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %71) #9
+  call void @_ZdlPv(ptr noundef nonnull %71) #10
   br label %.body
 
 .loopexit:                                        ; preds = %.lr.ph.i, %72
@@ -310,7 +310,7 @@ _ZN2cv10AutoBufferIlLm136EEC2Em.exit:             ; preds = %31, %.noexc
   br i1 %100, label %102, label %101
 
 101:                                              ; preds = %99
-  call void @_ZdaPv(ptr noundef nonnull %98) #9
+  call void @_ZdaPv(ptr noundef nonnull %98) #10
   br label %102
 
 102:                                              ; preds = %101, %99
@@ -326,7 +326,7 @@ _ZN2cv10AutoBufferIlLm136EED2Ev.exit:             ; preds = %.loopexit, %102
   %104 = landingpad { ptr, i32 }
           catch ptr null
   %105 = extractvalue { ptr, i32 } %104, 0
-  call void @__clang_call_terminate(ptr %105) #12
+  call void @__clang_call_terminate(ptr %105) #13
   unreachable
 
 .body:                                            ; preds = %50, %82, %68
@@ -340,7 +340,7 @@ _ZN2cv10AutoBufferIlLm136EED2Ev.exit:             ; preds = %.loopexit, %102
   br i1 %108, label %110, label %109
 
 109:                                              ; preds = %107
-  call void @_ZdaPv(ptr noundef nonnull %106) #9
+  call void @_ZdaPv(ptr noundef nonnull %106) #10
   br label %110
 
 110:                                              ; preds = %109, %107
@@ -357,7 +357,7 @@ _ZN2cv10AutoBufferIlLm136EED2Ev.exit63:           ; preds = %110, %.body, %48
   %112 = landingpad { ptr, i32 }
           catch ptr null
   %113 = extractvalue { ptr, i32 } %112, 0
-  call void @__clang_call_terminate(ptr %113) #12
+  call void @__clang_call_terminate(ptr %113) #13
   unreachable
 
 _ZN11PyEnsureGILD2Ev.exit64:                      ; preds = %_ZN2cv10AutoBufferIlLm136EED2Ev.exit63
@@ -404,12 +404,12 @@ define hidden void @_ZNK14NumpyAllocator10deallocateEPN2cv8UMatDataE(ptr nocaptu
   br i1 %11, label %20, label %12
 
 12:                                               ; preds = %7
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #11
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %13 unwind label %15
 
 13:                                               ; preds = %12
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__._ZNK14NumpyAllocator10deallocateEPN2cv8UMatDataE, ptr noundef nonnull @.str.1, i32 noundef 63) #10
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__._ZNK14NumpyAllocator10deallocateEPN2cv8UMatDataE, ptr noundef nonnull @.str.1, i32 noundef 63) #11
           to label %14 unwind label %17
 
 14:                                               ; preds = %13
@@ -423,12 +423,12 @@ define hidden void @_ZNK14NumpyAllocator10deallocateEPN2cv8UMatDataE(ptr nocaptu
 17:                                               ; preds = %13
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
   br label %19
 
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #11
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
   br label %47
 
 20:                                               ; preds = %7
@@ -438,12 +438,12 @@ define hidden void @_ZNK14NumpyAllocator10deallocateEPN2cv8UMatDataE(ptr nocaptu
   br i1 %23, label %32, label %24
 
 24:                                               ; preds = %20
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %25 unwind label %27
 
 25:                                               ; preds = %24
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZNK14NumpyAllocator10deallocateEPN2cv8UMatDataE, ptr noundef nonnull @.str.1, i32 noundef 64) #10
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZNK14NumpyAllocator10deallocateEPN2cv8UMatDataE, ptr noundef nonnull @.str.1, i32 noundef 64) #11
           to label %26 unwind label %29
 
 26:                                               ; preds = %25
@@ -457,12 +457,12 @@ define hidden void @_ZNK14NumpyAllocator10deallocateEPN2cv8UMatDataE(ptr nocaptu
 29:                                               ; preds = %25
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   br label %31
 
 31:                                               ; preds = %29, %27
   %.pn14 = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #12
   br label %47
 
 32:                                               ; preds = %20
@@ -487,8 +487,8 @@ define hidden void @_ZNK14NumpyAllocator10deallocateEPN2cv8UMatDataE(ptr nocaptu
           to label %_ZL11_Py_XDECREFP7_object.exit unwind label %41
 
 _ZL11_Py_XDECREFP7_object.exit:                   ; preds = %37, %34, %40
-  tail call void @_ZN2cv8UMatDataD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %1) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #9
+  tail call void @_ZN2cv8UMatDataD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %1) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #10
   br label %43
 
 41:                                               ; preds = %40
@@ -504,7 +504,7 @@ _ZL11_Py_XDECREFP7_object.exit:                   ; preds = %37, %34, %40
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  tail call void @__clang_call_terminate(ptr %46) #12
+  tail call void @__clang_call_terminate(ptr %46) #13
   unreachable
 
 _ZN11PyEnsureGILD2Ev.exit:                        ; preds = %43, %2
@@ -519,7 +519,7 @@ _ZN11PyEnsureGILD2Ev.exit:                        ; preds = %43, %2
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #12
+  call void @__clang_call_terminate(ptr %50) #13
   unreachable
 
 _ZN11PyEnsureGILD2Ev.exit18:                      ; preds = %47
@@ -544,7 +544,7 @@ define linkonce_odr hidden void @_ZN14NumpyAllocatorD2Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14NumpyAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #9
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
 
@@ -566,14 +566,15 @@ declare void @PyGILState_Release(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #12
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #13
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
 
@@ -591,11 +592,12 @@ attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { builtin allocsize(0) }
-attributes #9 = { builtin nounwind }
-attributes #10 = { noreturn }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { builtin allocsize(0) }
+attributes #10 = { builtin nounwind }
+attributes #11 = { noreturn }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

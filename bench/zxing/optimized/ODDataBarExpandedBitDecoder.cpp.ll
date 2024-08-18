@@ -72,26 +72,26 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.ZXing::BitArrayView", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #14
   store ptr %1, ptr %9, align 8, !tbaa !3
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %1, align 8, !tbaa !3
   store ptr %11, ptr %10, align 8
-  %12 = call noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 1) #13
+  %12 = call noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 1) #15
   %13 = load ptr, ptr %10, align 8, !tbaa !7
   %14 = getelementptr inbounds i8, ptr %13, i64 1
   store ptr %14, ptr %10, align 8, !tbaa !7
-  %15 = call noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 1) #13
+  %15 = call noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 1) #15
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %17, label %156
 
 17:                                               ; preds = %2
-  %18 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 1) #13
+  %18 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 1) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef 2) #13, !noalias !9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12, !noalias !9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12, !noalias !9
-  %20 = call noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef 4) #13, !noalias !9
+  %19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef 2) #15, !noalias !9
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #14, !noalias !9
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #14, !noalias !9
+  %20 = call noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef 4) #15, !noalias !9
   %21 = getelementptr inbounds i8, ptr %18, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !7, !noalias !9
   %23 = getelementptr inbounds i8, ptr %22, i64 4
@@ -139,22 +139,22 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %47, ptr %7, align 8, !tbaa !14, !alias.scope !16, !noalias !9
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %46, i8 noundef signext 45) #13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %46, i8 noundef signext 45) #15
           to label %51 unwind label %48, !noalias !9
 
 48:                                               ; preds = %.loopexit
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #14
+  call void @__clang_call_terminate(ptr %50) #16
   unreachable
 
 51:                                               ; preds = %.loopexit
   %52 = zext nneg i32 %44 to i64
   %53 = load ptr, ptr %7, align 8, !tbaa !19, !alias.scope !16, !noalias !9
   %54 = getelementptr inbounds i8, ptr %53, i64 %52
-  call void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr noundef nonnull %54, i32 noundef %43, i32 noundef %24) #15, !noalias !9
-  %55 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.7, i64 noundef 2) #13
+  call void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr noundef nonnull %54, i32 noundef %43, i32 noundef %24) #17, !noalias !9
+  %55 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.7, i64 noundef 2) #15
           to label %56 unwind label %109, !noalias !9
 
 56:                                               ; preds = %51
@@ -190,7 +190,7 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   store ptr %59, ptr %55, align 8, !tbaa !19, !noalias !9
   store i64 0, ptr %72, align 8, !tbaa !25, !noalias !9
   store i8 0, ptr %59, align 8, !tbaa !26, !noalias !9
-  invoke fastcc void @_ZN5ZXing4OneD7DataBarL20DecodeCompressedGTINENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_12BitArrayViewE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %18) #13
+  invoke fastcc void @_ZN5ZXing4OneD7DataBarL20DecodeCompressedGTINENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_12BitArrayViewE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %18) #15
           to label %74 unwind label %111, !noalias !9
 
 74:                                               ; preds = %70
@@ -205,7 +205,7 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   br label %81
 
 80:                                               ; preds = %74
-  call void @_ZdlPv(ptr noundef %75) #16, !noalias !9
+  call void @_ZdlPv(ptr noundef %75) #18, !noalias !9
   br label %81
 
 81:                                               ; preds = %80, %77
@@ -221,17 +221,17 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   br label %89
 
 88:                                               ; preds = %81
-  call void @_ZdlPv(ptr noundef %82) #16, !noalias !9
+  call void @_ZdlPv(ptr noundef %82) #18, !noalias !9
   br label %89
 
 89:                                               ; preds = %88, %84
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12, !noalias !9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #12, !noalias !9
-  invoke fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5cxx11ERNS_12BitArrayViewE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %18) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #14, !noalias !9
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #14, !noalias !9
+  invoke fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5cxx11ERNS_12BitArrayViewE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %18) #15
           to label %90 unwind label %129, !noalias !9
 
 90:                                               ; preds = %89
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8) #13
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8) #15
           to label %91 unwind label %131
 
 91:                                               ; preds = %90
@@ -248,11 +248,11 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   br label %100
 
 99:                                               ; preds = %91
-  call void @_ZdlPv(ptr noundef %92) #16
+  call void @_ZdlPv(ptr noundef %92) #18
   br label %100
 
 100:                                              ; preds = %99, %95
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #12, !noalias !9
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #14, !noalias !9
   %101 = load ptr, ptr %5, align 8, !tbaa !19, !noalias !9
   %102 = getelementptr inbounds i8, ptr %5, i64 16
   %103 = icmp eq ptr %101, %102
@@ -266,7 +266,7 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   br label %155
 
 108:                                              ; preds = %100
-  call void @_ZdlPv(ptr noundef %101) #16
+  call void @_ZdlPv(ptr noundef %101) #18
   br label %155
 
 109:                                              ; preds = %51
@@ -288,7 +288,7 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   br label %119
 
 118:                                              ; preds = %111
-  call void @_ZdlPv(ptr noundef %113) #16, !noalias !9
+  call void @_ZdlPv(ptr noundef %113) #18, !noalias !9
   br label %119
 
 119:                                              ; preds = %118, %115, %109
@@ -305,11 +305,11 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   br label %128
 
 127:                                              ; preds = %119
-  call void @_ZdlPv(ptr noundef %121) #16, !noalias !9
+  call void @_ZdlPv(ptr noundef %121) #18, !noalias !9
   br label %128
 
 128:                                              ; preds = %127, %123
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12, !noalias !9
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #14, !noalias !9
   br label %153
 
 129:                                              ; preds = %89
@@ -333,12 +333,12 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   br label %141
 
 140:                                              ; preds = %131
-  call void @_ZdlPv(ptr noundef %133) #16
+  call void @_ZdlPv(ptr noundef %133) #18
   br label %141
 
 141:                                              ; preds = %140, %136, %129
   %142 = phi { ptr, i32 } [ %130, %129 ], [ %132, %136 ], [ %132, %140 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #12, !noalias !9
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #14, !noalias !9
   %143 = load ptr, ptr %5, align 8, !tbaa !19, !noalias !9
   %144 = getelementptr inbounds i8, ptr %5, i64 16
   %145 = icmp eq ptr %143, %144
@@ -352,7 +352,7 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   br label %153
 
 150:                                              ; preds = %141
-  call void @_ZdlPv(ptr noundef %143) #16
+  call void @_ZdlPv(ptr noundef %143) #18
   br label %153
 
 151:                                              ; preds = %262, %258, %210, %206, %153
@@ -361,42 +361,42 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
 
 153:                                              ; preds = %150, %146, %128
   %154 = phi { ptr, i32 } [ %120, %128 ], [ %142, %146 ], [ %142, %150 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12, !noalias !9
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14, !noalias !9
   br label %151
 
 155:                                              ; preds = %108, %104
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12, !noalias !9
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14, !noalias !9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %285
 
 156:                                              ; preds = %2
-  %157 = call noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 2) #13
+  %157 = call noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 2) #15
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %159, label %162
 
 159:                                              ; preds = %156
-  %160 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 2) #13
-  %161 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %160, i32 noundef 2) #13, !noalias !27
-  call fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5cxx11ERNS_12BitArrayViewE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %160) #13
+  %160 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 2) #15
+  %161 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %160, i32 noundef 2) #15, !noalias !27
+  call fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5cxx11ERNS_12BitArrayViewE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %160) #15
   br label %285
 
 162:                                              ; preds = %156
-  %163 = call noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 4) #13
+  %163 = call noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 4) #15
   switch i32 %163, label %264 [
     i32 4, label %164
     i32 5, label %212
   ]
 
 164:                                              ; preds = %162
-  %165 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 4) #13
+  %165 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 4) #15
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  call fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI01GTINB5cxx11ERNS_12BitArrayViewE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %165) #13
-  %166 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.21) #13
+  call fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI01GTINB5cxx11ERNS_12BitArrayViewE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %165) #15
+  %166 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.21) #15
           to label %167 unwind label %186
 
 167:                                              ; preds = %164
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12, !noalias !30
-  %168 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %165, i32 noundef 15) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14, !noalias !30
+  %168 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %165, i32 noundef 15) #15
           to label %169 unwind label %188
 
 169:                                              ; preds = %167
@@ -404,14 +404,14 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   %171 = load ptr, ptr %170, align 8, !tbaa !7, !noalias !30
   %172 = getelementptr inbounds i8, ptr %171, i64 15
   store ptr %172, ptr %170, align 8, !tbaa !7, !noalias !30
-  invoke void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %168, i32 noundef 6) #13
+  invoke void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %168, i32 noundef 6) #15
           to label %173 unwind label %188
 
 173:                                              ; preds = %169
   %174 = load ptr, ptr %4, align 8, !tbaa !19, !noalias !30
   %175 = getelementptr inbounds i8, ptr %4, i64 8
   %176 = load i64, ptr %175, align 8, !tbaa !25, !noalias !30
-  %177 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %174, i64 noundef %176) #13
+  %177 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %174, i64 noundef %176) #15
           to label %178 unwind label %190
 
 178:                                              ; preds = %173
@@ -427,7 +427,7 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   br label %211
 
 185:                                              ; preds = %178
-  call void @_ZdlPv(ptr noundef %179) #16
+  call void @_ZdlPv(ptr noundef %179) #18
   br label %211
 
 186:                                              ; preds = %164
@@ -455,12 +455,12 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   br label %199
 
 198:                                              ; preds = %190
-  call void @_ZdlPv(ptr noundef %192) #16
+  call void @_ZdlPv(ptr noundef %192) #18
   br label %199
 
 199:                                              ; preds = %198, %195, %188
   %200 = phi { ptr, i32 } [ %189, %188 ], [ %191, %195 ], [ %191, %198 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12, !noalias !30
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #14, !noalias !30
   br label %201
 
 201:                                              ; preds = %199, %186
@@ -478,18 +478,18 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   br label %151
 
 210:                                              ; preds = %201
-  call void @_ZdlPv(ptr noundef %203) #16
+  call void @_ZdlPv(ptr noundef %203) #18
   br label %151
 
 211:                                              ; preds = %185, %182
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12, !noalias !30
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #14, !noalias !30
   br label %285
 
 212:                                              ; preds = %162
-  %213 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 4) #13
+  %213 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 4) #15
   call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  call fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI01GTINB5cxx11ERNS_12BitArrayViewE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %213) #13
-  %214 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %213, i32 noundef 15) #13
+  call fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI01GTINB5cxx11ERNS_12BitArrayViewE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %213) #15
+  %214 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %213, i32 noundef 15) #15
           to label %215 unwind label %238
 
 215:                                              ; preds = %212
@@ -499,21 +499,21 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   store ptr %218, ptr %216, align 8, !tbaa !7, !noalias !33
   %219 = icmp slt i32 %214, 10000
   %220 = select i1 %219, ptr @.str.23, ptr @.str.24
-  %221 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %220) #13
+  %221 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %220) #15
           to label %222 unwind label %238
 
 222:                                              ; preds = %215
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12, !noalias !33
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14, !noalias !33
   %223 = add nsw i32 %214, -10000
   %224 = select i1 %219, i32 %214, i32 %223
-  invoke void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, i32 noundef %224, i32 noundef 6) #13
+  invoke void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, i32 noundef %224, i32 noundef 6) #15
           to label %225 unwind label %240
 
 225:                                              ; preds = %222
   %226 = load ptr, ptr %3, align 8, !tbaa !19, !noalias !33
   %227 = getelementptr inbounds i8, ptr %3, i64 8
   %228 = load i64, ptr %227, align 8, !tbaa !25, !noalias !33
-  %229 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %226, i64 noundef %228) #13
+  %229 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %226, i64 noundef %228) #15
           to label %230 unwind label %242
 
 230:                                              ; preds = %225
@@ -529,7 +529,7 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   br label %263
 
 237:                                              ; preds = %230
-  call void @_ZdlPv(ptr noundef %231) #16
+  call void @_ZdlPv(ptr noundef %231) #18
   br label %263
 
 238:                                              ; preds = %215, %212
@@ -557,12 +557,12 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   br label %251
 
 250:                                              ; preds = %242
-  call void @_ZdlPv(ptr noundef %244) #16
+  call void @_ZdlPv(ptr noundef %244) #18
   br label %251
 
 251:                                              ; preds = %250, %247, %240
   %252 = phi { ptr, i32 } [ %241, %240 ], [ %243, %247 ], [ %243, %250 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12, !noalias !33
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14, !noalias !33
   br label %253
 
 253:                                              ; preds = %251, %238
@@ -580,32 +580,32 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   br label %151
 
 262:                                              ; preds = %253
-  call void @_ZdlPv(ptr noundef %255) #16
+  call void @_ZdlPv(ptr noundef %255) #18
   br label %151
 
 263:                                              ; preds = %237, %234
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12, !noalias !33
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14, !noalias !33
   br label %285
 
 264:                                              ; preds = %162
-  %265 = call noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 5) #13
+  %265 = call noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 5) #15
   switch i32 %265, label %270 [
     i32 12, label %266
     i32 13, label %268
   ]
 
 266:                                              ; preds = %264
-  %267 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 5) #13
-  call fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI0139yxB5cxx11ERNS_12BitArrayViewEc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %267, i8 noundef signext 50) #13
+  %267 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 5) #15
+  call fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI0139yxB5cxx11ERNS_12BitArrayViewEc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %267, i8 noundef signext 50) #15
   br label %285
 
 268:                                              ; preds = %264
-  %269 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 5) #13
-  call fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI0139yxB5cxx11ERNS_12BitArrayViewEc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %269, i8 noundef signext 51) #13
+  %269 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 5) #15
+  call fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI0139yxB5cxx11ERNS_12BitArrayViewEc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %269, i8 noundef signext 51) #15
   br label %285
 
 270:                                              ; preds = %264
-  %271 = call noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 7) #13
+  %271 = call noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 7) #15
   %272 = load ptr, ptr %10, align 8, !tbaa !7
   %273 = getelementptr inbounds i8, ptr %272, i64 7
   store ptr %273, ptr %10, align 8, !tbaa !7
@@ -621,35 +621,35 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   ]
 
 274:                                              ; preds = %270
-  call fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #13
+  call fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #15
   br label %285
 
 275:                                              ; preds = %270
-  call fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1) #13
+  call fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1) #15
   br label %285
 
 276:                                              ; preds = %270
-  call fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #13
+  call fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #15
   br label %285
 
 277:                                              ; preds = %270
-  call fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #13
+  call fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #15
   br label %285
 
 278:                                              ; preds = %270
-  call fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #13
+  call fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #15
   br label %285
 
 279:                                              ; preds = %270
-  call fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4) #13
+  call fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4) #15
   br label %285
 
 280:                                              ; preds = %270
-  call fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #13
+  call fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #15
   br label %285
 
 281:                                              ; preds = %270
-  call fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5) #13
+  call fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5) #15
   br label %285
 
 282:                                              ; preds = %270
@@ -661,7 +661,7 @@ define void @_ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE(p
   br label %285
 
 285:                                              ; preds = %282, %281, %280, %279, %278, %277, %276, %275, %274, %268, %266, %263, %211, %159, %155
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #14
   ret void
 }
 
@@ -681,18 +681,18 @@ define linkonce_odr noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %2
-  %12 = tail call ptr @__cxa_allocate_exception(i64 16) #12
-  invoke void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str.6) #13
+  %12 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  invoke void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str.6) #15
           to label %13 unwind label %14
 
 13:                                               ; preds = %11
-  tail call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZNSt12out_of_rangeD1Ev) #17
+  tail call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZNSt12out_of_rangeD1Ev) #19
   unreachable
 
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #12
+  tail call void @__cxa_free_exception(ptr %12) #14
   resume { ptr, i32 } %15
 
 16:                                               ; preds = %2
@@ -731,18 +731,18 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %2
-  %12 = tail call ptr @__cxa_allocate_exception(i64 16) #12
-  invoke void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str.20) #13
+  %12 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  invoke void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str.20) #15
           to label %13 unwind label %14
 
 13:                                               ; preds = %11
-  tail call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZNSt12out_of_rangeD1Ev) #17
+  tail call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZNSt12out_of_rangeD1Ev) #19
   unreachable
 
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %12) #12
+  tail call void @__cxa_free_exception(ptr %12) #14
   resume { ptr, i32 } %15
 
 16:                                               ; preds = %2
@@ -756,19 +756,19 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI0139yxB5cxx11ERNS_
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  %8 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
-  call fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI01GTINB5cxx11ERNS_12BitArrayViewE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  %9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.25) #13
+  %8 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2) #15
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
+  call fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI01GTINB5cxx11ERNS_12BitArrayViewE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
+  %9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.25) #15
           to label %10 unwind label %80
 
 10:                                               ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 noundef signext %2) #13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 noundef signext %2) #15
           to label %11 unwind label %80
 
 11:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
-  %12 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #14
+  %12 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2) #15
           to label %13 unwind label %82
 
 13:                                               ; preds = %11
@@ -819,25 +819,25 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI0139yxB5cxx11ERNS_
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %40, ptr %5, align 8, !tbaa !14, !alias.scope !39
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %39, i8 noundef signext 45) #13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %39, i8 noundef signext 45) #15
           to label %44 unwind label %41
 
 41:                                               ; preds = %.loopexit
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #14
+  call void @__clang_call_terminate(ptr %43) #16
   unreachable
 
 44:                                               ; preds = %.loopexit
   %45 = zext nneg i32 %37 to i64
   %46 = load ptr, ptr %5, align 8, !tbaa !19, !alias.scope !39
   %47 = getelementptr inbounds i8, ptr %46, i64 %45
-  call void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr noundef nonnull %47, i32 noundef %36, i32 noundef %17) #15
+  call void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr noundef nonnull %47, i32 noundef %36, i32 noundef %17) #17
   %48 = load ptr, ptr %5, align 8, !tbaa !19
   %49 = getelementptr inbounds i8, ptr %5, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !25
-  %51 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %48, i64 noundef %50) #13
+  %51 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %48, i64 noundef %50) #15
           to label %52 unwind label %84
 
 52:                                               ; preds = %44
@@ -852,31 +852,31 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI0139yxB5cxx11ERNS_
   br label %59
 
 58:                                               ; preds = %52
-  call void @_ZdlPv(ptr noundef %53) #16
+  call void @_ZdlPv(ptr noundef %53) #18
   br label %59
 
 59:                                               ; preds = %58, %55
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
   %60 = icmp eq i8 %2, 51
   br i1 %60, label %61, label %107
 
 61:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
-  %62 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 10) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #14
+  %62 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 10) #15
           to label %63 unwind label %94
 
 63:                                               ; preds = %61
   %64 = load ptr, ptr %14, align 8, !tbaa !7
   %65 = getelementptr inbounds i8, ptr %64, i64 10
   store ptr %65, ptr %14, align 8, !tbaa !7
-  invoke void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %62, i32 noundef 3) #13
+  invoke void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %62, i32 noundef 3) #15
           to label %66 unwind label %94
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr %6, align 8, !tbaa !19
   %68 = getelementptr inbounds i8, ptr %6, i64 8
   %69 = load i64, ptr %68, align 8, !tbaa !25
-  %70 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %67, i64 noundef %69) #13
+  %70 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %67, i64 noundef %69) #15
           to label %71 unwind label %96
 
 71:                                               ; preds = %66
@@ -892,11 +892,11 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI0139yxB5cxx11ERNS_
   br label %79
 
 78:                                               ; preds = %71
-  call void @_ZdlPv(ptr noundef %72) #16
+  call void @_ZdlPv(ptr noundef %72) #18
   br label %79
 
 79:                                               ; preds = %78, %75
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #14
   br label %107
 
 80:                                               ; preds = %10, %3
@@ -923,12 +923,12 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI0139yxB5cxx11ERNS_
   br label %92
 
 91:                                               ; preds = %84
-  call void @_ZdlPv(ptr noundef %86) #16
+  call void @_ZdlPv(ptr noundef %86) #18
   br label %92
 
 92:                                               ; preds = %91, %88, %82
   %93 = phi { ptr, i32 } [ %83, %82 ], [ %85, %88 ], [ %85, %91 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
   br label %147
 
 94:                                               ; preds = %63, %61
@@ -951,17 +951,17 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI0139yxB5cxx11ERNS_
   br label %105
 
 104:                                              ; preds = %96
-  call void @_ZdlPv(ptr noundef %98) #16
+  call void @_ZdlPv(ptr noundef %98) #18
   br label %105
 
 105:                                              ; preds = %104, %101, %94
   %106 = phi { ptr, i32 } [ %95, %94 ], [ %97, %101 ], [ %97, %104 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #14
   br label %147
 
 107:                                              ; preds = %79, %59
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12
-  invoke fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5cxx11ERNS_12BitArrayViewE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #14
+  invoke fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5cxx11ERNS_12BitArrayViewE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
           to label %108 unwind label %115
 
 108:                                              ; preds = %107
@@ -984,7 +984,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI0139yxB5cxx11ERNS_
   br label %145
 
 117:                                              ; preds = %108
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %7) #13
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %7) #15
           to label %127 unwind label %118
 
 118:                                              ; preds = %117
@@ -1002,7 +1002,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI0139yxB5cxx11ERNS_
   br label %145
 
 126:                                              ; preds = %118
-  call void @_ZdlPv(ptr noundef %120) #16
+  call void @_ZdlPv(ptr noundef %120) #18
   br label %145
 
 127:                                              ; preds = %117, %112
@@ -1018,11 +1018,11 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI0139yxB5cxx11ERNS_
   br label %135
 
 134:                                              ; preds = %127
-  call void @_ZdlPv(ptr noundef %128) #16
+  call void @_ZdlPv(ptr noundef %128) #18
   br label %135
 
 135:                                              ; preds = %134, %131
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #14
   %136 = load ptr, ptr %4, align 8, !tbaa !19
   %137 = getelementptr inbounds i8, ptr %4, i64 16
   %138 = icmp eq ptr %136, %137
@@ -1036,16 +1036,16 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI0139yxB5cxx11ERNS_
   br label %144
 
 143:                                              ; preds = %135
-  call void @_ZdlPv(ptr noundef %136) #16
+  call void @_ZdlPv(ptr noundef %136) #18
   br label %144
 
 144:                                              ; preds = %143, %139
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #14
   ret void
 
 145:                                              ; preds = %126, %123, %115
   %146 = phi { ptr, i32 } [ %116, %115 ], [ %119, %123 ], [ %119, %126 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #14
   br label %147
 
 147:                                              ; preds = %145, %105, %92, %80
@@ -1063,11 +1063,11 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI0139yxB5cxx11ERNS_
   br label %157
 
 156:                                              ; preds = %147
-  call void @_ZdlPv(ptr noundef %149) #16
+  call void @_ZdlPv(ptr noundef %149) #18
   br label %157
 
 157:                                              ; preds = %156, %152
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #14
   resume { ptr, i32 } %148
 }
 
@@ -1078,12 +1078,12 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERN
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
-  tail call fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI01GTINB5cxx11ERNS_12BitArrayViewE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %2) #13
+  tail call fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI01GTINB5cxx11ERNS_12BitArrayViewE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
+  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %2) #15
           to label %11 unwind label %123
 
 11:                                               ; preds = %4
-  %12 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 20) #13
+  %12 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 20) #15
           to label %13 unwind label %125
 
 13:                                               ; preds = %11
@@ -1091,7 +1091,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERN
   %15 = load ptr, ptr %14, align 8, !tbaa !7
   %16 = getelementptr inbounds i8, ptr %15, i64 20
   store ptr %16, ptr %14, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #14
   %17 = sdiv i32 %12, 100000
   %18 = srem i32 %12, 100000
   %19 = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
@@ -1119,25 +1119,25 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERN
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %34, ptr %5, align 8, !tbaa !14, !alias.scope !42
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %33, i8 noundef signext 45) #13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %33, i8 noundef signext 45) #15
           to label %38 unwind label %35
 
 35:                                               ; preds = %28
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #14
+  call void @__clang_call_terminate(ptr %37) #16
   unreachable
 
 38:                                               ; preds = %28
   %39 = zext i1 %30 to i64
   %40 = load ptr, ptr %5, align 8, !tbaa !19, !alias.scope !42
   %41 = getelementptr inbounds i8, ptr %40, i64 %39
-  call void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr noundef nonnull %41, i32 noundef %29, i32 noundef %19) #15
+  call void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr noundef nonnull %41, i32 noundef %29, i32 noundef %19) #17
   %42 = load ptr, ptr %5, align 8, !tbaa !19
   %43 = getelementptr inbounds i8, ptr %5, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !25
-  %45 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %42, i64 noundef %44) #13
+  %45 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %42, i64 noundef %44) #15
           to label %46 unwind label %127
 
 46:                                               ; preds = %38
@@ -1152,20 +1152,20 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERN
   br label %53
 
 52:                                               ; preds = %46
-  call void @_ZdlPv(ptr noundef %47) #16
+  call void @_ZdlPv(ptr noundef %47) #18
   br label %53
 
 53:                                               ; preds = %52, %49
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
-  invoke void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %18, i32 noundef 6) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #14
+  invoke void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %18, i32 noundef 6) #15
           to label %54 unwind label %136
 
 54:                                               ; preds = %53
   %55 = load ptr, ptr %6, align 8, !tbaa !19
   %56 = getelementptr inbounds i8, ptr %6, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !25
-  %58 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %55, i64 noundef %57) #13
+  %58 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %55, i64 noundef %57) #15
           to label %59 unwind label %138
 
 59:                                               ; preds = %54
@@ -1181,12 +1181,12 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERN
   br label %67
 
 66:                                               ; preds = %59
-  call void @_ZdlPv(ptr noundef %60) #16
+  call void @_ZdlPv(ptr noundef %60) #18
   br label %67
 
 67:                                               ; preds = %66, %63
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
-  %68 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 16) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #14
+  %68 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 16) #15
           to label %69 unwind label %149
 
 69:                                               ; preds = %67
@@ -1197,7 +1197,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERN
   br i1 %72, label %190, label %73
 
 73:                                               ; preds = %69
-  %74 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %3) #13
+  %74 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %3) #15
           to label %75 unwind label %149
 
 75:                                               ; preds = %73
@@ -1206,15 +1206,15 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERN
   %78 = srem i32 %77, 12
   %79 = add nsw i32 %78, 1
   %80 = sdiv i32 %68, 384
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12
-  invoke void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, i32 noundef %80, i32 noundef 2) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #14
+  invoke void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, i32 noundef %80, i32 noundef 2) #15
           to label %81 unwind label %151
 
 81:                                               ; preds = %75
   %82 = load ptr, ptr %7, align 8, !tbaa !19
   %83 = getelementptr inbounds i8, ptr %7, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !25
-  %85 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %82, i64 noundef %84) #13
+  %85 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %82, i64 noundef %84) #15
           to label %86 unwind label %153
 
 86:                                               ; preds = %81
@@ -1230,20 +1230,20 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERN
   br label %94
 
 93:                                               ; preds = %86
-  call void @_ZdlPv(ptr noundef %87) #16
+  call void @_ZdlPv(ptr noundef %87) #18
   br label %94
 
 94:                                               ; preds = %93, %90
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #12
-  invoke void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, i32 noundef %79, i32 noundef 2) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #14
+  invoke void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, i32 noundef %79, i32 noundef 2) #15
           to label %95 unwind label %164
 
 95:                                               ; preds = %94
   %96 = load ptr, ptr %8, align 8, !tbaa !19
   %97 = getelementptr inbounds i8, ptr %8, i64 8
   %98 = load i64, ptr %97, align 8, !tbaa !25
-  %99 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %96, i64 noundef %98) #13
+  %99 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %96, i64 noundef %98) #15
           to label %100 unwind label %166
 
 100:                                              ; preds = %95
@@ -1259,20 +1259,20 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERN
   br label %108
 
 107:                                              ; preds = %100
-  call void @_ZdlPv(ptr noundef %101) #16
+  call void @_ZdlPv(ptr noundef %101) #18
   br label %108
 
 108:                                              ; preds = %107, %104
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #12
-  invoke void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, i32 noundef %76, i32 noundef 2) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #14
+  invoke void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, i32 noundef %76, i32 noundef 2) #15
           to label %109 unwind label %177
 
 109:                                              ; preds = %108
   %110 = load ptr, ptr %9, align 8, !tbaa !19
   %111 = getelementptr inbounds i8, ptr %9, i64 8
   %112 = load i64, ptr %111, align 8, !tbaa !25
-  %113 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %110, i64 noundef %112) #13
+  %113 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %110, i64 noundef %112) #15
           to label %114 unwind label %179
 
 114:                                              ; preds = %109
@@ -1288,11 +1288,11 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERN
   br label %122
 
 121:                                              ; preds = %114
-  call void @_ZdlPv(ptr noundef %115) #16
+  call void @_ZdlPv(ptr noundef %115) #18
   br label %122
 
 122:                                              ; preds = %121, %118
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #14
   br label %190
 
 123:                                              ; preds = %4
@@ -1319,11 +1319,11 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERN
   br label %135
 
 134:                                              ; preds = %127
-  call void @_ZdlPv(ptr noundef %129) #16
+  call void @_ZdlPv(ptr noundef %129) #18
   br label %135
 
 135:                                              ; preds = %134, %131
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
   br label %191
 
 136:                                              ; preds = %53
@@ -1346,12 +1346,12 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERN
   br label %147
 
 146:                                              ; preds = %138
-  call void @_ZdlPv(ptr noundef %140) #16
+  call void @_ZdlPv(ptr noundef %140) #18
   br label %147
 
 147:                                              ; preds = %146, %143, %136
   %148 = phi { ptr, i32 } [ %137, %136 ], [ %139, %143 ], [ %139, %146 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #14
   br label %191
 
 149:                                              ; preds = %73, %67
@@ -1379,12 +1379,12 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERN
   br label %162
 
 161:                                              ; preds = %153
-  call void @_ZdlPv(ptr noundef %155) #16
+  call void @_ZdlPv(ptr noundef %155) #18
   br label %162
 
 162:                                              ; preds = %161, %158, %151
   %163 = phi { ptr, i32 } [ %152, %151 ], [ %154, %158 ], [ %154, %161 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #14
   br label %191
 
 164:                                              ; preds = %94
@@ -1407,12 +1407,12 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERN
   br label %175
 
 174:                                              ; preds = %166
-  call void @_ZdlPv(ptr noundef %168) #16
+  call void @_ZdlPv(ptr noundef %168) #18
   br label %175
 
 175:                                              ; preds = %174, %171, %164
   %176 = phi { ptr, i32 } [ %165, %164 ], [ %167, %171 ], [ %167, %174 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #14
   br label %191
 
 177:                                              ; preds = %108
@@ -1435,12 +1435,12 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERN
   br label %188
 
 187:                                              ; preds = %179
-  call void @_ZdlPv(ptr noundef %181) #16
+  call void @_ZdlPv(ptr noundef %181) #18
   br label %188
 
 188:                                              ; preds = %187, %184, %177
   %189 = phi { ptr, i32 } [ %178, %177 ], [ %180, %184 ], [ %180, %187 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #14
   br label %191
 
 190:                                              ; preds = %122, %69
@@ -1461,7 +1461,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERN
   br label %201
 
 200:                                              ; preds = %191
-  call void @_ZdlPv(ptr noundef %193) #16
+  call void @_ZdlPv(ptr noundef %193) #18
   br label %201
 
 201:                                              ; preds = %200, %196
@@ -1483,10 +1483,11 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind optsize
 declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress optsize uwtable
 define internal fastcc void @_ZN5ZXing4OneD7DataBarL20DecodeCompressedGTINENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_12BitArrayViewE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -1498,22 +1499,22 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL20DecodeCompressedGTINENSt7_
   br label %11
 
 9:                                                ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
-  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 2, i64 noundef -1) #13
-  %10 = invoke noundef signext i8 @_ZN5ZXing4GTIN17ComputeCheckDigitIcEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb(ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #14
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 2, i64 noundef -1) #15
+  %10 = invoke noundef signext i8 @_ZN5ZXing4GTIN17ComputeCheckDigitIcEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb(ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false) #15
           to label %38 unwind label %66
 
 11:                                               ; preds = %26, %3
   %12 = phi i32 [ 0, %3 ], [ %27, %26 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
-  %13 = call noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 10) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
+  %13 = call noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 10) #15
   %14 = load ptr, ptr %6, align 8, !tbaa !7
   %15 = getelementptr inbounds i8, ptr %14, i64 10
   store ptr %15, ptr %6, align 8, !tbaa !7
-  call void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %13, i32 noundef 3) #13
+  call void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %13, i32 noundef 3) #15
   %16 = load ptr, ptr %4, align 8, !tbaa !19
   %17 = load i64, ptr %7, align 8, !tbaa !25
-  %18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %16, i64 noundef %17) #13
+  %18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %16, i64 noundef %17) #15
           to label %19 unwind label %29
 
 19:                                               ; preds = %11
@@ -1528,11 +1529,11 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL20DecodeCompressedGTINENSt7_
   br label %26
 
 25:                                               ; preds = %19
-  call void @_ZdlPv(ptr noundef %20) #16
+  call void @_ZdlPv(ptr noundef %20) #18
   br label %26
 
 26:                                               ; preds = %25, %22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #14
   %27 = add nuw nsw i32 %12, 1
   %28 = icmp eq i32 %27, 4
   br i1 %28, label %9, label %11, !llvm.loop !45
@@ -1551,15 +1552,15 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL20DecodeCompressedGTINENSt7_
   br label %37
 
 36:                                               ; preds = %29
-  call void @_ZdlPv(ptr noundef %31) #16
+  call void @_ZdlPv(ptr noundef %31) #18
   br label %37
 
 37:                                               ; preds = %36, %33
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #14
   br label %77
 
 38:                                               ; preds = %9
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext %10) #13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext %10) #15
           to label %39 unwind label %66
 
 39:                                               ; preds = %38
@@ -1576,11 +1577,11 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL20DecodeCompressedGTINENSt7_
   br label %48
 
 47:                                               ; preds = %39
-  call void @_ZdlPv(ptr noundef %40) #16
+  call void @_ZdlPv(ptr noundef %40) #18
   br label %48
 
 48:                                               ; preds = %47, %43
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
   %49 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %49, ptr %0, align 8, !tbaa !14
   %50 = load ptr, ptr %1, align 8, !tbaa !19
@@ -1631,11 +1632,11 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL20DecodeCompressedGTINENSt7_
   br label %76
 
 75:                                               ; preds = %66
-  call void @_ZdlPv(ptr noundef %68) #16
+  call void @_ZdlPv(ptr noundef %68) #18
   br label %76
 
 76:                                               ; preds = %75, %71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
   br label %77
 
 77:                                               ; preds = %76, %37
@@ -1698,7 +1699,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br i1 %34, label %35, label %47
 
 35:                                               ; preds = %29
-  %36 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 4) #13
+  %36 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 4) #15
           to label %37 unwind label %45
 
 37:                                               ; preds = %35
@@ -1710,11 +1711,11 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
 
 41:                                               ; preds = %37
   %42 = add nsw i32 %36, -1
-  %43 = invoke noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %42) #13
+  %43 = invoke noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %42) #15
           to label %44 unwind label %45
 
 44:                                               ; preds = %41
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %43) #13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %43) #15
           to label %261 unwind label %45
 
 45:                                               ; preds = %44, %41, %35
@@ -1723,7 +1724,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br label %283
 
 47:                                               ; preds = %29
-  %48 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 4) #13
+  %48 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 4) #15
           to label %49 unwind label %25
 
 49:                                               ; preds = %47
@@ -1731,14 +1732,14 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br i1 %50, label %93, label %51
 
 51:                                               ; preds = %49
-  %52 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 7) #13
+  %52 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 7) #15
           to label %53 unwind label %60
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %8, align 8, !tbaa !7
   %55 = getelementptr inbounds i8, ptr %54, i64 7
   store ptr %55, ptr %8, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   %56 = add nsw i32 %52, -8
   %57 = sdiv i32 %56, 11
   store i32 %57, ptr %3, align 4, !tbaa !46
@@ -1747,7 +1748,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br label %62
 
 59:                                               ; preds = %71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   br label %261
 
 60:                                               ; preds = %51
@@ -1763,12 +1764,12 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br i1 %66, label %69, label %67
 
 67:                                               ; preds = %62
-  %68 = invoke noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %65) #13
+  %68 = invoke noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %65) #15
           to label %69 unwind label %74
 
 69:                                               ; preds = %67, %62
   %70 = phi i8 [ 29, %62 ], [ %68, %67 ]
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %70) #13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %70) #15
           to label %71 unwind label %74
 
 71:                                               ; preds = %69
@@ -1779,7 +1780,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
 74:                                               ; preds = %69, %67
   %75 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   br label %283
 
 76:                                               ; preds = %20
@@ -1787,7 +1788,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br i1 %77, label %78, label %96
 
 78:                                               ; preds = %76
-  %79 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %23) #13
+  %79 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %23) #15
           to label %80 unwind label %25
 
 80:                                               ; preds = %78
@@ -1809,11 +1810,11 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
 
 93:                                               ; preds = %84, %49
   %94 = phi i32 [ %92, %84 ], [ 4, %49 ]
-  %95 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %94) #13
+  %95 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %94) #15
           to label %261 unwind label %25
 
 96:                                               ; preds = %80, %76
-  %97 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 1) #13
+  %97 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 1) #15
           to label %98 unwind label %25
 
 98:                                               ; preds = %96
@@ -1821,7 +1822,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br i1 %99, label %100, label %136
 
 100:                                              ; preds = %98
-  %101 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 6) #13
+  %101 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 6) #15
           to label %102 unwind label %109
 
 102:                                              ; preds = %100
@@ -1853,11 +1854,11 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
 
 117:                                              ; preds = %113, %106
   %118 = phi i8 [ %116, %113 ], [ %108, %106 ]
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %118) #13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %118) #15
           to label %261 unwind label %109
 
 119:                                              ; preds = %111
-  %120 = tail call ptr @__cxa_allocate_exception(i64 48) #12
+  %120 = tail call ptr @__cxa_allocate_exception(i64 48) #14
   %121 = getelementptr inbounds i8, ptr %4, i64 16
   %122 = getelementptr inbounds i8, ptr %4, i64 8
   %123 = getelementptr inbounds i8, ptr %120, i64 16
@@ -1874,7 +1875,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   store i16 76, ptr %126, align 8, !tbaa !52
   %127 = getelementptr inbounds i8, ptr %120, i64 42
   store i8 1, ptr %127, align 2, !tbaa !53
-  invoke void @__cxa_throw(ptr nonnull %120, ptr nonnull @_ZTIN5ZXing5ErrorE, ptr nonnull @_ZN5ZXing5ErrorD2Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %120, ptr nonnull @_ZTIN5ZXing5ErrorE, ptr nonnull @_ZN5ZXing5ErrorD2Ev) #19
           to label %292 unwind label %128
 
 128:                                              ; preds = %119
@@ -1891,11 +1892,11 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br label %283
 
 135:                                              ; preds = %128
-  call void @_ZdlPv(ptr noundef %130) #16
+  call void @_ZdlPv(ptr noundef %130) #18
   br label %283
 
 136:                                              ; preds = %98
-  %137 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3) #13
+  %137 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3) #15
           to label %138 unwind label %25
 
 138:                                              ; preds = %136
@@ -1903,7 +1904,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br i1 %139, label %160, label %140
 
 140:                                              ; preds = %138
-  %141 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 5) #13
+  %141 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 5) #15
           to label %142 unwind label %25
 
 142:                                              ; preds = %140
@@ -1916,7 +1917,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   ]
 
 145:                                              ; preds = %142
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 29) #13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 29) #15
           to label %146 unwind label %25
 
 146:                                              ; preds = %145
@@ -1932,7 +1933,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br i1 %155, label %156, label %261
 
 156:                                              ; preds = %146
-  %157 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 7) #13
+  %157 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 7) #15
           to label %158 unwind label %25
 
 158:                                              ; preds = %156
@@ -1940,13 +1941,13 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br i1 %159, label %160, label %261
 
 160:                                              ; preds = %185, %158, %138, %27
-  %161 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3) #13
+  %161 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3) #15
           to label %261 unwind label %25
 
 162:                                              ; preds = %142
   %163 = trunc i32 %141 to i8
   %164 = add i8 %163, 43
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %164) #13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %164) #15
           to label %261 unwind label %25
 
 165:                                              ; preds = %20
@@ -1954,7 +1955,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br i1 %166, label %167, label %183
 
 167:                                              ; preds = %165
-  %168 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %23) #13
+  %168 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %23) #15
           to label %169 unwind label %25
 
 169:                                              ; preds = %167
@@ -1972,11 +1973,11 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   %179 = ptrtoint ptr %177 to i64
   %180 = sub i64 %178, %179
   %181 = trunc i64 %180 to i32
-  %182 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %181) #13
+  %182 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %181) #15
           to label %261 unwind label %25
 
 183:                                              ; preds = %169, %165
-  %184 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3) #13
+  %184 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3) #15
           to label %185 unwind label %25
 
 185:                                              ; preds = %183
@@ -1984,7 +1985,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br i1 %186, label %160, label %187
 
 187:                                              ; preds = %185
-  %188 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 5) #13
+  %188 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 5) #15
           to label %189 unwind label %218
 
 189:                                              ; preds = %187
@@ -1992,7 +1993,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br i1 %190, label %191, label %220
 
 191:                                              ; preds = %189
-  %192 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 5) #13
+  %192 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 5) #15
           to label %193 unwind label %218
 
 193:                                              ; preds = %191
@@ -2005,7 +2006,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   ]
 
 196:                                              ; preds = %193
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 29) #13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 29) #15
           to label %197 unwind label %218
 
 197:                                              ; preds = %196
@@ -2021,7 +2022,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br i1 %206, label %207, label %261
 
 207:                                              ; preds = %197
-  %208 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 7) #13
+  %208 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 7) #15
           to label %209 unwind label %218
 
 209:                                              ; preds = %207
@@ -2029,7 +2030,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br i1 %210, label %211, label %261
 
 211:                                              ; preds = %209
-  %212 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3) #13
+  %212 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3) #15
           to label %261 unwind label %218
 
 213:                                              ; preds = %193
@@ -2039,7 +2040,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
 
 216:                                              ; preds = %224, %213
   %217 = phi i8 [ %215, %213 ], [ %230, %224 ]
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %217) #13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %217) #15
           to label %261 unwind label %218
 
 218:                                              ; preds = %222, %216, %211, %207, %196, %191, %187
@@ -2052,7 +2053,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br i1 %221, label %222, label %231
 
 222:                                              ; preds = %220
-  %223 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 7) #13
+  %223 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 7) #15
           to label %224 unwind label %218
 
 224:                                              ; preds = %222
@@ -2066,7 +2067,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br label %216
 
 231:                                              ; preds = %220
-  %232 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8) #13
+  %232 = invoke noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8) #15
           to label %233 unwind label %247
 
 233:                                              ; preds = %231
@@ -2078,7 +2079,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br i1 %237, label %238, label %257
 
 238:                                              ; preds = %233
-  %239 = tail call ptr @__cxa_allocate_exception(i64 48) #12
+  %239 = tail call ptr @__cxa_allocate_exception(i64 48) #14
   %240 = getelementptr inbounds i8, ptr %5, i64 16
   %241 = getelementptr inbounds i8, ptr %5, i64 8
   %242 = getelementptr inbounds i8, ptr %239, i64 16
@@ -2095,7 +2096,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   store i16 101, ptr %245, align 8, !tbaa !52
   %246 = getelementptr inbounds i8, ptr %239, i64 42
   store i8 1, ptr %246, align 2, !tbaa !53
-  invoke void @__cxa_throw(ptr nonnull %239, ptr nonnull @_ZTIN5ZXing5ErrorE, ptr nonnull @_ZN5ZXing5ErrorD2Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %239, ptr nonnull @_ZTIN5ZXing5ErrorE, ptr nonnull @_ZN5ZXing5ErrorD2Ev) #19
           to label %292 unwind label %249
 
 247:                                              ; preds = %257, %231
@@ -2117,14 +2118,14 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br label %283
 
 256:                                              ; preds = %249
-  call void @_ZdlPv(ptr noundef %251) #16
+  call void @_ZdlPv(ptr noundef %251) #18
   br label %283
 
 257:                                              ; preds = %233
   %258 = zext nneg i32 %232 to i64
   %259 = getelementptr i8, ptr getelementptr (i8, ptr @.str.19, i64 -232), i64 %258
   %260 = load i8, ptr %259, align 1, !tbaa !26
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %260) #13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %260) #15
           to label %261 unwind label %247
 
 default.unreachable13:                            ; preds = %20
@@ -2157,7 +2158,7 @@ default.unreachable13:                            ; preds = %20
   br i1 %280, label %281, label %282
 
 281:                                              ; preds = %275
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   br label %282
 
 282:                                              ; preds = %281, %275, %272, %2
@@ -2176,7 +2177,7 @@ default.unreachable13:                            ; preds = %20
   br label %291
 
 290:                                              ; preds = %283
-  call void @_ZdlPv(ptr noundef %285) #16
+  call void @_ZdlPv(ptr noundef %285) #18
   br label %291
 
 291:                                              ; preds = %290, %287
@@ -2194,11 +2195,11 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !25
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5, ptr noundef %8) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5, ptr noundef %8) #15
   %9 = load ptr, ptr %2, align 8, !tbaa !19
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !25
-  %12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %9, i64 noundef %11) #13
+  %12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %9, i64 noundef %11) #15
           to label %23 unwind label %13
 
 13:                                               ; preds = %3
@@ -2216,7 +2217,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
   br label %22
 
 21:                                               ; preds = %13
-  tail call void @_ZdlPv(ptr noundef %15) #16
+  tail call void @_ZdlPv(ptr noundef %15) #18
   br label %22
 
 22:                                               ; preds = %21, %17
@@ -2233,7 +2234,7 @@ define linkonce_odr void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !14
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %6, i8 noundef signext 48) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %6, i8 noundef signext 48) #15
   %8 = icmp slt i32 %1, 0
   br i1 %8, label %15, label %9
 
@@ -2248,7 +2249,7 @@ define linkonce_odr void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11
   br label %33
 
 15:                                               ; preds = %3
-  %16 = tail call ptr @__cxa_allocate_exception(i64 48) #12
+  %16 = tail call ptr @__cxa_allocate_exception(i64 48) #14
   %17 = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %17, ptr noundef nonnull align 1 dereferenceable(13) @.str.10, i64 13, i1 false)
   %18 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2268,7 +2269,7 @@ define linkonce_odr void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11
   store i16 112, ptr %23, align 8, !tbaa !52
   %24 = getelementptr inbounds i8, ptr %16, i64 42
   store i8 1, ptr %24, align 2, !tbaa !53
-  invoke void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN5ZXing5ErrorE, ptr nonnull @_ZN5ZXing5ErrorD2Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN5ZXing5ErrorE, ptr nonnull @_ZN5ZXing5ErrorD2Ev) #19
           to label %76 unwind label %25
 
 25:                                               ; preds = %15
@@ -2285,7 +2286,7 @@ define linkonce_odr void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11
   br label %66
 
 32:                                               ; preds = %25
-  call void @_ZdlPv(ptr noundef %27) #16
+  call void @_ZdlPv(ptr noundef %27) #18
   br label %66
 
 33:                                               ; preds = %33, %13
@@ -2309,7 +2310,7 @@ define linkonce_odr void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11
   br i1 %46, label %47, label %65
 
 47:                                               ; preds = %.loopexit
-  %48 = tail call ptr @__cxa_allocate_exception(i64 48) #12
+  %48 = tail call ptr @__cxa_allocate_exception(i64 48) #14
   %49 = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %49, ptr noundef nonnull align 1 dereferenceable(13) @.str.10, i64 13, i1 false)
   %50 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2329,7 +2330,7 @@ define linkonce_odr void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11
   store i16 116, ptr %55, align 8, !tbaa !52
   %56 = getelementptr inbounds i8, ptr %48, i64 42
   store i8 1, ptr %56, align 2, !tbaa !53
-  invoke void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTIN5ZXing5ErrorE, ptr nonnull @_ZN5ZXing5ErrorD2Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTIN5ZXing5ErrorE, ptr nonnull @_ZN5ZXing5ErrorD2Ev) #19
           to label %76 unwind label %57
 
 57:                                               ; preds = %47
@@ -2346,7 +2347,7 @@ define linkonce_odr void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11
   br label %66
 
 64:                                               ; preds = %57
-  call void @_ZdlPv(ptr noundef %59) #16
+  call void @_ZdlPv(ptr noundef %59) #18
   br label %66
 
 65:                                               ; preds = %.loopexit
@@ -2366,7 +2367,7 @@ define linkonce_odr void @_ZN5ZXing8ToStringIivEENSt7__cxx1112basic_stringIcSt11
   br label %75
 
 74:                                               ; preds = %66
-  call void @_ZdlPv(ptr noundef %68) #16
+  call void @_ZdlPv(ptr noundef %68) #18
   br label %75
 
 75:                                               ; preds = %74, %70
@@ -2425,7 +2426,7 @@ define linkonce_odr noundef signext i8 @_ZN5ZXing4GTIN17ComputeCheckDigitIcEET_R
   %33 = sub nsw i32 0, %31
   %34 = icmp ult i32 %32, 10
   %35 = select i1 %34, i32 %32, i32 %33
-  %36 = tail call noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %35) #13
+  %36 = tail call noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %35) #15
   ret i8 %36
 
 37:                                               ; preds = %37, %16
@@ -2451,18 +2452,19 @@ declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(p
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0 align 2
 
 ; Function Attrs: noreturn nounwind optsize uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #14
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
-define linkonce_odr void @_ZN5ZXing5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(43) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5ZXing5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(43) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !19
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp eq ptr %2, %3
@@ -2476,7 +2478,7 @@ define linkonce_odr void @_ZN5ZXing5ErrorD2Ev(ptr noundef nonnull align 8 derefe
   br label %10
 
 9:                                                ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %2) #16
+  tail call void @_ZdlPv(ptr noundef %2) #18
   br label %10
 
 10:                                               ; preds = %9, %5
@@ -2489,7 +2491,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_construc
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   %5 = ptrtoint ptr %2 to i64
   %6 = ptrtoint ptr %1 to i64
   %7 = sub i64 %5, %6
@@ -2502,7 +2504,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   br label %15
 
 11:                                               ; preds = %3
-  %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #13
+  %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #15
   store ptr %12, ptr %0, align 8, !tbaa !19
   %13 = load i64, ptr %4, align 8, !tbaa !58
   %14 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2532,7 +2534,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   %23 = load ptr, ptr %0, align 8, !tbaa !19
   %24 = getelementptr inbounds i8, ptr %23, i64 %21
   store i8 0, ptr %24, align 1, !tbaa !26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
   ret void
 }
 
@@ -2540,7 +2542,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin nounwind optsize
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %0) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -2549,10 +2551,10 @@ define linkonce_odr noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %0)
   br i1 %3, label %4, label %37
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @__cxa_allocate_exception(i64 48) #12
+  %5 = tail call ptr @__cxa_allocate_exception(i64 48) #14
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %6, ptr %2, align 8, !tbaa !14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.12, i64 19)) #13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.12, i64 19)) #15
           to label %7 unwind label %35
 
 7:                                                ; preds = %4
@@ -2593,7 +2595,7 @@ define linkonce_odr noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %0)
   store i16 103, ptr %25, align 8, !tbaa !52
   %26 = getelementptr inbounds i8, ptr %5, i64 42
   store i8 1, ptr %26, align 2, !tbaa !53
-  invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN5ZXing5ErrorE, ptr nonnull @_ZN5ZXing5ErrorD2Ev) #17
+  invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN5ZXing5ErrorE, ptr nonnull @_ZN5ZXing5ErrorD2Ev) #19
           to label %42 unwind label %27
 
 27:                                               ; preds = %20
@@ -2610,13 +2612,13 @@ define linkonce_odr noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %0)
   br label %40
 
 34:                                               ; preds = %27
-  call void @_ZdlPv(ptr noundef %29) #16
+  call void @_ZdlPv(ptr noundef %29) #18
   br label %40
 
 35:                                               ; preds = %4
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %5) #12
+  call void @__cxa_free_exception(ptr %5) #14
   br label %40
 
 37:                                               ; preds = %1
@@ -2636,7 +2638,7 @@ define linkonce_odr noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %0)
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0 align 2
 
 ; Function Attrs: mustprogress nounwind optsize uwtable
-define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 comdat {
+define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 comdat {
   %4 = icmp ugt i32 %2, 99
   br i1 %4, label %5, label %.loopexit
 
@@ -2698,12 +2700,12 @@ define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind optsize uwtable
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8 align 2
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   %5 = ptrtoint ptr %2 to i64
   %6 = ptrtoint ptr %1 to i64
   %7 = sub i64 %5, %6
@@ -2716,7 +2718,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   br label %15
 
 11:                                               ; preds = %3
-  %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #13
+  %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #15
   store ptr %12, ptr %0, align 8, !tbaa !19
   %13 = load i64, ptr %4, align 8, !tbaa !58
   %14 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2746,7 +2748,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   %23 = load ptr, ptr %0, align 8, !tbaa !19
   %24 = getelementptr inbounds i8, ptr %23, i64 %21
   store i8 0, ptr %24, align 1, !tbaa !26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
   ret void
 }
 
@@ -2760,7 +2762,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI01GTINB5cxx11ERNS_
   store i64 3, ptr %5, align 8, !tbaa !25
   %6 = getelementptr inbounds i8, ptr %3, i64 19
   store i8 0, ptr %6, align 1, !tbaa !26
-  invoke fastcc void @_ZN5ZXing4OneD7DataBarL20DecodeCompressedGTINENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_12BitArrayViewE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  invoke fastcc void @_ZN5ZXing4OneD7DataBarL20DecodeCompressedGTINENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_12BitArrayViewE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
           to label %7 unwind label %15
 
 7:                                                ; preds = %2
@@ -2775,7 +2777,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI01GTINB5cxx11ERNS_
   br label %14
 
 13:                                               ; preds = %7
-  call void @_ZdlPv(ptr noundef %8) #16
+  call void @_ZdlPv(ptr noundef %8) #18
   br label %14
 
 14:                                               ; preds = %13, %10
@@ -2795,7 +2797,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI01GTINB5cxx11ERNS_
   br label %23
 
 22:                                               ; preds = %15
-  call void @_ZdlPv(ptr noundef %17) #16
+  call void @_ZdlPv(ptr noundef %17) #18
   br label %23
 
 23:                                               ; preds = %22, %19
@@ -2806,32 +2808,34 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI01GTINB5cxx11ERNS_
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0 align 2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #11
+declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 attributes #0 = { mustprogress optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noreturn nounwind optsize uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint mustprogress nounwind optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { optsize }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind optsize }
-attributes #16 = { builtin nounwind optsize }
-attributes #17 = { noreturn }
+attributes #4 = { cold noreturn }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { noreturn nounwind optsize uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { inlinehint mustprogress nounwind optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { optsize }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { nounwind optsize }
+attributes #18 = { builtin nounwind optsize }
+attributes #19 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 

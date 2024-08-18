@@ -1021,7 +1021,7 @@ _ZN5folly8external8farmhash10farmhashuo14Hash64WithSeedEPKcmm.exit: ; preds = %c
   ret i64 %cond.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i64 @_ZN5folly8external8farmhash10farmhashte6Hash64EPKcm(ptr nocapture noundef readnone %s, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
@@ -1036,10 +1036,10 @@ if.else:                                          ; preds = %entry
   unreachable
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i64 @_ZN5folly8external8farmhash10farmhashte14Hash64WithSeedEPKcmm(ptr nocapture noundef readnone %s, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
@@ -1054,7 +1054,7 @@ if.else:                                          ; preds = %entry
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i64 @_ZN5folly8external8farmhash10farmhashte15Hash64WithSeedsEPKcmmm(ptr nocapture noundef readnone %s, i64 noundef %len, i64 noundef %seed0, i64 noundef %seed1) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
@@ -1069,7 +1069,7 @@ if.else:                                          ; preds = %entry
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i32 @_ZN5folly8external8farmhash10farmhashnt6Hash32EPKcm(ptr nocapture noundef readnone %s, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
@@ -1084,7 +1084,7 @@ if.else:                                          ; preds = %entry
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i32 @_ZN5folly8external8farmhash10farmhashnt14Hash32WithSeedEPKcmj(ptr nocapture noundef readnone %s, i64 noundef %len, i32 noundef %seed) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
@@ -1745,7 +1745,7 @@ return:                                           ; preds = %if.end, %_ZN5folly8
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i32 @_ZN5folly8external8farmhash10farmhashsu6Hash32EPKcm(ptr nocapture noundef readnone %s, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
@@ -1760,7 +1760,7 @@ if.else:                                          ; preds = %entry
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i32 @_ZN5folly8external8farmhash10farmhashsu14Hash32WithSeedEPKcmj(ptr nocapture noundef readnone %s, i64 noundef %len, i32 noundef %seed) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
@@ -1775,7 +1775,7 @@ if.else:                                          ; preds = %entry
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i32 @_ZN5folly8external8farmhash10farmhashsa6Hash32EPKcm(ptr nocapture noundef readnone %s, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
@@ -1790,7 +1790,7 @@ if.else:                                          ; preds = %entry
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i32 @_ZN5folly8external8farmhash10farmhashsa14Hash32WithSeedEPKcmj(ptr nocapture noundef readnone %s, i64 noundef %len, i32 noundef %seed) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
@@ -3104,8 +3104,8 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #3
 declare i32 @llvm.fshl.i32(i32, i32, i32) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { noreturn nounwind }
 

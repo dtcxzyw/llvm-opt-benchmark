@@ -93,13 +93,13 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  call void @exit(i32 noundef 108) #9
+  call void @exit(i32 noundef 108) #10
   unreachable
 
 lpad:                                             ; preds = %if.end, %invoke.cont10, %invoke.cont8, %if.then7, %lor.lhs.false, %if.else
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %in) #10
+  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %in) #11
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %invoke.cont5
@@ -107,11 +107,11 @@ if.end:                                           ; preds = %invoke.cont5
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %if.end
-  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %in) #10
+  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %in) #11
   br label %if.end15
 
 if.end15:                                         ; preds = %invoke.cont14, %if.then
-  call void @exit(i32 noundef 0) #11
+  call void @exit(i32 noundef 0) #12
   unreachable
 }
 
@@ -119,7 +119,7 @@ if.end15:                                         ; preds = %invoke.cont14, %if.
 define internal fastcc void @_ZL5solvePKcRSi(ptr noundef nonnull align 8 dereferenceable(16) %in) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %r = alloca %class.z3_replayer, align 8
-  %call = tail call i64 @clock() #10
+  %call = tail call i64 @clock() #11
   call void @_ZN11z3_replayerC1ERSi(ptr noundef nonnull align 8 dereferenceable(8) %r, ptr noundef nonnull align 8 dereferenceable(16) %in)
   invoke void @_ZN11z3_replayer5parseEv(ptr noundef nonnull align 8 dereferenceable(8) %r)
           to label %try.cont unwind label %lpad
@@ -129,13 +129,13 @@ lpad:                                             ; preds = %entry
           cleanup
           catch ptr @_ZTI12z3_exception
   %1 = extractvalue { ptr, i32 } %0, 1
-  %2 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #10
+  %2 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #11
   %matches = icmp eq i32 %1, %2
   br i1 %matches, label %catch, label %ehcleanup
 
 catch:                                            ; preds = %lpad
   %3 = extractvalue { ptr, i32 } %0, 0
-  %4 = call ptr @__cxa_begin_catch(ptr %3) #10
+  %4 = call ptr @__cxa_begin_catch(ptr %3) #11
   %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.2)
           to label %invoke.cont2 unwind label %lpad1
 
@@ -171,7 +171,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %try.cont unwind label %lpad16
 
 try.cont:                                         ; preds = %invoke.cont14, %entry
-  %call19 = call i64 @clock() #10
+  %call19 = call i64 @clock() #11
   invoke void @_ZN6memory17display_max_usageERSo(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout)
           to label %invoke.cont20 unwind label %lpad16
 
@@ -192,7 +192,7 @@ invoke.cont24:                                    ; preds = %invoke.cont21
           to label %invoke.cont26 unwind label %lpad16
 
 invoke.cont26:                                    ; preds = %invoke.cont24
-  call void @_ZN11z3_replayerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %r) #10
+  call void @_ZN11z3_replayerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %r) #11
   ret void
 
 lpad1:                                            ; preds = %invoke.cont12, %invoke.cont10, %invoke.cont8, %invoke.cont6, %invoke.cont4, %invoke.cont2, %catch
@@ -208,14 +208,14 @@ lpad16:                                           ; preds = %invoke.cont24, %inv
 
 ehcleanup:                                        ; preds = %lpad1, %lpad16, %lpad
   %lpad.val30.merged = phi { ptr, i32 } [ %7, %lpad16 ], [ %6, %lpad1 ], [ %0, %lpad ]
-  call void @_ZN11z3_replayerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %r) #10
+  call void @_ZN11z3_replayerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %r) #11
   resume { ptr, i32 } %lpad.val30.merged
 
 terminate.lpad:                                   ; preds = %lpad1
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #11
+  call void @__clang_call_terminate(ptr %9) #12
   unreachable
 }
 
@@ -256,12 +256,13 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #11
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
+  tail call void @_ZSt9terminatev() #12
   unreachable
 }
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 declare void @_ZN6memory17display_max_usageERSo(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
@@ -271,15 +272,15 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef no
 declare void @_ZN11z3_replayerD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_z3_log_frontend.cpp() #7 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_z3_log_frontend.cpp() #8 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #11
   ret void
 }
 
 ; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for.p0(ptr) #8
+declare i32 @llvm.eh.typeid.for.p0(ptr) #9
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -288,11 +289,12 @@ attributes #3 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nosync nounwind memory(none) }
-attributes #9 = { cold noreturn nounwind }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nosync nounwind memory(none) }
+attributes #10 = { cold noreturn nounwind }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -439,7 +439,7 @@ terminate.lpad.i:                                 ; preds = %if.then
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #8
+  tail call void @__clang_call_terminate(ptr %4) #9
   unreachable
 
 _ZN15btPoolAllocatorD2Ev.exit:                    ; preds = %if.then
@@ -465,7 +465,7 @@ terminate.lpad.i2:                                ; preds = %if.then4
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #8
+  tail call void @__clang_call_terminate(ptr %10) #9
   unreachable
 
 _ZN15btPoolAllocatorD2Ev.exit3:                   ; preds = %if.then4
@@ -478,7 +478,7 @@ if.end7:                                          ; preds = %_ZN15btPoolAllocato
   %12 = load ptr, ptr %m_convexConvexCreateFunc, align 8
   %vtable = load ptr, ptr %12, align 8
   %13 = load ptr, ptr %vtable, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(9) %12) #9
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(9) %12) #10
   %14 = load ptr, ptr %m_convexConvexCreateFunc, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %14)
           to label %invoke.cont9 unwind label %terminate.lpad
@@ -488,7 +488,7 @@ invoke.cont9:                                     ; preds = %if.end7
   %15 = load ptr, ptr %m_convexConcaveCreateFunc, align 8
   %vtable10 = load ptr, ptr %15, align 8
   %16 = load ptr, ptr %vtable10, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(9) %15) #9
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(9) %15) #10
   %17 = load ptr, ptr %m_convexConcaveCreateFunc, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %17)
           to label %invoke.cont13 unwind label %terminate.lpad
@@ -498,7 +498,7 @@ invoke.cont13:                                    ; preds = %invoke.cont9
   %18 = load ptr, ptr %m_swappedConvexConcaveCreateFunc, align 8
   %vtable14 = load ptr, ptr %18, align 8
   %19 = load ptr, ptr %vtable14, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(9) %18) #9
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(9) %18) #10
   %20 = load ptr, ptr %m_swappedConvexConcaveCreateFunc, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %20)
           to label %invoke.cont17 unwind label %terminate.lpad
@@ -508,7 +508,7 @@ invoke.cont17:                                    ; preds = %invoke.cont13
   %21 = load ptr, ptr %m_compoundCreateFunc, align 8
   %vtable18 = load ptr, ptr %21, align 8
   %22 = load ptr, ptr %vtable18, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(9) %21) #9
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(9) %21) #10
   %23 = load ptr, ptr %m_compoundCreateFunc, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %23)
           to label %invoke.cont21 unwind label %terminate.lpad
@@ -518,7 +518,7 @@ invoke.cont21:                                    ; preds = %invoke.cont17
   %24 = load ptr, ptr %m_compoundCompoundCreateFunc, align 8
   %vtable22 = load ptr, ptr %24, align 8
   %25 = load ptr, ptr %vtable22, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(9) %24) #9
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(9) %24) #10
   %26 = load ptr, ptr %m_compoundCompoundCreateFunc, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %26)
           to label %invoke.cont25 unwind label %terminate.lpad
@@ -528,7 +528,7 @@ invoke.cont25:                                    ; preds = %invoke.cont21
   %27 = load ptr, ptr %m_swappedCompoundCreateFunc, align 8
   %vtable26 = load ptr, ptr %27, align 8
   %28 = load ptr, ptr %vtable26, align 8
-  tail call void %28(ptr noundef nonnull align 8 dereferenceable(9) %27) #9
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(9) %27) #10
   %29 = load ptr, ptr %m_swappedCompoundCreateFunc, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %29)
           to label %invoke.cont29 unwind label %terminate.lpad
@@ -538,7 +538,7 @@ invoke.cont29:                                    ; preds = %invoke.cont25
   %30 = load ptr, ptr %m_emptyCreateFunc, align 8
   %vtable30 = load ptr, ptr %30, align 8
   %31 = load ptr, ptr %vtable30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(9) %30) #9
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(9) %30) #10
   %32 = load ptr, ptr %m_emptyCreateFunc, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %32)
           to label %invoke.cont33 unwind label %terminate.lpad
@@ -548,7 +548,7 @@ invoke.cont33:                                    ; preds = %invoke.cont29
   %33 = load ptr, ptr %m_sphereSphereCF, align 8
   %vtable34 = load ptr, ptr %33, align 8
   %34 = load ptr, ptr %vtable34, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(9) %33) #9
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(9) %33) #10
   %35 = load ptr, ptr %m_sphereSphereCF, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %35)
           to label %invoke.cont37 unwind label %terminate.lpad
@@ -558,7 +558,7 @@ invoke.cont37:                                    ; preds = %invoke.cont33
   %36 = load ptr, ptr %m_sphereTriangleCF, align 8
   %vtable38 = load ptr, ptr %36, align 8
   %37 = load ptr, ptr %vtable38, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(9) %36) #9
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(9) %36) #10
   %38 = load ptr, ptr %m_sphereTriangleCF, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %38)
           to label %invoke.cont41 unwind label %terminate.lpad
@@ -568,7 +568,7 @@ invoke.cont41:                                    ; preds = %invoke.cont37
   %39 = load ptr, ptr %m_triangleSphereCF, align 8
   %vtable42 = load ptr, ptr %39, align 8
   %40 = load ptr, ptr %vtable42, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(9) %39) #9
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(9) %39) #10
   %41 = load ptr, ptr %m_triangleSphereCF, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %41)
           to label %invoke.cont45 unwind label %terminate.lpad
@@ -578,7 +578,7 @@ invoke.cont45:                                    ; preds = %invoke.cont41
   %42 = load ptr, ptr %m_boxBoxCF, align 8
   %vtable46 = load ptr, ptr %42, align 8
   %43 = load ptr, ptr %vtable46, align 8
-  tail call void %43(ptr noundef nonnull align 8 dereferenceable(9) %42) #9
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(9) %42) #10
   %44 = load ptr, ptr %m_boxBoxCF, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %44)
           to label %invoke.cont49 unwind label %terminate.lpad
@@ -588,7 +588,7 @@ invoke.cont49:                                    ; preds = %invoke.cont45
   %45 = load ptr, ptr %m_convexPlaneCF, align 8
   %vtable50 = load ptr, ptr %45, align 8
   %46 = load ptr, ptr %vtable50, align 8
-  tail call void %46(ptr noundef nonnull align 8 dereferenceable(9) %45) #9
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(9) %45) #10
   %47 = load ptr, ptr %m_convexPlaneCF, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %47)
           to label %invoke.cont53 unwind label %terminate.lpad
@@ -598,7 +598,7 @@ invoke.cont53:                                    ; preds = %invoke.cont49
   %48 = load ptr, ptr %m_planeConvexCF, align 8
   %vtable54 = load ptr, ptr %48, align 8
   %49 = load ptr, ptr %vtable54, align 8
-  tail call void %49(ptr noundef nonnull align 8 dereferenceable(9) %48) #9
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(9) %48) #10
   %50 = load ptr, ptr %m_planeConvexCF, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %50)
           to label %invoke.cont57 unwind label %terminate.lpad
@@ -608,7 +608,7 @@ invoke.cont57:                                    ; preds = %invoke.cont53
   %51 = load ptr, ptr %m_pdSolver, align 8
   %vtable58 = load ptr, ptr %51, align 8
   %52 = load ptr, ptr %vtable58, align 8
-  tail call void %52(ptr noundef nonnull align 8 dereferenceable(8) %51) #9
+  tail call void %52(ptr noundef nonnull align 8 dereferenceable(8) %51) #10
   %53 = load ptr, ptr %m_pdSolver, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %53)
           to label %invoke.cont61 unwind label %terminate.lpad
@@ -620,7 +620,7 @@ terminate.lpad:                                   ; preds = %invoke.cont57, %inv
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #8
+  tail call void @__clang_call_terminate(ptr %55) #9
   unreachable
 }
 
@@ -628,28 +628,29 @@ declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
-  tail call void @_ZSt9terminatev() #8
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
+  tail call void @_ZSt9terminatev() #9
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN31btDefaultCollisionConfigurationD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #2 align 2 {
 entry:
-  tail call void @_ZN31btDefaultCollisionConfigurationD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZN31btDefaultCollisionConfigurationD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN31btDefaultCollisionConfiguration35getClosestPointsAlgorithmCreateFuncEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %proxyType0, i32 noundef %proxyType1) unnamed_addr #5 align 2 {
+define dso_local noundef ptr @_ZN31btDefaultCollisionConfiguration35getClosestPointsAlgorithmCreateFuncEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %proxyType0, i32 noundef %proxyType1) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq i32 %proxyType0, 8
   %cmp2 = icmp eq i32 %proxyType1, 8
@@ -717,7 +718,7 @@ return:                                           ; preds = %if.else, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN31btDefaultCollisionConfiguration31getCollisionAlgorithmCreateFuncEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %proxyType0, i32 noundef %proxyType1) unnamed_addr #5 align 2 {
+define dso_local noundef ptr @_ZN31btDefaultCollisionConfiguration31getCollisionAlgorithmCreateFuncEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %proxyType0, i32 noundef %proxyType1) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq i32 %proxyType0, 8
   %cmp2 = icmp eq i32 %proxyType1, 8
@@ -790,7 +791,7 @@ return:                                           ; preds = %if.else, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN31btDefaultCollisionConfiguration35setConvexConvexMultipointIterationsEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %numPerturbationIterations, i32 noundef %minimumPointsPerturbationThreshold) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN31btDefaultCollisionConfiguration35setConvexConvexMultipointIterationsEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %numPerturbationIterations, i32 noundef %minimumPointsPerturbationThreshold) local_unnamed_addr #7 align 2 {
 entry:
   %m_convexConvexCreateFunc = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_convexConvexCreateFunc, align 8
@@ -802,7 +803,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN31btDefaultCollisionConfiguration34setPlaneConvexMultipointIterationsEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %numPerturbationIterations, i32 noundef %minimumPointsPerturbationThreshold) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN31btDefaultCollisionConfiguration34setPlaneConvexMultipointIterationsEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %numPerturbationIterations, i32 noundef %minimumPointsPerturbationThreshold) local_unnamed_addr #7 align 2 {
 entry:
   %m_convexPlaneCF = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %m_convexPlaneCF, align 8
@@ -844,7 +845,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN33btConvexConcaveCollisionAlgorithm10CreateFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -871,7 +872,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN33btConvexConcaveCollisionAlgorithm17SwappedCreateFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -896,7 +897,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN28btCompoundCollisionAlgorithm10CreateFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -923,7 +924,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN36btCompoundCompoundCollisionAlgorithm10CreateFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -950,7 +951,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN28btCompoundCollisionAlgorithm17SwappedCreateFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -975,7 +976,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16btEmptyAlgorithm10CreateFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -1002,7 +1003,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN32btSphereSphereCollisionAlgorithm10CreateFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -1029,7 +1030,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN34btSphereTriangleCollisionAlgorithm10CreateFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -1061,7 +1062,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN26btBoxBoxCollisionAlgorithm10CreateFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -1088,7 +1089,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN31btConvexPlaneCollisionAlgorithm10CreateFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -1114,19 +1115,20 @@ entry:
 declare void @_ZN31btConvexPlaneCollisionAlgorithmC1EP20btPersistentManifoldRK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS7_bii(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { noreturn nounwind }
-attributes #9 = { nounwind }
-attributes #10 = { builtin nounwind }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { noreturn nounwind }
+attributes #10 = { nounwind }
+attributes #11 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

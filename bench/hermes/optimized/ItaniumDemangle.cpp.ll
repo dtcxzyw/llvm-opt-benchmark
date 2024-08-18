@@ -1104,7 +1104,7 @@ if.then3:                                         ; preds = %if.then
   br label %return
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %MangledName) #19
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %MangledName) #20
   %add.ptr = getelementptr inbounds i8, ptr %MangledName, i64 %call
   store ptr %MangledName, ptr %Parser, align 16
   %Last.i = getelementptr inbounds i8, ptr %Parser, i64 8
@@ -1162,7 +1162,7 @@ if.else:                                          ; preds = %if.end4
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
-  %call.i = call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #20
+  %call.i = call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #21
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %if.end18, label %if.else10
 
@@ -1181,7 +1181,7 @@ if.else10:                                        ; preds = %if.else.i, %if.then
   %vtable.i = load ptr, ptr %call5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(12) %call5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  call void %1(ptr noundef nonnull align 8 dereferenceable(12) %call5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %call5, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
@@ -1191,7 +1191,7 @@ if.then.i14:                                      ; preds = %if.else10
   %vtable2.i = load ptr, ptr %call5, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(12) %call5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  call void %3(ptr noundef nonnull align 8 dereferenceable(12) %call5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %if.else10, %if.then.i14
@@ -1206,7 +1206,7 @@ if.then.i.i:                                      ; preds = %_ZNK4llvh16itanium_
   %mul.i.i = shl i64 %5, 1
   %spec.store.select.i.i = call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -1217,7 +1217,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStreampLEc.exit
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit:                       ; preds = %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -1261,7 +1261,7 @@ while.body.i.i.i.i:                               ; preds = %if.end21, %if.end.i
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  call void @free(ptr noundef nonnull %11) #21
+  call void @free(ptr noundef nonnull %11) #22
   %.pre.i.i.i.i = load ptr, ptr %BlockList.i.i.i, align 16
   br label %if.end.i.i.i.i
 
@@ -1278,7 +1278,7 @@ _ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i:   ; preds = %if.end.i.i.i.i, %if
   br i1 %cmp.i.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i, label %if.then.i.i18
 
 if.then.i.i18:                                    ; preds = %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i
-  call void @free(ptr noundef %14) #21
+  call void @free(ptr noundef %14) #22
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i: ; preds = %if.then.i.i18, %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i
@@ -1287,7 +1287,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE
   br i1 %cmp.i.i2.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i, label %if.then.i3.i
 
 if.then.i3.i:                                     ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i
-  call void @free(ptr noundef %15) #21
+  call void @free(ptr noundef %15) #22
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i: ; preds = %if.then.i3.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i
@@ -1296,7 +1296,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i: ; preds 
   br i1 %cmp.i.i5.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i
-  call void @free(ptr noundef %16) #21
+  call void @free(ptr noundef %16) #22
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i: ; preds = %if.then.i6.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i
@@ -1305,7 +1305,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i: ; preds
   br i1 %cmp.i.i8.i, label %return, label %if.then.i9.i
 
 if.then.i9.i:                                     ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i
-  call void @free(ptr noundef %17) #21
+  call void @free(ptr noundef %17) #22
   br label %return
 
 return:                                           ; preds = %if.then.i9.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i, %if.then, %if.then3
@@ -1362,12 +1362,12 @@ if.then6:                                         ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9DotSuffixEJRPNS0_4NodeE10StringViewEEES8_DpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.then6
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -1531,7 +1531,7 @@ return:                                           ; preds = %lor.lhs.false, %_ZN
 define hidden noundef zeroext i1 @_ZN4llvh29itaniumFindTypesInMangledNameEPKcPvPFvS2_S1_E(ptr noundef %MangledName, ptr noundef %Ctx, ptr noundef %Callback) local_unnamed_addr #1 {
 entry:
   %Parser = alloca %"struct.llvh::itanium_demangle::Db", align 16
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %MangledName) #19
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %MangledName) #20
   %add.ptr = getelementptr inbounds i8, ptr %MangledName, i64 %call
   store ptr %MangledName, ptr %Parser, align 16
   %Last.i = getelementptr inbounds i8, ptr %Parser, i64 8
@@ -1591,7 +1591,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %if.end.i.i.
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  call void @free(ptr noundef nonnull %1) #21
+  call void @free(ptr noundef nonnull %1) #22
   %.pre.i.i.i.i = load ptr, ptr %BlockList.i.i.i, align 16
   br label %if.end.i.i.i.i
 
@@ -1608,7 +1608,7 @@ _ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i:   ; preds = %if.end.i.i.i.i, %en
   br i1 %cmp.i.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i
-  call void @free(ptr noundef %4) #21
+  call void @free(ptr noundef %4) #22
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i: ; preds = %if.then.i.i, %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i
@@ -1617,7 +1617,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE
   br i1 %cmp.i.i2.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i, label %if.then.i3.i
 
 if.then.i3.i:                                     ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i
-  call void @free(ptr noundef %5) #21
+  call void @free(ptr noundef %5) #22
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i: ; preds = %if.then.i3.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i
@@ -1626,7 +1626,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i: ; preds 
   br i1 %cmp.i.i5.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i
-  call void @free(ptr noundef %6) #21
+  call void @free(ptr noundef %6) #22
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i: ; preds = %if.then.i6.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i
@@ -1635,7 +1635,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i: ; preds
   br i1 %cmp.i.i8.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEED2Ev.exit, label %if.then.i9.i
 
 if.then.i9.i:                                     ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i
-  call void @free(ptr noundef %7) #21
+  call void @free(ptr noundef %7) #22
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEED2Ev.exit
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEED2Ev.exit: ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i, %if.then.i9.i
@@ -1648,7 +1648,7 @@ define hidden void @_ZN4llvh23ItaniumPartialDemanglerC2Ev(ptr nocapture noundef 
 entry:
   store ptr null, ptr %this, align 8
   %Context = getelementptr inbounds i8, ptr %this, i64 8
-  %call = tail call noalias noundef nonnull dereferenceable(4864) ptr @_Znwm(i64 noundef 4864) #24
+  %call = tail call noalias noundef nonnull dereferenceable(4864) ptr @_Znwm(i64 noundef 4864) #25
   %Names.i = getelementptr inbounds i8, ptr %call, i64 16
   %Inline.i.i = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call, i8 0, i64 16, i1 false)
@@ -1720,7 +1720,7 @@ while.body.i.i.i.i:                               ; preds = %delete.notnull, %if
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  tail call void @free(ptr noundef nonnull %2) #21
+  tail call void @free(ptr noundef nonnull %2) #22
   %.pre.i.i.i.i = load ptr, ptr %BlockList.i.i.i.i, align 16
   br label %if.end.i.i.i.i
 
@@ -1739,7 +1739,7 @@ _ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i:   ; preds = %if.end.i.i.i.i, %de
   br i1 %cmp.i.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i
-  tail call void @free(ptr noundef %5) #21
+  tail call void @free(ptr noundef %5) #22
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i: ; preds = %if.then.i.i, %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i
@@ -1750,7 +1750,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE
   br i1 %cmp.i.i2.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i, label %if.then.i3.i
 
 if.then.i3.i:                                     ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i
-  tail call void @free(ptr noundef %6) #21
+  tail call void @free(ptr noundef %6) #22
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i: ; preds = %if.then.i3.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i
@@ -1761,7 +1761,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i: ; preds 
   br i1 %cmp.i.i5.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i
-  tail call void @free(ptr noundef %7) #21
+  tail call void @free(ptr noundef %7) #22
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i: ; preds = %if.then.i6.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i
@@ -1772,11 +1772,11 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i: ; preds
   br i1 %cmp.i.i8.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEED2Ev.exit, label %if.then.i9.i
 
 if.then.i9.i:                                     ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i
-  tail call void @free(ptr noundef %8) #21
+  tail call void @free(ptr noundef %8) #22
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEED2Ev.exit
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEED2Ev.exit: ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i, %if.then.i9.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEED2Ev.exit, %entry
@@ -1820,7 +1820,7 @@ define hidden noundef zeroext i1 @_ZN4llvh23ItaniumPartialDemangler15partialDema
 entry:
   %Context = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Context, align 8
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %MangledName) #19
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %MangledName) #20
   %add.ptr = getelementptr inbounds i8, ptr %MangledName, i64 %call
   store ptr %MangledName, ptr %0, align 16
   %Last.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -1857,7 +1857,7 @@ while.body.i.i.i:                                 ; preds = %entry, %if.end.i.i.
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i.i.i
-  tail call void @free(ptr noundef nonnull %5) #21
+  tail call void @free(ptr noundef nonnull %5) #22
   %.pre.i.i.i = load ptr, ptr %BlockList.i.i.i, align 16
   br label %if.end.i.i.i
 
@@ -1943,7 +1943,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
+  %call.i = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %return, label %if.end
 
@@ -1962,7 +1962,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
   %vtable.i = load ptr, ptr %RootNode, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(12) %RootNode, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  call void %1(ptr noundef nonnull align 8 dereferenceable(12) %RootNode, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %RootNode, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
@@ -1972,7 +1972,7 @@ if.then.i3:                                       ; preds = %if.end
   %vtable2.i = load ptr, ptr %RootNode, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(12) %RootNode, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  call void %3(ptr noundef nonnull align 8 dereferenceable(12) %RootNode, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %if.end, %if.then.i3
@@ -1987,7 +1987,7 @@ if.then.i.i:                                      ; preds = %_ZNK4llvh16itanium_
   %mul.i.i = shl i64 %5, 1
   %spec.store.select.i.i = call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -1998,7 +1998,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStreampLEc.exit
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit:                       ; preds = %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -2046,7 +2046,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %call.i = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
+  %call.i = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %return, label %_Z22initializeOutputStreamPcPmR12OutputStreamm.exit
 
@@ -2097,7 +2097,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %6, 1
   %spec.store.select.i.i = call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -2107,7 +2107,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -2126,7 +2126,7 @@ sw.bb18:                                          ; preds = %while.body
   %vtable.i = load ptr, ptr %10, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %11 = load ptr, ptr %vfn.i, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  call void %11(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %10, i64 9
   %12 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %12, 1
@@ -2136,7 +2136,7 @@ if.then.i18:                                      ; preds = %sw.bb18
   %vtable2.i = load ptr, ptr %10, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %13 = load ptr, ptr %vfn3.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  call void %13(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %while.body
@@ -2145,7 +2145,7 @@ sw.bb19:                                          ; preds = %while.body
   %vtable.i20 = load ptr, ptr %14, align 8
   %vfn.i21 = getelementptr inbounds i8, ptr %vtable.i20, i64 32
   %15 = load ptr, ptr %vfn.i21, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  call void %15(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i22 = getelementptr inbounds i8, ptr %14, i64 9
   %16 = load i8, ptr %RHSComponentCache.i22, align 1
   %cmp.not.i23 = icmp eq i8 %16, 1
@@ -2155,7 +2155,7 @@ if.then.i24:                                      ; preds = %sw.bb19
   %vtable2.i25 = load ptr, ptr %14, align 8
   %vfn3.i26 = getelementptr inbounds i8, ptr %vtable2.i25, i64 40
   %17 = load ptr, ptr %vfn3.i26, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  call void %17(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i36
 
 if.end.i36:                                       ; preds = %if.then.i24, %sw.bb19
@@ -2170,7 +2170,7 @@ if.then.i.i42:                                    ; preds = %if.end.i36
   %mul.i.i43 = shl i64 %19, 1
   %spec.store.select.i.i44 = call i64 @llvm.umax.i64(i64 %mul.i.i43, i64 %add.i.i38)
   store i64 %spec.store.select.i.i44, ptr %BufferCapacity.i.i, align 8
-  %call.i.i45 = call ptr @realloc(ptr noundef %.pre.i41, i64 noundef %spec.store.select.i.i44) #22
+  %call.i.i45 = call ptr @realloc(ptr noundef %.pre.i41, i64 noundef %spec.store.select.i.i44) #23
   store ptr %call.i.i45, ptr %S, align 8
   %cmp14.i.i46 = icmp eq ptr %call.i.i45, null
   br i1 %cmp14.i.i46, label %if.then15.i.i52, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i47
@@ -2180,7 +2180,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i47: ; preds = %if.then.i.i42
   br label %_ZN12OutputStream4growEm.exit.i49
 
 if.then15.i.i52:                                  ; preds = %if.then.i.i42
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i49:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i47, %if.end.i36
@@ -2207,7 +2207,7 @@ if.then.i.i59:                                    ; preds = %sw.epilog
   %mul.i.i60 = shl i64 %25, 1
   %spec.store.select.i.i61 = call i64 @llvm.umax.i64(i64 %mul.i.i60, i64 %add.i.i55)
   store i64 %spec.store.select.i.i61, ptr %BufferCapacity.i.i, align 8
-  %call.i.i62 = call ptr @realloc(ptr noundef %.pre.i58, i64 noundef %spec.store.select.i.i61) #22
+  %call.i.i62 = call ptr @realloc(ptr noundef %.pre.i58, i64 noundef %spec.store.select.i.i61) #23
   store ptr %call.i.i62, ptr %S, align 8
   %cmp14.i.i63 = icmp eq ptr %call.i.i62, null
   br i1 %cmp14.i.i63, label %if.then15.i.i66, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i64
@@ -2218,7 +2218,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i64: ; preds = %if.then.i.i59
   br label %_ZN12OutputStreampLEc.exit
 
 if.then15.i.i66:                                  ; preds = %if.then.i.i59
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit:                       ; preds = %sw.epilog, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i64
@@ -2288,7 +2288,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i3, label %if.then.i, label %if.end5
 
 if.then.i:                                        ; preds = %if.end
-  %call.i = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
+  %call.i = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %return, label %if.end5.thread
 
@@ -2312,13 +2312,13 @@ if.then.i.i:                                      ; preds = %if.end5
   %mul.i.i = shl nuw nsw i64 %2, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 1)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef nonnull %Buf, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef nonnull %Buf, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %_ZN12OutputStreampLEc.exit
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit:                       ; preds = %if.then.i.i, %if.end5.thread, %if.end5
@@ -2347,7 +2347,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   %mul.i.i.i = shl i64 %5, 1
   %spec.store.select.i.i.i = call i64 @llvm.umax.i64(i64 %mul.i.i.i, i64 %add.i.i.i)
   store i64 %spec.store.select.i.i.i, ptr %BufferCapacity.i.i54, align 8
-  %call.i.i.i = call ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %spec.store.select.i.i.i) #22
+  %call.i.i.i = call ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %spec.store.select.i.i.i) #23
   store ptr %call.i.i.i, ptr %S, align 8
   %cmp14.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp14.i.i.i, label %if.then15.i.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i
@@ -2357,7 +2357,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i: ; preds = %if.then.i.i.i
   br label %_ZN12OutputStream4growEm.exit.i.i
 
 if.then15.i.i.i:                                  ; preds = %if.then.i.i.i
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i, %if.end.i.i
@@ -2377,7 +2377,7 @@ if.end.i:                                         ; preds = %_ZN12OutputStream4g
   %vtable.i.i = load ptr, ptr %10, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %11 = load ptr, ptr %vfn.i.i, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  call void %11(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i.i = getelementptr inbounds i8, ptr %10, i64 9
   %12 = load i8, ptr %RHSComponentCache.i.i, align 1
   %cmp.not.i.i10 = icmp eq i8 %12, 1
@@ -2387,7 +2387,7 @@ if.then.i.i11:                                    ; preds = %if.end.i
   %vtable2.i.i = load ptr, ptr %10, align 8
   %vfn3.i.i = getelementptr inbounds i8, ptr %vtable2.i.i, i64 40
   %13 = load ptr, ptr %vfn3.i.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  call void %13(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit.i
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit.i: ; preds = %if.then.i.i11, %if.end.i
@@ -2418,7 +2418,7 @@ if.then.i.i17:                                    ; preds = %_ZNK4llvh16itanium_
   %mul.i.i18 = shl i64 %17, 1
   %spec.store.select.i.i19 = call i64 @llvm.umax.i64(i64 %mul.i.i18, i64 %add.i.i13)
   store i64 %spec.store.select.i.i19, ptr %BufferCapacity.i.i54, align 8
-  %call.i.i20 = call ptr @realloc(ptr noundef %.pre.i16, i64 noundef %spec.store.select.i.i19) #22
+  %call.i.i20 = call ptr @realloc(ptr noundef %.pre.i16, i64 noundef %spec.store.select.i.i19) #23
   store ptr %call.i.i20, ptr %S, align 8
   %cmp14.i.i21 = icmp eq ptr %call.i.i20, null
   br i1 %cmp14.i.i21, label %if.then15.i.i27, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i22
@@ -2429,7 +2429,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i22: ; preds = %if.then.i.i17
   br label %_ZN12OutputStreampLEc.exit28
 
 if.then15.i.i27:                                  ; preds = %if.then.i.i17
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit28:                     ; preds = %_ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream.exit, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i22
@@ -2450,7 +2450,7 @@ if.then.i.i34:                                    ; preds = %_ZN12OutputStreampL
   %mul.i.i35 = shl i64 %21, 1
   %spec.store.select.i.i36 = call i64 @llvm.umax.i64(i64 %mul.i.i35, i64 %add.i.i30)
   store i64 %spec.store.select.i.i36, ptr %BufferCapacity.i.i54, align 8
-  %call.i.i37 = call ptr @realloc(ptr noundef %.pre.i33, i64 noundef %spec.store.select.i.i36) #22
+  %call.i.i37 = call ptr @realloc(ptr noundef %.pre.i33, i64 noundef %spec.store.select.i.i36) #23
   store ptr %call.i.i37, ptr %S, align 8
   %cmp14.i.i38 = icmp eq ptr %call.i.i37, null
   br i1 %cmp14.i.i38, label %if.then15.i.i44, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i39
@@ -2461,7 +2461,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i39: ; preds = %if.then.i.i34
   br label %_ZN12OutputStreampLEc.exit45
 
 if.then15.i.i44:                                  ; preds = %if.then.i.i34
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit45:                     ; preds = %_ZN12OutputStreampLEc.exit28, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i39
@@ -2519,7 +2519,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %2, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -2529,7 +2529,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -2550,7 +2550,7 @@ if.end:                                           ; preds = %_ZN12OutputStream4g
   %vtable.i = load ptr, ptr %8, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %9 = load ptr, ptr %vfn.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %8, i64 9
   %10 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %10, 1
@@ -2560,7 +2560,7 @@ if.then.i:                                        ; preds = %if.end
   %vtable2.i = load ptr, ptr %8, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %11 = load ptr, ptr %vfn3.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %if.end, %if.then.i
@@ -2603,7 +2603,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i4, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %call.i = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
+  %call.i = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %return, label %if.end4
 
@@ -2628,7 +2628,7 @@ if.then6:                                         ; preds = %if.end4
   %vtable.i = load ptr, ptr %3, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %4 = load ptr, ptr %vfn.i, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  call void %4(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %3, i64 9
   %5 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %5, 1
@@ -2638,7 +2638,7 @@ if.then.i5:                                       ; preds = %if.then6
   %vtable2.i = load ptr, ptr %3, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %6 = load ptr, ptr %vfn3.i, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  call void %6(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then.i5, %if.then6, %if.end4
@@ -2653,7 +2653,7 @@ if.then.i.i:                                      ; preds = %if.end7
   %mul.i.i = shl i64 %8, 1
   %spec.store.select.i.i = call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -2664,7 +2664,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStreampLEc.exit
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit:                       ; preds = %if.end7, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -2800,7 +2800,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #8
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -3078,12 +3078,12 @@ if.end104.i:                                      ; preds = %sw.bb97.i
   br i1 %cmp.i.i.i121, label %if.then.i.i.i135, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA20_KcRPNS0_4NodeEEEESB_DpOT0_.exit
 
 if.then.i.i.i135:                                 ; preds = %if.end104.i
-  %call.i6.i.i.i136 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i136 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i137 = icmp eq ptr %call.i6.i.i.i136, null
   br i1 %cmp.i7.i.i.i137, label %if.then.i9.i.i.i140, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i138
 
 if.then.i9.i.i.i140:                              ; preds = %if.then.i.i.i135
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i138: ; preds = %if.then.i.i.i135
@@ -3195,12 +3195,12 @@ if.end120.i:                                      ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i104, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA25_KcRPNS0_4NodeEEEESB_DpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.end120.i
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -3415,12 +3415,12 @@ if.then.i43:                                      ; preds = %if.end23
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i43
-  %call3.i.i = call noalias ptr @malloc(i64 noundef %mul.i.i) #20
+  %call3.i.i = call noalias ptr @malloc(i64 noundef %mul.i.i) #21
   %cmp.i.i48 = icmp eq ptr %call3.i.i, null
   br i1 %cmp.i.i48, label %if.then4.i.i, label %if.end.i.i49
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i49:                                     ; preds = %if.then.i.i
@@ -3436,13 +3436,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %i
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i43
-  %call9.i.i = call ptr @realloc(ptr noundef %56, i64 noundef %mul.i.i) #22
+  %call9.i.i = call ptr @realloc(ptr noundef %56, i64 noundef %mul.i.i) #23
   store ptr %call9.i.i, ptr %Names, align 16
   %cmp12.i.i = icmp eq ptr %call9.i.i, null
   br i1 %cmp12.i.i, label %if.then13.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %if.else.i.i, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
@@ -3549,12 +3549,12 @@ if.then.i71:                                      ; preds = %if.end48
   br i1 %cmp.i.i.i77, label %if.then.i.i86, label %if.else.i.i79
 
 if.then.i.i86:                                    ; preds = %if.then.i71
-  %call3.i.i87 = call noalias ptr @malloc(i64 noundef %mul.i.i78) #20
+  %call3.i.i87 = call noalias ptr @malloc(i64 noundef %mul.i.i78) #21
   %cmp.i.i88 = icmp eq ptr %call3.i.i87, null
   br i1 %cmp.i.i88, label %if.then4.i.i93, label %if.end.i.i89
 
 if.then4.i.i93:                                   ; preds = %if.then.i.i86
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i89:                                     ; preds = %if.then.i.i86
@@ -3570,13 +3570,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i92: ; preds = 
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i82
 
 if.else.i.i79:                                    ; preds = %if.then.i71
-  %call9.i.i80 = call ptr @realloc(ptr noundef %74, i64 noundef %mul.i.i78) #22
+  %call9.i.i80 = call ptr @realloc(ptr noundef %74, i64 noundef %mul.i.i78) #23
   store ptr %call9.i.i80, ptr %Names43, align 16
   %cmp12.i.i81 = icmp eq ptr %call9.i.i80, null
   br i1 %cmp12.i.i81, label %if.then13.i.i85, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i82
 
 if.then13.i.i85:                                  ; preds = %if.else.i.i79
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i82: ; preds = %if.else.i.i79, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i92
@@ -3679,8 +3679,8 @@ return:                                           ; preds = %while.body, %land.r
   ret { ptr, ptr } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA34_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(34) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA34_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(34) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -3691,12 +3691,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA34_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -3718,7 +3718,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
@@ -3769,7 +3769,7 @@ if.then:                                          ; preds = %entry
   %TypeCallbackContext = getelementptr inbounds i8, ptr %this, i64 728
   %1 = load ptr, ptr %TypeCallbackContext, align 8
   %2 = load ptr, ptr %this, align 16
-  tail call void %0(ptr noundef %1, ptr noundef %2) #21
+  tail call void %0(ptr noundef %1, ptr noundef %2) #22
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -3908,12 +3908,12 @@ sw.bb49:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %sw.bb49
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -3962,12 +3962,12 @@ sw.bb52:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i136, label %if.then.i.i.i149, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA8_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i149:                                 ; preds = %sw.bb52
-  %call.i6.i.i.i150 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i150 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i151 = icmp eq ptr %call.i6.i.i.i150, null
   br i1 %cmp.i7.i.i.i151, label %if.then.i9.i.i.i154, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i152
 
 if.then.i9.i.i.i154:                              ; preds = %if.then.i.i.i149
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i152: ; preds = %if.then.i.i.i149
@@ -4016,12 +4016,12 @@ sw.bb56:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i157, label %if.then.i.i.i172, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit178
 
 if.then.i.i.i172:                                 ; preds = %sw.bb56
-  %call.i6.i.i.i173 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i173 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i174 = icmp eq ptr %call.i6.i.i.i173, null
   br i1 %cmp.i7.i.i.i174, label %if.then.i9.i.i.i177, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i175
 
 if.then.i9.i.i.i177:                              ; preds = %if.then.i.i.i172
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i175: ; preds = %if.then.i.i.i172
@@ -4070,12 +4070,12 @@ sw.bb60:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i181, label %if.then.i.i.i196, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit202
 
 if.then.i.i.i196:                                 ; preds = %sw.bb60
-  %call.i6.i.i.i197 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i197 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i198 = icmp eq ptr %call.i6.i.i.i197, null
   br i1 %cmp.i7.i.i.i198, label %if.then.i9.i.i.i201, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i199
 
 if.then.i9.i.i.i201:                              ; preds = %if.then.i.i.i196
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i199: ; preds = %if.then.i.i.i196
@@ -4124,12 +4124,12 @@ sw.bb64:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i205, label %if.then.i.i.i220, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i220:                                 ; preds = %sw.bb64
-  %call.i6.i.i.i221 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i221 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i222 = icmp eq ptr %call.i6.i.i.i221, null
   br i1 %cmp.i7.i.i.i222, label %if.then.i9.i.i.i225, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i223
 
 if.then.i9.i.i.i225:                              ; preds = %if.then.i.i.i220
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i223: ; preds = %if.then.i.i.i220
@@ -4178,12 +4178,12 @@ sw.bb68:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i228, label %if.then.i.i.i243, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA14_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i243:                                 ; preds = %sw.bb68
-  %call.i6.i.i.i244 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i244 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i245 = icmp eq ptr %call.i6.i.i.i244, null
   br i1 %cmp.i7.i.i.i245, label %if.then.i9.i.i.i248, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i246
 
 if.then.i9.i.i.i248:                              ; preds = %if.then.i.i.i243
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i246: ; preds = %if.then.i.i.i243
@@ -4232,12 +4232,12 @@ sw.bb72:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i251, label %if.then.i.i.i266, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA6_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i266:                                 ; preds = %sw.bb72
-  %call.i6.i.i.i267 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i267 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i268 = icmp eq ptr %call.i6.i.i.i267, null
   br i1 %cmp.i7.i.i.i268, label %if.then.i9.i.i.i271, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i269
 
 if.then.i9.i.i.i271:                              ; preds = %if.then.i.i.i266
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i269: ; preds = %if.then.i.i.i266
@@ -4286,12 +4286,12 @@ sw.bb76:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i274, label %if.then.i.i.i289, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA15_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i289:                                 ; preds = %sw.bb76
-  %call.i6.i.i.i290 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i290 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i291 = icmp eq ptr %call.i6.i.i.i290, null
   br i1 %cmp.i7.i.i.i291, label %if.then.i9.i.i.i294, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i292
 
 if.then.i9.i.i.i294:                              ; preds = %if.then.i.i.i289
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i292: ; preds = %if.then.i.i.i289
@@ -4340,12 +4340,12 @@ sw.bb80:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i297, label %if.then.i.i.i312, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA4_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i312:                                 ; preds = %sw.bb80
-  %call.i6.i.i.i313 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i313 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i314 = icmp eq ptr %call.i6.i.i.i313, null
   br i1 %cmp.i7.i.i.i314, label %if.then.i9.i.i.i317, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i315
 
 if.then.i9.i.i.i317:                              ; preds = %if.then.i.i.i312
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i315: ; preds = %if.then.i.i.i312
@@ -4394,12 +4394,12 @@ sw.bb84:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i320, label %if.then.i.i.i335, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i335:                                 ; preds = %sw.bb84
-  %call.i6.i.i.i336 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i336 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i337 = icmp eq ptr %call.i6.i.i.i336, null
   br i1 %cmp.i7.i.i.i337, label %if.then.i9.i.i.i340, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i338
 
 if.then.i9.i.i.i340:                              ; preds = %if.then.i.i.i335
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i338: ; preds = %if.then.i.i.i335
@@ -4448,12 +4448,12 @@ sw.bb88:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i343, label %if.then.i.i.i358, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit364
 
 if.then.i.i.i358:                                 ; preds = %sw.bb88
-  %call.i6.i.i.i359 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i359 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i360 = icmp eq ptr %call.i6.i.i.i359, null
   br i1 %cmp.i7.i.i.i360, label %if.then.i9.i.i.i363, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i361
 
 if.then.i9.i.i.i363:                              ; preds = %if.then.i.i.i358
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i361: ; preds = %if.then.i.i.i358
@@ -4502,12 +4502,12 @@ sw.bb92:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i367, label %if.then.i.i.i382, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA14_KcEEEPNS0_4NodeEDpOT0_.exit388
 
 if.then.i.i.i382:                                 ; preds = %sw.bb92
-  %call.i6.i.i.i383 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i383 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i384 = icmp eq ptr %call.i6.i.i.i383, null
   br i1 %cmp.i7.i.i.i384, label %if.then.i9.i.i.i387, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i385
 
 if.then.i9.i.i.i387:                              ; preds = %if.then.i.i.i382
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i385: ; preds = %if.then.i.i.i382
@@ -4556,12 +4556,12 @@ sw.bb96:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i391, label %if.then.i.i.i406, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i406:                                 ; preds = %sw.bb96
-  %call.i6.i.i.i407 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i407 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i408 = icmp eq ptr %call.i6.i.i.i407, null
   br i1 %cmp.i7.i.i.i408, label %if.then.i9.i.i.i411, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i409
 
 if.then.i9.i.i.i411:                              ; preds = %if.then.i.i.i406
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i409: ; preds = %if.then.i.i.i406
@@ -4610,12 +4610,12 @@ sw.bb100:                                         ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i414, label %if.then.i.i.i427, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i427:                                 ; preds = %sw.bb100
-  %call.i6.i.i.i428 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i428 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i429 = icmp eq ptr %call.i6.i.i.i428, null
   br i1 %cmp.i7.i.i.i429, label %if.then.i9.i.i.i432, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i430
 
 if.then.i9.i.i.i432:                              ; preds = %if.then.i.i.i427
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i430: ; preds = %if.then.i.i.i427
@@ -4664,12 +4664,12 @@ sw.bb104:                                         ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i435, label %if.then.i.i.i450, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA9_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i450:                                 ; preds = %sw.bb104
-  %call.i6.i.i.i451 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i451 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i452 = icmp eq ptr %call.i6.i.i.i451, null
   br i1 %cmp.i7.i.i.i452, label %if.then.i9.i.i.i455, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i453
 
 if.then.i9.i.i.i455:                              ; preds = %if.then.i.i.i450
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i453: ; preds = %if.then.i.i.i450
@@ -4718,12 +4718,12 @@ sw.bb108:                                         ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i458, label %if.then.i.i.i473, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA18_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i473:                                 ; preds = %sw.bb108
-  %call.i6.i.i.i474 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i474 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i475 = icmp eq ptr %call.i6.i.i.i474, null
   br i1 %cmp.i7.i.i.i475, label %if.then.i9.i.i.i478, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i476
 
 if.then.i9.i.i.i478:                              ; preds = %if.then.i.i.i473
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i476: ; preds = %if.then.i.i.i473
@@ -4772,12 +4772,12 @@ sw.bb112:                                         ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i481, label %if.then.i.i.i496, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA6_KcEEEPNS0_4NodeEDpOT0_.exit502
 
 if.then.i.i.i496:                                 ; preds = %sw.bb112
-  %call.i6.i.i.i497 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i497 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i498 = icmp eq ptr %call.i6.i.i.i497, null
   br i1 %cmp.i7.i.i.i498, label %if.then.i9.i.i.i501, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i499
 
 if.then.i9.i.i.i501:                              ; preds = %if.then.i.i.i496
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i499: ; preds = %if.then.i.i.i496
@@ -4826,12 +4826,12 @@ sw.bb116:                                         ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i505, label %if.then.i.i.i518, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA7_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i518:                                 ; preds = %sw.bb116
-  %call.i6.i.i.i519 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i519 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i520 = icmp eq ptr %call.i6.i.i.i519, null
   br i1 %cmp.i7.i.i.i520, label %if.then.i9.i.i.i523, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i521
 
 if.then.i9.i.i.i523:                              ; preds = %if.then.i.i.i518
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i521: ; preds = %if.then.i.i.i518
@@ -4880,12 +4880,12 @@ sw.bb120:                                         ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i526, label %if.then.i.i.i541, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_.exit547
 
 if.then.i.i.i541:                                 ; preds = %sw.bb120
-  %call.i6.i.i.i542 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i542 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i543 = icmp eq ptr %call.i6.i.i.i542, null
   br i1 %cmp.i7.i.i.i543, label %if.then.i9.i.i.i546, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i544
 
 if.then.i9.i.i.i546:                              ; preds = %if.then.i.i.i541
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i544: ; preds = %if.then.i.i.i541
@@ -4934,12 +4934,12 @@ sw.bb124:                                         ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i550, label %if.then.i.i.i565, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA11_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i565:                                 ; preds = %sw.bb124
-  %call.i6.i.i.i566 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i566 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i567 = icmp eq ptr %call.i6.i.i.i566, null
   br i1 %cmp.i7.i.i.i567, label %if.then.i9.i.i.i570, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i568
 
 if.then.i9.i.i.i570:                              ; preds = %if.then.i.i.i565
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i568: ; preds = %if.then.i.i.i565
@@ -4988,12 +4988,12 @@ sw.bb128:                                         ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i573, label %if.then.i.i.i588, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA4_KcEEEPNS0_4NodeEDpOT0_.exit594
 
 if.then.i.i.i588:                                 ; preds = %sw.bb128
-  %call.i6.i.i.i589 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i589 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i590 = icmp eq ptr %call.i6.i.i.i589, null
   br i1 %cmp.i7.i.i.i590, label %if.then.i9.i.i.i593, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i591
 
 if.then.i9.i.i.i593:                              ; preds = %if.then.i.i.i588
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i591: ; preds = %if.then.i.i.i588
@@ -5496,12 +5496,12 @@ if.then.i:                                        ; preds = %if.then301
   br i1 %cmp.i.i.i678, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i679) #20
+  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i679) #21
   %cmp.i.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
@@ -5517,13 +5517,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %i
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i
-  %call9.i.i = tail call ptr @realloc(ptr noundef %184, i64 noundef %mul.i.i679) #22
+  %call9.i.i = tail call ptr @realloc(ptr noundef %184, i64 noundef %mul.i.i679) #23
   store ptr %call9.i.i, ptr %Subs, align 8
   %cmp12.i.i = icmp eq ptr %call9.i.i, null
   br i1 %cmp12.i.i, label %if.then13.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %if.else.i.i, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
@@ -5705,12 +5705,12 @@ if.then24.i:                                      ; preds = %_ZNK10StringView10s
   br i1 %cmp.i.i.i596, label %if.then.i.i.i608, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA4_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i608:                                 ; preds = %if.then24.i
-  %call.i6.i.i.i609 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i609 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i610 = icmp eq ptr %call.i6.i.i.i609, null
   br i1 %cmp.i7.i.i.i610, label %if.then.i9.i.i.i613, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i611
 
 if.then.i9.i.i.i613:                              ; preds = %if.then.i.i.i608
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i611: ; preds = %if.then.i.i.i608
@@ -5868,12 +5868,12 @@ if.then3.i530:                                    ; preds = %if.end.i528
   br i1 %cmp.i.i.i.i533, label %if.then.i.i.i.i554, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10NestedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit.i534
 
 if.then.i.i.i.i554:                               ; preds = %if.then3.i530
-  %call.i6.i.i.i.i555 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i.i555 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i.i556 = icmp eq ptr %call.i6.i.i.i.i555, null
   br i1 %cmp.i7.i.i.i.i556, label %if.then.i9.i.i.i.i559, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i557
 
 if.then.i9.i.i.i.i559:                            ; preds = %if.then.i.i.i.i554
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i557: ; preds = %if.then.i.i.i.i554
@@ -5935,12 +5935,12 @@ if.then.i503:                                     ; preds = %if.end43.i
   br i1 %cmp.i.i.i509, label %if.then.i.i518, label %if.else.i.i511
 
 if.then.i.i518:                                   ; preds = %if.then.i503
-  %call3.i.i519 = tail call noalias ptr @malloc(i64 noundef %mul.i.i510) #20
+  %call3.i.i519 = tail call noalias ptr @malloc(i64 noundef %mul.i.i510) #21
   %cmp.i.i520 = icmp eq ptr %call3.i.i519, null
   br i1 %cmp.i.i520, label %if.then4.i.i525, label %if.end.i.i521
 
 if.then4.i.i525:                                  ; preds = %if.then.i.i518
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i521:                                    ; preds = %if.then.i.i518
@@ -5956,13 +5956,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i524: ; preds =
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i514
 
 if.else.i.i511:                                   ; preds = %if.then.i503
-  %call9.i.i512 = tail call ptr @realloc(ptr noundef %41, i64 noundef %mul.i.i510) #22
+  %call9.i.i512 = tail call ptr @realloc(ptr noundef %41, i64 noundef %mul.i.i510) #23
   store ptr %call9.i.i512, ptr %Subs95.i, align 8
   %cmp12.i.i513 = icmp eq ptr %call9.i.i512, null
   br i1 %cmp12.i.i513, label %if.then13.i.i517, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i514
 
 if.then13.i.i517:                                 ; preds = %if.else.i.i511
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i514: ; preds = %if.else.i.i511, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i524
@@ -5994,12 +5994,12 @@ if.end54.i:                                       ; preds = %if.then48.i
   br i1 %cmp.i.i.i470, label %if.then.i.i.i483, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit489
 
 if.then.i.i.i483:                                 ; preds = %if.end54.i
-  %call.i6.i.i.i484 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i484 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i485 = icmp eq ptr %call.i6.i.i.i484, null
   br i1 %cmp.i7.i.i.i485, label %if.then.i9.i.i.i488, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i486
 
 if.then.i9.i.i.i488:                              ; preds = %if.then.i.i.i483
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i486: ; preds = %if.then.i.i.i483
@@ -6057,12 +6057,12 @@ if.then.i444:                                     ; preds = %if.end61.i
   br i1 %cmp.i.i.i450, label %if.then.i.i459, label %if.else.i.i452
 
 if.then.i.i459:                                   ; preds = %if.then.i444
-  %call3.i.i460 = tail call noalias ptr @malloc(i64 noundef %mul.i.i451) #20
+  %call3.i.i460 = tail call noalias ptr @malloc(i64 noundef %mul.i.i451) #21
   %cmp.i.i461 = icmp eq ptr %call3.i.i460, null
   br i1 %cmp.i.i461, label %if.then4.i.i466, label %if.end.i.i462
 
 if.then4.i.i466:                                  ; preds = %if.then.i.i459
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i462:                                    ; preds = %if.then.i.i459
@@ -6078,13 +6078,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i465: ; preds =
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i455
 
 if.else.i.i452:                                   ; preds = %if.then.i444
-  %call9.i.i453 = tail call ptr @realloc(ptr noundef %53, i64 noundef %mul.i.i451) #22
+  %call9.i.i453 = tail call ptr @realloc(ptr noundef %53, i64 noundef %mul.i.i451) #23
   store ptr %call9.i.i453, ptr %Subs95.i, align 8
   %cmp12.i.i454 = icmp eq ptr %call9.i.i453, null
   br i1 %cmp12.i.i454, label %if.then13.i.i458, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i455
 
 if.then13.i.i458:                                 ; preds = %if.else.i.i452
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i455: ; preds = %if.else.i.i452, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i465
@@ -6131,12 +6131,12 @@ if.then3.i383:                                    ; preds = %if.end.i381
   br i1 %cmp.i.i.i.i386, label %if.then.i.i.i.i407, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10NestedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit.i387
 
 if.then.i.i.i.i407:                               ; preds = %if.then3.i383
-  %call.i6.i.i.i.i408 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i.i408 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i.i409 = icmp eq ptr %call.i6.i.i.i.i408, null
   br i1 %cmp.i7.i.i.i.i409, label %if.then.i9.i.i.i.i412, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i410
 
 if.then.i9.i.i.i.i412:                            ; preds = %if.then.i.i.i.i407
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i410: ; preds = %if.then.i.i.i.i407
@@ -6198,12 +6198,12 @@ if.then.i356:                                     ; preds = %if.end78.i
   br i1 %cmp.i.i.i362, label %if.then.i.i371, label %if.else.i.i364
 
 if.then.i.i371:                                   ; preds = %if.then.i356
-  %call3.i.i372 = tail call noalias ptr @malloc(i64 noundef %mul.i.i363) #20
+  %call3.i.i372 = tail call noalias ptr @malloc(i64 noundef %mul.i.i363) #21
   %cmp.i.i373 = icmp eq ptr %call3.i.i372, null
   br i1 %cmp.i.i373, label %if.then4.i.i378, label %if.end.i.i374
 
 if.then4.i.i378:                                  ; preds = %if.then.i.i371
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i374:                                    ; preds = %if.then.i.i371
@@ -6219,13 +6219,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i377: ; preds =
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i367
 
 if.else.i.i364:                                   ; preds = %if.then.i356
-  %call9.i.i365 = tail call ptr @realloc(ptr noundef %66, i64 noundef %mul.i.i363) #22
+  %call9.i.i365 = tail call ptr @realloc(ptr noundef %66, i64 noundef %mul.i.i363) #23
   store ptr %call9.i.i365, ptr %Subs95.i, align 8
   %cmp12.i.i366 = icmp eq ptr %call9.i.i365, null
   br i1 %cmp12.i.i366, label %if.then13.i.i370, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i367
 
 if.then13.i.i370:                                 ; preds = %if.else.i.i364
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i367: ; preds = %if.else.i.i364, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i377
@@ -6269,12 +6269,12 @@ if.then3.i303:                                    ; preds = %if.end.i301
   br i1 %cmp.i.i.i.i306, label %if.then.i.i.i.i327, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10NestedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit.i307
 
 if.then.i.i.i.i327:                               ; preds = %if.then3.i303
-  %call.i6.i.i.i.i328 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i.i328 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i.i329 = icmp eq ptr %call.i6.i.i.i.i328, null
   br i1 %cmp.i7.i.i.i.i329, label %if.then.i9.i.i.i.i332, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i330
 
 if.then.i9.i.i.i.i332:                            ; preds = %if.then.i.i.i.i327
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i330: ; preds = %if.then.i.i.i.i327
@@ -6344,12 +6344,12 @@ if.then.i276:                                     ; preds = %if.then94.i
   br i1 %cmp.i.i.i282, label %if.then.i.i291, label %if.else.i.i284
 
 if.then.i.i291:                                   ; preds = %if.then.i276
-  %call3.i.i292 = tail call noalias ptr @malloc(i64 noundef %mul.i.i283) #20
+  %call3.i.i292 = tail call noalias ptr @malloc(i64 noundef %mul.i.i283) #21
   %cmp.i.i293 = icmp eq ptr %call3.i.i292, null
   br i1 %cmp.i.i293, label %if.then4.i.i298, label %if.end.i.i294
 
 if.then4.i.i298:                                  ; preds = %if.then.i.i291
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i294:                                    ; preds = %if.then.i.i291
@@ -6365,13 +6365,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i297: ; preds =
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i287
 
 if.else.i.i284:                                   ; preds = %if.then.i276
-  %call9.i.i285 = tail call ptr @realloc(ptr noundef %79, i64 noundef %mul.i.i283) #22
+  %call9.i.i285 = tail call ptr @realloc(ptr noundef %79, i64 noundef %mul.i.i283) #23
   store ptr %call9.i.i285, ptr %Subs95.i, align 8
   %cmp12.i.i286 = icmp eq ptr %call9.i.i285, null
   br i1 %cmp12.i.i286, label %if.then13.i.i290, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i287
 
 if.then13.i.i290:                                 ; preds = %if.else.i.i284
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i287: ; preds = %if.else.i.i284, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i297
@@ -6413,12 +6413,12 @@ sw.bb.i:                                          ; preds = %if.then.i226
   br i1 %cmp.i.i.i.i229, label %if.then.i.i.i.i241, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_27ExpandedSpecialSubstitutionEJRNS0_14SpecialSubKindEEEEPNS0_4NodeEDpOT0_.exit.i
 
 if.then.i.i.i.i241:                               ; preds = %sw.bb.i
-  %call.i6.i.i.i.i242 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i.i242 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i.i243 = icmp eq ptr %call.i6.i.i.i.i242, null
   br i1 %cmp.i7.i.i.i.i243, label %if.then.i9.i.i.i.i246, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i244
 
 if.then.i9.i.i.i.i246:                            ; preds = %if.then.i.i.i.i241
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i244: ; preds = %if.then.i.i.i.i241
@@ -6526,12 +6526,12 @@ if.end36.i222:                                    ; preds = %if.then31.i, %if.en
   br i1 %cmp.i.i.i71.i, label %if.then.i.i.i82.i, label %if.then3.i162
 
 if.then.i.i.i82.i:                                ; preds = %if.end36.i222
-  %call.i6.i.i.i83.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i83.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i84.i = icmp eq ptr %call.i6.i.i.i83.i, null
   br i1 %cmp.i7.i.i.i84.i, label %if.then.i9.i.i.i87.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i85.i
 
 if.then.i9.i.i.i87.i:                             ; preds = %if.then.i.i.i82.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i85.i: ; preds = %if.then.i.i.i82.i
@@ -6577,12 +6577,12 @@ if.end66.i:                                       ; preds = %if.then64.i, %_ZN4l
   br i1 %cmp.i.i.i136.i, label %if.then.i.i.i151.i, label %if.then3.i162
 
 if.then.i.i.i151.i:                               ; preds = %if.end66.i
-  %call.i6.i.i.i152.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i152.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i153.i = icmp eq ptr %call.i6.i.i.i152.i, null
   br i1 %cmp.i7.i.i.i153.i, label %if.then.i9.i.i.i156.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i154.i
 
 if.then.i9.i.i.i156.i:                            ; preds = %if.then.i.i.i151.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i154.i: ; preds = %if.then.i.i.i151.i
@@ -6635,12 +6635,12 @@ if.then3.i162:                                    ; preds = %if.then3.i162.sink.
   br i1 %cmp.i.i.i.i165, label %if.then.i.i.i.i186, label %if.end4.i179
 
 if.then.i.i.i.i186:                               ; preds = %if.then3.i162
-  %call.i6.i.i.i.i187 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i.i187 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i.i188 = icmp eq ptr %call.i6.i.i.i.i187, null
   br i1 %cmp.i7.i.i.i.i188, label %if.then.i9.i.i.i.i191, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i189
 
 if.then.i9.i.i.i.i191:                            ; preds = %if.then.i.i.i.i186
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i189: ; preds = %if.then.i.i.i.i186
@@ -6703,12 +6703,12 @@ if.then.i135:                                     ; preds = %if.end120.i
   br i1 %cmp.i.i.i141, label %if.then.i.i150, label %if.else.i.i143
 
 if.then.i.i150:                                   ; preds = %if.then.i135
-  %call3.i.i151 = tail call noalias ptr @malloc(i64 noundef %mul.i.i142) #20
+  %call3.i.i151 = tail call noalias ptr @malloc(i64 noundef %mul.i.i142) #21
   %cmp.i.i152 = icmp eq ptr %call3.i.i151, null
   br i1 %cmp.i.i152, label %if.then4.i.i157, label %if.end.i.i153
 
 if.then4.i.i157:                                  ; preds = %if.then.i.i150
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i153:                                    ; preds = %if.then.i.i150
@@ -6724,13 +6724,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i156: ; preds =
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i146
 
 if.else.i.i143:                                   ; preds = %if.then.i135
-  %call9.i.i144 = tail call ptr @realloc(ptr noundef %113, i64 noundef %mul.i.i142) #22
+  %call9.i.i144 = tail call ptr @realloc(ptr noundef %113, i64 noundef %mul.i.i142) #23
   store ptr %call9.i.i144, ptr %Subs95.i, align 8
   %cmp12.i.i145 = icmp eq ptr %call9.i.i144, null
   br i1 %cmp12.i.i145, label %if.then13.i.i149, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i146
 
 if.then13.i.i149:                                 ; preds = %if.else.i.i143
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i146: ; preds = %if.else.i.i143, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i156
@@ -6764,12 +6764,12 @@ if.then3.i122:                                    ; preds = %if.end.i121
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10NestedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then3.i122
-  %call.i6.i.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i.i = icmp eq ptr %call.i6.i.i.i.i, null
   br i1 %cmp.i7.i.i.i.i, label %if.then.i9.i.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i
 
 if.then.i9.i.i.i.i:                               ; preds = %if.then.i.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i
@@ -6831,12 +6831,12 @@ if.then.i96:                                      ; preds = %if.end126.i
   br i1 %cmp.i.i.i102, label %if.then.i.i111, label %if.else.i.i104
 
 if.then.i.i111:                                   ; preds = %if.then.i96
-  %call3.i.i112 = tail call noalias ptr @malloc(i64 noundef %mul.i.i103) #20
+  %call3.i.i112 = tail call noalias ptr @malloc(i64 noundef %mul.i.i103) #21
   %cmp.i.i113 = icmp eq ptr %call3.i.i112, null
   br i1 %cmp.i.i113, label %if.then4.i.i118, label %if.end.i.i114
 
 if.then4.i.i118:                                  ; preds = %if.then.i.i111
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i114:                                    ; preds = %if.then.i.i111
@@ -6852,13 +6852,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i117: ; preds =
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i107
 
 if.else.i.i104:                                   ; preds = %if.then.i96
-  %call9.i.i105 = tail call ptr @realloc(ptr noundef %125, i64 noundef %mul.i.i103) #22
+  %call9.i.i105 = tail call ptr @realloc(ptr noundef %125, i64 noundef %mul.i.i103) #23
   store ptr %call9.i.i105, ptr %Subs95.i, align 8
   %cmp12.i.i106 = icmp eq ptr %call9.i.i105, null
   br i1 %cmp12.i.i106, label %if.then13.i.i110, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i107
 
 if.then13.i.i110:                                 ; preds = %if.else.i.i104
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i107: ; preds = %if.else.i.i104, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i117
@@ -6971,12 +6971,12 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE14parseLocalNam
   br i1 %cmp.i.i.i1080, label %if.then.i.i.i1091, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9LocalNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit
 
 if.then.i.i.i1091:                                ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE14parseLocalNameEPNS4_9NameStateE.exit.sink.split
-  %call.i6.i.i.i1092 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i1092 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i1093 = icmp eq ptr %call.i6.i.i.i1092, null
   br i1 %cmp.i7.i.i.i1093, label %if.then.i9.i.i.i1096, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i1094
 
 if.then.i9.i.i.i1096:                             ; preds = %if.then.i.i.i1091
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i1094: ; preds = %if.then.i.i.i1091
@@ -7095,12 +7095,12 @@ if.end.i71:                                       ; preds = %if.then.i69
   br i1 %cmp.i.i.i696, label %if.then.i.i.i707, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseUnscopedNameEPNS4_9NameStateE.exit.thread903
 
 if.then.i.i.i707:                                 ; preds = %if.end.i71
-  %call.i6.i.i.i708 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i708 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i709 = icmp eq ptr %call.i6.i.i.i708, null
   br i1 %cmp.i7.i.i.i709, label %if.then.i9.i.i.i712, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i710
 
 if.then.i9.i.i.i712:                              ; preds = %if.then.i.i.i707
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i710: ; preds = %if.then.i.i.i707
@@ -7173,12 +7173,12 @@ if.then.i85:                                      ; preds = %if.then42
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i85
-  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #20
+  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #21
   %cmp.i.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
@@ -7194,13 +7194,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %i
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i85
-  %call9.i.i = tail call ptr @realloc(ptr noundef %159, i64 noundef %mul.i.i) #22
+  %call9.i.i = tail call ptr @realloc(ptr noundef %159, i64 noundef %mul.i.i) #23
   store ptr %call9.i.i, ptr %Subs, align 8
   %cmp12.i.i = icmp eq ptr %call9.i.i, null
   br i1 %cmp12.i.i, label %if.then13.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %if.else.i.i, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
@@ -7238,12 +7238,12 @@ if.end52:                                         ; preds = %if.then50, %if.end4
   br i1 %cmp.i.i.i86, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.end52
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -7375,12 +7375,12 @@ if.then.i24:                                      ; preds = %if.end13
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i24
-  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #20
+  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #21
   %cmp.i.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
@@ -7396,13 +7396,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %i
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i24
-  %call9.i.i = tail call ptr @realloc(ptr noundef %13, i64 noundef %mul.i.i) #22
+  %call9.i.i = tail call ptr @realloc(ptr noundef %13, i64 noundef %mul.i.i) #23
   store ptr %call9.i.i, ptr %Names, align 16
   %cmp12.i.i = icmp eq ptr %call9.i.i, null
   br i1 %cmp12.i.i, label %if.then13.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %if.else.i.i, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
@@ -7442,12 +7442,12 @@ while.end:                                        ; preds = %land.lhs.true.i15
   br i1 %cmp.i.i.i26, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20TemplateArgumentPackEJRNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %while.end
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -7530,8 +7530,8 @@ return:                                           ; preds = %while.body, %lor.lh
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12EnableIfAttrEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12EnableIfAttrEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -7542,12 +7542,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12EnableIfAttrEJNS3_9NodeArrayEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -7588,8 +7588,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12EnableIfA
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16FunctionEncodingEJRPNS0_4NodeES9_NS0_9NodeArrayES9_RNS0_10QualifiersERNS0_15FunctionRefQualEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args5, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %args7, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %args9) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16FunctionEncodingEJRPNS0_4NodeES9_NS0_9NodeArrayES9_RNS0_10QualifiersERNS0_15FunctionRefQualEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args5, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %args7, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %args9) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -7600,12 +7600,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_NS3_9NodeArrayES7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -7661,8 +7661,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle16FunctionE
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA12_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA12_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -7673,12 +7673,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA12_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -7719,8 +7719,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA9_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA9_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -7731,12 +7731,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA9_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -7777,8 +7777,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA14_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA14_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -7789,12 +7789,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA14_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -7835,8 +7835,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA19_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA19_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -7847,12 +7847,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA19_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -8133,8 +8133,8 @@ return:                                           ; preds = %return.sink.split, 
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA27_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA27_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -8145,12 +8145,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA27_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -8191,8 +8191,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_21CtorVtableSpecialNameEJRPNS0_4NodeES9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_21CtorVtableSpecialNameEJRPNS0_4NodeES9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -8203,12 +8203,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle21CtorVtableSpecialNameEJRPNS3_4NodeES7_EEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -8248,8 +8248,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle21CtorVtabl
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA41_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA41_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -8260,12 +8260,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA41_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -8306,8 +8306,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA18_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA18_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -8318,12 +8318,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA18_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -8364,8 +8364,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA22_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA22_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -8376,12 +8376,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA22_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -8473,7 +8473,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -8483,7 +8483,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -8502,7 +8502,7 @@ _ZN12OutputStreampLE10StringView.exit:            ; preds = %entry, %_ZN12Output
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
@@ -8512,7 +8512,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStreampL
   %vtable2.i = load ptr, ptr %5, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %_ZN12OutputStreampLE10StringView.exit, %if.then.i
@@ -8540,7 +8540,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle11SpecialNameD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -8560,7 +8560,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -8570,7 +8570,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -8586,7 +8586,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
@@ -8596,7 +8596,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStream4g
   %vtable2.i = load ptr, ptr %5, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i13
 
 if.end.i13:                                       ; preds = %if.then.i, %_ZN12OutputStream4growEm.exit.i
@@ -8611,7 +8611,7 @@ if.then.i.i19:                                    ; preds = %if.end.i13
   %mul.i.i20 = shl i64 %10, 1
   %spec.store.select.i.i21 = tail call i64 @llvm.umax.i64(i64 %mul.i.i20, i64 %add.i.i15)
   store i64 %spec.store.select.i.i21, ptr %BufferCapacity.i.i, align 8
-  %call.i.i22 = tail call ptr @realloc(ptr noundef %.pre.i18, i64 noundef %spec.store.select.i.i21) #22
+  %call.i.i22 = tail call ptr @realloc(ptr noundef %.pre.i18, i64 noundef %spec.store.select.i.i21) #23
   store ptr %call.i.i22, ptr %S, align 8
   %cmp14.i.i23 = icmp eq ptr %call.i.i22, null
   br i1 %cmp14.i.i23, label %if.then15.i.i29, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i24
@@ -8621,7 +8621,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i24: ; preds = %if.then.i.i19
   br label %_ZN12OutputStream4growEm.exit.i26
 
 if.then15.i.i29:                                  ; preds = %if.then.i.i19
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i26:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i24, %if.end.i13
@@ -8637,7 +8637,7 @@ _ZN12OutputStream4growEm.exit.i26:                ; preds = %if.then.i._ZN12Outp
   %vtable.i31 = load ptr, ptr %14, align 8
   %vfn.i32 = getelementptr inbounds i8, ptr %vtable.i31, i64 32
   %15 = load ptr, ptr %vfn.i32, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i33 = getelementptr inbounds i8, ptr %14, i64 9
   %16 = load i8, ptr %RHSComponentCache.i33, align 1
   %cmp.not.i34 = icmp eq i8 %16, 1
@@ -8647,7 +8647,7 @@ if.then.i35:                                      ; preds = %_ZN12OutputStream4g
   %vtable2.i36 = load ptr, ptr %14, align 8
   %vfn3.i37 = getelementptr inbounds i8, ptr %vtable2.i36, i64 40
   %17 = load ptr, ptr %vfn3.i37, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit39
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit39: ; preds = %_ZN12OutputStream4growEm.exit.i26, %if.then.i35
@@ -8663,7 +8663,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle21CtorVtableSpecialNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -8690,7 +8690,7 @@ if.end:                                           ; preds = %land.lhs.true.i
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit: ; preds = %if.end
   %3 = load i8, ptr %incdec.ptr.i, align 1
   %conv = sext i8 %3 to i32
-  %call3 = tail call i32 @islower(i32 noundef %conv) #19
+  %call3 = tail call i32 @islower(i32 noundef %conv) #20
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %land.lhs.true.i128, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit15
 
@@ -8716,12 +8716,12 @@ sw.bb:                                            ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end35
 
 if.then.i.i.i:                                    ; preds = %sw.bb
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -8743,12 +8743,12 @@ sw.bb8:                                           ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i18, label %if.then.i.i.i30, label %if.end35
 
 if.then.i.i.i30:                                  ; preds = %sw.bb8
-  %call.i6.i.i.i31 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i31 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i32 = icmp eq ptr %call.i6.i.i.i31, null
   br i1 %cmp.i7.i.i.i32, label %if.then.i9.i.i.i35, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33
 
 if.then.i9.i.i.i35:                               ; preds = %if.then.i.i.i30
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33: ; preds = %if.then.i.i.i30
@@ -8770,12 +8770,12 @@ sw.bb13:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i39, label %if.then.i.i.i51, label %if.end35
 
 if.then.i.i.i51:                                  ; preds = %sw.bb13
-  %call.i6.i.i.i52 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i52 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i53 = icmp eq ptr %call.i6.i.i.i52, null
   br i1 %cmp.i7.i.i.i53, label %if.then.i9.i.i.i56, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54
 
 if.then.i9.i.i.i56:                               ; preds = %if.then.i.i.i51
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54: ; preds = %if.then.i.i.i51
@@ -8797,12 +8797,12 @@ sw.bb18:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i60, label %if.then.i.i.i72, label %if.end35
 
 if.then.i.i.i72:                                  ; preds = %sw.bb18
-  %call.i6.i.i.i73 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i73 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i74 = icmp eq ptr %call.i6.i.i.i73, null
   br i1 %cmp.i7.i.i.i74, label %if.then.i9.i.i.i77, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i75
 
 if.then.i9.i.i.i77:                               ; preds = %if.then.i.i.i72
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i75: ; preds = %if.then.i.i.i72
@@ -8824,12 +8824,12 @@ sw.bb23:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i81, label %if.then.i.i.i93, label %if.end35
 
 if.then.i.i.i93:                                  ; preds = %sw.bb23
-  %call.i6.i.i.i94 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i94 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i95 = icmp eq ptr %call.i6.i.i.i94, null
   br i1 %cmp.i7.i.i.i95, label %if.then.i9.i.i.i98, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i96
 
 if.then.i9.i.i.i98:                               ; preds = %if.then.i.i.i93
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i96: ; preds = %if.then.i.i.i93
@@ -8851,12 +8851,12 @@ sw.bb28:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i102, label %if.then.i.i.i114, label %if.end35
 
 if.then.i.i.i114:                                 ; preds = %sw.bb28
-  %call.i6.i.i.i115 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i115 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i116 = icmp eq ptr %call.i6.i.i.i115, null
   br i1 %cmp.i7.i.i.i116, label %if.then.i9.i.i.i119, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i117
 
 if.then.i9.i.i.i119:                              ; preds = %if.then.i.i.i114
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i117: ; preds = %if.then.i.i.i114
@@ -8916,12 +8916,12 @@ if.then.i124:                                     ; preds = %if.then37
   br i1 %cmp.i.i.i125, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i124
-  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #20
+  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #21
   %cmp.i.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
@@ -8937,13 +8937,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %i
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i124
-  %call9.i.i = tail call ptr @realloc(ptr noundef %26, i64 noundef %mul.i.i) #22
+  %call9.i.i = tail call ptr @realloc(ptr noundef %26, i64 noundef %mul.i.i) #23
   store ptr %call9.i.i, ptr %Subs, align 8
   %cmp12.i.i = icmp eq ptr %call9.i.i, null
   br i1 %cmp12.i.i, label %if.then13.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %if.else.i.i, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
@@ -9199,7 +9199,7 @@ if.then.i16.us:                                   ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i14.i.us, label %if.end.i21.us, label %if.then3.i.us
 
 if.then3.i.us:                                    ; preds = %if.then.i16.us
-  call void @free(ptr noundef %16) #21
+  call void @free(ptr noundef %16) #22
   store ptr %Inline.i9.i166, ptr %TemplateParams8161, align 16
   store ptr %Inline.i9.i166, ptr %Last9.i167, align 8
   store ptr %add.ptr.i15.i169, ptr %Cap.i168, align 16
@@ -9257,13 +9257,13 @@ if.then.i37.us:                                   ; preds = %if.end13.us
   br i1 %cmp.i.i.i.us, label %if.then.i.i.us, label %if.else.i.i.us
 
 if.else.i.i.us:                                   ; preds = %if.then.i37.us
-  %call9.i.i.us = call ptr @realloc(ptr noundef %31, i64 noundef %mul.i.i.us) #22
+  %call9.i.i.us = call ptr @realloc(ptr noundef %31, i64 noundef %mul.i.i.us) #23
   store ptr %call9.i.i.us, ptr %Names154, align 16
   %cmp12.i.i.us = icmp eq ptr %call9.i.i.us, null
   br i1 %cmp12.i.i.us, label %if.then13.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i.us
 
 if.then.i.i.us:                                   ; preds = %if.then.i37.us
-  %call3.i.i.us = call noalias ptr @malloc(i64 noundef %mul.i.i.us) #20
+  %call3.i.i.us = call noalias ptr @malloc(i64 noundef %mul.i.i.us) #21
   %cmp.i.i42.us = icmp eq ptr %call3.i.i.us, null
   br i1 %cmp.i.i42.us, label %if.then4.i.i, label %if.end.i.i.us
 
@@ -9309,7 +9309,7 @@ if.then17.us:                                     ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i43.us, label %if.then.i.i.i.us, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13ParameterPackEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit.us
 
 if.then.i.i.i.us:                                 ; preds = %if.then17.us
-  %call.i6.i.i.i.us = call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i.us = call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i.us = icmp eq ptr %call.i6.i.i.i.us, null
   br i1 %cmp.i7.i.i.i.us, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.us
 
@@ -9353,13 +9353,13 @@ if.then.i49.us:                                   ; preds = %if.end23.us
   br i1 %cmp.i.i.i55.us, label %if.then.i.i63.us, label %if.else.i.i57.us
 
 if.else.i.i57.us:                                 ; preds = %if.then.i49.us
-  %call9.i.i58.us = call ptr @realloc(ptr noundef %44, i64 noundef %mul.i.i56.us) #22
+  %call9.i.i58.us = call ptr @realloc(ptr noundef %44, i64 noundef %mul.i.i56.us) #23
   store ptr %call9.i.i58.us, ptr %TemplateParams8161, align 16
   %cmp12.i.i59.us = icmp eq ptr %call9.i.i58.us, null
   br i1 %cmp12.i.i59.us, label %if.then13.i.i62, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE7reserveEm.exit.i.us
 
 if.then.i.i63.us:                                 ; preds = %if.then.i49.us
-  %call3.i.i64.us = call noalias ptr @malloc(i64 noundef %mul.i.i56.us) #20
+  %call3.i.i64.us = call noalias ptr @malloc(i64 noundef %mul.i.i56.us) #21
   %cmp.i.i65.us = icmp eq ptr %call3.i.i64.us, null
   br i1 %cmp.i.i65.us, label %if.then4.i.i70, label %if.end.i.i66.us
 
@@ -9396,7 +9396,7 @@ cleanup.us:                                       ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i72.us, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.us, label %if.then.i73.us
 
 if.then.i73.us:                                   ; preds = %cleanup.us
-  call void @free(ptr noundef %47) #21
+  call void @free(ptr noundef %47) #22
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.us
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.us: ; preds = %if.then.i73.us, %cleanup.us
@@ -9419,23 +9419,23 @@ while.body:                                       ; preds = %land.lhs.true.i6, %
   br i1 %cmp27, label %return, label %if.end29
 
 if.then4.i.i:                                     ; preds = %if.then.i.i.us
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 if.then13.i.i:                                    ; preds = %if.else.i.i.us
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i.us
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 if.then4.i.i70:                                   ; preds = %if.then.i.i63.us
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 if.then13.i.i62:                                  ; preds = %if.else.i.i57.us
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 if.end29:                                         ; preds = %while.body
@@ -9455,12 +9455,12 @@ if.then.i80:                                      ; preds = %if.end29
   br i1 %cmp.i.i.i86, label %if.then.i.i95, label %if.else.i.i88
 
 if.then.i.i95:                                    ; preds = %if.then.i80
-  %call3.i.i96 = tail call noalias ptr @malloc(i64 noundef %mul.i.i87) #20
+  %call3.i.i96 = tail call noalias ptr @malloc(i64 noundef %mul.i.i87) #21
   %cmp.i.i97 = icmp eq ptr %call3.i.i96, null
   br i1 %cmp.i.i97, label %if.then4.i.i102, label %if.end.i.i98
 
 if.then4.i.i102:                                  ; preds = %if.then.i.i95
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i98:                                     ; preds = %if.then.i.i95
@@ -9476,13 +9476,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i101: ; preds =
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i91
 
 if.else.i.i88:                                    ; preds = %if.then.i80
-  %call9.i.i89 = tail call ptr @realloc(ptr noundef %53, i64 noundef %mul.i.i87) #22
+  %call9.i.i89 = tail call ptr @realloc(ptr noundef %53, i64 noundef %mul.i.i87) #23
   store ptr %call9.i.i89, ptr %Names, align 16
   %cmp12.i.i90 = icmp eq ptr %call9.i.i89, null
   br i1 %cmp12.i.i90, label %if.then13.i.i94, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i91
 
 if.then13.i.i94:                                  ; preds = %if.else.i.i88
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i91: ; preds = %if.else.i.i88, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i101
@@ -9526,12 +9526,12 @@ while.end:                                        ; preds = %land.lhs.true.i6, %
   br i1 %cmp.i.i.i109, label %if.then.i.i.i119, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12TemplateArgsEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i119:                                 ; preds = %while.end
-  %call.i6.i.i.i120 = call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i120 = call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i121 = icmp eq ptr %call.i6.i.i.i120, null
   br i1 %cmp.i7.i.i.i121, label %if.then.i9.i.i.i124, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i122
 
 if.then.i9.i.i.i124:                              ; preds = %if.then.i.i.i119
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i122: ; preds = %if.then.i.i.i119
@@ -9573,8 +9573,8 @@ return:                                           ; preds = %while.body, %_ZN4ll
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -9585,12 +9585,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20NameWithTemplateArgsEJRPNS3_4NodeES7_EEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -9726,12 +9726,12 @@ if.then11:                                        ; preds = %if.end10
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.then11
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -9784,12 +9784,12 @@ if.then15:                                        ; preds = %if.end13
   br i1 %cmp.i.i.i22, label %if.then.i.i.i33, label %if.end19
 
 if.then.i.i.i33:                                  ; preds = %if.then15
-  %call.i6.i.i.i34 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i34 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i35 = icmp eq ptr %call.i6.i.i.i34, null
   br i1 %cmp.i7.i.i.i35, label %if.then.i9.i.i.i38, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i36
 
 if.then.i9.i.i.i38:                               ; preds = %if.then.i.i.i33
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i36: ; preds = %if.then.i.i.i33
@@ -9846,12 +9846,12 @@ if.then.i41:                                      ; preds = %if.end19
   br i1 %cmp.i.i.i43, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i41
-  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #20
+  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #21
   %cmp.i.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
@@ -9867,13 +9867,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle24ForwardTemplateReferenceES4_ET0_T_S6_S5_.e
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE7reserveEm.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i41
-  %call9.i.i = tail call ptr @realloc(ptr noundef %28, i64 noundef %mul.i.i) #22
+  %call9.i.i = tail call ptr @realloc(ptr noundef %28, i64 noundef %mul.i.i) #23
   store ptr %call9.i.i, ptr %ForwardTemplateRefs, align 8
   %cmp12.i.i = icmp eq ptr %call9.i.i, null
   br i1 %cmp12.i.i, label %if.then13.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE7reserveEm.exit.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE7reserveEm.exit.i: ; preds = %if.else.i.i, %_ZSt4copyIPPN4llvh16itanium_demangle24ForwardTemplateReferenceES4_ET0_T_S6_S5_.exit.i.i
@@ -9972,12 +9972,12 @@ if.end11:                                         ; preds = %land.lhs.true.i19
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13EnclosingExprEJRA10_KcRPNS0_4NodeERA2_S7_EEESB_DpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.end11
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -10025,8 +10025,8 @@ return:                                           ; preds = %if.end, %if.end8, %
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE12parseAbiTagsEPNS0_4NodeE(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef %N) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE12parseAbiTagsEPNS0_4NodeE(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef %N) unnamed_addr #13 align 2 {
 entry:
   %Last.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %this, align 16
@@ -10100,12 +10100,12 @@ if.end:                                           ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10AbiTagAttrEJRPNS0_4NodeER10StringViewEEES8_DpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -10235,12 +10235,12 @@ if.end.i12:                                       ; preds = %land.lhs.true.i202
   br i1 %cmp.i.i.i178, label %if.then.i.i.i194, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15UnnamedTypeNameEJR10StringViewEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i194:                                 ; preds = %if.end.i12
-  %call.i6.i.i.i195 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i195 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i196 = icmp eq ptr %call.i6.i.i.i195, null
   br i1 %cmp.i7.i.i.i196, label %if.then.i9.i.i.i199, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i197
 
 if.then.i9.i.i.i199:                              ; preds = %if.then.i.i.i194
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i197: ; preds = %if.then.i.i.i194
@@ -10339,12 +10339,12 @@ if.then.i105:                                     ; preds = %if.end16.i
   br i1 %cmp.i.i.i111, label %if.then.i.i120, label %if.else.i.i113
 
 if.then.i.i120:                                   ; preds = %if.then.i105
-  %call3.i.i121 = tail call noalias ptr @malloc(i64 noundef %mul.i.i112) #20
+  %call3.i.i121 = tail call noalias ptr @malloc(i64 noundef %mul.i.i112) #21
   %cmp.i.i122 = icmp eq ptr %call3.i.i121, null
   br i1 %cmp.i.i122, label %if.then4.i.i127, label %if.end.i.i123
 
 if.then4.i.i127:                                  ; preds = %if.then.i.i120
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i123:                                    ; preds = %if.then.i.i120
@@ -10360,13 +10360,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i126: ; preds =
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i116
 
 if.else.i.i113:                                   ; preds = %if.then.i105
-  %call9.i.i114 = tail call ptr @realloc(ptr noundef %18, i64 noundef %mul.i.i112) #22
+  %call9.i.i114 = tail call ptr @realloc(ptr noundef %18, i64 noundef %mul.i.i112) #23
   store ptr %call9.i.i114, ptr %Names.i, align 16
   %cmp12.i.i115 = icmp eq ptr %call9.i.i114, null
   br i1 %cmp12.i.i115, label %if.then13.i.i119, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i116
 
 if.then13.i.i119:                                 ; preds = %if.else.i.i113
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i116: ; preds = %if.else.i.i113, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i126
@@ -10465,12 +10465,12 @@ if.end25.i:                                       ; preds = %land.lhs.true.i76
   br i1 %cmp.i.i.i54, label %if.then.i.i.i68, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15ClosureTypeNameEJRNS0_9NodeArrayER10StringViewEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i68:                                  ; preds = %if.end25.i
-  %call.i6.i.i.i69 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i69 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i70 = icmp eq ptr %call.i6.i.i.i69, null
   br i1 %cmp.i7.i.i.i70, label %if.then.i9.i.i.i73, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i71
 
 if.then.i9.i.i.i73:                               ; preds = %if.then.i.i.i68
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i71: ; preds = %if.then.i.i.i68
@@ -10571,12 +10571,12 @@ if.then.i38:                                      ; preds = %if.end
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i38
-  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #20
+  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #21
   %cmp.i.i39 = icmp eq ptr %call3.i.i, null
   br i1 %cmp.i.i39, label %if.then4.i.i, label %if.end.i.i40
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i40:                                     ; preds = %if.then.i.i
@@ -10592,13 +10592,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %i
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i38
-  %call9.i.i = tail call ptr @realloc(ptr noundef %47, i64 noundef %mul.i.i) #22
+  %call9.i.i = tail call ptr @realloc(ptr noundef %47, i64 noundef %mul.i.i) #23
   store ptr %call9.i.i, ptr %Names, align 16
   %cmp12.i.i = icmp eq ptr %call9.i.i, null
   br i1 %cmp12.i.i, label %if.then13.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %if.else.i.i, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
@@ -10649,12 +10649,12 @@ do.end:                                           ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i49, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_21StructuredBindingNameEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %do.end
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -10737,7 +10737,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %s, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -10747,7 +10747,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -10785,7 +10785,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle8NameTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -10797,7 +10797,7 @@ entry:
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
@@ -10807,7 +10807,7 @@ if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -10824,7 +10824,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %5, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -10834,7 +10834,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -10850,7 +10850,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %vtable.i4 = load ptr, ptr %9, align 8
   %vfn.i5 = getelementptr inbounds i8, ptr %vtable.i4, i64 32
   %10 = load ptr, ptr %vfn.i5, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i6 = getelementptr inbounds i8, ptr %9, i64 9
   %11 = load i8, ptr %RHSComponentCache.i6, align 1
   %cmp.not.i7 = icmp eq i8 %11, 1
@@ -10860,7 +10860,7 @@ if.then.i8:                                       ; preds = %_ZN12OutputStream4g
   %vtable2.i9 = load ptr, ptr %9, align 8
   %vfn3.i10 = getelementptr inbounds i8, ptr %vtable2.i9, i64 40
   %12 = load ptr, ptr %vfn3.i10, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit12
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit12: ; preds = %_ZN12OutputStream4growEm.exit.i, %if.then.i8
@@ -10875,7 +10875,7 @@ entry:
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
-  %call = tail call { ptr, ptr } %1(ptr noundef nonnull align 8 dereferenceable(12) %0) #21
+  %call = tail call { ptr, ptr } %1(ptr noundef nonnull align 8 dereferenceable(12) %0) #22
   ret { ptr, ptr } %call
 }
 
@@ -10888,12 +10888,12 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle10NestedNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(5) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(5) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -10904,12 +10904,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA5_KcEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -10931,7 +10931,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8
@@ -10974,7 +10974,7 @@ if.then.i:                                        ; preds = %if.end
 if.end.i:                                         ; preds = %if.end
   %vtable.i = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %vtable.i, align 8
-  %call.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %call.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZN14SwapAndRestoreIbED2Ev.exit
 
 _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %if.then.i, %if.end.i
@@ -11013,7 +11013,7 @@ if.end.i:                                         ; preds = %if.end
   %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %3 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %call.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZN14SwapAndRestoreIbED2Ev.exit
 
 _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %if.then.i, %if.end.i
@@ -11052,7 +11052,7 @@ if.end.i:                                         ; preds = %if.end
   %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %3 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %call.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZN14SwapAndRestoreIbED2Ev.exit
 
 _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %if.then.i, %if.end.i
@@ -11081,7 +11081,7 @@ _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   store i8 %frombool3.i, ptr %Printing, align 8
   br label %return
 
@@ -11106,7 +11106,7 @@ _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   store i8 %frombool3.i, ptr %Printing, align 8
   br label %return
 
@@ -11130,7 +11130,7 @@ _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   store i8 %frombool3.i, ptr %Printing, align 8
   br label %return
 
@@ -11147,7 +11147,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle24ForwardTemplateReferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -11444,12 +11444,12 @@ if.then.i59:                                      ; preds = %if.end93
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i59
-  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #20
+  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #21
   %cmp.i.i60 = icmp eq ptr %call3.i.i, null
   br i1 %cmp.i.i60, label %if.then4.i.i, label %if.end.i.i61
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i61:                                     ; preds = %if.then.i.i
@@ -11465,13 +11465,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %i
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i59
-  %call9.i.i = tail call ptr @realloc(ptr noundef %14, i64 noundef %mul.i.i) #22
+  %call9.i.i = tail call ptr @realloc(ptr noundef %14, i64 noundef %mul.i.i) #23
   store ptr %call9.i.i, ptr %Names, align 16
   %cmp12.i.i = icmp eq ptr %call9.i.i, null
   br i1 %cmp12.i.i, label %if.then13.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %if.else.i.i, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
@@ -11759,12 +11759,12 @@ if.then.i112:                                     ; preds = %if.end255
   br i1 %cmp.i.i.i118, label %if.then.i.i127, label %if.else.i.i120
 
 if.then.i.i127:                                   ; preds = %if.then.i112
-  %call3.i.i128 = tail call noalias ptr @malloc(i64 noundef %mul.i.i119) #20
+  %call3.i.i128 = tail call noalias ptr @malloc(i64 noundef %mul.i.i119) #21
   %cmp.i.i129 = icmp eq ptr %call3.i.i128, null
   br i1 %cmp.i.i129, label %if.then4.i.i134, label %if.end.i.i130
 
 if.then4.i.i134:                                  ; preds = %if.then.i.i127
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i130:                                    ; preds = %if.then.i.i127
@@ -11780,13 +11780,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i133: ; preds =
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i123
 
 if.else.i.i120:                                   ; preds = %if.then.i112
-  %call9.i.i121 = tail call ptr @realloc(ptr noundef %34, i64 noundef %mul.i.i119) #22
+  %call9.i.i121 = tail call ptr @realloc(ptr noundef %34, i64 noundef %mul.i.i119) #23
   store ptr %call9.i.i121, ptr %Names245, align 16
   %cmp12.i.i122 = icmp eq ptr %call9.i.i121, null
   br i1 %cmp12.i.i122, label %if.then13.i.i126, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i123
 
 if.then13.i.i126:                                 ; preds = %if.else.i.i120
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i123: ; preds = %if.else.i.i120, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i133
@@ -12312,12 +12312,12 @@ if.then.i263:                                     ; preds = %if.end576
   br i1 %cmp.i.i.i269, label %if.then.i.i278, label %if.else.i.i271
 
 if.then.i.i278:                                   ; preds = %if.then.i263
-  %call3.i.i279 = tail call noalias ptr @malloc(i64 noundef %mul.i.i270) #20
+  %call3.i.i279 = tail call noalias ptr @malloc(i64 noundef %mul.i.i270) #21
   %cmp.i.i280 = icmp eq ptr %call3.i.i279, null
   br i1 %cmp.i.i280, label %if.then4.i.i285, label %if.end.i.i281
 
 if.then4.i.i285:                                  ; preds = %if.then.i.i278
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i281:                                    ; preds = %if.then.i.i278
@@ -12333,13 +12333,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i284: ; preds =
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i274
 
 if.else.i.i271:                                   ; preds = %if.then.i263
-  %call9.i.i272 = tail call ptr @realloc(ptr noundef %61, i64 noundef %mul.i.i270) #22
+  %call9.i.i272 = tail call ptr @realloc(ptr noundef %61, i64 noundef %mul.i.i270) #23
   store ptr %call9.i.i272, ptr %Names567, align 16
   %cmp12.i.i273 = icmp eq ptr %call9.i.i272, null
   br i1 %cmp12.i.i273, label %if.then13.i.i277, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i274
 
 if.then13.i.i277:                                 ; preds = %if.else.i.i271
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i274: ; preds = %if.else.i.i271, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i284
@@ -12466,12 +12466,12 @@ if.then.i310:                                     ; preds = %if.end628
   br i1 %cmp.i.i.i316, label %if.then.i.i325, label %if.else.i.i318
 
 if.then.i.i325:                                   ; preds = %if.then.i310
-  %call3.i.i326 = tail call noalias ptr @malloc(i64 noundef %mul.i.i317) #20
+  %call3.i.i326 = tail call noalias ptr @malloc(i64 noundef %mul.i.i317) #21
   %cmp.i.i327 = icmp eq ptr %call3.i.i326, null
   br i1 %cmp.i.i327, label %if.then4.i.i332, label %if.end.i.i328
 
 if.then4.i.i332:                                  ; preds = %if.then.i.i325
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i328:                                    ; preds = %if.then.i.i325
@@ -12487,13 +12487,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i331: ; preds =
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i321
 
 if.else.i.i318:                                   ; preds = %if.then.i310
-  %call9.i.i319 = tail call ptr @realloc(ptr noundef %78, i64 noundef %mul.i.i317) #22
+  %call9.i.i319 = tail call ptr @realloc(ptr noundef %78, i64 noundef %mul.i.i317) #23
   store ptr %call9.i.i319, ptr %Names618, align 16
   %cmp12.i.i320 = icmp eq ptr %call9.i.i319, null
   br i1 %cmp12.i.i320, label %if.then13.i.i324, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i321
 
 if.then13.i.i324:                                 ; preds = %if.else.i.i318
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i321: ; preds = %if.else.i.i318, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i331
@@ -12555,8 +12555,8 @@ return:                                           ; preds = %while.body623, %whi
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13EnclosingExprEJRA10_KcRPNS0_4NodeERA2_S7_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(10) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13EnclosingExprEJRA10_KcRPNS0_4NodeERA2_S7_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(10) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -12567,12 +12567,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13EnclosingExprEJRA10_KcRPNS3_4NodeERA2_S5_EEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -12594,7 +12594,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -64
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -56
@@ -12805,7 +12805,7 @@ for.body.i:                                       ; preds = %for.cond.i, %if.end
   %__begin3.0.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr83, i64 %__begin3.0.idx8.i
   %4 = load i8, ptr %__begin3.0.ptr.i, align 1
   %conv.i = sext i8 %4 to i32
-  %call6.i = tail call i32 @isxdigit(i32 noundef %conv.i) #19
+  %call6.i = tail call i32 @isxdigit(i32 noundef %conv.i) #20
   %tobool.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool.not.i, label %return, label %for.cond.i
 
@@ -12831,12 +12831,12 @@ if.end13.i:                                       ; preds = %land.lhs.true.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16FloatLiteralImplIfEEJR10StringViewEEEPNS0_4NodeEDpOT0_.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end13.i
-  %call.i6.i.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i.i = icmp eq ptr %call.i6.i.i.i.i, null
   br i1 %cmp.i7.i.i.i.i, label %if.then.i9.i.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i
 
 if.then.i9.i.i.i.i:                               ; preds = %if.then.i.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i
@@ -12895,7 +12895,7 @@ for.body.i65:                                     ; preds = %for.cond.i71, %if.e
   %__begin3.0.ptr.i67 = getelementptr inbounds i8, ptr %incdec.ptr87, i64 %__begin3.0.idx8.i66
   %13 = load i8, ptr %__begin3.0.ptr.i67, align 1
   %conv.i68 = sext i8 %13 to i32
-  %call6.i69 = tail call i32 @isxdigit(i32 noundef %conv.i68) #19
+  %call6.i69 = tail call i32 @isxdigit(i32 noundef %conv.i68) #20
   %tobool.not.i70 = icmp eq i32 %call6.i69, 0
   br i1 %tobool.not.i70, label %return, label %for.cond.i71
 
@@ -12921,12 +12921,12 @@ if.end13.i79:                                     ; preds = %land.lhs.true.i.i76
   br i1 %cmp.i.i.i.i83, label %if.then.i.i.i.i96, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16FloatLiteralImplIdEEJR10StringViewEEEPNS0_4NodeEDpOT0_.exit.i
 
 if.then.i.i.i.i96:                                ; preds = %if.end13.i79
-  %call.i6.i.i.i.i97 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i.i97 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i.i98 = icmp eq ptr %call.i6.i.i.i.i97, null
   br i1 %cmp.i7.i.i.i.i98, label %if.then.i9.i.i.i.i101, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i99
 
 if.then.i9.i.i.i.i101:                            ; preds = %if.then.i.i.i.i96
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i99: ; preds = %if.then.i.i.i.i96
@@ -12985,7 +12985,7 @@ for.body.i110:                                    ; preds = %for.cond.i116, %if.
   %__begin3.0.ptr.i112 = getelementptr inbounds i8, ptr %incdec.ptr91, i64 %__begin3.0.idx8.i111
   %22 = load i8, ptr %__begin3.0.ptr.i112, align 1
   %conv.i113 = sext i8 %22 to i32
-  %call6.i114 = tail call i32 @isxdigit(i32 noundef %conv.i113) #19
+  %call6.i114 = tail call i32 @isxdigit(i32 noundef %conv.i113) #20
   %tobool.not.i115 = icmp eq i32 %call6.i114, 0
   br i1 %tobool.not.i115, label %return, label %for.cond.i116
 
@@ -13011,12 +13011,12 @@ if.end13.i124:                                    ; preds = %land.lhs.true.i.i12
   br i1 %cmp.i.i.i.i128, label %if.then.i.i.i.i141, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16FloatLiteralImplIeEEJR10StringViewEEEPNS0_4NodeEDpOT0_.exit.i
 
 if.then.i.i.i.i141:                               ; preds = %if.end13.i124
-  %call.i6.i.i.i.i142 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i.i142 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i.i143 = icmp eq ptr %call.i6.i.i.i.i142, null
   br i1 %cmp.i7.i.i.i.i143, label %if.then.i9.i.i.i.i146, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i144
 
 if.then.i9.i.i.i.i146:                            ; preds = %if.then.i.i.i.i141
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i144: ; preds = %if.then.i.i.i.i141
@@ -13164,8 +13164,8 @@ return:                                           ; preds = %for.body.i110, %for
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE18parseFunctionParamEv(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE18parseFunctionParamEv(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #13 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
   %Last.i1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -13277,12 +13277,12 @@ if.end:                                           ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %return.sink.split
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -13454,12 +13454,12 @@ if.end23:                                         ; preds = %land.lhs.true.i117
   br i1 %cmp.i.i.i125, label %if.then.i.i.i141, label %return.sink.split
 
 if.then.i.i.i141:                                 ; preds = %if.end23
-  %call.i6.i.i.i142 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i142 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i143 = icmp eq ptr %call.i6.i.i.i142, null
   br i1 %cmp.i7.i.i.i143, label %if.then.i9.i.i.i146, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i144
 
 if.then.i9.i.i.i146:                              ; preds = %if.then.i.i.i141
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i144: ; preds = %if.then.i.i.i141
@@ -13739,12 +13739,12 @@ if.end216:                                        ; preds = %if.end212, %if.end2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8FoldExprEJRbR10StringViewRPNS0_4NodeESC_EEESB_DpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.end216
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -13814,12 +13814,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10BinaryExprEJRPNS0_4NodeER10StringViewS9_EEES8_DpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.end5
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -13882,12 +13882,12 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10PrefixExprEJR10StringViewRPNS0_4NodeEEEESA_DpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -13931,8 +13931,8 @@ return:                                           ; preds = %entry, %_ZN4llvh16i
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8CastExprEJRA11_KcRPNS0_4NodeESC_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8CastExprEJRA11_KcRPNS0_4NodeESC_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -13943,12 +13943,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJRA11_KcRPNS3_4NodeESA_EEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -13992,8 +13992,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJ
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8CallExprEJRPNS0_4NodeENS0_9NodeArrayEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8CallExprEJRPNS0_4NodeENS0_9NodeArrayEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -14004,12 +14004,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CallExprEJRPNS3_4NodeENS3_9NodeArrayEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -14140,12 +14140,12 @@ if.then.i19:                                      ; preds = %if.end12
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i19
-  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #20
+  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #21
   %cmp.i.i20 = icmp eq ptr %call3.i.i, null
   br i1 %cmp.i.i20, label %if.then4.i.i, label %if.end.i.i21
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i21:                                     ; preds = %if.then.i.i
@@ -14161,13 +14161,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %i
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i19
-  %call9.i.i = tail call ptr @realloc(ptr noundef %13, i64 noundef %mul.i.i) #22
+  %call9.i.i = tail call ptr @realloc(ptr noundef %13, i64 noundef %mul.i.i) #23
   store ptr %call9.i.i, ptr %Names, align 16
   %cmp12.i.i = icmp eq ptr %call9.i.i, null
   br i1 %cmp12.i.i, label %if.then13.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %if.else.i.i, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
@@ -14207,12 +14207,12 @@ while.end:                                        ; preds = %land.lhs.true.i11
   br i1 %cmp.i.i.i24, label %if.then.i.i.i, label %return.sink.split
 
 if.then.i.i.i:                                    ; preds = %while.end
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -14237,12 +14237,12 @@ if.end21:                                         ; preds = %if.end16
   br i1 %cmp.i.i.i30, label %if.then.i.i.i39, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit
 
 if.then.i.i.i39:                                  ; preds = %if.end21
-  %call.i6.i.i.i40 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i40 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i41 = icmp eq ptr %call.i6.i.i.i40, null
   br i1 %cmp.i7.i.i.i41, label %if.then.i9.i.i.i44, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i42
 
 if.then.i9.i.i.i44:                               ; preds = %if.then.i.i.i39
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i42: ; preds = %if.then.i.i.i39
@@ -14274,12 +14274,12 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArray
   br i1 %cmp.i.i.i47, label %if.then.i.i.i64, label %return.sink.split
 
 if.then.i.i.i64:                                  ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit
-  %call.i6.i.i.i65 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i65 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i66 = icmp eq ptr %call.i6.i.i.i65, null
   br i1 %cmp.i7.i.i.i66, label %if.then.i9.i.i.i69, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i67
 
 if.then.i9.i.i.i69:                               ; preds = %if.then.i.i.i64
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i67: ; preds = %if.then.i.i.i64
@@ -14326,8 +14326,8 @@ return:                                           ; preds = %while.body, %return
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10DeleteExprEJRPNS0_4NodeERbbEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %args1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %args3) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10DeleteExprEJRPNS0_4NodeERbbEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %args1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %args3) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -14338,12 +14338,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10DeleteExprEJRPNS3_4NodeERbbEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -14388,8 +14388,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10DeleteExp
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8CastExprEJRA13_KcRPNS0_4NodeESC_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8CastExprEJRA13_KcRPNS0_4NodeESC_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -14400,12 +14400,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJRA13_KcRPNS3_4NodeESA_EEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -14499,12 +14499,12 @@ if.end10:                                         ; preds = %if.then6
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.end10
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -14588,12 +14588,12 @@ if.end8.i:                                        ; preds = %if.then4.i
   br i1 %cmp.i.i.i245, label %if.then.i.i.i258, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit264
 
 if.then.i.i.i258:                                 ; preds = %if.end8.i
-  %call.i6.i.i.i259 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i259 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i260 = icmp eq ptr %call.i6.i.i.i259, null
   br i1 %cmp.i7.i.i.i260, label %if.then.i9.i.i.i263, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i261
 
 if.then.i9.i.i.i263:                              ; preds = %if.then.i.i.i258
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i261: ; preds = %if.then.i.i.i258
@@ -14640,12 +14640,12 @@ if.end19:                                         ; preds = %if.end.i14, %_ZN4ll
   br i1 %cmp.i.i.i18, label %if.then.i.i.i30, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13QualifiedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit
 
 if.then.i.i.i30:                                  ; preds = %if.end19
-  %call.i6.i.i.i31 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i31 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i32 = icmp eq ptr %call.i6.i.i.i31, null
   br i1 %cmp.i7.i.i.i32, label %if.then.i9.i.i.i35, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33
 
 if.then.i9.i.i.i35:                               ; preds = %if.then.i.i.i30
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33: ; preds = %if.then.i.i.i30
@@ -14698,12 +14698,12 @@ if.end27:                                         ; preds = %while.end
   br i1 %cmp.i.i.i38, label %if.then.i.i.i51, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13QualifiedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit57
 
 if.then.i.i.i51:                                  ; preds = %if.end27
-  %call.i6.i.i.i52 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i52 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i53 = icmp eq ptr %call.i6.i.i.i52, null
   br i1 %cmp.i7.i.i.i53, label %if.then.i9.i.i.i56, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54
 
 if.then.i9.i.i.i56:                               ; preds = %if.then.i.i.i51
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54: ; preds = %if.then.i.i.i51
@@ -14784,12 +14784,12 @@ if.then40:                                        ; preds = %if.then34
   br i1 %cmp.i.i.i100, label %if.then.i.i.i111, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_19GlobalQualifiedNameEJRPNS0_4NodeEEEES8_DpOT0_.exit
 
 if.then.i.i.i111:                                 ; preds = %if.then40
-  %call.i6.i.i.i112 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i112 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i113 = icmp eq ptr %call.i6.i.i.i112, null
   br i1 %cmp.i7.i.i.i113, label %if.then.i9.i.i.i116, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i114
 
 if.then.i9.i.i.i116:                              ; preds = %if.then.i.i.i111
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i114: ; preds = %if.then.i.i.i111
@@ -14873,12 +14873,12 @@ if.end8.i138:                                     ; preds = %if.then4.i135
   br i1 %cmp.i.i.i274, label %if.then.i.i.i287, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit293
 
 if.then.i.i.i287:                                 ; preds = %if.end8.i138
-  %call.i6.i.i.i288 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i288 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i289 = icmp eq ptr %call.i6.i.i.i288, null
   br i1 %cmp.i7.i.i.i289, label %if.then.i9.i.i.i292, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i290
 
 if.then.i9.i.i.i292:                              ; preds = %if.then.i.i.i287
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i290: ; preds = %if.then.i.i.i287
@@ -14929,12 +14929,12 @@ if.then55:                                        ; preds = %if.end53
   br i1 %cmp.i.i.i143, label %if.then.i.i.i156, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13QualifiedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit162
 
 if.then.i.i.i156:                                 ; preds = %if.then55
-  %call.i6.i.i.i157 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i157 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i158 = icmp eq ptr %call.i6.i.i.i157, null
   br i1 %cmp.i7.i.i.i158, label %if.then.i9.i.i.i161, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i159
 
 if.then.i9.i.i.i161:                              ; preds = %if.then.i.i.i156
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i159: ; preds = %if.then.i.i.i156
@@ -14982,12 +14982,12 @@ if.then58:                                        ; preds = %if.else
   br i1 %cmp.i.i.i165, label %if.then.i.i.i177, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_19GlobalQualifiedNameEJRPNS0_4NodeEEEES8_DpOT0_.exit183
 
 if.then.i.i.i177:                                 ; preds = %if.then58
-  %call.i6.i.i.i178 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i178 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i179 = icmp eq ptr %call.i6.i.i.i178, null
   br i1 %cmp.i7.i.i.i179, label %if.then.i9.i.i.i182, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i180
 
 if.then.i9.i.i.i182:                              ; preds = %if.then.i.i.i177
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i180: ; preds = %if.then.i.i.i177
@@ -15080,12 +15080,12 @@ if.end81:                                         ; preds = %if.then76
   br i1 %cmp.i.i.i201, label %if.then.i.i.i214, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit220
 
 if.then.i.i.i214:                                 ; preds = %if.end81
-  %call.i6.i.i.i215 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i215 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i216 = icmp eq ptr %call.i6.i.i.i215, null
   br i1 %cmp.i7.i.i.i216, label %if.then.i9.i.i.i219, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i217
 
 if.then.i9.i.i.i219:                              ; preds = %if.then.i.i.i214
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i217: ; preds = %if.then.i.i.i214
@@ -15138,12 +15138,12 @@ if.end92:                                         ; preds = %if.end87
   br i1 %cmp.i.i.i223, label %if.then.i.i.i236, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13QualifiedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit242
 
 if.then.i.i.i236:                                 ; preds = %if.end92
-  %call.i6.i.i.i237 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i237 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i238 = icmp eq ptr %call.i6.i.i.i237, null
   br i1 %cmp.i7.i.i.i238, label %if.then.i9.i.i.i241, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i239
 
 if.then.i9.i.i.i241:                              ; preds = %if.then.i.i.i236
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i239: ; preds = %if.then.i.i.i236
@@ -15185,8 +15185,8 @@ return:                                           ; preds = %if.then4.i, %while.
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10MemberExprEJRPNS0_4NodeERA3_KcS9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr noundef nonnull align 1 dereferenceable(3) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10MemberExprEJRPNS0_4NodeERA3_KcS9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr noundef nonnull align 1 dereferenceable(3) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -15197,12 +15197,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10MemberExprEJRPNS3_4NodeERA3_KcS7_EEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -15225,7 +15225,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10MemberExp
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   %7 = load ptr, ptr %args, align 8
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args1) #19
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args1) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args1, i64 %call.i.i
   %8 = load ptr, ptr %args3, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
@@ -15248,8 +15248,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10MemberExp
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10MemberExprEJRPNS0_4NodeERA2_KcS9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10MemberExprEJRPNS0_4NodeERA2_KcS9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -15260,12 +15260,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10MemberExprEJRPNS3_4NodeERA2_KcS7_EEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -15309,8 +15309,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10MemberExp
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_18ArraySubscriptExprEJRPNS0_4NodeES9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_18ArraySubscriptExprEJRPNS0_4NodeES9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -15321,12 +15321,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle18ArraySubscriptExprEJRPNS3_4NodeES7_EEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -15416,12 +15416,12 @@ if.end10:                                         ; preds = %if.end
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10BracedExprEJRPNS0_4NodeES9_bEEES8_DpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.end10
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -15482,12 +15482,12 @@ if.end23:                                         ; preds = %if.end18
   br i1 %cmp.i.i.i13, label %if.then.i.i.i28, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10BracedExprEJRPNS0_4NodeES9_bEEES8_DpOT0_.exit34
 
 if.then.i.i.i28:                                  ; preds = %if.end23
-  %call.i6.i.i.i29 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i29 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i30 = icmp eq ptr %call.i6.i.i.i29, null
   br i1 %cmp.i7.i.i.i30, label %if.then.i9.i.i.i33, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i31
 
 if.then.i9.i.i.i33:                               ; preds = %if.then.i.i.i28
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i31: ; preds = %if.then.i.i.i28
@@ -15553,12 +15553,12 @@ if.end41:                                         ; preds = %if.end36
   br i1 %cmp.i.i.i37, label %if.then.i.i.i49, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15BracedRangeExprEJRPNS0_4NodeES9_S9_EEES8_DpOT0_.exit
 
 if.then.i.i.i49:                                  ; preds = %if.end41
-  %call.i6.i.i.i50 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i50 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i51 = icmp eq ptr %call.i6.i.i.i50, null
   br i1 %cmp.i7.i.i.i51, label %if.then.i9.i.i.i54, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i52
 
 if.then.i9.i.i.i54:                               ; preds = %if.then.i.i.i49
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i52: ; preds = %if.then.i.i.i49
@@ -15606,8 +15606,8 @@ return:                                           ; preds = %if.end36, %if.end32
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12InitListExprEJDnNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12InitListExprEJDnNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -15618,12 +15618,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12InitListExprEJDnNS3_9NodeArrayEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -15666,8 +15666,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12InitListE
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11PostfixExprEJRPNS0_4NodeERA3_KcEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr noundef nonnull align 1 dereferenceable(3) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11PostfixExprEJRPNS0_4NodeERA3_KcEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr noundef nonnull align 1 dereferenceable(3) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -15678,12 +15678,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11PostfixExprEJRPNS3_4NodeERA3_KcEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -15706,7 +15706,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11PostfixEx
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   %7 = load ptr, ptr %args, align 8
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args1) #19
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args1) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args1, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store i8 44, ptr %K.i.i.i, align 8
@@ -15814,12 +15814,12 @@ if.then.i55:                                      ; preds = %if.end13
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i55
-  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #20
+  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #21
   %cmp.i.i56 = icmp eq ptr %call3.i.i, null
   br i1 %cmp.i.i56, label %if.then4.i.i, label %if.end.i.i57
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i57:                                     ; preds = %if.then.i.i
@@ -15835,13 +15835,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %i
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i55
-  %call9.i.i = tail call ptr @realloc(ptr noundef %11, i64 noundef %mul.i.i) #22
+  %call9.i.i = tail call ptr @realloc(ptr noundef %11, i64 noundef %mul.i.i) #23
   store ptr %call9.i.i, ptr %Names, align 16
   %cmp12.i.i = icmp eq ptr %call9.i.i, null
   br i1 %cmp12.i.i, label %if.then13.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %if.else.i.i, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
@@ -15933,12 +15933,12 @@ if.then.i98:                                      ; preds = %if.end32
   br i1 %cmp.i.i.i104, label %if.then.i.i113, label %if.else.i.i106
 
 if.then.i.i113:                                   ; preds = %if.then.i98
-  %call3.i.i114 = tail call noalias ptr @malloc(i64 noundef %mul.i.i105) #20
+  %call3.i.i114 = tail call noalias ptr @malloc(i64 noundef %mul.i.i105) #21
   %cmp.i.i115 = icmp eq ptr %call3.i.i114, null
   br i1 %cmp.i.i115, label %if.then4.i.i120, label %if.end.i.i116
 
 if.then4.i.i120:                                  ; preds = %if.then.i.i113
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i116:                                    ; preds = %if.then.i.i113
@@ -15954,13 +15954,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i119: ; preds =
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i109
 
 if.else.i.i106:                                   ; preds = %if.then.i98
-  %call9.i.i107 = tail call ptr @realloc(ptr noundef %28, i64 noundef %mul.i.i105) #22
+  %call9.i.i107 = tail call ptr @realloc(ptr noundef %28, i64 noundef %mul.i.i105) #23
   store ptr %call9.i.i107, ptr %Names, align 16
   %cmp12.i.i108 = icmp eq ptr %call9.i.i107, null
   br i1 %cmp12.i.i108, label %if.then13.i.i112, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i109
 
 if.then13.i.i112:                                 ; preds = %if.else.i.i106
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i109: ; preds = %if.else.i.i106, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i119
@@ -16000,12 +16000,12 @@ while.end34:                                      ; preds = %land.lhs.true.i87
   br i1 %cmp.i.i.i127, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_7NewExprEJRNS0_9NodeArrayERPNS0_4NodeES8_RbSC_EEESA_DpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %while.end34
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -16069,12 +16069,12 @@ if.end40:                                         ; preds = %land.lhs.true.i130
   br i1 %cmp.i.i.i138, label %if.then.i.i.i164, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_7NewExprEJRNS0_9NodeArrayERPNS0_4NodeES7_RbSC_EEESA_DpOT0_.exit
 
 if.then.i.i.i164:                                 ; preds = %if.end40
-  %call.i6.i.i.i165 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i165 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i166 = icmp eq ptr %call.i6.i.i.i165, null
   br i1 %cmp.i7.i.i.i166, label %if.then.i9.i.i.i169, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i167
 
 if.then.i9.i.i.i169:                              ; preds = %if.then.i.i.i164
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i167: ; preds = %if.then.i.i.i164
@@ -16129,8 +16129,8 @@ return:                                           ; preds = %while.body, %while.
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13EnclosingExprEJRA11_KcRPNS0_4NodeERA2_S7_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13EnclosingExprEJRA11_KcRPNS0_4NodeERA2_S7_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -16141,12 +16141,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13EnclosingExprEJRA11_KcRPNS3_4NodeERA2_S5_EEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -16191,8 +16191,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15ConditionalExprEJRPNS0_4NodeES9_S9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15ConditionalExprEJRPNS0_4NodeES9_S9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -16203,12 +16203,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15ConditionalExprEJRPNS3_4NodeES7_S7_EEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -16251,8 +16251,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15Condition
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8CastExprEJRA17_KcRPNS0_4NodeESC_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8CastExprEJRA17_KcRPNS0_4NodeESC_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -16263,12 +16263,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJRA17_KcRPNS3_4NodeESA_EEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -16312,8 +16312,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJ
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8CastExprEJRA12_KcRPNS0_4NodeESC_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8CastExprEJRA12_KcRPNS0_4NodeESC_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -16324,12 +16324,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJRA12_KcRPNS3_4NodeESA_EEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -16373,8 +16373,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJ
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_22ParameterPackExpansionEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_22ParameterPackExpansionEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -16385,12 +16385,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle22ParameterPackExpansionEJRPNS3_4NodeEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -16427,8 +16427,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle22Parameter
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13EnclosingExprEJRA9_KcRPNS0_4NodeERA2_S7_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(9) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13EnclosingExprEJRA9_KcRPNS0_4NodeERA2_S7_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(9) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -16439,12 +16439,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13EnclosingExprEJRA9_KcRPNS3_4NodeERA2_S5_EEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -16466,7 +16466,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -64
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -56
@@ -16491,8 +16491,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_19SizeofParamPackExprEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_19SizeofParamPackExprEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -16503,12 +16503,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle19SizeofParamPackExprEJRPNS3_4NodeEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -16545,8 +16545,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle19SizeofPar
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13EnclosingExprEJRA12_KcRPNS0_4NodeERA2_S7_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13EnclosingExprEJRA12_KcRPNS0_4NodeERA2_S7_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -16557,12 +16557,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13EnclosingExprEJRA12_KcRPNS3_4NodeERA2_S5_EEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -16607,8 +16607,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13NodeArrayNodeEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13NodeArrayNodeEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -16619,12 +16619,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13NodeArrayNodeEJNS3_9NodeArrayEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -16665,8 +16665,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13NodeArray
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12InitListExprEJRPNS0_4NodeENS0_9NodeArrayEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12InitListExprEJRPNS0_4NodeENS0_9NodeArrayEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -16677,12 +16677,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12InitListExprEJRPNS3_4NodeENS3_9NodeArrayEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -16726,8 +16726,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12InitListE
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA6_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(6) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA6_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(6) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -16738,12 +16738,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA6_KcEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -16765,7 +16765,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8
@@ -16783,8 +16783,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9ThrowExprEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9ThrowExprEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -16795,12 +16795,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle9ThrowExprEJRPNS3_4NodeEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -16837,8 +16837,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle9ThrowExprE
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE19parseIntegerLiteralE10StringView(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr %Lit.coerce0, ptr %Lit.coerce1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE19parseIntegerLiteralE10StringView(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr %Lit.coerce0, ptr %Lit.coerce1) unnamed_addr #13 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
   %Last.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -16906,12 +16906,12 @@ if.then:                                          ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_14IntegerLiteralEJR10StringViewS8_EEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -16957,8 +16957,8 @@ return:                                           ; preds = %land.lhs.true.i, %i
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8BoolExprEJiEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8BoolExprEJiEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -16969,12 +16969,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8BoolExprEJiEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -17013,8 +17013,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8BoolExprEJ
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15IntegerCastExprEJRPNS0_4NodeER10StringViewEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15IntegerCastExprEJRPNS0_4NodeER10StringViewEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -17025,12 +17025,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15IntegerCastExprEJRPNS3_4NodeER10StringViewEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -17101,7 +17101,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %3, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -17111,7 +17111,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -17141,7 +17141,7 @@ if.then.i.i19:                                    ; preds = %if.end.i13
   %mul.i.i20 = shl i64 %7, 1
   %spec.store.select.i.i21 = tail call i64 @llvm.umax.i64(i64 %mul.i.i20, i64 %add.i.i15)
   store i64 %spec.store.select.i.i21, ptr %BufferCapacity.i.i, align 8
-  %call.i.i22 = tail call ptr @realloc(ptr noundef %.pre.i18, i64 noundef %spec.store.select.i.i21) #22
+  %call.i.i22 = tail call ptr @realloc(ptr noundef %.pre.i18, i64 noundef %spec.store.select.i.i21) #23
   store ptr %call.i.i22, ptr %S, align 8
   %cmp14.i.i23 = icmp eq ptr %call.i.i22, null
   br i1 %cmp14.i.i23, label %if.then15.i.i29, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i24
@@ -17151,7 +17151,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i24: ; preds = %if.then.i.i19
   br label %_ZN12OutputStream4growEm.exit.i26
 
 if.then15.i.i29:                                  ; preds = %if.then.i.i19
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i26:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i24, %if.end.i13
@@ -17176,7 +17176,7 @@ if.then.i.i44:                                    ; preds = %if.end.i38
   %mul.i.i45 = shl i64 %12, 1
   %spec.store.select.i.i46 = tail call i64 @llvm.umax.i64(i64 %mul.i.i45, i64 %add.i.i40)
   store i64 %spec.store.select.i.i46, ptr %BufferCapacity.i.i, align 8
-  %call.i.i47 = tail call ptr @realloc(ptr noundef %.pre.i43, i64 noundef %spec.store.select.i.i46) #22
+  %call.i.i47 = tail call ptr @realloc(ptr noundef %.pre.i43, i64 noundef %spec.store.select.i.i46) #23
   store ptr %call.i.i47, ptr %S, align 8
   %cmp14.i.i48 = icmp eq ptr %call.i.i47, null
   br i1 %cmp14.i.i48, label %if.then15.i.i54, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i49
@@ -17186,7 +17186,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i49: ; preds = %if.then.i.i44
   br label %_ZN12OutputStream4growEm.exit.i51
 
 if.then15.i.i54:                                  ; preds = %if.then.i.i44
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i51:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i49, %if.end.i38
@@ -17220,7 +17220,7 @@ if.then.i.i70:                                    ; preds = %if.end.i64
   %mul.i.i71 = shl i64 %19, 1
   %spec.store.select.i.i72 = tail call i64 @llvm.umax.i64(i64 %mul.i.i71, i64 %add.i.i66)
   store i64 %spec.store.select.i.i72, ptr %BufferCapacity.i.i67, align 8
-  %call.i.i73 = tail call ptr @realloc(ptr noundef %.pre.i69, i64 noundef %spec.store.select.i.i72) #22
+  %call.i.i73 = tail call ptr @realloc(ptr noundef %.pre.i69, i64 noundef %spec.store.select.i.i72) #23
   store ptr %call.i.i73, ptr %S, align 8
   %cmp14.i.i74 = icmp eq ptr %call.i.i73, null
   br i1 %cmp14.i.i74, label %if.then15.i.i80, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i75
@@ -17230,7 +17230,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i75: ; preds = %if.then.i.i70
   br label %_ZN12OutputStream4growEm.exit.i77
 
 if.then15.i.i80:                                  ; preds = %if.then.i.i70
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i77:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i75, %if.end.i64
@@ -17264,7 +17264,7 @@ if.then.i.i96:                                    ; preds = %if.end.i90
   %mul.i.i97 = shl i64 %26, 1
   %spec.store.select.i.i98 = tail call i64 @llvm.umax.i64(i64 %mul.i.i97, i64 %add.i.i92)
   store i64 %spec.store.select.i.i98, ptr %BufferCapacity.i.i67, align 8
-  %call.i.i99 = tail call ptr @realloc(ptr noundef %.pre.i95, i64 noundef %spec.store.select.i.i98) #22
+  %call.i.i99 = tail call ptr @realloc(ptr noundef %.pre.i95, i64 noundef %spec.store.select.i.i98) #23
   store ptr %call.i.i99, ptr %S, align 8
   %cmp14.i.i100 = icmp eq ptr %call.i.i99, null
   br i1 %cmp14.i.i100, label %if.then15.i.i106, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i101
@@ -17274,7 +17274,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i101: ; preds = %if.then.i.i96
   br label %_ZN12OutputStream4growEm.exit.i103
 
 if.then15.i.i106:                                 ; preds = %if.then.i.i96
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i103:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i101, %if.end.i90
@@ -17307,7 +17307,7 @@ if.then.i.i118:                                   ; preds = %if.end.i112
   %mul.i.i119 = shl i64 %30, 1
   %spec.store.select.i.i120 = tail call i64 @llvm.umax.i64(i64 %mul.i.i119, i64 %add.i.i114)
   store i64 %spec.store.select.i.i120, ptr %BufferCapacity.i.i115, align 8
-  %call.i.i121 = tail call ptr @realloc(ptr noundef %.pre.i117, i64 noundef %spec.store.select.i.i120) #22
+  %call.i.i121 = tail call ptr @realloc(ptr noundef %.pre.i117, i64 noundef %spec.store.select.i.i120) #23
   store ptr %call.i.i121, ptr %S, align 8
   %cmp14.i.i122 = icmp eq ptr %call.i.i121, null
   br i1 %cmp14.i.i122, label %if.then15.i.i128, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i123
@@ -17317,7 +17317,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i123: ; preds = %if.then.i.i11
   br label %_ZN12OutputStream4growEm.exit.i125
 
 if.then15.i.i128:                                 ; preds = %if.then.i.i118
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i125:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i123, %if.end.i112
@@ -17360,7 +17360,7 @@ if.then.i.i144:                                   ; preds = %if.end.i138
   %mul.i.i145 = shl i64 %37, 1
   %spec.store.select.i.i146 = tail call i64 @llvm.umax.i64(i64 %mul.i.i145, i64 %add.i.i140)
   store i64 %spec.store.select.i.i146, ptr %BufferCapacity.i.i141, align 8
-  %call.i.i147 = tail call ptr @realloc(ptr noundef %.pre.i143, i64 noundef %spec.store.select.i.i146) #22
+  %call.i.i147 = tail call ptr @realloc(ptr noundef %.pre.i143, i64 noundef %spec.store.select.i.i146) #23
   store ptr %call.i.i147, ptr %S, align 8
   %cmp14.i.i148 = icmp eq ptr %call.i.i147, null
   br i1 %cmp14.i.i148, label %if.then15.i.i154, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i149
@@ -17370,7 +17370,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i149: ; preds = %if.then.i.i14
   br label %_ZN12OutputStream4growEm.exit.i151
 
 if.then15.i.i154:                                 ; preds = %if.then.i.i144
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i151:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i149, %if.end.i138
@@ -17396,7 +17396,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle14IntegerLiteralD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -17428,7 +17428,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %2, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -17438,7 +17438,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -17464,12 +17464,12 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle8BoolExprD0Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @isxdigit(i32 noundef) local_unnamed_addr #13
+declare i32 @isxdigit(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle16FloatLiteralImplIfE9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #1 comdat align 2 {
@@ -17534,7 +17534,7 @@ _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %while.body.i.i, %fo
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %num, i8 0, i64 24, i1 false)
   %7 = load float, ptr %0, align 4
   %conv28 = fpext float %7 to double
-  %call29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %num, i64 noundef 24, ptr noundef nonnull @.str.2, double noundef %conv28) #21
+  %call29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %num, i64 noundef 24, ptr noundef nonnull @.str.2, double noundef %conv28) #22
   %idx.ext = sext i32 %call29 to i64
   %cmp.i = icmp eq i32 %call29, 0
   br i1 %cmp.i, label %if.end, label %if.end.i
@@ -17553,7 +17553,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %9, 1
   %spec.store.select.i.i = call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %s, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -17563,7 +17563,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -17589,15 +17589,15 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle16FloatLiteralImplIfED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle16FloatLiteralImplIdE9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #1 comdat align 2 {
@@ -17661,7 +17661,7 @@ while.body.i.i:                                   ; preds = %for.end, %while.bod
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %while.body.i.i, %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %num, i8 0, i64 32, i1 false)
   %7 = load double, ptr %0, align 8
-  %call28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %num, i64 noundef 32, ptr noundef nonnull @.str.3, double noundef %7) #21
+  %call28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %num, i64 noundef 32, ptr noundef nonnull @.str.3, double noundef %7) #22
   %idx.ext = sext i32 %call28 to i64
   %cmp.i = icmp eq i32 %call28, 0
   br i1 %cmp.i, label %if.end, label %if.end.i
@@ -17680,7 +17680,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %9, 1
   %spec.store.select.i.i = call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %s, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -17690,7 +17690,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -17716,7 +17716,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle16FloatLiteralImplIdED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -17782,7 +17782,7 @@ while.body.i.i:                                   ; preds = %for.end, %while.bod
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %while.body.i.i, %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %num, i8 0, i64 40, i1 false)
   %7 = load x86_fp80, ptr %0, align 16
-  %call28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %num, i64 noundef 40, ptr noundef nonnull @.str.4, x86_fp80 noundef %7) #21
+  %call28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %num, i64 noundef 40, ptr noundef nonnull @.str.4, x86_fp80 noundef %7) #22
   %idx.ext = sext i32 %call28 to i64
   %cmp.i = icmp eq i32 %call28, 0
   br i1 %cmp.i, label %if.end, label %if.end.i
@@ -17801,7 +17801,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %9, 1
   %spec.store.select.i.i = call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %s, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -17811,7 +17811,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -17837,7 +17837,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle16FloatLiteralImplIeED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -17857,7 +17857,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -17867,7 +17867,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -17883,7 +17883,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
@@ -17893,7 +17893,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStream4g
   %vtable2.i = load ptr, ptr %5, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i13
 
 if.end.i13:                                       ; preds = %if.then.i, %_ZN12OutputStream4growEm.exit.i
@@ -17908,7 +17908,7 @@ if.then.i.i19:                                    ; preds = %if.end.i13
   %mul.i.i20 = shl i64 %10, 1
   %spec.store.select.i.i21 = tail call i64 @llvm.umax.i64(i64 %mul.i.i20, i64 %add.i.i15)
   store i64 %spec.store.select.i.i21, ptr %BufferCapacity.i.i, align 8
-  %call.i.i22 = tail call ptr @realloc(ptr noundef %.pre.i18, i64 noundef %spec.store.select.i.i21) #22
+  %call.i.i22 = tail call ptr @realloc(ptr noundef %.pre.i18, i64 noundef %spec.store.select.i.i21) #23
   store ptr %call.i.i22, ptr %S, align 8
   %cmp14.i.i23 = icmp eq ptr %call.i.i22, null
   br i1 %cmp14.i.i23, label %if.then15.i.i29, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i24
@@ -17918,7 +17918,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i24: ; preds = %if.then.i.i19
   br label %_ZN12OutputStream4growEm.exit.i26
 
 if.then15.i.i29:                                  ; preds = %if.then.i.i19
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i26:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i24, %if.end.i13
@@ -17950,7 +17950,7 @@ if.then.i.i41:                                    ; preds = %if.end.i35
   %mul.i.i42 = shl i64 %14, 1
   %spec.store.select.i.i43 = tail call i64 @llvm.umax.i64(i64 %mul.i.i42, i64 %add.i.i37)
   store i64 %spec.store.select.i.i43, ptr %BufferCapacity.i.i, align 8
-  %call.i.i44 = tail call ptr @realloc(ptr noundef %.pre.i40, i64 noundef %spec.store.select.i.i43) #22
+  %call.i.i44 = tail call ptr @realloc(ptr noundef %.pre.i40, i64 noundef %spec.store.select.i.i43) #23
   store ptr %call.i.i44, ptr %S, align 8
   %cmp14.i.i45 = icmp eq ptr %call.i.i44, null
   br i1 %cmp14.i.i45, label %if.then15.i.i51, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i46
@@ -17960,7 +17960,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i46: ; preds = %if.then.i.i41
   br label %_ZN12OutputStream4growEm.exit.i48
 
 if.then15.i.i51:                                  ; preds = %if.then.i.i41
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i48:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i46, %if.end.i35
@@ -17986,7 +17986,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle15IntegerCastExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -18006,7 +18006,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -18016,7 +18016,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -18048,7 +18048,7 @@ if.then.i.i13:                                    ; preds = %if.end.i7
   %mul.i.i14 = shl i64 %5, 1
   %spec.store.select.i.i15 = tail call i64 @llvm.umax.i64(i64 %mul.i.i14, i64 %add.i.i9)
   store i64 %spec.store.select.i.i15, ptr %BufferCapacity.i.i, align 8
-  %call.i.i16 = tail call ptr @realloc(ptr noundef %.pre.i12, i64 noundef %spec.store.select.i.i15) #22
+  %call.i.i16 = tail call ptr @realloc(ptr noundef %.pre.i12, i64 noundef %spec.store.select.i.i15) #23
   store ptr %call.i.i16, ptr %S, align 8
   %cmp14.i.i17 = icmp eq ptr %call.i.i16, null
   br i1 %cmp14.i.i17, label %if.then15.i.i23, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i18
@@ -18058,7 +18058,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i18: ; preds = %if.then.i.i13
   br label %_ZN12OutputStream4growEm.exit.i20
 
 if.then15.i.i23:                                  ; preds = %if.then.i.i13
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i20:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i18, %if.end.i7
@@ -18084,7 +18084,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle13FunctionParamD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -18108,7 +18108,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %2, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -18119,7 +18119,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStreampLEc.exit
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit:                       ; preds = %entry, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -18144,7 +18144,7 @@ if.then2:                                         ; preds = %if.then
   %vtable.i = load ptr, ptr %6, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %7 = load ptr, ptr %vfn.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %6, i64 9
   %8 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %8, 1
@@ -18154,7 +18154,7 @@ if.then.i:                                        ; preds = %if.then2
   %vtable2.i = load ptr, ptr %6, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %9 = load ptr, ptr %vfn3.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %if.then2, %if.then.i
@@ -18169,7 +18169,7 @@ if.then.i.i22:                                    ; preds = %_ZNK4llvh16itanium_
   %mul.i.i23 = shl i64 %11, 1
   %spec.store.select.i.i24 = tail call i64 @llvm.umax.i64(i64 %mul.i.i23, i64 %add.i.i18)
   store i64 %spec.store.select.i.i24, ptr %BufferCapacity.i.i, align 8
-  %call.i.i25 = tail call ptr @realloc(ptr noundef %.pre.i21, i64 noundef %spec.store.select.i.i24) #22
+  %call.i.i25 = tail call ptr @realloc(ptr noundef %.pre.i21, i64 noundef %spec.store.select.i.i24) #23
   store ptr %call.i.i25, ptr %S, align 8
   %cmp14.i.i26 = icmp eq ptr %call.i.i25, null
   br i1 %cmp14.i.i26, label %if.then15.i.i32, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i27
@@ -18180,7 +18180,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i27: ; preds = %if.then.i.i22
   br label %_ZN12OutputStreampLEc.exit33
 
 if.then15.i.i32:                                  ; preds = %if.then.i.i22
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit33:                     ; preds = %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i27
@@ -18212,7 +18212,7 @@ if.then.i.i39:                                    ; preds = %if.end.i
   %mul.i.i40 = shl i64 %14, 1
   %spec.store.select.i.i41 = tail call i64 @llvm.umax.i64(i64 %mul.i.i40, i64 %add.i.i35)
   store i64 %spec.store.select.i.i41, ptr %BufferCapacity.i.i, align 8
-  %call.i.i42 = tail call ptr @realloc(ptr noundef %.pre.i38, i64 noundef %spec.store.select.i.i41) #22
+  %call.i.i42 = tail call ptr @realloc(ptr noundef %.pre.i38, i64 noundef %spec.store.select.i.i41) #23
   store ptr %call.i.i42, ptr %S, align 8
   %cmp14.i.i43 = icmp eq ptr %call.i.i42, null
   br i1 %cmp14.i.i43, label %if.then15.i.i45, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i44
@@ -18222,7 +18222,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i44: ; preds = %if.then.i.i39
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i45:                                  ; preds = %if.then.i.i39
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i44, %if.end.i
@@ -18247,7 +18247,7 @@ if.then.i.i51:                                    ; preds = %_ZN12OutputStreampL
   %mul.i.i52 = shl i64 %19, 1
   %spec.store.select.i.i53 = tail call i64 @llvm.umax.i64(i64 %mul.i.i52, i64 %add.i.i47)
   store i64 %spec.store.select.i.i53, ptr %BufferCapacity.i.i, align 8
-  %call.i.i54 = tail call ptr @realloc(ptr noundef %.pre.i50, i64 noundef %spec.store.select.i.i53) #22
+  %call.i.i54 = tail call ptr @realloc(ptr noundef %.pre.i50, i64 noundef %spec.store.select.i.i53) #23
   store ptr %call.i.i54, ptr %S, align 8
   %cmp14.i.i55 = icmp eq ptr %call.i.i54, null
   br i1 %cmp14.i.i55, label %if.then15.i.i62, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i56
@@ -18258,7 +18258,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i56: ; preds = %if.then.i.i51
   br label %_ZN12OutputStreampLEc.exit63
 
 if.then15.i.i62:                                  ; preds = %if.then.i.i51
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit63:                     ; preds = %_ZN12OutputStreampLE10StringView.exit, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i56
@@ -18282,7 +18282,7 @@ if.then.i.i75:                                    ; preds = %if.end.i69
   %mul.i.i76 = shl i64 %23, 1
   %spec.store.select.i.i77 = tail call i64 @llvm.umax.i64(i64 %mul.i.i76, i64 %add.i.i71)
   store i64 %spec.store.select.i.i77, ptr %BufferCapacity.i.i, align 8
-  %call.i.i78 = tail call ptr @realloc(ptr noundef %.pre.i74, i64 noundef %spec.store.select.i.i77) #22
+  %call.i.i78 = tail call ptr @realloc(ptr noundef %.pre.i74, i64 noundef %spec.store.select.i.i77) #23
   store ptr %call.i.i78, ptr %S, align 8
   %cmp14.i.i79 = icmp eq ptr %call.i.i78, null
   br i1 %cmp14.i.i79, label %if.then15.i.i85, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i80
@@ -18292,7 +18292,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i80: ; preds = %if.then.i.i75
   br label %_ZN12OutputStream4growEm.exit.i82
 
 if.then15.i.i85:                                  ; preds = %if.then.i.i75
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i82:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i80, %if.end.i69
@@ -18324,7 +18324,7 @@ if.then.i.i97:                                    ; preds = %if.end.i91
   %mul.i.i98 = shl i64 %27, 1
   %spec.store.select.i.i99 = tail call i64 @llvm.umax.i64(i64 %mul.i.i98, i64 %add.i.i93)
   store i64 %spec.store.select.i.i99, ptr %BufferCapacity.i.i, align 8
-  %call.i.i100 = tail call ptr @realloc(ptr noundef %.pre.i96, i64 noundef %spec.store.select.i.i99) #22
+  %call.i.i100 = tail call ptr @realloc(ptr noundef %.pre.i96, i64 noundef %spec.store.select.i.i99) #23
   store ptr %call.i.i100, ptr %S, align 8
   %cmp14.i.i101 = icmp eq ptr %call.i.i100, null
   br i1 %cmp14.i.i101, label %if.then15.i.i107, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i102
@@ -18334,7 +18334,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i102: ; preds = %if.then.i.i97
   br label %_ZN12OutputStream4growEm.exit.i104
 
 if.then15.i.i107:                                 ; preds = %if.then.i.i97
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i104:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i102, %if.end.i91
@@ -18359,7 +18359,7 @@ if.then.i.i114:                                   ; preds = %_ZN12OutputStreampL
   %mul.i.i115 = shl i64 %32, 1
   %spec.store.select.i.i116 = tail call i64 @llvm.umax.i64(i64 %mul.i.i115, i64 %add.i.i110)
   store i64 %spec.store.select.i.i116, ptr %BufferCapacity.i.i, align 8
-  %call.i.i117 = tail call ptr @realloc(ptr noundef %.pre.i113, i64 noundef %spec.store.select.i.i116) #22
+  %call.i.i117 = tail call ptr @realloc(ptr noundef %.pre.i113, i64 noundef %spec.store.select.i.i116) #23
   store ptr %call.i.i117, ptr %S, align 8
   %cmp14.i.i118 = icmp eq ptr %call.i.i117, null
   br i1 %cmp14.i.i118, label %if.then15.i.i125, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i119
@@ -18370,7 +18370,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i119: ; preds = %if.then.i.i11
   br label %_ZN12OutputStreampLEc.exit126
 
 if.then15.i.i125:                                 ; preds = %if.then.i.i114
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit126:                    ; preds = %_ZN12OutputStreampLE10StringView.exit108, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i119
@@ -18396,7 +18396,7 @@ if.then.i.i132:                                   ; preds = %if.else
   %mul.i.i133 = shl i64 %36, 1
   %spec.store.select.i.i134 = call i64 @llvm.umax.i64(i64 %mul.i.i133, i64 %add.i.i128)
   store i64 %spec.store.select.i.i134, ptr %BufferCapacity.i.i, align 8
-  %call.i.i135 = call ptr @realloc(ptr noundef %.pre.i131, i64 noundef %spec.store.select.i.i134) #22
+  %call.i.i135 = call ptr @realloc(ptr noundef %.pre.i131, i64 noundef %spec.store.select.i.i134) #23
   store ptr %call.i.i135, ptr %S, align 8
   %cmp14.i.i136 = icmp eq ptr %call.i.i135, null
   br i1 %cmp14.i.i136, label %if.then15.i.i143, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i137
@@ -18407,7 +18407,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i137: ; preds = %if.then.i.i13
   br label %_ZN12OutputStreampLEc.exit144
 
 if.then15.i.i143:                                 ; preds = %if.then.i.i132
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit144:                    ; preds = %if.else, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i137
@@ -18439,7 +18439,7 @@ if.then.i.i155:                                   ; preds = %if.end.i149
   %mul.i.i156 = shl i64 %39, 1
   %spec.store.select.i.i157 = call i64 @llvm.umax.i64(i64 %mul.i.i156, i64 %add.i.i151)
   store i64 %spec.store.select.i.i157, ptr %BufferCapacity.i.i, align 8
-  %call.i.i158 = call ptr @realloc(ptr noundef %.pre.i154, i64 noundef %spec.store.select.i.i157) #22
+  %call.i.i158 = call ptr @realloc(ptr noundef %.pre.i154, i64 noundef %spec.store.select.i.i157) #23
   store ptr %call.i.i158, ptr %S, align 8
   %cmp14.i.i159 = icmp eq ptr %call.i.i158, null
   br i1 %cmp14.i.i159, label %if.then15.i.i165, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i160
@@ -18449,7 +18449,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i160: ; preds = %if.then.i.i15
   br label %_ZN12OutputStream4growEm.exit.i162
 
 if.then15.i.i165:                                 ; preds = %if.then.i.i155
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i162:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i160, %if.end.i149
@@ -18474,7 +18474,7 @@ if.then.i.i180:                                   ; preds = %if.end.i174
   %mul.i.i181 = shl i64 %44, 1
   %spec.store.select.i.i182 = call i64 @llvm.umax.i64(i64 %mul.i.i181, i64 %add.i.i176)
   store i64 %spec.store.select.i.i182, ptr %BufferCapacity.i.i, align 8
-  %call.i.i183 = call ptr @realloc(ptr noundef %.pre.i179, i64 noundef %spec.store.select.i.i182) #22
+  %call.i.i183 = call ptr @realloc(ptr noundef %.pre.i179, i64 noundef %spec.store.select.i.i182) #23
   store ptr %call.i.i183, ptr %S, align 8
   %cmp14.i.i184 = icmp eq ptr %call.i.i183, null
   br i1 %cmp14.i.i184, label %if.then15.i.i190, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i185
@@ -18484,7 +18484,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i185: ; preds = %if.then.i.i18
   br label %_ZN12OutputStream4growEm.exit.i187
 
 if.then15.i.i190:                                 ; preds = %if.then.i.i180
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i187:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i185, %if.end.i174
@@ -18511,7 +18511,7 @@ if.then.i.i197:                                   ; preds = %if.then21
   %mul.i.i198 = shl i64 %49, 1
   %spec.store.select.i.i199 = call i64 @llvm.umax.i64(i64 %mul.i.i198, i64 %add.i.i193)
   store i64 %spec.store.select.i.i199, ptr %BufferCapacity.i.i, align 8
-  %call.i.i200 = call ptr @realloc(ptr noundef %.pre.i196, i64 noundef %spec.store.select.i.i199) #22
+  %call.i.i200 = call ptr @realloc(ptr noundef %.pre.i196, i64 noundef %spec.store.select.i.i199) #23
   store ptr %call.i.i200, ptr %S, align 8
   %cmp14.i.i201 = icmp eq ptr %call.i.i200, null
   br i1 %cmp14.i.i201, label %if.then15.i.i208, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i202
@@ -18522,7 +18522,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i202: ; preds = %if.then.i.i19
   br label %_ZN12OutputStreampLEc.exit209
 
 if.then15.i.i208:                                 ; preds = %if.then.i.i197
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit209:                    ; preds = %if.then21, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i202
@@ -18552,7 +18552,7 @@ if.then.i.i220:                                   ; preds = %if.end.i214
   %mul.i.i221 = shl i64 %52, 1
   %spec.store.select.i.i222 = call i64 @llvm.umax.i64(i64 %mul.i.i221, i64 %add.i.i216)
   store i64 %spec.store.select.i.i222, ptr %BufferCapacity.i.i, align 8
-  %call.i.i223 = call ptr @realloc(ptr noundef %.pre.i219, i64 noundef %spec.store.select.i.i222) #22
+  %call.i.i223 = call ptr @realloc(ptr noundef %.pre.i219, i64 noundef %spec.store.select.i.i222) #23
   store ptr %call.i.i223, ptr %S, align 8
   %cmp14.i.i224 = icmp eq ptr %call.i.i223, null
   br i1 %cmp14.i.i224, label %if.then15.i.i230, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i225
@@ -18562,7 +18562,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i225: ; preds = %if.then.i.i22
   br label %_ZN12OutputStream4growEm.exit.i227
 
 if.then15.i.i230:                                 ; preds = %if.then.i.i220
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i227:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i225, %if.end.i214
@@ -18587,7 +18587,7 @@ if.then.i.i237:                                   ; preds = %_ZN12OutputStreampL
   %mul.i.i238 = shl i64 %57, 1
   %spec.store.select.i.i239 = call i64 @llvm.umax.i64(i64 %mul.i.i238, i64 %add.i.i233)
   store i64 %spec.store.select.i.i239, ptr %BufferCapacity.i.i, align 8
-  %call.i.i240 = call ptr @realloc(ptr noundef %.pre.i236, i64 noundef %spec.store.select.i.i239) #22
+  %call.i.i240 = call ptr @realloc(ptr noundef %.pre.i236, i64 noundef %spec.store.select.i.i239) #23
   store ptr %call.i.i240, ptr %S, align 8
   %cmp14.i.i241 = icmp eq ptr %call.i.i240, null
   br i1 %cmp14.i.i241, label %if.then15.i.i248, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i242
@@ -18598,7 +18598,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i242: ; preds = %if.then.i.i23
   br label %_ZN12OutputStreampLEc.exit249
 
 if.then15.i.i248:                                 ; preds = %if.then.i.i237
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit249:                    ; preds = %_ZN12OutputStreampLE10StringView.exit231, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i242
@@ -18612,7 +18612,7 @@ _ZN12OutputStreampLEc.exit249:                    ; preds = %_ZN12OutputStreampL
   %vtable.i250 = load ptr, ptr %60, align 8
   %vfn.i251 = getelementptr inbounds i8, ptr %vtable.i250, i64 32
   %61 = load ptr, ptr %vfn.i251, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(12) %60, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  call void %61(ptr noundef nonnull align 8 dereferenceable(12) %60, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i252 = getelementptr inbounds i8, ptr %60, i64 9
   %62 = load i8, ptr %RHSComponentCache.i252, align 1
   %cmp.not.i253 = icmp eq i8 %62, 1
@@ -18622,7 +18622,7 @@ if.then.i254:                                     ; preds = %_ZN12OutputStreampL
   %vtable2.i255 = load ptr, ptr %60, align 8
   %vfn3.i256 = getelementptr inbounds i8, ptr %vtable2.i255, i64 40
   %63 = load ptr, ptr %vfn3.i256, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(12) %60, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  call void %63(ptr noundef nonnull align 8 dereferenceable(12) %60, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then.i254, %_ZN12OutputStreampLEc.exit249, %_ZN12OutputStream4growEm.exit.i187, %_ZN12OutputStreampLEc.exit126
@@ -18637,7 +18637,7 @@ if.then.i.i264:                                   ; preds = %if.end29
   %mul.i.i265 = shl i64 %65, 1
   %spec.store.select.i.i266 = call i64 @llvm.umax.i64(i64 %mul.i.i265, i64 %add.i.i260)
   store i64 %spec.store.select.i.i266, ptr %BufferCapacity.i.i, align 8
-  %call.i.i267 = call ptr @realloc(ptr noundef %.pre.i263, i64 noundef %spec.store.select.i.i266) #22
+  %call.i.i267 = call ptr @realloc(ptr noundef %.pre.i263, i64 noundef %spec.store.select.i.i266) #23
   store ptr %call.i.i267, ptr %S, align 8
   %cmp14.i.i268 = icmp eq ptr %call.i.i267, null
   br i1 %cmp14.i.i268, label %if.then15.i.i275, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i269
@@ -18648,7 +18648,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i269: ; preds = %if.then.i.i26
   br label %_ZN12OutputStreampLEc.exit276
 
 if.then15.i.i275:                                 ; preds = %if.then.i.i264
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit276:                    ; preds = %if.end29, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i269
@@ -18670,7 +18670,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle8FoldExprD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -18694,7 +18694,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %4, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %2, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -18705,7 +18705,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStreampLEc.exit
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit:                       ; preds = %entry, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -18729,7 +18729,7 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %entry, %if.then.i._
   %Child.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %7, ptr %Child.i, align 8
   %8 = load ptr, ptr %this, align 8
-  call void @_ZNK4llvh16itanium_demangle22ParameterPackExpansion9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %8) #21
+  call void @_ZNK4llvh16itanium_demangle22ParameterPackExpansion9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   %9 = load i8, ptr %RHSComponentCache.i.i, align 1
   %cmp.not.i = icmp eq i8 %9, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
@@ -18738,7 +18738,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStreampL
   %vtable2.i = load ptr, ptr %ref.tmp, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %10 = load ptr, ptr %vfn3.i, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %8) #21
+  call void %10(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %_ZN12OutputStreampLEc.exit, %if.then.i
@@ -18756,7 +18756,7 @@ if.then.i.i6:                                     ; preds = %_ZNK4llvh16itanium_
   %mul.i.i7 = shl i64 %13, 1
   %spec.store.select.i.i8 = call i64 @llvm.umax.i64(i64 %mul.i.i7, i64 %add.i.i2)
   store i64 %spec.store.select.i.i8, ptr %BufferCapacity.i.i3, align 8
-  %call.i.i9 = call ptr @realloc(ptr noundef %.pre.i5, i64 noundef %spec.store.select.i.i8) #22
+  %call.i.i9 = call ptr @realloc(ptr noundef %.pre.i5, i64 noundef %spec.store.select.i.i8) #23
   store ptr %call.i.i9, ptr %11, align 8
   %cmp14.i.i10 = icmp eq ptr %call.i.i9, null
   br i1 %cmp14.i.i10, label %if.then15.i.i16, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i11
@@ -18767,7 +18767,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i11: ; preds = %if.then.i.i6
   br label %_ZN12OutputStreampLEc.exit17
 
 if.then15.i.i16:                                  ; preds = %if.then.i.i6
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit17:                     ; preds = %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i11
@@ -18802,7 +18802,7 @@ entry:
   %vtable.i = load ptr, ptr %3, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %4 = load ptr, ptr %vfn.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %3, i64 9
   %5 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %5, 1
@@ -18812,7 +18812,7 @@ if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %3, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %6 = load ptr, ptr %vfn3.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %entry, %if.then.i
@@ -18843,7 +18843,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %9, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -18853,7 +18853,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -18878,7 +18878,7 @@ if.then.i.i31:                                    ; preds = %if.end.i25
   %mul.i.i32 = shl i64 %14, 1
   %spec.store.select.i.i33 = tail call i64 @llvm.umax.i64(i64 %mul.i.i32, i64 %add.i.i27)
   store i64 %spec.store.select.i.i33, ptr %BufferCapacity.i.i28, align 8
-  %call.i.i34 = tail call ptr @realloc(ptr noundef %.pre.i30, i64 noundef %spec.store.select.i.i33) #22
+  %call.i.i34 = tail call ptr @realloc(ptr noundef %.pre.i30, i64 noundef %spec.store.select.i.i33) #23
   store ptr %call.i.i34, ptr %S, align 8
   %cmp14.i.i35 = icmp eq ptr %call.i.i34, null
   br i1 %cmp14.i.i35, label %if.then15.i.i41, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i36
@@ -18888,7 +18888,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i36: ; preds = %if.then.i.i31
   br label %_ZN12OutputStream4growEm.exit.i38
 
 if.then15.i.i41:                                  ; preds = %if.then.i.i31
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i38:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i36, %if.end.i25
@@ -18904,7 +18904,7 @@ _ZN12OutputStream4growEm.exit.i38:                ; preds = %if.then.i._ZN12Outp
   %vtable.i43 = load ptr, ptr %18, align 8
   %vfn.i44 = getelementptr inbounds i8, ptr %vtable.i43, i64 32
   %19 = load ptr, ptr %vfn.i44, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(12) %18, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(12) %18, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i45 = getelementptr inbounds i8, ptr %18, i64 9
   %20 = load i8, ptr %RHSComponentCache.i45, align 1
   %cmp.not.i46 = icmp eq i8 %20, 1
@@ -18914,7 +18914,7 @@ if.then.i47:                                      ; preds = %_ZN12OutputStream4g
   %vtable2.i48 = load ptr, ptr %18, align 8
   %vfn3.i49 = getelementptr inbounds i8, ptr %vtable2.i48, i64 40
   %21 = load ptr, ptr %vfn3.i49, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(12) %18, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(12) %18, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit51
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit51: ; preds = %_ZN12OutputStream4growEm.exit.i38, %if.then.i47
@@ -18936,7 +18936,7 @@ _ZN14SwapAndRestoreIjED2Ev.exit61:                ; preds = %_ZNK4llvh16itanium_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle22ParameterPackExpansionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -18976,7 +18976,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %3, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -18986,7 +18986,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -19013,7 +19013,7 @@ if.then.i.i30:                                    ; preds = %if.end.i24
   %mul.i.i31 = shl i64 %8, 1
   %spec.store.select.i.i32 = tail call i64 @llvm.umax.i64(i64 %mul.i.i31, i64 %add.i.i26)
   store i64 %spec.store.select.i.i32, ptr %BufferCapacity.i.i27, align 8
-  %call.i.i33 = tail call ptr @realloc(ptr noundef %.pre.i29, i64 noundef %spec.store.select.i.i32) #22
+  %call.i.i33 = tail call ptr @realloc(ptr noundef %.pre.i29, i64 noundef %spec.store.select.i.i32) #23
   store ptr %call.i.i33, ptr %S, align 8
   %cmp14.i.i34 = icmp eq ptr %call.i.i33, null
   br i1 %cmp14.i.i34, label %if.then15.i.i40, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i35
@@ -19023,7 +19023,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i35: ; preds = %if.then.i.i30
   br label %_ZN12OutputStream4growEm.exit.i37
 
 if.then15.i.i40:                                  ; preds = %if.then.i.i30
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i37:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i35, %if.end.i24
@@ -19039,7 +19039,7 @@ _ZN12OutputStream4growEm.exit.i37:                ; preds = %if.then.i._ZN12Outp
   %vtable.i = load ptr, ptr %12, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %13 = load ptr, ptr %vfn.i, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %12, i64 9
   %14 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %14, 1
@@ -19049,7 +19049,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStream4g
   %vtable2.i = load ptr, ptr %12, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %15 = load ptr, ptr %vfn3.i, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i50
 
 if.end.i50:                                       ; preds = %if.then.i, %_ZN12OutputStream4growEm.exit.i37
@@ -19064,7 +19064,7 @@ if.then.i.i56:                                    ; preds = %if.end.i50
   %mul.i.i57 = shl i64 %17, 1
   %spec.store.select.i.i58 = tail call i64 @llvm.umax.i64(i64 %mul.i.i57, i64 %add.i.i52)
   store i64 %spec.store.select.i.i58, ptr %BufferCapacity.i.i27, align 8
-  %call.i.i59 = tail call ptr @realloc(ptr noundef %.pre.i55, i64 noundef %spec.store.select.i.i58) #22
+  %call.i.i59 = tail call ptr @realloc(ptr noundef %.pre.i55, i64 noundef %spec.store.select.i.i58) #23
   store ptr %call.i.i59, ptr %S, align 8
   %cmp14.i.i60 = icmp eq ptr %call.i.i59, null
   br i1 %cmp14.i.i60, label %if.then15.i.i66, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i61
@@ -19074,7 +19074,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i61: ; preds = %if.then.i.i56
   br label %_ZN12OutputStream4growEm.exit.i63
 
 if.then15.i.i66:                                  ; preds = %if.then.i.i56
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i63:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i61, %if.end.i50
@@ -19104,7 +19104,7 @@ if.then.i.i78:                                    ; preds = %if.end.i72
   %mul.i.i79 = shl i64 %21, 1
   %spec.store.select.i.i80 = tail call i64 @llvm.umax.i64(i64 %mul.i.i79, i64 %add.i.i74)
   store i64 %spec.store.select.i.i80, ptr %BufferCapacity.i.i27, align 8
-  %call.i.i81 = tail call ptr @realloc(ptr noundef %.pre.i77, i64 noundef %spec.store.select.i.i80) #22
+  %call.i.i81 = tail call ptr @realloc(ptr noundef %.pre.i77, i64 noundef %spec.store.select.i.i80) #23
   store ptr %call.i.i81, ptr %S, align 8
   %cmp14.i.i82 = icmp eq ptr %call.i.i81, null
   br i1 %cmp14.i.i82, label %if.then15.i.i88, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i83
@@ -19114,7 +19114,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i83: ; preds = %if.then.i.i78
   br label %_ZN12OutputStream4growEm.exit.i85
 
 if.then15.i.i88:                                  ; preds = %if.then.i.i78
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i85:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i83, %if.end.i72
@@ -19139,7 +19139,7 @@ if.then.i.i103:                                   ; preds = %if.end.i97
   %mul.i.i104 = shl i64 %26, 1
   %spec.store.select.i.i105 = tail call i64 @llvm.umax.i64(i64 %mul.i.i104, i64 %add.i.i99)
   store i64 %spec.store.select.i.i105, ptr %BufferCapacity.i.i27, align 8
-  %call.i.i106 = tail call ptr @realloc(ptr noundef %.pre.i102, i64 noundef %spec.store.select.i.i105) #22
+  %call.i.i106 = tail call ptr @realloc(ptr noundef %.pre.i102, i64 noundef %spec.store.select.i.i105) #23
   store ptr %call.i.i106, ptr %S, align 8
   %cmp14.i.i107 = icmp eq ptr %call.i.i106, null
   br i1 %cmp14.i.i107, label %if.then15.i.i113, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i108
@@ -19149,7 +19149,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i108: ; preds = %if.then.i.i10
   br label %_ZN12OutputStream4growEm.exit.i110
 
 if.then15.i.i113:                                 ; preds = %if.then.i.i103
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i110:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i108, %if.end.i97
@@ -19165,7 +19165,7 @@ _ZN12OutputStream4growEm.exit.i110:               ; preds = %if.then.i._ZN12Outp
   %vtable.i115 = load ptr, ptr %30, align 8
   %vfn.i116 = getelementptr inbounds i8, ptr %vtable.i115, i64 32
   %31 = load ptr, ptr %vfn.i116, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(12) %30, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(12) %30, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i117 = getelementptr inbounds i8, ptr %30, i64 9
   %32 = load i8, ptr %RHSComponentCache.i117, align 1
   %cmp.not.i118 = icmp eq i8 %32, 1
@@ -19175,7 +19175,7 @@ if.then.i119:                                     ; preds = %_ZN12OutputStream4g
   %vtable2.i120 = load ptr, ptr %30, align 8
   %vfn3.i121 = getelementptr inbounds i8, ptr %vtable2.i120, i64 40
   %33 = load ptr, ptr %vfn3.i121, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(12) %30, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(12) %30, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i131
 
 if.end.i131:                                      ; preds = %if.then.i119, %_ZN12OutputStream4growEm.exit.i110
@@ -19190,7 +19190,7 @@ if.then.i.i137:                                   ; preds = %if.end.i131
   %mul.i.i138 = shl i64 %35, 1
   %spec.store.select.i.i139 = tail call i64 @llvm.umax.i64(i64 %mul.i.i138, i64 %add.i.i133)
   store i64 %spec.store.select.i.i139, ptr %BufferCapacity.i.i27, align 8
-  %call.i.i140 = tail call ptr @realloc(ptr noundef %.pre.i136, i64 noundef %spec.store.select.i.i139) #22
+  %call.i.i140 = tail call ptr @realloc(ptr noundef %.pre.i136, i64 noundef %spec.store.select.i.i139) #23
   store ptr %call.i.i140, ptr %S, align 8
   %cmp14.i.i141 = icmp eq ptr %call.i.i140, null
   br i1 %cmp14.i.i141, label %if.then15.i.i147, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i142
@@ -19200,7 +19200,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i142: ; preds = %if.then.i.i13
   br label %_ZN12OutputStream4growEm.exit.i144
 
 if.then15.i.i147:                                 ; preds = %if.then.i.i137
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i144:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i142, %if.end.i131
@@ -19239,7 +19239,7 @@ if.then.i.i180:                                   ; preds = %if.end.i174
   %mul.i.i181 = shl i64 %41, 1
   %spec.store.select.i.i182 = tail call i64 @llvm.umax.i64(i64 %mul.i.i181, i64 %add.i.i176)
   store i64 %spec.store.select.i.i182, ptr %BufferCapacity.i.i27, align 8
-  %call.i.i183 = tail call ptr @realloc(ptr noundef %.pre.i179, i64 noundef %spec.store.select.i.i182) #22
+  %call.i.i183 = tail call ptr @realloc(ptr noundef %.pre.i179, i64 noundef %spec.store.select.i.i182) #23
   store ptr %call.i.i183, ptr %S, align 8
   %cmp14.i.i184 = icmp eq ptr %call.i.i183, null
   br i1 %cmp14.i.i184, label %if.then15.i.i190, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i185
@@ -19249,7 +19249,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i185: ; preds = %if.then.i.i18
   br label %_ZN12OutputStream4growEm.exit.i187
 
 if.then15.i.i190:                                 ; preds = %if.then.i.i180
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i187:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i185, %if.end.i174
@@ -19275,7 +19275,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle10BinaryExprD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -19306,7 +19306,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %0, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -19316,7 +19316,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -19343,7 +19343,7 @@ if.then.i.i15:                                    ; preds = %if.end.i9
   %mul.i.i16 = shl i64 %5, 1
   %spec.store.select.i.i17 = tail call i64 @llvm.umax.i64(i64 %mul.i.i16, i64 %add.i.i11)
   store i64 %spec.store.select.i.i17, ptr %BufferCapacity.i.i12, align 8
-  %call.i.i18 = tail call ptr @realloc(ptr noundef %.pre.i14, i64 noundef %spec.store.select.i.i17) #22
+  %call.i.i18 = tail call ptr @realloc(ptr noundef %.pre.i14, i64 noundef %spec.store.select.i.i17) #23
   store ptr %call.i.i18, ptr %S, align 8
   %cmp14.i.i19 = icmp eq ptr %call.i.i18, null
   br i1 %cmp14.i.i19, label %if.then15.i.i25, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i20
@@ -19353,7 +19353,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i20: ; preds = %if.then.i.i15
   br label %_ZN12OutputStream4growEm.exit.i22
 
 if.then15.i.i25:                                  ; preds = %if.then.i.i15
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i22:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i20, %if.end.i9
@@ -19369,7 +19369,7 @@ _ZN12OutputStream4growEm.exit.i22:                ; preds = %if.then.i._ZN12Outp
   %vtable.i = load ptr, ptr %9, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %10 = load ptr, ptr %vfn.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %9, i64 9
   %11 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %11, 1
@@ -19379,7 +19379,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStream4g
   %vtable2.i = load ptr, ptr %9, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %12 = load ptr, ptr %vfn3.i, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i35
 
 if.end.i35:                                       ; preds = %if.then.i, %_ZN12OutputStream4growEm.exit.i22
@@ -19394,7 +19394,7 @@ if.then.i.i41:                                    ; preds = %if.end.i35
   %mul.i.i42 = shl i64 %14, 1
   %spec.store.select.i.i43 = tail call i64 @llvm.umax.i64(i64 %mul.i.i42, i64 %add.i.i37)
   store i64 %spec.store.select.i.i43, ptr %BufferCapacity.i.i12, align 8
-  %call.i.i44 = tail call ptr @realloc(ptr noundef %.pre.i40, i64 noundef %spec.store.select.i.i43) #22
+  %call.i.i44 = tail call ptr @realloc(ptr noundef %.pre.i40, i64 noundef %spec.store.select.i.i43) #23
   store ptr %call.i.i44, ptr %S, align 8
   %cmp14.i.i45 = icmp eq ptr %call.i.i44, null
   br i1 %cmp14.i.i45, label %if.then15.i.i51, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i46
@@ -19404,7 +19404,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i46: ; preds = %if.then.i.i41
   br label %_ZN12OutputStream4growEm.exit.i48
 
 if.then15.i.i51:                                  ; preds = %if.then.i.i41
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i48:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i46, %if.end.i35
@@ -19427,7 +19427,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle10PrefixExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -19458,7 +19458,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %0, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -19468,7 +19468,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -19495,7 +19495,7 @@ if.then.i.i17:                                    ; preds = %if.end.i11
   %mul.i.i18 = shl i64 %5, 1
   %spec.store.select.i.i19 = tail call i64 @llvm.umax.i64(i64 %mul.i.i18, i64 %add.i.i13)
   store i64 %spec.store.select.i.i19, ptr %BufferCapacity.i.i14, align 8
-  %call.i.i20 = tail call ptr @realloc(ptr noundef %.pre.i16, i64 noundef %spec.store.select.i.i19) #22
+  %call.i.i20 = tail call ptr @realloc(ptr noundef %.pre.i16, i64 noundef %spec.store.select.i.i19) #23
   store ptr %call.i.i20, ptr %S, align 8
   %cmp14.i.i21 = icmp eq ptr %call.i.i20, null
   br i1 %cmp14.i.i21, label %if.then15.i.i27, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i22
@@ -19505,7 +19505,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i22: ; preds = %if.then.i.i17
   br label %_ZN12OutputStream4growEm.exit.i24
 
 if.then15.i.i27:                                  ; preds = %if.then.i.i17
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i24:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i22, %if.end.i11
@@ -19521,7 +19521,7 @@ _ZN12OutputStream4growEm.exit.i24:                ; preds = %if.then.i._ZN12Outp
   %vtable = load ptr, ptr %9, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %10 = load ptr, ptr %vfn, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %11 = load i64, ptr %CurrentPosition.i.i12, align 8
   %add.i.i38 = add i64 %11, 2
   %12 = load i64, ptr %BufferCapacity.i.i14, align 8
@@ -19533,7 +19533,7 @@ if.then.i.i42:                                    ; preds = %_ZN12OutputStream4g
   %mul.i.i43 = shl i64 %12, 1
   %spec.store.select.i.i44 = tail call i64 @llvm.umax.i64(i64 %mul.i.i43, i64 %add.i.i38)
   store i64 %spec.store.select.i.i44, ptr %BufferCapacity.i.i14, align 8
-  %call.i.i45 = tail call ptr @realloc(ptr noundef %.pre.i41, i64 noundef %spec.store.select.i.i44) #22
+  %call.i.i45 = tail call ptr @realloc(ptr noundef %.pre.i41, i64 noundef %spec.store.select.i.i44) #23
   store ptr %call.i.i45, ptr %S, align 8
   %cmp14.i.i46 = icmp eq ptr %call.i.i45, null
   br i1 %cmp14.i.i46, label %if.then15.i.i52, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i47
@@ -19543,7 +19543,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i47: ; preds = %if.then.i.i42
   br label %_ZN12OutputStream4growEm.exit.i49
 
 if.then15.i.i52:                                  ; preds = %if.then.i.i42
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i49:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i47, %_ZN12OutputStream4growEm.exit.i24
@@ -19559,7 +19559,7 @@ _ZN12OutputStream4growEm.exit.i49:                ; preds = %if.then.i._ZN12Outp
   %vtable6 = load ptr, ptr %16, align 8
   %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 32
   %17 = load ptr, ptr %vfn7, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %18 = load i64, ptr %CurrentPosition.i.i12, align 8
   %add.i.i63 = add i64 %18, 1
   %19 = load i64, ptr %BufferCapacity.i.i14, align 8
@@ -19571,7 +19571,7 @@ if.then.i.i67:                                    ; preds = %_ZN12OutputStream4g
   %mul.i.i68 = shl i64 %19, 1
   %spec.store.select.i.i69 = tail call i64 @llvm.umax.i64(i64 %mul.i.i68, i64 %add.i.i63)
   store i64 %spec.store.select.i.i69, ptr %BufferCapacity.i.i14, align 8
-  %call.i.i70 = tail call ptr @realloc(ptr noundef %.pre.i66, i64 noundef %spec.store.select.i.i69) #22
+  %call.i.i70 = tail call ptr @realloc(ptr noundef %.pre.i66, i64 noundef %spec.store.select.i.i69) #23
   store ptr %call.i.i70, ptr %S, align 8
   %cmp14.i.i71 = icmp eq ptr %call.i.i70, null
   br i1 %cmp14.i.i71, label %if.then15.i.i77, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i72
@@ -19581,7 +19581,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i72: ; preds = %if.then.i.i67
   br label %_ZN12OutputStream4growEm.exit.i74
 
 if.then15.i.i77:                                  ; preds = %if.then.i.i67
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i74:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i72, %_ZN12OutputStream4growEm.exit.i49
@@ -19604,7 +19604,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle8CastExprD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -19616,7 +19616,7 @@ entry:
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
@@ -19626,7 +19626,7 @@ if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -19643,7 +19643,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %5, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -19653,7 +19653,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -19677,7 +19677,7 @@ if.then.i.i18:                                    ; preds = %_ZN12OutputStream4g
   %mul.i.i19 = shl i64 %10, 1
   %spec.store.select.i.i20 = tail call i64 @llvm.umax.i64(i64 %mul.i.i19, i64 %add.i.i14)
   store i64 %spec.store.select.i.i20, ptr %BufferCapacity.i.i, align 8
-  %call.i.i21 = tail call ptr @realloc(ptr noundef %.pre.i17, i64 noundef %spec.store.select.i.i20) #22
+  %call.i.i21 = tail call ptr @realloc(ptr noundef %.pre.i17, i64 noundef %spec.store.select.i.i20) #23
   store ptr %call.i.i21, ptr %S, align 8
   %cmp14.i.i22 = icmp eq ptr %call.i.i21, null
   br i1 %cmp14.i.i22, label %if.then15.i.i28, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i23
@@ -19687,7 +19687,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i23: ; preds = %if.then.i.i18
   br label %_ZN12OutputStream4growEm.exit.i25
 
 if.then15.i.i28:                                  ; preds = %if.then.i.i18
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i25:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i23, %_ZN12OutputStream4growEm.exit.i
@@ -19710,12 +19710,12 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle8CallExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, i64 } @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef %begin, ptr noundef %end) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc { ptr, i64 } @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef %begin, ptr noundef %end) unnamed_addr #13 align 2 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %begin to i64
@@ -19736,12 +19736,12 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
   %add.i.i.i = add nuw nsw i64 %and.i.i, 16
-  %call.i.i.i = tail call noalias ptr @malloc(i64 noundef %add.i.i.i) #20
+  %call.i.i.i = tail call noalias ptr @malloc(i64 noundef %add.i.i.i) #21
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator15allocateMassiveEm.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then4.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator15allocateMassiveEm.exit.i.i: ; preds = %if.then4.i.i
@@ -19754,12 +19754,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator15allocateMassiveEm.exit.i.i: ; preds = %
   br label %_ZN12_GLOBAL__N_116DefaultAllocator17allocateNodeArrayEm.exit
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.end.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.end.i.i
@@ -19816,7 +19816,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -19826,7 +19826,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -19842,7 +19842,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
@@ -19852,7 +19852,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStream4g
   %vtable2.i = load ptr, ptr %5, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i14
 
 if.end.i14:                                       ; preds = %if.then.i, %_ZN12OutputStream4growEm.exit.i
@@ -19867,7 +19867,7 @@ if.then.i.i20:                                    ; preds = %if.end.i14
   %mul.i.i21 = shl i64 %10, 1
   %spec.store.select.i.i22 = tail call i64 @llvm.umax.i64(i64 %mul.i.i21, i64 %add.i.i16)
   store i64 %spec.store.select.i.i22, ptr %BufferCapacity.i.i, align 8
-  %call.i.i23 = tail call ptr @realloc(ptr noundef %.pre.i19, i64 noundef %spec.store.select.i.i22) #22
+  %call.i.i23 = tail call ptr @realloc(ptr noundef %.pre.i19, i64 noundef %spec.store.select.i.i22) #23
   store ptr %call.i.i23, ptr %S, align 8
   %cmp14.i.i24 = icmp eq ptr %call.i.i23, null
   br i1 %cmp14.i.i24, label %if.then15.i.i30, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i25
@@ -19877,7 +19877,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i25: ; preds = %if.then.i.i20
   br label %_ZN12OutputStream4growEm.exit.i27
 
 if.then15.i.i30:                                  ; preds = %if.then.i.i20
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i27:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i25, %if.end.i14
@@ -19901,7 +19901,7 @@ if.then.i.i45:                                    ; preds = %_ZN12OutputStream4g
   %mul.i.i46 = shl i64 %15, 1
   %spec.store.select.i.i47 = tail call i64 @llvm.umax.i64(i64 %mul.i.i46, i64 %add.i.i41)
   store i64 %spec.store.select.i.i47, ptr %BufferCapacity.i.i, align 8
-  %call.i.i48 = tail call ptr @realloc(ptr noundef %.pre.i44, i64 noundef %spec.store.select.i.i47) #22
+  %call.i.i48 = tail call ptr @realloc(ptr noundef %.pre.i44, i64 noundef %spec.store.select.i.i47) #23
   store ptr %call.i.i48, ptr %S, align 8
   %cmp14.i.i49 = icmp eq ptr %call.i.i48, null
   br i1 %cmp14.i.i49, label %if.then15.i.i55, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i50
@@ -19911,7 +19911,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i50: ; preds = %if.then.i.i45
   br label %_ZN12OutputStream4growEm.exit.i52
 
 if.then15.i.i55:                                  ; preds = %if.then.i.i45
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i52:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i50, %_ZN12OutputStream4growEm.exit.i27
@@ -19934,7 +19934,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle14ConversionExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -19960,7 +19960,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %2, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -19970,7 +19970,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -19997,7 +19997,7 @@ if.then.i.i18:                                    ; preds = %if.end.i12
   %mul.i.i19 = shl i64 %7, 1
   %spec.store.select.i.i20 = tail call i64 @llvm.umax.i64(i64 %mul.i.i19, i64 %add.i.i14)
   store i64 %spec.store.select.i.i20, ptr %BufferCapacity.i.i15, align 8
-  %call.i.i21 = tail call ptr @realloc(ptr noundef %.pre.i17, i64 noundef %spec.store.select.i.i20) #22
+  %call.i.i21 = tail call ptr @realloc(ptr noundef %.pre.i17, i64 noundef %spec.store.select.i.i20) #23
   store ptr %call.i.i21, ptr %S, align 8
   %cmp14.i.i22 = icmp eq ptr %call.i.i21, null
   br i1 %cmp14.i.i22, label %if.then15.i.i28, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i23
@@ -20007,7 +20007,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i23: ; preds = %if.then.i.i18
   br label %_ZN12OutputStream4growEm.exit.i25
 
 if.then15.i.i28:                                  ; preds = %if.then.i.i18
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i25:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i23, %if.end.i12
@@ -20034,7 +20034,7 @@ if.then.i.i43:                                    ; preds = %if.end.i37
   %mul.i.i44 = shl i64 %12, 1
   %spec.store.select.i.i45 = tail call i64 @llvm.umax.i64(i64 %mul.i.i44, i64 %add.i.i39)
   store i64 %spec.store.select.i.i45, ptr %BufferCapacity.i.i15, align 8
-  %call.i.i46 = tail call ptr @realloc(ptr noundef %.pre.i42, i64 noundef %spec.store.select.i.i45) #22
+  %call.i.i46 = tail call ptr @realloc(ptr noundef %.pre.i42, i64 noundef %spec.store.select.i.i45) #23
   store ptr %call.i.i46, ptr %S, align 8
   %cmp14.i.i47 = icmp eq ptr %call.i.i46, null
   br i1 %cmp14.i.i47, label %if.then15.i.i53, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i48
@@ -20044,7 +20044,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i48: ; preds = %if.then.i.i43
   br label %_ZN12OutputStream4growEm.exit.i50
 
 if.then15.i.i53:                                  ; preds = %if.then.i.i43
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i50:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i48, %if.end.i37
@@ -20063,7 +20063,7 @@ if.end8:                                          ; preds = %_ZN12OutputStream4g
   %vtable.i = load ptr, ptr %16, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %17 = load ptr, ptr %vfn.i, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %16, i64 9
   %18 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %18, 1
@@ -20073,7 +20073,7 @@ if.then.i:                                        ; preds = %if.end8
   %vtable2.i = load ptr, ptr %16, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %19 = load ptr, ptr %vfn3.i, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %if.end8, %if.then.i
@@ -20089,7 +20089,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle10DeleteExprD0Ev(ptr noundef nonnull align 8 dereferenceable(26) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -20135,12 +20135,12 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #20
+  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #21
   %cmp.i.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
@@ -20156,13 +20156,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %i
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i
-  %call9.i.i = tail call ptr @realloc(ptr noundef %4, i64 noundef %mul.i.i) #22
+  %call9.i.i = tail call ptr @realloc(ptr noundef %4, i64 noundef %mul.i.i) #23
   store ptr %call9.i.i, ptr %Subs, align 8
   %cmp12.i.i = icmp eq ptr %call9.i.i, null
   br i1 %cmp12.i.i, label %if.then13.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %if.else.i.i, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
@@ -20225,12 +20225,12 @@ if.end11.i:                                       ; preds = %land.lhs.true.i47
   br i1 %cmp.i.i.i44, label %if.then.i.i.i, label %if.end13
 
 if.then.i.i.i:                                    ; preds = %if.end11.i
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -20291,12 +20291,12 @@ if.then.i20:                                      ; preds = %if.end13
   br i1 %cmp.i.i.i26, label %if.then.i.i35, label %if.else.i.i28
 
 if.then.i.i35:                                    ; preds = %if.then.i20
-  %call3.i.i36 = tail call noalias ptr @malloc(i64 noundef %mul.i.i27) #20
+  %call3.i.i36 = tail call noalias ptr @malloc(i64 noundef %mul.i.i27) #21
   %cmp.i.i37 = icmp eq ptr %call3.i.i36, null
   br i1 %cmp.i.i37, label %if.then4.i.i42, label %if.end.i.i38
 
 if.then4.i.i42:                                   ; preds = %if.then.i.i35
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i38:                                     ; preds = %if.then.i.i35
@@ -20312,13 +20312,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i41: ; preds = 
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i31
 
 if.else.i.i28:                                    ; preds = %if.then.i20
-  %call9.i.i29 = tail call ptr @realloc(ptr noundef %21, i64 noundef %mul.i.i27) #22
+  %call9.i.i29 = tail call ptr @realloc(ptr noundef %21, i64 noundef %mul.i.i27) #23
   store ptr %call9.i.i29, ptr %Subs14, align 8
   %cmp12.i.i30 = icmp eq ptr %call9.i.i29, null
   br i1 %cmp12.i.i30, label %if.then13.i.i34, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i31
 
 if.then13.i.i34:                                  ; preds = %if.else.i.i28
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i31: ; preds = %if.else.i.i28, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i41
@@ -20394,12 +20394,12 @@ if.end8.i:                                        ; preds = %if.then4.i
   br i1 %cmp.i.i.i45, label %if.then.i.i.i58, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit64
 
 if.then.i.i.i58:                                  ; preds = %if.end8.i
-  %call.i6.i.i.i59 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i59 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i60 = icmp eq ptr %call.i6.i.i.i59, null
   br i1 %cmp.i7.i.i.i60, label %if.then.i9.i.i.i63, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61
 
 if.then.i9.i.i.i63:                               ; preds = %if.then.i.i.i58
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61: ; preds = %if.then.i.i.i58
@@ -20489,12 +20489,12 @@ if.end8.i104:                                     ; preds = %if.then4.i101
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end8.i104
-  %call.i6.i.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i.i = icmp eq ptr %call.i6.i.i.i.i, null
   br i1 %cmp.i7.i.i.i.i, label %if.then.i9.i.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i
 
 if.then.i9.i.i.i.i:                               ; preds = %if.then.i.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i
@@ -20547,12 +20547,12 @@ if.end6.i:                                        ; preds = %if.end.i95, %_ZN4ll
   br i1 %cmp.i.i.i74, label %if.then.i.i.i85, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8DtorNameEJRPNS0_4NodeEEEES8_DpOT0_.exit
 
 if.then.i.i.i85:                                  ; preds = %if.end6.i
-  %call.i6.i.i.i86 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i86 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i87 = icmp eq ptr %call.i6.i.i.i86, null
   br i1 %cmp.i7.i.i.i87, label %if.then.i9.i.i.i90, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i88
 
 if.then.i9.i.i.i90:                               ; preds = %if.then.i.i.i85
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i88: ; preds = %if.then.i.i.i85
@@ -20628,12 +20628,12 @@ if.end20:                                         ; preds = %if.then16
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.end20
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -20675,8 +20675,8 @@ return:                                           ; preds = %if.end12, %if.then4
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE15parseSourceNameEPNS4_9NameStateE(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE15parseSourceNameEPNS4_9NameStateE(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #13 align 2 {
 entry:
   %this.val8.i = load ptr, ptr %this, align 16
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -20738,12 +20738,12 @@ if.then10:                                        ; preds = %_ZNK10StringView10s
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %return.sink.split
 
 if.then.i.i.i:                                    ; preds = %if.then10
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -20763,12 +20763,12 @@ if.end12:                                         ; preds = %if.end5, %_ZNK10Str
   br i1 %cmp.i.i.i6, label %if.then.i.i.i19, label %return.sink.split
 
 if.then.i.i.i19:                                  ; preds = %if.end12
-  %call.i6.i.i.i20 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i20 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i21 = icmp eq ptr %call.i6.i.i.i20, null
   br i1 %cmp.i7.i.i.i21, label %if.then.i9.i.i.i24, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i22
 
 if.then.i9.i.i.i24:                               ; preds = %if.then.i.i.i19
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i22: ; preds = %if.then.i.i.i19
@@ -20813,8 +20813,8 @@ return:                                           ; preds = %return.sink.split, 
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJR10StringViewEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJR10StringViewEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -20825,12 +20825,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJR10StringViewEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -20879,7 +20879,7 @@ entry:
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
@@ -20889,7 +20889,7 @@ if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -20906,7 +20906,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %5, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -20916,7 +20916,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -20932,7 +20932,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %vtable.i4 = load ptr, ptr %9, align 8
   %vfn.i5 = getelementptr inbounds i8, ptr %vtable.i4, i64 32
   %10 = load ptr, ptr %vfn.i5, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i6 = getelementptr inbounds i8, ptr %9, i64 9
   %11 = load i8, ptr %RHSComponentCache.i6, align 1
   %cmp.not.i7 = icmp eq i8 %11, 1
@@ -20942,7 +20942,7 @@ if.then.i8:                                       ; preds = %_ZN12OutputStream4g
   %vtable2.i9 = load ptr, ptr %9, align 8
   %vfn3.i10 = getelementptr inbounds i8, ptr %vtable2.i9, i64 40
   %12 = load ptr, ptr %vfn3.i10, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit12
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit12: ; preds = %_ZN12OutputStream4growEm.exit.i, %if.then.i8
@@ -20957,7 +20957,7 @@ entry:
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
-  %call = tail call { ptr, ptr } %1(ptr noundef nonnull align 8 dereferenceable(12) %0) #21
+  %call = tail call { ptr, ptr } %1(ptr noundef nonnull align 8 dereferenceable(12) %0) #22
   ret { ptr, ptr } %call
 }
 
@@ -20970,7 +20970,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle13QualifiedNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -21042,12 +21042,12 @@ sw.bb6:                                           ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %sw.bb6
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -21265,12 +21265,12 @@ sw.bb88:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i91, label %if.then.i.i.i106, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA11_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i106:                                 ; preds = %sw.bb88
-  %call.i6.i.i.i107 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i107 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i108 = icmp eq ptr %call.i6.i.i.i107, null
   br i1 %cmp.i7.i.i.i108, label %if.then.i9.i.i.i111, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i109
 
 if.then.i9.i.i.i111:                              ; preds = %if.then.i.i.i106
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i109: ; preds = %if.then.i.i.i106
@@ -21319,12 +21319,12 @@ sw.bb92:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i114, label %if.then.i.i.i129, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_.exit135
 
 if.then.i.i.i129:                                 ; preds = %sw.bb92
-  %call.i6.i.i.i130 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i130 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i131 = icmp eq ptr %call.i6.i.i.i130, null
   br i1 %cmp.i7.i.i.i131, label %if.then.i9.i.i.i134, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i132
 
 if.then.i9.i.i.i134:                              ; preds = %if.then.i.i.i129
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i132: ; preds = %if.then.i.i.i129
@@ -21383,12 +21383,12 @@ if.then101:                                       ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i146, label %if.then.i.i.i161, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA11_KcEEEPNS0_4NodeEDpOT0_.exit167
 
 if.then.i.i.i161:                                 ; preds = %if.then101
-  %call.i6.i.i.i162 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i162 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i163 = icmp eq ptr %call.i6.i.i.i162, null
   br i1 %cmp.i7.i.i.i163, label %if.then.i9.i.i.i166, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i164
 
 if.then.i9.i.i.i166:                              ; preds = %if.then.i.i.i161
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i164: ; preds = %if.then.i.i.i161
@@ -21671,12 +21671,12 @@ if.then230:                                       ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i218, label %if.then.i.i.i233, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_.exit239
 
 if.then.i.i.i233:                                 ; preds = %if.then230
-  %call.i6.i.i.i234 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i234 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i235 = icmp eq ptr %call.i6.i.i.i234, null
   br i1 %cmp.i7.i.i.i235, label %if.then.i9.i.i.i238, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i236
 
 if.then.i9.i.i.i238:                              ; preds = %if.then.i.i.i233
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i236: ; preds = %if.then.i.i.i233
@@ -21773,12 +21773,12 @@ if.then259:                                       ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i.i.i258, label %if.then.i.i.i273, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i273:                                 ; preds = %if.then259
-  %call.i6.i.i.i274 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i274 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i275 = icmp eq ptr %call.i6.i.i.i274, null
   br i1 %cmp.i7.i.i.i275, label %if.then.i9.i.i.i278, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i276
 
 if.then.i9.i.i.i278:                              ; preds = %if.then.i.i.i273
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i276: ; preds = %if.then.i.i.i273
@@ -21860,7 +21860,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -21870,7 +21870,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -21886,7 +21886,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %6 = load ptr, ptr %vfn, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   ret void
 }
 
@@ -21899,12 +21899,12 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle8DtorNameD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA11_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(11) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA11_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(11) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -21915,12 +21915,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA11_KcEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -21942,7 +21942,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8
@@ -21960,8 +21960,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(10) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(10) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -21972,12 +21972,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA10_KcEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -21999,7 +21999,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8
@@ -22017,8 +22017,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_22ConversionOperatorTypeEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_22ConversionOperatorTypeEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -22029,12 +22029,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle22ConversionOperatorTypeEJRPNS3_4NodeEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -22071,8 +22071,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle22Conversio
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA18_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(18) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA18_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(18) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -22083,12 +22083,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA18_KcEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -22110,7 +22110,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8
@@ -22128,8 +22128,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA16_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA16_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -22140,12 +22140,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA16_KcEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -22183,8 +22183,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15LiteralOperatorEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15LiteralOperatorEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -22195,12 +22195,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15LiteralOperatorEJRPNS3_4NodeEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -22237,8 +22237,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15LiteralOp
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(12) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(12) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -22249,12 +22249,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA12_KcEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -22276,7 +22276,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8
@@ -22294,8 +22294,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA15_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(15) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA15_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(15) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -22306,12 +22306,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA15_KcEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -22333,7 +22333,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8
@@ -22351,8 +22351,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(13) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(13) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -22363,12 +22363,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA13_KcEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -22390,7 +22390,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8
@@ -22424,7 +22424,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -22434,7 +22434,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -22450,7 +22450,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
@@ -22460,7 +22460,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStream4g
   %vtable2.i = load ptr, ptr %5, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %_ZN12OutputStream4growEm.exit.i, %if.then.i
@@ -22476,7 +22476,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle22ConversionOperatorTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -22496,7 +22496,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -22506,7 +22506,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -22522,7 +22522,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
@@ -22532,7 +22532,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStream4g
   %vtable2.i = load ptr, ptr %5, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %_ZN12OutputStream4growEm.exit.i, %if.then.i
@@ -22548,7 +22548,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle15LiteralOperatorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -22568,7 +22568,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -22578,7 +22578,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -22594,7 +22594,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
@@ -22604,7 +22604,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStream4g
   %vtable2.i = load ptr, ptr %5, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %_ZN12OutputStream4growEm.exit.i, %if.then.i
@@ -22619,7 +22619,7 @@ entry:
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
-  %call = tail call { ptr, ptr } %1(ptr noundef nonnull align 8 dereferenceable(12) %0) #21
+  %call = tail call { ptr, ptr } %1(ptr noundef nonnull align 8 dereferenceable(12) %0) #22
   ret { ptr, ptr } %call
 }
 
@@ -22632,7 +22632,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle19GlobalQualifiedNameD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -22644,7 +22644,7 @@ entry:
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
@@ -22654,7 +22654,7 @@ if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %entry, %if.then.i
@@ -22682,7 +22682,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %5, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -22692,7 +22692,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -22711,7 +22711,7 @@ _ZN12OutputStreampLE10StringView.exit:            ; preds = %_ZNK4llvh16itanium_
   %vtable.i3 = load ptr, ptr %9, align 8
   %vfn.i4 = getelementptr inbounds i8, ptr %vtable.i3, i64 32
   %10 = load ptr, ptr %vfn.i4, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i5 = getelementptr inbounds i8, ptr %9, i64 9
   %11 = load i8, ptr %RHSComponentCache.i5, align 1
   %cmp.not.i6 = icmp eq i8 %11, 1
@@ -22721,7 +22721,7 @@ if.then.i7:                                       ; preds = %_ZN12OutputStreampL
   %vtable2.i8 = load ptr, ptr %9, align 8
   %vfn3.i9 = getelementptr inbounds i8, ptr %vtable2.i8, i64 40
   %12 = load ptr, ptr %vfn3.i9, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit11
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit11: ; preds = %_ZN12OutputStreampLE10StringView.exit, %if.then.i7
@@ -22737,7 +22737,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle10MemberExprD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -22757,7 +22757,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -22767,7 +22767,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -22783,7 +22783,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
@@ -22793,7 +22793,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStream4g
   %vtable2.i = load ptr, ptr %5, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i14
 
 if.end.i14:                                       ; preds = %if.then.i, %_ZN12OutputStream4growEm.exit.i
@@ -22808,7 +22808,7 @@ if.then.i.i20:                                    ; preds = %if.end.i14
   %mul.i.i21 = shl i64 %10, 1
   %spec.store.select.i.i22 = tail call i64 @llvm.umax.i64(i64 %mul.i.i21, i64 %add.i.i16)
   store i64 %spec.store.select.i.i22, ptr %BufferCapacity.i.i, align 8
-  %call.i.i23 = tail call ptr @realloc(ptr noundef %.pre.i19, i64 noundef %spec.store.select.i.i22) #22
+  %call.i.i23 = tail call ptr @realloc(ptr noundef %.pre.i19, i64 noundef %spec.store.select.i.i22) #23
   store ptr %call.i.i23, ptr %S, align 8
   %cmp14.i.i24 = icmp eq ptr %call.i.i23, null
   br i1 %cmp14.i.i24, label %if.then15.i.i30, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i25
@@ -22818,7 +22818,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i25: ; preds = %if.then.i.i20
   br label %_ZN12OutputStream4growEm.exit.i27
 
 if.then15.i.i30:                                  ; preds = %if.then.i.i20
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i27:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i25, %if.end.i14
@@ -22834,7 +22834,7 @@ _ZN12OutputStream4growEm.exit.i27:                ; preds = %if.then.i._ZN12Outp
   %vtable.i32 = load ptr, ptr %14, align 8
   %vfn.i33 = getelementptr inbounds i8, ptr %vtable.i32, i64 32
   %15 = load ptr, ptr %vfn.i33, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i34 = getelementptr inbounds i8, ptr %14, i64 9
   %16 = load i8, ptr %RHSComponentCache.i34, align 1
   %cmp.not.i35 = icmp eq i8 %16, 1
@@ -22844,7 +22844,7 @@ if.then.i36:                                      ; preds = %_ZN12OutputStream4g
   %vtable2.i37 = load ptr, ptr %14, align 8
   %vfn3.i38 = getelementptr inbounds i8, ptr %vtable2.i37, i64 40
   %17 = load ptr, ptr %vfn3.i38, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i48
 
 if.end.i48:                                       ; preds = %if.then.i36, %_ZN12OutputStream4growEm.exit.i27
@@ -22859,7 +22859,7 @@ if.then.i.i54:                                    ; preds = %if.end.i48
   %mul.i.i55 = shl i64 %19, 1
   %spec.store.select.i.i56 = tail call i64 @llvm.umax.i64(i64 %mul.i.i55, i64 %add.i.i50)
   store i64 %spec.store.select.i.i56, ptr %BufferCapacity.i.i, align 8
-  %call.i.i57 = tail call ptr @realloc(ptr noundef %.pre.i53, i64 noundef %spec.store.select.i.i56) #22
+  %call.i.i57 = tail call ptr @realloc(ptr noundef %.pre.i53, i64 noundef %spec.store.select.i.i56) #23
   store ptr %call.i.i57, ptr %S, align 8
   %cmp14.i.i58 = icmp eq ptr %call.i.i57, null
   br i1 %cmp14.i.i58, label %if.then15.i.i64, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i59
@@ -22869,7 +22869,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i59: ; preds = %if.then.i.i54
   br label %_ZN12OutputStream4growEm.exit.i61
 
 if.then15.i.i64:                                  ; preds = %if.then.i.i54
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i61:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i59, %if.end.i48
@@ -22892,7 +22892,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle18ArraySubscriptExprD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -22918,7 +22918,7 @@ if.then.i.i:                                      ; preds = %if.then
   %mul.i.i = shl i64 %2, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -22929,7 +22929,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStreampLEc.exit
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit:                       ; preds = %if.then, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -22944,7 +22944,7 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %if.then, %if.then.i
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
@@ -22954,7 +22954,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStreampL
   %vtable2.i = load ptr, ptr %5, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %_ZN12OutputStreampLEc.exit, %if.then.i
@@ -22969,7 +22969,7 @@ if.then.i.i12:                                    ; preds = %_ZNK4llvh16itanium_
   %mul.i.i13 = shl i64 %10, 1
   %spec.store.select.i.i14 = tail call i64 @llvm.umax.i64(i64 %mul.i.i13, i64 %add.i.i8)
   store i64 %spec.store.select.i.i14, ptr %BufferCapacity.i.i, align 8
-  %call.i.i15 = tail call ptr @realloc(ptr noundef %.pre.i11, i64 noundef %spec.store.select.i.i14) #22
+  %call.i.i15 = tail call ptr @realloc(ptr noundef %.pre.i11, i64 noundef %spec.store.select.i.i14) #23
   store ptr %call.i.i15, ptr %S, align 8
   %cmp14.i.i16 = icmp eq ptr %call.i.i15, null
   br i1 %cmp14.i.i16, label %if.then15.i.i22, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i17
@@ -22980,7 +22980,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i17: ; preds = %if.then.i.i12
   br label %_ZN12OutputStreampLEc.exit23
 
 if.then15.i.i22:                                  ; preds = %if.then.i.i12
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit23:                     ; preds = %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i17
@@ -22999,7 +22999,7 @@ if.then.i.i29:                                    ; preds = %if.else
   %mul.i.i30 = shl i64 %2, 1
   %spec.store.select.i.i31 = tail call i64 @llvm.umax.i64(i64 %mul.i.i30, i64 %add.i.i)
   store i64 %spec.store.select.i.i31, ptr %BufferCapacity.i.i, align 8
-  %call.i.i32 = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i31) #22
+  %call.i.i32 = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i31) #23
   store ptr %call.i.i32, ptr %S, align 8
   %cmp14.i.i33 = icmp eq ptr %call.i.i32, null
   br i1 %cmp14.i.i33, label %if.then15.i.i39, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i34
@@ -23010,7 +23010,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i34: ; preds = %if.then.i.i29
   br label %_ZN12OutputStreampLEc.exit40
 
 if.then15.i.i39:                                  ; preds = %if.then.i.i29
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit40:                     ; preds = %if.else, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i34
@@ -23025,7 +23025,7 @@ _ZN12OutputStreampLEc.exit40:                     ; preds = %if.else, %if.then.i
   %vtable.i41 = load ptr, ptr %15, align 8
   %vfn.i42 = getelementptr inbounds i8, ptr %vtable.i41, i64 32
   %16 = load ptr, ptr %vfn.i42, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i43 = getelementptr inbounds i8, ptr %15, i64 9
   %17 = load i8, ptr %RHSComponentCache.i43, align 1
   %cmp.not.i44 = icmp eq i8 %17, 1
@@ -23035,7 +23035,7 @@ if.then.i45:                                      ; preds = %_ZN12OutputStreampL
   %vtable2.i46 = load ptr, ptr %15, align 8
   %vfn3.i47 = getelementptr inbounds i8, ptr %vtable2.i46, i64 40
   %18 = load ptr, ptr %vfn3.i47, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i45, %_ZN12OutputStreampLEc.exit40, %_ZN12OutputStreampLEc.exit23
@@ -23061,7 +23061,7 @@ if.then.i.i55:                                    ; preds = %if.end.i
   %mul.i.i56 = shl i64 %22, 1
   %spec.store.select.i.i57 = tail call i64 @llvm.umax.i64(i64 %mul.i.i56, i64 %add.i.i51)
   store i64 %spec.store.select.i.i57, ptr %BufferCapacity.i.i52, align 8
-  %call.i.i58 = tail call ptr @realloc(ptr noundef %.pre.i54, i64 noundef %spec.store.select.i.i57) #22
+  %call.i.i58 = tail call ptr @realloc(ptr noundef %.pre.i54, i64 noundef %spec.store.select.i.i57) #23
   store ptr %call.i.i58, ptr %S, align 8
   %cmp14.i.i59 = icmp eq ptr %call.i.i58, null
   br i1 %cmp14.i.i59, label %if.then15.i.i62, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i60
@@ -23071,7 +23071,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i60: ; preds = %if.then.i.i55
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i62:                                  ; preds = %if.then.i.i55
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i60, %if.end.i
@@ -23090,7 +23090,7 @@ if.end12:                                         ; preds = %if.end, %_ZN12Outpu
   %vtable.i63 = load ptr, ptr %26, align 8
   %vfn.i64 = getelementptr inbounds i8, ptr %vtable.i63, i64 32
   %27 = load ptr, ptr %vfn.i64, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i65 = getelementptr inbounds i8, ptr %26, i64 9
   %28 = load i8, ptr %RHSComponentCache.i65, align 1
   %cmp.not.i66 = icmp eq i8 %28, 1
@@ -23100,7 +23100,7 @@ if.then.i67:                                      ; preds = %if.end12
   %vtable2.i68 = load ptr, ptr %26, align 8
   %vfn3.i69 = getelementptr inbounds i8, ptr %vtable2.i68, i64 40
   %29 = load ptr, ptr %vfn3.i69, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit71
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit71: ; preds = %if.end12, %if.then.i67
@@ -23116,7 +23116,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle10BracedExprD0Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -23136,7 +23136,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -23147,7 +23147,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStreampLEc.exit
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit:                       ; preds = %entry, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -23162,7 +23162,7 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %entry, %if.then.i._
   %vtable.i = load ptr, ptr %4, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %5 = load ptr, ptr %vfn.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %4, i64 9
   %6 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %6, 1
@@ -23172,7 +23172,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStreampL
   %vtable2.i = load ptr, ptr %4, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %7 = load ptr, ptr %vfn3.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %_ZN12OutputStreampLEc.exit
@@ -23187,7 +23187,7 @@ if.then.i.i12:                                    ; preds = %if.end.i
   %mul.i.i13 = shl i64 %9, 1
   %spec.store.select.i.i14 = tail call i64 @llvm.umax.i64(i64 %mul.i.i13, i64 %add.i.i8)
   store i64 %spec.store.select.i.i14, ptr %BufferCapacity.i.i, align 8
-  %call.i.i15 = tail call ptr @realloc(ptr noundef %.pre.i11, i64 noundef %spec.store.select.i.i14) #22
+  %call.i.i15 = tail call ptr @realloc(ptr noundef %.pre.i11, i64 noundef %spec.store.select.i.i14) #23
   store ptr %call.i.i15, ptr %S, align 8
   %cmp14.i.i16 = icmp eq ptr %call.i.i15, null
   br i1 %cmp14.i.i16, label %if.then15.i.i19, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i17
@@ -23197,7 +23197,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i17: ; preds = %if.then.i.i12
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i19:                                  ; preds = %if.then.i.i12
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i17, %if.end.i
@@ -23213,7 +23213,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %vtable.i20 = load ptr, ptr %13, align 8
   %vfn.i21 = getelementptr inbounds i8, ptr %vtable.i20, i64 32
   %14 = load ptr, ptr %vfn.i21, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i22 = getelementptr inbounds i8, ptr %13, i64 9
   %15 = load i8, ptr %RHSComponentCache.i22, align 1
   %cmp.not.i23 = icmp eq i8 %15, 1
@@ -23223,7 +23223,7 @@ if.then.i24:                                      ; preds = %_ZN12OutputStream4g
   %vtable2.i25 = load ptr, ptr %13, align 8
   %vfn3.i26 = getelementptr inbounds i8, ptr %vtable2.i25, i64 40
   %16 = load ptr, ptr %vfn3.i26, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit28
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit28: ; preds = %_ZN12OutputStream4growEm.exit.i, %if.then.i24
@@ -23238,7 +23238,7 @@ if.then.i.i34:                                    ; preds = %_ZNK4llvh16itanium_
   %mul.i.i35 = shl i64 %18, 1
   %spec.store.select.i.i36 = tail call i64 @llvm.umax.i64(i64 %mul.i.i35, i64 %add.i.i30)
   store i64 %spec.store.select.i.i36, ptr %BufferCapacity.i.i, align 8
-  %call.i.i37 = tail call ptr @realloc(ptr noundef %.pre.i33, i64 noundef %spec.store.select.i.i36) #22
+  %call.i.i37 = tail call ptr @realloc(ptr noundef %.pre.i33, i64 noundef %spec.store.select.i.i36) #23
   store ptr %call.i.i37, ptr %S, align 8
   %cmp14.i.i38 = icmp eq ptr %call.i.i37, null
   br i1 %cmp14.i.i38, label %if.then15.i.i45, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i39
@@ -23249,7 +23249,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i39: ; preds = %if.then.i.i34
   br label %_ZN12OutputStreampLEc.exit46
 
 if.then15.i.i45:                                  ; preds = %if.then.i.i34
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit46:                     ; preds = %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit28, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i39
@@ -23279,7 +23279,7 @@ if.then.i.i61:                                    ; preds = %if.end.i55
   %mul.i.i62 = shl i64 %24, 1
   %spec.store.select.i.i63 = tail call i64 @llvm.umax.i64(i64 %mul.i.i62, i64 %add.i.i57)
   store i64 %spec.store.select.i.i63, ptr %BufferCapacity.i.i, align 8
-  %call.i.i64 = tail call ptr @realloc(ptr noundef %.pre.i60, i64 noundef %spec.store.select.i.i63) #22
+  %call.i.i64 = tail call ptr @realloc(ptr noundef %.pre.i60, i64 noundef %spec.store.select.i.i63) #23
   store ptr %call.i.i64, ptr %S, align 8
   %cmp14.i.i65 = icmp eq ptr %call.i.i64, null
   br i1 %cmp14.i.i65, label %if.then15.i.i71, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i66
@@ -23289,7 +23289,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i66: ; preds = %if.then.i.i61
   br label %_ZN12OutputStream4growEm.exit.i68
 
 if.then15.i.i71:                                  ; preds = %if.then.i.i61
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i68:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i66, %if.end.i55
@@ -23308,7 +23308,7 @@ if.end:                                           ; preds = %_ZN12OutputStreampL
   %vtable.i73 = load ptr, ptr %28, align 8
   %vfn.i74 = getelementptr inbounds i8, ptr %vtable.i73, i64 32
   %29 = load ptr, ptr %vfn.i74, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i75 = getelementptr inbounds i8, ptr %28, i64 9
   %30 = load i8, ptr %RHSComponentCache.i75, align 1
   %cmp.not.i76 = icmp eq i8 %30, 1
@@ -23318,7 +23318,7 @@ if.then.i77:                                      ; preds = %if.end
   %vtable2.i78 = load ptr, ptr %28, align 8
   %vfn3.i79 = getelementptr inbounds i8, ptr %vtable2.i78, i64 40
   %31 = load ptr, ptr %vfn3.i79, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit81
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit81: ; preds = %if.end, %if.then.i77
@@ -23334,7 +23334,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle15BracedRangeExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -23350,7 +23350,7 @@ if.then:                                          ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
@@ -23360,7 +23360,7 @@ if.then.i:                                        ; preds = %if.then
   %vtable2.i = load ptr, ptr %0, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i, %if.then, %entry
@@ -23377,7 +23377,7 @@ if.then.i.i:                                      ; preds = %if.end
   %mul.i.i = shl i64 %5, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -23388,7 +23388,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStreampLEc.exit
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit:                       ; preds = %if.end, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -23411,7 +23411,7 @@ if.then.i.i9:                                     ; preds = %_ZN12OutputStreampL
   %mul.i.i10 = shl i64 %9, 1
   %spec.store.select.i.i11 = tail call i64 @llvm.umax.i64(i64 %mul.i.i10, i64 %add.i.i5)
   store i64 %spec.store.select.i.i11, ptr %BufferCapacity.i.i, align 8
-  %call.i.i12 = tail call ptr @realloc(ptr noundef %.pre.i8, i64 noundef %spec.store.select.i.i11) #22
+  %call.i.i12 = tail call ptr @realloc(ptr noundef %.pre.i8, i64 noundef %spec.store.select.i.i11) #23
   store ptr %call.i.i12, ptr %S, align 8
   %cmp14.i.i13 = icmp eq ptr %call.i.i12, null
   br i1 %cmp14.i.i13, label %if.then15.i.i19, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i14
@@ -23422,7 +23422,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i14: ; preds = %if.then.i.i9
   br label %_ZN12OutputStreampLEc.exit20
 
 if.then15.i.i19:                                  ; preds = %if.then.i.i9
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit20:                     ; preds = %_ZN12OutputStreampLEc.exit, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i14
@@ -23444,7 +23444,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle12InitListExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -23464,7 +23464,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -23474,7 +23474,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -23490,7 +23490,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
@@ -23500,7 +23500,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStream4g
   %vtable2.i = load ptr, ptr %5, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i13
 
 if.end.i13:                                       ; preds = %if.then.i, %_ZN12OutputStream4growEm.exit.i
@@ -23515,7 +23515,7 @@ if.then.i.i19:                                    ; preds = %if.end.i13
   %mul.i.i20 = shl i64 %10, 1
   %spec.store.select.i.i21 = tail call i64 @llvm.umax.i64(i64 %mul.i.i20, i64 %add.i.i15)
   store i64 %spec.store.select.i.i21, ptr %BufferCapacity.i.i, align 8
-  %call.i.i22 = tail call ptr @realloc(ptr noundef %.pre.i18, i64 noundef %spec.store.select.i.i21) #22
+  %call.i.i22 = tail call ptr @realloc(ptr noundef %.pre.i18, i64 noundef %spec.store.select.i.i21) #23
   store ptr %call.i.i22, ptr %S, align 8
   %cmp14.i.i23 = icmp eq ptr %call.i.i22, null
   br i1 %cmp14.i.i23, label %if.then15.i.i29, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i24
@@ -23525,7 +23525,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i24: ; preds = %if.then.i.i19
   br label %_ZN12OutputStream4growEm.exit.i26
 
 if.then15.i.i29:                                  ; preds = %if.then.i.i19
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i26:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i24, %if.end.i13
@@ -23557,7 +23557,7 @@ if.then.i.i41:                                    ; preds = %if.end.i35
   %mul.i.i42 = shl i64 %14, 1
   %spec.store.select.i.i43 = tail call i64 @llvm.umax.i64(i64 %mul.i.i42, i64 %add.i.i37)
   store i64 %spec.store.select.i.i43, ptr %BufferCapacity.i.i, align 8
-  %call.i.i44 = tail call ptr @realloc(ptr noundef %.pre.i40, i64 noundef %spec.store.select.i.i43) #22
+  %call.i.i44 = tail call ptr @realloc(ptr noundef %.pre.i40, i64 noundef %spec.store.select.i.i43) #23
   store ptr %call.i.i44, ptr %S, align 8
   %cmp14.i.i45 = icmp eq ptr %call.i.i44, null
   br i1 %cmp14.i.i45, label %if.then15.i.i51, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i46
@@ -23567,7 +23567,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i46: ; preds = %if.then.i.i41
   br label %_ZN12OutputStream4growEm.exit.i48
 
 if.then15.i.i51:                                  ; preds = %if.then.i.i41
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i48:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i46, %if.end.i35
@@ -23593,7 +23593,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle11PostfixExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -23619,7 +23619,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %2, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -23629,7 +23629,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -23656,7 +23656,7 @@ if.then.i.i25:                                    ; preds = %if.end.i19
   %mul.i.i26 = shl i64 %7, 1
   %spec.store.select.i.i27 = tail call i64 @llvm.umax.i64(i64 %mul.i.i26, i64 %add.i.i21)
   store i64 %spec.store.select.i.i27, ptr %BufferCapacity.i.i22, align 8
-  %call.i.i28 = tail call ptr @realloc(ptr noundef %.pre.i24, i64 noundef %spec.store.select.i.i27) #22
+  %call.i.i28 = tail call ptr @realloc(ptr noundef %.pre.i24, i64 noundef %spec.store.select.i.i27) #23
   store ptr %call.i.i28, ptr %S, align 8
   %cmp14.i.i29 = icmp eq ptr %call.i.i28, null
   br i1 %cmp14.i.i29, label %if.then15.i.i35, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i30
@@ -23666,7 +23666,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i30: ; preds = %if.then.i.i25
   br label %_ZN12OutputStream4growEm.exit.i32
 
 if.then15.i.i35:                                  ; preds = %if.then.i.i25
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i32:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i30, %if.end.i19
@@ -23693,7 +23693,7 @@ if.then.i.i50:                                    ; preds = %if.end.i44
   %mul.i.i51 = shl i64 %12, 1
   %spec.store.select.i.i52 = tail call i64 @llvm.umax.i64(i64 %mul.i.i51, i64 %add.i.i46)
   store i64 %spec.store.select.i.i52, ptr %BufferCapacity.i.i22, align 8
-  %call.i.i53 = tail call ptr @realloc(ptr noundef %.pre.i49, i64 noundef %spec.store.select.i.i52) #22
+  %call.i.i53 = tail call ptr @realloc(ptr noundef %.pre.i49, i64 noundef %spec.store.select.i.i52) #23
   store ptr %call.i.i53, ptr %S, align 8
   %cmp14.i.i54 = icmp eq ptr %call.i.i53, null
   br i1 %cmp14.i.i54, label %if.then15.i.i60, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i55
@@ -23703,7 +23703,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i55: ; preds = %if.then.i.i50
   br label %_ZN12OutputStream4growEm.exit.i57
 
 if.then15.i.i60:                                  ; preds = %if.then.i.i50
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i57:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i55, %if.end.i44
@@ -23728,7 +23728,7 @@ if.then.i.i67:                                    ; preds = %if.end8
   %mul.i.i68 = shl i64 %17, 1
   %spec.store.select.i.i69 = tail call i64 @llvm.umax.i64(i64 %mul.i.i68, i64 %add.i.i63)
   store i64 %spec.store.select.i.i69, ptr %BufferCapacity.i.i22, align 8
-  %call.i.i70 = tail call ptr @realloc(ptr noundef %.pre.i66, i64 noundef %spec.store.select.i.i69) #22
+  %call.i.i70 = tail call ptr @realloc(ptr noundef %.pre.i66, i64 noundef %spec.store.select.i.i69) #23
   store ptr %call.i.i70, ptr %S, align 8
   %cmp14.i.i71 = icmp eq ptr %call.i.i70, null
   br i1 %cmp14.i.i71, label %if.then15.i.i74, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i72
@@ -23739,7 +23739,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i72: ; preds = %if.then.i.i67
   br label %_ZN12OutputStreampLEc.exit
 
 if.then15.i.i74:                                  ; preds = %if.then.i.i67
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit:                       ; preds = %if.end8, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i72
@@ -23767,7 +23767,7 @@ if.then.i.i89:                                    ; preds = %if.end.i83
   %mul.i.i90 = shl i64 %22, 1
   %spec.store.select.i.i91 = tail call i64 @llvm.umax.i64(i64 %mul.i.i90, i64 %add.i.i85)
   store i64 %spec.store.select.i.i91, ptr %BufferCapacity.i.i22, align 8
-  %call.i.i92 = tail call ptr @realloc(ptr noundef %.pre.i88, i64 noundef %spec.store.select.i.i91) #22
+  %call.i.i92 = tail call ptr @realloc(ptr noundef %.pre.i88, i64 noundef %spec.store.select.i.i91) #23
   store ptr %call.i.i92, ptr %S, align 8
   %cmp14.i.i93 = icmp eq ptr %call.i.i92, null
   br i1 %cmp14.i.i93, label %if.then15.i.i99, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i94
@@ -23777,7 +23777,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i94: ; preds = %if.then.i.i89
   br label %_ZN12OutputStream4growEm.exit.i96
 
 if.then15.i.i99:                                  ; preds = %if.then.i.i89
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i96:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i94, %if.end.i83
@@ -23800,7 +23800,7 @@ if.then.i.i114:                                   ; preds = %_ZN12OutputStream4g
   %mul.i.i115 = shl i64 %27, 1
   %spec.store.select.i.i116 = tail call i64 @llvm.umax.i64(i64 %mul.i.i115, i64 %add.i.i110)
   store i64 %spec.store.select.i.i116, ptr %BufferCapacity.i.i22, align 8
-  %call.i.i117 = tail call ptr @realloc(ptr noundef %.pre.i113, i64 noundef %spec.store.select.i.i116) #22
+  %call.i.i117 = tail call ptr @realloc(ptr noundef %.pre.i113, i64 noundef %spec.store.select.i.i116) #23
   store ptr %call.i.i117, ptr %S, align 8
   %cmp14.i.i118 = icmp eq ptr %call.i.i117, null
   br i1 %cmp14.i.i118, label %if.then15.i.i124, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i119
@@ -23810,7 +23810,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i119: ; preds = %if.then.i.i11
   br label %_ZN12OutputStream4growEm.exit.i121
 
 if.then15.i.i124:                                 ; preds = %if.then.i.i114
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i121:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i119, %_ZN12OutputStream4growEm.exit.i96
@@ -23829,7 +23829,7 @@ if.end17:                                         ; preds = %_ZN12OutputStream4g
   %vtable.i = load ptr, ptr %31, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %32 = load ptr, ptr %vfn.i, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %31, i64 9
   %33 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %33, 1
@@ -23839,7 +23839,7 @@ if.then.i:                                        ; preds = %if.end17
   %vtable2.i = load ptr, ptr %31, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %34 = load ptr, ptr %vfn3.i, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %if.end17, %if.then.i
@@ -23861,7 +23861,7 @@ if.then.i.i142:                                   ; preds = %if.end.i136
   %mul.i.i143 = shl i64 %37, 1
   %spec.store.select.i.i144 = tail call i64 @llvm.umax.i64(i64 %mul.i.i143, i64 %add.i.i138)
   store i64 %spec.store.select.i.i144, ptr %BufferCapacity.i.i22, align 8
-  %call.i.i145 = tail call ptr @realloc(ptr noundef %.pre.i141, i64 noundef %spec.store.select.i.i144) #22
+  %call.i.i145 = tail call ptr @realloc(ptr noundef %.pre.i141, i64 noundef %spec.store.select.i.i144) #23
   store ptr %call.i.i145, ptr %S, align 8
   %cmp14.i.i146 = icmp eq ptr %call.i.i145, null
   br i1 %cmp14.i.i146, label %if.then15.i.i152, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i147
@@ -23871,7 +23871,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i147: ; preds = %if.then.i.i14
   br label %_ZN12OutputStream4growEm.exit.i149
 
 if.then15.i.i152:                                 ; preds = %if.then.i.i142
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i149:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i147, %if.end.i136
@@ -23894,7 +23894,7 @@ if.then.i.i167:                                   ; preds = %_ZN12OutputStream4g
   %mul.i.i168 = shl i64 %42, 1
   %spec.store.select.i.i169 = tail call i64 @llvm.umax.i64(i64 %mul.i.i168, i64 %add.i.i163)
   store i64 %spec.store.select.i.i169, ptr %BufferCapacity.i.i22, align 8
-  %call.i.i170 = tail call ptr @realloc(ptr noundef %.pre.i166, i64 noundef %spec.store.select.i.i169) #22
+  %call.i.i170 = tail call ptr @realloc(ptr noundef %.pre.i166, i64 noundef %spec.store.select.i.i169) #23
   store ptr %call.i.i170, ptr %S, align 8
   %cmp14.i.i171 = icmp eq ptr %call.i.i170, null
   br i1 %cmp14.i.i171, label %if.then15.i.i177, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i172
@@ -23904,7 +23904,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i172: ; preds = %if.then.i.i16
   br label %_ZN12OutputStream4growEm.exit.i174
 
 if.then15.i.i177:                                 ; preds = %if.then.i.i167
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i174:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i172, %_ZN12OutputStream4growEm.exit.i149
@@ -23930,7 +23930,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle7NewExprD0Ev(ptr noundef nonnull align 8 dereferenceable(58) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -23961,7 +23961,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -23971,7 +23971,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -23990,7 +23990,7 @@ _ZN12OutputStreampLE10StringView.exit:            ; preds = %entry, %_ZN12Output
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
@@ -24000,7 +24000,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStreampL
   %vtable2.i = load ptr, ptr %5, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %_ZN12OutputStreampLE10StringView.exit, %if.then.i
@@ -24028,7 +24028,7 @@ if.then.i.i14:                                    ; preds = %if.end.i8
   %mul.i.i15 = shl i64 %10, 1
   %spec.store.select.i.i16 = tail call i64 @llvm.umax.i64(i64 %mul.i.i15, i64 %add.i.i10)
   store i64 %spec.store.select.i.i16, ptr %BufferCapacity.i.i11, align 8
-  %call.i.i17 = tail call ptr @realloc(ptr noundef %.pre.i13, i64 noundef %spec.store.select.i.i16) #22
+  %call.i.i17 = tail call ptr @realloc(ptr noundef %.pre.i13, i64 noundef %spec.store.select.i.i16) #23
   store ptr %call.i.i17, ptr %S, align 8
   %cmp14.i.i18 = icmp eq ptr %call.i.i17, null
   br i1 %cmp14.i.i18, label %if.then15.i.i24, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i19
@@ -24038,7 +24038,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i19: ; preds = %if.then.i.i14
   br label %_ZN12OutputStream4growEm.exit.i21
 
 if.then15.i.i24:                                  ; preds = %if.then.i.i14
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i21:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i19, %if.end.i8
@@ -24064,7 +24064,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle13EnclosingExprD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -24084,7 +24084,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -24094,7 +24094,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -24110,7 +24110,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
@@ -24120,7 +24120,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStream4g
   %vtable2.i = load ptr, ptr %5, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i16
 
 if.end.i16:                                       ; preds = %if.then.i, %_ZN12OutputStream4growEm.exit.i
@@ -24135,7 +24135,7 @@ if.then.i.i22:                                    ; preds = %if.end.i16
   %mul.i.i23 = shl i64 %10, 1
   %spec.store.select.i.i24 = tail call i64 @llvm.umax.i64(i64 %mul.i.i23, i64 %add.i.i18)
   store i64 %spec.store.select.i.i24, ptr %BufferCapacity.i.i, align 8
-  %call.i.i25 = tail call ptr @realloc(ptr noundef %.pre.i21, i64 noundef %spec.store.select.i.i24) #22
+  %call.i.i25 = tail call ptr @realloc(ptr noundef %.pre.i21, i64 noundef %spec.store.select.i.i24) #23
   store ptr %call.i.i25, ptr %S, align 8
   %cmp14.i.i26 = icmp eq ptr %call.i.i25, null
   br i1 %cmp14.i.i26, label %if.then15.i.i32, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i27
@@ -24145,7 +24145,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i27: ; preds = %if.then.i.i22
   br label %_ZN12OutputStream4growEm.exit.i29
 
 if.then15.i.i32:                                  ; preds = %if.then.i.i22
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i29:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i27, %if.end.i16
@@ -24161,7 +24161,7 @@ _ZN12OutputStream4growEm.exit.i29:                ; preds = %if.then.i._ZN12Outp
   %vtable.i34 = load ptr, ptr %14, align 8
   %vfn.i35 = getelementptr inbounds i8, ptr %vtable.i34, i64 32
   %15 = load ptr, ptr %vfn.i35, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i36 = getelementptr inbounds i8, ptr %14, i64 9
   %16 = load i8, ptr %RHSComponentCache.i36, align 1
   %cmp.not.i37 = icmp eq i8 %16, 1
@@ -24171,7 +24171,7 @@ if.then.i38:                                      ; preds = %_ZN12OutputStream4g
   %vtable2.i39 = load ptr, ptr %14, align 8
   %vfn3.i40 = getelementptr inbounds i8, ptr %vtable2.i39, i64 40
   %17 = load ptr, ptr %vfn3.i40, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i50
 
 if.end.i50:                                       ; preds = %if.then.i38, %_ZN12OutputStream4growEm.exit.i29
@@ -24186,7 +24186,7 @@ if.then.i.i56:                                    ; preds = %if.end.i50
   %mul.i.i57 = shl i64 %19, 1
   %spec.store.select.i.i58 = tail call i64 @llvm.umax.i64(i64 %mul.i.i57, i64 %add.i.i52)
   store i64 %spec.store.select.i.i58, ptr %BufferCapacity.i.i, align 8
-  %call.i.i59 = tail call ptr @realloc(ptr noundef %.pre.i55, i64 noundef %spec.store.select.i.i58) #22
+  %call.i.i59 = tail call ptr @realloc(ptr noundef %.pre.i55, i64 noundef %spec.store.select.i.i58) #23
   store ptr %call.i.i59, ptr %S, align 8
   %cmp14.i.i60 = icmp eq ptr %call.i.i59, null
   br i1 %cmp14.i.i60, label %if.then15.i.i66, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i61
@@ -24196,7 +24196,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i61: ; preds = %if.then.i.i56
   br label %_ZN12OutputStream4growEm.exit.i63
 
 if.then15.i.i66:                                  ; preds = %if.then.i.i56
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i63:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i61, %if.end.i50
@@ -24212,7 +24212,7 @@ _ZN12OutputStream4growEm.exit.i63:                ; preds = %if.then.i._ZN12Outp
   %vtable.i68 = load ptr, ptr %23, align 8
   %vfn.i69 = getelementptr inbounds i8, ptr %vtable.i68, i64 32
   %24 = load ptr, ptr %vfn.i69, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i70 = getelementptr inbounds i8, ptr %23, i64 9
   %25 = load i8, ptr %RHSComponentCache.i70, align 1
   %cmp.not.i71 = icmp eq i8 %25, 1
@@ -24222,7 +24222,7 @@ if.then.i72:                                      ; preds = %_ZN12OutputStream4g
   %vtable2.i73 = load ptr, ptr %23, align 8
   %vfn3.i74 = getelementptr inbounds i8, ptr %vtable2.i73, i64 40
   %26 = load ptr, ptr %vfn3.i74, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i84
 
 if.end.i84:                                       ; preds = %if.then.i72, %_ZN12OutputStream4growEm.exit.i63
@@ -24237,7 +24237,7 @@ if.then.i.i90:                                    ; preds = %if.end.i84
   %mul.i.i91 = shl i64 %28, 1
   %spec.store.select.i.i92 = tail call i64 @llvm.umax.i64(i64 %mul.i.i91, i64 %add.i.i86)
   store i64 %spec.store.select.i.i92, ptr %BufferCapacity.i.i, align 8
-  %call.i.i93 = tail call ptr @realloc(ptr noundef %.pre.i89, i64 noundef %spec.store.select.i.i92) #22
+  %call.i.i93 = tail call ptr @realloc(ptr noundef %.pre.i89, i64 noundef %spec.store.select.i.i92) #23
   store ptr %call.i.i93, ptr %S, align 8
   %cmp14.i.i94 = icmp eq ptr %call.i.i93, null
   br i1 %cmp14.i.i94, label %if.then15.i.i100, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i95
@@ -24247,7 +24247,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i95: ; preds = %if.then.i.i90
   br label %_ZN12OutputStream4growEm.exit.i97
 
 if.then15.i.i100:                                 ; preds = %if.then.i.i90
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i97:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i95, %if.end.i84
@@ -24270,7 +24270,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle15ConditionalExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -24291,7 +24291,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -24301,7 +24301,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -24337,7 +24337,7 @@ if.then.i.i17:                                    ; preds = %_ZN12OutputStream4g
   %mul.i.i18 = shl i64 %7, 1
   %spec.store.select.i.i19 = call i64 @llvm.umax.i64(i64 %mul.i.i18, i64 %add.i.i13)
   store i64 %spec.store.select.i.i19, ptr %BufferCapacity.i.i, align 8
-  %call.i.i20 = call ptr @realloc(ptr noundef %.pre.i16, i64 noundef %spec.store.select.i.i19) #22
+  %call.i.i20 = call ptr @realloc(ptr noundef %.pre.i16, i64 noundef %spec.store.select.i.i19) #23
   store ptr %call.i.i20, ptr %S, align 8
   %cmp14.i.i21 = icmp eq ptr %call.i.i20, null
   br i1 %cmp14.i.i21, label %if.then15.i.i27, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i22
@@ -24347,7 +24347,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i22: ; preds = %if.then.i.i17
   br label %_ZN12OutputStream4growEm.exit.i24
 
 if.then15.i.i27:                                  ; preds = %if.then.i.i17
-  call void @_ZSt9terminatev() #23
+  call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i24:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i22, %_ZN12OutputStream4growEm.exit.i
@@ -24370,7 +24370,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle19SizeofParamPackExprD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -24391,7 +24391,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle13NodeArrayNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -24411,7 +24411,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -24421,7 +24421,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -24437,7 +24437,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
@@ -24447,7 +24447,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStream4g
   %vtable2.i = load ptr, ptr %5, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %_ZN12OutputStream4growEm.exit.i, %if.then.i
@@ -24463,7 +24463,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle9ThrowExprD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -24495,7 +24495,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %2, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -24505,7 +24505,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -24529,7 +24529,7 @@ if.then.i.i20:                                    ; preds = %if.end.i14
   %mul.i.i21 = shl i64 %6, 1
   %spec.store.select.i.i22 = tail call i64 @llvm.umax.i64(i64 %mul.i.i21, i64 %add.i.i16)
   store i64 %spec.store.select.i.i22, ptr %BufferCapacity.i.i17, align 8
-  %call.i.i23 = tail call ptr @realloc(ptr noundef %.pre.i19, i64 noundef %spec.store.select.i.i22) #22
+  %call.i.i23 = tail call ptr @realloc(ptr noundef %.pre.i19, i64 noundef %spec.store.select.i.i22) #23
   store ptr %call.i.i23, ptr %S, align 8
   %cmp14.i.i24 = icmp eq ptr %call.i.i23, null
   br i1 %cmp14.i.i24, label %if.then15.i.i30, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i25
@@ -24539,7 +24539,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i25: ; preds = %if.then.i.i20
   br label %_ZN12OutputStream4growEm.exit.i27
 
 if.then15.i.i30:                                  ; preds = %if.then.i.i20
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i27:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i25, %if.end.i14
@@ -24563,7 +24563,7 @@ if.then.i.i45:                                    ; preds = %if.end.i39
   %mul.i.i46 = shl i64 %10, 1
   %spec.store.select.i.i47 = tail call i64 @llvm.umax.i64(i64 %mul.i.i46, i64 %add.i.i41)
   store i64 %spec.store.select.i.i47, ptr %BufferCapacity.i.i42, align 8
-  %call.i.i48 = tail call ptr @realloc(ptr noundef %.pre.i44, i64 noundef %spec.store.select.i.i47) #22
+  %call.i.i48 = tail call ptr @realloc(ptr noundef %.pre.i44, i64 noundef %spec.store.select.i.i47) #23
   store ptr %call.i.i48, ptr %S, align 8
   %cmp14.i.i49 = icmp eq ptr %call.i.i48, null
   br i1 %cmp14.i.i49, label %if.then15.i.i55, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i50
@@ -24573,7 +24573,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i50: ; preds = %if.then.i.i45
   br label %_ZN12OutputStream4growEm.exit.i52
 
 if.then15.i.i55:                                  ; preds = %if.then.i.i45
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i52:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i50, %if.end.i39
@@ -24597,7 +24597,7 @@ if.then.i.i70:                                    ; preds = %if.end.i64
   %mul.i.i71 = shl i64 %14, 1
   %spec.store.select.i.i72 = tail call i64 @llvm.umax.i64(i64 %mul.i.i71, i64 %add.i.i66)
   store i64 %spec.store.select.i.i72, ptr %BufferCapacity.i.i67, align 8
-  %call.i.i73 = tail call ptr @realloc(ptr noundef %.pre.i69, i64 noundef %spec.store.select.i.i72) #22
+  %call.i.i73 = tail call ptr @realloc(ptr noundef %.pre.i69, i64 noundef %spec.store.select.i.i72) #23
   store ptr %call.i.i73, ptr %S, align 8
   %cmp14.i.i74 = icmp eq ptr %call.i.i73, null
   br i1 %cmp14.i.i74, label %if.then15.i.i80, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i75
@@ -24607,7 +24607,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i75: ; preds = %if.then.i.i70
   br label %_ZN12OutputStream4growEm.exit.i77
 
 if.then15.i.i80:                                  ; preds = %if.then.i.i70
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i77:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i75, %if.end.i64
@@ -24631,7 +24631,7 @@ if.then.i.i95:                                    ; preds = %if.end.i89
   %mul.i.i96 = shl i64 %18, 1
   %spec.store.select.i.i97 = tail call i64 @llvm.umax.i64(i64 %mul.i.i96, i64 %add.i.i91)
   store i64 %spec.store.select.i.i97, ptr %BufferCapacity.i.i92, align 8
-  %call.i.i98 = tail call ptr @realloc(ptr noundef %.pre.i94, i64 noundef %spec.store.select.i.i97) #22
+  %call.i.i98 = tail call ptr @realloc(ptr noundef %.pre.i94, i64 noundef %spec.store.select.i.i97) #23
   store ptr %call.i.i98, ptr %S, align 8
   %cmp14.i.i99 = icmp eq ptr %call.i.i98, null
   br i1 %cmp14.i.i99, label %if.then15.i.i105, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i100
@@ -24641,7 +24641,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i100: ; preds = %if.then.i.i95
   br label %_ZN12OutputStream4growEm.exit.i102
 
 if.then15.i.i105:                                 ; preds = %if.then.i.i95
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i102:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i100, %if.end.i89
@@ -24665,7 +24665,7 @@ if.then.i.i120:                                   ; preds = %if.end.i114
   %mul.i.i121 = shl i64 %22, 1
   %spec.store.select.i.i122 = tail call i64 @llvm.umax.i64(i64 %mul.i.i121, i64 %add.i.i116)
   store i64 %spec.store.select.i.i122, ptr %BufferCapacity.i.i117, align 8
-  %call.i.i123 = tail call ptr @realloc(ptr noundef %.pre.i119, i64 noundef %spec.store.select.i.i122) #22
+  %call.i.i123 = tail call ptr @realloc(ptr noundef %.pre.i119, i64 noundef %spec.store.select.i.i122) #23
   store ptr %call.i.i123, ptr %S, align 8
   %cmp14.i.i124 = icmp eq ptr %call.i.i123, null
   br i1 %cmp14.i.i124, label %if.then15.i.i130, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i125
@@ -24675,7 +24675,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i125: ; preds = %if.then.i.i12
   br label %_ZN12OutputStream4growEm.exit.i127
 
 if.then15.i.i130:                                 ; preds = %if.then.i.i120
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i127:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i125, %if.end.i114
@@ -24722,7 +24722,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle27ExpandedSpecialSubstitutionD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -24748,7 +24748,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %2, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -24758,7 +24758,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -24777,7 +24777,7 @@ if.end:                                           ; preds = %_ZN12OutputStream4g
   %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %7 = load ptr, ptr %vfn, align 8
-  %call3 = tail call { ptr, ptr } %7(ptr noundef nonnull align 8 dereferenceable(12) %6) #21
+  %call3 = tail call { ptr, ptr } %7(ptr noundef nonnull align 8 dereferenceable(12) %6) #22
   %8 = extractvalue { ptr, ptr } %call3, 0
   %9 = extractvalue { ptr, ptr } %call3, 1
   %sub.ptr.lhs.cast.i.i3 = ptrtoint ptr %9 to i64
@@ -24800,7 +24800,7 @@ if.then.i.i13:                                    ; preds = %if.end.i7
   %mul.i.i14 = shl i64 %11, 1
   %spec.store.select.i.i15 = tail call i64 @llvm.umax.i64(i64 %mul.i.i14, i64 %add.i.i9)
   store i64 %spec.store.select.i.i15, ptr %BufferCapacity.i.i10, align 8
-  %call.i.i16 = tail call ptr @realloc(ptr noundef %.pre.i12, i64 noundef %spec.store.select.i.i15) #22
+  %call.i.i16 = tail call ptr @realloc(ptr noundef %.pre.i12, i64 noundef %spec.store.select.i.i15) #23
   store ptr %call.i.i16, ptr %S, align 8
   %cmp14.i.i17 = icmp eq ptr %call.i.i16, null
   br i1 %cmp14.i.i17, label %if.then15.i.i23, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i18
@@ -24810,7 +24810,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i18: ; preds = %if.then.i.i13
   br label %_ZN12OutputStream4growEm.exit.i20
 
 if.then15.i.i23:                                  ; preds = %if.then.i.i13
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i20:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i18, %if.end.i7
@@ -24836,7 +24836,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle12CtorDtorNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -24848,7 +24848,7 @@ entry:
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %2 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %2, 5
@@ -24862,7 +24862,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %3, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -24872,7 +24872,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -24904,7 +24904,7 @@ if.then.i.i15:                                    ; preds = %if.end.i9
   %mul.i.i16 = shl i64 %7, 1
   %spec.store.select.i.i17 = tail call i64 @llvm.umax.i64(i64 %mul.i.i16, i64 %add.i.i11)
   store i64 %spec.store.select.i.i17, ptr %BufferCapacity.i.i, align 8
-  %call.i.i18 = tail call ptr @realloc(ptr noundef %.pre.i14, i64 noundef %spec.store.select.i.i17) #22
+  %call.i.i18 = tail call ptr @realloc(ptr noundef %.pre.i14, i64 noundef %spec.store.select.i.i17) #23
   store ptr %call.i.i18, ptr %S, align 8
   %cmp14.i.i19 = icmp eq ptr %call.i.i18, null
   br i1 %cmp14.i.i19, label %if.then15.i.i25, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i20
@@ -24914,7 +24914,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i20: ; preds = %if.then.i.i15
   br label %_ZN12OutputStream4growEm.exit.i22
 
 if.then15.i.i25:                                  ; preds = %if.then.i.i15
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i22:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i20, %if.end.i9
@@ -24939,7 +24939,7 @@ if.then.i.i40:                                    ; preds = %if.end.i34
   %mul.i.i41 = shl i64 %12, 1
   %spec.store.select.i.i42 = tail call i64 @llvm.umax.i64(i64 %mul.i.i41, i64 %add.i.i36)
   store i64 %spec.store.select.i.i42, ptr %BufferCapacity.i.i, align 8
-  %call.i.i43 = tail call ptr @realloc(ptr noundef %.pre.i39, i64 noundef %spec.store.select.i.i42) #22
+  %call.i.i43 = tail call ptr @realloc(ptr noundef %.pre.i39, i64 noundef %spec.store.select.i.i42) #23
   store ptr %call.i.i43, ptr %S, align 8
   %cmp14.i.i44 = icmp eq ptr %call.i.i43, null
   br i1 %cmp14.i.i44, label %if.then15.i.i50, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i45
@@ -24949,7 +24949,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i45: ; preds = %if.then.i.i40
   br label %_ZN12OutputStream4growEm.exit.i47
 
 if.then15.i.i50:                                  ; preds = %if.then.i.i40
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i47:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i45, %if.end.i34
@@ -24972,7 +24972,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle10AbiTagAttrD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -24992,7 +24992,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -25002,7 +25002,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -25034,7 +25034,7 @@ if.then.i.i14:                                    ; preds = %if.end.i8
   %mul.i.i15 = shl i64 %5, 1
   %spec.store.select.i.i16 = tail call i64 @llvm.umax.i64(i64 %mul.i.i15, i64 %add.i.i10)
   store i64 %spec.store.select.i.i16, ptr %BufferCapacity.i.i, align 8
-  %call.i.i17 = tail call ptr @realloc(ptr noundef %.pre.i13, i64 noundef %spec.store.select.i.i16) #22
+  %call.i.i17 = tail call ptr @realloc(ptr noundef %.pre.i13, i64 noundef %spec.store.select.i.i16) #23
   store ptr %call.i.i17, ptr %S, align 8
   %cmp14.i.i18 = icmp eq ptr %call.i.i17, null
   br i1 %cmp14.i.i18, label %if.then15.i.i24, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i19
@@ -25044,7 +25044,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i19: ; preds = %if.then.i.i14
   br label %_ZN12OutputStream4growEm.exit.i21
 
 if.then15.i.i24:                                  ; preds = %if.then.i.i14
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i21:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i19, %if.end.i8
@@ -25069,7 +25069,7 @@ if.then.i.i39:                                    ; preds = %if.end.i33
   %mul.i.i40 = shl i64 %10, 1
   %spec.store.select.i.i41 = tail call i64 @llvm.umax.i64(i64 %mul.i.i40, i64 %add.i.i35)
   store i64 %spec.store.select.i.i41, ptr %BufferCapacity.i.i, align 8
-  %call.i.i42 = tail call ptr @realloc(ptr noundef %.pre.i38, i64 noundef %spec.store.select.i.i41) #22
+  %call.i.i42 = tail call ptr @realloc(ptr noundef %.pre.i38, i64 noundef %spec.store.select.i.i41) #23
   store ptr %call.i.i42, ptr %S, align 8
   %cmp14.i.i43 = icmp eq ptr %call.i.i42, null
   br i1 %cmp14.i.i43, label %if.then15.i.i49, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i44
@@ -25079,7 +25079,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i44: ; preds = %if.then.i.i39
   br label %_ZN12OutputStream4growEm.exit.i46
 
 if.then15.i.i49:                                  ; preds = %if.then.i.i39
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i46:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i44, %if.end.i33
@@ -25102,7 +25102,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle15UnnamedTypeNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -25122,7 +25122,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -25132,7 +25132,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -25164,7 +25164,7 @@ if.then.i.i16:                                    ; preds = %if.end.i10
   %mul.i.i17 = shl i64 %5, 1
   %spec.store.select.i.i18 = tail call i64 @llvm.umax.i64(i64 %mul.i.i17, i64 %add.i.i12)
   store i64 %spec.store.select.i.i18, ptr %BufferCapacity.i.i, align 8
-  %call.i.i19 = tail call ptr @realloc(ptr noundef %.pre.i15, i64 noundef %spec.store.select.i.i18) #22
+  %call.i.i19 = tail call ptr @realloc(ptr noundef %.pre.i15, i64 noundef %spec.store.select.i.i18) #23
   store ptr %call.i.i19, ptr %S, align 8
   %cmp14.i.i20 = icmp eq ptr %call.i.i19, null
   br i1 %cmp14.i.i20, label %if.then15.i.i26, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i21
@@ -25174,7 +25174,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i21: ; preds = %if.then.i.i16
   br label %_ZN12OutputStream4growEm.exit.i23
 
 if.then15.i.i26:                                  ; preds = %if.then.i.i16
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i23:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i21, %if.end.i10
@@ -25199,7 +25199,7 @@ if.then.i.i41:                                    ; preds = %if.end.i35
   %mul.i.i42 = shl i64 %10, 1
   %spec.store.select.i.i43 = tail call i64 @llvm.umax.i64(i64 %mul.i.i42, i64 %add.i.i37)
   store i64 %spec.store.select.i.i43, ptr %BufferCapacity.i.i, align 8
-  %call.i.i44 = tail call ptr @realloc(ptr noundef %.pre.i40, i64 noundef %spec.store.select.i.i43) #22
+  %call.i.i44 = tail call ptr @realloc(ptr noundef %.pre.i40, i64 noundef %spec.store.select.i.i43) #23
   store ptr %call.i.i44, ptr %S, align 8
   %cmp14.i.i45 = icmp eq ptr %call.i.i44, null
   br i1 %cmp14.i.i45, label %if.then15.i.i51, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i46
@@ -25209,7 +25209,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i46: ; preds = %if.then.i.i41
   br label %_ZN12OutputStream4growEm.exit.i48
 
 if.then15.i.i51:                                  ; preds = %if.then.i.i41
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i48:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i46, %if.end.i35
@@ -25233,7 +25233,7 @@ if.then.i.i66:                                    ; preds = %_ZN12OutputStream4g
   %mul.i.i67 = shl i64 %15, 1
   %spec.store.select.i.i68 = tail call i64 @llvm.umax.i64(i64 %mul.i.i67, i64 %add.i.i62)
   store i64 %spec.store.select.i.i68, ptr %BufferCapacity.i.i, align 8
-  %call.i.i69 = tail call ptr @realloc(ptr noundef %.pre.i65, i64 noundef %spec.store.select.i.i68) #22
+  %call.i.i69 = tail call ptr @realloc(ptr noundef %.pre.i65, i64 noundef %spec.store.select.i.i68) #23
   store ptr %call.i.i69, ptr %S, align 8
   %cmp14.i.i70 = icmp eq ptr %call.i.i69, null
   br i1 %cmp14.i.i70, label %if.then15.i.i76, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i71
@@ -25243,7 +25243,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i71: ; preds = %if.then.i.i66
   br label %_ZN12OutputStream4growEm.exit.i73
 
 if.then15.i.i76:                                  ; preds = %if.then.i.i66
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i73:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i71, %_ZN12OutputStream4growEm.exit.i48
@@ -25266,7 +25266,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle15ClosureTypeNameD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -25286,7 +25286,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -25297,7 +25297,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStreampLEc.exit
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit:                       ; preds = %entry, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -25320,7 +25320,7 @@ if.then.i.i8:                                     ; preds = %_ZN12OutputStreampL
   %mul.i.i9 = shl i64 %5, 1
   %spec.store.select.i.i10 = tail call i64 @llvm.umax.i64(i64 %mul.i.i9, i64 %add.i.i4)
   store i64 %spec.store.select.i.i10, ptr %BufferCapacity.i.i, align 8
-  %call.i.i11 = tail call ptr @realloc(ptr noundef %.pre.i7, i64 noundef %spec.store.select.i.i10) #22
+  %call.i.i11 = tail call ptr @realloc(ptr noundef %.pre.i7, i64 noundef %spec.store.select.i.i10) #23
   store ptr %call.i.i11, ptr %S, align 8
   %cmp14.i.i12 = icmp eq ptr %call.i.i11, null
   br i1 %cmp14.i.i12, label %if.then15.i.i18, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i13
@@ -25331,7 +25331,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i13: ; preds = %if.then.i.i8
   br label %_ZN12OutputStreampLEc.exit19
 
 if.then15.i.i18:                                  ; preds = %if.then.i.i8
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit19:                     ; preds = %_ZN12OutputStreampLEc.exit, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i13
@@ -25353,7 +25353,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle21StructuredBindingNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -25365,7 +25365,7 @@ entry:
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
@@ -25375,7 +25375,7 @@ if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -25392,7 +25392,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %5, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -25402,7 +25402,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -25418,7 +25418,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %vtable.i4 = load ptr, ptr %9, align 8
   %vfn.i5 = getelementptr inbounds i8, ptr %vtable.i4, i64 32
   %10 = load ptr, ptr %vfn.i5, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i6 = getelementptr inbounds i8, ptr %9, i64 9
   %11 = load i8, ptr %RHSComponentCache.i6, align 1
   %cmp.not.i7 = icmp eq i8 %11, 1
@@ -25428,7 +25428,7 @@ if.then.i8:                                       ; preds = %_ZN12OutputStream4g
   %vtable2.i9 = load ptr, ptr %9, align 8
   %vfn3.i10 = getelementptr inbounds i8, ptr %vtable2.i9, i64 40
   %12 = load ptr, ptr %vfn3.i10, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit12
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit12: ; preds = %_ZN12OutputStream4growEm.exit.i, %if.then.i8
@@ -25444,12 +25444,12 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle9LocalNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @islower(i32 noundef) local_unnamed_addr #13
+declare i32 @islower(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle19SpecialSubstitution9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
@@ -25479,7 +25479,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %2, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -25489,7 +25489,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -25513,7 +25513,7 @@ if.then.i.i20:                                    ; preds = %if.end.i14
   %mul.i.i21 = shl i64 %6, 1
   %spec.store.select.i.i22 = tail call i64 @llvm.umax.i64(i64 %mul.i.i21, i64 %add.i.i16)
   store i64 %spec.store.select.i.i22, ptr %BufferCapacity.i.i17, align 8
-  %call.i.i23 = tail call ptr @realloc(ptr noundef %.pre.i19, i64 noundef %spec.store.select.i.i22) #22
+  %call.i.i23 = tail call ptr @realloc(ptr noundef %.pre.i19, i64 noundef %spec.store.select.i.i22) #23
   store ptr %call.i.i23, ptr %S, align 8
   %cmp14.i.i24 = icmp eq ptr %call.i.i23, null
   br i1 %cmp14.i.i24, label %if.then15.i.i30, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i25
@@ -25523,7 +25523,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i25: ; preds = %if.then.i.i20
   br label %_ZN12OutputStream4growEm.exit.i27
 
 if.then15.i.i30:                                  ; preds = %if.then.i.i20
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i27:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i25, %if.end.i14
@@ -25547,7 +25547,7 @@ if.then.i.i45:                                    ; preds = %if.end.i39
   %mul.i.i46 = shl i64 %10, 1
   %spec.store.select.i.i47 = tail call i64 @llvm.umax.i64(i64 %mul.i.i46, i64 %add.i.i41)
   store i64 %spec.store.select.i.i47, ptr %BufferCapacity.i.i42, align 8
-  %call.i.i48 = tail call ptr @realloc(ptr noundef %.pre.i44, i64 noundef %spec.store.select.i.i47) #22
+  %call.i.i48 = tail call ptr @realloc(ptr noundef %.pre.i44, i64 noundef %spec.store.select.i.i47) #23
   store ptr %call.i.i48, ptr %S, align 8
   %cmp14.i.i49 = icmp eq ptr %call.i.i48, null
   br i1 %cmp14.i.i49, label %if.then15.i.i55, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i50
@@ -25557,7 +25557,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i50: ; preds = %if.then.i.i45
   br label %_ZN12OutputStream4growEm.exit.i52
 
 if.then15.i.i55:                                  ; preds = %if.then.i.i45
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i52:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i50, %if.end.i39
@@ -25581,7 +25581,7 @@ if.then.i.i70:                                    ; preds = %if.end.i64
   %mul.i.i71 = shl i64 %14, 1
   %spec.store.select.i.i72 = tail call i64 @llvm.umax.i64(i64 %mul.i.i71, i64 %add.i.i66)
   store i64 %spec.store.select.i.i72, ptr %BufferCapacity.i.i67, align 8
-  %call.i.i73 = tail call ptr @realloc(ptr noundef %.pre.i69, i64 noundef %spec.store.select.i.i72) #22
+  %call.i.i73 = tail call ptr @realloc(ptr noundef %.pre.i69, i64 noundef %spec.store.select.i.i72) #23
   store ptr %call.i.i73, ptr %S, align 8
   %cmp14.i.i74 = icmp eq ptr %call.i.i73, null
   br i1 %cmp14.i.i74, label %if.then15.i.i80, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i75
@@ -25591,7 +25591,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i75: ; preds = %if.then.i.i70
   br label %_ZN12OutputStream4growEm.exit.i77
 
 if.then15.i.i80:                                  ; preds = %if.then.i.i70
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i77:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i75, %if.end.i64
@@ -25615,7 +25615,7 @@ if.then.i.i95:                                    ; preds = %if.end.i89
   %mul.i.i96 = shl i64 %18, 1
   %spec.store.select.i.i97 = tail call i64 @llvm.umax.i64(i64 %mul.i.i96, i64 %add.i.i91)
   store i64 %spec.store.select.i.i97, ptr %BufferCapacity.i.i92, align 8
-  %call.i.i98 = tail call ptr @realloc(ptr noundef %.pre.i94, i64 noundef %spec.store.select.i.i97) #22
+  %call.i.i98 = tail call ptr @realloc(ptr noundef %.pre.i94, i64 noundef %spec.store.select.i.i97) #23
   store ptr %call.i.i98, ptr %S, align 8
   %cmp14.i.i99 = icmp eq ptr %call.i.i98, null
   br i1 %cmp14.i.i99, label %if.then15.i.i105, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i100
@@ -25625,7 +25625,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i100: ; preds = %if.then.i.i95
   br label %_ZN12OutputStream4growEm.exit.i102
 
 if.then15.i.i105:                                 ; preds = %if.then.i.i95
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i102:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i100, %if.end.i89
@@ -25649,7 +25649,7 @@ if.then.i.i120:                                   ; preds = %if.end.i114
   %mul.i.i121 = shl i64 %22, 1
   %spec.store.select.i.i122 = tail call i64 @llvm.umax.i64(i64 %mul.i.i121, i64 %add.i.i116)
   store i64 %spec.store.select.i.i122, ptr %BufferCapacity.i.i117, align 8
-  %call.i.i123 = tail call ptr @realloc(ptr noundef %.pre.i119, i64 noundef %spec.store.select.i.i122) #22
+  %call.i.i123 = tail call ptr @realloc(ptr noundef %.pre.i119, i64 noundef %spec.store.select.i.i122) #23
   store ptr %call.i.i123, ptr %S, align 8
   %cmp14.i.i124 = icmp eq ptr %call.i.i123, null
   br i1 %cmp14.i.i124, label %if.then15.i.i130, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i125
@@ -25659,7 +25659,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i125: ; preds = %if.then.i.i12
   br label %_ZN12OutputStream4growEm.exit.i127
 
 if.then15.i.i130:                                 ; preds = %if.then.i.i120
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i127:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i125, %if.end.i114
@@ -25706,7 +25706,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle19SpecialSubstitutionD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -26117,7 +26117,7 @@ if.then.i4:                                       ; preds = %land.rhs
 if.end.i:                                         ; preds = %land.rhs
   %vtable.i = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %vtable.i, align 8
-  %call.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %call.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %land.end
 
 land.end:                                         ; preds = %if.end.i, %if.then.i4, %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
@@ -26173,7 +26173,7 @@ if.end.i:                                         ; preds = %land.rhs
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %7 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %call.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %land.end
 
 land.end:                                         ; preds = %if.end.i, %if.then.i4, %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
@@ -26229,7 +26229,7 @@ if.end.i:                                         ; preds = %land.rhs
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %7 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %call.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %land.end
 
 land.end:                                         ; preds = %if.end.i, %if.then.i4, %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
@@ -26275,7 +26275,7 @@ cond.true:                                        ; preds = %_ZNK4llvh16itanium_
   %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %6 = load ptr, ptr %vfn, align 8
-  %call4 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %call4 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit, %cond.true
@@ -26321,7 +26321,7 @@ if.then:                                          ; preds = %_ZNK4llvh16itanium_
   %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %6 = load ptr, ptr %vfn, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
@@ -26366,7 +26366,7 @@ if.then:                                          ; preds = %_ZNK4llvh16itanium_
   %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %6 = load ptr, ptr %vfn, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
@@ -26382,7 +26382,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle13ParameterPackD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -26402,7 +26402,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -26412,7 +26412,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -26447,7 +26447,7 @@ if.then.i.i19:                                    ; preds = %if.end.i13
   %mul.i.i20 = shl i64 %8, 1
   %spec.store.select.i.i21 = tail call i64 @llvm.umax.i64(i64 %mul.i.i20, i64 %add.i.i15)
   store i64 %spec.store.select.i.i21, ptr %BufferCapacity.i.i, align 8
-  %call.i.i22 = tail call ptr @realloc(ptr noundef nonnull %.pre.i43.pre58, i64 noundef %spec.store.select.i.i21) #22
+  %call.i.i22 = tail call ptr @realloc(ptr noundef nonnull %.pre.i43.pre58, i64 noundef %spec.store.select.i.i21) #23
   store ptr %call.i.i22, ptr %S, align 8
   %cmp14.i.i23 = icmp eq ptr %call.i.i22, null
   br i1 %cmp14.i.i23, label %if.then15.i.i29, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i24
@@ -26457,7 +26457,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i24: ; preds = %if.then.i.i19
   br label %_ZN12OutputStream4growEm.exit.i26
 
 if.then15.i.i29:                                  ; preds = %if.then.i.i19
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i26:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i24, %if.end.i13
@@ -26483,7 +26483,7 @@ if.then.i.i44:                                    ; preds = %if.end.i38
   %mul.i.i45 = shl i64 %13, 1
   %spec.store.select.i.i46 = tail call i64 @llvm.umax.i64(i64 %mul.i.i45, i64 %add.i.i40)
   store i64 %spec.store.select.i.i46, ptr %BufferCapacity.i.i, align 8
-  %call.i.i47 = tail call ptr @realloc(ptr noundef %.pre.i43, i64 noundef %spec.store.select.i.i46) #22
+  %call.i.i47 = tail call ptr @realloc(ptr noundef %.pre.i43, i64 noundef %spec.store.select.i.i46) #23
   store ptr %call.i.i47, ptr %S, align 8
   %cmp14.i.i48 = icmp eq ptr %call.i.i47, null
   br i1 %cmp14.i.i48, label %if.then15.i.i54, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i49
@@ -26493,7 +26493,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i49: ; preds = %if.then.i.i44
   br label %_ZN12OutputStream4growEm.exit.i51
 
 if.then15.i.i54:                                  ; preds = %if.then.i.i44
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i51:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i49, %if.end.i38
@@ -26516,7 +26516,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle12TemplateArgsD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -26528,7 +26528,7 @@ entry:
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
@@ -26538,7 +26538,7 @@ if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %entry, %if.then.i
@@ -26547,7 +26547,7 @@ _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %entry, %
   %vtable.i2 = load ptr, ptr %4, align 8
   %vfn.i3 = getelementptr inbounds i8, ptr %vtable.i2, i64 32
   %5 = load ptr, ptr %vfn.i3, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i4 = getelementptr inbounds i8, ptr %4, i64 9
   %6 = load i8, ptr %RHSComponentCache.i4, align 1
   %cmp.not.i5 = icmp eq i8 %6, 1
@@ -26557,7 +26557,7 @@ if.then.i6:                                       ; preds = %_ZNK4llvh16itanium_
   %vtable2.i7 = load ptr, ptr %4, align 8
   %vfn3.i8 = getelementptr inbounds i8, ptr %vtable2.i7, i64 40
   %7 = load ptr, ptr %vfn3.i8, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit9
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit9: ; preds = %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, %if.then.i6
@@ -26572,7 +26572,7 @@ entry:
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
-  %call = tail call { ptr, ptr } %1(ptr noundef nonnull align 8 dereferenceable(12) %0) #21
+  %call = tail call { ptr, ptr } %1(ptr noundef nonnull align 8 dereferenceable(12) %0) #22
   ret { ptr, ptr } %call
 }
 
@@ -26585,7 +26585,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle20NameWithTemplateArgsD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -26605,7 +26605,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -26615,7 +26615,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -26631,7 +26631,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
@@ -26641,7 +26641,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStream4g
   %vtable2.i = load ptr, ptr %5, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %_ZN12OutputStream4growEm.exit.i, %if.then.i
@@ -26656,7 +26656,7 @@ entry:
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
-  %call = tail call { ptr, ptr } %1(ptr noundef nonnull align 8 dereferenceable(12) %0) #21
+  %call = tail call { ptr, ptr } %1(ptr noundef nonnull align 8 dereferenceable(12) %0) #22
   ret { ptr, ptr } %call
 }
 
@@ -26669,7 +26669,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle16StdQualifiedNameD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -26690,7 +26690,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle20TemplateArgumentPackD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -26710,7 +26710,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -26720,7 +26720,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -26744,7 +26744,7 @@ if.then.i.i9:                                     ; preds = %_ZN12OutputStream4g
   %mul.i.i10 = shl i64 %6, 1
   %spec.store.select.i.i11 = tail call i64 @llvm.umax.i64(i64 %mul.i.i10, i64 %add.i.i5)
   store i64 %spec.store.select.i.i11, ptr %BufferCapacity.i.i, align 8
-  %call.i.i12 = tail call ptr @realloc(ptr noundef %.pre.i8, i64 noundef %spec.store.select.i.i11) #22
+  %call.i.i12 = tail call ptr @realloc(ptr noundef %.pre.i8, i64 noundef %spec.store.select.i.i11) #23
   store ptr %call.i.i12, ptr %S, align 8
   %cmp14.i.i13 = icmp eq ptr %call.i.i12, null
   br i1 %cmp14.i.i13, label %if.then15.i.i16, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i14
@@ -26755,7 +26755,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i14: ; preds = %if.then.i.i9
   br label %_ZN12OutputStreampLEc.exit
 
 if.then15.i.i16:                                  ; preds = %if.then.i.i9
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit:                       ; preds = %_ZN12OutputStream4growEm.exit.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i14
@@ -26777,7 +26777,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle12EnableIfAttrD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -26805,7 +26805,7 @@ if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %2 = load ptr, ptr %Ret, align 8
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %2, i64 9
   %3 = load i8, ptr %RHSComponentCache.i, align 1
@@ -26817,7 +26817,7 @@ if.then:                                          ; preds = %entry
 _ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit: ; preds = %if.then
   %vtable.i = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %vtable.i, align 8
-  %call.i = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %call.i = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br i1 %call.i, label %if.end6, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit, %if.then
@@ -26834,7 +26834,7 @@ if.then.i.i:                                      ; preds = %if.end.i5
   %mul.i.i = shl i64 %6, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -26844,7 +26844,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i5
@@ -26863,7 +26863,7 @@ if.end6:                                          ; preds = %if.then, %_ZN12Outp
   %vtable.i7 = load ptr, ptr %10, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i7, i64 32
   %11 = load ptr, ptr %vfn.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i8 = getelementptr inbounds i8, ptr %10, i64 9
   %12 = load i8, ptr %RHSComponentCache.i8, align 1
   %cmp.not.i9 = icmp eq i8 %12, 1
@@ -26873,7 +26873,7 @@ if.then.i10:                                      ; preds = %if.end6
   %vtable2.i = load ptr, ptr %10, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %13 = load ptr, ptr %vfn3.i, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %if.end6, %if.then.i10
@@ -26896,7 +26896,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -26906,7 +26906,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -26930,7 +26930,7 @@ if.then.i.i25:                                    ; preds = %_ZN12OutputStream4g
   %mul.i.i26 = shl i64 %6, 1
   %spec.store.select.i.i27 = tail call i64 @llvm.umax.i64(i64 %mul.i.i26, i64 %add.i.i21)
   store i64 %spec.store.select.i.i27, ptr %BufferCapacity.i.i, align 8
-  %call.i.i28 = tail call ptr @realloc(ptr noundef %.pre.i24, i64 noundef %spec.store.select.i.i27) #22
+  %call.i.i28 = tail call ptr @realloc(ptr noundef %.pre.i24, i64 noundef %spec.store.select.i.i27) #23
   store ptr %call.i.i28, ptr %S, align 8
   %cmp14.i.i29 = icmp eq ptr %call.i.i28, null
   br i1 %cmp14.i.i29, label %if.then15.i.i35, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i30
@@ -26940,7 +26940,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i30: ; preds = %if.then.i.i25
   br label %_ZN12OutputStream4growEm.exit.i32
 
 if.then15.i.i35:                                  ; preds = %if.then.i.i25
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i32:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i30, %_ZN12OutputStream4growEm.exit.i
@@ -26960,7 +26960,7 @@ if.then:                                          ; preds = %_ZN12OutputStream4g
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %11 = load ptr, ptr %vfn, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN12OutputStream4growEm.exit.i32
@@ -26982,7 +26982,7 @@ if.then.i.i50:                                    ; preds = %if.end.i44
   %mul.i.i51 = shl i64 %14, 1
   %spec.store.select.i.i52 = tail call i64 @llvm.umax.i64(i64 %mul.i.i51, i64 %add.i.i46)
   store i64 %spec.store.select.i.i52, ptr %BufferCapacity.i.i, align 8
-  %call.i.i53 = tail call ptr @realloc(ptr noundef %.pre.i49, i64 noundef %spec.store.select.i.i52) #22
+  %call.i.i53 = tail call ptr @realloc(ptr noundef %.pre.i49, i64 noundef %spec.store.select.i.i52) #23
   store ptr %call.i.i53, ptr %S, align 8
   %cmp14.i.i54 = icmp eq ptr %call.i.i53, null
   br i1 %cmp14.i.i54, label %if.then15.i.i60, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i55
@@ -26992,7 +26992,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i55: ; preds = %if.then.i.i50
   br label %_ZN12OutputStream4growEm.exit.i57
 
 if.then15.i.i60:                                  ; preds = %if.then.i.i50
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i57:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i55, %if.end.i44
@@ -27024,7 +27024,7 @@ if.then.i.i75:                                    ; preds = %if.end.i69
   %mul.i.i76 = shl i64 %20, 1
   %spec.store.select.i.i77 = tail call i64 @llvm.umax.i64(i64 %mul.i.i76, i64 %add.i.i71)
   store i64 %spec.store.select.i.i77, ptr %BufferCapacity.i.i, align 8
-  %call.i.i78 = tail call ptr @realloc(ptr noundef %.pre.i74, i64 noundef %spec.store.select.i.i77) #22
+  %call.i.i78 = tail call ptr @realloc(ptr noundef %.pre.i74, i64 noundef %spec.store.select.i.i77) #23
   store ptr %call.i.i78, ptr %S, align 8
   %cmp14.i.i79 = icmp eq ptr %call.i.i78, null
   br i1 %cmp14.i.i79, label %if.then15.i.i85, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i80
@@ -27034,7 +27034,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i80: ; preds = %if.then.i.i75
   br label %_ZN12OutputStream4growEm.exit.i82
 
 if.then15.i.i85:                                  ; preds = %if.then.i.i75
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i82:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i80, %if.end.i69
@@ -27066,7 +27066,7 @@ if.then.i.i100:                                   ; preds = %if.end.i94
   %mul.i.i101 = shl i64 %26, 1
   %spec.store.select.i.i102 = tail call i64 @llvm.umax.i64(i64 %mul.i.i101, i64 %add.i.i96)
   store i64 %spec.store.select.i.i102, ptr %BufferCapacity.i.i, align 8
-  %call.i.i103 = tail call ptr @realloc(ptr noundef %.pre.i99, i64 noundef %spec.store.select.i.i102) #22
+  %call.i.i103 = tail call ptr @realloc(ptr noundef %.pre.i99, i64 noundef %spec.store.select.i.i102) #23
   store ptr %call.i.i103, ptr %S, align 8
   %cmp14.i.i104 = icmp eq ptr %call.i.i103, null
   br i1 %cmp14.i.i104, label %if.then15.i.i110, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i105
@@ -27076,7 +27076,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i105: ; preds = %if.then.i.i10
   br label %_ZN12OutputStream4growEm.exit.i107
 
 if.then15.i.i110:                                 ; preds = %if.then.i.i100
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i107:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i105, %if.end.i94
@@ -27109,7 +27109,7 @@ if.then.i.i125:                                   ; preds = %if.end.i119
   %mul.i.i126 = shl i64 %32, 1
   %spec.store.select.i.i127 = tail call i64 @llvm.umax.i64(i64 %mul.i.i126, i64 %add.i.i121)
   store i64 %spec.store.select.i.i127, ptr %BufferCapacity.i.i, align 8
-  %call.i.i128 = tail call ptr @realloc(ptr noundef %.pre.i124, i64 noundef %spec.store.select.i.i127) #22
+  %call.i.i128 = tail call ptr @realloc(ptr noundef %.pre.i124, i64 noundef %spec.store.select.i.i127) #23
   store ptr %call.i.i128, ptr %S, align 8
   %cmp14.i.i129 = icmp eq ptr %call.i.i128, null
   br i1 %cmp14.i.i129, label %if.then15.i.i135, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i130
@@ -27119,7 +27119,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i130: ; preds = %if.then.i.i12
   br label %_ZN12OutputStream4growEm.exit.i132
 
 if.then15.i.i135:                                 ; preds = %if.then.i.i125
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i132:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i130, %if.end.i119
@@ -27141,7 +27141,7 @@ if.then.i.i150:                                   ; preds = %if.end.i144
   %mul.i.i151 = shl i64 %36, 1
   %spec.store.select.i.i152 = tail call i64 @llvm.umax.i64(i64 %mul.i.i151, i64 %add.i.i146)
   store i64 %spec.store.select.i.i152, ptr %BufferCapacity.i.i, align 8
-  %call.i.i153 = tail call ptr @realloc(ptr noundef %.pre.i149, i64 noundef %spec.store.select.i.i152) #22
+  %call.i.i153 = tail call ptr @realloc(ptr noundef %.pre.i149, i64 noundef %spec.store.select.i.i152) #23
   store ptr %call.i.i153, ptr %S, align 8
   %cmp14.i.i154 = icmp eq ptr %call.i.i153, null
   br i1 %cmp14.i.i154, label %if.then15.i.i160, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i155
@@ -27151,7 +27151,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i155: ; preds = %if.then.i.i15
   br label %_ZN12OutputStream4growEm.exit.i157
 
 if.then15.i.i160:                                 ; preds = %if.then.i.i150
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i157:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i155, %if.end.i144
@@ -27178,7 +27178,7 @@ if.then36:                                        ; preds = %if.end34
   %vtable.i = load ptr, ptr %40, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %41 = load ptr, ptr %vfn.i, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(12) %40, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(12) %40, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %40, i64 9
   %42 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %42, 1
@@ -27188,7 +27188,7 @@ if.then.i:                                        ; preds = %if.then36
   %vtable2.i = load ptr, ptr %40, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %43 = load ptr, ptr %vfn3.i, align 8
-  tail call void %43(ptr noundef nonnull align 8 dereferenceable(12) %40, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(12) %40, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then.i, %if.then36, %if.end34
@@ -27204,7 +27204,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle16FunctionEncodingD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -27216,7 +27216,7 @@ entry:
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
@@ -27226,7 +27226,7 @@ if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -27243,7 +27243,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %5, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %s, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -27253,7 +27253,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -27285,7 +27285,7 @@ if.then.i.i15:                                    ; preds = %if.end.i9
   %mul.i.i16 = shl i64 %9, 1
   %spec.store.select.i.i17 = tail call i64 @llvm.umax.i64(i64 %mul.i.i16, i64 %add.i.i11)
   store i64 %spec.store.select.i.i17, ptr %BufferCapacity.i.i, align 8
-  %call.i.i18 = tail call ptr @realloc(ptr noundef %.pre.i14, i64 noundef %spec.store.select.i.i17) #22
+  %call.i.i18 = tail call ptr @realloc(ptr noundef %.pre.i14, i64 noundef %spec.store.select.i.i17) #23
   store ptr %call.i.i18, ptr %s, align 8
   %cmp14.i.i19 = icmp eq ptr %call.i.i18, null
   br i1 %cmp14.i.i19, label %if.then15.i.i25, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i20
@@ -27295,7 +27295,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i20: ; preds = %if.then.i.i15
   br label %_ZN12OutputStream4growEm.exit.i22
 
 if.then15.i.i25:                                  ; preds = %if.then.i.i15
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i22:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i20, %if.end.i9
@@ -27320,7 +27320,7 @@ if.then.i.i40:                                    ; preds = %if.end.i34
   %mul.i.i41 = shl i64 %14, 1
   %spec.store.select.i.i42 = tail call i64 @llvm.umax.i64(i64 %mul.i.i41, i64 %add.i.i36)
   store i64 %spec.store.select.i.i42, ptr %BufferCapacity.i.i, align 8
-  %call.i.i43 = tail call ptr @realloc(ptr noundef %.pre.i39, i64 noundef %spec.store.select.i.i42) #22
+  %call.i.i43 = tail call ptr @realloc(ptr noundef %.pre.i39, i64 noundef %spec.store.select.i.i42) #23
   store ptr %call.i.i43, ptr %s, align 8
   %cmp14.i.i44 = icmp eq ptr %call.i.i43, null
   br i1 %cmp14.i.i44, label %if.then15.i.i50, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i45
@@ -27330,7 +27330,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i45: ; preds = %if.then.i.i40
   br label %_ZN12OutputStream4growEm.exit.i47
 
 if.then15.i.i50:                                  ; preds = %if.then.i.i40
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i47:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i45, %if.end.i34
@@ -27353,7 +27353,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle9DotSuffixD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -27436,12 +27436,12 @@ if.then:                                          ; preds = %_ZNK10StringView10s
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA9_KcEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -27513,12 +27513,12 @@ if.end11:                                         ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i28, label %if.then.i.i.i39, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12NoexceptSpecEJRPNS0_4NodeEEEES8_DpOT0_.exit
 
 if.then.i.i.i39:                                  ; preds = %if.end11
-  %call.i6.i.i.i40 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i40 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i41 = icmp eq ptr %call.i6.i.i.i40, null
   br i1 %cmp.i7.i.i.i41, label %if.then.i9.i.i.i44, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i42
 
 if.then.i9.i.i.i44:                               ; preds = %if.then.i.i.i39
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i42: ; preds = %if.then.i.i.i39
@@ -27605,12 +27605,12 @@ if.then.i77:                                      ; preds = %if.end25
   br i1 %cmp.i.i.i78, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i77
-  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #20
+  %call3.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #21
   %cmp.i.i79 = icmp eq ptr %call3.i.i, null
   br i1 %cmp.i.i79, label %if.then4.i.i, label %if.end.i.i80
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i80:                                     ; preds = %if.then.i.i
@@ -27626,13 +27626,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %i
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i77
-  %call9.i.i = tail call ptr @realloc(ptr noundef %32, i64 noundef %mul.i.i) #22
+  %call9.i.i = tail call ptr @realloc(ptr noundef %32, i64 noundef %mul.i.i) #23
   store ptr %call9.i.i, ptr %Names, align 16
   %cmp12.i.i = icmp eq ptr %call9.i.i, null
   br i1 %cmp12.i.i, label %if.then13.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %if.else.i.i, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
@@ -27672,12 +27672,12 @@ while.end:                                        ; preds = %land.lhs.true.i68
   br i1 %cmp.i.i.i86, label %if.then.i.i.i97, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20DynamicExceptionSpecEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i97:                                  ; preds = %while.end
-  %call.i6.i.i.i98 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i98 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i99 = icmp eq ptr %call.i6.i.i.i98, null
   br i1 %cmp.i7.i.i.i99, label %if.then.i9.i.i.i102, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i100
 
 if.then.i9.i.i.i102:                              ; preds = %if.then.i.i.i97
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i100: ; preds = %if.then.i.i.i97
@@ -27837,12 +27837,12 @@ if.then.i205:                                     ; preds = %if.end67
   br i1 %cmp.i.i.i211, label %if.then.i.i220, label %if.else.i.i213
 
 if.then.i.i220:                                   ; preds = %if.then.i205
-  %call3.i.i221 = tail call noalias ptr @malloc(i64 noundef %mul.i.i212) #20
+  %call3.i.i221 = tail call noalias ptr @malloc(i64 noundef %mul.i.i212) #21
   %cmp.i.i222 = icmp eq ptr %call3.i.i221, null
   br i1 %cmp.i.i222, label %if.then4.i.i227, label %if.end.i.i223
 
 if.then4.i.i227:                                  ; preds = %if.then.i.i220
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 if.end.i.i223:                                    ; preds = %if.then.i.i220
@@ -27858,13 +27858,13 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i226: ; preds =
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i216
 
 if.else.i.i213:                                   ; preds = %if.then.i205
-  %call9.i.i214 = tail call ptr @realloc(ptr noundef %60, i64 noundef %mul.i.i212) #22
+  %call9.i.i214 = tail call ptr @realloc(ptr noundef %60, i64 noundef %mul.i.i212) #23
   store ptr %call9.i.i214, ptr %Names45, align 16
   %cmp12.i.i215 = icmp eq ptr %call9.i.i214, null
   br i1 %cmp12.i.i215, label %if.then13.i.i219, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i216
 
 if.then13.i.i219:                                 ; preds = %if.else.i.i213
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i216: ; preds = %if.else.i.i213, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i226
@@ -27907,12 +27907,12 @@ while.end69:                                      ; preds = %_ZNK10StringView10s
   br i1 %cmp.i.i.i236, label %if.then.i.i.i250, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12FunctionTypeEJRPNS0_4NodeERNS0_9NodeArrayERNS0_10QualifiersERNS0_15FunctionRefQualES9_EEES8_DpOT0_.exit
 
 if.then.i.i.i250:                                 ; preds = %while.end69
-  %call.i6.i.i.i251 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i251 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i252 = icmp eq ptr %call.i6.i.i.i251, null
   br i1 %cmp.i7.i.i.i252, label %if.then.i9.i.i.i255, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i253
 
 if.then.i9.i.i.i255:                              ; preds = %if.then.i.i.i250
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i253: ; preds = %if.then.i.i.i250
@@ -28102,12 +28102,12 @@ if.end16:                                         ; preds = %if.end13
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13ObjCProtoNameEJRPNS0_4NodeER10StringViewEEES8_DpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.end16
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -28161,12 +28161,12 @@ if.end23:                                         ; preds = %if.end18
   br i1 %cmp.i.i.i63, label %if.then.i.i.i78, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_17VendorExtQualTypeEJRPNS0_4NodeER10StringViewEEES8_DpOT0_.exit
 
 if.then.i.i.i78:                                  ; preds = %if.end23
-  %call.i6.i.i.i79 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i79 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i80 = icmp eq ptr %call.i6.i.i.i79, null
   br i1 %cmp.i7.i.i.i80, label %if.then.i9.i.i.i83, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i81
 
 if.then.i9.i.i.i83:                               ; preds = %if.then.i.i.i78
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i81: ; preds = %if.then.i.i.i78
@@ -28269,12 +28269,12 @@ if.then32:                                        ; preds = %if.end30
   br i1 %cmp.i.i.i89, label %if.then.i.i.i100, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8QualTypeEJRPNS0_4NodeERNS0_10QualifiersEEEES8_DpOT0_.exit
 
 if.then.i.i.i100:                                 ; preds = %if.then32
-  %call.i6.i.i.i101 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i101 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i102 = icmp eq ptr %call.i6.i.i.i101, null
   br i1 %cmp.i7.i.i.i102, label %if.then.i9.i.i.i105, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i103
 
 if.then.i9.i.i.i105:                              ; preds = %if.then.i.i.i100
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i103: ; preds = %if.then.i.i.i100
@@ -28322,8 +28322,8 @@ return:                                           ; preds = %if.then, %_ZN4llvh1
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA9_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(9) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA9_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(9) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -28334,12 +28334,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA9_KcEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -28361,7 +28361,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8
@@ -28463,12 +28463,12 @@ if.then12:                                        ; preds = %land.lhs.true.i21
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15PixelVectorTypeEJR10StringViewEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.then12
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -28552,12 +28552,12 @@ if.end33:                                         ; preds = %if.end28
   br i1 %cmp.i.i.i45, label %if.then.i.i.i58, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10VectorTypeEJRPNS0_4NodeES9_EEES8_DpOT0_.exit
 
 if.then.i.i.i58:                                  ; preds = %if.end33
-  %call.i6.i.i.i59 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i59 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i60 = icmp eq ptr %call.i6.i.i.i59, null
   br i1 %cmp.i7.i.i.i60, label %if.then.i9.i.i.i63, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61
 
 if.then.i9.i.i.i63:                               ; preds = %if.then.i.i.i58
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61: ; preds = %if.then.i.i.i58
@@ -28613,12 +28613,12 @@ if.end40:                                         ; preds = %if.end35
   br i1 %cmp.i.i.i66, label %if.then.i.i.i84, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10VectorTypeEJRPNS0_4NodeE10StringViewEEES8_DpOT0_.exit
 
 if.then.i.i.i84:                                  ; preds = %if.end40
-  %call.i6.i.i.i85 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i85 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i86 = icmp eq ptr %call.i6.i.i.i85, null
   br i1 %cmp.i7.i.i.i86, label %if.then.i9.i.i.i89, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i87
 
 if.then.i9.i.i.i89:                               ; preds = %if.then.i.i.i84
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i87: ; preds = %if.then.i.i.i84
@@ -28716,12 +28716,12 @@ if.then17:                                        ; preds = %if.end15
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_22ElaboratedTypeSpefTypeEJR10StringViewRPNS0_4NodeEEEESA_DpOT0_.exit
 
 if.then.i.i.i:                                    ; preds = %if.then17
-  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i.i = icmp eq ptr %call.i6.i.i.i, null
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
@@ -28765,8 +28765,8 @@ return:                                           ; preds = %if.end12.thread, %i
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11PointerTypeEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11PointerTypeEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -28777,12 +28777,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11PointerTypeEJRPNS3_4NodeEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -28821,8 +28821,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11PointerTy
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13ReferenceTypeEJRPNS0_4NodeENS0_13ReferenceKindEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13ReferenceTypeEJRPNS0_4NodeENS0_13ReferenceKindEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -28833,12 +28833,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13ReferenceTypeEJRPNS3_4NodeENS3_13ReferenceKindEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -28882,8 +28882,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Reference
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20PostfixQualifiedTypeEJRPNS0_4NodeERA9_KcEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20PostfixQualifiedTypeEJRPNS0_4NodeERA9_KcEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -28894,12 +28894,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA9_KcEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -28940,8 +28940,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20PostfixQu
   ret ptr %add.ptr13.i.i
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20PostfixQualifiedTypeEJRPNS0_4NodeERA11_KcEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20PostfixQualifiedTypeEJRPNS0_4NodeERA11_KcEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -28952,12 +28952,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA11_KcEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -29014,7 +29014,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -29024,7 +29024,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -29040,7 +29040,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
@@ -29050,7 +29050,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStream4g
   %vtable2.i = load ptr, ptr %5, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i12
 
 if.end.i12:                                       ; preds = %if.then.i, %_ZN12OutputStream4growEm.exit.i
@@ -29065,7 +29065,7 @@ if.then.i.i18:                                    ; preds = %if.end.i12
   %mul.i.i19 = shl i64 %10, 1
   %spec.store.select.i.i20 = tail call i64 @llvm.umax.i64(i64 %mul.i.i19, i64 %add.i.i14)
   store i64 %spec.store.select.i.i20, ptr %BufferCapacity.i.i, align 8
-  %call.i.i21 = tail call ptr @realloc(ptr noundef %.pre.i17, i64 noundef %spec.store.select.i.i20) #22
+  %call.i.i21 = tail call ptr @realloc(ptr noundef %.pre.i17, i64 noundef %spec.store.select.i.i20) #23
   store ptr %call.i.i21, ptr %S, align 8
   %cmp14.i.i22 = icmp eq ptr %call.i.i21, null
   br i1 %cmp14.i.i22, label %if.then15.i.i28, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i23
@@ -29075,7 +29075,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i23: ; preds = %if.then.i.i18
   br label %_ZN12OutputStream4growEm.exit.i25
 
 if.then15.i.i28:                                  ; preds = %if.then.i.i18
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i25:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i23, %if.end.i12
@@ -29098,7 +29098,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle12NoexceptSpecD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -29118,7 +29118,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -29128,7 +29128,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -29152,7 +29152,7 @@ if.then.i.i9:                                     ; preds = %_ZN12OutputStream4g
   %mul.i.i10 = shl i64 %6, 1
   %spec.store.select.i.i11 = tail call i64 @llvm.umax.i64(i64 %mul.i.i10, i64 %add.i.i5)
   store i64 %spec.store.select.i.i11, ptr %BufferCapacity.i.i, align 8
-  %call.i.i12 = tail call ptr @realloc(ptr noundef %.pre.i8, i64 noundef %spec.store.select.i.i11) #22
+  %call.i.i12 = tail call ptr @realloc(ptr noundef %.pre.i8, i64 noundef %spec.store.select.i.i11) #23
   store ptr %call.i.i12, ptr %S, align 8
   %cmp14.i.i13 = icmp eq ptr %call.i.i12, null
   br i1 %cmp14.i.i13, label %if.then15.i.i16, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i14
@@ -29163,7 +29163,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i14: ; preds = %if.then.i.i9
   br label %_ZN12OutputStreampLEc.exit
 
 if.then15.i.i16:                                  ; preds = %if.then.i.i9
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit:                       ; preds = %_ZN12OutputStream4growEm.exit.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i14
@@ -29185,7 +29185,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle20DynamicExceptionSpecD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -29209,7 +29209,7 @@ entry:
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %2 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %2, 1
@@ -29223,7 +29223,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %3, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -29233,7 +29233,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -29263,7 +29263,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -29273,7 +29273,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -29297,7 +29297,7 @@ if.then.i.i25:                                    ; preds = %_ZN12OutputStream4g
   %mul.i.i26 = shl i64 %6, 1
   %spec.store.select.i.i27 = tail call i64 @llvm.umax.i64(i64 %mul.i.i26, i64 %add.i.i21)
   store i64 %spec.store.select.i.i27, ptr %BufferCapacity.i.i, align 8
-  %call.i.i28 = tail call ptr @realloc(ptr noundef %.pre.i24, i64 noundef %spec.store.select.i.i27) #22
+  %call.i.i28 = tail call ptr @realloc(ptr noundef %.pre.i24, i64 noundef %spec.store.select.i.i27) #23
   store ptr %call.i.i28, ptr %S, align 8
   %cmp14.i.i29 = icmp eq ptr %call.i.i28, null
   br i1 %cmp14.i.i29, label %if.then15.i.i35, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i30
@@ -29307,7 +29307,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i30: ; preds = %if.then.i.i25
   br label %_ZN12OutputStream4growEm.exit.i32
 
 if.then15.i.i35:                                  ; preds = %if.then.i.i25
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i32:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i30, %_ZN12OutputStream4growEm.exit.i
@@ -29323,7 +29323,7 @@ _ZN12OutputStream4growEm.exit.i32:                ; preds = %if.then.i._ZN12Outp
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %11 = load ptr, ptr %vfn, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %CVQuals = getelementptr inbounds i8, ptr %this, i64 40
   %12 = load i32, ptr %CVQuals, align 8
   %and = and i32 %12, 1
@@ -29342,7 +29342,7 @@ if.then.i.i50:                                    ; preds = %if.end.i44
   %mul.i.i51 = shl i64 %14, 1
   %spec.store.select.i.i52 = tail call i64 @llvm.umax.i64(i64 %mul.i.i51, i64 %add.i.i46)
   store i64 %spec.store.select.i.i52, ptr %BufferCapacity.i.i, align 8
-  %call.i.i53 = tail call ptr @realloc(ptr noundef %.pre.i49, i64 noundef %spec.store.select.i.i52) #22
+  %call.i.i53 = tail call ptr @realloc(ptr noundef %.pre.i49, i64 noundef %spec.store.select.i.i52) #23
   store ptr %call.i.i53, ptr %S, align 8
   %cmp14.i.i54 = icmp eq ptr %call.i.i53, null
   br i1 %cmp14.i.i54, label %if.then15.i.i60, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i55
@@ -29352,7 +29352,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i55: ; preds = %if.then.i.i50
   br label %_ZN12OutputStream4growEm.exit.i57
 
 if.then15.i.i60:                                  ; preds = %if.then.i.i50
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i57:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i55, %if.end.i44
@@ -29384,7 +29384,7 @@ if.then.i.i75:                                    ; preds = %if.end.i69
   %mul.i.i76 = shl i64 %20, 1
   %spec.store.select.i.i77 = tail call i64 @llvm.umax.i64(i64 %mul.i.i76, i64 %add.i.i71)
   store i64 %spec.store.select.i.i77, ptr %BufferCapacity.i.i, align 8
-  %call.i.i78 = tail call ptr @realloc(ptr noundef %.pre.i74, i64 noundef %spec.store.select.i.i77) #22
+  %call.i.i78 = tail call ptr @realloc(ptr noundef %.pre.i74, i64 noundef %spec.store.select.i.i77) #23
   store ptr %call.i.i78, ptr %S, align 8
   %cmp14.i.i79 = icmp eq ptr %call.i.i78, null
   br i1 %cmp14.i.i79, label %if.then15.i.i85, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i80
@@ -29394,7 +29394,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i80: ; preds = %if.then.i.i75
   br label %_ZN12OutputStream4growEm.exit.i82
 
 if.then15.i.i85:                                  ; preds = %if.then.i.i75
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i82:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i80, %if.end.i69
@@ -29426,7 +29426,7 @@ if.then.i.i100:                                   ; preds = %if.end.i94
   %mul.i.i101 = shl i64 %26, 1
   %spec.store.select.i.i102 = tail call i64 @llvm.umax.i64(i64 %mul.i.i101, i64 %add.i.i96)
   store i64 %spec.store.select.i.i102, ptr %BufferCapacity.i.i, align 8
-  %call.i.i103 = tail call ptr @realloc(ptr noundef %.pre.i99, i64 noundef %spec.store.select.i.i102) #22
+  %call.i.i103 = tail call ptr @realloc(ptr noundef %.pre.i99, i64 noundef %spec.store.select.i.i102) #23
   store ptr %call.i.i103, ptr %S, align 8
   %cmp14.i.i104 = icmp eq ptr %call.i.i103, null
   br i1 %cmp14.i.i104, label %if.then15.i.i110, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i105
@@ -29436,7 +29436,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i105: ; preds = %if.then.i.i10
   br label %_ZN12OutputStream4growEm.exit.i107
 
 if.then15.i.i110:                                 ; preds = %if.then.i.i100
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i107:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i105, %if.end.i94
@@ -29469,7 +29469,7 @@ if.then.i.i125:                                   ; preds = %if.end.i119
   %mul.i.i126 = shl i64 %32, 1
   %spec.store.select.i.i127 = tail call i64 @llvm.umax.i64(i64 %mul.i.i126, i64 %add.i.i121)
   store i64 %spec.store.select.i.i127, ptr %BufferCapacity.i.i, align 8
-  %call.i.i128 = tail call ptr @realloc(ptr noundef %.pre.i124, i64 noundef %spec.store.select.i.i127) #22
+  %call.i.i128 = tail call ptr @realloc(ptr noundef %.pre.i124, i64 noundef %spec.store.select.i.i127) #23
   store ptr %call.i.i128, ptr %S, align 8
   %cmp14.i.i129 = icmp eq ptr %call.i.i128, null
   br i1 %cmp14.i.i129, label %if.then15.i.i135, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i130
@@ -29479,7 +29479,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i130: ; preds = %if.then.i.i12
   br label %_ZN12OutputStream4growEm.exit.i132
 
 if.then15.i.i135:                                 ; preds = %if.then.i.i125
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i132:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i130, %if.end.i119
@@ -29501,7 +29501,7 @@ if.then.i.i150:                                   ; preds = %if.end.i144
   %mul.i.i151 = shl i64 %36, 1
   %spec.store.select.i.i152 = tail call i64 @llvm.umax.i64(i64 %mul.i.i151, i64 %add.i.i146)
   store i64 %spec.store.select.i.i152, ptr %BufferCapacity.i.i, align 8
-  %call.i.i153 = tail call ptr @realloc(ptr noundef %.pre.i149, i64 noundef %spec.store.select.i.i152) #22
+  %call.i.i153 = tail call ptr @realloc(ptr noundef %.pre.i149, i64 noundef %spec.store.select.i.i152) #23
   store ptr %call.i.i153, ptr %S, align 8
   %cmp14.i.i154 = icmp eq ptr %call.i.i153, null
   br i1 %cmp14.i.i154, label %if.then15.i.i160, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i155
@@ -29511,7 +29511,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i155: ; preds = %if.then.i.i15
   br label %_ZN12OutputStream4growEm.exit.i157
 
 if.then15.i.i160:                                 ; preds = %if.then.i.i150
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i157:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i155, %if.end.i144
@@ -29546,7 +29546,7 @@ if.then.i.i167:                                   ; preds = %if.then32
   %mul.i.i168 = shl i64 %42, 1
   %spec.store.select.i.i169 = tail call i64 @llvm.umax.i64(i64 %mul.i.i168, i64 %add.i.i163)
   store i64 %spec.store.select.i.i169, ptr %BufferCapacity.i.i, align 8
-  %call.i.i170 = tail call ptr @realloc(ptr noundef %.pre.i166, i64 noundef %spec.store.select.i.i169) #22
+  %call.i.i170 = tail call ptr @realloc(ptr noundef %.pre.i166, i64 noundef %spec.store.select.i.i169) #23
   store ptr %call.i.i170, ptr %S, align 8
   %cmp14.i.i171 = icmp eq ptr %call.i.i170, null
   br i1 %cmp14.i.i171, label %if.then15.i.i174, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i172
@@ -29557,7 +29557,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i172: ; preds = %if.then.i.i16
   br label %_ZN12OutputStreampLEc.exit
 
 if.then15.i.i174:                                 ; preds = %if.then.i.i167
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit:                       ; preds = %if.then32, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i172
@@ -29571,7 +29571,7 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %if.then32, %if.then
   %vtable.i = load ptr, ptr %45, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %46 = load ptr, ptr %vfn.i, align 8
-  tail call void %46(ptr noundef nonnull align 8 dereferenceable(12) %45, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(12) %45, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %45, i64 9
   %47 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %47, 1
@@ -29581,7 +29581,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStreampL
   %vtable2.i = load ptr, ptr %45, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %48 = load ptr, ptr %vfn3.i, align 8
-  tail call void %48(ptr noundef nonnull align 8 dereferenceable(12) %45, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %48(ptr noundef nonnull align 8 dereferenceable(12) %45, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then.i, %_ZN12OutputStreampLEc.exit, %if.end30
@@ -29597,7 +29597,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle12FunctionTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -29609,7 +29609,7 @@ entry:
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
@@ -29619,7 +29619,7 @@ if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -29636,7 +29636,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %5, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -29646,7 +29646,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -29678,7 +29678,7 @@ if.then.i.i15:                                    ; preds = %if.end.i9
   %mul.i.i16 = shl i64 %9, 1
   %spec.store.select.i.i17 = tail call i64 @llvm.umax.i64(i64 %mul.i.i16, i64 %add.i.i11)
   store i64 %spec.store.select.i.i17, ptr %BufferCapacity.i.i, align 8
-  %call.i.i18 = tail call ptr @realloc(ptr noundef %.pre.i14, i64 noundef %spec.store.select.i.i17) #22
+  %call.i.i18 = tail call ptr @realloc(ptr noundef %.pre.i14, i64 noundef %spec.store.select.i.i17) #23
   store ptr %call.i.i18, ptr %S, align 8
   %cmp14.i.i19 = icmp eq ptr %call.i.i18, null
   br i1 %cmp14.i.i19, label %if.then15.i.i25, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i20
@@ -29688,7 +29688,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i20: ; preds = %if.then.i.i15
   br label %_ZN12OutputStream4growEm.exit.i22
 
 if.then15.i.i25:                                  ; preds = %if.then.i.i15
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i22:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i20, %if.end.i9
@@ -29713,7 +29713,7 @@ if.then.i.i40:                                    ; preds = %if.end.i34
   %mul.i.i41 = shl i64 %14, 1
   %spec.store.select.i.i42 = tail call i64 @llvm.umax.i64(i64 %mul.i.i41, i64 %add.i.i36)
   store i64 %spec.store.select.i.i42, ptr %BufferCapacity.i.i, align 8
-  %call.i.i43 = tail call ptr @realloc(ptr noundef %.pre.i39, i64 noundef %spec.store.select.i.i42) #22
+  %call.i.i43 = tail call ptr @realloc(ptr noundef %.pre.i39, i64 noundef %spec.store.select.i.i42) #23
   store ptr %call.i.i43, ptr %S, align 8
   %cmp14.i.i44 = icmp eq ptr %call.i.i43, null
   br i1 %cmp14.i.i44, label %if.then15.i.i50, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i45
@@ -29723,7 +29723,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i45: ; preds = %if.then.i.i40
   br label %_ZN12OutputStream4growEm.exit.i47
 
 if.then15.i.i50:                                  ; preds = %if.then.i.i40
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i47:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i45, %if.end.i34
@@ -29746,7 +29746,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle13ObjCProtoNameD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -29758,7 +29758,7 @@ entry:
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
@@ -29768,7 +29768,7 @@ if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -29785,7 +29785,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %5, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -29795,7 +29795,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -29827,7 +29827,7 @@ if.then.i.i14:                                    ; preds = %if.end.i8
   %mul.i.i15 = shl i64 %9, 1
   %spec.store.select.i.i16 = tail call i64 @llvm.umax.i64(i64 %mul.i.i15, i64 %add.i.i10)
   store i64 %spec.store.select.i.i16, ptr %BufferCapacity.i.i, align 8
-  %call.i.i17 = tail call ptr @realloc(ptr noundef %.pre.i13, i64 noundef %spec.store.select.i.i16) #22
+  %call.i.i17 = tail call ptr @realloc(ptr noundef %.pre.i13, i64 noundef %spec.store.select.i.i16) #23
   store ptr %call.i.i17, ptr %S, align 8
   %cmp14.i.i18 = icmp eq ptr %call.i.i17, null
   br i1 %cmp14.i.i18, label %if.then15.i.i24, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i19
@@ -29837,7 +29837,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i19: ; preds = %if.then.i.i14
   br label %_ZN12OutputStream4growEm.exit.i21
 
 if.then15.i.i24:                                  ; preds = %if.then.i.i14
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i21:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i19, %if.end.i8
@@ -29863,7 +29863,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle17VendorExtQualTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -29884,7 +29884,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i, align 8
-  %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit: ; preds = %if.then.i, %if.end.i
@@ -29910,7 +29910,7 @@ if.end.i:                                         ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %2 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit: ; preds = %if.then.i, %if.end.i
@@ -29936,7 +29936,7 @@ if.end.i:                                         ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %2 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit: ; preds = %if.then.i, %if.end.i
@@ -29952,7 +29952,7 @@ entry:
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   tail call void @_ZNK4llvh16itanium_demangle8QualType10printQualsER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S)
   ret void
 }
@@ -29965,7 +29965,7 @@ entry:
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   ret void
 }
 
@@ -29978,7 +29978,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle8QualTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -30005,7 +30005,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %2, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -30015,7 +30015,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -30049,7 +30049,7 @@ if.then.i.i17:                                    ; preds = %if.end.i11
   %mul.i.i18 = shl i64 %8, 1
   %spec.store.select.i.i19 = tail call i64 @llvm.umax.i64(i64 %mul.i.i18, i64 %add.i.i13)
   store i64 %spec.store.select.i.i19, ptr %BufferCapacity.i.i14, align 8
-  %call.i.i20 = tail call ptr @realloc(ptr noundef %.pre.i16, i64 noundef %spec.store.select.i.i19) #22
+  %call.i.i20 = tail call ptr @realloc(ptr noundef %.pre.i16, i64 noundef %spec.store.select.i.i19) #23
   store ptr %call.i.i20, ptr %S, align 8
   %cmp14.i.i21 = icmp eq ptr %call.i.i20, null
   br i1 %cmp14.i.i21, label %if.then15.i.i27, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i22
@@ -30059,7 +30059,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i22: ; preds = %if.then.i.i17
   br label %_ZN12OutputStream4growEm.exit.i24
 
 if.then15.i.i27:                                  ; preds = %if.then.i.i17
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i24:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i22, %if.end.i11
@@ -30093,7 +30093,7 @@ if.then.i.i42:                                    ; preds = %if.end.i36
   %mul.i.i43 = shl i64 %14, 1
   %spec.store.select.i.i44 = tail call i64 @llvm.umax.i64(i64 %mul.i.i43, i64 %add.i.i38)
   store i64 %spec.store.select.i.i44, ptr %BufferCapacity.i.i39, align 8
-  %call.i.i45 = tail call ptr @realloc(ptr noundef %.pre.i41, i64 noundef %spec.store.select.i.i44) #22
+  %call.i.i45 = tail call ptr @realloc(ptr noundef %.pre.i41, i64 noundef %spec.store.select.i.i44) #23
   store ptr %call.i.i45, ptr %S, align 8
   %cmp14.i.i46 = icmp eq ptr %call.i.i45, null
   br i1 %cmp14.i.i46, label %if.then15.i.i52, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i47
@@ -30103,7 +30103,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i47: ; preds = %if.then.i.i42
   br label %_ZN12OutputStream4growEm.exit.i49
 
 if.then15.i.i52:                                  ; preds = %if.then.i.i42
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i49:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i47, %if.end.i36
@@ -30120,8 +30120,8 @@ if.end15:                                         ; preds = %_ZN12OutputStream4g
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10VectorTypeEJRPNS0_4NodeER10StringViewEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10VectorTypeEJRPNS0_4NodeER10StringViewEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -30132,12 +30132,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10VectorTypeEJRPNS3_4NodeER10StringViewEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -30201,7 +30201,7 @@ if.then.i.i:                                      ; preds = %entry
   %mul.i.i = shl i64 %1, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -30211,7 +30211,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %entry
@@ -30243,7 +30243,7 @@ if.then.i.i14:                                    ; preds = %if.end.i8
   %mul.i.i15 = shl i64 %7, 1
   %spec.store.select.i.i16 = tail call i64 @llvm.umax.i64(i64 %mul.i.i15, i64 %add.i.i10)
   store i64 %spec.store.select.i.i16, ptr %BufferCapacity.i.i, align 8
-  %call.i.i17 = tail call ptr @realloc(ptr noundef %.pre.i13, i64 noundef %spec.store.select.i.i16) #22
+  %call.i.i17 = tail call ptr @realloc(ptr noundef %.pre.i13, i64 noundef %spec.store.select.i.i16) #23
   store ptr %call.i.i17, ptr %S, align 8
   %cmp14.i.i18 = icmp eq ptr %call.i.i17, null
   br i1 %cmp14.i.i18, label %if.then15.i.i24, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i19
@@ -30253,7 +30253,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i19: ; preds = %if.then.i.i14
   br label %_ZN12OutputStream4growEm.exit.i21
 
 if.then15.i.i24:                                  ; preds = %if.then.i.i14
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i21:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i19, %if.end.i8
@@ -30278,7 +30278,7 @@ if.then.i.i39:                                    ; preds = %if.end.i33
   %mul.i.i40 = shl i64 %12, 1
   %spec.store.select.i.i41 = tail call i64 @llvm.umax.i64(i64 %mul.i.i40, i64 %add.i.i35)
   store i64 %spec.store.select.i.i41, ptr %BufferCapacity.i.i, align 8
-  %call.i.i42 = tail call ptr @realloc(ptr noundef %.pre.i38, i64 noundef %spec.store.select.i.i41) #22
+  %call.i.i42 = tail call ptr @realloc(ptr noundef %.pre.i38, i64 noundef %spec.store.select.i.i41) #23
   store ptr %call.i.i42, ptr %S, align 8
   %cmp14.i.i43 = icmp eq ptr %call.i.i42, null
   br i1 %cmp14.i.i43, label %if.then15.i.i49, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i44
@@ -30288,7 +30288,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i44: ; preds = %if.then.i.i39
   br label %_ZN12OutputStream4growEm.exit.i46
 
 if.then15.i.i49:                                  ; preds = %if.then.i.i39
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i46:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i44, %if.end.i33
@@ -30311,7 +30311,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle15PixelVectorTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -30323,7 +30323,7 @@ entry:
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
@@ -30333,7 +30333,7 @@ if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -30350,7 +30350,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %5, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -30360,7 +30360,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -30384,7 +30384,7 @@ if.then:                                          ; preds = %_ZN12OutputStream4g
   %vtable.i6 = load ptr, ptr %9, align 8
   %vfn.i7 = getelementptr inbounds i8, ptr %vtable.i6, i64 32
   %12 = load ptr, ptr %vfn.i7, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i8 = getelementptr inbounds i8, ptr %9, i64 9
   %13 = load i8, ptr %RHSComponentCache.i8, align 1
   %cmp.not.i9 = icmp eq i8 %13, 1
@@ -30394,7 +30394,7 @@ if.then.i10:                                      ; preds = %if.then
   %vtable2.i11 = load ptr, ptr %9, align 8
   %vfn3.i12 = getelementptr inbounds i8, ptr %vtable2.i11, i64 40
   %14 = load ptr, ptr %vfn3.i12, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i47
 
 if.else:                                          ; preds = %_ZN12OutputStream4growEm.exit.i
@@ -30420,7 +30420,7 @@ if.then.i.i28:                                    ; preds = %if.end.i22
   %mul.i.i29 = shl i64 %16, 1
   %spec.store.select.i.i30 = tail call i64 @llvm.umax.i64(i64 %mul.i.i29, i64 %add.i.i24)
   store i64 %spec.store.select.i.i30, ptr %BufferCapacity.i.i, align 8
-  %call.i.i31 = tail call ptr @realloc(ptr noundef %.pre.i27, i64 noundef %spec.store.select.i.i30) #22
+  %call.i.i31 = tail call ptr @realloc(ptr noundef %.pre.i27, i64 noundef %spec.store.select.i.i30) #23
   store ptr %call.i.i31, ptr %S, align 8
   %cmp14.i.i32 = icmp eq ptr %call.i.i31, null
   br i1 %cmp14.i.i32, label %if.then15.i.i38, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i33
@@ -30430,7 +30430,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i33: ; preds = %if.then.i.i28
   br label %_ZN12OutputStream4growEm.exit.i35
 
 if.then15.i.i38:                                  ; preds = %if.then.i.i28
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i35:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i33, %if.end.i22
@@ -30455,7 +30455,7 @@ if.then.i.i53:                                    ; preds = %if.end.i47
   %mul.i.i54 = shl i64 %21, 1
   %spec.store.select.i.i55 = tail call i64 @llvm.umax.i64(i64 %mul.i.i54, i64 %add.i.i49)
   store i64 %spec.store.select.i.i55, ptr %BufferCapacity.i.i, align 8
-  %call.i.i56 = tail call ptr @realloc(ptr noundef %.pre.i52, i64 noundef %spec.store.select.i.i55) #22
+  %call.i.i56 = tail call ptr @realloc(ptr noundef %.pre.i52, i64 noundef %spec.store.select.i.i55) #23
   store ptr %call.i.i56, ptr %S, align 8
   %cmp14.i.i57 = icmp eq ptr %call.i.i56, null
   br i1 %cmp14.i.i57, label %if.then15.i.i63, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i58
@@ -30465,7 +30465,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i58: ; preds = %if.then.i.i53
   br label %_ZN12OutputStream4growEm.exit.i60
 
 if.then15.i.i63:                                  ; preds = %if.then.i.i53
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i60:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i58, %if.end.i47
@@ -30488,12 +30488,12 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle10VectorTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9ArrayTypeEJRPNS0_4NodeERNS0_12NodeOrStringEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9ArrayTypeEJRPNS0_4NodeERNS0_12NodeOrStringEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -30504,12 +30504,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle9ArrayTypeEJRPNS3_4NodeERNS3_12NodeOrStringEEEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -30573,7 +30573,7 @@ entry:
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   ret void
 }
 
@@ -30604,7 +30604,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %3, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i.pre, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i.pre, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -30614,7 +30614,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -30641,7 +30641,7 @@ if.then.i.i21:                                    ; preds = %if.end.i15
   %mul.i.i22 = shl i64 %8, 1
   %spec.store.select.i.i23 = tail call i64 @llvm.umax.i64(i64 %mul.i.i22, i64 %add.i.i17)
   store i64 %spec.store.select.i.i23, ptr %BufferCapacity.i.i18, align 8
-  %call.i.i24 = tail call ptr @realloc(ptr noundef %.pre.i20, i64 noundef %spec.store.select.i.i23) #22
+  %call.i.i24 = tail call ptr @realloc(ptr noundef %.pre.i20, i64 noundef %spec.store.select.i.i23) #23
   store ptr %call.i.i24, ptr %S, align 8
   %cmp14.i.i25 = icmp eq ptr %call.i.i24, null
   br i1 %cmp14.i.i25, label %if.then15.i.i31, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i26
@@ -30651,7 +30651,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i26: ; preds = %if.then.i.i21
   br label %_ZN12OutputStream4growEm.exit.i28
 
 if.then15.i.i31:                                  ; preds = %if.then.i.i21
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i28:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i26, %if.end.i15
@@ -30689,7 +30689,7 @@ if.then.i.i45:                                    ; preds = %if.end.i39
   %mul.i.i46 = shl i64 %15, 1
   %spec.store.select.i.i47 = tail call i64 @llvm.umax.i64(i64 %mul.i.i46, i64 %add.i.i41)
   store i64 %spec.store.select.i.i47, ptr %BufferCapacity.i.i18, align 8
-  %call.i.i48 = tail call ptr @realloc(ptr noundef %.pre.i44, i64 noundef %spec.store.select.i.i47) #22
+  %call.i.i48 = tail call ptr @realloc(ptr noundef %.pre.i44, i64 noundef %spec.store.select.i.i47) #23
   store ptr %call.i.i48, ptr %S, align 8
   %cmp14.i.i49 = icmp eq ptr %call.i.i48, null
   br i1 %cmp14.i.i49, label %if.then15.i.i55, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i50
@@ -30699,7 +30699,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i50: ; preds = %if.then.i.i45
   br label %_ZN12OutputStream4growEm.exit.i52
 
 if.then15.i.i55:                                  ; preds = %if.then.i.i45
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i52:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i50, %if.end.i39
@@ -30721,7 +30721,7 @@ if.then13:                                        ; preds = %if.else
   %vtable.i = load ptr, ptr %13, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %20 = load ptr, ptr %vfn.i, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %13, i64 9
   %21 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %21, 1
@@ -30731,7 +30731,7 @@ if.then.i:                                        ; preds = %if.then13
   %vtable2.i = load ptr, ptr %13, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %22 = load ptr, ptr %vfn3.i, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %if.end.i67
 
 if.end.i67:                                       ; preds = %if.else, %if.then6, %_ZN12OutputStream4growEm.exit.i52, %if.then13, %if.then.i
@@ -30746,7 +30746,7 @@ if.then.i.i73:                                    ; preds = %if.end.i67
   %mul.i.i74 = shl i64 %24, 1
   %spec.store.select.i.i75 = tail call i64 @llvm.umax.i64(i64 %mul.i.i74, i64 %add.i.i69)
   store i64 %spec.store.select.i.i75, ptr %BufferCapacity.i.i18, align 8
-  %call.i.i76 = tail call ptr @realloc(ptr noundef %.pre.i72, i64 noundef %spec.store.select.i.i75) #22
+  %call.i.i76 = tail call ptr @realloc(ptr noundef %.pre.i72, i64 noundef %spec.store.select.i.i75) #23
   store ptr %call.i.i76, ptr %S, align 8
   %cmp14.i.i77 = icmp eq ptr %call.i.i76, null
   br i1 %cmp14.i.i77, label %if.then15.i.i83, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i78
@@ -30756,7 +30756,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i78: ; preds = %if.then.i.i73
   br label %_ZN12OutputStream4growEm.exit.i80
 
 if.then15.i.i83:                                  ; preds = %if.then.i.i73
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i80:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i78, %if.end.i67
@@ -30772,7 +30772,7 @@ _ZN12OutputStream4growEm.exit.i80:                ; preds = %if.then.i._ZN12Outp
   %vtable = load ptr, ptr %28, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %29 = load ptr, ptr %vfn, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   ret void
 }
 
@@ -30785,12 +30785,12 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle9ArrayTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_19PointerToMemberTypeEJRPNS0_4NodeES9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_19PointerToMemberTypeEJRPNS0_4NodeES9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #13 align 2 {
 entry:
   %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
@@ -30801,12 +30801,12 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle19PointerToMemberTypeEJRPNS3_4NodeES7_EEEPT_DpOT0_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #20
+  %call.i6.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #21
   %cmp.i7.i.i = icmp eq ptr %call.i6.i.i, null
   br i1 %cmp.i7.i.i, label %if.then.i9.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
@@ -30865,7 +30865,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i, align 8
-  %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit: ; preds = %if.then.i, %if.end.i
@@ -30881,7 +30881,7 @@ entry:
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   %2 = load ptr, ptr %MemberType, align 8
   %ArrayCache.i = getelementptr inbounds i8, ptr %2, i64 10
   %3 = load i8, ptr %ArrayCache.i, align 2
@@ -30894,7 +30894,7 @@ _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit: ; preds = %entry
   %vtable.i = load ptr, ptr %2, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %4 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call.i = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br i1 %call.i, label %if.end.i16, label %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false_crit_edge
 
 _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false_crit_edge: ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit
@@ -30914,7 +30914,7 @@ _ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit: ; preds = %l
   %vtable.i12 = load ptr, ptr %5, align 8
   %vfn.i13 = getelementptr inbounds i8, ptr %vtable.i12, i64 16
   %7 = load ptr, ptr %vfn.i13, align 8
-  %call.i14 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call.i14 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br i1 %call.i14, label %if.end.i16, label %if.end.i25
 
 if.end.i16:                                       ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit, %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit, %entry, %lor.lhs.false
@@ -30931,7 +30931,7 @@ if.then.i.i:                                      ; preds = %if.end.i16
   %mul.i.i = shl i64 %9, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %s, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -30941,7 +30941,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i16
@@ -30965,7 +30965,7 @@ if.then.i.i31:                                    ; preds = %if.end.i25
   %mul.i.i32 = shl i64 %13, 1
   %spec.store.select.i.i33 = tail call i64 @llvm.umax.i64(i64 %mul.i.i32, i64 %add.i.i27)
   store i64 %spec.store.select.i.i33, ptr %BufferCapacity.i.i28, align 8
-  %call.i.i34 = tail call ptr @realloc(ptr noundef %.pre.i30, i64 noundef %spec.store.select.i.i33) #22
+  %call.i.i34 = tail call ptr @realloc(ptr noundef %.pre.i30, i64 noundef %spec.store.select.i.i33) #23
   store ptr %call.i.i34, ptr %s, align 8
   %cmp14.i.i35 = icmp eq ptr %call.i.i34, null
   br i1 %cmp14.i.i35, label %if.then15.i.i41, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i36
@@ -30975,7 +30975,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i36: ; preds = %if.then.i.i31
   br label %_ZN12OutputStream4growEm.exit.i38
 
 if.then15.i.i41:                                  ; preds = %if.then.i.i31
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i38:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i36, %if.end.i25
@@ -30995,7 +30995,7 @@ if.end:                                           ; preds = %_ZN12OutputStream4g
   %vtable.i43 = load ptr, ptr %17, align 8
   %vfn.i44 = getelementptr inbounds i8, ptr %vtable.i43, i64 32
   %18 = load ptr, ptr %vfn.i44, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %17, i64 9
   %19 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i45 = icmp eq i8 %19, 1
@@ -31005,7 +31005,7 @@ if.then.i46:                                      ; preds = %if.end
   %vtable2.i = load ptr, ptr %17, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %20 = load ptr, ptr %vfn3.i, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br label %if.end.i55
 
 if.end.i55:                                       ; preds = %if.then.i46, %if.end
@@ -31022,7 +31022,7 @@ if.then.i.i61:                                    ; preds = %if.end.i55
   %mul.i.i62 = shl i64 %22, 1
   %spec.store.select.i.i63 = tail call i64 @llvm.umax.i64(i64 %mul.i.i62, i64 %add.i.i57)
   store i64 %spec.store.select.i.i63, ptr %BufferCapacity.i.i58, align 8
-  %call.i.i64 = tail call ptr @realloc(ptr noundef %.pre.i60, i64 noundef %spec.store.select.i.i63) #22
+  %call.i.i64 = tail call ptr @realloc(ptr noundef %.pre.i60, i64 noundef %spec.store.select.i.i63) #23
   store ptr %call.i.i64, ptr %s, align 8
   %cmp14.i.i65 = icmp eq ptr %call.i.i64, null
   br i1 %cmp14.i.i65, label %if.then15.i.i71, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i66
@@ -31032,7 +31032,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i66: ; preds = %if.then.i.i61
   br label %_ZN12OutputStream4growEm.exit.i68
 
 if.then15.i.i71:                                  ; preds = %if.then.i.i61
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i68:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i66, %if.end.i55
@@ -31062,7 +31062,7 @@ _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit: ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %2 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br i1 %call.i, label %if.end.i13, label %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false_crit_edge
 
 _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false_crit_edge: ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit
@@ -31082,7 +31082,7 @@ _ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit: ; preds = %l
   %vtable.i9 = load ptr, ptr %3, align 8
   %vfn.i10 = getelementptr inbounds i8, ptr %vtable.i9, i64 16
   %5 = load ptr, ptr %vfn.i10, align 8
-  %call.i11 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call.i11 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br i1 %call.i11, label %if.end.i13, label %if.end
 
 if.end.i13:                                       ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit, %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit, %entry, %lor.lhs.false
@@ -31099,7 +31099,7 @@ if.then.i.i:                                      ; preds = %if.end.i13
   %mul.i.i = shl i64 %7, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %s, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -31109,7 +31109,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i13
@@ -31127,7 +31127,7 @@ if.end:                                           ; preds = %lor.lhs.false, %_ZN
   %vtable = load ptr, ptr %11, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %12 = load ptr, ptr %vfn, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   ret void
 }
 
@@ -31140,7 +31140,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle19PointerToMemberTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -31171,7 +31171,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %0, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %S, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -31181,7 +31181,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -31208,7 +31208,7 @@ if.then.i.i8:                                     ; preds = %_ZN12OutputStreampL
   %mul.i.i9 = shl i64 %5, 1
   %spec.store.select.i.i10 = tail call i64 @llvm.umax.i64(i64 %mul.i.i9, i64 %add.i.i4)
   store i64 %spec.store.select.i.i10, ptr %BufferCapacity.i.i5, align 8
-  %call.i.i11 = tail call ptr @realloc(ptr noundef %.pre.i7, i64 noundef %spec.store.select.i.i10) #22
+  %call.i.i11 = tail call ptr @realloc(ptr noundef %.pre.i7, i64 noundef %spec.store.select.i.i10) #23
   store ptr %call.i.i11, ptr %S, align 8
   %cmp14.i.i12 = icmp eq ptr %call.i.i11, null
   br i1 %cmp14.i.i12, label %if.then15.i.i15, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i13
@@ -31219,7 +31219,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i13: ; preds = %if.then.i.i8
   br label %_ZN12OutputStreampLEc.exit
 
 if.then15.i.i15:                                  ; preds = %if.then.i.i8
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStreampLEc.exit:                       ; preds = %_ZN12OutputStreampLE10StringView.exit, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i13
@@ -31234,7 +31234,7 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %_ZN12OutputStreampL
   %vtable.i = load ptr, ptr %8, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %9 = load ptr, ptr %vfn.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %8, i64 9
   %10 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %10, 1
@@ -31244,7 +31244,7 @@ if.then.i:                                        ; preds = %_ZN12OutputStreampL
   %vtable2.i = load ptr, ptr %8, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %11 = load ptr, ptr %vfn3.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %_ZN12OutputStreampLEc.exit, %if.then.i
@@ -31260,7 +31260,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle22ElaboratedTypeSpefTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -31281,7 +31281,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i, align 8
-  %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit: ; preds = %if.then.i, %if.end.i
@@ -31331,7 +31331,7 @@ if.then:                                          ; preds = %land.rhs.i, %lor.lh
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %4 = load ptr, ptr %vfn, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   %5 = load ptr, ptr %Pointee, align 8
   %ArrayCache.i = getelementptr inbounds i8, ptr %5, i64 10
   %6 = load i8, ptr %ArrayCache.i, align 2
@@ -31344,7 +31344,7 @@ _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit: ; preds = %if.th
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %7 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br i1 %call.i, label %if.end.i12, label %if.end
 
 if.end.i12:                                       ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit, %if.then
@@ -31361,7 +31361,7 @@ if.then.i.i:                                      ; preds = %if.end.i12
   %mul.i.i = shl i64 %9, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %s, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -31371,7 +31371,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i12
@@ -31397,7 +31397,7 @@ _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit23: ; preds = %if.
   %vtable.i20 = load ptr, ptr %13, align 8
   %vfn.i21 = getelementptr inbounds i8, ptr %vtable.i20, i64 8
   %15 = load ptr, ptr %vfn.i21, align 8
-  %call.i22 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call.i22 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br i1 %call.i22, label %if.end.i39, label %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit23.lor.lhs.false11_crit_edge
 
 _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit23.lor.lhs.false11_crit_edge: ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit23
@@ -31417,7 +31417,7 @@ _ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit: ; preds = %l
   %vtable.i29 = load ptr, ptr %16, align 8
   %vfn.i30 = getelementptr inbounds i8, ptr %vtable.i29, i64 16
   %18 = load ptr, ptr %vfn.i30, align 8
-  %call.i31 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call.i31 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br i1 %call.i31, label %if.end.i39, label %if.end.i64
 
 if.end.i39:                                       ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit23, %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit, %if.end, %lor.lhs.false11
@@ -31434,7 +31434,7 @@ if.then.i.i45:                                    ; preds = %if.end.i39
   %mul.i.i46 = shl i64 %20, 1
   %spec.store.select.i.i47 = tail call i64 @llvm.umax.i64(i64 %mul.i.i46, i64 %add.i.i41)
   store i64 %spec.store.select.i.i47, ptr %BufferCapacity.i.i42, align 8
-  %call.i.i48 = tail call ptr @realloc(ptr noundef %.pre.i44, i64 noundef %spec.store.select.i.i47) #22
+  %call.i.i48 = tail call ptr @realloc(ptr noundef %.pre.i44, i64 noundef %spec.store.select.i.i47) #23
   store ptr %call.i.i48, ptr %s, align 8
   %cmp14.i.i49 = icmp eq ptr %call.i.i48, null
   br i1 %cmp14.i.i49, label %if.then15.i.i55, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i50
@@ -31444,7 +31444,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i50: ; preds = %if.then.i.i45
   br label %_ZN12OutputStream4growEm.exit.i52
 
 if.then15.i.i55:                                  ; preds = %if.then.i.i45
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i52:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i50, %if.end.i39
@@ -31471,7 +31471,7 @@ if.then.i.i70:                                    ; preds = %if.end.i64
   %mul.i.i71 = shl i64 %25, 1
   %spec.store.select.i.i72 = tail call i64 @llvm.umax.i64(i64 %mul.i.i71, i64 %add.i.i66)
   store i64 %spec.store.select.i.i72, ptr %BufferCapacity.i.i67, align 8
-  %call.i.i73 = tail call ptr @realloc(ptr noundef %.pre.i69, i64 noundef %spec.store.select.i.i72) #22
+  %call.i.i73 = tail call ptr @realloc(ptr noundef %.pre.i69, i64 noundef %spec.store.select.i.i72) #23
   store ptr %call.i.i73, ptr %s, align 8
   %cmp14.i.i74 = icmp eq ptr %call.i.i73, null
   br i1 %cmp14.i.i74, label %if.then15.i.i80, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i75
@@ -31481,7 +31481,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i75: ; preds = %if.then.i.i70
   br label %_ZN12OutputStream4growEm.exit.i77
 
 if.then15.i.i80:                                  ; preds = %if.then.i.i70
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i77:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i75, %if.end.i64
@@ -31505,7 +31505,7 @@ if.then.i.i95:                                    ; preds = %if.end.i89
   %mul.i.i96 = shl i64 %29, 1
   %spec.store.select.i.i97 = tail call i64 @llvm.umax.i64(i64 %mul.i.i96, i64 %add.i.i91)
   store i64 %spec.store.select.i.i97, ptr %BufferCapacity.i.i92, align 8
-  %call.i.i98 = tail call ptr @realloc(ptr noundef %.pre.i94, i64 noundef %spec.store.select.i.i97) #22
+  %call.i.i98 = tail call ptr @realloc(ptr noundef %.pre.i94, i64 noundef %spec.store.select.i.i97) #23
   store ptr %call.i.i98, ptr %s, align 8
   %cmp14.i.i99 = icmp eq ptr %call.i.i98, null
   br i1 %cmp14.i.i99, label %if.then15.i.i105, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i100
@@ -31515,7 +31515,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i100: ; preds = %if.then.i.i95
   br label %_ZN12OutputStream4growEm.exit.i102
 
 if.then15.i.i105:                                 ; preds = %if.then.i.i95
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i102:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i100, %if.end.i89
@@ -31547,7 +31547,7 @@ if.then.i.i117:                                   ; preds = %if.end.i111
   %mul.i.i118 = shl i64 %33, 1
   %spec.store.select.i.i119 = tail call i64 @llvm.umax.i64(i64 %mul.i.i118, i64 %add.i.i113)
   store i64 %spec.store.select.i.i119, ptr %BufferCapacity.i.i92, align 8
-  %call.i.i120 = tail call ptr @realloc(ptr noundef %.pre.i116, i64 noundef %spec.store.select.i.i119) #22
+  %call.i.i120 = tail call ptr @realloc(ptr noundef %.pre.i116, i64 noundef %spec.store.select.i.i119) #23
   store ptr %call.i.i120, ptr %s, align 8
   %cmp14.i.i121 = icmp eq ptr %call.i.i120, null
   br i1 %cmp14.i.i121, label %if.then15.i.i127, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i122
@@ -31557,7 +31557,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i122: ; preds = %if.then.i.i11
   br label %_ZN12OutputStream4growEm.exit.i124
 
 if.then15.i.i127:                                 ; preds = %if.then.i.i117
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i124:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i122, %if.end.i111
@@ -31582,7 +31582,7 @@ if.then.i.i142:                                   ; preds = %if.end.i136
   %mul.i.i143 = shl i64 %38, 1
   %spec.store.select.i.i144 = tail call i64 @llvm.umax.i64(i64 %mul.i.i143, i64 %add.i.i138)
   store i64 %spec.store.select.i.i144, ptr %BufferCapacity.i.i92, align 8
-  %call.i.i145 = tail call ptr @realloc(ptr noundef %.pre.i141, i64 noundef %spec.store.select.i.i144) #22
+  %call.i.i145 = tail call ptr @realloc(ptr noundef %.pre.i141, i64 noundef %spec.store.select.i.i144) #23
   store ptr %call.i.i145, ptr %s, align 8
   %cmp14.i.i146 = icmp eq ptr %call.i.i145, null
   br i1 %cmp14.i.i146, label %if.then15.i.i152, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i147
@@ -31592,7 +31592,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i147: ; preds = %if.then.i.i14
   br label %_ZN12OutputStream4growEm.exit.i149
 
 if.then15.i.i152:                                 ; preds = %if.then.i.i142
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i149:               ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i147, %if.end.i136
@@ -31660,7 +31660,7 @@ _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit: ; preds = %if.th
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %5 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call.i = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br i1 %call.i, label %if.end.i14, label %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false6_crit_edge
 
 _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false6_crit_edge: ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit
@@ -31680,7 +31680,7 @@ _ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit: ; preds = %l
   %vtable.i9 = load ptr, ptr %6, align 8
   %vfn.i10 = getelementptr inbounds i8, ptr %vtable.i9, i64 16
   %8 = load ptr, ptr %vfn.i10, align 8
-  %call.i11 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call.i11 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br i1 %call.i11, label %if.end.i14, label %if.end
 
 if.end.i14:                                       ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit, %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit, %if.then, %lor.lhs.false6
@@ -31697,7 +31697,7 @@ if.then.i.i:                                      ; preds = %if.end.i14
   %mul.i.i = shl i64 %10, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %s, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -31707,7 +31707,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i14
@@ -31725,7 +31725,7 @@ if.end:                                           ; preds = %lor.lhs.false6, %_Z
   %vtable = load ptr, ptr %14, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %15 = load ptr, ptr %vfn, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br label %if.end12
 
 if.end12:                                         ; preds = %land.rhs.i.i, %if.end, %_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit
@@ -31741,7 +31741,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle11PointerTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -31762,7 +31762,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i, align 8
-  %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
   br label %_ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit: ; preds = %if.then.i, %if.end.i
@@ -31788,7 +31788,7 @@ if.end:                                           ; preds = %entry
   %vtable7.i = load ptr, ptr %retval.sroa.5.06.i, align 8
   %vfn8.i = getelementptr inbounds i8, ptr %vtable7.i, i64 24
   %2 = load ptr, ptr %vfn8.i, align 8
-  %call29.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.06.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call29.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.06.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   %K.i10.i = getelementptr inbounds i8, ptr %call29.i, i64 8
   %3 = load i8, ptr %K.i10.i, align 8
   %cmp.not11.i = icmp eq i8 %3, 12
@@ -31805,7 +31805,7 @@ if.end.i:                                         ; preds = %if.end, %if.end.i
   %vtable.i = load ptr, ptr %retval.sroa.5.0.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %5 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call2.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   %K.i.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %6 = load i8, ptr %K.i.i, align 8
   %cmp.not.i = icmp eq i8 %6, 12
@@ -31817,7 +31817,7 @@ _ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit: ; pred
   %vtable = load ptr, ptr %retval.sroa.5.0.lcssa.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %7 = load ptr, ptr %vfn, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   %ArrayCache.i = getelementptr inbounds i8, ptr %retval.sroa.5.0.lcssa.i, i64 10
   %8 = load i8, ptr %ArrayCache.i, align 2
   switch i8 %8, label %lor.lhs.false [
@@ -31829,7 +31829,7 @@ _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit: ; preds = %_ZNK4
   %vtable.i13 = load ptr, ptr %retval.sroa.5.0.lcssa.i, align 8
   %vfn.i14 = getelementptr inbounds i8, ptr %vtable.i13, i64 8
   %9 = load ptr, ptr %vfn.i14, align 8
-  %call.i = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call.i = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br i1 %call.i, label %if.end.i16, label %if.end7
 
 if.end.i16:                                       ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit, %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit
@@ -31846,7 +31846,7 @@ if.then.i.i:                                      ; preds = %if.end.i16
   %mul.i.i = shl i64 %11, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %s, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -31856,7 +31856,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i16
@@ -31880,7 +31880,7 @@ _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit27: ; preds = %if.
   %vtable.i24 = load ptr, ptr %retval.sroa.5.0.lcssa.i, align 8
   %vfn.i25 = getelementptr inbounds i8, ptr %vtable.i24, i64 8
   %15 = load ptr, ptr %vfn.i25, align 8
-  %call.i26 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call.i26 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br i1 %call.i26, label %if.end.i43, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end7, %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit, %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit27
@@ -31895,7 +31895,7 @@ _ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit: ; preds = %l
   %vtable.i33 = load ptr, ptr %retval.sroa.5.0.lcssa.i, align 8
   %vfn.i34 = getelementptr inbounds i8, ptr %vtable.i33, i64 16
   %17 = load ptr, ptr %vfn.i34, align 8
-  %call.i35 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call.i35 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br i1 %call.i35, label %if.end.i43, label %if.end15
 
 if.end.i43:                                       ; preds = %if.end7, %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit27, %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit, %lor.lhs.false
@@ -31912,7 +31912,7 @@ if.then.i.i49:                                    ; preds = %if.end.i43
   %mul.i.i50 = shl i64 %19, 1
   %spec.store.select.i.i51 = tail call i64 @llvm.umax.i64(i64 %mul.i.i50, i64 %add.i.i45)
   store i64 %spec.store.select.i.i51, ptr %BufferCapacity.i.i46, align 8
-  %call.i.i52 = tail call ptr @realloc(ptr noundef %.pre.i48, i64 noundef %spec.store.select.i.i51) #22
+  %call.i.i52 = tail call ptr @realloc(ptr noundef %.pre.i48, i64 noundef %spec.store.select.i.i51) #23
   store ptr %call.i.i52, ptr %s, align 8
   %cmp14.i.i53 = icmp eq ptr %call.i.i52, null
   br i1 %cmp14.i.i53, label %if.then15.i.i59, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i54
@@ -31922,7 +31922,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i54: ; preds = %if.then.i.i49
   br label %_ZN12OutputStream4growEm.exit.i56
 
 if.then15.i.i59:                                  ; preds = %if.then.i.i49
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i56:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i54, %if.end.i43
@@ -31952,7 +31952,7 @@ if.then.i.i74:                                    ; preds = %if.end15
   %mul.i.i75 = shl i64 %24, 1
   %spec.store.select.i.i76 = tail call i64 @llvm.umax.i64(i64 %mul.i.i75, i64 %add.i.i70)
   store i64 %spec.store.select.i.i76, ptr %BufferCapacity.i.i71, align 8
-  %call.i.i77 = tail call ptr @realloc(ptr noundef %.pre.i73, i64 noundef %spec.store.select.i.i76) #22
+  %call.i.i77 = tail call ptr @realloc(ptr noundef %.pre.i73, i64 noundef %spec.store.select.i.i76) #23
   store ptr %call.i.i77, ptr %s, align 8
   %cmp14.i.i78 = icmp eq ptr %call.i.i77, null
   br i1 %cmp14.i.i78, label %if.then15.i.i84, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i79
@@ -31962,7 +31962,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i79: ; preds = %if.then.i.i74
   br label %_ZN12OutputStream4growEm.exit.i81
 
 if.then15.i.i84:                                  ; preds = %if.then.i.i74
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i81:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i79, %if.end15
@@ -31996,7 +31996,7 @@ if.end:                                           ; preds = %entry
   %vtable7.i = load ptr, ptr %retval.sroa.5.06.i, align 8
   %vfn8.i = getelementptr inbounds i8, ptr %vtable7.i, i64 24
   %1 = load ptr, ptr %vfn8.i, align 8
-  %call29.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.06.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call29.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.06.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   %K.i10.i = getelementptr inbounds i8, ptr %call29.i, i64 8
   %2 = load i8, ptr %K.i10.i, align 8
   %cmp.not11.i = icmp eq i8 %2, 12
@@ -32009,7 +32009,7 @@ if.end.i:                                         ; preds = %if.end, %if.end.i
   %vtable.i = load ptr, ptr %retval.sroa.5.0.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %3 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call2.i = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   %K.i.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %4 = load i8, ptr %K.i.i, align 8
   %cmp.not.i = icmp eq i8 %4, 12
@@ -32028,7 +32028,7 @@ _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit: ; preds = %_ZNK4
   %vtable.i9 = load ptr, ptr %retval.sroa.5.0.lcssa.i, align 8
   %vfn.i10 = getelementptr inbounds i8, ptr %vtable.i9, i64 8
   %6 = load ptr, ptr %vfn.i10, align 8
-  %call.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br i1 %call.i, label %if.end.i20, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit, %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit
@@ -32043,7 +32043,7 @@ _ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit: ; preds = %l
   %vtable.i16 = load ptr, ptr %retval.sroa.5.0.lcssa.i, align 8
   %vfn.i17 = getelementptr inbounds i8, ptr %vtable.i16, i64 16
   %8 = load ptr, ptr %vfn.i17, align 8
-  %call.i18 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  %call.i18 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br i1 %call.i18, label %if.end.i20, label %_ZN14SwapAndRestoreIbED2Ev.exit
 
 if.end.i20:                                       ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit, %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit, %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit, %lor.lhs.false
@@ -32060,7 +32060,7 @@ if.then.i.i:                                      ; preds = %if.end.i20
   %mul.i.i = shl i64 %10, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %s, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -32070,7 +32070,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i20
@@ -32087,7 +32087,7 @@ _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %lor.lhs.false, %_ZN
   %vtable = load ptr, ptr %retval.sroa.5.0.lcssa.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %14 = load ptr, ptr %vfn, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   store i8 %frombool3.i, ptr %Printing, align 4
   br label %return
 
@@ -32104,7 +32104,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle13ReferenceTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(29) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -32116,7 +32116,7 @@ entry:
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #21
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   %Postfix = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %Postfix, align 8
   %agg.tmp.sroa.2.0.Postfix.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
@@ -32141,7 +32141,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   %mul.i.i = shl i64 %3, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
-  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
+  %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #23
   store ptr %call.i.i, ptr %s, align 8
   %cmp14.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i
@@ -32151,7 +32151,7 @@ if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i: ; preds = %if.then.i.i
   br label %_ZN12OutputStream4growEm.exit.i
 
 if.then15.i.i:                                    ; preds = %if.then.i.i
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
@@ -32177,24 +32177,24 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle20PostfixQualifiedTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #17
+declare i32 @llvm.smin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -32205,23 +32205,24 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { nounwind allocsize(0) }
-attributes #21 = { nounwind }
-attributes #22 = { nounwind allocsize(1) }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { builtin nounwind allocsize(0) }
-attributes #25 = { builtin nounwind }
+attributes #13 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nounwind willreturn memory(read) }
+attributes #21 = { nounwind allocsize(0) }
+attributes #22 = { nounwind }
+attributes #23 = { nounwind allocsize(1) }
+attributes #24 = { noreturn nounwind }
+attributes #25 = { builtin nounwind allocsize(0) }
+attributes #26 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

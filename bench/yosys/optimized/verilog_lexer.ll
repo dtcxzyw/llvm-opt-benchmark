@@ -160,7 +160,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #33
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #35
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !6
@@ -175,7 +175,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %7
 
 7:                                                ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #34
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #36
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, %7
@@ -189,7 +189,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 d
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit, label %3
 
 3:                                                ; preds = %1
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #34
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #36
   br label %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit
 
 _ZNSt12_Vector_baseIiSaIiEED2Ev.exit:             ; preds = %1, %3
@@ -343,13 +343,13 @@ define noundef i32 @_Z22frontend_verilog_yylexP24FRONTEND_VERILOG_YYSTYPEP24FRON
   br i1 %.not, label %140, label %.thread
 
 140:                                              ; preds = %138
-  %141 = tail call noalias noundef dereferenceable_or_null(262152) ptr @malloc(i64 noundef 262152) #35
+  %141 = tail call noalias noundef dereferenceable_or_null(262152) ptr @malloc(i64 noundef 262152) #37
   store ptr %141, ptr @_ZL12yy_state_buf, align 8
   %.not1593 = icmp eq ptr %141, null
   br i1 %.not1593, label %142, label %.thread
 
 142:                                              ; preds = %140
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str) #38
   unreachable
 
 .thread:                                          ; preds = %138, %140
@@ -395,13 +395,13 @@ define noundef i32 @_Z22frontend_verilog_yylexP24FRONTEND_VERILOG_YYSTYPEP24FRON
   br i1 %.not1598, label %164, label %186
 
 160:                                              ; preds = %154
-  %161 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #35
+  %161 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #37
   store ptr %161, ptr @_ZL15yy_buffer_stack, align 8
   %.not9.i = icmp eq ptr %161, null
   br i1 %.not9.i, label %162, label %163
 
 162:                                              ; preds = %160
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.22) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.22) #38
   unreachable
 
 163:                                              ; preds = %160
@@ -419,13 +419,13 @@ define noundef i32 @_Z22frontend_verilog_yylexP24FRONTEND_VERILOG_YYSTYPEP24FRON
 167:                                              ; preds = %164
   %168 = add i64 %165, 8
   %169 = shl i64 %168, 3
-  %170 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %155, i64 noundef %169) #37
+  %170 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %155, i64 noundef %169) #39
   store ptr %170, ptr @_ZL15yy_buffer_stack, align 8
   %.not11.i = icmp eq ptr %170, null
   br i1 %.not11.i, label %171, label %172
 
 171:                                              ; preds = %167
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.22) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.22) #38
   unreachable
 
 172:                                              ; preds = %167
@@ -437,25 +437,25 @@ define noundef i32 @_Z22frontend_verilog_yylexP24FRONTEND_VERILOG_YYSTYPEP24FRON
 
 _ZL38frontend_verilog_yyensure_buffer_stackv.exit: ; preds = %163, %164, %172
   %174 = phi ptr [ %150, %163 ], [ %150, %164 ], [ %.pre, %172 ]
-  %175 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
+  %175 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #37
   %.not.i2123 = icmp eq ptr %175, null
   br i1 %.not.i2123, label %176, label %177
 
 176:                                              ; preds = %_ZL38frontend_verilog_yyensure_buffer_stackv.exit
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.15) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.15) #38
   unreachable
 
 177:                                              ; preds = %_ZL38frontend_verilog_yyensure_buffer_stackv.exit
   %178 = getelementptr inbounds i8, ptr %175, i64 24
   store i32 65536, ptr %178, align 8
-  %179 = tail call noalias noundef dereferenceable_or_null(65538) ptr @malloc(i64 noundef 65538) #35
+  %179 = tail call noalias noundef dereferenceable_or_null(65538) ptr @malloc(i64 noundef 65538) #37
   %180 = getelementptr inbounds i8, ptr %175, i64 8
   store ptr %179, ptr %180, align 8
   %.not9.i2124 = icmp eq ptr %179, null
   br i1 %.not9.i2124, label %181, label %_Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit
 
 181:                                              ; preds = %177
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.15) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.15) #38
   unreachable
 
 _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
@@ -994,37 +994,37 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %344 = load ptr, ptr @frontend_verilog_yytext, align 8
   %345 = getelementptr inbounds i8, ptr %344, i64 11
   %346 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E, ptr noundef nonnull %345)
-  %347 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %347 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   br i1 %347, label %354, label %348
 
 348:                                              ; preds = %342
-  %349 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5frontEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %349 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5frontEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %350 = load i8, ptr %349, align 1
   %351 = icmp eq i8 %350, 34
   br i1 %351, label %352, label %354
 
 352:                                              ; preds = %348
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E, i64 noundef 1, i64 noundef -1)
-  %353 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %4) #33
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
+  %353 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %4) #35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #35
   br label %354
 
 354:                                              ; preds = %352, %348, %342
-  %355 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %355 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   br i1 %355, label %364, label %356
 
 356:                                              ; preds = %354
-  %357 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %357 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %358 = load i8, ptr %357, align 1
   %359 = icmp eq i8 %358, 34
   br i1 %359, label %360, label %364
 
 360:                                              ; preds = %356
-  %361 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %361 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %362 = add i64 %361, -1
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E, i64 noundef 0, i64 noundef %362)
-  %363 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %5) #33
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
+  %363 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %5) #35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #35
   br label %364
 
 364:                                              ; preds = %360, %356, %354
@@ -1079,7 +1079,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %383 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND8fn_stackB5cxx11E, i64 8), align 8
   %384 = getelementptr inbounds i8, ptr %383, i64 -32
   store ptr %384, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND8fn_stackB5cxx11E, i64 8), align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %384) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %384) #35
   %385 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND8ln_stackE, i64 8), align 8
   %386 = getelementptr inbounds i8, ptr %385, i64 -4
   %387 = load i32, ptr %386, align 4
@@ -1148,12 +1148,12 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %407, !llvm.loop !15
 
 410:                                              ; preds = %407
-  %411 = call i32 @atoi(ptr nocapture noundef nonnull %.01374) #38
+  %411 = call i32 @atoi(ptr nocapture noundef nonnull %.01374) #40
   store i32 %411, ptr @frontend_verilog_yylineno, align 4
-  %412 = call i32 @atoi(ptr nocapture noundef nonnull %.01374) #38
+  %412 = call i32 @atoi(ptr nocapture noundef nonnull %.01374) #40
   store i32 %412, ptr %199, align 4
   store i32 %412, ptr %1, align 4
-  %413 = call i32 @atoi(ptr nocapture noundef nonnull %.01374) #38
+  %413 = call i32 @atoi(ptr nocapture noundef nonnull %.01374) #40
   store i32 %413, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4
   store i32 %413, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4
   br label %414
@@ -1206,7 +1206,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %422, !llvm.loop !18
 
 .critedge7:                                       ; preds = %422, %422
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #33
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %.21376, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %426 unwind label %433
 
@@ -1219,10 +1219,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %431 unwind label %435
 
 431:                                              ; preds = %426
-  %432 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %6) #33
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #33
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #33
+  %432 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %6) #35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #35
   br label %4365
 
 433:                                              ; preds = %.critedge7
@@ -1233,12 +1233,12 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 435:                                              ; preds = %426
   %436 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #35
   br label %437
 
 437:                                              ; preds = %435, %433
   %.pn2111 = phi { ptr, i32 } [ %436, %435 ], [ %434, %433 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #33
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #35
   br label %4366
 
 438:                                              ; preds = %.loopexit2185
@@ -1280,7 +1280,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 452:                                              ; preds = %442
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
   %453 = getelementptr inbounds i8, ptr %441, i64 15
-  call void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.3, ptr noundef nonnull %453) #36
+  call void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.3, ptr noundef nonnull %453) #38
   unreachable
 
 454:                                              ; preds = %.loopexit2185
@@ -1473,7 +1473,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %.critedge9, !llvm.loop !25
 
 520:                                              ; preds = %.critedge9
-  %521 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.11301, ptr noundef nonnull dereferenceable(5) @.str.4) #38
+  %521 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.11301, ptr noundef nonnull dereferenceable(5) @.str.4) #40
   %.not2093 = icmp eq i32 %521, 0
   br i1 %.not2093, label %522, label %523
 
@@ -1482,7 +1482,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %4365
 
 523:                                              ; preds = %520
-  %524 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.11301, ptr noundef nonnull dereferenceable(5) @.str.5) #38
+  %524 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.11301, ptr noundef nonnull dereferenceable(5) @.str.5) #40
   %.not2094 = icmp eq i32 %524, 0
   br i1 %.not2094, label %525, label %526
 
@@ -2021,11 +2021,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %726, label %.loopexit, label %727
 
 727:                                              ; preds = %724
-  %728 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %728 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %729 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %713, ptr noundef %728, i32 noundef %729)
-  %730 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #33
+  %730 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %731 unwind label %735
 
@@ -2035,10 +2035,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %734 unwind label %737
 
 734:                                              ; preds = %731
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %730, ptr noundef nonnull align 8 dereferenceable(32) %733) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %730, ptr noundef nonnull align 8 dereferenceable(32) %733) #35
   store ptr %730, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #35
   br label %.loopexit
 
 735:                                              ; preds = %727
@@ -2049,13 +2049,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 737:                                              ; preds = %731
   %738 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #35
   br label %739
 
 739:                                              ; preds = %737, %735
   %.pn2062 = phi { ptr, i32 } [ %738, %737 ], [ %736, %735 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #33
-  call void @_ZdlPv(ptr noundef nonnull %730) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #35
+  call void @_ZdlPv(ptr noundef nonnull %730) #36
   br label %4366
 
 740:                                              ; preds = %.loopexit2185
@@ -2101,11 +2101,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %756, label %.loopexit, label %757
 
 757:                                              ; preds = %754
-  %758 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %758 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %759 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %743, ptr noundef %758, i32 noundef %759)
-  %760 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #33
+  %760 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %761 unwind label %765
 
@@ -2115,10 +2115,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %764 unwind label %767
 
 764:                                              ; preds = %761
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %760, ptr noundef nonnull align 8 dereferenceable(32) %763) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %760, ptr noundef nonnull align 8 dereferenceable(32) %763) #35
   store ptr %760, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #35
   br label %.loopexit
 
 765:                                              ; preds = %757
@@ -2129,13 +2129,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 767:                                              ; preds = %761
   %768 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #35
   br label %769
 
 769:                                              ; preds = %767, %765
   %.pn2058 = phi { ptr, i32 } [ %768, %767 ], [ %766, %765 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #33
-  call void @_ZdlPv(ptr noundef nonnull %760) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #35
+  call void @_ZdlPv(ptr noundef nonnull %760) #36
   br label %4366
 
 770:                                              ; preds = %.loopexit2185
@@ -2181,11 +2181,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %786, label %.loopexit, label %787
 
 787:                                              ; preds = %784
-  %788 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %788 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %789 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %773, ptr noundef %788, i32 noundef %789)
-  %790 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #33
+  %790 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %791 unwind label %795
 
@@ -2195,10 +2195,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %794 unwind label %797
 
 794:                                              ; preds = %791
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %790, ptr noundef nonnull align 8 dereferenceable(32) %793) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %790, ptr noundef nonnull align 8 dereferenceable(32) %793) #35
   store ptr %790, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #35
   br label %.loopexit
 
 795:                                              ; preds = %787
@@ -2209,13 +2209,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 797:                                              ; preds = %791
   %798 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #35
   br label %799
 
 799:                                              ; preds = %797, %795
   %.pn2054 = phi { ptr, i32 } [ %798, %797 ], [ %796, %795 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #33
-  call void @_ZdlPv(ptr noundef nonnull %790) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #35
+  call void @_ZdlPv(ptr noundef nonnull %790) #36
   br label %4366
 
 800:                                              ; preds = %.loopexit2185
@@ -2261,11 +2261,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %816, label %.loopexit, label %817
 
 817:                                              ; preds = %814
-  %818 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %818 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %819 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %803, ptr noundef %818, i32 noundef %819)
-  %820 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #33
+  %820 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %821 unwind label %825
 
@@ -2275,10 +2275,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %824 unwind label %827
 
 824:                                              ; preds = %821
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %820, ptr noundef nonnull align 8 dereferenceable(32) %823) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %820, ptr noundef nonnull align 8 dereferenceable(32) %823) #35
   store ptr %820, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #35
   br label %.loopexit
 
 825:                                              ; preds = %817
@@ -2289,13 +2289,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 827:                                              ; preds = %821
   %828 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #35
   br label %829
 
 829:                                              ; preds = %827, %825
   %.pn2050 = phi { ptr, i32 } [ %828, %827 ], [ %826, %825 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #33
-  call void @_ZdlPv(ptr noundef nonnull %820) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #35
+  call void @_ZdlPv(ptr noundef nonnull %820) #36
   br label %4366
 
 830:                                              ; preds = %.loopexit2185
@@ -2341,11 +2341,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %846, label %.loopexit, label %847
 
 847:                                              ; preds = %844
-  %848 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %848 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %849 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %833, ptr noundef %848, i32 noundef %849)
-  %850 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #33
+  %850 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %18)
           to label %851 unwind label %855
 
@@ -2355,10 +2355,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %854 unwind label %857
 
 854:                                              ; preds = %851
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %850, ptr noundef nonnull align 8 dereferenceable(32) %853) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %850, ptr noundef nonnull align 8 dereferenceable(32) %853) #35
   store ptr %850, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #35
   br label %.loopexit
 
 855:                                              ; preds = %847
@@ -2369,13 +2369,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 857:                                              ; preds = %851
   %858 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #35
   br label %859
 
 859:                                              ; preds = %857, %855
   %.pn2046 = phi { ptr, i32 } [ %858, %857 ], [ %856, %855 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #33
-  call void @_ZdlPv(ptr noundef nonnull %850) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #35
+  call void @_ZdlPv(ptr noundef nonnull %850) #36
   br label %4366
 
 860:                                              ; preds = %.loopexit2185
@@ -3381,11 +3381,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1236, label %.loopexit, label %1237
 
 1237:                                             ; preds = %1234
-  %1238 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1238 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1239 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1223, ptr noundef %1238, i32 noundef %1239)
-  %1240 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #33
+  %1240 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %1241 unwind label %1245
 
@@ -3395,10 +3395,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1244 unwind label %1247
 
 1244:                                             ; preds = %1241
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1240, ptr noundef nonnull align 8 dereferenceable(32) %1243) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1240, ptr noundef nonnull align 8 dereferenceable(32) %1243) #35
   store ptr %1240, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #35
   br label %.loopexit
 
 1245:                                             ; preds = %1237
@@ -3409,13 +3409,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1247:                                             ; preds = %1241
   %1248 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #35
   br label %1249
 
 1249:                                             ; preds = %1247, %1245
   %.pn1994 = phi { ptr, i32 } [ %1248, %1247 ], [ %1246, %1245 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #33
-  call void @_ZdlPv(ptr noundef nonnull %1240) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #35
+  call void @_ZdlPv(ptr noundef nonnull %1240) #36
   br label %4366
 
 1250:                                             ; preds = %.loopexit2185
@@ -3461,11 +3461,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1266, label %.loopexit, label %1267
 
 1267:                                             ; preds = %1264
-  %1268 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1268 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1269 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1253, ptr noundef %1268, i32 noundef %1269)
-  %1270 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #33
+  %1270 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %1271 unwind label %1275
 
@@ -3475,10 +3475,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1274 unwind label %1277
 
 1274:                                             ; preds = %1271
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1270, ptr noundef nonnull align 8 dereferenceable(32) %1273) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1270, ptr noundef nonnull align 8 dereferenceable(32) %1273) #35
   store ptr %1270, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #35
   br label %.loopexit
 
 1275:                                             ; preds = %1267
@@ -3489,13 +3489,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1277:                                             ; preds = %1271
   %1278 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #35
   br label %1279
 
 1279:                                             ; preds = %1277, %1275
   %.pn1990 = phi { ptr, i32 } [ %1278, %1277 ], [ %1276, %1275 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #33
-  call void @_ZdlPv(ptr noundef nonnull %1270) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #35
+  call void @_ZdlPv(ptr noundef nonnull %1270) #36
   br label %4366
 
 1280:                                             ; preds = %.loopexit2185
@@ -3541,11 +3541,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1296, label %.loopexit, label %1297
 
 1297:                                             ; preds = %1294
-  %1298 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1298 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1299 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1283, ptr noundef %1298, i32 noundef %1299)
-  %1300 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #33
+  %1300 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %24)
           to label %1301 unwind label %1305
 
@@ -3555,10 +3555,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1304 unwind label %1307
 
 1304:                                             ; preds = %1301
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1300, ptr noundef nonnull align 8 dereferenceable(32) %1303) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1300, ptr noundef nonnull align 8 dereferenceable(32) %1303) #35
   store ptr %1300, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #35
   br label %.loopexit
 
 1305:                                             ; preds = %1297
@@ -3569,13 +3569,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1307:                                             ; preds = %1301
   %1308 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #35
   br label %1309
 
 1309:                                             ; preds = %1307, %1305
   %.pn1986 = phi { ptr, i32 } [ %1308, %1307 ], [ %1306, %1305 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #33
-  call void @_ZdlPv(ptr noundef nonnull %1300) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #35
+  call void @_ZdlPv(ptr noundef nonnull %1300) #36
   br label %4366
 
 1310:                                             ; preds = %.loopexit2185
@@ -3621,11 +3621,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1326, label %.loopexit, label %1327
 
 1327:                                             ; preds = %1324
-  %1328 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1328 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1329 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1313, ptr noundef %1328, i32 noundef %1329)
-  %1330 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #33
+  %1330 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %26)
           to label %1331 unwind label %1335
 
@@ -3635,10 +3635,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1334 unwind label %1337
 
 1334:                                             ; preds = %1331
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1330, ptr noundef nonnull align 8 dereferenceable(32) %1333) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1330, ptr noundef nonnull align 8 dereferenceable(32) %1333) #35
   store ptr %1330, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #35
   br label %.loopexit
 
 1335:                                             ; preds = %1327
@@ -3649,13 +3649,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1337:                                             ; preds = %1331
   %1338 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #35
   br label %1339
 
 1339:                                             ; preds = %1337, %1335
   %.pn1982 = phi { ptr, i32 } [ %1338, %1337 ], [ %1336, %1335 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #33
-  call void @_ZdlPv(ptr noundef nonnull %1330) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #35
+  call void @_ZdlPv(ptr noundef nonnull %1330) #36
   br label %4366
 
 1340:                                             ; preds = %.loopexit2185
@@ -3701,11 +3701,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1356, label %.loopexit, label %1357
 
 1357:                                             ; preds = %1354
-  %1358 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1358 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1359 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1343, ptr noundef %1358, i32 noundef %1359)
-  %1360 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #33
+  %1360 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %28)
           to label %1361 unwind label %1365
 
@@ -3715,10 +3715,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1364 unwind label %1367
 
 1364:                                             ; preds = %1361
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1360, ptr noundef nonnull align 8 dereferenceable(32) %1363) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1360, ptr noundef nonnull align 8 dereferenceable(32) %1363) #35
   store ptr %1360, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #35
   br label %.loopexit
 
 1365:                                             ; preds = %1357
@@ -3729,13 +3729,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1367:                                             ; preds = %1361
   %1368 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #35
   br label %1369
 
 1369:                                             ; preds = %1367, %1365
   %.pn1978 = phi { ptr, i32 } [ %1368, %1367 ], [ %1366, %1365 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #33
-  call void @_ZdlPv(ptr noundef nonnull %1360) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #35
+  call void @_ZdlPv(ptr noundef nonnull %1360) #36
   br label %4366
 
 1370:                                             ; preds = %.loopexit2185
@@ -3781,11 +3781,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1386, label %.loopexit, label %1387
 
 1387:                                             ; preds = %1384
-  %1388 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1388 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1389 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1373, ptr noundef %1388, i32 noundef %1389)
-  %1390 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #33
+  %1390 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %30)
           to label %1391 unwind label %1395
 
@@ -3795,10 +3795,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1394 unwind label %1397
 
 1394:                                             ; preds = %1391
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1390, ptr noundef nonnull align 8 dereferenceable(32) %1393) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1390, ptr noundef nonnull align 8 dereferenceable(32) %1393) #35
   store ptr %1390, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #35
   br label %.loopexit
 
 1395:                                             ; preds = %1387
@@ -3809,13 +3809,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1397:                                             ; preds = %1391
   %1398 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #35
   br label %1399
 
 1399:                                             ; preds = %1397, %1395
   %.pn1974 = phi { ptr, i32 } [ %1398, %1397 ], [ %1396, %1395 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #33
-  call void @_ZdlPv(ptr noundef nonnull %1390) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #35
+  call void @_ZdlPv(ptr noundef nonnull %1390) #36
   br label %4366
 
 1400:                                             ; preds = %.loopexit2185
@@ -3856,13 +3856,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 1414:                                             ; preds = %1404
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
-  %1415 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1403, ptr noundef nonnull dereferenceable(8) @.str.10) #38
+  %1415 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1403, ptr noundef nonnull dereferenceable(8) @.str.10) #40
   %.not1969 = icmp eq i32 %1415, 0
   br i1 %.not1969, label %.loopexit, label %1416
 
 1416:                                             ; preds = %1414
-  %1417 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #33
+  %1417 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %32)
           to label %1418 unwind label %1422
 
@@ -3872,10 +3872,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1421 unwind label %1424
 
 1421:                                             ; preds = %1418
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1417, ptr noundef nonnull align 8 dereferenceable(32) %1420) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1417, ptr noundef nonnull align 8 dereferenceable(32) %1420) #35
   store ptr %1417, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #35
   br label %.loopexit
 
 1422:                                             ; preds = %1416
@@ -3886,13 +3886,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1424:                                             ; preds = %1418
   %1425 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #35
   br label %1426
 
 1426:                                             ; preds = %1424, %1422
   %.pn1970 = phi { ptr, i32 } [ %1425, %1424 ], [ %1423, %1422 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #33
-  call void @_ZdlPv(ptr noundef nonnull %1417) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #35
+  call void @_ZdlPv(ptr noundef nonnull %1417) #36
   br label %4366
 
 1427:                                             ; preds = %.loopexit2185
@@ -3943,11 +3943,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1446, label %.loopexit, label %1447
 
 1447:                                             ; preds = %1444
-  %1448 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1448 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1449 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1430, ptr noundef %1448, i32 noundef %1449)
-  %1450 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #33
+  %1450 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %34)
           to label %1451 unwind label %1455
 
@@ -3957,10 +3957,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1454 unwind label %1457
 
 1454:                                             ; preds = %1451
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1450, ptr noundef nonnull align 8 dereferenceable(32) %1453) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1450, ptr noundef nonnull align 8 dereferenceable(32) %1453) #35
   store ptr %1450, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #35
   br label %.loopexit
 
 1455:                                             ; preds = %1447
@@ -3971,13 +3971,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1457:                                             ; preds = %1451
   %1458 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #35
   br label %1459
 
 1459:                                             ; preds = %1457, %1455
   %.pn1965 = phi { ptr, i32 } [ %1458, %1457 ], [ %1456, %1455 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #33
-  call void @_ZdlPv(ptr noundef nonnull %1450) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #35
+  call void @_ZdlPv(ptr noundef nonnull %1450) #36
   br label %4366
 
 1460:                                             ; preds = %.loopexit2185
@@ -4028,11 +4028,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1479, label %.loopexit, label %1480
 
 1480:                                             ; preds = %1477
-  %1481 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1481 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1482 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1463, ptr noundef %1481, i32 noundef %1482)
-  %1483 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #33
+  %1483 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %36)
           to label %1484 unwind label %1488
 
@@ -4042,10 +4042,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1487 unwind label %1490
 
 1487:                                             ; preds = %1484
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1483, ptr noundef nonnull align 8 dereferenceable(32) %1486) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1483, ptr noundef nonnull align 8 dereferenceable(32) %1486) #35
   store ptr %1483, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #35
   br label %.loopexit
 
 1488:                                             ; preds = %1480
@@ -4056,13 +4056,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1490:                                             ; preds = %1484
   %1491 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #35
   br label %1492
 
 1492:                                             ; preds = %1490, %1488
   %.pn1961 = phi { ptr, i32 } [ %1491, %1490 ], [ %1489, %1488 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #33
-  call void @_ZdlPv(ptr noundef nonnull %1483) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #35
+  call void @_ZdlPv(ptr noundef nonnull %1483) #36
   br label %4366
 
 1493:                                             ; preds = %.loopexit2185
@@ -4113,11 +4113,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1512, label %.loopexit, label %1513
 
 1513:                                             ; preds = %1510
-  %1514 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1514 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1515 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1496, ptr noundef %1514, i32 noundef %1515)
-  %1516 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #33
+  %1516 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %38)
           to label %1517 unwind label %1521
 
@@ -4127,10 +4127,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1520 unwind label %1523
 
 1520:                                             ; preds = %1517
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1516, ptr noundef nonnull align 8 dereferenceable(32) %1519) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1516, ptr noundef nonnull align 8 dereferenceable(32) %1519) #35
   store ptr %1516, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #35
   br label %.loopexit
 
 1521:                                             ; preds = %1513
@@ -4141,13 +4141,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1523:                                             ; preds = %1517
   %1524 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #35
   br label %1525
 
 1525:                                             ; preds = %1523, %1521
   %.pn1957 = phi { ptr, i32 } [ %1524, %1523 ], [ %1522, %1521 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #33
-  call void @_ZdlPv(ptr noundef nonnull %1516) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #35
+  call void @_ZdlPv(ptr noundef nonnull %1516) #36
   br label %4366
 
 1526:                                             ; preds = %.loopexit2185
@@ -4198,11 +4198,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1545, label %.loopexit, label %1546
 
 1546:                                             ; preds = %1543
-  %1547 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1547 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1548 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1529, ptr noundef %1547, i32 noundef %1548)
-  %1549 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #33
+  %1549 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %40)
           to label %1550 unwind label %1554
 
@@ -4212,10 +4212,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1553 unwind label %1556
 
 1553:                                             ; preds = %1550
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1549, ptr noundef nonnull align 8 dereferenceable(32) %1552) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1549, ptr noundef nonnull align 8 dereferenceable(32) %1552) #35
   store ptr %1549, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #35
   br label %.loopexit
 
 1554:                                             ; preds = %1546
@@ -4226,13 +4226,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1556:                                             ; preds = %1550
   %1557 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #35
   br label %1558
 
 1558:                                             ; preds = %1556, %1554
   %.pn1953 = phi { ptr, i32 } [ %1557, %1556 ], [ %1555, %1554 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #33
-  call void @_ZdlPv(ptr noundef nonnull %1549) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #35
+  call void @_ZdlPv(ptr noundef nonnull %1549) #36
   br label %4366
 
 1559:                                             ; preds = %.loopexit2185
@@ -4283,11 +4283,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1578, label %.loopexit, label %1579
 
 1579:                                             ; preds = %1576
-  %1580 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1580 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1581 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1562, ptr noundef %1580, i32 noundef %1581)
-  %1582 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #33
+  %1582 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %42)
           to label %1583 unwind label %1587
 
@@ -4297,10 +4297,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1586 unwind label %1589
 
 1586:                                             ; preds = %1583
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1582, ptr noundef nonnull align 8 dereferenceable(32) %1585) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1582, ptr noundef nonnull align 8 dereferenceable(32) %1585) #35
   store ptr %1582, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #35
   br label %.loopexit
 
 1587:                                             ; preds = %1579
@@ -4311,13 +4311,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1589:                                             ; preds = %1583
   %1590 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #35
   br label %1591
 
 1591:                                             ; preds = %1589, %1587
   %.pn1949 = phi { ptr, i32 } [ %1590, %1589 ], [ %1588, %1587 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #33
-  call void @_ZdlPv(ptr noundef nonnull %1582) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #35
+  call void @_ZdlPv(ptr noundef nonnull %1582) #36
   br label %4366
 
 1592:                                             ; preds = %.loopexit2185
@@ -4368,11 +4368,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1611, label %.loopexit, label %1612
 
 1612:                                             ; preds = %1609
-  %1613 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1613 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1614 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1595, ptr noundef %1613, i32 noundef %1614)
-  %1615 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #33
+  %1615 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %44)
           to label %1616 unwind label %1620
 
@@ -4382,10 +4382,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1619 unwind label %1622
 
 1619:                                             ; preds = %1616
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1615, ptr noundef nonnull align 8 dereferenceable(32) %1618) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1615, ptr noundef nonnull align 8 dereferenceable(32) %1618) #35
   store ptr %1615, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #35
   br label %.loopexit
 
 1620:                                             ; preds = %1612
@@ -4396,13 +4396,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1622:                                             ; preds = %1616
   %1623 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #35
   br label %1624
 
 1624:                                             ; preds = %1622, %1620
   %.pn1945 = phi { ptr, i32 } [ %1623, %1622 ], [ %1621, %1620 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #33
-  call void @_ZdlPv(ptr noundef nonnull %1615) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #35
+  call void @_ZdlPv(ptr noundef nonnull %1615) #36
   br label %4366
 
 1625:                                             ; preds = %.loopexit2185
@@ -4453,11 +4453,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1644, label %.loopexit, label %1645
 
 1645:                                             ; preds = %1642
-  %1646 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1646 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1647 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1628, ptr noundef %1646, i32 noundef %1647)
-  %1648 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #33
+  %1648 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %46)
           to label %1649 unwind label %1653
 
@@ -4467,10 +4467,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1652 unwind label %1655
 
 1652:                                             ; preds = %1649
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1648, ptr noundef nonnull align 8 dereferenceable(32) %1651) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1648, ptr noundef nonnull align 8 dereferenceable(32) %1651) #35
   store ptr %1648, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #35
   br label %.loopexit
 
 1653:                                             ; preds = %1645
@@ -4481,13 +4481,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1655:                                             ; preds = %1649
   %1656 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #35
   br label %1657
 
 1657:                                             ; preds = %1655, %1653
   %.pn1941 = phi { ptr, i32 } [ %1656, %1655 ], [ %1654, %1653 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #33
-  call void @_ZdlPv(ptr noundef nonnull %1648) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #35
+  call void @_ZdlPv(ptr noundef nonnull %1648) #36
   br label %4366
 
 1658:                                             ; preds = %.loopexit2185
@@ -4538,11 +4538,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1677, label %.loopexit, label %1678
 
 1678:                                             ; preds = %1675
-  %1679 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1679 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1680 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1661, ptr noundef %1679, i32 noundef %1680)
-  %1681 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %48) #33
+  %1681 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %48) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %48)
           to label %1682 unwind label %1686
 
@@ -4552,10 +4552,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1685 unwind label %1688
 
 1685:                                             ; preds = %1682
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1681, ptr noundef nonnull align 8 dereferenceable(32) %1684) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1681, ptr noundef nonnull align 8 dereferenceable(32) %1684) #35
   store ptr %1681, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %48) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %48) #35
   br label %.loopexit
 
 1686:                                             ; preds = %1678
@@ -4566,13 +4566,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1688:                                             ; preds = %1682
   %1689 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #35
   br label %1690
 
 1690:                                             ; preds = %1688, %1686
   %.pn1937 = phi { ptr, i32 } [ %1689, %1688 ], [ %1687, %1686 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %48) #33
-  call void @_ZdlPv(ptr noundef nonnull %1681) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %48) #35
+  call void @_ZdlPv(ptr noundef nonnull %1681) #36
   br label %4366
 
 1691:                                             ; preds = %.loopexit2185
@@ -4623,11 +4623,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1710, label %.loopexit, label %1711
 
 1711:                                             ; preds = %1708
-  %1712 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1712 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1713 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1694, ptr noundef %1712, i32 noundef %1713)
-  %1714 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #33
+  %1714 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %50)
           to label %1715 unwind label %1719
 
@@ -4637,10 +4637,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1718 unwind label %1721
 
 1718:                                             ; preds = %1715
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1714, ptr noundef nonnull align 8 dereferenceable(32) %1717) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1714, ptr noundef nonnull align 8 dereferenceable(32) %1717) #35
   store ptr %1714, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #35
   br label %.loopexit
 
 1719:                                             ; preds = %1711
@@ -4651,13 +4651,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1721:                                             ; preds = %1715
   %1722 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #35
   br label %1723
 
 1723:                                             ; preds = %1721, %1719
   %.pn1933 = phi { ptr, i32 } [ %1722, %1721 ], [ %1720, %1719 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #33
-  call void @_ZdlPv(ptr noundef nonnull %1714) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #35
+  call void @_ZdlPv(ptr noundef nonnull %1714) #36
   br label %4366
 
 1724:                                             ; preds = %.loopexit2185
@@ -4708,11 +4708,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1743, label %.loopexit, label %1744
 
 1744:                                             ; preds = %1741
-  %1745 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1745 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1746 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1727, ptr noundef %1745, i32 noundef %1746)
-  %1747 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #33
+  %1747 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %52)
           to label %1748 unwind label %1752
 
@@ -4722,10 +4722,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1751 unwind label %1754
 
 1751:                                             ; preds = %1748
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1747, ptr noundef nonnull align 8 dereferenceable(32) %1750) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1747, ptr noundef nonnull align 8 dereferenceable(32) %1750) #35
   store ptr %1747, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #35
   br label %.loopexit
 
 1752:                                             ; preds = %1744
@@ -4736,13 +4736,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1754:                                             ; preds = %1748
   %1755 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #35
   br label %1756
 
 1756:                                             ; preds = %1754, %1752
   %.pn1929 = phi { ptr, i32 } [ %1755, %1754 ], [ %1753, %1752 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #33
-  call void @_ZdlPv(ptr noundef nonnull %1747) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #35
+  call void @_ZdlPv(ptr noundef nonnull %1747) #36
   br label %4366
 
 1757:                                             ; preds = %.loopexit2185
@@ -4788,11 +4788,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1773, label %.loopexit, label %1774
 
 1774:                                             ; preds = %1771
-  %1775 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1775 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1776 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1760, ptr noundef %1775, i32 noundef %1776)
-  %1777 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %54) #33
+  %1777 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %54) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %54)
           to label %1778 unwind label %1782
 
@@ -4802,10 +4802,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1781 unwind label %1784
 
 1781:                                             ; preds = %1778
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1777, ptr noundef nonnull align 8 dereferenceable(32) %1780) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1777, ptr noundef nonnull align 8 dereferenceable(32) %1780) #35
   store ptr %1777, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %54) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %54) #35
   br label %.loopexit
 
 1782:                                             ; preds = %1774
@@ -4816,13 +4816,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1784:                                             ; preds = %1778
   %1785 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #35
   br label %1786
 
 1786:                                             ; preds = %1784, %1782
   %.pn1925 = phi { ptr, i32 } [ %1785, %1784 ], [ %1783, %1782 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %54) #33
-  call void @_ZdlPv(ptr noundef nonnull %1777) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %54) #35
+  call void @_ZdlPv(ptr noundef nonnull %1777) #36
   br label %4366
 
 1787:                                             ; preds = %.loopexit2185
@@ -4868,11 +4868,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1803, label %.loopexit, label %1804
 
 1804:                                             ; preds = %1801
-  %1805 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1805 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1806 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1790, ptr noundef %1805, i32 noundef %1806)
-  %1807 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #33
+  %1807 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %56)
           to label %1808 unwind label %1812
 
@@ -4882,10 +4882,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1811 unwind label %1814
 
 1811:                                             ; preds = %1808
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1807, ptr noundef nonnull align 8 dereferenceable(32) %1810) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1807, ptr noundef nonnull align 8 dereferenceable(32) %1810) #35
   store ptr %1807, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #35
   br label %.loopexit
 
 1812:                                             ; preds = %1804
@@ -4896,13 +4896,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1814:                                             ; preds = %1808
   %1815 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #35
   br label %1816
 
 1816:                                             ; preds = %1814, %1812
   %.pn1921 = phi { ptr, i32 } [ %1815, %1814 ], [ %1813, %1812 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #33
-  call void @_ZdlPv(ptr noundef nonnull %1807) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #35
+  call void @_ZdlPv(ptr noundef nonnull %1807) #36
   br label %4366
 
 1817:                                             ; preds = %.loopexit2185
@@ -4948,11 +4948,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1833, label %.loopexit, label %1834
 
 1834:                                             ; preds = %1831
-  %1835 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1835 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1836 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1820, ptr noundef %1835, i32 noundef %1836)
-  %1837 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %58) #33
+  %1837 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %58) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %58)
           to label %1838 unwind label %1842
 
@@ -4962,10 +4962,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1841 unwind label %1844
 
 1841:                                             ; preds = %1838
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1837, ptr noundef nonnull align 8 dereferenceable(32) %1840) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1837, ptr noundef nonnull align 8 dereferenceable(32) %1840) #35
   store ptr %1837, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %58) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %58) #35
   br label %.loopexit
 
 1842:                                             ; preds = %1834
@@ -4976,13 +4976,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1844:                                             ; preds = %1838
   %1845 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #35
   br label %1846
 
 1846:                                             ; preds = %1844, %1842
   %.pn1917 = phi { ptr, i32 } [ %1845, %1844 ], [ %1843, %1842 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %58) #33
-  call void @_ZdlPv(ptr noundef nonnull %1837) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %58) #35
+  call void @_ZdlPv(ptr noundef nonnull %1837) #36
   br label %4366
 
 1847:                                             ; preds = %.loopexit2185
@@ -5028,11 +5028,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1863, label %.loopexit, label %1864
 
 1864:                                             ; preds = %1861
-  %1865 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1865 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1866 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1850, ptr noundef %1865, i32 noundef %1866)
-  %1867 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #33
+  %1867 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %60)
           to label %1868 unwind label %1872
 
@@ -5042,10 +5042,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1871 unwind label %1874
 
 1871:                                             ; preds = %1868
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1867, ptr noundef nonnull align 8 dereferenceable(32) %1870) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1867, ptr noundef nonnull align 8 dereferenceable(32) %1870) #35
   store ptr %1867, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #35
   br label %.loopexit
 
 1872:                                             ; preds = %1864
@@ -5056,13 +5056,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1874:                                             ; preds = %1868
   %1875 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #35
   br label %1876
 
 1876:                                             ; preds = %1874, %1872
   %.pn1913 = phi { ptr, i32 } [ %1875, %1874 ], [ %1873, %1872 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #33
-  call void @_ZdlPv(ptr noundef nonnull %1867) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #35
+  call void @_ZdlPv(ptr noundef nonnull %1867) #36
   br label %4366
 
 1877:                                             ; preds = %.loopexit2185
@@ -5108,11 +5108,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1893, label %.loopexit, label %1894
 
 1894:                                             ; preds = %1891
-  %1895 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1895 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1896 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1880, ptr noundef %1895, i32 noundef %1896)
-  %1897 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %62) #33
+  %1897 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %62) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %62)
           to label %1898 unwind label %1902
 
@@ -5122,10 +5122,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1901 unwind label %1904
 
 1901:                                             ; preds = %1898
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1897, ptr noundef nonnull align 8 dereferenceable(32) %1900) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1897, ptr noundef nonnull align 8 dereferenceable(32) %1900) #35
   store ptr %1897, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %62) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %62) #35
   br label %.loopexit
 
 1902:                                             ; preds = %1894
@@ -5136,13 +5136,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1904:                                             ; preds = %1898
   %1905 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #35
   br label %1906
 
 1906:                                             ; preds = %1904, %1902
   %.pn1909 = phi { ptr, i32 } [ %1905, %1904 ], [ %1903, %1902 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %62) #33
-  call void @_ZdlPv(ptr noundef nonnull %1897) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %62) #35
+  call void @_ZdlPv(ptr noundef nonnull %1897) #36
   br label %4366
 
 1907:                                             ; preds = %.loopexit2185
@@ -5188,11 +5188,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1923, label %.loopexit, label %1924
 
 1924:                                             ; preds = %1921
-  %1925 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1925 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1926 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1910, ptr noundef %1925, i32 noundef %1926)
-  %1927 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %64) #33
+  %1927 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %64) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %64)
           to label %1928 unwind label %1932
 
@@ -5202,10 +5202,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1931 unwind label %1934
 
 1931:                                             ; preds = %1928
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1927, ptr noundef nonnull align 8 dereferenceable(32) %1930) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1927, ptr noundef nonnull align 8 dereferenceable(32) %1930) #35
   store ptr %1927, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %64) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %64) #35
   br label %.loopexit
 
 1932:                                             ; preds = %1924
@@ -5216,13 +5216,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1934:                                             ; preds = %1928
   %1935 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #35
   br label %1936
 
 1936:                                             ; preds = %1934, %1932
   %.pn1905 = phi { ptr, i32 } [ %1935, %1934 ], [ %1933, %1932 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %64) #33
-  call void @_ZdlPv(ptr noundef nonnull %1927) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %64) #35
+  call void @_ZdlPv(ptr noundef nonnull %1927) #36
   br label %4366
 
 1937:                                             ; preds = %.loopexit2185
@@ -5268,11 +5268,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1953, label %.loopexit, label %1954
 
 1954:                                             ; preds = %1951
-  %1955 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1955 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1956 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1940, ptr noundef %1955, i32 noundef %1956)
-  %1957 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %66) #33
+  %1957 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %66) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %66)
           to label %1958 unwind label %1962
 
@@ -5282,10 +5282,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1961 unwind label %1964
 
 1961:                                             ; preds = %1958
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1957, ptr noundef nonnull align 8 dereferenceable(32) %1960) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1957, ptr noundef nonnull align 8 dereferenceable(32) %1960) #35
   store ptr %1957, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %66) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %66) #35
   br label %.loopexit
 
 1962:                                             ; preds = %1954
@@ -5296,13 +5296,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1964:                                             ; preds = %1958
   %1965 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #35
   br label %1966
 
 1966:                                             ; preds = %1964, %1962
   %.pn1901 = phi { ptr, i32 } [ %1965, %1964 ], [ %1963, %1962 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %66) #33
-  call void @_ZdlPv(ptr noundef nonnull %1957) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %66) #35
+  call void @_ZdlPv(ptr noundef nonnull %1957) #36
   br label %4366
 
 1967:                                             ; preds = %.loopexit2185
@@ -5348,11 +5348,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %1983, label %.loopexit, label %1984
 
 1984:                                             ; preds = %1981
-  %1985 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %1985 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %1986 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %1970, ptr noundef %1985, i32 noundef %1986)
-  %1987 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #33
+  %1987 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %68)
           to label %1988 unwind label %1992
 
@@ -5362,10 +5362,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %1991 unwind label %1994
 
 1991:                                             ; preds = %1988
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1987, ptr noundef nonnull align 8 dereferenceable(32) %1990) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1987, ptr noundef nonnull align 8 dereferenceable(32) %1990) #35
   store ptr %1987, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #35
   br label %.loopexit
 
 1992:                                             ; preds = %1984
@@ -5376,13 +5376,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 1994:                                             ; preds = %1988
   %1995 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #35
   br label %1996
 
 1996:                                             ; preds = %1994, %1992
   %.pn1897 = phi { ptr, i32 } [ %1995, %1994 ], [ %1993, %1992 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #33
-  call void @_ZdlPv(ptr noundef nonnull %1987) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #35
+  call void @_ZdlPv(ptr noundef nonnull %1987) #36
   br label %4366
 
 1997:                                             ; preds = %.loopexit2185
@@ -5428,11 +5428,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %2013, label %.loopexit, label %2014
 
 2014:                                             ; preds = %2011
-  %2015 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %2015 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %2016 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %2000, ptr noundef %2015, i32 noundef %2016)
-  %2017 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %70) #33
+  %2017 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %70) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %70)
           to label %2018 unwind label %2022
 
@@ -5442,10 +5442,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %2021 unwind label %2024
 
 2021:                                             ; preds = %2018
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2017, ptr noundef nonnull align 8 dereferenceable(32) %2020) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2017, ptr noundef nonnull align 8 dereferenceable(32) %2020) #35
   store ptr %2017, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %70) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %70) #35
   br label %.loopexit
 
 2022:                                             ; preds = %2014
@@ -5456,13 +5456,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2024:                                             ; preds = %2018
   %2025 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #35
   br label %2026
 
 2026:                                             ; preds = %2024, %2022
   %.pn1893 = phi { ptr, i32 } [ %2025, %2024 ], [ %2023, %2022 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %70) #33
-  call void @_ZdlPv(ptr noundef nonnull %2017) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %70) #35
+  call void @_ZdlPv(ptr noundef nonnull %2017) #36
   br label %4366
 
 2027:                                             ; preds = %.loopexit2185
@@ -5513,11 +5513,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %2046, label %.loopexit, label %2047
 
 2047:                                             ; preds = %2044
-  %2048 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %2048 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %2049 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %2030, ptr noundef %2048, i32 noundef %2049)
-  %2050 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %72) #33
+  %2050 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %72) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %72)
           to label %2051 unwind label %2055
 
@@ -5527,10 +5527,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %2054 unwind label %2057
 
 2054:                                             ; preds = %2051
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2050, ptr noundef nonnull align 8 dereferenceable(32) %2053) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2050, ptr noundef nonnull align 8 dereferenceable(32) %2053) #35
   store ptr %2050, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %72) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %72) #35
   br label %.loopexit
 
 2055:                                             ; preds = %2047
@@ -5541,13 +5541,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2057:                                             ; preds = %2051
   %2058 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #35
   br label %2059
 
 2059:                                             ; preds = %2057, %2055
   %.pn1889 = phi { ptr, i32 } [ %2058, %2057 ], [ %2056, %2055 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %72) #33
-  call void @_ZdlPv(ptr noundef nonnull %2050) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %72) #35
+  call void @_ZdlPv(ptr noundef nonnull %2050) #36
   br label %4366
 
 2060:                                             ; preds = %.loopexit2185
@@ -5598,11 +5598,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %2079, label %.loopexit, label %2080
 
 2080:                                             ; preds = %2077
-  %2081 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %2081 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %2082 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %2063, ptr noundef %2081, i32 noundef %2082)
-  %2083 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %74) #33
+  %2083 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %74) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %74)
           to label %2084 unwind label %2088
 
@@ -5612,10 +5612,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %2087 unwind label %2090
 
 2087:                                             ; preds = %2084
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2083, ptr noundef nonnull align 8 dereferenceable(32) %2086) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2083, ptr noundef nonnull align 8 dereferenceable(32) %2086) #35
   store ptr %2083, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %74) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %74) #35
   br label %.loopexit
 
 2088:                                             ; preds = %2080
@@ -5626,13 +5626,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2090:                                             ; preds = %2084
   %2091 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #35
   br label %2092
 
 2092:                                             ; preds = %2090, %2088
   %.pn1885 = phi { ptr, i32 } [ %2091, %2090 ], [ %2089, %2088 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %74) #33
-  call void @_ZdlPv(ptr noundef nonnull %2083) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %74) #35
+  call void @_ZdlPv(ptr noundef nonnull %2083) #36
   br label %4366
 
 2093:                                             ; preds = %.loopexit2185
@@ -6158,11 +6158,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %2289, label %.loopexit, label %2290
 
 2290:                                             ; preds = %2287
-  %2291 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %2291 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %2292 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %2276, ptr noundef %2291, i32 noundef %2292)
-  %2293 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %76) #33
+  %2293 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %76) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %76)
           to label %2294 unwind label %2298
 
@@ -6172,10 +6172,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %2297 unwind label %2300
 
 2297:                                             ; preds = %2294
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2293, ptr noundef nonnull align 8 dereferenceable(32) %2296) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2293, ptr noundef nonnull align 8 dereferenceable(32) %2296) #35
   store ptr %2293, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %76) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %76) #35
   br label %.loopexit
 
 2298:                                             ; preds = %2290
@@ -6186,13 +6186,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2300:                                             ; preds = %2294
   %2301 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #35
   br label %2302
 
 2302:                                             ; preds = %2300, %2298
   %.pn1857 = phi { ptr, i32 } [ %2301, %2300 ], [ %2299, %2298 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %76) #33
-  call void @_ZdlPv(ptr noundef nonnull %2293) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %76) #35
+  call void @_ZdlPv(ptr noundef nonnull %2293) #36
   br label %4366
 
 2303:                                             ; preds = %.loopexit2185
@@ -6318,11 +6318,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %2349, label %.loopexit, label %2350
 
 2350:                                             ; preds = %2347
-  %2351 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %2351 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %2352 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %2336, ptr noundef %2351, i32 noundef %2352)
-  %2353 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %78) #33
+  %2353 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %78) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %78)
           to label %2354 unwind label %2358
 
@@ -6332,10 +6332,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %2357 unwind label %2360
 
 2357:                                             ; preds = %2354
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2353, ptr noundef nonnull align 8 dereferenceable(32) %2356) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2353, ptr noundef nonnull align 8 dereferenceable(32) %2356) #35
   store ptr %2353, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %78) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %78) #35
   br label %.loopexit
 
 2358:                                             ; preds = %2350
@@ -6346,13 +6346,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2360:                                             ; preds = %2354
   %2361 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #35
   br label %2362
 
 2362:                                             ; preds = %2360, %2358
   %.pn1849 = phi { ptr, i32 } [ %2361, %2360 ], [ %2359, %2358 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %78) #33
-  call void @_ZdlPv(ptr noundef nonnull %2353) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %78) #35
+  call void @_ZdlPv(ptr noundef nonnull %2353) #36
   br label %4366
 
 2363:                                             ; preds = %.loopexit2185
@@ -6398,11 +6398,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %2379, label %.loopexit, label %2380
 
 2380:                                             ; preds = %2377
-  %2381 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %2381 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %2382 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %2366, ptr noundef %2381, i32 noundef %2382)
-  %2383 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %80) #33
+  %2383 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %80) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %80)
           to label %2384 unwind label %2388
 
@@ -6412,10 +6412,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %2387 unwind label %2390
 
 2387:                                             ; preds = %2384
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2383, ptr noundef nonnull align 8 dereferenceable(32) %2386) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2383, ptr noundef nonnull align 8 dereferenceable(32) %2386) #35
   store ptr %2383, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %79) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %80) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %79) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %80) #35
   br label %.loopexit
 
 2388:                                             ; preds = %2380
@@ -6426,13 +6426,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2390:                                             ; preds = %2384
   %2391 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %79) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %79) #35
   br label %2392
 
 2392:                                             ; preds = %2390, %2388
   %.pn1845 = phi { ptr, i32 } [ %2391, %2390 ], [ %2389, %2388 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %80) #33
-  call void @_ZdlPv(ptr noundef nonnull %2383) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %80) #35
+  call void @_ZdlPv(ptr noundef nonnull %2383) #36
   br label %4366
 
 2393:                                             ; preds = %.loopexit2185
@@ -6478,11 +6478,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %2409, label %.loopexit, label %2410
 
 2410:                                             ; preds = %2407
-  %2411 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %2411 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %2412 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %2396, ptr noundef %2411, i32 noundef %2412)
-  %2413 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %82) #33
+  %2413 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %82) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %82)
           to label %2414 unwind label %2418
 
@@ -6492,10 +6492,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %2417 unwind label %2420
 
 2417:                                             ; preds = %2414
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2413, ptr noundef nonnull align 8 dereferenceable(32) %2416) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2413, ptr noundef nonnull align 8 dereferenceable(32) %2416) #35
   store ptr %2413, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %82) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %82) #35
   br label %.loopexit
 
 2418:                                             ; preds = %2410
@@ -6506,13 +6506,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2420:                                             ; preds = %2414
   %2421 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #35
   br label %2422
 
 2422:                                             ; preds = %2420, %2418
   %.pn1841 = phi { ptr, i32 } [ %2421, %2420 ], [ %2419, %2418 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %82) #33
-  call void @_ZdlPv(ptr noundef nonnull %2413) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %82) #35
+  call void @_ZdlPv(ptr noundef nonnull %2413) #36
   br label %4366
 
 2423:                                             ; preds = %.loopexit2185
@@ -6558,11 +6558,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %2439, label %.loopexit, label %2440
 
 2440:                                             ; preds = %2437
-  %2441 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %2441 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %2442 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %2426, ptr noundef %2441, i32 noundef %2442)
-  %2443 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %84) #33
+  %2443 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %84) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %84)
           to label %2444 unwind label %2448
 
@@ -6572,10 +6572,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %2447 unwind label %2450
 
 2447:                                             ; preds = %2444
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2443, ptr noundef nonnull align 8 dereferenceable(32) %2446) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2443, ptr noundef nonnull align 8 dereferenceable(32) %2446) #35
   store ptr %2443, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %83) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %84) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %83) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %84) #35
   br label %.loopexit
 
 2448:                                             ; preds = %2440
@@ -6586,13 +6586,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2450:                                             ; preds = %2444
   %2451 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %83) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %83) #35
   br label %2452
 
 2452:                                             ; preds = %2450, %2448
   %.pn1837 = phi { ptr, i32 } [ %2451, %2450 ], [ %2449, %2448 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %84) #33
-  call void @_ZdlPv(ptr noundef nonnull %2443) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %84) #35
+  call void @_ZdlPv(ptr noundef nonnull %2443) #36
   br label %4366
 
 2453:                                             ; preds = %.loopexit2185
@@ -6638,11 +6638,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %2469, label %.loopexit, label %2470
 
 2470:                                             ; preds = %2467
-  %2471 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %2471 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %2472 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %2456, ptr noundef %2471, i32 noundef %2472)
-  %2473 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #33
+  %2473 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %86)
           to label %2474 unwind label %2478
 
@@ -6652,10 +6652,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %2477 unwind label %2480
 
 2477:                                             ; preds = %2474
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2473, ptr noundef nonnull align 8 dereferenceable(32) %2476) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2473, ptr noundef nonnull align 8 dereferenceable(32) %2476) #35
   store ptr %2473, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %85) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %85) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #35
   br label %.loopexit
 
 2478:                                             ; preds = %2470
@@ -6666,13 +6666,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2480:                                             ; preds = %2474
   %2481 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %85) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %85) #35
   br label %2482
 
 2482:                                             ; preds = %2480, %2478
   %.pn1833 = phi { ptr, i32 } [ %2481, %2480 ], [ %2479, %2478 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #33
-  call void @_ZdlPv(ptr noundef nonnull %2473) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #35
+  call void @_ZdlPv(ptr noundef nonnull %2473) #36
   br label %4366
 
 2483:                                             ; preds = %.loopexit2185
@@ -6713,21 +6713,21 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 2497:                                             ; preds = %2487
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
-  %2498 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #33
+  %2498 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2498, ptr noundef nonnull %2486, ptr noundef nonnull align 1 dereferenceable(1) %87)
           to label %2499 unwind label %2500
 
 2499:                                             ; preds = %2497
   store ptr %2498, ptr %0, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #33
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #35
   br label %.loopexit
 
 2500:                                             ; preds = %2497
   %2501 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #33
-  call void @_ZdlPv(ptr noundef nonnull %2498) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #35
+  call void @_ZdlPv(ptr noundef nonnull %2498) #36
   br label %4366
 
 2502:                                             ; preds = %.loopexit2185
@@ -6768,21 +6768,21 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 2516:                                             ; preds = %2506
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
-  %2517 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %88) #33
+  %2517 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %88) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2517, ptr noundef nonnull %2505, ptr noundef nonnull align 1 dereferenceable(1) %88)
           to label %2518 unwind label %2519
 
 2518:                                             ; preds = %2516
   store ptr %2517, ptr %0, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %88) #33
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %88) #35
   br label %.loopexit
 
 2519:                                             ; preds = %2516
   %2520 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %88) #33
-  call void @_ZdlPv(ptr noundef nonnull %2517) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %88) #35
+  call void @_ZdlPv(ptr noundef nonnull %2517) #36
   br label %4366
 
 2521:                                             ; preds = %.loopexit2185
@@ -6824,21 +6824,21 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2535:                                             ; preds = %2525
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
   store i32 13, ptr @_ZL8yy_start, align 4
-  %2536 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #33
+  %2536 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2536, ptr noundef nonnull %2524, ptr noundef nonnull align 1 dereferenceable(1) %89)
           to label %2537 unwind label %2538
 
 2537:                                             ; preds = %2535
   store ptr %2536, ptr %0, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #33
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #35
   br label %.loopexit
 
 2538:                                             ; preds = %2535
   %2539 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #33
-  call void @_ZdlPv(ptr noundef nonnull %2536) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #35
+  call void @_ZdlPv(ptr noundef nonnull %2536) #36
   br label %4366
 
 2540:                                             ; preds = %.loopexit2185
@@ -6880,21 +6880,21 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2554:                                             ; preds = %2544
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
   store i32 1, ptr @_ZL8yy_start, align 4
-  %2555 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %90) #33
+  %2555 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %90) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2555, ptr noundef nonnull %2543, ptr noundef nonnull align 1 dereferenceable(1) %90)
           to label %2556 unwind label %2557
 
 2556:                                             ; preds = %2554
   store ptr %2555, ptr %0, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %90) #33
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %90) #35
   br label %.loopexit
 
 2557:                                             ; preds = %2554
   %2558 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %90) #33
-  call void @_ZdlPv(ptr noundef nonnull %2555) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %90) #35
+  call void @_ZdlPv(ptr noundef nonnull %2555) #36
   br label %4366
 
 2559:                                             ; preds = %.loopexit2185
@@ -6935,21 +6935,21 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 2573:                                             ; preds = %2563
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
-  %2574 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #33
+  %2574 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2574, ptr noundef nonnull %2562, ptr noundef nonnull align 1 dereferenceable(1) %91)
           to label %2575 unwind label %2576
 
 2575:                                             ; preds = %2573
   store ptr %2574, ptr %0, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #33
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #35
   br label %.loopexit
 
 2576:                                             ; preds = %2573
   %2577 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #33
-  call void @_ZdlPv(ptr noundef nonnull %2574) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #35
+  call void @_ZdlPv(ptr noundef nonnull %2574) #36
   br label %4366
 
 2578:                                             ; preds = %.loopexit2185
@@ -6990,21 +6990,21 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 2592:                                             ; preds = %2582
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
-  %2593 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #33
+  %2593 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2593, ptr noundef nonnull %2581, ptr noundef nonnull align 1 dereferenceable(1) %92)
           to label %2594 unwind label %2595
 
 2594:                                             ; preds = %2592
   store ptr %2593, ptr %0, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #33
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #35
   br label %.loopexit
 
 2595:                                             ; preds = %2592
   %2596 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #33
-  call void @_ZdlPv(ptr noundef nonnull %2593) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #35
+  call void @_ZdlPv(ptr noundef nonnull %2593) #36
   br label %4366
 
 2597:                                             ; preds = %.loopexit2185
@@ -7129,8 +7129,8 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2641:                                             ; preds = %2631
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
   store i32 1, ptr @_ZL8yy_start, align 4
-  %2642 = call noalias ptr @strdup(ptr noundef nonnull %2630) #33
-  %2643 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2630) #38
+  %2642 = call noalias ptr @strdup(ptr noundef nonnull %2630) #35
+  %2643 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2630) #40
   %2644 = getelementptr i8, ptr %2642, i64 %2643
   %2645 = getelementptr i8, ptr %2644, i64 -1
   store i8 0, ptr %2645, align 1
@@ -7246,22 +7246,22 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %2690 = and i64 %indvars.iv4102, 4294967295
   %2691 = getelementptr inbounds i8, ptr %2642, i64 %2690
   store i8 0, ptr %2691, align 1
-  %2692 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #33
+  %2692 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2692, ptr noundef nonnull %2642, i64 noundef %2690, ptr noundef nonnull align 1 dereferenceable(1) %93)
           to label %2693 unwind label %2694
 
 2693:                                             ; preds = %2689
   store ptr %2692, ptr %0, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #33
-  call void @free(ptr noundef nonnull %2642) #33
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #35
+  call void @free(ptr noundef nonnull %2642) #35
   br label %.loopexit
 
 2694:                                             ; preds = %2689
   %2695 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #33
-  call void @_ZdlPv(ptr noundef nonnull %2692) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #35
+  call void @_ZdlPv(ptr noundef nonnull %2692) #36
   br label %4366
 
 2696:                                             ; preds = %.loopexit2185
@@ -7344,21 +7344,21 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 2725:                                             ; preds = %2715
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
-  %2726 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %94) #33
+  %2726 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %94) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2726, ptr noundef nonnull %2714, ptr noundef nonnull align 1 dereferenceable(1) %94)
           to label %2727 unwind label %2728
 
 2727:                                             ; preds = %2725
   store ptr %2726, ptr %0, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %94) #33
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %94) #35
   br label %.loopexit
 
 2728:                                             ; preds = %2725
   %2729 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %94) #33
-  call void @_ZdlPv(ptr noundef nonnull %2726) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %94) #35
+  call void @_ZdlPv(ptr noundef nonnull %2726) #36
   br label %4366
 
 2730:                                             ; preds = %.loopexit2185
@@ -7479,21 +7479,21 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 2774:                                             ; preds = %2764
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
-  %2775 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #33
+  %2775 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2775, ptr noundef nonnull %2763, ptr noundef nonnull align 1 dereferenceable(1) %95)
           to label %2776 unwind label %2777
 
 2776:                                             ; preds = %2774
   store ptr %2775, ptr %0, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #33
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #35
   br label %.loopexit
 
 2777:                                             ; preds = %2774
   %2778 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #33
-  call void @_ZdlPv(ptr noundef nonnull %2775) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #35
+  call void @_ZdlPv(ptr noundef nonnull %2775) #36
   br label %4366
 
 2779:                                             ; preds = %.loopexit2185
@@ -7549,21 +7549,21 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %.backedge
 
 2802:                                             ; preds = %2793
-  %2803 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %96) #33
+  %2803 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %96) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2803, ptr noundef nonnull %2782, ptr noundef nonnull align 1 dereferenceable(1) %96)
           to label %2804 unwind label %2805
 
 2804:                                             ; preds = %2802
   store ptr %2803, ptr %0, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %96) #33
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %96) #35
   br label %.loopexit
 
 2805:                                             ; preds = %2802
   %2806 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %96) #33
-  call void @_ZdlPv(ptr noundef nonnull %2803) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %96) #35
+  call void @_ZdlPv(ptr noundef nonnull %2803) #36
   br label %4366
 
 2807:                                             ; preds = %.loopexit2185
@@ -7604,21 +7604,21 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 2821:                                             ; preds = %2811
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
-  %2822 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #33
+  %2822 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2822, ptr noundef nonnull %2810, ptr noundef nonnull align 1 dereferenceable(1) %97)
           to label %2823 unwind label %2824
 
 2823:                                             ; preds = %2821
   store ptr %2822, ptr %0, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #33
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #35
   br label %.loopexit
 
 2824:                                             ; preds = %2821
   %2825 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #33
-  call void @_ZdlPv(ptr noundef nonnull %2822) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #35
+  call void @_ZdlPv(ptr noundef nonnull %2822) #36
   br label %4366
 
 2826:                                             ; preds = %.loopexit2185
@@ -7739,7 +7739,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 2870:                                             ; preds = %2860
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %100) #33
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %100) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %100)
           to label %2871 unwind label %2882
 
@@ -7749,9 +7749,9 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %2874 unwind label %2884
 
 2874:                                             ; preds = %2871
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(32) %2873) #33
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %99) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %100) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(32) %2873) #35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %99) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %100) #35
   %2875 = invoke noundef i32 @_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3AST7AstNodeENS0_8hash_opsIS7_EEE5countERKS7_(ptr noundef nonnull align 8 dereferenceable(49) @_ZN5Yosys16VERILOG_FRONTEND14pkg_user_typesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %98)
           to label %2876 unwind label %2887
 
@@ -7760,7 +7760,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %2877, label %2878, label %2891
 
 2878:                                             ; preds = %2876
-  %2879 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
+  %2879 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
           to label %2880 unwind label %2887
 
 2880:                                             ; preds = %2878
@@ -7779,12 +7779,12 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2884:                                             ; preds = %2871
   %2885 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %99) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %99) #35
   br label %2886
 
 2886:                                             ; preds = %2884, %2882
   %.pn1787 = phi { ptr, i32 } [ %2885, %2884 ], [ %2883, %2882 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %100) #33
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %100) #35
   br label %4366
 
 2887:                                             ; preds = %._crit_edge2916, %2878, %2874
@@ -7795,12 +7795,12 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2889:                                             ; preds = %2880
   %2890 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %2879) #34
+  call void @_ZdlPv(ptr noundef nonnull %2879) #36
   br label %2934
 
 2891:                                             ; preds = %2876
   %2892 = load ptr, ptr @frontend_verilog_yytext, align 8
-  %2893 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %2892, i32 noundef 58) #38
+  %2893 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %2892, i32 noundef 58) #40
   %2894 = ptrtoint ptr %2893 to i64
   %2895 = ptrtoint ptr %2892 to i64
   %2896 = sub i64 %2894, %2895
@@ -7857,11 +7857,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   store i8 %2921, ptr @_ZL12yy_hold_char, align 1
   store i8 0, ptr %2915, align 1
   store ptr %2915, ptr @_ZL10yy_c_buf_p, align 8
-  %2922 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
+  %2922 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
           to label %2923 unwind label %2887
 
 2923:                                             ; preds = %._crit_edge2916
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %102) #33
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %102) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %102)
           to label %2924 unwind label %2928
 
@@ -7871,10 +7871,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %2927 unwind label %2930
 
 2927:                                             ; preds = %2924
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2922, ptr noundef nonnull align 8 dereferenceable(32) %2926) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2922, ptr noundef nonnull align 8 dereferenceable(32) %2926) #35
   store ptr %2922, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %101) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %102) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %101) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %102) #35
   br label %2933
 
 2928:                                             ; preds = %2923
@@ -7885,23 +7885,23 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2930:                                             ; preds = %2924
   %2931 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %101) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %101) #35
   br label %2932
 
 2932:                                             ; preds = %2930, %2928
   %.pn1789 = phi { ptr, i32 } [ %2931, %2930 ], [ %2929, %2928 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %102) #33
-  call void @_ZdlPv(ptr noundef nonnull %2922) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %102) #35
+  call void @_ZdlPv(ptr noundef nonnull %2922) #36
   br label %2934
 
 2933:                                             ; preds = %2927, %2881
   %.1 = phi i32 [ 270, %2881 ], [ 259, %2927 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %98) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %98) #35
   br label %.loopexit
 
 2934:                                             ; preds = %2932, %2889, %2887
   %.pn1791 = phi { ptr, i32 } [ %2890, %2889 ], [ %2888, %2887 ], [ %.pn1789, %2932 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %98) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %98) #35
   br label %4366
 
 2935:                                             ; preds = %.loopexit2185
@@ -7942,7 +7942,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 2949:                                             ; preds = %2939
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #33
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %104, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %105)
           to label %2950 unwind label %2959
 
@@ -7952,14 +7952,14 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %2953 unwind label %2961
 
 2953:                                             ; preds = %2950
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %2952) #33
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %104) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %2952) #35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %104) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #35
   %2954 = call fastcc noundef zeroext i1 @_ZL10isUserTypeRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %103)
   br i1 %2954, label %2955, label %2968
 
 2955:                                             ; preds = %2953
-  %2956 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
+  %2956 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
           to label %2957 unwind label %2964
 
 2957:                                             ; preds = %2955
@@ -7978,12 +7978,12 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2961:                                             ; preds = %2950
   %2962 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %104) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %104) #35
   br label %2963
 
 2963:                                             ; preds = %2961, %2959
   %.pn1779 = phi { ptr, i32 } [ %2962, %2961 ], [ %2960, %2959 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #33
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #35
   br label %4366
 
 2964:                                             ; preds = %2968, %2955
@@ -7994,15 +7994,15 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2966:                                             ; preds = %2957
   %2967 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %2956) #34
+  call void @_ZdlPv(ptr noundef nonnull %2956) #36
   br label %2981
 
 2968:                                             ; preds = %2953
-  %2969 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
+  %2969 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
           to label %2970 unwind label %2964
 
 2970:                                             ; preds = %2968
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #33
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %107)
           to label %2971 unwind label %2975
 
@@ -8012,10 +8012,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %2974 unwind label %2977
 
 2974:                                             ; preds = %2971
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2969, ptr noundef nonnull align 8 dereferenceable(32) %2973) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2969, ptr noundef nonnull align 8 dereferenceable(32) %2973) #35
   store ptr %2969, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #35
   br label %2980
 
 2975:                                             ; preds = %2970
@@ -8026,23 +8026,23 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2977:                                             ; preds = %2971
   %2978 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #35
   br label %2979
 
 2979:                                             ; preds = %2977, %2975
   %.pn1781 = phi { ptr, i32 } [ %2978, %2977 ], [ %2976, %2975 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #33
-  call void @_ZdlPv(ptr noundef nonnull %2969) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #35
+  call void @_ZdlPv(ptr noundef nonnull %2969) #36
   br label %2981
 
 2980:                                             ; preds = %2974, %2958
   %.2 = phi i32 [ 269, %2958 ], [ 259, %2974 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %103) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %103) #35
   br label %.loopexit
 
 2981:                                             ; preds = %2979, %2966, %2964
   %.pn1783 = phi { ptr, i32 } [ %2967, %2966 ], [ %2965, %2964 ], [ %.pn1781, %2979 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %103) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %103) #35
   br label %4366
 
 2982:                                             ; preds = %.loopexit2185
@@ -8083,8 +8083,8 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 2996:                                             ; preds = %2986
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
-  %2997 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #33
+  %2997 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %109)
           to label %2998 unwind label %3002
 
@@ -8094,10 +8094,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %3001 unwind label %3004
 
 3001:                                             ; preds = %2998
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2997, ptr noundef nonnull align 8 dereferenceable(32) %3000) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2997, ptr noundef nonnull align 8 dereferenceable(32) %3000) #35
   store ptr %2997, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %108) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %108) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #35
   br label %.loopexit
 
 3002:                                             ; preds = %2996
@@ -8108,13 +8108,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 3004:                                             ; preds = %2998
   %3005 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %108) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %108) #35
   br label %3006
 
 3006:                                             ; preds = %3004, %3002
   %.pn1775 = phi { ptr, i32 } [ %3005, %3004 ], [ %3003, %3002 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #33
-  call void @_ZdlPv(ptr noundef nonnull %2997) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #35
+  call void @_ZdlPv(ptr noundef nonnull %2997) #36
   br label %4366
 
 3007:                                             ; preds = %.loopexit2185
@@ -8581,8 +8581,8 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 3175:                                             ; preds = %3165
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
-  %3176 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %111) #33
+  %3176 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %111) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %111)
           to label %3177 unwind label %3181
 
@@ -8592,10 +8592,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %3180 unwind label %3183
 
 3180:                                             ; preds = %3177
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3176, ptr noundef nonnull align 8 dereferenceable(32) %3179) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3176, ptr noundef nonnull align 8 dereferenceable(32) %3179) #35
   store ptr %3176, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %111) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %111) #35
   br label %.loopexit
 
 3181:                                             ; preds = %3175
@@ -8606,13 +8606,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 3183:                                             ; preds = %3177
   %3184 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #35
   br label %3185
 
 3185:                                             ; preds = %3183, %3181
   %.pn1748 = phi { ptr, i32 } [ %3184, %3183 ], [ %3182, %3181 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %111) #33
-  call void @_ZdlPv(ptr noundef nonnull %3176) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %111) #35
+  call void @_ZdlPv(ptr noundef nonnull %3176) #36
   br label %4366
 
 3186:                                             ; preds = %.loopexit2185
@@ -8778,21 +8778,21 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 3249:                                             ; preds = %3239
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
-  %3250 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %112) #33
+  %3250 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %112) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3250, ptr noundef nonnull %3238, ptr noundef nonnull align 1 dereferenceable(1) %112)
           to label %3251 unwind label %3252
 
 3251:                                             ; preds = %3249
   store ptr %3250, ptr %0, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %112) #33
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %112) #35
   br label %.loopexit
 
 3252:                                             ; preds = %3249
   %3253 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %112) #33
-  call void @_ZdlPv(ptr noundef nonnull %3250) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %112) #35
+  call void @_ZdlPv(ptr noundef nonnull %3250) #36
   br label %4366
 
 3254:                                             ; preds = %.loopexit2185
@@ -9958,11 +9958,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %3690, label %.loopexit, label %3691
 
 3691:                                             ; preds = %3688
-  %3692 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %3692 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %3693 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %3677, ptr noundef %3692, i32 noundef %3693)
-  %3694 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %114) #33
+  %3694 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %114) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %114)
           to label %3695 unwind label %3699
 
@@ -9972,10 +9972,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %3698 unwind label %3701
 
 3698:                                             ; preds = %3695
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3694, ptr noundef nonnull align 8 dereferenceable(32) %3697) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3694, ptr noundef nonnull align 8 dereferenceable(32) %3697) #35
   store ptr %3694, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %113) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %114) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %113) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %114) #35
   br label %.loopexit
 
 3699:                                             ; preds = %3691
@@ -9986,13 +9986,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 3701:                                             ; preds = %3695
   %3702 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %113) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %113) #35
   br label %3703
 
 3703:                                             ; preds = %3701, %3699
   %.pn1680 = phi { ptr, i32 } [ %3702, %3701 ], [ %3700, %3699 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %114) #33
-  call void @_ZdlPv(ptr noundef nonnull %3694) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %114) #35
+  call void @_ZdlPv(ptr noundef nonnull %3694) #36
   br label %4366
 
 3704:                                             ; preds = %.loopexit2185
@@ -10038,11 +10038,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %3720, label %.loopexit, label %3721
 
 3721:                                             ; preds = %3718
-  %3722 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %3722 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %3723 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %3707, ptr noundef %3722, i32 noundef %3723)
-  %3724 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %116) #33
+  %3724 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %116) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %115, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %116)
           to label %3725 unwind label %3729
 
@@ -10052,10 +10052,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %3728 unwind label %3731
 
 3728:                                             ; preds = %3725
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3724, ptr noundef nonnull align 8 dereferenceable(32) %3727) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3724, ptr noundef nonnull align 8 dereferenceable(32) %3727) #35
   store ptr %3724, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %115) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %116) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %115) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %116) #35
   br label %.loopexit
 
 3729:                                             ; preds = %3721
@@ -10066,13 +10066,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 3731:                                             ; preds = %3725
   %3732 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %115) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %115) #35
   br label %3733
 
 3733:                                             ; preds = %3731, %3729
   %.pn1676 = phi { ptr, i32 } [ %3732, %3731 ], [ %3730, %3729 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %116) #33
-  call void @_ZdlPv(ptr noundef nonnull %3724) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %116) #35
+  call void @_ZdlPv(ptr noundef nonnull %3724) #36
   br label %4366
 
 3734:                                             ; preds = %.loopexit2185
@@ -10118,11 +10118,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %3750, label %.loopexit, label %3751
 
 3751:                                             ; preds = %3748
-  %3752 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %3752 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %3753 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %3737, ptr noundef %3752, i32 noundef %3753)
-  %3754 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %118) #33
+  %3754 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %118) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %118)
           to label %3755 unwind label %3759
 
@@ -10132,10 +10132,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %3758 unwind label %3761
 
 3758:                                             ; preds = %3755
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3754, ptr noundef nonnull align 8 dereferenceable(32) %3757) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3754, ptr noundef nonnull align 8 dereferenceable(32) %3757) #35
   store ptr %3754, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %117) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %118) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %117) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %118) #35
   br label %.loopexit
 
 3759:                                             ; preds = %3751
@@ -10146,13 +10146,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 3761:                                             ; preds = %3755
   %3762 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %117) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %117) #35
   br label %3763
 
 3763:                                             ; preds = %3761, %3759
   %.pn1672 = phi { ptr, i32 } [ %3762, %3761 ], [ %3760, %3759 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %118) #33
-  call void @_ZdlPv(ptr noundef nonnull %3754) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %118) #35
+  call void @_ZdlPv(ptr noundef nonnull %3754) #36
   br label %4366
 
 3764:                                             ; preds = %.loopexit2185
@@ -10198,11 +10198,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %3780, label %.loopexit, label %3781
 
 3781:                                             ; preds = %3778
-  %3782 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %3782 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %3783 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %3767, ptr noundef %3782, i32 noundef %3783)
-  %3784 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %120) #33
+  %3784 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %120) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %119, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %120)
           to label %3785 unwind label %3789
 
@@ -10212,10 +10212,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %3788 unwind label %3791
 
 3788:                                             ; preds = %3785
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3784, ptr noundef nonnull align 8 dereferenceable(32) %3787) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3784, ptr noundef nonnull align 8 dereferenceable(32) %3787) #35
   store ptr %3784, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %119) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %120) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %119) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %120) #35
   br label %.loopexit
 
 3789:                                             ; preds = %3781
@@ -10226,13 +10226,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 3791:                                             ; preds = %3785
   %3792 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %119) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %119) #35
   br label %3793
 
 3793:                                             ; preds = %3791, %3789
   %.pn1668 = phi { ptr, i32 } [ %3792, %3791 ], [ %3790, %3789 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %120) #33
-  call void @_ZdlPv(ptr noundef nonnull %3784) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %120) #35
+  call void @_ZdlPv(ptr noundef nonnull %3784) #36
   br label %4366
 
 3794:                                             ; preds = %.loopexit2185
@@ -10278,11 +10278,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %3810, label %.loopexit, label %3811
 
 3811:                                             ; preds = %3808
-  %3812 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %3812 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %3813 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %3797, ptr noundef %3812, i32 noundef %3813)
-  %3814 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %122) #33
+  %3814 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %122) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %122)
           to label %3815 unwind label %3819
 
@@ -10292,10 +10292,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %3818 unwind label %3821
 
 3818:                                             ; preds = %3815
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3814, ptr noundef nonnull align 8 dereferenceable(32) %3817) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3814, ptr noundef nonnull align 8 dereferenceable(32) %3817) #35
   store ptr %3814, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %121) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %122) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %121) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %122) #35
   br label %.loopexit
 
 3819:                                             ; preds = %3811
@@ -10306,13 +10306,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 3821:                                             ; preds = %3815
   %3822 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %121) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %121) #35
   br label %3823
 
 3823:                                             ; preds = %3821, %3819
   %.pn1664 = phi { ptr, i32 } [ %3822, %3821 ], [ %3820, %3819 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %122) #33
-  call void @_ZdlPv(ptr noundef nonnull %3814) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %122) #35
+  call void @_ZdlPv(ptr noundef nonnull %3814) #36
   br label %4366
 
 3824:                                             ; preds = %.loopexit2185
@@ -10358,11 +10358,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %3840, label %.loopexit, label %3841
 
 3841:                                             ; preds = %3838
-  %3842 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %3842 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %3843 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %3827, ptr noundef %3842, i32 noundef %3843)
-  %3844 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %124) #33
+  %3844 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %124) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %124)
           to label %3845 unwind label %3849
 
@@ -10372,10 +10372,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %3848 unwind label %3851
 
 3848:                                             ; preds = %3845
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3844, ptr noundef nonnull align 8 dereferenceable(32) %3847) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3844, ptr noundef nonnull align 8 dereferenceable(32) %3847) #35
   store ptr %3844, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %123) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %124) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %123) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %124) #35
   br label %.loopexit
 
 3849:                                             ; preds = %3841
@@ -10386,13 +10386,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 3851:                                             ; preds = %3845
   %3852 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %123) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %123) #35
   br label %3853
 
 3853:                                             ; preds = %3851, %3849
   %.pn1660 = phi { ptr, i32 } [ %3852, %3851 ], [ %3850, %3849 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %124) #33
-  call void @_ZdlPv(ptr noundef nonnull %3844) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %124) #35
+  call void @_ZdlPv(ptr noundef nonnull %3844) #36
   br label %4366
 
 3854:                                             ; preds = %.loopexit2185
@@ -10438,11 +10438,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %3870, label %.loopexit, label %3871
 
 3871:                                             ; preds = %3868
-  %3872 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %3872 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %3873 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %3857, ptr noundef %3872, i32 noundef %3873)
-  %3874 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %126) #33
+  %3874 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %126) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %126)
           to label %3875 unwind label %3879
 
@@ -10452,10 +10452,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %3878 unwind label %3881
 
 3878:                                             ; preds = %3875
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3874, ptr noundef nonnull align 8 dereferenceable(32) %3877) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3874, ptr noundef nonnull align 8 dereferenceable(32) %3877) #35
   store ptr %3874, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %125) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %126) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %125) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %126) #35
   br label %.loopexit
 
 3879:                                             ; preds = %3871
@@ -10466,13 +10466,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 3881:                                             ; preds = %3875
   %3882 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %125) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %125) #35
   br label %3883
 
 3883:                                             ; preds = %3881, %3879
   %.pn1656 = phi { ptr, i32 } [ %3882, %3881 ], [ %3880, %3879 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %126) #33
-  call void @_ZdlPv(ptr noundef nonnull %3874) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %126) #35
+  call void @_ZdlPv(ptr noundef nonnull %3874) #36
   br label %4366
 
 3884:                                             ; preds = %.loopexit2185
@@ -10518,11 +10518,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %3900, label %.loopexit, label %3901
 
 3901:                                             ; preds = %3898
-  %3902 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %3902 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %3903 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %3887, ptr noundef %3902, i32 noundef %3903)
-  %3904 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %128) #33
+  %3904 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %128) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %127, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %128)
           to label %3905 unwind label %3909
 
@@ -10532,10 +10532,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %3908 unwind label %3911
 
 3908:                                             ; preds = %3905
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3904, ptr noundef nonnull align 8 dereferenceable(32) %3907) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3904, ptr noundef nonnull align 8 dereferenceable(32) %3907) #35
   store ptr %3904, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %127) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %128) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %127) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %128) #35
   br label %.loopexit
 
 3909:                                             ; preds = %3901
@@ -10546,13 +10546,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 3911:                                             ; preds = %3905
   %3912 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %127) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %127) #35
   br label %3913
 
 3913:                                             ; preds = %3911, %3909
   %.pn1652 = phi { ptr, i32 } [ %3912, %3911 ], [ %3910, %3909 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %128) #33
-  call void @_ZdlPv(ptr noundef nonnull %3904) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %128) #35
+  call void @_ZdlPv(ptr noundef nonnull %3904) #36
   br label %4366
 
 3914:                                             ; preds = %.loopexit2185
@@ -10598,11 +10598,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %3930, label %.loopexit, label %3931
 
 3931:                                             ; preds = %3928
-  %3932 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %3932 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %3933 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %3917, ptr noundef %3932, i32 noundef %3933)
-  %3934 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %130) #33
+  %3934 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %130) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %130)
           to label %3935 unwind label %3939
 
@@ -10612,10 +10612,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %3938 unwind label %3941
 
 3938:                                             ; preds = %3935
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3934, ptr noundef nonnull align 8 dereferenceable(32) %3937) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3934, ptr noundef nonnull align 8 dereferenceable(32) %3937) #35
   store ptr %3934, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %129) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %130) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %129) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %130) #35
   br label %.loopexit
 
 3939:                                             ; preds = %3931
@@ -10626,13 +10626,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 3941:                                             ; preds = %3935
   %3942 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %129) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %129) #35
   br label %3943
 
 3943:                                             ; preds = %3941, %3939
   %.pn1648 = phi { ptr, i32 } [ %3942, %3941 ], [ %3940, %3939 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %130) #33
-  call void @_ZdlPv(ptr noundef nonnull %3934) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %130) #35
+  call void @_ZdlPv(ptr noundef nonnull %3934) #36
   br label %4366
 
 3944:                                             ; preds = %.loopexit2185
@@ -10678,11 +10678,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %3960, label %.loopexit, label %3961
 
 3961:                                             ; preds = %3958
-  %3962 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %3962 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %3963 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %3947, ptr noundef %3962, i32 noundef %3963)
-  %3964 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %132) #33
+  %3964 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %132) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %132)
           to label %3965 unwind label %3969
 
@@ -10692,10 +10692,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %3968 unwind label %3971
 
 3968:                                             ; preds = %3965
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3964, ptr noundef nonnull align 8 dereferenceable(32) %3967) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3964, ptr noundef nonnull align 8 dereferenceable(32) %3967) #35
   store ptr %3964, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %131) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %132) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %131) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %132) #35
   br label %.loopexit
 
 3969:                                             ; preds = %3961
@@ -10706,13 +10706,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 3971:                                             ; preds = %3965
   %3972 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %131) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %131) #35
   br label %3973
 
 3973:                                             ; preds = %3971, %3969
   %.pn1644 = phi { ptr, i32 } [ %3972, %3971 ], [ %3970, %3969 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %132) #33
-  call void @_ZdlPv(ptr noundef nonnull %3964) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %132) #35
+  call void @_ZdlPv(ptr noundef nonnull %3964) #36
   br label %4366
 
 3974:                                             ; preds = %.loopexit2185
@@ -10758,11 +10758,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %3990, label %.loopexit, label %3991
 
 3991:                                             ; preds = %3988
-  %3992 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %3992 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %3993 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %3977, ptr noundef %3992, i32 noundef %3993)
-  %3994 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %134) #33
+  %3994 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %134) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %134)
           to label %3995 unwind label %3999
 
@@ -10772,10 +10772,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %3998 unwind label %4001
 
 3998:                                             ; preds = %3995
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3994, ptr noundef nonnull align 8 dereferenceable(32) %3997) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3994, ptr noundef nonnull align 8 dereferenceable(32) %3997) #35
   store ptr %3994, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %133) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %134) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %133) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %134) #35
   br label %.loopexit
 
 3999:                                             ; preds = %3991
@@ -10786,13 +10786,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 4001:                                             ; preds = %3995
   %4002 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %133) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %133) #35
   br label %4003
 
 4003:                                             ; preds = %4001, %3999
   %.pn1640 = phi { ptr, i32 } [ %4002, %4001 ], [ %4000, %3999 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %134) #33
-  call void @_ZdlPv(ptr noundef nonnull %3994) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %134) #35
+  call void @_ZdlPv(ptr noundef nonnull %3994) #36
   br label %4366
 
 4004:                                             ; preds = %.loopexit2185
@@ -10838,11 +10838,11 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %4020, label %.loopexit, label %4021
 
 4021:                                             ; preds = %4018
-  %4022 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #33
+  %4022 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E) #35
   %4023 = load i32, ptr @frontend_verilog_yylineno, align 4
   call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %4007, ptr noundef %4022, i32 noundef %4023)
-  %4024 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %136) #33
+  %4024 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %136) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %136)
           to label %4025 unwind label %4029
 
@@ -10852,10 +10852,10 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
           to label %4028 unwind label %4031
 
 4028:                                             ; preds = %4025
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4024, ptr noundef nonnull align 8 dereferenceable(32) %4027) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4024, ptr noundef nonnull align 8 dereferenceable(32) %4027) #35
   store ptr %4024, ptr %0, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %135) #33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %136) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %135) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %136) #35
   br label %.loopexit
 
 4029:                                             ; preds = %4021
@@ -10866,13 +10866,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 4031:                                             ; preds = %4025
   %4032 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %135) #33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %135) #35
   br label %4033
 
 4033:                                             ; preds = %4031, %4029
   %.pn = phi { ptr, i32 } [ %4032, %4031 ], [ %4030, %4029 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %136) #33
-  call void @_ZdlPv(ptr noundef nonnull %4024) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %136) #35
+  call void @_ZdlPv(ptr noundef nonnull %4024) #36
   br label %4366
 
 4034:                                             ; preds = %.loopexit2185
@@ -10928,21 +10928,21 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %.backedge
 
 4057:                                             ; preds = %4048
-  %4058 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #39
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %137) #33
+  %4058 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %137) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4058, ptr noundef nonnull %4037, ptr noundef nonnull align 1 dereferenceable(1) %137)
           to label %4059 unwind label %4060
 
 4059:                                             ; preds = %4057
   store ptr %4058, ptr %0, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %137) #33
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %137) #35
   br label %.loopexit
 
 4060:                                             ; preds = %4057
   %4061 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %137) #33
-  call void @_ZdlPv(ptr noundef nonnull %4058) #34
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %137) #35
+  call void @_ZdlPv(ptr noundef nonnull %4058) #36
   br label %4366
 
 4062:                                             ; preds = %.loopexit2185
@@ -11655,7 +11655,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %.backedge2186
 
 4364:                                             ; preds = %.loopexit2185
-  call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.14) #36
+  call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.14) #38
   unreachable
 
 default.unreachable4400:                          ; preds = %4326
@@ -11677,26 +11677,26 @@ default.unreachable4400:                          ; preds = %4326
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @_Z24frontend_verilog_yyallocm(i64 noundef %0) local_unnamed_addr #5 {
-  %2 = tail call noalias ptr @malloc(i64 noundef %0) #35
+  %2 = tail call noalias ptr @malloc(i64 noundef %0) #37
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree noreturn nounwind uwtable
 define internal fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef %0) unnamed_addr #6 {
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.23, ptr noundef %0) #40
-  tail call void @exit(i32 noundef 2) #41
+  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.23, ptr noundef %0) #42
+  tail call void @exit(i32 noundef 2) #43
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_Z33frontend_verilog_yy_create_bufferP8_IO_FILEi(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
+  %3 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #37
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.15) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.15) #38
   unreachable
 
 5:                                                ; preds = %2
@@ -11704,14 +11704,14 @@ define noundef ptr @_Z33frontend_verilog_yy_create_bufferP8_IO_FILEi(ptr noundef
   store i32 %1, ptr %6, align 8
   %7 = add nsw i32 %1, 2
   %8 = sext i32 %7 to i64
-  %9 = tail call noalias noundef ptr @malloc(i64 noundef %8) #35
+  %9 = tail call noalias noundef ptr @malloc(i64 noundef %8) #37
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %9, ptr %10, align 8
   %.not9 = icmp eq ptr %9, null
   br i1 %.not9, label %11, label %12
 
 11:                                               ; preds = %5
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.15) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.15) #38
   unreachable
 
 12:                                               ; preds = %5
@@ -11774,7 +11774,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE9push_backEOi(ptr noundef nonnull 
   br i1 %16, label %17, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
 
 17:                                               ; preds = %11
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #36
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #38
   unreachable
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %11
@@ -11789,7 +11789,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %11
 
 23:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %24 = shl nuw nsw i64 %22, 2
-  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #39
+  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #41
   br label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %23, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
@@ -11811,7 +11811,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %30, %_ZNSt
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, label %33
 
 33:                                               ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #34
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #36
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %33, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
@@ -11914,8 +11914,8 @@ define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stri
   br i1 %7, label %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3AST7AstNodeENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #33
-  %10 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #33
+  %9 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #35
+  %10 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #35
   %.not8.i.i = icmp eq ptr %9, %10
   br i1 %.not8.i.i, label %_ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4hashERKS7_.exit.i, label %.lr.ph.i.i
 
@@ -11983,7 +11983,7 @@ define internal fastcc noundef zeroext i1 @_ZL10isUserTypeRNSt7__cxx1112basic_st
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #42
+  tail call void @__clang_call_terminate(ptr %12) #44
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -12008,7 +12008,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #42
+  tail call void @__clang_call_terminate(ptr %20) #44
   unreachable
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys3AST7AstNodeESt4lessIS5_ESaISt4pairIKS5_S9_EEE5countERSD_.exit: ; preds = %15
@@ -12185,7 +12185,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() u
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %0
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.19) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.19) #38
   unreachable
 
 15:                                               ; preds = %0
@@ -12250,7 +12250,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() u
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %41
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.20) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.20) #38
   unreachable
 
 48:                                               ; preds = %41
@@ -12313,7 +12313,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() u
   %86 = getelementptr inbounds i8, ptr %79, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = sext i32 %85 to i64
-  %89 = tail call noalias noundef ptr @realloc(ptr noundef %87, i64 noundef %88) #37
+  %89 = tail call noalias noundef ptr @realloc(ptr noundef %87, i64 noundef %88) #39
   %90 = load ptr, ptr %78, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 8
   store ptr %89, ptr %91, align 8
@@ -12324,7 +12324,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() u
   br i1 %.not, label %95, label %96
 
 95:                                               ; preds = %83
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.21) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.21) #38
   unreachable
 
 96:                                               ; preds = %83
@@ -12373,13 +12373,13 @@ define void @_Z26frontend_verilog_yyrestartP8_IO_FILE(ptr noundef %0) local_unna
   br i1 %7, label %.critedge, label %33
 
 8:                                                ; preds = %1
-  %9 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #35
+  %9 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #37
   store ptr %9, ptr @_ZL15yy_buffer_stack, align 8
   %.not9.i = icmp eq ptr %9, null
   br i1 %.not9.i, label %10, label %11
 
 10:                                               ; preds = %8
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.22) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.22) #38
   unreachable
 
 11:                                               ; preds = %8
@@ -12397,13 +12397,13 @@ define void @_Z26frontend_verilog_yyrestartP8_IO_FILE(ptr noundef %0) local_unna
 14:                                               ; preds = %.critedge
   %15 = add i64 %12, 8
   %16 = shl i64 %15, 3
-  %17 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %2, i64 noundef %16) #37
+  %17 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %2, i64 noundef %16) #39
   store ptr %17, ptr @_ZL15yy_buffer_stack, align 8
   %.not11.i = icmp eq ptr %17, null
   br i1 %.not11.i, label %18, label %19
 
 18:                                               ; preds = %14
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.22) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.22) #38
   unreachable
 
 19:                                               ; preds = %14
@@ -12414,25 +12414,25 @@ define void @_Z26frontend_verilog_yyrestartP8_IO_FILE(ptr noundef %0) local_unna
 
 _ZL38frontend_verilog_yyensure_buffer_stackv.exit: ; preds = %11, %.critedge, %19
   %21 = load ptr, ptr @frontend_verilog_yyin, align 8
-  %22 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
+  %22 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #37
   %.not.i4 = icmp eq ptr %22, null
   br i1 %.not.i4, label %23, label %24
 
 23:                                               ; preds = %_ZL38frontend_verilog_yyensure_buffer_stackv.exit
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.15) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.15) #38
   unreachable
 
 24:                                               ; preds = %_ZL38frontend_verilog_yyensure_buffer_stackv.exit
   %25 = getelementptr inbounds i8, ptr %22, i64 24
   store i32 65536, ptr %25, align 8
-  %26 = tail call noalias noundef dereferenceable_or_null(65538) ptr @malloc(i64 noundef 65538) #35
+  %26 = tail call noalias noundef dereferenceable_or_null(65538) ptr @malloc(i64 noundef 65538) #37
   %27 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %26, ptr %27, align 8
   %.not9.i5 = icmp eq ptr %26, null
   br i1 %.not9.i5, label %28, label %.thread
 
 28:                                               ; preds = %24
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.15) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.15) #38
   unreachable
 
 .thread:                                          ; preds = %24
@@ -12469,7 +12469,7 @@ _ZL38frontend_verilog_yyensure_buffer_stackv.exit: ; preds = %11, %.critedge, %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL31frontend_verilog_yy_init_bufferP15yy_buffer_stateP8_IO_FILE(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
-  %3 = tail call ptr @__errno_location() #43
+  %3 = tail call ptr @__errno_location() #45
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %0, null
   %.pre = load ptr, ptr @_ZL15yy_buffer_stack, align 8
@@ -12556,8 +12556,8 @@ _Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit: ; preds = %2, %19
   br i1 %.not13, label %49, label %44
 
 44:                                               ; preds = %43
-  %45 = tail call i32 @fileno(ptr noundef nonnull %1) #33
-  %46 = tail call i32 @isatty(i32 noundef %45) #33
+  %45 = tail call i32 @fileno(ptr noundef nonnull %1) #35
+  %46 = tail call i32 @isatty(i32 noundef %45) #35
   %47 = icmp sgt i32 %46, 0
   %48 = zext i1 %47 to i32
   br label %49
@@ -12577,13 +12577,13 @@ define void @_Z36frontend_verilog_yy_switch_to_bufferP15yy_buffer_state(ptr noun
   br i1 %.not.i, label %3, label %7
 
 3:                                                ; preds = %1
-  %4 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #35
+  %4 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #37
   store ptr %4, ptr @_ZL15yy_buffer_stack, align 8
   %.not9.i = icmp eq ptr %4, null
   br i1 %.not9.i, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.22) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.22) #38
   unreachable
 
 6:                                                ; preds = %3
@@ -12602,13 +12602,13 @@ define void @_Z36frontend_verilog_yy_switch_to_bufferP15yy_buffer_state(ptr noun
 11:                                               ; preds = %7
   %12 = add i64 %9, 8
   %13 = shl i64 %12, 3
-  %14 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %2, i64 noundef %13) #37
+  %14 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %2, i64 noundef %13) #39
   store ptr %14, ptr @_ZL15yy_buffer_stack, align 8
   %.not11.i = icmp eq ptr %14, null
   br i1 %.not11.i, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.22) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.22) #38
   unreachable
 
 16:                                               ; preds = %11
@@ -12699,11 +12699,11 @@ define void @_Z33frontend_verilog_yy_delete_bufferP15yy_buffer_state(ptr noundef
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
-  tail call void @free(ptr noundef %19) #33
+  tail call void @free(ptr noundef %19) #35
   br label %20
 
 20:                                               ; preds = %17, %14
-  tail call void @free(ptr noundef nonnull %0) #33
+  tail call void @free(ptr noundef nonnull %0) #35
   br label %21
 
 21:                                               ; preds = %1, %20
@@ -12712,7 +12712,7 @@ define void @_Z33frontend_verilog_yy_delete_bufferP15yy_buffer_state(ptr noundef
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_Z23frontend_verilog_yyfreePv(ptr nocapture noundef %0) local_unnamed_addr #21 {
-  tail call void @free(ptr noundef %0) #33
+  tail call void @free(ptr noundef %0) #35
   ret void
 }
 
@@ -12785,13 +12785,13 @@ define void @_Z36frontend_verilog_yypush_buffer_stateP15yy_buffer_state(ptr noun
   br i1 %.not.i, label %5, label %9
 
 5:                                                ; preds = %3
-  %6 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #35
+  %6 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #37
   store ptr %6, ptr @_ZL15yy_buffer_stack, align 8
   %.not9.i = icmp eq ptr %6, null
   br i1 %.not9.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.22) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.22) #38
   unreachable
 
 8:                                                ; preds = %5
@@ -12810,13 +12810,13 @@ define void @_Z36frontend_verilog_yypush_buffer_stateP15yy_buffer_state(ptr noun
 13:                                               ; preds = %9
   %14 = add i64 %11, 8
   %15 = shl i64 %14, 3
-  %16 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %15) #37
+  %16 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %15) #39
   store ptr %16, ptr @_ZL15yy_buffer_stack, align 8
   %.not11.i = icmp eq ptr %16, null
   br i1 %.not11.i, label %17, label %18
 
 17:                                               ; preds = %13
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.22) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.22) #38
   unreachable
 
 18:                                               ; preds = %13
@@ -12898,11 +12898,11 @@ define void @_Z35frontend_verilog_yypop_buffer_statev() local_unnamed_addr #20 {
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
-  tail call void @free(ptr noundef %12) #33
+  tail call void @free(ptr noundef %12) #35
   br label %_Z33frontend_verilog_yy_delete_bufferP15yy_buffer_state.exit
 
 _Z33frontend_verilog_yy_delete_bufferP15yy_buffer_state.exit: ; preds = %7, %10
-  tail call void @free(ptr noundef nonnull %5) #33
+  tail call void @free(ptr noundef nonnull %5) #35
   store ptr null, ptr %4, align 8
   %.not6 = icmp eq i64 %3, 0
   br i1 %.not6, label %.critedge, label %13
@@ -12955,12 +12955,12 @@ define noundef ptr @_Z31frontend_verilog_yy_scan_bufferPcm(ptr noundef %0, i64 n
   br i1 %.not23, label %12, label %26
 
 12:                                               ; preds = %8
-  %13 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
+  %13 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #37
   %.not24 = icmp eq ptr %13, null
   br i1 %.not24, label %14, label %15
 
 14:                                               ; preds = %12
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.16) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.16) #38
   unreachable
 
 15:                                               ; preds = %12
@@ -12994,7 +12994,7 @@ define noundef ptr @_Z31frontend_verilog_yy_scan_bufferPcm(ptr noundef %0, i64 n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_Z31frontend_verilog_yy_scan_stringPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #38
+  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #40
   %3 = trunc i64 %2 to i32
   %4 = tail call noundef ptr @_Z30frontend_verilog_yy_scan_bytesPKci(ptr noundef %0, i32 noundef %3)
   ret ptr %4
@@ -13004,7 +13004,7 @@ define noundef ptr @_Z31frontend_verilog_yy_scan_stringPKc(ptr nocapture noundef
 define noundef ptr @_Z30frontend_verilog_yy_scan_bytesPKci(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = add nsw i32 %1, 2
   %4 = sext i32 %3 to i64
-  %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #35
+  %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #37
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %.preheader
 
@@ -13023,7 +13023,7 @@ define noundef ptr @_Z30frontend_verilog_yy_scan_bytesPKci(ptr nocapture noundef
   br label %16
 
 11:                                               ; preds = %2
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.17) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.17) #38
   unreachable
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -13036,16 +13036,16 @@ define noundef ptr @_Z30frontend_verilog_yy_scan_bytesPKci(ptr nocapture noundef
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %17 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
+  %17 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #37
   %.not24.i = icmp eq ptr %17, null
   br i1 %.not24.i, label %18, label %20
 
 18:                                               ; preds = %16
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.16) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.16) #38
   unreachable
 
 19:                                               ; preds = %._crit_edge
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.18) #36
+  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.18) #38
   unreachable
 
 20:                                               ; preds = %16
@@ -13145,13 +13145,13 @@ define noundef i32 @_Z30frontend_verilog_yylex_destroyv() local_unnamed_addr #3 
 4:                                                ; preds = %.lr.ph19
   %5 = getelementptr inbounds i8, ptr %.pre10, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @free(ptr noundef %6) #33
+  tail call void @free(ptr noundef %6) #35
   %.pre11.pre = load ptr, ptr @_ZL15yy_buffer_stack, align 8
   br label %_Z35frontend_verilog_yypop_buffer_statev.exit
 
 _Z35frontend_verilog_yypop_buffer_statev.exit:    ; preds = %.lr.ph19, %4
   %.pre11 = phi ptr [ %.pre11.pre, %4 ], [ %.pr, %.lr.ph19 ]
-  tail call void @free(ptr noundef nonnull %.pre10) #33
+  tail call void @free(ptr noundef nonnull %.pre10) #35
   %.pre12 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
   %7 = getelementptr inbounds ptr, ptr %.pre11, i64 %.pre12
   store ptr null, ptr %7, align 8
@@ -13159,9 +13159,9 @@ _Z35frontend_verilog_yypop_buffer_statev.exit:    ; preds = %.lr.ph19, %4
 
 .thread:                                          ; preds = %.lr.ph.preheader, %_Z35frontend_verilog_yypop_buffer_statev.exit, %0
   %.lcssa = phi ptr [ null, %0 ], [ %.pre11, %_Z35frontend_verilog_yypop_buffer_statev.exit ], [ %.pr, %.lr.ph.preheader ]
-  tail call void @free(ptr noundef %.lcssa) #33
+  tail call void @free(ptr noundef %.lcssa) #35
   %8 = load ptr, ptr @_ZL12yy_state_buf, align 8
-  tail call void @free(ptr noundef %8) #33
+  tail call void @free(ptr noundef %8) #35
   store i32 1, ptr @frontend_verilog_yylineno, align 4
   store ptr null, ptr @_ZL15yy_buffer_stack, align 8
   store i64 0, ptr @_ZL19yy_buffer_stack_top, align 8
@@ -13182,7 +13182,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @_Z26frontend_verilog_yyreallocPvm(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #21 {
-  %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #37
+  %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #39
   ret ptr %3
 }
 
@@ -13279,19 +13279,20 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #26 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #33
-  tail call void @_ZSt9terminatev() #42
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #35
+  tail call void @_ZSt9terminatev() #44
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #27
 
 declare noundef i32 @_ZN5Yosys8readsomeERSiPci(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #27
+declare ptr @__errno_location() local_unnamed_addr #28
 
 ; Function Attrs: nounwind
 declare i32 @isatty(i32 noundef) local_unnamed_addr #1
@@ -13300,13 +13301,13 @@ declare i32 @isatty(i32 noundef) local_unnamed_addr #1
 declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #28
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #29
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #29
+declare void @exit(i32 noundef) local_unnamed_addr #30
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
@@ -13326,7 +13327,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   br i1 %10, label %11, label %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #36
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #38
   unreachable
 
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %3
@@ -13344,7 +13345,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
 
 20:                                               ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %21 = shl nuw nsw i64 %16, 5
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #39
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #41
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %20
@@ -13360,8 +13361,8 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ]
   %.0911.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #33
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #33
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #35
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #35
   %25 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
   %26 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %25, %1
@@ -13376,8 +13377,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i27
   %.012.i.i.i.i28 = phi ptr [ %29, %.lr.ph.i.i.i.i27 ], [ %27, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   %.0911.i.i.i.i29 = phi ptr [ %28, %.lr.ph.i.i.i.i27 ], [ %1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i29) #33
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i29) #33
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i29) #35
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i29) #35
   %28 = getelementptr inbounds i8, ptr %.0911.i.i.i.i29, i64 32
   %29 = getelementptr inbounds i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i30 = icmp eq ptr %28, %5
@@ -13389,7 +13390,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   br i1 %.not.i33, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %30
 
 30:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #34
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #36
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, %30
@@ -13404,12 +13405,12 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  %36 = tail call ptr @__cxa_begin_catch(ptr %35) #33
+  %36 = tail call ptr @__cxa_begin_catch(ptr %35) #35
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %.thread, label %39
 
 .thread:                                          ; preds = %33
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #33
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #35
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
 
 37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
@@ -13419,11 +13420,11 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
           to label %40 unwind label %41
 
 39:                                               ; preds = %33
-  tail call void @_ZdlPv(ptr noundef nonnull %23) #34
+  tail call void @_ZdlPv(ptr noundef nonnull %23) #36
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35: ; preds = %39, %.thread
-  invoke void @__cxa_rethrow() #36
+  invoke void @__cxa_rethrow() #38
           to label %44 unwind label %37
 
 40:                                               ; preds = %37
@@ -13433,7 +13434,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #42
+  tail call void @__clang_call_terminate(ptr %43) #44
   unreachable
 
 44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
@@ -13486,8 +13487,8 @@ define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stri
   br i1 %26, label %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3AST7AstNodeENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit, label %27
 
 27:                                               ; preds = %23
-  %28 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #33
-  %29 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #33
+  %28 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #35
+  %29 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #35
   %.not8.i.i = icmp eq ptr %28, %29
   br i1 %.not8.i.i, label %_ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4hashERKS7_.exit.i, label %.lr.ph.i.i
 
@@ -13538,15 +13539,15 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_
   %.014 = phi i32 [ %64, %_ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3cmpERKS7_SA_.exit.thread13 ], [ %48, %.lr.ph.preheader ]
   %51 = zext nneg i32 %.014 to i64
   %52 = getelementptr inbounds %"struct.Yosys::hashlib::dict<std::__cxx11::basic_string<char>, Yosys::AST::AstNode *>::entry_t", ptr %50, i64 %51
-  %53 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #33
-  %54 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #33
+  %53 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #35
+  %54 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #35
   %55 = icmp eq i64 %53, %54
   br i1 %55, label %56, label %_ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3cmpERKS7_SA_.exit.thread13
 
 56:                                               ; preds = %.lr.ph
-  %57 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #33
-  %58 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #33
-  %59 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #33
+  %57 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #35
+  %58 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #35
+  %59 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #35
   %60 = icmp eq i64 %59, 0
   br i1 %60, label %.critedge, label %_ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3cmpERKS7_SA_.exit
 
@@ -13649,8 +13650,8 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
 
 46:                                               ; preds = %.lr.ph
   %47 = getelementptr inbounds %"struct.Yosys::hashlib::dict<std::__cxx11::basic_string<char>, Yosys::AST::AstNode *>::entry_t", ptr %42, i64 %indvars.iv
-  %48 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %47) #33
-  %49 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %47) #33
+  %48 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %47) #35
+  %49 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %47) #35
   %.not8.i.i = icmp eq ptr %48, %49
   br i1 %.not8.i.i, label %_ZN5Yosys7hashlib8hash_opsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4hashERKS7_.exit.i, label %.lr.ph.i.i
 
@@ -13716,7 +13717,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEi(i32 noundef
   br i1 %5, label %6, label %11, !prof !224
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes) #33
+  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes) #35
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %11, label %8
 
@@ -13726,8 +13727,8 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEi(i32 noundef
           to label %9 unwind label %18
 
 9:                                                ; preds = %8
-  %10 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIiSaIiEED2Ev, ptr nonnull @_ZZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes, ptr nonnull @__dso_handle) #33
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes) #33
+  %10 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIiSaIiEED2Ev, ptr nonnull @_ZZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes, ptr nonnull @__dso_handle) #35
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes) #35
   br label %11
 
 11:                                               ; preds = %9, %6, %1
@@ -13753,22 +13754,22 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib14hashtable_sizeEi(i32 noundef
 18:                                               ; preds = %8
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes) #33
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes) #35
   br label %24
 
 ._crit_edge:                                      ; preds = %14, %11
-  %20 = call ptr @__cxa_allocate_exception(i64 16) #33
+  %20 = call ptr @__cxa_allocate_exception(i64 16) #35
   invoke void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull @.str.26)
           to label %21 unwind label %22
 
 21:                                               ; preds = %._crit_edge
-  call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTISt12length_error, ptr nonnull @_ZNSt12length_errorD1Ev) #36
+  call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTISt12length_error, ptr nonnull @_ZNSt12length_errorD1Ev) #38
   unreachable
 
 22:                                               ; preds = %._crit_edge
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %20) #33
+  call void @__cxa_free_exception(ptr %20) #35
   br label %24
 
 24:                                               ; preds = %22, %18
@@ -13883,7 +13884,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt2
   br i1 %48, label %49, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
 
 49:                                               ; preds = %42
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.25) #36
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.25) #38
   unreachable
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %42
@@ -13899,7 +13900,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %42
 
 56:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
   %57 = shl nuw nsw i64 %53, 2
-  %58 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #39
+  %58 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #41
   br label %59
 
 59:                                               ; preds = %56, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
@@ -13939,7 +13940,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; pred
   br i1 %.not.i83, label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit, label %70
 
 70:                                               ; preds = %68
-  tail call void @_ZdlPv(ptr noundef nonnull %43) #34
+  tail call void @_ZdlPv(ptr noundef nonnull %43) #36
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %68, %70
@@ -13964,7 +13965,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(pt
   br i1 %5, label %6, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
 6:                                                ; preds = %4
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.27) #36
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.27) #38
           to label %.noexc unwind label %17
 
 .noexc:                                           ; preds = %6
@@ -13981,7 +13982,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vecto
   br label %13
 
 9:                                                ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %10 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #39
+  %10 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #41
           to label %.noexc3 unwind label %17
 
 .noexc3:                                          ; preds = %9
@@ -14007,7 +14008,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vecto
   br i1 %.not.i.i4, label %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit, label %20
 
 20:                                               ; preds = %17
-  tail call void @_ZdlPv(ptr noundef nonnull %19) #34
+  tail call void @_ZdlPv(ptr noundef nonnull %19) #36
   br label %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit
 
 _ZNSt12_Vector_baseIiSaIiEED2Ev.exit:             ; preds = %17, %20
@@ -14029,33 +14030,34 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #31
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_verilog_lexer.cc() #30 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_verilog_lexer.cc() #32 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #33
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #35
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN5Yosys16VERILOG_FRONTEND8fn_stackB5cxx11E, i8 0, i64 24, i1 false)
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev, ptr nonnull @_ZN5Yosys16VERILOG_FRONTEND8fn_stackB5cxx11E, ptr nonnull @__dso_handle) #33
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev, ptr nonnull @_ZN5Yosys16VERILOG_FRONTEND8fn_stackB5cxx11E, ptr nonnull @__dso_handle) #35
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN5Yosys16VERILOG_FRONTEND8ln_stackE, i8 0, i64 24, i1 false)
-  %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIiSaIiEED2Ev, ptr nonnull @_ZN5Yosys16VERILOG_FRONTEND8ln_stackE, ptr nonnull @__dso_handle) #33
+  %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIiSaIiEED2Ev, ptr nonnull @_ZN5Yosys16VERILOG_FRONTEND8ln_stackE, ptr nonnull @__dso_handle) #35
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #31
+declare i64 @llvm.umax.i64(i64, i64) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #31
+declare i64 @llvm.umin.i64(i64, i64) #33
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #32
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #31
+declare i32 @llvm.umin.i32(i32, i32) #33
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -14084,23 +14086,25 @@ attributes #23 = { mustprogress nofree nounwind willreturn allockind("alloc,unin
 attributes #24 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #29 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #32 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #33 = { nounwind }
-attributes #34 = { builtin nounwind }
-attributes #35 = { nounwind allocsize(0) }
-attributes #36 = { noreturn }
-attributes #37 = { nounwind allocsize(1) }
-attributes #38 = { nounwind willreturn memory(read) }
-attributes #39 = { builtin allocsize(0) }
-attributes #40 = { cold nounwind }
-attributes #41 = { cold noreturn nounwind }
-attributes #42 = { noreturn nounwind }
-attributes #43 = { nounwind willreturn memory(none) }
+attributes #27 = { cold nofree noreturn }
+attributes #28 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #30 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { cold noreturn }
+attributes #32 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #34 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #35 = { nounwind }
+attributes #36 = { builtin nounwind }
+attributes #37 = { nounwind allocsize(0) }
+attributes #38 = { noreturn }
+attributes #39 = { nounwind allocsize(1) }
+attributes #40 = { nounwind willreturn memory(read) }
+attributes #41 = { builtin allocsize(0) }
+attributes #42 = { cold nounwind }
+attributes #43 = { cold noreturn nounwind }
+attributes #44 = { noreturn nounwind }
+attributes #45 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

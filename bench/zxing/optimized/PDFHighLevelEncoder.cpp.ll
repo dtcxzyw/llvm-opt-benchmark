@@ -65,7 +65,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !3
-  invoke void @_ZNSt6vectorIiSaIiEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %14) #12
+  invoke void @_ZNSt6vectorIiSaIiEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %14) #13
           to label %15 unwind label %103
 
 15:                                               ; preds = %4
@@ -73,7 +73,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br i1 %16, label %105, label %17
 
 17:                                               ; preds = %15
-  %18 = invoke noundef i32 @_ZN5ZXing5ToECIENS_12CharacterSetE(i8 noundef zeroext %3) #12
+  %18 = invoke noundef i32 @_ZN5ZXing5ToECIENS_12CharacterSetE(i8 noundef zeroext %3) #13
           to label %19 unwind label %103
 
 19:                                               ; preds = %17
@@ -96,7 +96,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %32
 
 28:                                               ; preds = %21
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %22, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L11ECI_CHARSETE) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %22, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L11ECI_CHARSETE) #13
           to label %29 unwind label %103
 
 29:                                               ; preds = %28
@@ -117,7 +117,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %102
 
 38:                                               ; preds = %32
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %33, ptr noundef nonnull align 4 dereferenceable(4) %5) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %33, ptr noundef nonnull align 4 dereferenceable(4) %5) #13
           to label %102 unwind label %103
 
 39:                                               ; preds = %19
@@ -139,7 +139,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %53
 
 49:                                               ; preds = %42
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %43, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L19ECI_GENERAL_PURPOSEE) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %43, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L19ECI_GENERAL_PURPOSEE) #13
           to label %50 unwind label %103
 
 50:                                               ; preds = %49
@@ -150,7 +150,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 53:                                               ; preds = %50, %47
   %54 = phi ptr [ %45, %47 ], [ %52, %50 ]
   %55 = phi ptr [ %48, %47 ], [ %51, %50 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
   %56 = udiv i32 %18, 900
   %57 = urem i32 %18, 900
   %58 = add nsw i32 %56, -1
@@ -165,7 +165,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %66
 
 62:                                               ; preds = %53
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %54, ptr noundef nonnull align 4 dereferenceable(4) %6) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %54, ptr noundef nonnull align 4 dereferenceable(4) %6) #13
           to label %63 unwind label %103
 
 63:                                               ; preds = %62
@@ -176,8 +176,8 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 66:                                               ; preds = %63, %60
   %67 = phi ptr [ %54, %60 ], [ %65, %63 ]
   %68 = phi ptr [ %61, %60 ], [ %64, %63 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
   store i32 %57, ptr %7, align 4, !tbaa !10
   %69 = icmp eq ptr %68, %67
   br i1 %69, label %72, label %70
@@ -189,11 +189,11 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %73
 
 72:                                               ; preds = %66
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %67, ptr noundef nonnull align 4 dereferenceable(4) %7) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %67, ptr noundef nonnull align 4 dereferenceable(4) %7) #13
           to label %73 unwind label %103
 
 73:                                               ; preds = %72, %70
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
   br label %102
 
 74:                                               ; preds = %39
@@ -215,7 +215,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %88
 
 84:                                               ; preds = %77
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %78, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L16ECI_USER_DEFINEDE) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %78, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L16ECI_USER_DEFINEDE) #13
           to label %85 unwind label %103
 
 85:                                               ; preds = %84
@@ -226,7 +226,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 88:                                               ; preds = %85, %82
   %89 = phi ptr [ %80, %82 ], [ %87, %85 ]
   %90 = phi ptr [ %83, %82 ], [ %86, %85 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #14
   store i32 %75, ptr %8, align 4, !tbaa !10
   %91 = icmp eq ptr %90, %89
   br i1 %91, label %94, label %92
@@ -238,20 +238,20 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %95
 
 94:                                               ; preds = %88
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %89, ptr noundef nonnull align 4 dereferenceable(4) %8) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %89, ptr noundef nonnull align 4 dereferenceable(4) %8) #13
           to label %95 unwind label %103
 
 95:                                               ; preds = %94, %92
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
   br label %102
 
 96:                                               ; preds = %74
-  %97 = tail call ptr @__cxa_allocate_exception(i64 16) #13
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull @.str) #12
+  %97 = tail call ptr @__cxa_allocate_exception(i64 16) #14
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull @.str) #13
           to label %98 unwind label %100
 
 98:                                               ; preds = %96
-  invoke void @__cxa_throw(ptr nonnull %97, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #14
+  invoke void @__cxa_throw(ptr nonnull %97, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #15
           to label %99 unwind label %103
 
 99:                                               ; preds = %98
@@ -260,7 +260,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 100:                                              ; preds = %96
   %101 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %97) #13
+  tail call void @__cxa_free_exception(ptr %97) #14
   br label %349
 
 102:                                              ; preds = %95, %73, %38, %36
@@ -294,7 +294,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %156
 
 116:                                              ; preds = %105
-  %117 = invoke fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 0, i32 noundef %107, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  %117 = invoke fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 0, i32 noundef %107, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %0) #13
           to label %.loopexit unwind label %118
 
 118:                                              ; preds = %155, %154, %116
@@ -303,15 +303,15 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %349
 
 120:                                              ; preds = %105
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #13
-  invoke void @_ZN5ZXing11TextEncoder11FromUnicodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS_12CharacterSetE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string.3") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef zeroext %3) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #14
+  invoke void @_ZN5ZXing11TextEncoder11FromUnicodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS_12CharacterSetE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string.3") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef zeroext %3) #13
           to label %121 unwind label %134
 
 121:                                              ; preds = %120
   %122 = getelementptr inbounds i8, ptr %9, i64 8
   %123 = load i64, ptr %122, align 8, !tbaa !16
   %124 = trunc i64 %123 to i32
-  invoke fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %124, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  invoke fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %124, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %0) #13
           to label %125 unwind label %136
 
 125:                                              ; preds = %121
@@ -327,11 +327,11 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %133
 
 132:                                              ; preds = %125
-  call void @_ZdlPv(ptr noundef %126) #15
+  call void @_ZdlPv(ptr noundef %126) #16
   br label %133
 
 133:                                              ; preds = %132, %129
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #14
   br label %.loopexit
 
 134:                                              ; preds = %120
@@ -354,12 +354,12 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %145
 
 144:                                              ; preds = %136
-  call void @_ZdlPv(ptr noundef %138) #15
+  call void @_ZdlPv(ptr noundef %138) #16
   br label %145
 
 145:                                              ; preds = %144, %141, %134
   %146 = phi { ptr, i32 } [ %135, %134 ], [ %137, %141 ], [ %137, %144 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #14
   br label %349
 
 147:                                              ; preds = %105
@@ -376,11 +376,11 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %155
 
 154:                                              ; preds = %147
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %148, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L16LATCH_TO_NUMERICE) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %148, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L16LATCH_TO_NUMERICE) #13
           to label %155 unwind label %118
 
 155:                                              ; preds = %154, %152
-  invoke fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 0, i32 noundef %107, ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  invoke fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 0, i32 noundef %107, ptr noundef nonnull align 8 dereferenceable(24) %0) #13
           to label %.loopexit unwind label %118
 
 156:                                              ; preds = %343, %110
@@ -442,11 +442,11 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %197
 
 196:                                              ; preds = %190
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %191, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L16LATCH_TO_NUMERICE) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %191, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L16LATCH_TO_NUMERICE) #13
           to label %197 unwind label %198
 
 197:                                              ; preds = %196, %194
-  invoke fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %159, i32 noundef %188, ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  invoke fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %159, i32 noundef %188, ptr noundef nonnull align 8 dereferenceable(24) %0) #13
           to label %343 unwind label %198
 
 198:                                              ; preds = %197, %196
@@ -553,7 +553,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %261
 
 258:                                              ; preds = %252
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %253, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L13LATCH_TO_TEXTE) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %253, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L13LATCH_TO_TEXTE) #13
           to label %261 unwind label %259
 
 259:                                              ; preds = %261, %258
@@ -563,7 +563,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 
 261:                                              ; preds = %258, %256, %250
   %262 = phi i32 [ %158, %250 ], [ 0, %258 ], [ 0, %256 ]
-  %263 = invoke fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %159, i32 noundef %246, i32 noundef %262, ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  %263 = invoke fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %159, i32 noundef %246, i32 noundef %262, ptr noundef nonnull align 8 dereferenceable(24) %0) #13
           to label %343 unwind label %259
 
 264:                                              ; preds = %243
@@ -608,14 +608,14 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   %291 = trunc i64 %290 to i32
   %292 = sub i32 %291, %159
   %293 = call i32 @llvm.umax.i32(i32 %292, i32 1)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #14
   %294 = sext i32 %293 to i64
-  invoke void @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %161, i64 noundef %294) #12
+  invoke void @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %161, i64 noundef %294) #13
           to label %295 unwind label %309
 
 295:                                              ; preds = %289
-  invoke void @_ZN5ZXing11TextEncoder11FromUnicodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS_12CharacterSetE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string.3") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11, i8 noundef zeroext %3) #12
+  invoke void @_ZN5ZXing11TextEncoder11FromUnicodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS_12CharacterSetE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string.3") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11, i8 noundef zeroext %3) #13
           to label %296 unwind label %311
 
 296:                                              ; preds = %295
@@ -630,11 +630,11 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %303
 
 302:                                              ; preds = %296
-  call void @_ZdlPv(ptr noundef %297) #15
+  call void @_ZdlPv(ptr noundef %297) #16
   br label %303
 
 303:                                              ; preds = %302, %299
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #14
   %304 = load i64, ptr %113, align 8, !tbaa !16
   %305 = icmp eq i64 %304, 1
   %306 = icmp eq i32 %157, 0
@@ -642,7 +642,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br i1 %307, label %308, label %329
 
 308:                                              ; preds = %303
-  invoke fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  invoke fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %0) #13
           to label %331 unwind label %321
 
 309:                                              ; preds = %289
@@ -664,12 +664,12 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %319
 
 318:                                              ; preds = %311
-  call void @_ZdlPv(ptr noundef %313) #15
+  call void @_ZdlPv(ptr noundef %313) #16
   br label %319
 
 319:                                              ; preds = %318, %315, %309
   %320 = phi { ptr, i32 } [ %310, %309 ], [ %312, %315 ], [ %312, %318 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #14
   br label %341
 
 321:                                              ; preds = %329, %308
@@ -686,12 +686,12 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %341
 
 328:                                              ; preds = %321
-  call void @_ZdlPv(ptr noundef %323) #15
+  call void @_ZdlPv(ptr noundef %323) #16
   br label %341
 
 329:                                              ; preds = %303
   %330 = trunc i64 %304 to i32
-  invoke fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %330, i32 noundef %157, ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  invoke fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %330, i32 noundef %157, ptr noundef nonnull align 8 dereferenceable(24) %0) #13
           to label %331 unwind label %321
 
 331:                                              ; preds = %329, %308
@@ -708,16 +708,16 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br label %340
 
 339:                                              ; preds = %331
-  call void @_ZdlPv(ptr noundef %334) #15
+  call void @_ZdlPv(ptr noundef %334) #16
   br label %340
 
 340:                                              ; preds = %339, %336
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #14
   br label %343
 
 341:                                              ; preds = %328, %325, %319
   %342 = phi { ptr, i32 } [ %320, %319 ], [ %322, %325 ], [ %322, %328 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #14
   br label %349
 
 343:                                              ; preds = %340, %261, %197
@@ -738,7 +738,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br i1 %352, label %354, label %353
 
 353:                                              ; preds = %349
-  call void @_ZdlPv(ptr noundef nonnull %351) #15
+  call void @_ZdlPv(ptr noundef nonnull %351) #16
   br label %354
 
 354:                                              ; preds = %353, %349
@@ -751,7 +751,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE7reserveEm(ptr noundef nonnull ali
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #16
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #17
   unreachable
 
 5:                                                ; preds = %2
@@ -770,7 +770,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE7reserveEm(ptr noundef nonnull ali
   %16 = load ptr, ptr %15, align 8, !tbaa !15
   %17 = ptrtoint ptr %16 to i64
   %18 = sub i64 %17, %10
-  %19 = tail call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef null) #12
+  %19 = tail call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef null) #13
   %20 = load ptr, ptr %0, align 8, !tbaa !29
   %21 = load ptr, ptr %15, align 8, !tbaa !15
   %22 = ptrtoint ptr %21 to i64
@@ -790,7 +790,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE7reserveEm(ptr noundef nonnull ali
   br i1 %30, label %32, label %31
 
 31:                                               ; preds = %28
-  tail call void @_ZdlPv(ptr noundef nonnull %29) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %29) #16
   br label %32
 
 32:                                               ; preds = %31, %28
@@ -837,10 +837,10 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   %25 = alloca i32, align 4
   %26 = alloca i32, align 4
   %27 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %28 = sext i32 %2 to i64
-  invoke void @_ZNSt6vectorIiSaIiEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %28) #12
+  invoke void @_ZNSt6vectorIiSaIiEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %28) #13
           to label %29 unwind label %40
 
 29:                                               ; preds = %5
@@ -876,7 +876,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br i1 %46, label %47, label %58
 
 47:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
   %48 = select i1 %43, i32 26, i32 %44
   store i32 %48, ptr %7, align 4, !tbaa !10
   %49 = load ptr, ptr %30, align 8, !tbaa !12
@@ -891,17 +891,17 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %55
 
 54:                                               ; preds = %47
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %49, ptr noundef nonnull align 4 dereferenceable(4) %7) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %49, ptr noundef nonnull align 4 dereferenceable(4) %7) #13
           to label %55 unwind label %56
 
 55:                                               ; preds = %54, %52
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
   br label %329
 
 56:                                               ; preds = %54
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
   br label %394
 
 58:                                               ; preds = %42
@@ -910,7 +910,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br i1 %60, label %61, label %71
 
 61:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #14
   store i32 27, ptr %8, align 4, !tbaa !10
   %62 = load ptr, ptr %30, align 8, !tbaa !12
   %63 = load ptr, ptr %31, align 8, !tbaa !13
@@ -924,17 +924,17 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %68
 
 67:                                               ; preds = %61
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %62, ptr noundef nonnull align 4 dereferenceable(4) %8) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %62, ptr noundef nonnull align 4 dereferenceable(4) %8) #13
           to label %68 unwind label %69
 
 68:                                               ; preds = %67, %65
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
   br label %.backedge
 
 69:                                               ; preds = %67
   %70 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
   br label %394
 
 71:                                               ; preds = %58
@@ -956,7 +956,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br i1 %80, label %91, label %83
 
 83:                                               ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #14
   store i32 28, ptr %9, align 4, !tbaa !10
   %84 = icmp eq ptr %81, %82
   br i1 %84, label %87, label %85
@@ -968,23 +968,23 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %88
 
 87:                                               ; preds = %83
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %81, ptr noundef nonnull align 4 dereferenceable(4) %9) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %81, ptr noundef nonnull align 4 dereferenceable(4) %9) #13
           to label %88 unwind label %89
 
 88:                                               ; preds = %87, %85
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
   br label %.backedge
 
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
   br label %394
 
 91:                                               ; preds = %76, %73
   %92 = phi ptr [ %75, %73 ], [ %82, %76 ]
   %93 = phi ptr [ %74, %73 ], [ %81, %76 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
   store i32 29, ptr %10, align 4, !tbaa !10
   %94 = icmp eq ptr %93, %92
   br i1 %94, label %97, label %95
@@ -996,7 +996,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %101
 
 97:                                               ; preds = %91
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %92, ptr noundef nonnull align 4 dereferenceable(4) %10) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %92, ptr noundef nonnull align 4 dereferenceable(4) %10) #13
           to label %98 unwind label %113
 
 98:                                               ; preds = %97
@@ -1007,8 +1007,8 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 101:                                              ; preds = %98, %95
   %102 = phi ptr [ %100, %98 ], [ %92, %95 ]
   %103 = phi ptr [ %99, %98 ], [ %96, %95 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #14
   %104 = sext i32 %39 to i64
   %105 = getelementptr inbounds [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !30
@@ -1024,23 +1024,23 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %112
 
 111:                                              ; preds = %101
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %102, ptr noundef nonnull align 4 dereferenceable(4) %11) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %102, ptr noundef nonnull align 4 dereferenceable(4) %11) #13
           to label %112 unwind label %115
 
 112:                                              ; preds = %111, %109
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
   br label %329
 
 113:                                              ; preds = %97
   %114 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
   br label %394
 
 115:                                              ; preds = %111
   %116 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
   br label %394
 
 117:                                              ; preds = %32
@@ -1051,7 +1051,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br i1 %121, label %122, label %133
 
 122:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14
   %123 = select i1 %118, i32 26, i32 %119
   store i32 %123, ptr %12, align 4, !tbaa !10
   %124 = load ptr, ptr %30, align 8, !tbaa !12
@@ -1066,17 +1066,17 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %130
 
 129:                                              ; preds = %122
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %124, ptr noundef nonnull align 4 dereferenceable(4) %12) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %124, ptr noundef nonnull align 4 dereferenceable(4) %12) #13
           to label %130 unwind label %131
 
 130:                                              ; preds = %129, %127
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
   br label %329
 
 131:                                              ; preds = %129
   %132 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
   br label %394
 
 133:                                              ; preds = %117
@@ -1085,7 +1085,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br i1 %135, label %136, label %158
 
 136:                                              ; preds = %133
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #14
   store i32 27, ptr %13, align 4, !tbaa !10
   %137 = load ptr, ptr %30, align 8, !tbaa !12
   %138 = load ptr, ptr %31, align 8, !tbaa !13
@@ -1099,7 +1099,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %146
 
 142:                                              ; preds = %136
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %137, ptr noundef nonnull align 4 dereferenceable(4) %13) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %137, ptr noundef nonnull align 4 dereferenceable(4) %13) #13
           to label %143 unwind label %154
 
 143:                                              ; preds = %142
@@ -1110,8 +1110,8 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 146:                                              ; preds = %143, %140
   %147 = phi ptr [ %145, %143 ], [ %138, %140 ]
   %148 = phi ptr [ %144, %143 ], [ %141, %140 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #14
   store i32 %134, ptr %14, align 4, !tbaa !10
   %149 = icmp eq ptr %148, %147
   br i1 %149, label %152, label %150
@@ -1123,23 +1123,23 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %153
 
 152:                                              ; preds = %146
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %147, ptr noundef nonnull align 4 dereferenceable(4) %14) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %147, ptr noundef nonnull align 4 dereferenceable(4) %14) #13
           to label %153 unwind label %156
 
 153:                                              ; preds = %152, %150
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
   br label %329
 
 154:                                              ; preds = %142
   %155 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
   br label %394
 
 156:                                              ; preds = %152
   %157 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
   br label %394
 
 158:                                              ; preds = %133
@@ -1161,7 +1161,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br i1 %167, label %178, label %170
 
 170:                                              ; preds = %163
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #14
   store i32 28, ptr %15, align 4, !tbaa !10
   %171 = icmp eq ptr %168, %169
   br i1 %171, label %174, label %172
@@ -1173,23 +1173,23 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %175
 
 174:                                              ; preds = %170
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %168, ptr noundef nonnull align 4 dereferenceable(4) %15) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %168, ptr noundef nonnull align 4 dereferenceable(4) %15) #13
           to label %175 unwind label %176
 
 175:                                              ; preds = %174, %172
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #14
   br label %.backedge
 
 176:                                              ; preds = %174
   %177 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #14
   br label %394
 
 178:                                              ; preds = %163, %160
   %179 = phi ptr [ %162, %160 ], [ %169, %163 ]
   %180 = phi ptr [ %161, %160 ], [ %168, %163 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #14
   store i32 29, ptr %16, align 4, !tbaa !10
   %181 = icmp eq ptr %180, %179
   br i1 %181, label %184, label %182
@@ -1201,7 +1201,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %188
 
 184:                                              ; preds = %178
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %179, ptr noundef nonnull align 4 dereferenceable(4) %16) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %179, ptr noundef nonnull align 4 dereferenceable(4) %16) #13
           to label %185 unwind label %200
 
 185:                                              ; preds = %184
@@ -1212,8 +1212,8 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 188:                                              ; preds = %185, %182
   %189 = phi ptr [ %187, %185 ], [ %179, %182 ]
   %190 = phi ptr [ %186, %185 ], [ %183, %182 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #14
   %191 = sext i32 %39 to i64
   %192 = getelementptr inbounds [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %191
   %193 = load i8, ptr %192, align 1, !tbaa !30
@@ -1229,23 +1229,23 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %199
 
 198:                                              ; preds = %188
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %189, ptr noundef nonnull align 4 dereferenceable(4) %17) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %189, ptr noundef nonnull align 4 dereferenceable(4) %17) #13
           to label %199 unwind label %202
 
 199:                                              ; preds = %198, %196
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #14
   br label %329
 
 200:                                              ; preds = %184
   %201 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #14
   br label %394
 
 202:                                              ; preds = %198
   %203 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #14
   br label %394
 
 204:                                              ; preds = %32
@@ -1260,7 +1260,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br i1 %210, label %222, label %211
 
 211:                                              ; preds = %206
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #14
   %212 = sext i8 %209 to i32
   store i32 %212, ptr %18, align 4, !tbaa !10
   %213 = load ptr, ptr %30, align 8, !tbaa !12
@@ -1275,17 +1275,17 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %219
 
 218:                                              ; preds = %211
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %213, ptr noundef nonnull align 4 dereferenceable(4) %18) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %213, ptr noundef nonnull align 4 dereferenceable(4) %18) #13
           to label %219 unwind label %220
 
 219:                                              ; preds = %218, %216
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #14
   br label %329
 
 220:                                              ; preds = %218
   %221 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #14
   br label %394
 
 222:                                              ; preds = %206, %204
@@ -1296,7 +1296,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br i1 %226, label %227, label %237
 
 227:                                              ; preds = %222
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #14
   store i32 28, ptr %19, align 4, !tbaa !10
   %228 = load ptr, ptr %30, align 8, !tbaa !12
   %229 = load ptr, ptr %31, align 8, !tbaa !13
@@ -1310,17 +1310,17 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %234
 
 233:                                              ; preds = %227
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %228, ptr noundef nonnull align 4 dereferenceable(4) %19) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %228, ptr noundef nonnull align 4 dereferenceable(4) %19) #13
           to label %234 unwind label %235
 
 234:                                              ; preds = %233, %231
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #14
   br label %.backedge
 
 235:                                              ; preds = %233
   %236 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #14
   br label %394
 
 237:                                              ; preds = %222
@@ -1329,7 +1329,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br i1 %239, label %240, label %250
 
 240:                                              ; preds = %237
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #14
   store i32 27, ptr %20, align 4, !tbaa !10
   %241 = load ptr, ptr %30, align 8, !tbaa !12
   %242 = load ptr, ptr %31, align 8, !tbaa !13
@@ -1343,17 +1343,17 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %247
 
 246:                                              ; preds = %240
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %241, ptr noundef nonnull align 4 dereferenceable(4) %20) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %241, ptr noundef nonnull align 4 dereferenceable(4) %20) #13
           to label %247 unwind label %248
 
 247:                                              ; preds = %246, %244
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #14
   br label %.backedge
 
 248:                                              ; preds = %246
   %249 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #14
   br label %394
 
 250:                                              ; preds = %237
@@ -1376,7 +1376,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br i1 %261, label %272, label %262
 
 262:                                              ; preds = %257
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #14
   store i32 25, ptr %21, align 4, !tbaa !10
   %263 = load ptr, ptr %30, align 8, !tbaa !12
   %264 = load ptr, ptr %31, align 8, !tbaa !13
@@ -1390,21 +1390,21 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %271
 
 268:                                              ; preds = %262
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %263, ptr noundef nonnull align 4 dereferenceable(4) %21) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %263, ptr noundef nonnull align 4 dereferenceable(4) %21) #13
           to label %271 unwind label %269
 
 269:                                              ; preds = %268
   %270 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #14
   br label %394
 
 271:                                              ; preds = %268, %266
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #14
   br label %.backedge
 
 272:                                              ; preds = %257, %252, %250
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #14
   store i32 29, ptr %22, align 4, !tbaa !10
   %273 = load ptr, ptr %30, align 8, !tbaa !12
   %274 = load ptr, ptr %31, align 8, !tbaa !13
@@ -1418,7 +1418,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %282
 
 278:                                              ; preds = %272
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %273, ptr noundef nonnull align 4 dereferenceable(4) %22) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %273, ptr noundef nonnull align 4 dereferenceable(4) %22) #13
           to label %279 unwind label %294
 
 279:                                              ; preds = %278
@@ -1429,8 +1429,8 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 282:                                              ; preds = %279, %276
   %283 = phi ptr [ %281, %279 ], [ %274, %276 ]
   %284 = phi ptr [ %280, %279 ], [ %277, %276 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #14
   %285 = sext i32 %39 to i64
   %286 = getelementptr inbounds [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %285
   %287 = load i8, ptr %286, align 1, !tbaa !30
@@ -1446,23 +1446,23 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %293
 
 292:                                              ; preds = %282
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %283, ptr noundef nonnull align 4 dereferenceable(4) %23) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %283, ptr noundef nonnull align 4 dereferenceable(4) %23) #13
           to label %293 unwind label %296
 
 293:                                              ; preds = %292, %290
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #14
   br label %329
 
 294:                                              ; preds = %278
   %295 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #14
   br label %394
 
 296:                                              ; preds = %292
   %297 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #14
   br label %394
 
 298:                                              ; preds = %32
@@ -1484,7 +1484,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br i1 %307, label %319, label %310
 
 310:                                              ; preds = %303
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #14
   %311 = sext i8 %306 to i32
   store i32 %311, ptr %24, align 4, !tbaa !10
   %312 = icmp eq ptr %308, %309
@@ -1497,23 +1497,23 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %316
 
 315:                                              ; preds = %310
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %308, ptr noundef nonnull align 4 dereferenceable(4) %24) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %308, ptr noundef nonnull align 4 dereferenceable(4) %24) #13
           to label %316 unwind label %317
 
 316:                                              ; preds = %315, %313
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #14
   br label %329
 
 317:                                              ; preds = %315
   %318 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #14
   br label %394
 
 319:                                              ; preds = %303, %300
   %320 = phi ptr [ %302, %300 ], [ %309, %303 ]
   %321 = phi ptr [ %301, %300 ], [ %308, %303 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #14
   store i32 29, ptr %25, align 4, !tbaa !10
   %322 = icmp eq ptr %321, %320
   br i1 %322, label %325, label %323
@@ -1525,17 +1525,17 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %326
 
 325:                                              ; preds = %319
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %320, ptr noundef nonnull align 4 dereferenceable(4) %25) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %320, ptr noundef nonnull align 4 dereferenceable(4) %25) #13
           to label %326 unwind label %327
 
 326:                                              ; preds = %325, %323
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #14
   br label %.backedge
 
 327:                                              ; preds = %325
   %328 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #14
   br label %394
 
 329:                                              ; preds = %316, %293, %219, %199, %153, %130, %112, %55
@@ -1549,7 +1549,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %32, !llvm.loop !31
 
 332:                                              ; preds = %329
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #14
   store i32 0, ptr %26, align 4, !tbaa !10
   %333 = load ptr, ptr %30, align 8, !tbaa !15
   %334 = load ptr, ptr %6, align 8, !tbaa !29
@@ -1597,7 +1597,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %369
 
 362:                                              ; preds = %350
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %357, ptr noundef nonnull align 4 dereferenceable(4) %26) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %357, ptr noundef nonnull align 4 dereferenceable(4) %26) #13
           to label %369 unwind label %363
 
 363:                                              ; preds = %362
@@ -1618,7 +1618,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br i1 %371, label %.loopexit, label %346, !llvm.loop !32
 
 372:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #14
   %373 = load i32, ptr %26, align 4, !tbaa !10
   %374 = mul nsw i32 %373, 30
   %375 = add nsw i32 %374, 29
@@ -1637,36 +1637,36 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br label %384
 
 383:                                              ; preds = %372
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %377, ptr noundef nonnull align 4 dereferenceable(4) %27) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %377, ptr noundef nonnull align 4 dereferenceable(4) %27) #13
           to label %384 unwind label %385
 
 384:                                              ; preds = %383, %381
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #14
   br label %387
 
 385:                                              ; preds = %383
   %386 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #14
   br label %392
 
 387:                                              ; preds = %384, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #14
   %388 = load ptr, ptr %6, align 8, !tbaa !29
   %389 = icmp eq ptr %388, null
   br i1 %389, label %391, label %390
 
 390:                                              ; preds = %387
-  call void @_ZdlPv(ptr noundef nonnull %388) #15
+  call void @_ZdlPv(ptr noundef nonnull %388) #16
   br label %391
 
 391:                                              ; preds = %390, %387
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
   ret i32 %34
 
 392:                                              ; preds = %385, %363
   %393 = phi { ptr, i32 } [ %364, %363 ], [ %386, %385 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #14
   br label %394
 
 394:                                              ; preds = %392, %327, %317, %296, %294, %269, %248, %235, %220, %202, %200, %176, %156, %154, %131, %115, %113, %89, %69, %56, %40
@@ -1676,11 +1676,11 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   br i1 %397, label %399, label %398
 
 398:                                              ; preds = %394
-  call void @_ZdlPv(ptr noundef nonnull %396) #15
+  call void @_ZdlPv(ptr noundef nonnull %396) #16
   br label %399
 
 399:                                              ; preds = %398, %394
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
   resume { ptr, i32 } %395
 }
 
@@ -1691,7 +1691,7 @@ define linkonce_odr void @_ZN5ZXing11TextEncoder11FromUnicodeERKNSt7__cxx1112bas
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8, !tbaa !16
   store i8 0, ptr %4, align 8, !tbaa !30
-  invoke void @_ZN5ZXing11TextEncoder8GetBytesERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS_12CharacterSetERNS2_IcS3_IcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %0) #12
+  invoke void @_ZN5ZXing11TextEncoder8GetBytesERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS_12CharacterSetERNS2_IcS3_IcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %0) #13
           to label %15 unwind label %6
 
 6:                                                ; preds = %3
@@ -1708,7 +1708,7 @@ define linkonce_odr void @_ZN5ZXing11TextEncoder11FromUnicodeERKNSt7__cxx1112bas
   br label %14
 
 13:                                               ; preds = %6
-  tail call void @_ZdlPv(ptr noundef %8) #15
+  tail call void @_ZdlPv(ptr noundef %8) #16
   br label %14
 
 14:                                               ; preds = %13, %10
@@ -1742,7 +1742,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
   br label %82
 
 18:                                               ; preds = %10
-  tail call void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %12, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L13SHIFT_TO_BYTEE) #12
+  tail call void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %12, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L13SHIFT_TO_BYTEE) #13
   br label %82
 
 19:                                               ; preds = %4
@@ -1765,7 +1765,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
   br label %35
 
 30:                                               ; preds = %27
-  tail call void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %23, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L13LATCH_TO_BYTEE) #12
+  tail call void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %23, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L13LATCH_TO_BYTEE) #13
   br label %35
 
 31:                                               ; preds = %19
@@ -1778,7 +1778,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
   br label %35
 
 34:                                               ; preds = %31
-  tail call void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %23, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L20LATCH_TO_BYTE_PADDEDE) #12
+  tail call void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %23, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5ZXing6Pdf417L20LATCH_TO_BYTE_PADDEDE) #13
   br label %35
 
 35:                                               ; preds = %34, %32, %30, %28
@@ -1786,7 +1786,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
   br i1 %36, label %37, label %82
 
 37:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #14
   %38 = add nsw i32 %1, -6
   %39 = urem i32 %38, 6
   %40 = sub nuw nsw i32 %38, %39
@@ -1845,7 +1845,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
   br label %77
 
 76:                                               ; preds = %.preheader
-  call void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %70, ptr noundef nonnull align 4 dereferenceable(4) %69) #12
+  call void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %70, ptr noundef nonnull align 4 dereferenceable(4) %69) #13
   br label %77
 
 77:                                               ; preds = %76, %73
@@ -1855,7 +1855,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
 
 80:                                               ; preds = %63
   %81 = add i32 %40, 6
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #14
   br label %82
 
 82:                                               ; preds = %80, %35, %18, %16
@@ -1874,7 +1874,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
 
 89:                                               ; preds = %101, %85
   %90 = phi i64 [ %88, %85 ], [ %102, %101 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
   %91 = load ptr, ptr %0, align 8, !tbaa !19
   %92 = getelementptr inbounds i8, ptr %91, i64 %90
   %93 = load i8, ptr %92, align 1, !tbaa !30
@@ -1892,11 +1892,11 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
   br label %101
 
 100:                                              ; preds = %89
-  call void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %95, ptr noundef nonnull align 4 dereferenceable(4) %6) #12
+  call void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %95, ptr noundef nonnull align 4 dereferenceable(4) %6) #13
   br label %101
 
 101:                                              ; preds = %100, %98
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
   %102 = add nuw nsw i64 %90, 1
   %103 = trunc nuw i64 %102 to i32
   %104 = icmp slt i32 %103, %1
@@ -1917,19 +1917,19 @@ define internal fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112bas
   %11 = alloca %"class.ZXing::BigInteger", align 8
   %12 = alloca %"class.ZXing::BigInteger", align 8
   %13 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %14 = sdiv i32 %2, 3
   %15 = add nsw i32 %14, 1
   %16 = sext i32 %15 to i64
-  invoke void @_ZNSt6vectorIiSaIiEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %16) #12
+  invoke void @_ZNSt6vectorIiSaIiEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %16) #13
           to label %17 unwind label %101
 
 17:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #14
   store i8 0, ptr %8, align 8, !tbaa !39
   %18 = getelementptr inbounds i8, ptr %8, i64 8
-  %19 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17
+  %19 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18
           to label %20 unwind label %103
 
 20:                                               ; preds = %17
@@ -1970,20 +1970,20 @@ define internal fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112bas
 42:                                               ; preds = %41, %36
   %43 = sub nsw i32 %2, %37
   %44 = call i32 @llvm.smin.i32(i32 %43, i32 44)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #14
   %45 = add nsw i32 %37, %1
   %46 = sext i32 %45 to i64
   %47 = sext i32 %44 to i64
-  invoke void @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %46, i64 noundef %47) #12
+  invoke void @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %46, i64 noundef %47) #13
           to label %48 unwind label %105
 
 48:                                               ; preds = %42
-  %49 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7replaceEmmPKwm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.2, i64 noundef 1) #12
+  %49 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7replaceEmmPKwm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.2, i64 noundef 1) #13
           to label %50 unwind label %107
 
 50:                                               ; preds = %48
-  call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %49) #18
+  call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %49) #19
   %51 = load ptr, ptr %10, align 8, !tbaa !20
   %52 = icmp eq ptr %51, %27
   br i1 %52, label %53, label %56
@@ -1995,27 +1995,27 @@ define internal fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112bas
   br label %57
 
 56:                                               ; preds = %50
-  call void @_ZdlPv(ptr noundef %51) #15
+  call void @_ZdlPv(ptr noundef %51) #16
   br label %57
 
 57:                                               ; preds = %56, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #14
   store i8 0, ptr %11, align 8, !tbaa !39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #14
   store i8 0, ptr %12, align 8, !tbaa !39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  %58 = invoke noundef zeroext i1 @_ZN5ZXing10BigInteger8TryParseERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEERS0_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11) #12
+  %58 = invoke noundef zeroext i1 @_ZN5ZXing10BigInteger8TryParseERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEERS0_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11) #13
           to label %.preheader unwind label %119
 
 .preheader:                                       ; preds = %57, %68
-  invoke void @_ZN5ZXing10BigInteger6DivideERKS0_S2_RS0_S3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12) #12
+  invoke void @_ZN5ZXing10BigInteger6DivideERKS0_S2_RS0_S3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12) #13
           to label %59 unwind label %117
 
 59:                                               ; preds = %.preheader
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #13
-  %60 = invoke noundef i32 @_ZNK5ZXing10BigInteger5toIntEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #14
+  %60 = invoke noundef i32 @_ZNK5ZXing10BigInteger5toIntEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
           to label %61 unwind label %121
 
 61:                                               ; preds = %59
@@ -2032,11 +2032,11 @@ define internal fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112bas
   br label %68
 
 67:                                               ; preds = %61
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %62, ptr noundef nonnull align 4 dereferenceable(4) %13) #12
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %62, ptr noundef nonnull align 4 dereferenceable(4) %13) #13
           to label %68 unwind label %121
 
 68:                                               ; preds = %67, %65
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
   %69 = load ptr, ptr %29, align 8, !tbaa !12
   %70 = load ptr, ptr %32, align 8, !tbaa !12
   %71 = icmp eq ptr %69, %70
@@ -2057,7 +2057,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112bas
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %81, ptr %5, align 8, !tbaa !12
   store i64 %82, ptr %6, align 8, !tbaa !12
-  invoke void @_ZNSt6vectorIiSaIiEE15_M_range_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiS1_EEEEEvS7_T_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %80, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
+  invoke void @_ZNSt6vectorIiSaIiEE15_M_range_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiS1_EEEEEvS7_T_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %80, ptr noundef nonnull %5, ptr noundef nonnull %6) #13
           to label %83 unwind label %123
 
 83:                                               ; preds = %72
@@ -2069,21 +2069,21 @@ define internal fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112bas
   br i1 %86, label %88, label %87
 
 87:                                               ; preds = %83
-  call void @_ZdlPv(ptr noundef nonnull %85) #15
+  call void @_ZdlPv(ptr noundef nonnull %85) #16
   br label %88
 
 88:                                               ; preds = %87, %83
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #14
   %89 = load ptr, ptr %29, align 8, !tbaa !46
   %90 = icmp eq ptr %89, null
   br i1 %90, label %92, label %91
 
 91:                                               ; preds = %88
-  call void @_ZdlPv(ptr noundef nonnull %89) #15
+  call void @_ZdlPv(ptr noundef nonnull %89) #16
   br label %92
 
 92:                                               ; preds = %91, %88
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #14
   %93 = load ptr, ptr %9, align 8, !tbaa !20
   %94 = icmp eq ptr %93, %34
   br i1 %94, label %95, label %98
@@ -2095,11 +2095,11 @@ define internal fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112bas
   br label %99
 
 98:                                               ; preds = %92
-  call void @_ZdlPv(ptr noundef %93) #15
+  call void @_ZdlPv(ptr noundef %93) #16
   br label %99
 
 99:                                               ; preds = %98, %95
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #14
   %100 = icmp slt i32 %84, %2
   br i1 %100, label %36, label %146, !llvm.loop !57
 
@@ -2132,12 +2132,12 @@ define internal fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112bas
   br label %115
 
 114:                                              ; preds = %107
-  call void @_ZdlPv(ptr noundef %109) #15
+  call void @_ZdlPv(ptr noundef %109) #16
   br label %115
 
 115:                                              ; preds = %114, %111, %105
   %116 = phi { ptr, i32 } [ %106, %105 ], [ %108, %111 ], [ %108, %114 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #14
   br label %141
 
 117:                                              ; preds = %.preheader
@@ -2153,7 +2153,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112bas
 121:                                              ; preds = %67, %59
   %122 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
   br label %125
 
 123:                                              ; preds = %72
@@ -2168,21 +2168,21 @@ define internal fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112bas
   br i1 %128, label %130, label %129
 
 129:                                              ; preds = %125
-  call void @_ZdlPv(ptr noundef nonnull %127) #15
+  call void @_ZdlPv(ptr noundef nonnull %127) #16
   br label %130
 
 130:                                              ; preds = %129, %125
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #14
   %131 = load ptr, ptr %29, align 8, !tbaa !46
   %132 = icmp eq ptr %131, null
   br i1 %132, label %134, label %133
 
 133:                                              ; preds = %130
-  call void @_ZdlPv(ptr noundef nonnull %131) #15
+  call void @_ZdlPv(ptr noundef nonnull %131) #16
   br label %134
 
 134:                                              ; preds = %133, %130
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #14
   %135 = load ptr, ptr %9, align 8, !tbaa !20
   %136 = icmp eq ptr %135, %34
   br i1 %136, label %137, label %140
@@ -2194,18 +2194,18 @@ define internal fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112bas
   br label %141
 
 140:                                              ; preds = %134
-  call void @_ZdlPv(ptr noundef %135) #15
+  call void @_ZdlPv(ptr noundef %135) #16
   br label %141
 
 141:                                              ; preds = %140, %137, %115
   %142 = phi { ptr, i32 } [ %116, %115 ], [ %126, %137 ], [ %126, %140 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #14
   %143 = load ptr, ptr %18, align 8, !tbaa !46
   %144 = icmp eq ptr %143, null
   br i1 %144, label %156, label %145
 
 145:                                              ; preds = %141
-  call void @_ZdlPv(ptr noundef nonnull %143) #15
+  call void @_ZdlPv(ptr noundef nonnull %143) #16
   br label %156
 
 146:                                              ; preds = %99
@@ -2215,26 +2215,26 @@ define internal fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112bas
 
 149:                                              ; preds = %146, %20
   %150 = phi ptr [ %147, %146 ], [ %19, %20 ]
-  call void @_ZdlPv(ptr noundef nonnull %150) #15
+  call void @_ZdlPv(ptr noundef nonnull %150) #16
   br label %151
 
 151:                                              ; preds = %149, %146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #14
   %152 = load ptr, ptr %7, align 8, !tbaa !29
   %153 = icmp eq ptr %152, null
   br i1 %153, label %155, label %154
 
 154:                                              ; preds = %151
-  call void @_ZdlPv(ptr noundef nonnull %152) #15
+  call void @_ZdlPv(ptr noundef nonnull %152) #16
   br label %155
 
 155:                                              ; preds = %154, %151
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #14
   ret void
 
 156:                                              ; preds = %145, %141, %103
   %157 = phi { ptr, i32 } [ %104, %103 ], [ %142, %141 ], [ %142, %145 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #14
   br label %158
 
 158:                                              ; preds = %156, %101
@@ -2244,11 +2244,11 @@ define internal fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112bas
   br i1 %161, label %163, label %162
 
 162:                                              ; preds = %158
-  call void @_ZdlPv(ptr noundef nonnull %160) #15
+  call void @_ZdlPv(ptr noundef nonnull %160) #16
   br label %163
 
 163:                                              ; preds = %162, %158
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #14
   resume { ptr, i32 } %159
 }
 
@@ -2265,11 +2265,12 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind optsize
 declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = tail call noundef i64 @_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, ptr noundef nonnull @.str.1) #12
+  %4 = tail call noundef i64 @_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, ptr noundef nonnull @.str.1) #13
   %5 = load ptr, ptr %0, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !15
@@ -2281,7 +2282,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %3
-  %14 = tail call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %4, ptr noundef null) #12
+  %14 = tail call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %4, ptr noundef null) #13
   br label %15
 
 15:                                               ; preds = %13, %3
@@ -2313,7 +2314,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %28
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #16
   br label %31
 
 31:                                               ; preds = %30, %28
@@ -2340,7 +2341,7 @@ define linkonce_odr noundef i64 @_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc(ptr no
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef %2) #16
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef %2) #17
   unreachable
 
 14:                                               ; preds = %3
@@ -2353,7 +2354,7 @@ define linkonce_odr noundef i64 @_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc(ptr no
 }
 
 ; Function Attrs: noreturn optsize
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #4
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
@@ -2365,33 +2366,33 @@ define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr nou
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #17
   unreachable
 
 8:                                                ; preds = %5
-  tail call void @_ZSt17__throw_bad_allocv() #16
+  tail call void @_ZSt17__throw_bad_allocv() #17
   unreachable
 
 9:                                                ; preds = %3
   %10 = shl nuw nsw i64 %1, 2
-  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #17
+  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #18
   ret ptr %11
 }
 
 ; Function Attrs: noreturn optsize
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #4
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #5
 
 ; Function Attrs: noreturn optsize
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #4
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin optsize allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin nounwind optsize
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: optsize
 declare void @_ZN5ZXing11TextEncoder8GetBytesERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS_12CharacterSetERNS2_IcS3_IcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -2406,7 +2407,7 @@ declare void @_ZN5ZXing10BigInteger6DivideERKS0_S2_RS0_S3_(ptr noundef nonnull a
 declare noundef i32 @_ZNK5ZXing10BigInteger5toIntEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind optsize uwtable
-declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #8 align 2
+declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #9 align 2
 
 ; Function Attrs: mustprogress optsize uwtable
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7replaceEmmPKwm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0 align 2
@@ -2544,12 +2545,12 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE15_M_range_insertISt16reverse_iter
 
 93:                                               ; preds = %9
   %94 = load ptr, ptr %0, align 8, !tbaa !29
-  %95 = tail call noundef i64 @_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12, ptr noundef nonnull @.str.6) #12
+  %95 = tail call noundef i64 @_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12, ptr noundef nonnull @.str.6) #13
   %96 = icmp eq i64 %95, 0
   br i1 %96, label %99, label %97
 
 97:                                               ; preds = %93
-  %98 = tail call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %95, ptr noundef null) #12
+  %98 = tail call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %95, ptr noundef null) #13
   br label %99
 
 99:                                               ; preds = %97, %93
@@ -2605,7 +2606,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE15_M_range_insertISt16reverse_iter
   br i1 %130, label %132, label %131
 
 131:                                              ; preds = %128
-  tail call void @_ZdlPv(ptr noundef nonnull %94) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %94) #16
   br label %132
 
 132:                                              ; preds = %131, %128
@@ -2621,7 +2622,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE15_M_range_insertISt16reverse_iter
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = tail call noundef i64 @_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, ptr noundef nonnull @.str.1) #12
+  %4 = tail call noundef i64 @_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, ptr noundef nonnull @.str.1) #13
   %5 = load ptr, ptr %0, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !15
@@ -2633,7 +2634,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gn
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %3
-  %14 = tail call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %4, ptr noundef null) #12
+  %14 = tail call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %4, ptr noundef null) #13
   br label %15
 
 15:                                               ; preds = %13, %3
@@ -2665,7 +2666,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gn
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %28
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #16
   br label %31
 
 31:                                               ; preds = %30, %28
@@ -2679,42 +2680,43 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
+declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #10
+declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #10
+declare i32 @llvm.smin.i32(i32, i32) #11
 
 attributes #0 = { mustprogress optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin optsize allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nobuiltin nounwind optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { optsize }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn }
-attributes #15 = { builtin nounwind optsize }
-attributes #16 = { noreturn optsize }
-attributes #17 = { builtin optsize allocsize(0) }
-attributes #18 = { nounwind optsize }
+attributes #4 = { cold noreturn }
+attributes #5 = { noreturn optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin optsize allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nobuiltin nounwind optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { optsize }
+attributes #14 = { nounwind }
+attributes #15 = { noreturn }
+attributes #16 = { builtin nounwind optsize }
+attributes #17 = { noreturn optsize }
+attributes #18 = { builtin optsize allocsize(0) }
+attributes #19 = { nounwind optsize }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -105,7 +105,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %5
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
+  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %17 = call noundef ptr @_Z12luaO_chunkidPcmPKcm(ptr noundef nonnull %7, i64 noundef 256, ptr noundef %1, i64 noundef %16)
   %18 = trunc i64 %3 to i32
   %19 = add i32 %18, -1
@@ -119,7 +119,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
   br i1 %or.cond, label %24, label %28
 
 24:                                               ; preds = %22
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %26 = call noundef ptr @_Z12luaO_chunkidPcmPKcm(ptr noundef nonnull %8, i64 noundef 256, ptr noundef %1, i64 noundef %25)
   %27 = call noundef ptr (ptr, ptr, ...) @_Z16lua_pushfstringLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %26, i32 noundef 3, i32 noundef 6, i32 noundef %13)
   br label %737
@@ -160,7 +160,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
 46:                                               ; preds = %44, %42
   %.in = phi ptr [ %43, %42 ], [ %45, %44 ]
   %47 = load ptr, ptr %.in, align 8
-  %48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
+  %48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %49 = invoke noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %48)
           to label %50 unwind label %64
 
@@ -182,7 +182,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
   br i1 %or.cond5, label %59, label %66
 
 59:                                               ; preds = %56
-  %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
+  %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %61 = invoke noundef ptr @_Z12luaO_chunkidPcmPKcm(ptr noundef nonnull %9, i64 noundef 256, ptr noundef %1, i64 noundef %60)
           to label %62 unwind label %64
 
@@ -502,7 +502,7 @@ _ZL10readVarIntPKcmRm.exit494:                    ; preds = %.preheader706
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit703, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit707, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN10TempBufferIP5ProtoED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #11
+  call void @_ZN10TempBufferIP5ProtoED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #12
   br label %.loopexit.split-lp712
 
 184:                                              ; preds = %175
@@ -794,7 +794,7 @@ _ZL10readVarIntPKcmRm.exit512:                    ; preds = %_ZL18remapUserdataT
           to label %321 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .invoke:                                          ; preds = %_ZL10readVarIntPKcmRm.exit616, %_ZL10readVarIntPKcmRm.exit590, %_ZL10readVarIntPKcmRm.exit560, %_ZL10readVarIntPKcmRm.exit519, %_ZL10readVarIntPKcmRm.exit512
-  invoke void @_Z11luaM_toobigP9lua_State(ptr noundef %0) #12
+  invoke void @_Z11luaM_toobigP9lua_State(ptr noundef %0) #13
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -1651,7 +1651,7 @@ _ZL10readVarIntPKcmRm.exit629:                    ; preds = %.preheader
   %727 = landingpad { ptr, i32 }
           catch ptr null
   %728 = extractvalue { ptr, i32 } %727, 0
-  call void @__clang_call_terminate(ptr %728) #13
+  call void @__clang_call_terminate(ptr %728) #14
   unreachable
 
 _ZN10TempBufferIP5ProtoED2Ev.exit:                ; preds = %723
@@ -1666,12 +1666,12 @@ _ZN10TempBufferIP5ProtoED2Ev.exit:                ; preds = %723
   %734 = landingpad { ptr, i32 }
           catch ptr null
   %735 = extractvalue { ptr, i32 } %734, 0
-  call void @__clang_call_terminate(ptr %735) #13
+  call void @__clang_call_terminate(ptr %735) #14
   unreachable
 
 .loopexit.split-lp712:                            ; preds = %.loopexit711, %.loopexit.split-lp712.loopexit.split-lp, %.loopexit.split-lp712.loopexit, %.loopexit.split-lp
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.loopexit713, %.loopexit711 ], [ %lpad.loopexit717, %.loopexit.split-lp712.loopexit ], [ %lpad.loopexit.split-lp718, %.loopexit.split-lp712.loopexit.split-lp ]
-  call void @_ZN10TempBufferIP7TStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
+  call void @_ZN10TempBufferIP7TStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
   br label %736
 
 _ZN10TempBufferIP7TStringED2Ev.exit:              ; preds = %_ZN10TempBufferIP5ProtoED2Ev.exit, %62
@@ -1745,7 +1745,7 @@ define linkonce_odr dso_local void @_ZN10TempBufferIP5ProtoED2Ev(ptr noundef non
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #13
+  tail call void @__clang_call_terminate(ptr %11) #14
   unreachable
 }
 
@@ -1767,7 +1767,7 @@ define linkonce_odr dso_local void @_ZN10TempBufferIP7TStringED2Ev(ptr noundef n
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #13
+  tail call void @__clang_call_terminate(ptr %11) #14
   unreachable
 }
 
@@ -1863,17 +1863,18 @@ declare hidden void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef, ptr noundef, i64
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @_GLOBAL__sub_I_lvmload.cpp() #8 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_lvmload.cpp() #9 section ".text.startup" {
   store i8 0, ptr @_ZN5FFlag20LuauLoadUserdataInfoE, align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag20LuauLoadUserdataInfoE, i64 1), align 1
   store ptr @.str, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag20LuauLoadUserdataInfoE, i64 8), align 8
@@ -1884,10 +1885,10 @@ define internal void @_GLOBAL__sub_I_lvmload.cpp() #8 section ".text.startup" {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1897,12 +1898,13 @@ attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { noreturn nounwind }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

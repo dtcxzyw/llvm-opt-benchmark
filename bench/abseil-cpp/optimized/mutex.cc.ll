@@ -136,7 +136,7 @@ $_ZN4absl13base_internal10AtomicHookIPFvPKcPKvEE13DummyFunctionES3_S5_ = comdat 
 ; Function Attrs: mustprogress uwtable
 define weak dso_local void @AbslInternalMutexYield() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i.i = tail call noundef i32 @sched_yield() #23
+  %call.i.i = tail call noundef i32 @sched_yield() #24
   ret void
 }
 
@@ -204,7 +204,7 @@ invoke.cont:                                      ; preds = %if.then3
 lpad:                                             ; preds = %if.else5, %if.then3
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling) #23
+  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling) #24
   resume { ptr, i32 } %1
 
 if.else5:                                         ; preds = %if.else
@@ -265,7 +265,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i
   store i64 %call1.fca.0.extract.i.i.i.i.i.i.i, ptr %lhs.i.i.i.i.i.i.i.i.i, align 8
   %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lhs.i.i.i.i.i.i.i.i.i, i64 8
   store i32 %call1.fca.1.extract.i.i.i.i.i.i.i, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i.i, i64 %call.fca.0.extract.i.i.i.i.i.i.i, i32 %call.fca.1.extract.i.i.i.i.i.i.i) #23
+  %call.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i.i, i64 %call.fca.0.extract.i.i.i.i.i.i.i, i32 %call.fca.1.extract.i.i.i.i.i.i.i) #24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %call.i.i.i.i.i.i.i.i.i, align 4
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i, align 4
@@ -274,7 +274,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i
   store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, ptr %lhs.i.i.i.i.i.i.i, align 8
   %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lhs.i.i.i.i.i.i.i, i64 8
   store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i, i64 noundef 5) #23
+  %call.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i, i64 noundef 5) #24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %call.i.i.i.i.i.i.i.i, align 4
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i, align 4
@@ -344,7 +344,7 @@ terminate.lpad:                                   ; preds = %do.body2
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #24
+  tail call void @__clang_call_terminate(ptr %2) #25
   unreachable
 }
 
@@ -401,7 +401,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %if.then.i
   br i1 %3, label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.then.i
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #25
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #26
   br label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i
 
 _ZN4absl13base_internal8SpinLock4LockEv.exit.i:   ; preds = %if.then.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i
@@ -416,7 +416,7 @@ _ZN4absl13base_internal8SpinLock4LockEv.exit.i:   ; preds = %if.then.i.i, %_ZN4a
   br i1 %cmp6.not.i.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %_ZN4absl13base_internal8SpinLock4LockEv.exit.i
-  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %6) #25
+  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %6) #26
   br label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
 
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i, %_ZN4absl13base_internal8SpinLock4LockEv.exit.i
@@ -450,7 +450,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i: ; preds = %entry
   br i1 %4, label %_ZN4absl13base_internal8SpinLock4LockEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i, %entry
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #25
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #26
   br label %_ZN4absl13base_internal8SpinLock4LockEv.exit
 
 _ZN4absl13base_internal8SpinLock4LockEv.exit:     ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i, %if.then.i
@@ -543,7 +543,7 @@ for.inc17:                                        ; preds = %land.rhs
 if.then22:                                        ; preds = %if.end4.i, %for.inc17, %if.then11
   %cmp23 = icmp eq ptr %name, null
   %spec.store.select = select i1 %cmp23, ptr @.str.35, ptr %name
-  %call26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #26
+  %call26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #27
   %add = add i64 %call26, 48
   %call27 = tail call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc5AllocEm(i64 noundef %add)
   store i32 2, ptr %call27, align 8
@@ -553,7 +553,7 @@ if.then22:                                        ; preds = %if.end4.i, %for.inc
   %invariant = getelementptr inbounds i8, ptr %call27, i64 24
   %name31 = getelementptr inbounds i8, ptr %call27, i64 41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %invariant, i8 0, i64 17, i1 false)
-  %call32 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %name31, ptr noundef nonnull dereferenceable(1) %spec.store.select) #23
+  %call32 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %name31, ptr noundef nonnull dereferenceable(1) %spec.store.select) #24
   %arrayidx34 = getelementptr inbounds [1031 x ptr], ptr @_ZN4abslL11synch_eventE, i64 0, i64 %rem
   %16 = load ptr, ptr %arrayidx34, align 8
   %next35 = getelementptr inbounds i8, ptr %call27, i64 8
@@ -576,7 +576,7 @@ if.end40:                                         ; preds = %if.else, %if.then22
   br i1 %cmp6.not.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end40
-  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %19) #25
+  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %19) #26
   br label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit
 
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %if.end40, %if.then7.i
@@ -626,7 +626,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %if.then.i
   br i1 %4, label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.then.i
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #25
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #26
   br label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i
 
 _ZN4absl13base_internal8SpinLock4LockEv.exit.i:   ; preds = %if.then.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i
@@ -641,7 +641,7 @@ _ZN4absl13base_internal8SpinLock4LockEv.exit.i:   ; preds = %if.then.i.i, %_ZN4a
   br i1 %cmp6.not.i.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %_ZN4absl13base_internal8SpinLock4LockEv.exit.i
-  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %7) #25
+  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %7) #26
   br label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
 
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i, %_ZN4absl13base_internal8SpinLock4LockEv.exit.i
@@ -1076,7 +1076,7 @@ if.else.i.i.i.i.i.i.i23:                          ; preds = %if.then.i.i.i20
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i.i.i12)
   store i64 %call1.fca.0.extract.i.i.i.i.i.i.i.i28, ptr %lhs.i.i.i.i.i.i.i.i.i.i12, align 8
   store i32 %call1.fca.1.extract.i.i.i.i.i.i.i.i29, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i.i.i30, align 8
-  %call.i.i.i.i.i.i.i.i.i.i31 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i.i.i12, i64 %call.fca.0.extract.i.i.i.i.i.i.i.i25, i32 %call.fca.1.extract.i.i.i.i.i.i.i.i26) #23
+  %call.i.i.i.i.i.i.i.i.i.i31 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i.i.i12, i64 %call.fca.0.extract.i.i.i.i.i.i.i.i25, i32 %call.fca.1.extract.i.i.i.i.i.i.i.i26) #24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i32 = load i64, ptr %call.i.i.i.i.i.i.i.i.i.i31, align 4
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i.i31, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i34 = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i.i33, align 4
@@ -1084,7 +1084,7 @@ if.else.i.i.i.i.i.i.i23:                          ; preds = %if.then.i.i.i20
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i11)
   store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i32, ptr %lhs.i.i.i.i.i.i.i.i11, align 8
   store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i34, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i35, align 8
-  %call.i.i.i.i.i.i.i.i.i36 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i11, i64 noundef 5) #23
+  %call.i.i.i.i.i.i.i.i.i36 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i11, i64 noundef 5) #24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i37 = load i64, ptr %call.i.i.i.i.i.i.i.i.i36, align 4
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i36, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i39 = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i38, align 4
@@ -1165,7 +1165,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i.i.i)
   store i64 %call1.fca.0.extract.i.i.i.i.i.i.i.i, ptr %lhs.i.i.i.i.i.i.i.i.i.i, align 8
   store i32 %call1.fca.1.extract.i.i.i.i.i.i.i.i, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i.i.i, i64 %call.fca.0.extract.i.i.i.i.i.i.i.i, i32 %call.fca.1.extract.i.i.i.i.i.i.i.i) #23
+  %call.i.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i.i.i, i64 %call.fca.0.extract.i.i.i.i.i.i.i.i, i32 %call.fca.1.extract.i.i.i.i.i.i.i.i) #24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %call.i.i.i.i.i.i.i.i.i.i, align 4
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 4
@@ -1173,7 +1173,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i)
   store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, ptr %lhs.i.i.i.i.i.i.i.i, align 8
   store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i, i64 noundef 5) #23
+  %call.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i, i64 noundef 5) #24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %call.i.i.i.i.i.i.i.i.i, align 4
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -1237,7 +1237,7 @@ invoke.cont.i:                                    ; preds = %if.then3.i
 lpad.i:                                           ; preds = %if.else5.i, %if.then3.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling.i) #23
+  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling.i) #24
   resume { ptr, i32 } %12
 
 if.else5.i:                                       ; preds = %if.else.i
@@ -1354,7 +1354,7 @@ do.cond.i:                                        ; preds = %land.lhs.true.i, %i
   br i1 %cmp7.i, label %do.body.i, label %if.then8, !llvm.loop !14
 
 if.then8:                                         ; preds = %do.body.i, %do.cond.i
-  tail call void @_ZN4absl5Mutex8LockSlowEPKNS_6MuHowSEPKNS_9ConditionEi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @_ZN4abslL11kExclusiveSE, ptr noundef null, i32 noundef 0) #25
+  tail call void @_ZN4absl5Mutex8LockSlowEPKNS_6MuHowSEPKNS_9ConditionEi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @_ZN4abslL11kExclusiveSE, ptr noundef null, i32 noundef 0) #26
   br label %if.end9
 
 if.end9:                                          ; preds = %land.lhs.true.i, %if.then8, %lor.lhs.false
@@ -1400,7 +1400,7 @@ for.cond:                                         ; preds = %if.end, %entry
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.cond
-  tail call void @_ZN4absl5Mutex8LockSlowEPKNS_6MuHowSEPKNS_9ConditionEi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @_ZN4abslL8kSharedSE, ptr noundef null, i32 noundef 0) #25
+  tail call void @_ZN4absl5Mutex8LockSlowEPKNS_6MuHowSEPKNS_9ConditionEi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @_ZN4abslL8kSharedSE, ptr noundef null, i32 noundef 0) #26
   br label %for.end
 
 if.end:                                           ; preds = %for.cond
@@ -1486,7 +1486,7 @@ _ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit: ; preds = %if.end11, %i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit
-  %8 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !16
+  %8 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !16
   %asmresult.i.i.i = extractvalue { i64, i64 } %8, 0
   %asmresult1.i.i.i = extractvalue { i64, i64 } %8, 1
   %shl.i.i.i = shl i64 %asmresult1.i.i.i, 32
@@ -1511,7 +1511,7 @@ _ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_in
   br i1 %unlock.0, label %if.then18, label %if.end20
 
 if.then18:                                        ; preds = %_ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit
-  call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %waitp) #25
+  call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %waitp) #26
   %9 = load ptr, ptr %thread.i, align 8
   call void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %9)
   %or19 = or i32 %spec.select, 1
@@ -1576,7 +1576,7 @@ _ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit: ; preds = %if.end, %if.
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit
-  %3 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !16
+  %3 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !16
   %asmresult.i.i.i = extractvalue { i64, i64 } %3, 0
   %asmresult1.i.i.i = extractvalue { i64, i64 } %3, 1
   %shl.i.i.i = shl i64 %asmresult1.i.i.i, 32
@@ -1595,7 +1595,7 @@ _ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_in
   store i64 %retval.0.i.i, ptr %contention_start_cycles.i, align 8
   %should_submit_contention_data.i = getelementptr inbounds i8, ptr %waitp, i64 56
   store i8 0, ptr %should_submit_contention_data.i, align 8
-  call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %waitp) #25
+  call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %waitp) #26
   %4 = load ptr, ptr %thread.i, align 8
   call void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %4)
   call void @_ZN4absl5Mutex12LockSlowLoopEPNS_15SynchWaitParamsEi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %waitp, i32 noundef 3)
@@ -2347,7 +2347,7 @@ invoke.cont.i:                                    ; preds = %if.then3.i
 lpad.i:                                           ; preds = %if.else5.i, %if.then3.i
   %88 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling.i) #23
+  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling.i) #24
   resume { ptr, i32 } %88
 
 if.else5.i:                                       ; preds = %if.else.i269
@@ -2375,7 +2375,7 @@ if.then357:                                       ; preds = %for.end
   br i1 %cmp.i273, label %if.then.i274, label %if.end.i
 
 if.then.i274:                                     ; preds = %if.then357
-  %90 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !16
+  %90 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !16
   %asmresult.i.i = extractvalue { i64, i64 } %90, 0
   %asmresult1.i.i = extractvalue { i64, i64 } %90, 1
   %shl.i.i = shl i64 %asmresult1.i.i, 32
@@ -2554,7 +2554,7 @@ lor.lhs.false:                                    ; preds = %if.then30
   br i1 %call.i.i239, label %do.body219, label %if.end39
 
 if.end39:                                         ; preds = %lor.lhs.false
-  call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %waitp) #25
+  call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %waitp) #26
   %16 = load ptr, ptr %thread, align 8
   call void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %16)
   %or43 = or i32 %flags.addr.0, 1
@@ -2646,7 +2646,7 @@ lor.lhs.false119:                                 ; preds = %do.end116
   br i1 %call.i.i248, label %do.body219, label %if.end126
 
 if.end126:                                        ; preds = %lor.lhs.false119
-  call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %waitp) #25
+  call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %waitp) #26
   %33 = load ptr, ptr %thread, align 8
   call void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %33)
   %or130 = or i32 %flags.addr.0, 1
@@ -2764,7 +2764,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i.i.i)
   store i64 %call1.fca.0.extract.i.i.i.i.i.i.i.i, ptr %lhs.i.i.i.i.i.i.i.i.i.i, align 8
   store i32 %call1.fca.1.extract.i.i.i.i.i.i.i.i, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i.i.i, i64 %call.fca.0.extract.i.i.i.i.i.i.i.i, i32 %call.fca.1.extract.i.i.i.i.i.i.i.i) #23
+  %call.i.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i.i.i, i64 %call.fca.0.extract.i.i.i.i.i.i.i.i, i32 %call.fca.1.extract.i.i.i.i.i.i.i.i) #24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %call.i.i.i.i.i.i.i.i.i.i, align 4
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 4
@@ -2772,7 +2772,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i)
   store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, ptr %lhs.i.i.i.i.i.i.i.i, align 8
   store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i, i64 noundef 5) #23
+  %call.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i, i64 noundef 5) #24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %call.i.i.i.i.i.i.i.i.i, align 4
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -2838,7 +2838,7 @@ invoke.cont.i:                                    ; preds = %if.then3.i
 lpad.i:                                           ; preds = %if.else5.i, %if.then3.i
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling.i) #23
+  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling.i) #24
   resume { ptr, i32 } %51
 
 if.else5.i:                                       ; preds = %if.else.i
@@ -2974,7 +2974,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %entry
   br i1 %4, label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %entry
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #25
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #26
   br label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i
 
 _ZN4absl13base_internal8SpinLock4LockEv.exit.i:   ; preds = %if.then.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i
@@ -3012,7 +3012,7 @@ if.end.i:                                         ; preds = %for.inc.i, %if.then
   br i1 %cmp6.not.i.i, label %_ZN4abslL13GetSynchEventEPKv.exit, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.end.i
-  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %9) #25
+  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %9) #26
   br label %_ZN4abslL13GetSynchEventEPKv.exit
 
 _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %if.end.i, %if.then7.i.i
@@ -3043,7 +3043,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %sub = sub nsw i64 960, %idxprom
   %arrayidx6 = getelementptr inbounds [40 x ptr], ptr %pcs, i64 0, i64 %indvars.iv
   %12 = load ptr, ptr %arrayidx6, align 8
-  %call7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %arrayidx, i64 noundef %sub, ptr noundef nonnull @.str.51, ptr noundef %12) #23
+  %call7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %arrayidx, i64 noundef %sub, ptr noundef nonnull @.str.51, ptr noundef %12) #24
   %cmp8 = icmp sgt i32 %call7, -1
   %conv10 = zext nneg i32 %call7 to i64
   %cmp13.not = icmp ugt i64 %sub, %conv10
@@ -3109,7 +3109,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i31: ; preds = %if.then.i
   br i1 %21, label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i27, label %if.then.i.i26
 
 if.then.i.i26:                                    ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i31, %if.then.i23
-  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #25
+  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #26
   br label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i27
 
 _ZN4absl13base_internal8SpinLock4LockEv.exit.i27: ; preds = %if.then.i.i26, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i31
@@ -3124,7 +3124,7 @@ _ZN4absl13base_internal8SpinLock4LockEv.exit.i27: ; preds = %if.then.i.i26, %_ZN
   br i1 %cmp6.not.i.i29, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %if.then7.i.i30
 
 if.then7.i.i30:                                   ; preds = %_ZN4absl13base_internal8SpinLock4LockEv.exit.i27
-  call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %24) #25
+  call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %24) #26
   br label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
 
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i30, %_ZN4absl13base_internal8SpinLock4LockEv.exit.i27
@@ -3257,7 +3257,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %2, label %if.end, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  tail call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef null) #25
+  tail call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef null) #26
   br label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %if.else
@@ -3277,7 +3277,7 @@ for.cond:                                         ; preds = %if.end, %entry
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.cond
-  tail call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef null) #25
+  tail call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef null) #26
   br label %for.end
 
 if.end:                                           ; preds = %for.cond
@@ -3383,7 +3383,7 @@ if.else.i.i.i.i.i.i.i66.i:                        ; preds = %if.then.i.i.i63.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i.i.i55.i)
   store i64 %call1.fca.0.extract.i.i.i.i.i.i.i.i71.i, ptr %lhs.i.i.i.i.i.i.i.i.i.i55.i, align 8
   store i32 %call1.fca.1.extract.i.i.i.i.i.i.i.i72.i, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i.i.i73.i, align 8
-  %call.i.i.i.i.i.i.i.i.i.i74.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i.i.i55.i, i64 %call.fca.0.extract.i.i.i.i.i.i.i.i68.i, i32 %call.fca.1.extract.i.i.i.i.i.i.i.i69.i) #23
+  %call.i.i.i.i.i.i.i.i.i.i74.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i.i.i55.i, i64 %call.fca.0.extract.i.i.i.i.i.i.i.i68.i, i32 %call.fca.1.extract.i.i.i.i.i.i.i.i69.i) #24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i75.i = load i64, ptr %call.i.i.i.i.i.i.i.i.i.i74.i, align 4
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i.i76.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i.i74.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i77.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i.i76.i, align 4
@@ -3391,7 +3391,7 @@ if.else.i.i.i.i.i.i.i66.i:                        ; preds = %if.then.i.i.i63.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i54.i)
   store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i75.i, ptr %lhs.i.i.i.i.i.i.i.i54.i, align 8
   store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i77.i, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i78.i, align 8
-  %call.i.i.i.i.i.i.i.i.i79.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i54.i, i64 noundef 5) #23
+  %call.i.i.i.i.i.i.i.i.i79.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i54.i, i64 noundef 5) #24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i80.i = load i64, ptr %call.i.i.i.i.i.i.i.i.i79.i, align 4
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i81.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i79.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i82.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i81.i, align 4
@@ -3472,7 +3472,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i.i.i.i)
   store i64 %call1.fca.0.extract.i.i.i.i.i.i.i.i.i, ptr %lhs.i.i.i.i.i.i.i.i.i.i.i, align 8
   store i32 %call1.fca.1.extract.i.i.i.i.i.i.i.i.i, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i.i.i.i, i64 %call.fca.0.extract.i.i.i.i.i.i.i.i.i, i32 %call.fca.1.extract.i.i.i.i.i.i.i.i.i) #23
+  %call.i.i.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i.i.i.i, i64 %call.fca.0.extract.i.i.i.i.i.i.i.i.i, i32 %call.fca.1.extract.i.i.i.i.i.i.i.i.i) #24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %call.i.i.i.i.i.i.i.i.i.i.i, align 4
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i.i.i, align 4
@@ -3480,7 +3480,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i.i)
   store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, ptr %lhs.i.i.i.i.i.i.i.i.i, align 8
   store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i.i, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i.i, i64 noundef 5) #23
+  %call.i.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i.i, i64 noundef 5) #24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %call.i.i.i.i.i.i.i.i.i.i, align 4
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i, align 4
@@ -3544,7 +3544,7 @@ invoke.cont.i.i:                                  ; preds = %if.then3.i.i
 lpad.i.i:                                         ; preds = %if.else5.i.i, %if.then3.i.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling.i.i) #23
+  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling.i.i) #24
   resume { ptr, i32 } %13
 
 if.else5.i.i:                                     ; preds = %if.else.i.i
@@ -3643,7 +3643,7 @@ if.then15:                                        ; preds = %do.end10
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then15
-  %31 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !16
+  %31 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !16
   %asmresult.i.i = extractvalue { i64, i64 } %31, 0
   %asmresult1.i.i = extractvalue { i64, i64 } %31, 1
   %shl.i.i = shl i64 %asmresult1.i.i, 32
@@ -3664,8 +3664,8 @@ _ZN4absl13base_internal10CycleClock3NowEv.exit:   ; preds = %if.then.i, %if.end.
   br i1 %cmp16, label %if.then17, label %if.end29
 
 if.then17:                                        ; preds = %_ZN4absl13base_internal10CycleClock3NowEv.exit
-  %call18 = tail call i64 @pthread_self() #27
-  %call19 = call i32 @pthread_getschedparam(i64 noundef %call18, ptr noundef nonnull %policy, ptr noundef nonnull %param) #23
+  %call18 = tail call i64 @pthread_self() #28
+  %call19 = call i32 @pthread_getschedparam(i64 noundef %call18, ptr noundef nonnull %policy, ptr noundef nonnull %param) #24
   %cmp20.not = icmp eq i32 %call19, 0
   br i1 %cmp20.not, label %if.else, label %do.body22
 
@@ -4093,7 +4093,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl5Mutex5TransEPKNS_6MuHowSE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %how) local_unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN4absl5Mutex8LockSlowEPKNS_6MuHowSEPKNS_9ConditionEi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %how, ptr noundef null, i32 noundef 3) #25
+  tail call void @_ZN4absl5Mutex8LockSlowEPKNS_6MuHowSEPKNS_9ConditionEi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %how, ptr noundef null, i32 noundef 3) #26
   ret void
 }
 
@@ -4234,7 +4234,7 @@ invoke.cont.i:                                    ; preds = %if.then3.i
 lpad.i:                                           ; preds = %if.else5.i, %if.then3.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling.i) #23
+  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling.i) #24
   resume { ptr, i32 } %20
 
 if.else5.i:                                       ; preds = %if.else.i
@@ -4297,7 +4297,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i: ; preds = %entry
   br i1 %4, label %_ZN4absl13base_internal8SpinLock4LockEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i, %entry
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #25
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #26
   br label %_ZN4absl13base_internal8SpinLock4LockEv.exit
 
 _ZN4absl13base_internal8SpinLock4LockEv.exit:     ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i, %if.then.i
@@ -4335,7 +4335,7 @@ if.end:                                           ; preds = %for.inc, %_ZN4absl1
   br i1 %cmp6.not.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end
-  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %9) #25
+  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %9) #26
   br label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit
 
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %if.end, %if.then7.i
@@ -4362,7 +4362,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %if.then.i
   br i1 %3, label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.then.i
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #25
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #26
   br label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i
 
 _ZN4absl13base_internal8SpinLock4LockEv.exit.i:   ; preds = %if.then.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i
@@ -4377,7 +4377,7 @@ _ZN4absl13base_internal8SpinLock4LockEv.exit.i:   ; preds = %if.then.i.i, %_ZN4a
   br i1 %cmp6.not.i.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %_ZN4absl13base_internal8SpinLock4LockEv.exit.i
-  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %6) #25
+  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %6) #26
   br label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
 
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i, %_ZN4absl13base_internal8SpinLock4LockEv.exit.i
@@ -4500,7 +4500,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i.i.i)
   store i64 %call1.fca.0.extract.i.i.i.i.i.i.i.i, ptr %lhs.i.i.i.i.i.i.i.i.i.i, align 8
   store i32 %call1.fca.1.extract.i.i.i.i.i.i.i.i, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i.i.i, i64 %call.fca.0.extract.i.i.i.i.i.i.i.i, i32 %call.fca.1.extract.i.i.i.i.i.i.i.i) #23
+  %call.i.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i.i.i, i64 %call.fca.0.extract.i.i.i.i.i.i.i.i, i32 %call.fca.1.extract.i.i.i.i.i.i.i.i) #24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %call.i.i.i.i.i.i.i.i.i.i, align 4
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 4
@@ -4508,7 +4508,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i.i.i.i.i.i.i.i)
   store i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, ptr %lhs.i.i.i.i.i.i.i.i, align 8
   store i32 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i, i64 noundef 5) #23
+  %call.i.i.i.i.i.i.i.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i.i.i.i.i.i.i, i64 noundef 5) #24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %call.i.i.i.i.i.i.i.i.i, align 4
   %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -4574,7 +4574,7 @@ invoke.cont.i:                                    ; preds = %if.then3.i
 lpad.i:                                           ; preds = %if.else5.i, %if.then3.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling.i) #23
+  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling.i) #24
   resume { ptr, i32 } %13
 
 if.else5.i:                                       ; preds = %if.else.i
@@ -4635,7 +4635,7 @@ _ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit: ; preds = %if.end, %if.
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit
-  %4 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !16
+  %4 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !16
   %asmresult.i.i.i = extractvalue { i64, i64 } %4, 0
   %asmresult1.i.i.i = extractvalue { i64, i64 } %4, 1
   %shl.i.i.i = shl i64 %asmresult1.i.i.i, 32
@@ -4654,7 +4654,7 @@ _ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_in
   store i64 %retval.0.i.i, ptr %contention_start_cycles.i, align 8
   %should_submit_contention_data.i = getelementptr inbounds i8, ptr %waitp, i64 56
   store i8 0, ptr %should_submit_contention_data.i, align 8
-  call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %mutex, ptr noundef nonnull %waitp) #25
+  call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %mutex, ptr noundef nonnull %waitp) #26
   %5 = load ptr, ptr %thread.i, align 8
   %state12 = getelementptr inbounds i8, ptr %5, i64 28
   %6 = load atomic i32, ptr %state12 acquire, align 4
@@ -4705,7 +4705,7 @@ if.then34:                                        ; preds = %do.end28
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then34, %do.end28
-  call void @_ZN4absl5Mutex8LockSlowEPKNS_6MuHowSEPKNS_9ConditionEi(ptr noundef nonnull align 8 dereferenceable(8) %mutex, ptr noundef nonnull %cond, ptr noundef null, i32 noundef 3) #25
+  call void @_ZN4absl5Mutex8LockSlowEPKNS_6MuHowSEPKNS_9ConditionEi(ptr noundef nonnull align 8 dereferenceable(8) %mutex, ptr noundef nonnull %cond, ptr noundef null, i32 noundef 3) #26
   ret i1 %rc.0.lcssa
 }
 
@@ -4804,7 +4804,7 @@ invoke.cont.i:                                    ; preds = %if.then3.i
 lpad.i:                                           ; preds = %if.else5.i, %if.then3.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling.i) #23
+  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling.i) #24
   resume { ptr, i32 } %11
 
 if.else5.i:                                       ; preds = %if.else.i
@@ -4910,7 +4910,7 @@ invoke.cont.i:                                    ; preds = %if.then3.i
 lpad.i:                                           ; preds = %if.else5.i, %if.then3.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling.i) #23
+  call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling.i) #24
   resume { ptr, i32 } %11
 
 if.else5.i:                                       ; preds = %if.else.i
@@ -4954,7 +4954,7 @@ land.lhs.true.i:                                  ; preds = %do.end5
   br i1 %3, label %_ZN4absl5Mutex6UnlockEv.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %do.end5
-  tail call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef null) #25
+  tail call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef null) #26
   br label %_ZN4absl5Mutex6UnlockEv.exit
 
 _ZN4absl5Mutex6UnlockEv.exit:                     ; preds = %land.lhs.true.i, %if.else.i
@@ -5052,17 +5052,18 @@ return:                                           ; preds = %if.end, %land.lhs.t
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #13 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
-  tail call void @_ZSt9terminatev() #24
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
+  tail call void @_ZSt9terminatev() #25
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #14
 
 ; Function Attrs: nounwind
-declare i32 @sched_yield() local_unnamed_addr #14
+declare i32 @sched_yield() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl13base_internal10AtomicHookIPFvlEE13DummyFunctionEl(i64 noundef %0) #3 comdat align 2 {
@@ -5101,45 +5102,45 @@ declare zeroext i1 @AbslInternalPerThreadSemWait(i64) local_unnamed_addr #4
 declare void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef) local_unnamed_addr #4 section "malloc_hook"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
 declare noundef ptr @_ZN4absl13base_internal13LowLevelAlloc5AllocEm(i64 noundef) local_unnamed_addr #4 section "malloc_hook"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #16
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #17
 
 ; Function Attrs: cold
-declare void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #17
+declare void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #18
 
 ; Function Attrs: cold
-declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #17
+declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #18
 
 declare noundef ptr @_ZN4absl24synchronization_internal20CreateThreadIdentityEv() local_unnamed_addr #4
 
 declare noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #18
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
-declare i32 @pthread_getschedparam(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #14
+declare i32 @pthread_getschedparam(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @pthread_self() local_unnamed_addr #19
+declare i64 @pthread_self() local_unnamed_addr #20
 
 declare noundef double @_ZN4absl13base_internal18UnscaledCycleClock9FrequencyEv() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5155,20 +5156,21 @@ attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #23 = { nounwind }
-attributes #24 = { noreturn nounwind }
-attributes #25 = { cold }
-attributes #26 = { nounwind willreturn memory(read) }
-attributes #27 = { nounwind willreturn memory(none) }
+attributes #14 = { cold nofree noreturn }
+attributes #15 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #24 = { nounwind }
+attributes #25 = { noreturn nounwind }
+attributes #26 = { cold }
+attributes #27 = { nounwind willreturn memory(read) }
+attributes #28 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

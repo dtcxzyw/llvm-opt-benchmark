@@ -51,7 +51,7 @@ entry:
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN6icu_7517DictionaryMatcherD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
 entry:
-  tail call void @llvm.trap() #10
+  tail call void @llvm.trap() #11
   unreachable
 }
 
@@ -74,7 +74,7 @@ terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #10
+  tail call void @__clang_call_terminate(ptr %2) #11
   unreachable
 }
 
@@ -84,25 +84,26 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #10
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #11
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7523UCharsDictionaryMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZN6icu_7523UCharsDictionaryMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #11
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #11
+  tail call void @_ZN6icu_7523UCharsDictionaryMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #12
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #12
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZNK6icu_7523UCharsDictionaryMatcher7getTypeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
@@ -111,7 +112,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7523UCharsDictionaryMatcher7matchesEP5UTextiiPiS3_S3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %text, i32 noundef %maxLength, i32 noundef %limit, ptr noundef writeonly %lengths, ptr noundef writeonly %cpLengths, ptr noundef writeonly %values, ptr noundef writeonly %prefix) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_7523UCharsDictionaryMatcher7matchesEP5UTextiiPiS3_S3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %text, i32 noundef %maxLength, i32 noundef %limit, ptr noundef writeonly %lengths, ptr noundef writeonly %cpLengths, ptr noundef writeonly %values, ptr noundef writeonly %prefix) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %uct = alloca %"class.icu_75::UCharsTrie", align 8
   %characters = getelementptr inbounds i8, ptr %this, i64 8
@@ -123,7 +124,7 @@ invoke.cont:
   store ptr %0, ptr %pos_.i, align 8
   %remainingMatchLength_.i = getelementptr inbounds i8, ptr %uct, i64 24
   store i32 -1, ptr %remainingMatchLength_.i, align 8
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #11, !srcloc !4
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #12, !srcloc !4
   %call = invoke i64 @utext_getNativeIndex_75(ptr noundef %text)
           to label %invoke.cont3 unwind label %lpad2.loopexit.split-lp
 
@@ -478,7 +479,7 @@ lpad2.loopexit.split-lp:                          ; preds = %invoke.cont, %invok
 
 lpad2:                                            ; preds = %lpad2.loopexit.split, %lpad2.loopexit.split.us.split.split, %lpad2.loopexit.split.us.split.split.us, %lpad2.loopexit.split.us.split.us, %lpad2.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %lpad2.loopexit.split-lp ], [ %lpad.loopexit, %lpad2.loopexit.split ], [ %lpad.loopexit.us.us, %lpad2.loopexit.split.us.split.us ], [ %lpad.loopexit.us, %lpad2.loopexit.split.us.split.split ], [ %lpad.loopexit.us.us71, %lpad2.loopexit.split.us.split.split.us ]
-  call void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %uct) #11
+  call void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %uct) #12
   resume { ptr, i32 } %lpad.phi
 
 if.then22:                                        ; preds = %invoke.cont19
@@ -527,7 +528,7 @@ if.then45:                                        ; preds = %for.end
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then45, %for.end
-  call void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %uct) #11
+  call void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %uct) #12
   ret i32 %.us-phi
 }
 
@@ -538,7 +539,7 @@ declare i32 @utext_next32_75(ptr noundef) local_unnamed_addr #4
 declare noundef i32 @_ZN6icu_7510UCharsTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #6
+declare void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7522BytesDictionaryMatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -556,20 +557,20 @@ terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #10
+  tail call void @__clang_call_terminate(ptr %2) #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7522BytesDictionaryMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZN6icu_7522BytesDictionaryMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #11
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #11
+  tail call void @_ZN6icu_7522BytesDictionaryMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7522BytesDictionaryMatcher9transformEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %c) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK6icu_7522BytesDictionaryMatcher9transformEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %c) local_unnamed_addr #9 align 2 {
 entry:
   %transformConstant = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %transformConstant, align 8
@@ -605,7 +606,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7522BytesDictionaryMatcher7matchesEP5UTextiiPiS3_S3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %text, i32 noundef %maxLength, i32 noundef %limit, ptr noundef writeonly %lengths, ptr noundef writeonly %cpLengths, ptr noundef writeonly %values, ptr noundef writeonly %prefix) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_7522BytesDictionaryMatcher7matchesEP5UTextiiPiS3_S3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %text, i32 noundef %maxLength, i32 noundef %limit, ptr noundef writeonly %lengths, ptr noundef writeonly %cpLengths, ptr noundef writeonly %values, ptr noundef writeonly %prefix) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bt = alloca %"class.icu_75::BytesTrie", align 8
   %characters = getelementptr inbounds i8, ptr %this, i64 8
@@ -745,7 +746,7 @@ lpad.loopexit.split-lp:                           ; preds = %entry, %invoke.cont
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit38, %lpad.loopexit ], [ %lpad.loopexit.split-lp39, %lpad.loopexit.split-lp ]
-  call void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %bt) #11
+  call void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %bt) #12
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %invoke.cont19, %if.then16
@@ -799,17 +800,17 @@ if.then45:                                        ; preds = %for.end
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then45, %for.end
-  call void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %bt) #11
+  call void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %bt) #12
   ret i32 %wordCount.1
 }
 
 declare noundef i32 @_ZN6icu_759BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #6
+declare void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define i32 @udict_swap_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode) local_unnamed_addr #7 {
+define i32 @udict_swap_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode) local_unnamed_addr #8 {
 entry:
   %indexes = alloca [8 x i32], align 16
   %call = tail call i32 @udata_swapDataHeader_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode)
@@ -968,7 +969,7 @@ declare void @udata_printError_75(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare i32 @udata_readInt32_75(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
@@ -984,12 +985,13 @@ attributes #2 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

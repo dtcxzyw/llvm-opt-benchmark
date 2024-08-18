@@ -47,7 +47,7 @@ delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %entry
@@ -60,7 +60,7 @@ delete.notnull7:                                  ; preds = %if.end
   %vtable8 = load ptr, ptr %2, align 8
   %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 8
   %3 = load ptr, ptr %vfn9, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
   br label %if.end11
 
 if.end11:                                         ; preds = %delete.notnull7, %if.end
@@ -73,7 +73,7 @@ delete.notnull16:                                 ; preds = %if.end11
   %vtable17 = load ptr, ptr %4, align 8
   %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 8
   %5 = load ptr, ptr %vfn18, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   br label %if.end20
 
 if.end20:                                         ; preds = %delete.notnull16, %if.end11
@@ -83,7 +83,7 @@ if.end20:                                         ; preds = %delete.notnull16, %
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN8TestDataD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
 entry:
-  tail call void @llvm.trap() #13
+  tail call void @llvm.trap() #14
   unreachable
 }
 
@@ -176,7 +176,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   br i1 %cmp.i, label %if.else21, label %if.then16
 
 if.then16:                                        ; preds = %invoke.cont12
-  %call18 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  %call18 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %if.then16
@@ -190,7 +190,7 @@ invoke.cont20:                                    ; preds = %invoke.cont17
 lpad19:                                           ; preds = %invoke.cont17
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call18) #15
+  call void @_ZdlPv(ptr noundef nonnull %call18) #16
   br label %ehcleanup
 
 if.else21:                                        ; preds = %invoke.cont12
@@ -217,7 +217,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
 
 ehcleanup:                                        ; preds = %lpad19, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %4, %lpad19 ]
-  call void @_ZN8TestDataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #12
+  call void @_ZN8TestDataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #13
   resume { ptr, i32 } %.pn
 }
 
@@ -277,7 +277,7 @@ delete.notnull.i:                                 ; preds = %invoke.cont4
   %vtable.i = load ptr, ptr %4, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %5 = load ptr, ptr %vfn.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   br label %if.end.i
 
 if.end.i:                                         ; preds = %delete.notnull.i, %invoke.cont4
@@ -290,7 +290,7 @@ delete.notnull7.i:                                ; preds = %if.end.i
   %vtable8.i = load ptr, ptr %6, align 8
   %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 8
   %7 = load ptr, ptr %vfn9.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %delete.notnull7.i, %if.end.i
@@ -303,7 +303,7 @@ delete.notnull16.i:                               ; preds = %if.end11.i
   %vtable17.i = load ptr, ptr %8, align 8
   %vfn18.i = getelementptr inbounds i8, ptr %vtable17.i, i64 8
   %9 = load ptr, ptr %vfn18.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
   br label %_ZN8TestDataD2Ev.exit
 
 _ZN8TestDataD2Ev.exit:                            ; preds = %if.end11.i, %delete.notnull16.i
@@ -313,31 +313,32 @@ terminate.lpad:                                   ; preds = %invoke.cont3, %invo
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #13
+  tail call void @__clang_call_terminate(ptr %11) #14
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN10RBTestDataD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN10RBTestDataD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZN10RBTestDataD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK10RBTestData7getInfoERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %info, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #10 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK10RBTestData7getInfoERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %info, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #11 align 2 {
 entry:
   %fInfo = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fInfo, align 8
@@ -372,7 +373,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  %call4 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  %call4 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
   invoke void @_ZN9RBDataMapC1EP15UResourceBundleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %call4, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 
@@ -383,7 +384,7 @@ invoke.cont:                                      ; preds = %if.then3
 lpad:                                             ; preds = %if.then3
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call4) #15
+  call void @_ZdlPv(ptr noundef nonnull %call4) #16
   resume { ptr, i32 } %4
 
 if.else:                                          ; preds = %if.then
@@ -429,7 +430,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  %call4 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  %call4 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
   %fHeaders = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %fHeaders, align 8
   invoke void @_ZN9RBDataMapC1EP15UResourceBundleS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %call4, ptr noundef %4, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -442,7 +443,7 @@ invoke.cont:                                      ; preds = %if.then3
 lpad:                                             ; preds = %if.then3
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call4) #15
+  call void @_ZdlPv(ptr noundef nonnull %call4) #16
   resume { ptr, i32 } %5
 
 if.else:                                          ; preds = %if.then
@@ -470,7 +471,7 @@ declare void @_ZN9RBDataMap4initEP15UResourceBundleS1_R10UErrorCode(ptr noundef 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -482,12 +483,13 @@ attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { builtin allocsize(0) }
-attributes #15 = { builtin nounwind }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { builtin allocsize(0) }
+attributes #16 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

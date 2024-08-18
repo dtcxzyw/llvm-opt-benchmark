@@ -96,7 +96,7 @@ define linkonce_odr void @_ZN3gmx16EnumerationArrayI18BondedKernelFlavorNSt7__cx
 3:                                                ; preds = %3, %1
   %4 = phi ptr [ %2, %1 ], [ %5, %3 ]
   %5 = getelementptr inbounds i8, ptr %4, i64 -32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   %6 = icmp eq ptr %5, %0
   br i1 %6, label %7, label %3
 
@@ -137,7 +137,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #23
+  tail call void @__clang_call_terminate(ptr %17) #24
   unreachable
 
 18:                                               ; preds = %13, %10
@@ -146,7 +146,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
           to label %20 unwind label %22
 
 20:                                               ; preds = %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #23
   store ptr null, ptr %5, align 8
   %21 = load i64, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %21)
@@ -158,7 +158,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 22:                                               ; preds = %20, %18
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
   resume { ptr, i32 } %23
 }
 
@@ -195,20 +195,21 @@ define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #23
+  tail call void @__clang_call_terminate(ptr %7) #24
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
-  tail call void @_ZSt9terminatev() #23
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
@@ -293,7 +294,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit17: ; preds = %10, %13
   br i1 %54, label %55, label %_ZL9cos_anglePKfS0_.exit
 
 55:                                               ; preds = %52
-  %56 = tail call double @sqrt(double noundef %53) #22
+  %56 = tail call double @sqrt(double noundef %53) #23
   %57 = fdiv double 1.000000e+00, %56
   %58 = fmul double %49, %57
   %59 = fptrunc double %58 to float
@@ -306,20 +307,20 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %52, %55
   %..026.i = select i1 %61, float -1.000000e+00, float %.026.i
   %.0.i18 = select i1 %60, float 1.000000e+00, float %..026.i
   store float %.0.i18, ptr %6, align 4
-  %62 = tail call noundef float @acosf(float noundef %.0.i18) #22
+  %62 = tail call noundef float @acosf(float noundef %.0.i18) #23
   ret float %62
 }
 
 declare noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #7
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) local_unnamed_addr #8
+declare double @sqrt(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @acosf(float noundef) local_unnamed_addr #8
+declare float @acosf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define noundef float @_Z9dih_anglePKfS0_S0_S0_PK5t_pbcPfS4_S4_S4_S4_PiS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef writeonly %10, ptr nocapture noundef writeonly %11, ptr nocapture noundef writeonly %12) local_unnamed_addr #4 {
@@ -469,7 +470,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit34: ; preds = %14, %18
   %127 = fmul float %102, %112
   %128 = tail call float @llvm.fmuladd.f32(float %117, float %95, float %127)
   %129 = tail call noundef float @llvm.fmuladd.f32(float %113, float %110, float %128)
-  %130 = tail call noundef float @atan2f(float noundef %sqrt.i.i, float noundef %129) #22
+  %130 = tail call noundef float @atan2f(float noundef %sqrt.i.i, float noundef %129) #23
   %131 = load float, ptr %5, align 4
   %132 = load float, ptr %9, align 4
   %133 = load float, ptr %60, align 4
@@ -486,16 +487,16 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit34: ; preds = %14, %18
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #7
+declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sqrtf(float noundef) local_unnamed_addr #8
+declare float @sqrtf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @atan2f(float noundef, float noundef) local_unnamed_addr #8
+declare float @atan2f(float noundef, float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z16make_dp_periodicPf(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define void @_Z16make_dp_periodicPf(ptr nocapture noundef %0) local_unnamed_addr #10 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
   %4 = fcmp ult double %3, 0x400921FB54442D18
@@ -517,7 +518,7 @@ define void @_Z16make_dp_periodicPf(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_Z9cmap_dihsiPKiPK9t_iparamsPK10gmx_cmap_tPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7, float noundef %8, ptr nocapture noundef readnone %9, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %10, ptr nocapture noundef readnone %11, ptr nocapture noundef readnone %12, ptr nocapture noundef readnone %13, ptr nocapture noundef readnone %14) local_unnamed_addr #10 {
+define noundef float @_Z9cmap_dihsiPKiPK9t_iparamsPK10gmx_cmap_tPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7, float noundef %8, ptr nocapture noundef readnone %9, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %10, ptr nocapture noundef readnone %11, ptr nocapture noundef readnone %12, ptr nocapture noundef readnone %13, ptr nocapture noundef readnone %14) local_unnamed_addr #11 {
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
@@ -610,7 +611,7 @@ define noundef float @_Z9cmap_dihsiPKiPK9t_iparamsPK10gmx_cmap_tPA3_KfPA4_fPA3_f
   %91 = sext i32 %76 to i64
   %92 = getelementptr inbounds [3 x float], ptr %4, i64 %91
   %93 = call noundef float @_Z9dih_anglePKfS0_S0_S0_PK5t_pbcPfS4_S4_S4_S4_PiS5_S5_(ptr noundef %86, ptr noundef %88, ptr noundef %90, ptr noundef %92, ptr noundef %7, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18)
-  %94 = call noundef float @cosf(float noundef %93) #22
+  %94 = call noundef float @cosf(float noundef %93) #23
   %95 = load float, ptr %41, align 4
   %96 = load float, ptr %42, align 4
   %97 = load float, ptr %43, align 4
@@ -688,7 +689,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %122, %124
   %151 = fdiv float 1.000000e+00, %143
   %152 = fdiv float 1.000000e+00, %146
   %153 = fmul float %151, %152
-  %154 = call noundef float @sqrtf(float noundef %153) #22
+  %154 = call noundef float @sqrtf(float noundef %153) #23
   %155 = load float, ptr %36, align 8
   %156 = load float, ptr %47, align 4
   %157 = fmul float %106, %156
@@ -703,7 +704,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %122, %124
   br i1 %or.cond, label %165, label %177
 
 165:                                              ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
-  %166 = call noundef float @asinf(float noundef %163) #22
+  %166 = call noundef float @asinf(float noundef %163) #23
   %167 = fcmp olt float %94, 0.000000e+00
   br i1 %167, label %168, label %182
 
@@ -723,7 +724,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %122, %124
   br label %182
 
 177:                                              ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
-  %178 = call noundef float @acosf(float noundef %94) #22
+  %178 = call noundef float @acosf(float noundef %94) #23
   %179 = fcmp olt float %163, 0.000000e+00
   br i1 %179, label %180, label %182
 
@@ -739,7 +740,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %122, %124
   %186 = sext i32 %77 to i64
   %187 = getelementptr inbounds [3 x float], ptr %4, i64 %186
   %188 = call noundef float @_Z9dih_anglePKfS0_S0_S0_PK5t_pbcPfS4_S4_S4_S4_PiS5_S5_(ptr noundef %88, ptr noundef %90, ptr noundef %92, ptr noundef %187, ptr noundef %7, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21)
-  %189 = call noundef float @cosf(float noundef %188) #22
+  %189 = call noundef float @cosf(float noundef %188) #23
   %190 = load float, ptr %49, align 4
   %191 = load float, ptr %50, align 4
   %192 = load float, ptr %51, align 4
@@ -817,7 +818,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit276: ; preds = %217, %219
   %246 = fdiv float 1.000000e+00, %238
   %247 = fdiv float 1.000000e+00, %241
   %248 = fmul float %246, %247
-  %249 = call noundef float @sqrtf(float noundef %248) #22
+  %249 = call noundef float @sqrtf(float noundef %248) #23
   %250 = load float, ptr %37, align 8
   %251 = load float, ptr %55, align 4
   %252 = fmul float %201, %251
@@ -832,7 +833,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit276: ; preds = %217, %219
   br i1 %or.cond270, label %260, label %272
 
 260:                                              ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit276
-  %261 = call noundef float @asinf(float noundef %258) #22
+  %261 = call noundef float @asinf(float noundef %258) #23
   %262 = fcmp olt float %189, 0.000000e+00
   br i1 %262, label %263, label %277
 
@@ -852,7 +853,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit276: ; preds = %217, %219
   br label %277
 
 272:                                              ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit276
-  %273 = call noundef float @acosf(float noundef %189) #22
+  %273 = call noundef float @acosf(float noundef %189) #23
   %274 = fcmp olt float %258, 0.000000e+00
   br i1 %274, label %275, label %277
 
@@ -1267,10 +1268,10 @@ _ZN12_GLOBAL__N_121cmap_setup_grid_indexEiiPiS0_S0_.exit285: ; preds = %338, %34
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120accumulateCmapForcesEPA3_KfPA4_fPA3_fPK5t_pbcN3gmx11BasicVectorIfEESC_SC_SC_SC_SC_ffffiiiifii(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, <2 x float> %4, float %5, <2 x float> %6, float %7, <2 x float> %8, float %9, <2 x float> %10, float %11, <2 x float> %.0.val, float %.8.val, ptr noundef byval(%"class.gmx::BasicVector") align 8 %12, float noundef %13, float noundef %14, float noundef %15, float noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %20, float noundef %21, i32 noundef %22, i32 noundef %23) unnamed_addr #10 {
+define internal fastcc void @_ZN12_GLOBAL__N_120accumulateCmapForcesEPA3_KfPA4_fPA3_fPK5t_pbcN3gmx11BasicVectorIfEESC_SC_SC_SC_SC_ffffiiiifii(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, <2 x float> %4, float %5, <2 x float> %6, float %7, <2 x float> %8, float %9, <2 x float> %10, float %11, <2 x float> %.0.val, float %.8.val, ptr noundef byval(%"class.gmx::BasicVector") align 8 %12, float noundef %13, float noundef %14, float noundef %15, float noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %20, float noundef %21, i32 noundef %22, i32 noundef %23) unnamed_addr #11 {
   %25 = alloca %"class.gmx::BasicVector", align 8
   %26 = alloca %"class.gmx::BasicVector", align 8
   %27 = alloca %"class.gmx::BasicVector", align 4
@@ -1483,10 +1484,10 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %128
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @cosf(float noundef) local_unnamed_addr #8
+declare float @cosf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @asinf(float noundef) local_unnamed_addr #8
+declare float @asinf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define noundef float @_Z19calculateSimpleBondiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS4_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi18BondedKernelFlavor(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, float noundef %8, ptr noundef %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15) local_unnamed_addr #4 {
@@ -1511,7 +1512,7 @@ define noundef float @_Z19calculateSimpleBondiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #12 {
+define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #13 {
   %15 = alloca [8 x i32], align 32
   %16 = alloca [8 x i32], align 32
   %17 = alloca [16 x float], align 32
@@ -2091,7 +2092,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %50, %52
   %74 = fneg float %45
   %75 = fsub float %73, %43
   %76 = fmul float %75, %74
-  %77 = call noundef float @expf(float noundef %76) #22
+  %77 = call noundef float @expf(float noundef %76) #23
   %78 = fcmp oeq float %77, 1.000000e+00
   br i1 %78, label %79, label %84
 
@@ -2355,11 +2356,11 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef float @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture readnone %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #13 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture readnone %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #14 personality ptr @__gxx_personality_v0 {
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::allocator", align 1
   %17 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #23
   %18 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %.noexc unwind label %23
 
@@ -2374,7 +2375,7 @@ define internal noundef float @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparams
 19:                                               ; preds = %.noexc5
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #23
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc5
@@ -2382,7 +2383,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %21 unwind label %25
 
 21:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  invoke void @_Z18gmx_error_functionPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNSt10filesystem7__cxx114pathEi(ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(40) %17, i32 noundef 2569) #24
+  invoke void @_Z18gmx_error_functionPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNSt10filesystem7__cxx114pathEi(ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(40) %17, i32 noundef 2569) #25
           to label %22 unwind label %27
 
 22:                                               ; preds = %21
@@ -2407,22 +2408,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %31
 
 31:                                               ; preds = %27
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull %30) #22
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull %30) #23
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit
 
 _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %27, %31
   store ptr null, ptr %29, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #23
   br label %32
 
 32:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %25
   %.pn = phi { ptr, i32 } [ %28, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %26, %25 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #23
   br label %.body
 
 .body:                                            ; preds = %23, %19, %32
   %.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %24, %23 ], [ %20, %19 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #23
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2451,7 +2452,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader: ; p
   %23 = fdiv float %70, %79
   %24 = fsub float 1.000000e+00, %23
   %25 = fmul float %78, 5.000000e-01
-  %26 = tail call noundef float @logf(float noundef %24) #22
+  %26 = tail call noundef float @logf(float noundef %24) #23
   %27 = fneg float %78
   %28 = fdiv float %27, %24
   br label %29
@@ -2597,7 +2598,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %82
           to label %114 unwind label %116
 
 114:                                              ; preds = %112
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef 418, ptr noundef nonnull @.str.8, double noundef %109, double noundef %110, i32 noundef %111, i32 noundef %113) #24
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef 418, ptr noundef nonnull @.str.8, double noundef %109, double noundef %110, i32 noundef %111, i32 noundef %113) #25
           to label %115 unwind label %116
 
 115:                                              ; preds = %114
@@ -2606,14 +2607,14 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %82
 116:                                              ; preds = %114, %112, %.split73.us
   %117 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #22
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #23
   resume { ptr, i32 } %117
 
 118:                                              ; preds = %.split61
   %119 = fdiv float %105, %107
   %120 = fsub float 1.000000e+00, %119
   %121 = fmul float %94, 5.000000e-01
-  %122 = call noundef float @logf(float noundef %120) #22
+  %122 = call noundef float @logf(float noundef %120) #23
   %123 = fneg float %94
   %124 = fdiv float %123, %120
   br label %125
@@ -2988,7 +2989,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #12 {
+define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #13 {
   %15 = alloca [8 x i32], align 32
   %16 = alloca [8 x i32], align 32
   %17 = alloca [8 x i32], align 32
@@ -4463,7 +4464,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit91: ; preds = %54, %60
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #12 {
+define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #13 {
   %15 = alloca [8 x i32], align 32
   %16 = alloca [8 x i32], align 32
   %17 = alloca [8 x i32], align 32
@@ -5220,7 +5221,7 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
 
 67:                                               ; preds = %62
   %68 = fsub float 1.000000e+00, %65
-  %69 = call noundef float @sqrtf(float noundef %68) #22
+  %69 = call noundef float @sqrtf(float noundef %68) #23
   %70 = fdiv float 1.000000e+00, %69
   %71 = fmul float %59, %70
   %72 = load float, ptr %18, align 4
@@ -5236,7 +5237,7 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
   %82 = load float, ptr %24, align 4
   %83 = call noundef float @llvm.fmuladd.f32(float %82, float %82, float %81)
   %84 = fmul float %77, %83
-  %85 = call noundef float @sqrtf(float noundef %84) #22
+  %85 = call noundef float @sqrtf(float noundef %84) #23
   %86 = fdiv float 1.000000e+00, %85
   %87 = fmul float %71, %86
   %88 = fneg float %71
@@ -5346,7 +5347,7 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
 63:                                               ; preds = %28
   %64 = load float, ptr %20, align 4
   %65 = fsub float 1.000000e+00, %61
-  %66 = call noundef float @sqrtf(float noundef %65) #22
+  %66 = call noundef float @sqrtf(float noundef %65) #23
   %67 = fdiv float 1.000000e+00, %66
   %68 = fmul float %64, %67
   %69 = load float, ptr %18, align 4
@@ -5362,7 +5363,7 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
   %79 = load float, ptr %27, align 4
   %80 = call noundef float @llvm.fmuladd.f32(float %79, float %79, float %78)
   %81 = fmul float %74, %80
-  %82 = call noundef float @sqrtf(float noundef %81) #22
+  %82 = call noundef float @sqrtf(float noundef %81) #23
   %83 = fdiv float 1.000000e+00, %82
   %84 = fmul float %68, %83
   %85 = fneg float %68
@@ -5409,7 +5410,7 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #12 {
+define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #13 {
   %15 = alloca [8 x i32], align 32
   %16 = alloca [8 x i32], align 32
   %17 = alloca [8 x i32], align 32
@@ -5566,7 +5567,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor0EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #12 {
+define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #13 {
   %15 = alloca [8 x i32], align 32
   %16 = alloca [8 x i32], align 32
   %17 = alloca [8 x i32], align 32
@@ -6650,7 +6651,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
 
 72:                                               ; preds = %69
   call void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 1 dereferenceable(130) @.str.7, i8 noundef zeroext 2)
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef 850, ptr noundef nonnull @.str.13, i32 noundef %71, i32 noundef %25, ptr noundef nonnull @.str.7, i32 noundef 850) #24
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef 850, ptr noundef nonnull @.str.13, i32 noundef %71, i32 noundef %25, ptr noundef nonnull @.str.7, i32 noundef 850) #25
           to label %73 unwind label %74
 
 73:                                               ; preds = %72
@@ -6659,7 +6660,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #22
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #23
   resume { ptr, i32 } %75
 
 76:                                               ; preds = %69
@@ -6960,8 +6961,8 @@ define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor
   %40 = load float, ptr %39, align 4
   %41 = fmul float %30, %33
   %42 = fmul float %38, %40
-  %43 = tail call noundef float @cbrtf(float noundef %42) #25
-  %44 = tail call noundef float @sqrtf(float noundef %43) #22
+  %43 = tail call noundef float @cbrtf(float noundef %42) #26
+  %44 = tail call noundef float @sqrtf(float noundef %43) #23
   %45 = fdiv float 1.000000e+00, %44
   %46 = fmul float %36, %45
   %47 = sext i32 %22 to i64
@@ -7671,7 +7672,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %50, %52
   %74 = fneg float %45
   %75 = fsub float %73, %43
   %76 = fmul float %75, %74
-  %77 = call noundef float @expf(float noundef %76) #22
+  %77 = call noundef float @expf(float noundef %76) #23
   %78 = fcmp oeq float %77, 1.000000e+00
   br i1 %78, label %79, label %84
 
@@ -7959,7 +7960,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader: ; p
   %23 = fdiv float %70, %79
   %24 = fsub float 1.000000e+00, %23
   %25 = fmul float %78, 5.000000e-01
-  %26 = tail call noundef float @logf(float noundef %24) #22
+  %26 = tail call noundef float @logf(float noundef %24) #23
   %27 = fneg float %78
   %28 = fdiv float %27, %24
   br label %29
@@ -8105,7 +8106,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %82
           to label %114 unwind label %116
 
 114:                                              ; preds = %112
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef 418, ptr noundef nonnull @.str.8, double noundef %109, double noundef %110, i32 noundef %111, i32 noundef %113) #24
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef 418, ptr noundef nonnull @.str.8, double noundef %109, double noundef %110, i32 noundef %111, i32 noundef %113) #25
           to label %115 unwind label %116
 
 115:                                              ; preds = %114
@@ -8114,14 +8115,14 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %82
 116:                                              ; preds = %114, %112, %.split73.us
   %117 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #22
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #23
   resume { ptr, i32 } %117
 
 118:                                              ; preds = %.split61
   %119 = fdiv float %105, %107
   %120 = fsub float 1.000000e+00, %119
   %121 = fmul float %94, 5.000000e-01
-  %122 = call noundef float @logf(float noundef %120) #22
+  %122 = call noundef float @logf(float noundef %120) #23
   %123 = fneg float %94
   %124 = fdiv float %123, %120
   br label %125
@@ -8575,7 +8576,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor1EE
   %79 = fneg float %59
   %80 = fmul float %62, %79
   %81 = fsub float 1.000000e+00, %76
-  %82 = call noundef float @sqrtf(float noundef %81) #22
+  %82 = call noundef float @sqrtf(float noundef %81) #23
   %83 = fdiv float 1.000000e+00, %82
   %84 = fmul float %80, %83
   %85 = load float, ptr %17, align 4
@@ -9639,7 +9640,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %87, %89
 
 132:                                              ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
   %133 = fsub float 1.000000e+00, %130
-  %134 = call noundef float @sqrtf(float noundef %133) #22
+  %134 = call noundef float @sqrtf(float noundef %133) #23
   %135 = fdiv float 1.000000e+00, %134
   %136 = fmul float %75, %135
   %137 = load float, ptr %18, align 4
@@ -9655,7 +9656,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %87, %89
   %147 = load float, ptr %28, align 4
   %148 = call noundef float @llvm.fmuladd.f32(float %147, float %147, float %146)
   %149 = fmul float %142, %148
-  %150 = call noundef float @sqrtf(float noundef %149) #22
+  %150 = call noundef float @sqrtf(float noundef %149) #23
   %151 = fdiv float 1.000000e+00, %150
   %152 = fmul float %136, %151
   %153 = fneg float %136
@@ -9807,7 +9808,7 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
 
 67:                                               ; preds = %62
   %68 = fsub float 1.000000e+00, %65
-  %69 = call noundef float @sqrtf(float noundef %68) #22
+  %69 = call noundef float @sqrtf(float noundef %68) #23
   %70 = fdiv float 1.000000e+00, %69
   %71 = fmul float %59, %70
   %72 = load float, ptr %18, align 4
@@ -9823,7 +9824,7 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
   %82 = load float, ptr %24, align 4
   %83 = call noundef float @llvm.fmuladd.f32(float %82, float %82, float %81)
   %84 = fmul float %77, %83
-  %85 = call noundef float @sqrtf(float noundef %84) #22
+  %85 = call noundef float @sqrtf(float noundef %84) #23
   %86 = fdiv float 1.000000e+00, %85
   %87 = fmul float %71, %86
   %88 = fneg float %71
@@ -9933,7 +9934,7 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
 63:                                               ; preds = %28
   %64 = load float, ptr %20, align 4
   %65 = fsub float 1.000000e+00, %61
-  %66 = call noundef float @sqrtf(float noundef %65) #22
+  %66 = call noundef float @sqrtf(float noundef %65) #23
   %67 = fdiv float 1.000000e+00, %66
   %68 = fmul float %64, %67
   %69 = load float, ptr %18, align 4
@@ -9949,7 +9950,7 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
   %79 = load float, ptr %27, align 4
   %80 = call noundef float @llvm.fmuladd.f32(float %79, float %79, float %78)
   %81 = fmul float %74, %80
-  %82 = call noundef float @sqrtf(float noundef %81) #22
+  %82 = call noundef float @sqrtf(float noundef %81) #23
   %83 = fdiv float 1.000000e+00, %82
   %84 = fmul float %68, %83
   %85 = fneg float %68
@@ -10063,7 +10064,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor1EEE
   %67 = sitofp i32 %59 to float
   %68 = fneg float %64
   %69 = call float @llvm.fmuladd.f32(float %67, float %45, float %68)
-  %70 = call noundef float @sinf(float noundef %69) #22
+  %70 = call noundef float @sinf(float noundef %69) #23
   %71 = fneg float %66
   %72 = fmul float %71, %67
   %73 = fmul float %70, %72
@@ -10161,8 +10162,8 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor1EE
   %.0116.in.v = select i1 %50, double 0x400921FB54442D18, double 0xC00921FB54442D18
   %.0116.in = fadd double %.0116.in.v, %51
   %.0116 = fptrunc double %.0116.in to float
-  %52 = call noundef float @cosf(float noundef %.0116) #22
-  %53 = call noundef float @sinf(float noundef %.0116) #22
+  %52 = call noundef float @cosf(float noundef %.0116) #23
+  %53 = call noundef float @sinf(float noundef %.0116) #23
   %54 = sext i32 %33 to i64
   %55 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 24
@@ -11161,7 +11162,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
 
 72:                                               ; preds = %69
   call void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 1 dereferenceable(130) @.str.7, i8 noundef zeroext 2)
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef 850, ptr noundef nonnull @.str.13, i32 noundef %71, i32 noundef %25, ptr noundef nonnull @.str.7, i32 noundef 850) #24
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef 850, ptr noundef nonnull @.str.13, i32 noundef %71, i32 noundef %25, ptr noundef nonnull @.str.7, i32 noundef 850) #25
           to label %73 unwind label %74
 
 73:                                               ; preds = %72
@@ -11170,7 +11171,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #22
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #23
   resume { ptr, i32 } %75
 
 76:                                               ; preds = %69
@@ -11471,8 +11472,8 @@ define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor
   %40 = load float, ptr %39, align 4
   %41 = fmul float %30, %33
   %42 = fmul float %38, %40
-  %43 = tail call noundef float @cbrtf(float noundef %42) #25
-  %44 = tail call noundef float @sqrtf(float noundef %43) #22
+  %43 = tail call noundef float @cbrtf(float noundef %42) #26
+  %44 = tail call noundef float @sqrtf(float noundef %43) #23
   %45 = fdiv float 1.000000e+00, %44
   %46 = fmul float %36, %45
   %47 = sext i32 %22 to i64
@@ -12202,7 +12203,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %51, %53
   %75 = fneg float %46
   %76 = fsub float %74, %44
   %77 = fmul float %76, %75
-  %78 = call noundef float @expf(float noundef %77) #22
+  %78 = call noundef float @expf(float noundef %77) #23
   %79 = fcmp oeq float %78, 1.000000e+00
   br i1 %79, label %80, label %85
 
@@ -12516,7 +12517,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader: ; p
   %24 = fdiv float %76, %85
   %25 = fsub float 1.000000e+00, %24
   %26 = fmul float %84, 5.000000e-01
-  %27 = tail call noundef float @logf(float noundef %25) #22
+  %27 = tail call noundef float @logf(float noundef %25) #23
   %28 = fneg float %84
   %29 = fdiv float %28, %25
   br label %30
@@ -12668,7 +12669,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %88
           to label %120 unwind label %122
 
 120:                                              ; preds = %118
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef 418, ptr noundef nonnull @.str.8, double noundef %115, double noundef %116, i32 noundef %117, i32 noundef %119) #24
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef 418, ptr noundef nonnull @.str.8, double noundef %115, double noundef %116, i32 noundef %117, i32 noundef %119) #25
           to label %121 unwind label %122
 
 121:                                              ; preds = %120
@@ -12677,14 +12678,14 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %88
 122:                                              ; preds = %120, %118, %.split74.us
   %123 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #22
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #23
   resume { ptr, i32 } %123
 
 124:                                              ; preds = %.split61
   %125 = fdiv float %111, %113
   %126 = fsub float 1.000000e+00, %125
   %127 = fmul float %100, 5.000000e-01
-  %128 = call noundef float @logf(float noundef %126) #22
+  %128 = call noundef float @logf(float noundef %126) #23
   %129 = fneg float %100
   %130 = fdiv float %129, %126
   %131 = sext i32 %105 to i64
@@ -13181,7 +13182,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor2EE
   %91 = fneg float %71
   %92 = fmul float %74, %91
   %93 = fsub float 1.000000e+00, %88
-  %94 = call noundef float @sqrtf(float noundef %93) #22
+  %94 = call noundef float @sqrtf(float noundef %93) #23
   %95 = fdiv float 1.000000e+00, %94
   %96 = fmul float %92, %95
   %97 = load float, ptr %17, align 4
@@ -14602,7 +14603,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %99, %101
 
 144:                                              ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
   %145 = fsub float 1.000000e+00, %142
-  %146 = call noundef float @sqrtf(float noundef %145) #22
+  %146 = call noundef float @sqrtf(float noundef %145) #23
   %147 = fdiv float 1.000000e+00, %146
   %148 = fmul float %87, %147
   %149 = load float, ptr %18, align 4
@@ -14618,7 +14619,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %99, %101
   %159 = load float, ptr %31, align 4
   %160 = call noundef float @llvm.fmuladd.f32(float %159, float %159, float %158)
   %161 = fmul float %154, %160
-  %162 = call noundef float @sqrtf(float noundef %161) #22
+  %162 = call noundef float @sqrtf(float noundef %161) #23
   %163 = fdiv float 1.000000e+00, %162
   %164 = fmul float %148, %163
   %165 = fneg float %148
@@ -14848,7 +14849,7 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
 
 79:                                               ; preds = %74
   %80 = fsub float 1.000000e+00, %77
-  %81 = call noundef float @sqrtf(float noundef %80) #22
+  %81 = call noundef float @sqrtf(float noundef %80) #23
   %82 = fdiv float 1.000000e+00, %81
   %83 = fmul float %71, %82
   %84 = load float, ptr %18, align 4
@@ -14864,7 +14865,7 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
   %94 = load float, ptr %27, align 4
   %95 = call noundef float @llvm.fmuladd.f32(float %94, float %94, float %93)
   %96 = fmul float %89, %95
-  %97 = call noundef float @sqrtf(float noundef %96) #22
+  %97 = call noundef float @sqrtf(float noundef %96) #23
   %98 = fdiv float 1.000000e+00, %97
   %99 = fmul float %83, %98
   %100 = fneg float %83
@@ -15043,7 +15044,7 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
 75:                                               ; preds = %40
   %76 = load float, ptr %20, align 4
   %77 = fsub float 1.000000e+00, %73
-  %78 = call noundef float @sqrtf(float noundef %77) #22
+  %78 = call noundef float @sqrtf(float noundef %77) #23
   %79 = fdiv float 1.000000e+00, %78
   %80 = fmul float %76, %79
   %81 = load float, ptr %18, align 4
@@ -15059,7 +15060,7 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
   %91 = load float, ptr %30, align 4
   %92 = call noundef float @llvm.fmuladd.f32(float %91, float %91, float %90)
   %93 = fmul float %86, %92
-  %94 = call noundef float @sqrtf(float noundef %93) #22
+  %94 = call noundef float @sqrtf(float noundef %93) #23
   %95 = fdiv float 1.000000e+00, %94
   %96 = fmul float %80, %95
   %97 = fneg float %80
@@ -15236,11 +15237,11 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor2EEE
   %71 = sitofp i32 %59 to float
   %72 = fneg float %64
   %73 = call float @llvm.fmuladd.f32(float %71, float %45, float %72)
-  %74 = call noundef float @sinf(float noundef %73) #22
+  %74 = call noundef float @sinf(float noundef %73) #23
   %75 = fneg float %70
   %76 = fmul float %75, %71
   %77 = fmul float %74, %76
-  %78 = call noundef float @cosf(float noundef %73) #22
+  %78 = call noundef float @cosf(float noundef %73) #23
   %79 = fadd float %78, 1.000000e+00
   %80 = call float @llvm.fmuladd.f32(float %70, float %79, float %.163)
   %81 = fsub float %54, %52
@@ -15345,8 +15346,8 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor2EE
   %.0116.in.v = select i1 %50, double 0x400921FB54442D18, double 0xC00921FB54442D18
   %.0116.in = fadd double %.0116.in.v, %51
   %.0116 = fptrunc double %.0116.in to float
-  %52 = call noundef float @cosf(float noundef %.0116) #22
-  %53 = call noundef float @sinf(float noundef %.0116) #22
+  %52 = call noundef float @cosf(float noundef %.0116) #23
+  %53 = call noundef float @sinf(float noundef %.0116) #23
   %54 = sext i32 %33 to i64
   %55 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 24
@@ -16483,7 +16484,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
 
 73:                                               ; preds = %70
   call void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 1 dereferenceable(130) @.str.7, i8 noundef zeroext 2)
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef 850, ptr noundef nonnull @.str.13, i32 noundef %72, i32 noundef %25, ptr noundef nonnull @.str.7, i32 noundef 850) #24
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef 850, ptr noundef nonnull @.str.13, i32 noundef %72, i32 noundef %25, ptr noundef nonnull @.str.7, i32 noundef 850) #25
           to label %74 unwind label %75
 
 74:                                               ; preds = %73
@@ -16492,7 +16493,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
 75:                                               ; preds = %73
   %76 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #22
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #23
   resume { ptr, i32 } %76
 
 77:                                               ; preds = %70
@@ -16803,8 +16804,8 @@ define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor
   %40 = load float, ptr %39, align 4
   %41 = fmul float %30, %33
   %42 = fmul float %38, %40
-  %43 = tail call noundef float @cbrtf(float noundef %42) #25
-  %44 = tail call noundef float @sqrtf(float noundef %43) #22
+  %43 = tail call noundef float @cbrtf(float noundef %42) #26
+  %44 = tail call noundef float @sqrtf(float noundef %43) #23
   %45 = fdiv float 1.000000e+00, %44
   %46 = fmul float %36, %45
   %47 = sext i32 %22 to i64
@@ -17521,7 +17522,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %50, %52
   %74 = fneg float %45
   %75 = fsub float %73, %43
   %76 = fmul float %75, %74
-  %77 = call noundef float @expf(float noundef %76) #22
+  %77 = call noundef float @expf(float noundef %76) #23
   %78 = fcmp oeq float %77, 1.000000e+00
   br i1 %78, label %79, label %84
 
@@ -17809,7 +17810,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader: ; p
   %23 = fdiv float %70, %79
   %24 = fsub float 1.000000e+00, %23
   %25 = fmul float %78, 5.000000e-01
-  %26 = tail call noundef float @logf(float noundef %24) #22
+  %26 = tail call noundef float @logf(float noundef %24) #23
   %27 = fneg float %78
   %28 = fdiv float %27, %24
   br label %29
@@ -17955,7 +17956,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %82
           to label %114 unwind label %116
 
 114:                                              ; preds = %112
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef 418, ptr noundef nonnull @.str.8, double noundef %109, double noundef %110, i32 noundef %111, i32 noundef %113) #24
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef 418, ptr noundef nonnull @.str.8, double noundef %109, double noundef %110, i32 noundef %111, i32 noundef %113) #25
           to label %115 unwind label %116
 
 115:                                              ; preds = %114
@@ -17964,14 +17965,14 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %82
 116:                                              ; preds = %114, %112, %.split73.us
   %117 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #22
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #23
   resume { ptr, i32 } %117
 
 118:                                              ; preds = %.split61
   %119 = fdiv float %105, %107
   %120 = fsub float 1.000000e+00, %119
   %121 = fmul float %94, 5.000000e-01
-  %122 = call noundef float @logf(float noundef %120) #22
+  %122 = call noundef float @logf(float noundef %120) #23
   %123 = fneg float %94
   %124 = fdiv float %123, %120
   br label %125
@@ -18425,7 +18426,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor3EE
   %79 = fneg float %59
   %80 = fmul float %62, %79
   %81 = fsub float 1.000000e+00, %76
-  %82 = call noundef float @sqrtf(float noundef %81) #22
+  %82 = call noundef float @sqrtf(float noundef %81) #23
   %83 = fdiv float 1.000000e+00, %82
   %84 = fmul float %80, %83
   %85 = load float, ptr %17, align 4
@@ -19489,7 +19490,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %87, %89
 
 132:                                              ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit
   %133 = fsub float 1.000000e+00, %130
-  %134 = call noundef float @sqrtf(float noundef %133) #22
+  %134 = call noundef float @sqrtf(float noundef %133) #23
   %135 = fdiv float 1.000000e+00, %134
   %136 = fmul float %75, %135
   %137 = load float, ptr %18, align 4
@@ -19505,7 +19506,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %87, %89
   %147 = load float, ptr %28, align 4
   %148 = call noundef float @llvm.fmuladd.f32(float %147, float %147, float %146)
   %149 = fmul float %142, %148
-  %150 = call noundef float @sqrtf(float noundef %149) #22
+  %150 = call noundef float @sqrtf(float noundef %149) #23
   %151 = fdiv float 1.000000e+00, %150
   %152 = fmul float %136, %151
   %153 = fneg float %136
@@ -19657,7 +19658,7 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
 
 67:                                               ; preds = %62
   %68 = fsub float 1.000000e+00, %65
-  %69 = call noundef float @sqrtf(float noundef %68) #22
+  %69 = call noundef float @sqrtf(float noundef %68) #23
   %70 = fdiv float 1.000000e+00, %69
   %71 = fmul float %59, %70
   %72 = load float, ptr %18, align 4
@@ -19673,7 +19674,7 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
   %82 = load float, ptr %24, align 4
   %83 = call noundef float @llvm.fmuladd.f32(float %82, float %82, float %81)
   %84 = fmul float %77, %83
-  %85 = call noundef float @sqrtf(float noundef %84) #22
+  %85 = call noundef float @sqrtf(float noundef %84) #23
   %86 = fdiv float 1.000000e+00, %85
   %87 = fmul float %71, %86
   %88 = fneg float %71
@@ -19783,7 +19784,7 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
 63:                                               ; preds = %28
   %64 = load float, ptr %20, align 4
   %65 = fsub float 1.000000e+00, %61
-  %66 = call noundef float @sqrtf(float noundef %65) #22
+  %66 = call noundef float @sqrtf(float noundef %65) #23
   %67 = fdiv float 1.000000e+00, %66
   %68 = fmul float %64, %67
   %69 = load float, ptr %18, align 4
@@ -19799,7 +19800,7 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
   %79 = load float, ptr %27, align 4
   %80 = call noundef float @llvm.fmuladd.f32(float %79, float %79, float %78)
   %81 = fmul float %74, %80
-  %82 = call noundef float @sqrtf(float noundef %81) #22
+  %82 = call noundef float @sqrtf(float noundef %81) #23
   %83 = fdiv float 1.000000e+00, %82
   %84 = fmul float %68, %83
   %85 = fneg float %68
@@ -19919,11 +19920,11 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor3EEE
   %71 = sitofp i32 %59 to float
   %72 = fneg float %64
   %73 = call float @llvm.fmuladd.f32(float %71, float %45, float %72)
-  %74 = call noundef float @sinf(float noundef %73) #22
+  %74 = call noundef float @sinf(float noundef %73) #23
   %75 = fneg float %70
   %76 = fmul float %75, %71
   %77 = fmul float %74, %76
-  %78 = call noundef float @cosf(float noundef %73) #22
+  %78 = call noundef float @cosf(float noundef %73) #23
   %79 = fadd float %78, 1.000000e+00
   %80 = call float @llvm.fmuladd.f32(float %70, float %79, float %.163)
   %81 = fsub float %54, %52
@@ -20028,8 +20029,8 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor3EE
   %.0116.in.v = select i1 %50, double 0x400921FB54442D18, double 0xC00921FB54442D18
   %.0116.in = fadd double %.0116.in.v, %51
   %.0116 = fptrunc double %.0116.in to float
-  %52 = call noundef float @cosf(float noundef %.0116) #22
-  %53 = call noundef float @sinf(float noundef %.0116) #22
+  %52 = call noundef float @cosf(float noundef %.0116) #23
+  %53 = call noundef float @sinf(float noundef %.0116) #23
   %54 = sext i32 %33 to i64
   %55 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 24
@@ -21028,7 +21029,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
 
 72:                                               ; preds = %69
   call void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 1 dereferenceable(130) @.str.7, i8 noundef zeroext 2)
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef 850, ptr noundef nonnull @.str.13, i32 noundef %71, i32 noundef %25, ptr noundef nonnull @.str.7, i32 noundef 850) #24
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef 850, ptr noundef nonnull @.str.13, i32 noundef %71, i32 noundef %25, ptr noundef nonnull @.str.7, i32 noundef 850) #25
           to label %73 unwind label %74
 
 73:                                               ; preds = %72
@@ -21037,7 +21038,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #22
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #23
   resume { ptr, i32 } %75
 
 76:                                               ; preds = %69
@@ -21338,8 +21339,8 @@ define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor
   %40 = load float, ptr %39, align 4
   %41 = fmul float %30, %33
   %42 = fmul float %38, %40
-  %43 = tail call noundef float @cbrtf(float noundef %42) #25
-  %44 = tail call noundef float @sqrtf(float noundef %43) #22
+  %43 = tail call noundef float @cbrtf(float noundef %42) #26
+  %44 = tail call noundef float @sqrtf(float noundef %43) #23
   %45 = fdiv float 1.000000e+00, %44
   %46 = fmul float %36, %45
   %47 = sext i32 %22 to i64
@@ -21701,34 +21702,34 @@ _Z16make_dp_periodicPf.exit:                      ; preds = %69, %.sink.split.i
 declare void @_Z12set_pbc_simdPK5t_pbcPf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.round.ps.256(<8 x float>, i32 immarg) #14
+declare <8 x float> @llvm.x86.avx.round.ps.256(<8 x float>, i32 immarg) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float>) #14
+declare <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float>) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #7
+declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.max.ps.256(<8 x float>, <8 x float>) #14
+declare <8 x float> @llvm.x86.avx.max.ps.256(<8 x float>, <8 x float>) #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @expf(float noundef) local_unnamed_addr #8
+declare float @expf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: noreturn
-declare void @_Z18gmx_error_functionPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNSt10filesystem7__cxx114pathEi(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #15
+declare void @_Z18gmx_error_functionPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNSt10filesystem7__cxx114pathEi(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(130) %1, i8 noundef zeroext %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator", align 1
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
+  %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %7 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %6, ptr nonnull %1) #22
+  %7 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %6, ptr nonnull %1) #23
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = extractvalue { i64, ptr } %7, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #23
   %10 = load i64, ptr %4, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -21737,7 +21738,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6f
 
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
@@ -21752,7 +21753,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6f
 17:                                               ; preds = %3
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   br label %26
 
 19:                                               ; preds = %13
@@ -21768,7 +21769,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA130_cS1_EERKT_NS1_6f
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %23) #22
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %23) #23
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
@@ -21777,7 +21778,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
 
 25:                                               ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, %19
   %.pn = phi { ptr, i32 } [ %22, %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit ], [ %20, %19 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %26
 
 26:                                               ; preds = %25, %17
@@ -21793,12 +21794,12 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3) #22
+  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3) #23
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
   store ptr null, ptr %2, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   ret void
 }
 
@@ -21818,12 +21819,12 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv
 declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef, ...) local_unnamed_addr #15
+declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef, ...) local_unnamed_addr #16
 
 declare noundef i32 @_Z6glatnrPKii(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @logf(float noundef) local_unnamed_addr #8
+declare float @logf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
@@ -21841,7 +21842,7 @@ define internal fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bond
   %17 = fpext float %5 to double
   %18 = add nsw i32 %14, 1
   %19 = load i32, ptr %2, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 3769, ptr noundef nonnull @.str.10, ptr noundef %0, i32 noundef %1, double noundef %17, i32 noundef %14, i32 noundef %18, i32 noundef %19) #24
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 3769, ptr noundef nonnull @.str.10, ptr noundef %0, i32 noundef %1, double noundef %17, i32 noundef %14, i32 noundef %18, i32 noundef %19) #25
           to label %20 unwind label %21
 
 20:                                               ; preds = %16
@@ -21850,7 +21851,7 @@ define internal fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bond
 21:                                               ; preds = %16
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #22
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #23
   resume { ptr, i32 } %22
 
 23:                                               ; preds = %9
@@ -21904,10 +21905,10 @@ define internal fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bond
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.rcp.ps.256(<8 x float>) #14
+declare <8 x float> @llvm.x86.avx.rcp.ps.256(<8 x float>) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.min.ps.256(<8 x float>, <8 x float>) #14
+declare <8 x float> @llvm.x86.avx.min.ps.256(<8 x float>, <8 x float>) #15
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef float @_ZN12_GLOBAL__N_113g96bond_angleEPKfS1_S1_PK5t_pbcPfS5_PiS6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #4 {
@@ -21987,7 +21988,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit15: ; preds = %9, %12
   br i1 %53, label %54, label %_ZL9cos_anglePKfS0_.exit
 
 54:                                               ; preds = %51
-  %55 = tail call double @sqrt(double noundef %52) #22
+  %55 = tail call double @sqrt(double noundef %52) #23
   %56 = fdiv double 1.000000e+00, %55
   %57 = fmul double %48, %56
   %58 = fptrunc double %57 to float
@@ -22005,7 +22006,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %51, %54
 declare void @_Z26compute_factors_restanglesiPK9t_iparamsPfS2_PdS3_S3_S2_(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4_PS0_PN3gmx9SimdFloatES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef %10, ptr nocapture noundef %11, ptr nocapture noundef %12, ptr nocapture noundef writeonly %13, ptr nocapture noundef writeonly %14, ptr nocapture noundef writeonly %15, ptr nocapture noundef writeonly %16) unnamed_addr #16 {
+define internal fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4_PS0_PN3gmx9SimdFloatES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef %10, ptr nocapture noundef %11, ptr nocapture noundef %12, ptr nocapture noundef writeonly %13, ptr nocapture noundef writeonly %14, ptr nocapture noundef writeonly %15, ptr nocapture noundef writeonly %16) unnamed_addr #17 {
   %18 = load i32, ptr %1, align 4
   %19 = mul nsw i32 %18, 3
   %20 = sext i32 %19 to i64
@@ -22485,7 +22486,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_simdEPKiS1_S1_S1_N3gmx9SimdFloatES3_S3_S3_S3_S3_S3_S3_PA4_f(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, <8 x float> %4, <8 x float> %5, <8 x float> %6, <8 x float> %7, <8 x float> %8, <8 x float> %9, <8 x float> %10, <8 x float> %11, ptr nocapture noundef %12) unnamed_addr #16 {
+define internal x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_simdEPKiS1_S1_S1_N3gmx9SimdFloatES3_S3_S3_S3_S3_S3_S3_PA4_f(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, <8 x float> %4, <8 x float> %5, <8 x float> %6, <8 x float> %7, <8 x float> %8, <8 x float> %9, <8 x float> %10, <8 x float> %11, ptr nocapture noundef %12) unnamed_addr #17 {
   %14 = fmul <8 x float> %4, %6
   %15 = fmul <8 x float> %5, %9
   %16 = fadd <8 x float> %14, %15
@@ -22821,7 +22822,7 @@ define internal x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_si
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float>) #14
+declare <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float>) #15
 
 declare void @_Z25compute_factors_restrdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -23018,7 +23019,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %9, %11
   %38 = fmul double %36, %37
   %39 = fptrunc double %38 to float
   %40 = fneg float %34
-  %41 = call noundef float @expf(float noundef %40) #22
+  %41 = call noundef float @expf(float noundef %40) #23
   %42 = fpext float %34 to double
   %43 = call double @llvm.fmuladd.f64(double %42, double 5.000000e-01, double 1.000000e+00)
   %44 = fpext float %41 to double
@@ -23063,7 +23064,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare float @cbrtf(float noundef) local_unnamed_addr #17
+declare float @cbrtf(float noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef %5, float noundef %6, ptr nocapture noundef %7, i1 noundef zeroext %8) unnamed_addr #4 {
@@ -23202,7 +23203,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit88: ; preds = %57, %45, %81
   br i1 %94, label %95, label %_ZL9cos_anglePKfS0_.exit
 
 95:                                               ; preds = %92
-  %96 = call double @sqrt(double noundef %93) #22
+  %96 = call double @sqrt(double noundef %93) #23
   %97 = fdiv double 1.000000e+00, %96
   %98 = fmul double %89, %97
   %99 = fptrunc double %98 to float
@@ -23214,7 +23215,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
   %101 = fcmp olt float %.026.i, -1.000000e+00
   %..026.i = select i1 %101, float -1.000000e+00, float %.026.i
   %.0.i89 = select i1 %100, float 1.000000e+00, float %..026.i
-  %102 = call noundef float @acosf(float noundef %.0.i89) #22
+  %102 = call noundef float @acosf(float noundef %.0.i89) #23
   %103 = sext i32 %21 to i64
   %104 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %103
   %105 = getelementptr inbounds i8, ptr %104, i64 4
@@ -23240,8 +23241,8 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
   %125 = sitofp i32 %113 to float
   %126 = fsub float %102, %118
   %127 = fmul float %126, %125
-  %128 = call noundef float @sinf(float noundef %127) #22
-  %129 = call noundef float @cosf(float noundef %127) #22
+  %128 = call noundef float @sinf(float noundef %127) #23
+  %129 = call noundef float @cosf(float noundef %127) #23
   %130 = fsub float 1.000000e+00, %129
   %131 = fmul float %124, %130
   %132 = fsub float %108, %106
@@ -23261,7 +23262,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
   %143 = fmul float %142, %125
   %144 = fmul float %128, %143
   %145 = fsub float 1.000000e+00, %139
-  %146 = call noundef float @sqrtf(float noundef %145) #22
+  %146 = call noundef float @sqrtf(float noundef %145) #23
   %147 = fdiv float 1.000000e+00, %146
   %148 = fmul float %144, %147
   %149 = load float, ptr %10, align 4
@@ -23277,7 +23278,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
   %159 = load float, ptr %16, align 4
   %160 = call noundef float @llvm.fmuladd.f32(float %159, float %159, float %158)
   %161 = fmul float %154, %160
-  %162 = call noundef float @sqrtf(float noundef %161) #22
+  %162 = call noundef float @sqrtf(float noundef %161) #23
   %163 = fdiv float 1.000000e+00, %162
   %164 = fmul float %148, %163
   %165 = fneg float %148
@@ -23348,7 +23349,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sinf(float noundef) local_unnamed_addr #8
+declare float @sinf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_Z10do_dih_fupIL18BondedKernelFlavor1EEviiiifPfS1_S1_S1_S1_PA4_fPA3_fPK5t_pbcPA3_Kfiii(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) local_unnamed_addr #1 comdat {
@@ -23541,7 +23542,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %9, %11
   %38 = fmul double %36, %37
   %39 = fptrunc double %38 to float
   %40 = fneg float %34
-  %41 = call noundef float @expf(float noundef %40) #22
+  %41 = call noundef float @expf(float noundef %40) #23
   %42 = fpext float %34 to double
   %43 = call double @llvm.fmuladd.f64(double %42, double 5.000000e-01, double 1.000000e+00)
   %44 = fpext float %41 to double
@@ -23722,7 +23723,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit88: ; preds = %57, %45, %81
   br i1 %94, label %95, label %_ZL9cos_anglePKfS0_.exit
 
 95:                                               ; preds = %92
-  %96 = call double @sqrt(double noundef %93) #22
+  %96 = call double @sqrt(double noundef %93) #23
   %97 = fdiv double 1.000000e+00, %96
   %98 = fmul double %89, %97
   %99 = fptrunc double %98 to float
@@ -23734,7 +23735,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
   %101 = fcmp olt float %.026.i, -1.000000e+00
   %..026.i = select i1 %101, float -1.000000e+00, float %.026.i
   %.0.i89 = select i1 %100, float 1.000000e+00, float %..026.i
-  %102 = call noundef float @acosf(float noundef %.0.i89) #22
+  %102 = call noundef float @acosf(float noundef %.0.i89) #23
   %103 = sext i32 %21 to i64
   %104 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %103
   %105 = getelementptr inbounds i8, ptr %104, i64 4
@@ -23760,8 +23761,8 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
   %125 = sitofp i32 %113 to float
   %126 = fsub float %102, %118
   %127 = fmul float %126, %125
-  %128 = call noundef float @sinf(float noundef %127) #22
-  %129 = call noundef float @cosf(float noundef %127) #22
+  %128 = call noundef float @sinf(float noundef %127) #23
+  %129 = call noundef float @cosf(float noundef %127) #23
   %130 = fsub float 1.000000e+00, %129
   %131 = fmul float %124, %130
   %132 = fsub float %108, %106
@@ -23781,7 +23782,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
   %143 = fmul float %142, %125
   %144 = fmul float %128, %143
   %145 = fsub float 1.000000e+00, %139
-  %146 = call noundef float @sqrtf(float noundef %145) #22
+  %146 = call noundef float @sqrtf(float noundef %145) #23
   %147 = fdiv float 1.000000e+00, %146
   %148 = fmul float %144, %147
   %149 = load float, ptr %10, align 4
@@ -23797,7 +23798,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
   %159 = load float, ptr %16, align 4
   %160 = call noundef float @llvm.fmuladd.f32(float %159, float %159, float %158)
   %161 = fmul float %154, %160
-  %162 = call noundef float @sqrtf(float noundef %161) #22
+  %162 = call noundef float @sqrtf(float noundef %161) #23
   %163 = fdiv float 1.000000e+00, %162
   %164 = fmul float %148, %163
   %165 = fneg float %148
@@ -24123,7 +24124,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %10, %13
   %40 = fmul double %38, %39
   %41 = fptrunc double %40 to float
   %42 = fneg float %36
-  %43 = call noundef float @expf(float noundef %42) #22
+  %43 = call noundef float @expf(float noundef %42) #23
   %44 = fpext float %36 to double
   %45 = call double @llvm.fmuladd.f64(double %44, double 5.000000e-01, double 1.000000e+00)
   %46 = fpext float %43 to double
@@ -24327,7 +24328,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit97: ; preds = %67, %55, %91
   br i1 %104, label %105, label %_ZL9cos_anglePKfS0_.exit
 
 105:                                              ; preds = %102
-  %106 = call double @sqrt(double noundef %103) #22
+  %106 = call double @sqrt(double noundef %103) #23
   %107 = fdiv double 1.000000e+00, %106
   %108 = fmul double %99, %107
   %109 = fptrunc double %108 to float
@@ -24339,7 +24340,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %102, %105
   %111 = fcmp olt float %.026.i, -1.000000e+00
   %..026.i = select i1 %111, float -1.000000e+00, float %.026.i
   %.0.i98 = select i1 %110, float 1.000000e+00, float %..026.i
-  %112 = call noundef float @acosf(float noundef %.0.i98) #22
+  %112 = call noundef float @acosf(float noundef %.0.i98) #23
   %113 = sext i32 %31 to i64
   %114 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %113
   %115 = getelementptr inbounds i8, ptr %114, i64 4
@@ -24365,8 +24366,8 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %102, %105
   %135 = sitofp i32 %123 to float
   %136 = fsub float %112, %128
   %137 = fmul float %136, %135
-  %138 = call noundef float @sinf(float noundef %137) #22
-  %139 = call noundef float @cosf(float noundef %137) #22
+  %138 = call noundef float @sinf(float noundef %137) #23
+  %139 = call noundef float @cosf(float noundef %137) #23
   %140 = fsub float 1.000000e+00, %139
   %141 = fmul float %134, %140
   %142 = fsub float %118, %116
@@ -24386,7 +24387,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %102, %105
   %153 = fmul float %152, %135
   %154 = fmul float %138, %153
   %155 = fsub float 1.000000e+00, %149
-  %156 = call noundef float @sqrtf(float noundef %155) #22
+  %156 = call noundef float @sqrtf(float noundef %155) #23
   %157 = fdiv float 1.000000e+00, %156
   %158 = fmul float %154, %157
   %159 = load float, ptr %11, align 4
@@ -24402,7 +24403,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %102, %105
   %169 = load float, ptr %19, align 4
   %170 = call noundef float @llvm.fmuladd.f32(float %169, float %169, float %168)
   %171 = fmul float %164, %170
-  %172 = call noundef float @sqrtf(float noundef %171) #22
+  %172 = call noundef float @sqrtf(float noundef %171) #23
   %173 = fdiv float 1.000000e+00, %172
   %174 = fmul float %158, %173
   %175 = fneg float %158
@@ -24725,7 +24726,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %9, %11
   %38 = fmul double %36, %37
   %39 = fptrunc double %38 to float
   %40 = fneg float %34
-  %41 = call noundef float @expf(float noundef %40) #22
+  %41 = call noundef float @expf(float noundef %40) #23
   %42 = fpext float %34 to double
   %43 = call double @llvm.fmuladd.f64(double %42, double 5.000000e-01, double 1.000000e+00)
   %44 = fpext float %41 to double
@@ -24906,7 +24907,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit88: ; preds = %57, %45, %81
   br i1 %94, label %95, label %_ZL9cos_anglePKfS0_.exit
 
 95:                                               ; preds = %92
-  %96 = call double @sqrt(double noundef %93) #22
+  %96 = call double @sqrt(double noundef %93) #23
   %97 = fdiv double 1.000000e+00, %96
   %98 = fmul double %89, %97
   %99 = fptrunc double %98 to float
@@ -24918,7 +24919,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
   %101 = fcmp olt float %.026.i, -1.000000e+00
   %..026.i = select i1 %101, float -1.000000e+00, float %.026.i
   %.0.i89 = select i1 %100, float 1.000000e+00, float %..026.i
-  %102 = call noundef float @acosf(float noundef %.0.i89) #22
+  %102 = call noundef float @acosf(float noundef %.0.i89) #23
   %103 = sext i32 %21 to i64
   %104 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %103
   %105 = getelementptr inbounds i8, ptr %104, i64 4
@@ -24944,8 +24945,8 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
   %125 = sitofp i32 %113 to float
   %126 = fsub float %102, %118
   %127 = fmul float %126, %125
-  %128 = call noundef float @sinf(float noundef %127) #22
-  %129 = call noundef float @cosf(float noundef %127) #22
+  %128 = call noundef float @sinf(float noundef %127) #23
+  %129 = call noundef float @cosf(float noundef %127) #23
   %130 = fsub float 1.000000e+00, %129
   %131 = fmul float %124, %130
   %132 = fsub float %108, %106
@@ -24965,7 +24966,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
   %143 = fmul float %142, %125
   %144 = fmul float %128, %143
   %145 = fsub float 1.000000e+00, %139
-  %146 = call noundef float @sqrtf(float noundef %145) #22
+  %146 = call noundef float @sqrtf(float noundef %145) #23
   %147 = fdiv float 1.000000e+00, %146
   %148 = fmul float %144, %147
   %149 = load float, ptr %10, align 4
@@ -24981,7 +24982,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
   %159 = load float, ptr %16, align 4
   %160 = call noundef float @llvm.fmuladd.f32(float %159, float %159, float %158)
   %161 = fmul float %154, %160
-  %162 = call noundef float @sqrtf(float noundef %161) #22
+  %162 = call noundef float @sqrtf(float noundef %161) #23
   %163 = fdiv float 1.000000e+00, %162
   %164 = fmul float %148, %163
   %165 = fneg float %148
@@ -25052,7 +25053,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %92, %95
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_Z9nrnbIndexi(i32 noundef %0) local_unnamed_addr #18 {
+define noundef i32 @_Z9nrnbIndexi(i32 noundef %0) local_unnamed_addr #19 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [94 x %"struct.(anonymous namespace)::BondedInteractions"], ptr @_ZN12_GLOBAL__N_128c_bondedInteractionFunctionsIL18BondedKernelFlavor2EEE, i64 0, i64 %2, i32 1
   %4 = load i32, ptr %3, align 8
@@ -25060,7 +25061,7 @@ define noundef i32 @_Z9nrnbIndexi(i32 noundef %0) local_unnamed_addr #18 {
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_bonded.cpp() #19 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_bonded.cpp() #20 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::allocator", align 1
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca %"class.std::allocator", align 1
@@ -25069,7 +25070,7 @@ define internal void @_GLOBAL__sub_I_bonded.cpp() #19 section ".text.startup" pe
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #23
   %5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_Z27c_bondedKernelFlavorStringsB5cxx11)
           to label %.noexc.i unwind label %17
 
@@ -25084,11 +25085,11 @@ define internal void @_GLOBAL__sub_I_bonded.cpp() #19 section ".text.startup" pe
 6:                                                ; preds = %.noexc13.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_Z27c_bondedKernelFlavorStringsB5cxx11) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_Z27c_bondedKernelFlavorStringsB5cxx11) #23
   br label %.body.thread.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc13.i
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #23
   %8 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32))
           to label %.noexc14.i unwind label %19
 
@@ -25103,11 +25104,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 9:                                                ; preds = %.noexc15.i
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32)) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32)) #23
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit18.i: ; preds = %.noexc15.i
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
   %11 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64))
           to label %.noexc19.i unwind label %21
 
@@ -25122,11 +25123,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit18.i: 
 12:                                               ; preds = %.noexc20.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64)) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64)) #23
   br label %.body21.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23.i: ; preds = %.noexc20.i
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %14 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96))
           to label %.noexc24.i unwind label %23
 
@@ -25141,7 +25142,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23.i: 
 15:                                               ; preds = %.noexc25.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96)) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96)) #23
   br label %.body26.i
 
 17:                                               ; preds = %.noexc.i, %0
@@ -25166,31 +25167,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23.i: 
 
 .body26.i:                                        ; preds = %23, %15
   %eh.lpad-body27.i = phi { ptr, i32 } [ %24, %23 ], [ %16, %15 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   br label %.body21.i
 
 .body21.i:                                        ; preds = %.body26.i, %21, %12
   %.29.i = phi ptr [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 96), %.body26.i ], [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64), %12 ], [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 64), %21 ]
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body27.i, %.body26.i ], [ %13, %12 ], [ %22, %21 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
   br label %.body.i
 
 .body.thread.i:                                   ; preds = %17, %6
   %.pn.pn.pn.ph.i = phi { ptr, i32 } [ %7, %6 ], [ %18, %17 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #23
   br label %.loopexit.i
 
 .body.i:                                          ; preds = %.body21.i, %19, %9
   %.18.i = phi ptr [ %.29.i, %.body21.i ], [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32), %9 ], [ getelementptr inbounds (i8, ptr @_Z27c_bondedKernelFlavorStringsB5cxx11, i64 32), %19 ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %.body21.i ], [ %10, %9 ], [ %20, %19 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #22
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #23
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #23
   br label %25
 
 25:                                               ; preds = %25, %.body.i
   %26 = phi ptr [ %27, %25 ], [ %.18.i, %.body.i ]
   %27 = getelementptr inbounds i8, ptr %26, i64 -32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #23
   %28 = icmp eq ptr %27, @_Z27c_bondedKernelFlavorStringsB5cxx11
   br i1 %28, label %.loopexit.i, label %25
 
@@ -25199,11 +25200,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23.i: 
   resume { ptr, i32 } %.pn.pn.pn31.i
 
 __cxx_global_var_init.exit:                       ; preds = %.noexc25.i
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #22
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #22
-  %29 = call i32 @__cxa_atexit(ptr nonnull @_ZN3gmx16EnumerationArrayI18BondedKernelFlavorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_4EED2Ev, ptr nonnull @_Z27c_bondedKernelFlavorStringsB5cxx11, ptr nonnull @__dso_handle) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #23
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #23
+  %29 = call i32 @__cxa_atexit(ptr nonnull @_ZN3gmx16EnumerationArrayI18BondedKernelFlavorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_4EED2Ev, ptr nonnull @_Z27c_bondedKernelFlavorStringsB5cxx11, ptr nonnull @__dso_handle) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
@@ -25212,22 +25213,22 @@ __cxx_global_var_init.exit:                       ; preds = %.noexc25.i
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x float> @llvm.fabs.v8f32(<8 x float>) #20
+declare <8 x float> @llvm.fabs.v8f32(<8 x float>) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #20
+declare float @llvm.sqrt.f32(float) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #20
+declare float @llvm.fabs.f32(float) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x float> @llvm.copysign.v8f32(<8 x float>, <8 x float>) #20
+declare <8 x float> @llvm.copysign.v8f32(<8 x float>, <8 x float>) #21
 
 attributes #0 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -25236,25 +25237,26 @@ attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #13 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #19 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { nounwind }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { noreturn }
-attributes #25 = { nounwind willreturn memory(none) }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #11 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #14 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #20 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { nounwind }
+attributes #24 = { noreturn nounwind }
+attributes #25 = { noreturn }
+attributes #26 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

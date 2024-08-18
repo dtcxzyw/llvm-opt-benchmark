@@ -811,7 +811,7 @@ terminate.lpad:                                   ; preds = %cond.false.i.i.i52,
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #9
+  tail call void @__clang_call_terminate(ptr %31) #10
   unreachable
 }
 
@@ -819,33 +819,34 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #9
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
+  tail call void @_ZSt9terminatev() #10
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8ios_base13_M_grow_wordsEib(ptr noundef nonnull align 8 dereferenceable(216), i32 noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_io_utils.cpp() #8 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_io_utils.cpp() #9 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
-  %call.i = tail call noundef i32 @_ZNSt8ios_base6xallocEv() #10
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #11
+  %call.i = tail call noundef i32 @_ZNSt8ios_base6xallocEv() #11
   store i32 %call.i, ptr @_ZN4cvc58internal7options7ioutilsL34s_iosBvPrintConstsAsIndexedSymbolsE, align 4
-  %call.i1 = tail call noundef i32 @_ZNSt8ios_base6xallocEv() #10
+  %call.i1 = tail call noundef i32 @_ZNSt8ios_base6xallocEv() #11
   store i32 %call.i1, ptr @_ZN4cvc58internal7options7ioutilsL14s_iosDagThreshE, align 4
-  %call.i2 = tail call noundef i32 @_ZNSt8ios_base6xallocEv() #10
+  %call.i2 = tail call noundef i32 @_ZNSt8ios_base6xallocEv() #11
   store i32 %call.i2, ptr @_ZN4cvc58internal7options7ioutilsL14s_iosNodeDepthE, align 4
-  %call.i3 = tail call noundef i32 @_ZNSt8ios_base6xallocEv() #10
+  %call.i3 = tail call noundef i32 @_ZNSt8ios_base6xallocEv() #11
   store i32 %call.i3, ptr @_ZN4cvc58internal7options7ioutilsL20s_iosFlattenHOChainsE, align 4
-  %call.i4 = tail call noundef i32 @_ZNSt8ios_base6xallocEv() #10
+  %call.i4 = tail call noundef i32 @_ZNSt8ios_base6xallocEv() #11
   store i32 %call.i4, ptr @_ZN4cvc58internal7options7ioutilsL23s_iosModelUninterpPrintE, align 4
-  %call.i5 = tail call noundef i32 @_ZNSt8ios_base6xallocEv() #10
+  %call.i5 = tail call noundef i32 @_ZNSt8ios_base6xallocEv() #11
   store i32 %call.i5, ptr @_ZN4cvc58internal7options7ioutilsL19s_iosOutputLanguageE, align 4
   ret void
 }
@@ -858,9 +859,10 @@ attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

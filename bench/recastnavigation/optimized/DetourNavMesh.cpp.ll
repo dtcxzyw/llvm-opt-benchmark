@@ -42,7 +42,7 @@ define void @_Z13dtFreeNavMeshP9dtNavMesh(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %1
-  tail call void @_ZN9dtNavMeshD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #19
+  tail call void @_ZN9dtNavMeshD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #20
   tail call void @_Z6dtFreePv(ptr noundef nonnull %0)
   br label %3
 
@@ -136,7 +136,7 @@ define void @_ZN9dtNavMeshD2Ev(ptr nocapture noundef nonnull readonly align 8 de
 31:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %32 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %32) #20
+  tail call void @__clang_call_terminate(ptr %32) #21
   unreachable
 }
 
@@ -144,14 +144,15 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
-  tail call void @_ZSt9terminatev() #20
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
+  tail call void @_ZSt9terminatev() #21
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh4initEPK15dtNavMeshParams(ptr nocapture noundef nonnull align 8 dereferenceable(100) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
@@ -335,7 +336,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh4initEPK15dt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN9dtNavMesh4initEPhii(ptr nocapture noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
@@ -877,12 +878,12 @@ _ZNK9dtNavMesh9getTileAtEiii.exit:                ; preds = %74, %80, %261, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK9dtNavMesh9getParamsEv(ptr noundef nonnull readnone returned align 8 dereferenceable(100) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull ptr @_ZNK9dtNavMesh9getParamsEv(ptr noundef nonnull readnone returned align 8 dereferenceable(100) %0) local_unnamed_addr #8 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK9dtNavMesh19findConnectingPolysEPKfS1_PK10dtMeshTileiPjPfi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, i32 noundef %7) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK9dtNavMesh19findConnectingPolysEPKfS1_PK10dtMeshTileiPjPfi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, i32 noundef %7) local_unnamed_addr #9 align 2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit91, label %9
 
@@ -1172,7 +1173,7 @@ _Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89:     ; preds = %._Z12overlapSlabsPK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %20, label %3
 
@@ -1201,7 +1202,7 @@ define noundef i32 @_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #10 align 2 {
+define void @_ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #11 align 2 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
@@ -1304,7 +1305,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %20, label %3
 
@@ -1333,7 +1334,7 @@ define noundef i32 @_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #10 align 2 {
+define void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #11 align 2 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [8 x float], align 16
   %.not = icmp eq ptr %1, null
@@ -1524,7 +1525,7 @@ _Z9allocLinkP10dtMeshTile.exit.thread:            ; preds = %_Z9allocLinkP10dtMe
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.round.f32(float) #11
+declare float @llvm.round.f32(float) #12
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
@@ -1832,7 +1833,7 @@ define noundef i32 @_ZNK9dtNavMesh21findNearestPolyInTileEPK10dtMeshTilePKfS4_Pf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN9dtNavMesh15connectIntLinksEP10dtMeshTile(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
+define void @_ZN9dtNavMesh15connectIntLinksEP10dtMeshTile(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1) local_unnamed_addr #11 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit39, label %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit
 
@@ -2678,7 +2679,7 @@ _ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb1EEEvPK10dtMeshTilePK6dtPolyPKfPf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK9dtNavMesh25getTileAndPolyByRefUnsafeEjPPK10dtMeshTilePPK6dtPoly(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #12 align 2 {
+define void @_ZNK9dtNavMesh25getTileAndPolyByRefUnsafeEjPPK10dtMeshTilePPK6dtPoly(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #13 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 92
   %6 = load i32, ptr %5, align 4
   %notmask9.i = shl nsw i32 -1, %6
@@ -2707,7 +2708,7 @@ define void @_ZNK9dtNavMesh25getTileAndPolyByRefUnsafeEjPPK10dtMeshTilePPK6dtPol
 declare noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK9dtNavMesh19queryPolygonsInTileEPK10dtMeshTilePKfS4_Pji(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK9dtNavMesh19queryPolygonsInTileEPK10dtMeshTilePKfS4_Pji(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) local_unnamed_addr #9 align 2 {
   %7 = getelementptr inbounds i8, ptr %1, i64 64
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -3069,10 +3070,10 @@ _Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread:      ; preds = %233, %237, %242, %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #11
+declare float @llvm.fmuladd.f32(float, float, float) #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK9dtNavMesh9getTileAtEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #13 align 2 {
+define noundef ptr @_ZNK9dtNavMesh9getTileAtEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #14 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8
   %7 = mul i32 %1, -1918454973
@@ -3124,7 +3125,7 @@ define noundef ptr @_ZNK9dtNavMesh9getTileAtEiii(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #9 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
   %8 = mul i32 %1, -1918454973
@@ -3181,7 +3182,7 @@ define noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, i32 noundef %5) local_unnamed_addr #9 align 2 {
   switch i32 %3, label %27 [
     i32 0, label %7
     i32 1, label %9
@@ -3288,7 +3289,7 @@ _ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei.exit: ; preds = %53, %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPPK10dtMeshTilei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPPK10dtMeshTilei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #9 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
   %8 = mul i32 %1, -1918454973
@@ -3345,7 +3346,7 @@ define noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPPK10dtMeshTilei(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK9dtNavMesh12getTileRefAtEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #13 align 2 {
+define noundef i32 @_ZNK9dtNavMesh12getTileRefAtEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #14 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8
   %7 = mul i32 %1, -1918454973
@@ -3416,7 +3417,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK9dtNavMesh12getTileByRefEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
+define noundef ptr @_ZNK9dtNavMesh12getTileByRefEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %25, label %3
 
@@ -3457,14 +3458,14 @@ define noundef ptr @_ZNK9dtNavMesh12getTileByRefEj(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN9dtNavMesh7getTileEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZN9dtNavMesh7getTileEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
@@ -3473,7 +3474,7 @@ define noundef ptr @_ZN9dtNavMesh7getTileEi(ptr nocapture noundef nonnull readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK9dtNavMesh7getTileEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZNK9dtNavMesh7getTileEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
@@ -3482,7 +3483,7 @@ define noundef ptr @_ZNK9dtNavMesh7getTileEi(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK9dtNavMesh11calcTileLocEPKfPiS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #14 align 2 {
+define void @_ZNK9dtNavMesh11calcTileLocEPKfPiS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #15 align 2 {
   %5 = load float, ptr %1, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 28
   %7 = load float, ptr %6, align 4
@@ -3508,10 +3509,10 @@ define void @_ZNK9dtNavMesh11calcTileLocEPKfPiS2_(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #11
+declare float @llvm.floor.f32(float) #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh19getTileAndPolyByRefEjPPK10dtMeshTilePPK6dtPoly(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #12 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh19getTileAndPolyByRefEjPPK10dtMeshTilePPK6dtPoly(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #13 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %42, label %5
 
@@ -3576,7 +3577,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh19getTileAn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK9dtNavMesh14isValidPolyRefEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
+define noundef zeroext i1 @_ZNK9dtNavMesh14isValidPolyRefEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %34, label %3
 
@@ -4188,7 +4189,7 @@ _ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit117: ; preds = %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile(ptr nocapture noundef nonnull readnone align 8 dereferenceable(100) %0, ptr noundef readonly %1) local_unnamed_addr #13 align 2 {
+define noundef i32 @_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile(ptr nocapture noundef nonnull readnone align 8 dereferenceable(100) %0, ptr noundef readonly %1) local_unnamed_addr #14 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %3
 
@@ -4207,7 +4208,7 @@ define noundef i32 @_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 1073741824, -2147483631) i32 @_ZNK9dtNavMesh14storeTileStateEPK10dtMeshTilePhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
+define noundef range(i32 1073741824, -2147483631) i32 @_ZNK9dtNavMesh14storeTileStateEPK10dtMeshTilePhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #9 align 2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit, label %5
 
@@ -4286,7 +4287,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %_ZNK9dtNavMesh16get
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh16restoreTileStateEP10dtMeshTilePKhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #10 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh16restoreTileStateEP10dtMeshTilePKhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #11 align 2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit, label %5
 
@@ -4380,7 +4381,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh33getOffMeshConnectionPolyEndPointsEjjPfS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #8 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh33getOffMeshConnectionPolyEndPointsEjjPfS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #9 align 2 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %82, label %6
 
@@ -4611,7 +4612,7 @@ define noundef ptr @_ZNK9dtNavMesh25getOffMeshConnectionByRefEj(ptr nocapture no
 declare noundef ptr @_Z21dtAssertFailGetCustomv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh12setPolyFlagsEjt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #15 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh12setPolyFlagsEjt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #16 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %40, label %4
 
@@ -4674,7 +4675,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh12setPolyFla
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh12getPolyFlagsEjPt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh12getPolyFlagsEjPt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #13 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %41, label %4
 
@@ -4738,7 +4739,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh12getPolyFl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh11setPolyAreaEjh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #15 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh11setPolyAreaEjh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #16 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %44, label %4
 
@@ -4805,7 +4806,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh11setPolyAre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh11getPolyAreaEjPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh11getPolyAreaEjPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #13 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %42, label %4
 
@@ -4870,19 +4871,19 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh11getPolyAr
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #16
+declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #16
+declare i32 @llvm.umax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #17
+declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4890,21 +4891,22 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nounwind }
-attributes #20 = { noreturn nounwind }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nounwind }
+attributes #21 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

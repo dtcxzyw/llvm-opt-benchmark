@@ -1378,12 +1378,12 @@ define void @_ZN2cv7hconcatEPKNS_3MatEmRKNS_12_OutputArrayE(ptr noundef %0, i64 
   br i1 %32, label %41, label %33
 
 33:                                               ; preds = %27, %22, %17
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %34 unwind label %36
 
 34:                                               ; preds = %33
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN2cv7hconcatEPKNS_3MatEmRKNS_12_OutputArrayE, ptr noundef nonnull @.str.1, i32 noundef 67) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN2cv7hconcatEPKNS_3MatEmRKNS_12_OutputArrayE, ptr noundef nonnull @.str.1, i32 noundef 67) #16
           to label %35 unwind label %38
 
 35:                                               ; preds = %34
@@ -1397,12 +1397,12 @@ define void @_ZN2cv7hconcatEPKNS_3MatEmRKNS_12_OutputArrayE(ptr noundef %0, i64 
 38:                                               ; preds = %34
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   br label %40
 
 40:                                               ; preds = %38, %36
   %.pn49 = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   br label %84
 
 41:                                               ; preds = %27
@@ -1469,7 +1469,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %54, %51
 67:                                               ; preds = %66
   %68 = load i32, ptr %62, align 4
   %69 = add nsw i32 %68, %.03858
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #15
   %70 = add nuw i64 %.059, 1
   %exitcond60.not = icmp eq i64 %70, %1
   br i1 %exitcond60.not, label %75, label %60, !llvm.loop !9
@@ -1482,11 +1482,11 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %54, %51
 73:                                               ; preds = %66
   %74 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #15
   br label %83
 
 75:                                               ; preds = %67
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #15
   br label %76
 
 76:                                               ; preds = %14, %75
@@ -1503,7 +1503,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %54, %51
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #16
+  call void @__clang_call_terminate(ptr %82) #17
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %76, %79
@@ -1511,12 +1511,12 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %76, %79
 
 83:                                               ; preds = %73, %71
   %.pn.pn = phi { ptr, i32 } [ %74, %73 ], [ %72, %71 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #15
   br label %84
 
 84:                                               ; preds = %83, %40, %15
   %.pn49.pn = phi { ptr, i32 } [ %.pn49, %40 ], [ %.pn.pn, %83 ], [ %16, %15 ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #14
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #15
   resume { ptr, i32 } %.pn49.pn
 }
 
@@ -1565,7 +1565,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #16
+  tail call void @__clang_call_terminate(ptr %8) #17
   unreachable
 }
 
@@ -1621,7 +1621,7 @@ _ZNK2cv11_InputArray6getMatEi.exit13:             ; preds = %15, %18
 21:                                               ; preds = %21, %19
   %22 = phi ptr [ %20, %19 ], [ %23, %21 ]
   %23 = getelementptr inbounds i8, ptr %22, i64 -96
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #15
   %24 = icmp eq ptr %23, %5
   br i1 %24, label %25, label %21
 
@@ -1639,7 +1639,7 @@ _ZNK2cv11_InputArray6getMatEi.exit13:             ; preds = %15, %18
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #16
+  call void @__clang_call_terminate(ptr %31) #17
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %25, %28
@@ -1653,7 +1653,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %25, %28
 .loopexit.loopexit17:                             ; preds = %18, %15, %_ZNK2cv11_InputArray6getMatEi.exit
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #15
   br label %.loopexit
 
 32:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit13
@@ -1665,13 +1665,13 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %25, %28
 35:                                               ; preds = %35, %32
   %36 = phi ptr [ %34, %32 ], [ %37, %35 ]
   %37 = getelementptr inbounds i8, ptr %36, i64 -96
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #15
   %38 = icmp eq ptr %37, %5
   br i1 %38, label %.loopexit, label %35
 
 .loopexit:                                        ; preds = %35, %.loopexit.loopexit17, %.thread
   %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %.loopexit.loopexit17 ], [ %33, %35 ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #14
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #15
   resume { ptr, i32 } %.pn
 }
 
@@ -1705,7 +1705,7 @@ define void @_ZN2cv7hconcatERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr noundef 
 
 .lr.ph.i.i.i.i:                                   ; preds = %14, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i.i ], [ %15, %14 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #15
   %17 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 96
   %.not.i.i.i.i = icmp eq ptr %17, %16
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
@@ -1720,7 +1720,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2c
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %19
 
 19:                                               ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %18) #17
+  call void @_ZdlPv(ptr noundef nonnull %18) #18
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %19
@@ -1737,7 +1737,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #16
+  call void @__clang_call_terminate(ptr %25) #17
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, %22
@@ -1746,8 +1746,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv3M
 26:                                               ; preds = %5, %2
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #14
+  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #15
   resume { ptr, i32 } %27
 }
 
@@ -1763,7 +1763,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef 
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i) #14
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i) #15
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 96
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !16
@@ -1778,7 +1778,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit:  ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit, label %7
 
 7:                                                ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #18
   br label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit, %7
@@ -1838,12 +1838,12 @@ define void @_ZN2cv7vconcatEPKNS_3MatEmRKNS_12_OutputArrayE(ptr noundef %0, i64 
   br i1 %32, label %41, label %33
 
 33:                                               ; preds = %27, %22, %17
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %34 unwind label %36
 
 34:                                               ; preds = %33
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN2cv7vconcatEPKNS_3MatEmRKNS_12_OutputArrayE, ptr noundef nonnull @.str.1, i32 noundef 112) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN2cv7vconcatEPKNS_3MatEmRKNS_12_OutputArrayE, ptr noundef nonnull @.str.1, i32 noundef 112) #16
           to label %35 unwind label %38
 
 35:                                               ; preds = %34
@@ -1857,12 +1857,12 @@ define void @_ZN2cv7vconcatEPKNS_3MatEmRKNS_12_OutputArrayE(ptr noundef %0, i64 
 38:                                               ; preds = %34
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   br label %40
 
 40:                                               ; preds = %38, %36
   %.pn49 = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   br label %84
 
 41:                                               ; preds = %27
@@ -1929,7 +1929,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %54, %51
 67:                                               ; preds = %66
   %68 = load i32, ptr %64, align 8
   %69 = add nsw i32 %68, %.03857
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #15
   %70 = add nuw i64 %.058, 1
   %exitcond59.not = icmp eq i64 %70, %1
   br i1 %exitcond59.not, label %75, label %60, !llvm.loop !21
@@ -1942,11 +1942,11 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %54, %51
 73:                                               ; preds = %66
   %74 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #15
   br label %83
 
 75:                                               ; preds = %67
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #15
   br label %76
 
 76:                                               ; preds = %14, %75
@@ -1963,7 +1963,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %54, %51
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #16
+  call void @__clang_call_terminate(ptr %82) #17
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %76, %79
@@ -1971,12 +1971,12 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %76, %79
 
 83:                                               ; preds = %73, %71
   %.pn.pn = phi { ptr, i32 } [ %74, %73 ], [ %72, %71 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #15
   br label %84
 
 84:                                               ; preds = %83, %40, %15
   %.pn49.pn = phi { ptr, i32 } [ %.pn49, %40 ], [ %.pn.pn, %83 ], [ %16, %15 ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #14
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #15
   resume { ptr, i32 } %.pn49.pn
 }
 
@@ -2034,7 +2034,7 @@ _ZNK2cv11_InputArray6getMatEi.exit13:             ; preds = %15, %18
 21:                                               ; preds = %21, %19
   %22 = phi ptr [ %20, %19 ], [ %23, %21 ]
   %23 = getelementptr inbounds i8, ptr %22, i64 -96
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #15
   %24 = icmp eq ptr %23, %5
   br i1 %24, label %25, label %21
 
@@ -2052,7 +2052,7 @@ _ZNK2cv11_InputArray6getMatEi.exit13:             ; preds = %15, %18
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #16
+  call void @__clang_call_terminate(ptr %31) #17
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %25, %28
@@ -2066,7 +2066,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %25, %28
 .loopexit.loopexit17:                             ; preds = %18, %15, %_ZNK2cv11_InputArray6getMatEi.exit
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #15
   br label %.loopexit
 
 32:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit13
@@ -2078,13 +2078,13 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %25, %28
 35:                                               ; preds = %35, %32
   %36 = phi ptr [ %34, %32 ], [ %37, %35 ]
   %37 = getelementptr inbounds i8, ptr %36, i64 -96
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #15
   %38 = icmp eq ptr %37, %5
   br i1 %38, label %.loopexit, label %35
 
 .loopexit:                                        ; preds = %35, %.loopexit.loopexit17, %.thread
   %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %.loopexit.loopexit17 ], [ %33, %35 ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #14
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #15
   resume { ptr, i32 } %.pn
 }
 
@@ -2118,7 +2118,7 @@ define void @_ZN2cv7vconcatERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr noundef 
 
 .lr.ph.i.i.i.i:                                   ; preds = %14, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i.i ], [ %15, %14 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #15
   %17 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 96
   %.not.i.i.i.i = icmp eq ptr %17, %16
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
@@ -2133,7 +2133,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2c
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %19
 
 19:                                               ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %18) #17
+  call void @_ZdlPv(ptr noundef nonnull %18) #18
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %19
@@ -2150,7 +2150,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #16
+  call void @__clang_call_terminate(ptr %25) #17
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, %22
@@ -2159,8 +2159,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv3M
 26:                                               ; preds = %5, %2
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #14
+  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #15
   resume { ptr, i32 } %27
 }
 
@@ -2186,12 +2186,12 @@ define void @_ZN2cv11setIdentityERKNS_17_InputOutputArrayERKNS_7Scalar_IdEE(ptr 
   br label %84
 
 14:                                               ; preds = %10
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %15 unwind label %17
 
 15:                                               ; preds = %14
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZN2cv11setIdentityERKNS_17_InputOutputArrayERKNS_7Scalar_IdEE, ptr noundef nonnull @.str.1, i32 noundef 188) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZN2cv11setIdentityERKNS_17_InputOutputArrayERKNS_7Scalar_IdEE, ptr noundef nonnull @.str.1, i32 noundef 188) #16
           to label %16 unwind label %19
 
 16:                                               ; preds = %15
@@ -2205,12 +2205,12 @@ define void @_ZN2cv11setIdentityERKNS_17_InputOutputArrayERKNS_7Scalar_IdEE(ptr 
 19:                                               ; preds = %15
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
   br label %21
 
 21:                                               ; preds = %19, %17
   %.pn = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
   br label %84
 
 22:                                               ; preds = %10
@@ -2338,17 +2338,17 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %25, %28
           to label %74 unwind label %75
 
 74:                                               ; preds = %72
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #15
   br label %.loopexit
 
 75:                                               ; preds = %72
   %76 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #15
   br label %83
 
 .loopexit:                                        ; preds = %._crit_edge.us, %51, %55, %35, %74
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #15
   %77 = getelementptr inbounds i8, ptr %3, i64 8
   %78 = load i32, ptr %77, align 8
   %.not.i = icmp eq i32 %78, 0
@@ -2362,7 +2362,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %25, %28
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #16
+  call void @__clang_call_terminate(ptr %82) #17
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %79
@@ -2370,12 +2370,12 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %79
 
 83:                                               ; preds = %75, %53
   %.pn48 = phi { ptr, i32 } [ %76, %75 ], [ %54, %53 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #15
   br label %84
 
 84:                                               ; preds = %83, %21, %12
   %.pn48.pn = phi { ptr, i32 } [ %.pn48, %83 ], [ %13, %12 ], [ %.pn, %21 ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #14
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #15
   resume { ptr, i32 } %.pn48.pn
 }
 
@@ -2410,7 +2410,7 @@ define void @_ZN2cv4UMat3eyeEiiiNS_14UMatUsageFlagsE(ptr dead_on_unwind noalias 
 11:                                               ; preds = %5
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #14
+  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #15
   resume { ptr, i32 } %12
 
 _ZN2cv4UMat3eyeENS_5Size_IiEEiNS_14UMatUsageFlagsE.exit: ; preds = %5
@@ -2441,7 +2441,7 @@ define void @_ZN2cv4UMat3eyeENS_5Size_IiEEiNS_14UMatUsageFlagsE(ptr dead_on_unwi
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #14
+  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #15
   resume { ptr, i32 } %12
 }
 
@@ -2491,12 +2491,12 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %11, %14
   br label %81
 
 20:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %21 unwind label %23
 
 21:                                               ; preds = %20
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN2cv5traceERKNS_11_InputArrayE, ptr noundef nonnull @.str.1, i32 noundef 253) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN2cv5traceERKNS_11_InputArrayE, ptr noundef nonnull @.str.1, i32 noundef 253) #16
           to label %22 unwind label %25
 
 22:                                               ; preds = %21
@@ -2510,12 +2510,12 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %11, %14
 25:                                               ; preds = %21
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   br label %27
 
 27:                                               ; preds = %25, %23
   %.pn = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   br label %80
 
 28:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
@@ -2617,17 +2617,17 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %11, %14
           to label %70 unwind label %71
 
 70:                                               ; preds = %66
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #15
   br label %73
 
 71:                                               ; preds = %66
   %72 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #15
   br label %80
 
 73:                                               ; preds = %._crit_edge, %._crit_edge44, %70
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
   %74 = getelementptr inbounds i8, ptr %3, i64 8
   %75 = load i32, ptr %74, align 8
   %.not.i = icmp eq i32 %75, 0
@@ -2641,7 +2641,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %11, %14
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #16
+  call void @__clang_call_terminate(ptr %79) #17
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %73, %76
@@ -2649,12 +2649,12 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %73, %76
 
 80:                                               ; preds = %71, %49, %27
   %.pn32 = phi { ptr, i32 } [ %50, %49 ], [ %72, %71 ], [ %.pn, %27 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
   br label %81
 
 81:                                               ; preds = %80, %18
   %.pn32.pn = phi { ptr, i32 } [ %.pn32, %80 ], [ %19, %18 ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #14
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #15
   resume { ptr, i32 } %.pn32.pn
 }
 
@@ -2717,12 +2717,12 @@ _ZNK2cv3Mat8elemSizeEv.exit.thread:               ; preds = %_ZNK2cv11_InputArra
   br label %67
 
 33:                                               ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.thread, %_ZNK2cv3Mat8elemSizeEv.exit
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %34 unwind label %36
 
 34:                                               ; preds = %33
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN2cv12completeSymmERKNS_17_InputOutputArrayEb, ptr noundef nonnull @.str.1, i32 noundef 289) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN2cv12completeSymmERKNS_17_InputOutputArrayEb, ptr noundef nonnull @.str.1, i32 noundef 289) #16
           to label %35 unwind label %38
 
 35:                                               ; preds = %34
@@ -2736,13 +2736,13 @@ _ZNK2cv3Mat8elemSizeEv.exit.thread:               ; preds = %_ZNK2cv11_InputArra
 38:                                               ; preds = %34
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   br label %40
 
 40:                                               ; preds = %38, %36
   %.pn = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
   br label %67
 
 41:                                               ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.thread
@@ -2818,7 +2818,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.thread:               ; preds = %_ZNK2cv11_InputArra
   br i1 %exitcond.not, label %.loopexit, label %57, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.us, %41
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
   %61 = getelementptr inbounds i8, ptr %3, i64 8
   %62 = load i32, ptr %61, align 8
   %.not.i = icmp eq i32 %62, 0
@@ -2832,7 +2832,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.thread:               ; preds = %_ZNK2cv11_InputArra
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #16
+  call void @__clang_call_terminate(ptr %66) #17
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %63
@@ -2840,7 +2840,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %63
 
 67:                                               ; preds = %40, %31
   %.pn.pn = phi { ptr, i32 } [ %.pn, %40 ], [ %32, %31 ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #14
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2924,12 +2924,12 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   br label %153
 
 .critedge:                                        ; preds = %36, %22, %_ZNK2cv11_InputArray6getMatEi.exit, %47
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %56 unwind label %58
 
 56:                                               ; preds = %.critedge
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZNK2cv3Mat5crossERKNS_11_InputArrayE, ptr noundef nonnull @.str.1, i32 noundef 309) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZNK2cv3Mat5crossERKNS_11_InputArrayE, ptr noundef nonnull @.str.1, i32 noundef 309) #16
           to label %57 unwind label %60
 
 57:                                               ; preds = %56
@@ -2943,12 +2943,12 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
 60:                                               ; preds = %56
   %61 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   br label %62
 
 62:                                               ; preds = %60, %58
   %.pn = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   br label %153
 
 .critedge70:                                      ; preds = %47, %40
@@ -3064,12 +3064,12 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   br label %152
 
 152:                                              ; preds = %64, %108, %63
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
   ret void
 
 153:                                              ; preds = %62, %54
   %.pn61 = phi { ptr, i32 } [ %55, %54 ], [ %.pn, %62 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
   resume { ptr, i32 } %.pn61
 }
 
@@ -3110,12 +3110,12 @@ define void @_ZN2cv6reduceERKNS_11_InputArrayERKNS_12_OutputArrayEiii(ptr nounde
   br label %268
 
 24:                                               ; preds = %20
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %25 unwind label %27
 
 25:                                               ; preds = %24
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv6reduceERKNS_11_InputArrayERKNS_12_OutputArrayEiii, ptr noundef nonnull @.str.1, i32 noundef 769) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv6reduceERKNS_11_InputArrayERKNS_12_OutputArrayEiii, ptr noundef nonnull @.str.1, i32 noundef 769) #16
           to label %26 unwind label %29
 
 26:                                               ; preds = %25
@@ -3129,12 +3129,12 @@ define void @_ZN2cv6reduceERKNS_11_InputArrayERKNS_12_OutputArrayEiii(ptr nounde
 29:                                               ; preds = %25
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
   br label %31
 
 31:                                               ; preds = %29, %27
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #15
   br label %268
 
 32:                                               ; preds = %20
@@ -3169,12 +3169,12 @@ define void @_ZN2cv6reduceERKNS_11_InputArrayERKNS_12_OutputArrayEiii(ptr nounde
   br i1 %switch, label %57, label %49
 
 49:                                               ; preds = %43
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.19, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %50 unwind label %52
 
 50:                                               ; preds = %49
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @__func__._ZN2cv6reduceERKNS_11_InputArrayERKNS_12_OutputArrayEiii, ptr noundef nonnull @.str.1, i32 noundef 780) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @__func__._ZN2cv6reduceERKNS_11_InputArrayERKNS_12_OutputArrayEiii, ptr noundef nonnull @.str.1, i32 noundef 780) #16
           to label %51 unwind label %54
 
 51:                                               ; preds = %50
@@ -3188,16 +3188,16 @@ define void @_ZN2cv6reduceERKNS_11_InputArrayERKNS_12_OutputArrayEiii(ptr nounde
 54:                                               ; preds = %50
   %55 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #15
   br label %56
 
 56:                                               ; preds = %54, %52
   %.pn312 = phi { ptr, i32 } [ %55, %54 ], [ %53, %52 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #15
   br label %268
 
 57:                                               ; preds = %43
-  call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %11, i32 noundef 0) #14
+  call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %11, i32 noundef 0) #15
   %58 = invoke noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %59 unwind label %65
 
@@ -3214,7 +3214,7 @@ define void @_ZN2cv6reduceERKNS_11_InputArrayERKNS_12_OutputArrayEiii(ptr nounde
           to label %64 unwind label %67
 
 64:                                               ; preds = %62
-  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %12) #14
+  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %12) #15
   br label %69
 
 65:                                               ; preds = %75, %72, %69, %57, %61
@@ -3225,7 +3225,7 @@ define void @_ZN2cv6reduceERKNS_11_InputArrayERKNS_12_OutputArrayEiii(ptr nounde
 67:                                               ; preds = %62
   %68 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %12) #14
+  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %12) #15
   br label %267
 
 69:                                               ; preds = %64, %59
@@ -3642,12 +3642,12 @@ _ZNK2cv11_InputArray6getMatEi.exit341:            ; preds = %86, %89
   br i1 %or.cond129, label %.thread, label %.thread346
 
 .thread346:                                       ; preds = %172, %107, %216, %202, %189, %170, %151, %137, %124, %235
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.20, ptr noundef nonnull align 1 dereferenceable(1) %17)
           to label %237 unwind label %239
 
 237:                                              ; preds = %.thread346
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -210, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @__func__._ZN2cv6reduceERKNS_11_InputArrayERKNS_12_OutputArrayEiii, ptr noundef nonnull @.str.1, i32 noundef 958) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -210, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @__func__._ZN2cv6reduceERKNS_11_InputArrayERKNS_12_OutputArrayEiii, ptr noundef nonnull @.str.1, i32 noundef 958) #16
           to label %238 unwind label %241
 
 238:                                              ; preds = %237
@@ -3661,12 +3661,12 @@ _ZNK2cv11_InputArray6getMatEi.exit341:            ; preds = %86, %89
 241:                                              ; preds = %237
   %242 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #15
   br label %243
 
 243:                                              ; preds = %241, %239
   %.pn314 = phi { ptr, i32 } [ %242, %241 ], [ %240, %239 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #15
   br label %264
 
 .thread:                                          ; preds = %234, %232, %231, %229, %228, %226, %224, %222, %219, %213, %210, %207, %205, %199, %196, %193, %191, %188, %186, %185, %183, %182, %180, %178, %176, %173, %169, %167, %166, %164, %163, %161, %159, %157, %154, %148, %145, %142, %140, %134, %131, %128, %126, %123, %121, %120, %118, %117, %115, %113, %111, %108, %216, %202, %189, %170, %151, %137, %124, %235
@@ -3699,10 +3699,10 @@ _ZNK2cv11_InputArray6getMatEi.exit341:            ; preds = %86, %89
   br label %264
 
 257:                                              ; preds = %245, %244
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #14
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #14
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #14
-  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %11) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #15
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #15
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #15
+  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %11) #15
   %258 = getelementptr inbounds i8, ptr %6, i64 8
   %259 = load i32, ptr %258, align 8
   %.not.i = icmp eq i32 %259, 0
@@ -3716,7 +3716,7 @@ _ZNK2cv11_InputArray6getMatEi.exit341:            ; preds = %86, %89
   %262 = landingpad { ptr, i32 }
           catch ptr null
   %263 = extractvalue { ptr, i32 } %262, 0
-  call void @__clang_call_terminate(ptr %263) #16
+  call void @__clang_call_terminate(ptr %263) #17
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %257, %260
@@ -3724,27 +3724,27 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %257, %260
 
 264:                                              ; preds = %255, %243, %104
   %.pn316 = phi { ptr, i32 } [ %256, %255 ], [ %105, %104 ], [ %.pn314, %243 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #15
   br label %265
 
 265:                                              ; preds = %264, %102
   %.pn316.pn = phi { ptr, i32 } [ %.pn316, %264 ], [ %103, %102 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #15
   br label %266
 
 266:                                              ; preds = %265, %100
   %.pn316.pn.pn = phi { ptr, i32 } [ %.pn316.pn, %265 ], [ %101, %100 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #15
   br label %267
 
 267:                                              ; preds = %266, %67, %65
   %.pn316.pn.pn.pn = phi { ptr, i32 } [ %.pn316.pn.pn, %266 ], [ %66, %65 ], [ %68, %67 ]
-  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %11) #14
+  call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %11) #15
   br label %268
 
 268:                                              ; preds = %267, %56, %31, %22
   %.pn316.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn316.pn.pn.pn, %267 ], [ %.pn312, %56 ], [ %23, %22 ], [ %.pn, %31 ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %6) #14
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %6) #15
   resume { ptr, i32 } %.pn316.pn.pn.pn.pn
 }
 
@@ -3800,7 +3800,7 @@ define internal void @_ZN2cvL8reduceR_IhiNS_5OpAddIiiiEENS_5OpNopIiiiEEEEvRKNS_3
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 2
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -3814,7 +3814,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -3842,7 +3842,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -3851,13 +3851,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #15
   br label %common.resume
 }
 
@@ -3898,7 +3898,7 @@ define internal void @_ZN2cvL8reduceR_IhfNS_5OpAddIiiiEENS_5OpNopIiiiEEEEvRKNS_3
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 2
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -3912,7 +3912,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -3940,7 +3940,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -3949,13 +3949,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #15
   br label %common.resume
 }
 
@@ -3996,7 +3996,7 @@ define internal void @_ZN2cvL8reduceR_IhdNS_5OpAddIiiiEENS_5OpNopIiiiEEEEvRKNS_3
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 2
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -4010,7 +4010,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -4038,7 +4038,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -4047,13 +4047,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #15
   br label %common.resume
 }
 
@@ -4094,7 +4094,7 @@ define internal void @_ZN2cvL8reduceR_ItfNS_5OpAddIfffEENS_5OpNopIfffEEEEvRKNS_3
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 2
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -4108,7 +4108,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -4136,7 +4136,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -4145,13 +4145,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #15
   br label %common.resume
 }
 
@@ -4192,7 +4192,7 @@ define internal void @_ZN2cvL8reduceR_ItdNS_5OpAddIdddEENS_5OpNopIdddEEEEvRKNS_3
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 3
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -4206,7 +4206,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -4234,7 +4234,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -4243,13 +4243,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #15
   br label %common.resume
 }
 
@@ -4290,7 +4290,7 @@ define internal void @_ZN2cvL8reduceR_IsfNS_5OpAddIfffEENS_5OpNopIfffEEEEvRKNS_3
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 2
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -4304,7 +4304,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -4332,7 +4332,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -4341,13 +4341,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #15
   br label %common.resume
 }
 
@@ -4388,7 +4388,7 @@ define internal void @_ZN2cvL8reduceR_IsdNS_5OpAddIdddEENS_5OpNopIdddEEEEvRKNS_3
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 3
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -4402,7 +4402,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -4430,7 +4430,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -4439,13 +4439,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #15
   br label %common.resume
 }
 
@@ -4486,7 +4486,7 @@ define internal void @_ZN2cvL8reduceR_IffNS_5OpAddIfffEENS_5OpNopIfffEEEEvRKNS_3
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 2
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -4500,7 +4500,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -4528,7 +4528,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -4537,13 +4537,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #15
   br label %common.resume
 }
 
@@ -4584,7 +4584,7 @@ define internal void @_ZN2cvL8reduceR_IfdNS_5OpAddIdddEENS_5OpNopIdddEEEEvRKNS_3
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 3
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -4598,7 +4598,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -4626,7 +4626,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -4635,13 +4635,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #15
   br label %common.resume
 }
 
@@ -4682,7 +4682,7 @@ define internal void @_ZN2cvL8reduceR_IddNS_5OpAddIdddEENS_5OpNopIdddEEEEvRKNS_3
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 3
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -4696,7 +4696,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -4724,7 +4724,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -4733,13 +4733,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #15
   br label %common.resume
 }
 
@@ -4777,7 +4777,7 @@ define internal void @_ZN2cvL8reduceR_IhhNS_5OpMaxIhEENS_5OpNopIhhhEEEEvRKNS_3Ma
   br i1 %.not.i.i.i, label %24, label %28
 
 24:                                               ; preds = %2
-  %25 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %21) #18
+  %25 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %21) #19
           to label %.noexc.i unwind label %26
 
 .noexc.i:                                         ; preds = %24
@@ -4791,7 +4791,7 @@ common.resume:                                    ; preds = %43, %26
 26:                                               ; preds = %24
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 28:                                               ; preds = %2, %.noexc.i
@@ -4819,7 +4819,7 @@ common.resume:                                    ; preds = %43, %26
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %39
-  call void @_ZdaPv(ptr noundef nonnull %38) #17
+  call void @_ZdaPv(ptr noundef nonnull %38) #18
   br label %42
 
 42:                                               ; preds = %41, %39
@@ -4828,13 +4828,13 @@ common.resume:                                    ; preds = %43, %26
   br label %_ZN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEED2Ev.exit: ; preds = %37, %42
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 43:                                               ; preds = %28
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1088) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1088) %5) #15
   br label %common.resume
 }
 
@@ -4875,7 +4875,7 @@ define internal void @_ZN2cvL8reduceR_IttNS_5OpMaxItEENS_5OpNopItttEEEEvRKNS_3Ma
   %25 = shl nuw nsw i64 %21, 1
   %.inv.i.i.i = icmp sgt i32 %20, -1
   %26 = select i1 %.inv.i.i.i, i64 %25, i64 -1
-  %27 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #18
+  %27 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #19
           to label %.noexc.i unwind label %28
 
 .noexc.i:                                         ; preds = %24
@@ -4889,7 +4889,7 @@ common.resume:                                    ; preds = %45, %28
 28:                                               ; preds = %24
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 30:                                               ; preds = %2, %.noexc.i
@@ -4917,7 +4917,7 @@ common.resume:                                    ; preds = %45, %28
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %41
-  call void @_ZdaPv(ptr noundef nonnull %40) #17
+  call void @_ZdaPv(ptr noundef nonnull %40) #18
   br label %44
 
 44:                                               ; preds = %43, %41
@@ -4926,13 +4926,13 @@ common.resume:                                    ; preds = %45, %28
   br label %_ZN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEED2Ev.exit: ; preds = %39, %44
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 45:                                               ; preds = %30
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %5) #15
   br label %common.resume
 }
 
@@ -4973,7 +4973,7 @@ define internal void @_ZN2cvL8reduceR_IssNS_5OpMaxIsEENS_5OpNopIsssEEEEvRKNS_3Ma
   %25 = shl nuw nsw i64 %21, 1
   %.inv.i.i.i = icmp sgt i32 %20, -1
   %26 = select i1 %.inv.i.i.i, i64 %25, i64 -1
-  %27 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #18
+  %27 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #19
           to label %.noexc.i unwind label %28
 
 .noexc.i:                                         ; preds = %24
@@ -4987,7 +4987,7 @@ common.resume:                                    ; preds = %45, %28
 28:                                               ; preds = %24
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 30:                                               ; preds = %2, %.noexc.i
@@ -5015,7 +5015,7 @@ common.resume:                                    ; preds = %45, %28
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %41
-  call void @_ZdaPv(ptr noundef nonnull %40) #17
+  call void @_ZdaPv(ptr noundef nonnull %40) #18
   br label %44
 
 44:                                               ; preds = %43, %41
@@ -5024,13 +5024,13 @@ common.resume:                                    ; preds = %45, %28
   br label %_ZN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEED2Ev.exit: ; preds = %39, %44
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 45:                                               ; preds = %30
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %5) #15
   br label %common.resume
 }
 
@@ -5071,7 +5071,7 @@ define internal void @_ZN2cvL8reduceR_IffNS_5OpMaxIfEENS_5OpNopIfffEEEEvRKNS_3Ma
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 2
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -5085,7 +5085,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -5113,7 +5113,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -5122,13 +5122,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #15
   br label %common.resume
 }
 
@@ -5169,7 +5169,7 @@ define internal void @_ZN2cvL8reduceR_IddNS_5OpMaxIdEENS_5OpNopIdddEEEEvRKNS_3Ma
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 3
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -5183,7 +5183,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -5211,7 +5211,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -5220,13 +5220,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #15
   br label %common.resume
 }
 
@@ -5264,7 +5264,7 @@ define internal void @_ZN2cvL8reduceR_IhhNS_5OpMinIhEENS_5OpNopIhhhEEEEvRKNS_3Ma
   br i1 %.not.i.i.i, label %24, label %28
 
 24:                                               ; preds = %2
-  %25 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %21) #18
+  %25 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %21) #19
           to label %.noexc.i unwind label %26
 
 .noexc.i:                                         ; preds = %24
@@ -5278,7 +5278,7 @@ common.resume:                                    ; preds = %43, %26
 26:                                               ; preds = %24
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 28:                                               ; preds = %2, %.noexc.i
@@ -5306,7 +5306,7 @@ common.resume:                                    ; preds = %43, %26
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %39
-  call void @_ZdaPv(ptr noundef nonnull %38) #17
+  call void @_ZdaPv(ptr noundef nonnull %38) #18
   br label %42
 
 42:                                               ; preds = %41, %39
@@ -5315,13 +5315,13 @@ common.resume:                                    ; preds = %43, %26
   br label %_ZN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEED2Ev.exit: ; preds = %37, %42
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 43:                                               ; preds = %28
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1088) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1088) %5) #15
   br label %common.resume
 }
 
@@ -5362,7 +5362,7 @@ define internal void @_ZN2cvL8reduceR_IttNS_5OpMinItEENS_5OpNopItttEEEEvRKNS_3Ma
   %25 = shl nuw nsw i64 %21, 1
   %.inv.i.i.i = icmp sgt i32 %20, -1
   %26 = select i1 %.inv.i.i.i, i64 %25, i64 -1
-  %27 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #18
+  %27 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #19
           to label %.noexc.i unwind label %28
 
 .noexc.i:                                         ; preds = %24
@@ -5376,7 +5376,7 @@ common.resume:                                    ; preds = %45, %28
 28:                                               ; preds = %24
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 30:                                               ; preds = %2, %.noexc.i
@@ -5404,7 +5404,7 @@ common.resume:                                    ; preds = %45, %28
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %41
-  call void @_ZdaPv(ptr noundef nonnull %40) #17
+  call void @_ZdaPv(ptr noundef nonnull %40) #18
   br label %44
 
 44:                                               ; preds = %43, %41
@@ -5413,13 +5413,13 @@ common.resume:                                    ; preds = %45, %28
   br label %_ZN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpNopItttEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpNopItttEEED2Ev.exit: ; preds = %39, %44
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 45:                                               ; preds = %30
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpNopItttEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpNopItttEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %5) #15
   br label %common.resume
 }
 
@@ -5460,7 +5460,7 @@ define internal void @_ZN2cvL8reduceR_IssNS_5OpMinIsEENS_5OpNopIsssEEEEvRKNS_3Ma
   %25 = shl nuw nsw i64 %21, 1
   %.inv.i.i.i = icmp sgt i32 %20, -1
   %26 = select i1 %.inv.i.i.i, i64 %25, i64 -1
-  %27 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #18
+  %27 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #19
           to label %.noexc.i unwind label %28
 
 .noexc.i:                                         ; preds = %24
@@ -5474,7 +5474,7 @@ common.resume:                                    ; preds = %45, %28
 28:                                               ; preds = %24
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 30:                                               ; preds = %2, %.noexc.i
@@ -5502,7 +5502,7 @@ common.resume:                                    ; preds = %45, %28
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %41
-  call void @_ZdaPv(ptr noundef nonnull %40) #17
+  call void @_ZdaPv(ptr noundef nonnull %40) #18
   br label %44
 
 44:                                               ; preds = %43, %41
@@ -5511,13 +5511,13 @@ common.resume:                                    ; preds = %45, %28
   br label %_ZN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEED2Ev.exit: ; preds = %39, %44
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 45:                                               ; preds = %30
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %5) #15
   br label %common.resume
 }
 
@@ -5558,7 +5558,7 @@ define internal void @_ZN2cvL8reduceR_IffNS_5OpMinIfEENS_5OpNopIfffEEEEvRKNS_3Ma
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 2
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -5572,7 +5572,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -5600,7 +5600,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -5609,13 +5609,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #15
   br label %common.resume
 }
 
@@ -5656,7 +5656,7 @@ define internal void @_ZN2cvL8reduceR_IddNS_5OpMinIdEENS_5OpNopIdddEEEEvRKNS_3Ma
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 3
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -5670,7 +5670,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -5698,7 +5698,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -5707,13 +5707,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #15
   br label %common.resume
 }
 
@@ -5754,7 +5754,7 @@ define internal void @_ZN2cvL8reduceR_IhiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEEvRKN
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 2
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -5768,7 +5768,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -5796,7 +5796,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -5805,13 +5805,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #15
   br label %common.resume
 }
 
@@ -5852,7 +5852,7 @@ define internal void @_ZN2cvL8reduceR_IhfNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEEvRKN
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 2
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -5866,7 +5866,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -5894,7 +5894,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -5903,13 +5903,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #15
   br label %common.resume
 }
 
@@ -5950,7 +5950,7 @@ define internal void @_ZN2cvL8reduceR_IhdNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEEvRKN
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 2
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -5964,7 +5964,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -5992,7 +5992,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -6001,13 +6001,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #15
   br label %common.resume
 }
 
@@ -6048,7 +6048,7 @@ define internal void @_ZN2cvL8reduceR_ItfNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEEvRKN
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 2
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -6062,7 +6062,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -6090,7 +6090,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -6099,13 +6099,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #15
   br label %common.resume
 }
 
@@ -6146,7 +6146,7 @@ define internal void @_ZN2cvL8reduceR_ItdNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEEvRKN
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 3
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -6160,7 +6160,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -6188,7 +6188,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -6197,13 +6197,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #15
   br label %common.resume
 }
 
@@ -6244,7 +6244,7 @@ define internal void @_ZN2cvL8reduceR_IsfNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEEvRKN
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 2
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -6258,7 +6258,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -6286,7 +6286,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -6295,13 +6295,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #15
   br label %common.resume
 }
 
@@ -6342,7 +6342,7 @@ define internal void @_ZN2cvL8reduceR_IsdNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEEvRKN
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 3
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -6356,7 +6356,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -6384,7 +6384,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -6393,13 +6393,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #15
   br label %common.resume
 }
 
@@ -6440,7 +6440,7 @@ define internal void @_ZN2cvL8reduceR_IffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEEvRKN
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 2
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -6454,7 +6454,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -6482,7 +6482,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -6491,13 +6491,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %5) #15
   br label %common.resume
 }
 
@@ -6538,7 +6538,7 @@ define internal void @_ZN2cvL8reduceR_IfdNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEEvRKN
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 3
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -6552,7 +6552,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -6580,7 +6580,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -6589,13 +6589,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #15
   br label %common.resume
 }
 
@@ -6636,7 +6636,7 @@ define internal void @_ZN2cvL8reduceR_IddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEEvRKN
   %25 = icmp slt i32 %20, 0
   %26 = shl nuw nsw i64 %21, 3
   %27 = select i1 %25, i64 -1, i64 %26
-  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #18
+  %28 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #19
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %24
@@ -6650,7 +6650,7 @@ common.resume:                                    ; preds = %46, %29
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br label %common.resume
 
 31:                                               ; preds = %2, %.noexc.i
@@ -6678,7 +6678,7 @@ common.resume:                                    ; preds = %46, %29
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %41) #17
+  call void @_ZdaPv(ptr noundef nonnull %41) #18
   br label %45
 
 45:                                               ; preds = %44, %42
@@ -6687,13 +6687,13 @@ common.resume:                                    ; preds = %46, %29
   br label %_ZN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit: ; preds = %40, %45
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 46:                                               ; preds = %31
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #14
+  call void @_ZN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %5) #15
   br label %common.resume
 }
 
@@ -6722,13 +6722,13 @@ define internal void @_ZN2cvL8reduceC_IhiNS_5OpAddIiiiEENS_5OpNopIiiiEEEEvRKNS_3
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -6757,13 +6757,13 @@ define internal void @_ZN2cvL8reduceC_IhfNS_5OpAddIiiiEENS_5OpNopIiiiEEEEvRKNS_3
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -6792,13 +6792,13 @@ define internal void @_ZN2cvL8reduceC_IhdNS_5OpAddIiiiEENS_5OpNopIiiiEEEEvRKNS_3
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -6827,13 +6827,13 @@ define internal void @_ZN2cvL8reduceC_ItfNS_5OpAddIfffEENS_5OpNopIfffEEEEvRKNS_3
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -6862,13 +6862,13 @@ define internal void @_ZN2cvL8reduceC_ItdNS_5OpAddIdddEENS_5OpNopIdddEEEEvRKNS_3
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -6897,13 +6897,13 @@ define internal void @_ZN2cvL8reduceC_IsfNS_5OpAddIfffEENS_5OpNopIfffEEEEvRKNS_3
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -6932,13 +6932,13 @@ define internal void @_ZN2cvL8reduceC_IsdNS_5OpAddIdddEENS_5OpNopIdddEEEEvRKNS_3
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -6967,13 +6967,13 @@ define internal void @_ZN2cvL8reduceC_IffNS_5OpAddIfffEENS_5OpNopIfffEEEEvRKNS_3
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7002,13 +7002,13 @@ define internal void @_ZN2cvL8reduceC_IfdNS_5OpAddIdddEENS_5OpNopIdddEEEEvRKNS_3
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7037,13 +7037,13 @@ define internal void @_ZN2cvL8reduceC_IddNS_5OpAddIdddEENS_5OpNopIdddEEEEvRKNS_3
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7072,13 +7072,13 @@ define internal void @_ZN2cvL8reduceC_IhhNS_5OpMaxIhEENS_5OpNopIhhhEEEEvRKNS_3Ma
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7107,13 +7107,13 @@ define internal void @_ZN2cvL8reduceC_IttNS_5OpMaxItEENS_5OpNopItttEEEEvRKNS_3Ma
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7142,13 +7142,13 @@ define internal void @_ZN2cvL8reduceC_IssNS_5OpMaxIsEENS_5OpNopIsssEEEEvRKNS_3Ma
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7177,13 +7177,13 @@ define internal void @_ZN2cvL8reduceC_IffNS_5OpMaxIfEENS_5OpNopIfffEEEEvRKNS_3Ma
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7212,13 +7212,13 @@ define internal void @_ZN2cvL8reduceC_IddNS_5OpMaxIdEENS_5OpNopIdddEEEEvRKNS_3Ma
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7247,13 +7247,13 @@ define internal void @_ZN2cvL8reduceC_IhhNS_5OpMinIhEENS_5OpNopIhhhEEEEvRKNS_3Ma
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7282,13 +7282,13 @@ define internal void @_ZN2cvL8reduceC_IttNS_5OpMinItEENS_5OpNopItttEEEEvRKNS_3Ma
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7317,13 +7317,13 @@ define internal void @_ZN2cvL8reduceC_IssNS_5OpMinIsEENS_5OpNopIsssEEEEvRKNS_3Ma
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7352,13 +7352,13 @@ define internal void @_ZN2cvL8reduceC_IffNS_5OpMinIfEENS_5OpNopIfffEEEEvRKNS_3Ma
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7387,13 +7387,13 @@ define internal void @_ZN2cvL8reduceC_IddNS_5OpMinIdEENS_5OpNopIdddEEEEvRKNS_3Ma
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7422,13 +7422,13 @@ define internal void @_ZN2cvL8reduceC_IhiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEEvRKN
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7457,13 +7457,13 @@ define internal void @_ZN2cvL8reduceC_IhfNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEEvRKN
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7492,13 +7492,13 @@ define internal void @_ZN2cvL8reduceC_IhdNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEEvRKN
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7527,13 +7527,13 @@ define internal void @_ZN2cvL8reduceC_ItfNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEEvRKN
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7562,13 +7562,13 @@ define internal void @_ZN2cvL8reduceC_ItdNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEEvRKN
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7597,13 +7597,13 @@ define internal void @_ZN2cvL8reduceC_IsfNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEEvRKN
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7632,13 +7632,13 @@ define internal void @_ZN2cvL8reduceC_IsdNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEEvRKN
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7667,13 +7667,13 @@ define internal void @_ZN2cvL8reduceC_IffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEEvRKN
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7702,13 +7702,13 @@ define internal void @_ZN2cvL8reduceC_IfdNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEEvRKN
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7737,13 +7737,13 @@ define internal void @_ZN2cvL8reduceC_IddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEEvRKN
           to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %17
 }
 
@@ -7799,12 +7799,12 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %13, %16
   br label %74
 
 28:                                               ; preds = %20, %_ZNK2cv11_InputArray6getMatEi.exit
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.22, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %29 unwind label %31
 
 29:                                               ; preds = %28
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cv4sortERKNS_11_InputArrayERKNS_12_OutputArrayEi, ptr noundef nonnull @.str.1, i32 noundef 1257) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cv4sortERKNS_11_InputArrayERKNS_12_OutputArrayEi, ptr noundef nonnull @.str.1, i32 noundef 1257) #16
           to label %30 unwind label %33
 
 30:                                               ; preds = %29
@@ -7818,12 +7818,12 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %13, %16
 33:                                               ; preds = %29
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   br label %35
 
 35:                                               ; preds = %33, %31
   %.pn = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   br label %74
 
 36:                                               ; preds = %20
@@ -7870,12 +7870,12 @@ _ZNK2cv11_InputArray6getMatEi.exit25:             ; preds = %46, %49
   br label %73
 
 54:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit25
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.23, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %55 unwind label %57
 
 55:                                               ; preds = %54
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @__func__._ZN2cv4sortERKNS_11_InputArrayERKNS_12_OutputArrayEi, ptr noundef nonnull @.str.1, i32 noundef 1268) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @__func__._ZN2cv4sortERKNS_11_InputArrayERKNS_12_OutputArrayEi, ptr noundef nonnull @.str.1, i32 noundef 1268) #16
           to label %56 unwind label %59
 
 56:                                               ; preds = %55
@@ -7889,12 +7889,12 @@ _ZNK2cv11_InputArray6getMatEi.exit25:             ; preds = %46, %49
 59:                                               ; preds = %55
   %60 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #15
   br label %61
 
 61:                                               ; preds = %59, %57
   %.pn14 = phi { ptr, i32 } [ %60, %59 ], [ %58, %57 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #15
   br label %73
 
 62:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit25
@@ -7905,8 +7905,8 @@ _ZNK2cv11_InputArray6getMatEi.exit25:             ; preds = %46, %49
           to label %66 unwind label %52
 
 66:                                               ; preds = %62
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #15
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #15
   %67 = getelementptr inbounds i8, ptr %4, i64 8
   %68 = load i32, ptr %67, align 8
   %.not.i = icmp eq i32 %68, 0
@@ -7920,7 +7920,7 @@ _ZNK2cv11_InputArray6getMatEi.exit25:             ; preds = %46, %49
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #16
+  call void @__clang_call_terminate(ptr %72) #17
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %66, %69
@@ -7928,17 +7928,17 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %66, %69
 
 73:                                               ; preds = %61, %52
   %.pn16 = phi { ptr, i32 } [ %53, %52 ], [ %.pn14, %61 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #15
   br label %74
 
 74:                                               ; preds = %73, %35, %26
   %.pn16.pn = phi { ptr, i32 } [ %.pn16, %73 ], [ %27, %26 ], [ %.pn, %35 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #15
   br label %75
 
 75:                                               ; preds = %74, %24
   %.pn16.pn.pn = phi { ptr, i32 } [ %.pn16.pn, %74 ], [ %25, %24 ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #14
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #15
   resume { ptr, i32 } %.pn16.pn.pn
 }
 
@@ -7974,7 +7974,7 @@ define internal void @_ZN2cvL5sort_IhEEvRKNS_3MatERS1_i(ptr nocapture noundef no
   br i1 %.not.i, label %21, label %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit
 
 21:                                               ; preds = %15
-  %22 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %20) #18
+  %22 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %20) #19
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %21
@@ -8000,7 +8000,7 @@ define internal void @_ZN2cvL5sort_IhEEvRKNS_3MatERS1_i(ptr nocapture noundef no
   br i1 %or.cond, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %25
 
 25:                                               ; preds = %.loopexit70
-  call void @_ZdaPv(ptr noundef nonnull %23) #17
+  call void @_ZdaPv(ptr noundef nonnull %23) #18
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit
 
 _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %25, %.loopexit70
@@ -8292,7 +8292,7 @@ _ZSt4sortIPhEvT_S1_.exit:                         ; preds = %.preheader68
   br i1 %or.cond222, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit65, label %108
 
 108:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %106) #17
+  call void @_ZdaPv(ptr noundef nonnull %106) #18
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit65
 
 _ZN2cv10AutoBufferIhLm1032EED2Ev.exit65:          ; preds = %108, %._crit_edge
@@ -8329,7 +8329,7 @@ define internal void @_ZN2cvL5sort_IaEEvRKNS_3MatERS1_i(ptr nocapture noundef no
   br i1 %.not.i, label %21, label %_ZN2cv10AutoBufferIaLm1032EE8allocateEm.exit
 
 21:                                               ; preds = %15
-  %22 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %20) #18
+  %22 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %20) #19
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %21
@@ -8355,7 +8355,7 @@ define internal void @_ZN2cvL5sort_IaEEvRKNS_3MatERS1_i(ptr nocapture noundef no
   br i1 %or.cond, label %_ZN2cv10AutoBufferIaLm1032EED2Ev.exit, label %25
 
 25:                                               ; preds = %.loopexit70
-  call void @_ZdaPv(ptr noundef nonnull %23) #17
+  call void @_ZdaPv(ptr noundef nonnull %23) #18
   br label %_ZN2cv10AutoBufferIaLm1032EED2Ev.exit
 
 _ZN2cv10AutoBufferIaLm1032EED2Ev.exit:            ; preds = %25, %.loopexit70
@@ -8647,7 +8647,7 @@ _ZSt4sortIPaEvT_S1_.exit:                         ; preds = %.preheader68
   br i1 %or.cond222, label %_ZN2cv10AutoBufferIaLm1032EED2Ev.exit65, label %108
 
 108:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %106) #17
+  call void @_ZdaPv(ptr noundef nonnull %106) #18
   br label %_ZN2cv10AutoBufferIaLm1032EED2Ev.exit65
 
 _ZN2cv10AutoBufferIaLm1032EED2Ev.exit65:          ; preds = %108, %._crit_edge
@@ -8687,7 +8687,7 @@ define internal void @_ZN2cvL5sort_ItEEvRKNS_3MatERS1_i(ptr nocapture noundef no
   %22 = shl nuw nsw i64 %20, 1
   %.inv.i = icmp sgt i32 %.057.fr, -1
   %23 = select i1 %.inv.i, i64 %22, i64 -1
-  %24 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %23) #18
+  %24 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %23) #19
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %21
@@ -8713,7 +8713,7 @@ define internal void @_ZN2cvL5sort_ItEEvRKNS_3MatERS1_i(ptr nocapture noundef no
   br i1 %or.cond, label %_ZN2cv10AutoBufferItLm520EED2Ev.exit, label %27
 
 27:                                               ; preds = %.loopexit70
-  call void @_ZdaPv(ptr noundef nonnull %25) #17
+  call void @_ZdaPv(ptr noundef nonnull %25) #18
   br label %_ZN2cv10AutoBufferItLm520EED2Ev.exit
 
 _ZN2cv10AutoBufferItLm520EED2Ev.exit:             ; preds = %27, %.loopexit70
@@ -9006,7 +9006,7 @@ _ZSt4sortIPtEvT_S1_.exit:                         ; preds = %.preheader68
   br i1 %or.cond222, label %_ZN2cv10AutoBufferItLm520EED2Ev.exit65, label %111
 
 111:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %109) #17
+  call void @_ZdaPv(ptr noundef nonnull %109) #18
   br label %_ZN2cv10AutoBufferItLm520EED2Ev.exit65
 
 _ZN2cv10AutoBufferItLm520EED2Ev.exit65:           ; preds = %111, %._crit_edge
@@ -9046,7 +9046,7 @@ define internal void @_ZN2cvL5sort_IsEEvRKNS_3MatERS1_i(ptr nocapture noundef no
   %22 = shl nuw nsw i64 %20, 1
   %.inv.i = icmp sgt i32 %.057.fr, -1
   %23 = select i1 %.inv.i, i64 %22, i64 -1
-  %24 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %23) #18
+  %24 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %23) #19
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %21
@@ -9072,7 +9072,7 @@ define internal void @_ZN2cvL5sort_IsEEvRKNS_3MatERS1_i(ptr nocapture noundef no
   br i1 %or.cond, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit, label %27
 
 27:                                               ; preds = %.loopexit70
-  call void @_ZdaPv(ptr noundef nonnull %25) #17
+  call void @_ZdaPv(ptr noundef nonnull %25) #18
   br label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit
 
 _ZN2cv10AutoBufferIsLm520EED2Ev.exit:             ; preds = %27, %.loopexit70
@@ -9365,7 +9365,7 @@ _ZSt4sortIPsEvT_S1_.exit:                         ; preds = %.preheader68
   br i1 %or.cond222, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit65, label %111
 
 111:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %109) #17
+  call void @_ZdaPv(ptr noundef nonnull %109) #18
   br label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit65
 
 _ZN2cv10AutoBufferIsLm520EED2Ev.exit65:           ; preds = %111, %._crit_edge
@@ -9405,7 +9405,7 @@ define internal void @_ZN2cvL5sort_IiEEvRKNS_3MatERS1_i(ptr nocapture noundef no
   %22 = icmp slt i32 %.057.fr, 0
   %23 = shl nuw nsw i64 %20, 2
   %24 = select i1 %22, i64 -1, i64 %23
-  %25 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %24) #18
+  %25 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %24) #19
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %21
@@ -9431,7 +9431,7 @@ define internal void @_ZN2cvL5sort_IiEEvRKNS_3MatERS1_i(ptr nocapture noundef no
   br i1 %or.cond, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit, label %28
 
 28:                                               ; preds = %.loopexit70
-  call void @_ZdaPv(ptr noundef nonnull %26) #17
+  call void @_ZdaPv(ptr noundef nonnull %26) #18
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %28, %.loopexit70
@@ -9724,7 +9724,7 @@ _ZSt4sortIPiEvT_S1_.exit:                         ; preds = %.preheader68
   br i1 %or.cond222, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit65, label %112
 
 112:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %110) #17
+  call void @_ZdaPv(ptr noundef nonnull %110) #18
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit65
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit65:           ; preds = %112, %._crit_edge
@@ -9764,7 +9764,7 @@ define internal void @_ZN2cvL5sort_IfEEvRKNS_3MatERS1_i(ptr nocapture noundef no
   %22 = icmp slt i32 %.057.fr, 0
   %23 = shl nuw nsw i64 %20, 2
   %24 = select i1 %22, i64 -1, i64 %23
-  %25 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %24) #18
+  %25 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %24) #19
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %21
@@ -9790,7 +9790,7 @@ define internal void @_ZN2cvL5sort_IfEEvRKNS_3MatERS1_i(ptr nocapture noundef no
   br i1 %or.cond, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit, label %28
 
 28:                                               ; preds = %.loopexit70
-  call void @_ZdaPv(ptr noundef nonnull %26) #17
+  call void @_ZdaPv(ptr noundef nonnull %26) #18
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %28, %.loopexit70
@@ -10083,7 +10083,7 @@ _ZSt4sortIPfEvT_S1_.exit:                         ; preds = %.preheader68
   br i1 %or.cond222, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit65, label %112
 
 112:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %110) #17
+  call void @_ZdaPv(ptr noundef nonnull %110) #18
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit65
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit65:           ; preds = %112, %._crit_edge
@@ -10123,7 +10123,7 @@ define internal void @_ZN2cvL5sort_IdEEvRKNS_3MatERS1_i(ptr nocapture noundef no
   %22 = icmp slt i32 %.057.fr, 0
   %23 = shl nuw nsw i64 %20, 3
   %24 = select i1 %22, i64 -1, i64 %23
-  %25 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %24) #18
+  %25 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %24) #19
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %21
@@ -10149,7 +10149,7 @@ define internal void @_ZN2cvL5sort_IdEEvRKNS_3MatERS1_i(ptr nocapture noundef no
   br i1 %or.cond, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit, label %28
 
 28:                                               ; preds = %.loopexit70
-  call void @_ZdaPv(ptr noundef nonnull %26) #17
+  call void @_ZdaPv(ptr noundef nonnull %26) #18
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %28, %.loopexit70
@@ -10442,7 +10442,7 @@ _ZSt4sortIPdEvT_S1_.exit:                         ; preds = %.preheader68
   br i1 %or.cond222, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit65, label %112
 
 112:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %110) #17
+  call void @_ZdaPv(ptr noundef nonnull %110) #18
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit65
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit65:           ; preds = %112, %._crit_edge
@@ -10500,12 +10500,12 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %14, %17
   br label %91
 
 29:                                               ; preds = %21, %_ZNK2cv11_InputArray6getMatEi.exit
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.22, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %30 unwind label %32
 
 30:                                               ; preds = %29
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cv7sortIdxERKNS_11_InputArrayERKNS_12_OutputArrayEi, ptr noundef nonnull @.str.1, i32 noundef 1278) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cv7sortIdxERKNS_11_InputArrayERKNS_12_OutputArrayEi, ptr noundef nonnull @.str.1, i32 noundef 1278) #16
           to label %31 unwind label %34
 
 31:                                               ; preds = %30
@@ -10519,12 +10519,12 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %14, %17
 34:                                               ; preds = %30
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   br label %36
 
 36:                                               ; preds = %34, %32
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   br label %91
 
 37:                                               ; preds = %21
@@ -10598,7 +10598,7 @@ _ZNK2cv11_InputArray6getMatEi.exit31:             ; preds = %61, %64
           to label %66 unwind label %69
 
 66:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit31
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #15
   %67 = load i32, ptr %5, align 8
   %68 = and i32 %67, 7
   %.not = icmp eq i32 %68, 7
@@ -10607,16 +10607,16 @@ _ZNK2cv11_InputArray6getMatEi.exit31:             ; preds = %61, %64
 69:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit31
   %70 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #15
   br label %90
 
 71:                                               ; preds = %66
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.23, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %72 unwind label %74
 
 72:                                               ; preds = %71
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv7sortIdxERKNS_11_InputArrayERKNS_12_OutputArrayEi, ptr noundef nonnull @.str.1, i32 noundef 1293) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv7sortIdxERKNS_11_InputArrayERKNS_12_OutputArrayEi, ptr noundef nonnull @.str.1, i32 noundef 1293) #16
           to label %73 unwind label %76
 
 73:                                               ; preds = %72
@@ -10630,12 +10630,12 @@ _ZNK2cv11_InputArray6getMatEi.exit31:             ; preds = %61, %64
 76:                                               ; preds = %72
   %77 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #15
   br label %78
 
 78:                                               ; preds = %76, %74
   %.pn16 = phi { ptr, i32 } [ %77, %76 ], [ %75, %74 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #15
   br label %90
 
 79:                                               ; preds = %66
@@ -10646,8 +10646,8 @@ _ZNK2cv11_InputArray6getMatEi.exit31:             ; preds = %61, %64
           to label %83 unwind label %50
 
 83:                                               ; preds = %79
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #15
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #15
   %84 = getelementptr inbounds i8, ptr %4, i64 8
   %85 = load i32, ptr %84, align 8
   %.not.i = icmp eq i32 %85, 0
@@ -10661,7 +10661,7 @@ _ZNK2cv11_InputArray6getMatEi.exit31:             ; preds = %61, %64
   %88 = landingpad { ptr, i32 }
           catch ptr null
   %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #16
+  call void @__clang_call_terminate(ptr %89) #17
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %83, %86
@@ -10669,17 +10669,17 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %83, %86
 
 90:                                               ; preds = %78, %69, %50
   %.pn18 = phi { ptr, i32 } [ %51, %50 ], [ %.pn16, %78 ], [ %70, %69 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #15
   br label %91
 
 91:                                               ; preds = %90, %36, %27
   %.pn18.pn = phi { ptr, i32 } [ %.pn18, %90 ], [ %28, %27 ], [ %.pn, %36 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #15
   br label %92
 
 92:                                               ; preds = %91, %25
   %.pn18.pn.pn = phi { ptr, i32 } [ %.pn18.pn, %91 ], [ %26, %25 ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #14
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #15
   resume { ptr, i32 } %.pn18.pn.pn
 }
 
@@ -10711,12 +10711,12 @@ define internal void @_ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i(ptr nocapture noundef
   br i1 %.not70, label %19, label %27
 
 19:                                               ; preds = %3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %20 unwind label %22
 
 20:                                               ; preds = %19
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i, ptr noundef nonnull @.str.1, i32 noundef 1124) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i, ptr noundef nonnull @.str.1, i32 noundef 1124) #16
           to label %21 unwind label %24
 
 21:                                               ; preds = %20
@@ -10730,12 +10730,12 @@ define internal void @_ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i(ptr nocapture noundef
 24:                                               ; preds = %20
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   br label %26
 
 26:                                               ; preds = %24, %22
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   br label %107
 
 27:                                               ; preds = %3
@@ -10759,7 +10759,7 @@ define internal void @_ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i(ptr nocapture noundef
   br i1 %.not.i, label %39, label %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit
 
 39:                                               ; preds = %33
-  %40 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %38) #18
+  %40 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %38) #19
           to label %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit.thread unwind label %.loopexit.split-lp
 
 _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit.thread: ; preds = %39
@@ -10780,7 +10780,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %33
   %44 = icmp slt i32 %37, 0
   %45 = shl nuw nsw i64 %38, 2
   %46 = select i1 %44, i64 -1, i64 %45
-  %47 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %46) #18
+  %47 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %46) #19
           to label %.noexc76 unwind label %.loopexit.split-lp
 
 .noexc76:                                         ; preds = %42
@@ -10943,7 +10943,7 @@ _ZSt4sortIPiN2cv11LessThanIdxIhEEEvT_S4_T0_.exit: ; preds = %.noexc78
   br i1 %101, label %103, label %102
 
 102:                                              ; preds = %100
-  call void @_ZdaPv(ptr noundef nonnull %99) #17
+  call void @_ZdaPv(ptr noundef nonnull %99) #18
   br label %103
 
 103:                                              ; preds = %102, %100
@@ -10959,7 +10959,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %._crit_edge105, %10
   br i1 %or.cond, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %106
 
 106:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %104) #17
+  call void @_ZdaPv(ptr noundef nonnull %104) #18
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit
 
 _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %106, %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
@@ -10976,7 +10976,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %106, %_ZN2cv10AutoB
   br i1 %110, label %112, label %111
 
 111:                                              ; preds = %109
-  call void @_ZdaPv(ptr noundef nonnull %108) #17
+  call void @_ZdaPv(ptr noundef nonnull %108) #18
   br label %112
 
 112:                                              ; preds = %111, %109
@@ -10992,7 +10992,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit86:           ; preds = %107, %112
   br i1 %or.cond137, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit89, label %115
 
 115:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit86
-  call void @_ZdaPv(ptr noundef nonnull %113) #17
+  call void @_ZdaPv(ptr noundef nonnull %113) #18
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit89
 
 _ZN2cv10AutoBufferIhLm1032EED2Ev.exit89:          ; preds = %115, %_ZN2cv10AutoBufferIiLm264EED2Ev.exit86
@@ -11025,12 +11025,12 @@ define internal void @_ZN2cvL8sortIdx_IaEEvRKNS_3MatERS1_i(ptr nocapture noundef
   br i1 %.not70, label %19, label %27
 
 19:                                               ; preds = %3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %20 unwind label %22
 
 20:                                               ; preds = %19
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i, ptr noundef nonnull @.str.1, i32 noundef 1124) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i, ptr noundef nonnull @.str.1, i32 noundef 1124) #16
           to label %21 unwind label %24
 
 21:                                               ; preds = %20
@@ -11044,12 +11044,12 @@ define internal void @_ZN2cvL8sortIdx_IaEEvRKNS_3MatERS1_i(ptr nocapture noundef
 24:                                               ; preds = %20
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   br label %26
 
 26:                                               ; preds = %24, %22
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   br label %107
 
 27:                                               ; preds = %3
@@ -11073,7 +11073,7 @@ define internal void @_ZN2cvL8sortIdx_IaEEvRKNS_3MatERS1_i(ptr nocapture noundef
   br i1 %.not.i, label %39, label %_ZN2cv10AutoBufferIaLm1032EE8allocateEm.exit
 
 39:                                               ; preds = %33
-  %40 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %38) #18
+  %40 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %38) #19
           to label %_ZN2cv10AutoBufferIaLm1032EE8allocateEm.exit.thread unwind label %.loopexit.split-lp
 
 _ZN2cv10AutoBufferIaLm1032EE8allocateEm.exit.thread: ; preds = %39
@@ -11094,7 +11094,7 @@ _ZN2cv10AutoBufferIaLm1032EE8allocateEm.exit:     ; preds = %33
   %44 = icmp slt i32 %37, 0
   %45 = shl nuw nsw i64 %38, 2
   %46 = select i1 %44, i64 -1, i64 %45
-  %47 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %46) #18
+  %47 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %46) #19
           to label %.noexc76 unwind label %.loopexit.split-lp
 
 .noexc76:                                         ; preds = %42
@@ -11257,7 +11257,7 @@ _ZSt4sortIPiN2cv11LessThanIdxIaEEEvT_S4_T0_.exit: ; preds = %.noexc78
   br i1 %101, label %103, label %102
 
 102:                                              ; preds = %100
-  call void @_ZdaPv(ptr noundef nonnull %99) #17
+  call void @_ZdaPv(ptr noundef nonnull %99) #18
   br label %103
 
 103:                                              ; preds = %102, %100
@@ -11273,7 +11273,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %._crit_edge105, %10
   br i1 %or.cond, label %_ZN2cv10AutoBufferIaLm1032EED2Ev.exit, label %106
 
 106:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %104) #17
+  call void @_ZdaPv(ptr noundef nonnull %104) #18
   br label %_ZN2cv10AutoBufferIaLm1032EED2Ev.exit
 
 _ZN2cv10AutoBufferIaLm1032EED2Ev.exit:            ; preds = %106, %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
@@ -11290,7 +11290,7 @@ _ZN2cv10AutoBufferIaLm1032EED2Ev.exit:            ; preds = %106, %_ZN2cv10AutoB
   br i1 %110, label %112, label %111
 
 111:                                              ; preds = %109
-  call void @_ZdaPv(ptr noundef nonnull %108) #17
+  call void @_ZdaPv(ptr noundef nonnull %108) #18
   br label %112
 
 112:                                              ; preds = %111, %109
@@ -11306,7 +11306,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit86:           ; preds = %107, %112
   br i1 %or.cond137, label %_ZN2cv10AutoBufferIaLm1032EED2Ev.exit89, label %115
 
 115:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit86
-  call void @_ZdaPv(ptr noundef nonnull %113) #17
+  call void @_ZdaPv(ptr noundef nonnull %113) #18
   br label %_ZN2cv10AutoBufferIaLm1032EED2Ev.exit89
 
 _ZN2cv10AutoBufferIaLm1032EED2Ev.exit89:          ; preds = %115, %_ZN2cv10AutoBufferIiLm264EED2Ev.exit86
@@ -11339,12 +11339,12 @@ define internal void @_ZN2cvL8sortIdx_ItEEvRKNS_3MatERS1_i(ptr nocapture noundef
   br i1 %.not70, label %19, label %27
 
 19:                                               ; preds = %3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %20 unwind label %22
 
 20:                                               ; preds = %19
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i, ptr noundef nonnull @.str.1, i32 noundef 1124) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i, ptr noundef nonnull @.str.1, i32 noundef 1124) #16
           to label %21 unwind label %24
 
 21:                                               ; preds = %20
@@ -11358,12 +11358,12 @@ define internal void @_ZN2cvL8sortIdx_ItEEvRKNS_3MatERS1_i(ptr nocapture noundef
 24:                                               ; preds = %20
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   br label %26
 
 26:                                               ; preds = %24, %22
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   br label %109
 
 27:                                               ; preds = %3
@@ -11390,7 +11390,7 @@ define internal void @_ZN2cvL8sortIdx_ItEEvRKNS_3MatERS1_i(ptr nocapture noundef
   %40 = shl nuw nsw i64 %38, 1
   %.inv.i = icmp sgt i32 %37, -1
   %41 = select i1 %.inv.i, i64 %40, i64 -1
-  %42 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %41) #18
+  %42 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %41) #19
           to label %_ZN2cv10AutoBufferItLm520EE8allocateEm.exit.thread unwind label %.loopexit.split-lp
 
 _ZN2cv10AutoBufferItLm520EE8allocateEm.exit.thread: ; preds = %39
@@ -11411,7 +11411,7 @@ _ZN2cv10AutoBufferItLm520EE8allocateEm.exit:      ; preds = %33
   %46 = icmp slt i32 %37, 0
   %47 = shl nuw nsw i64 %38, 2
   %48 = select i1 %46, i64 -1, i64 %47
-  %49 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %48) #18
+  %49 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %48) #19
           to label %.noexc76 unwind label %.loopexit.split-lp
 
 .noexc76:                                         ; preds = %44
@@ -11574,7 +11574,7 @@ _ZSt4sortIPiN2cv11LessThanIdxItEEEvT_S4_T0_.exit: ; preds = %.noexc78
   br i1 %103, label %105, label %104
 
 104:                                              ; preds = %102
-  call void @_ZdaPv(ptr noundef nonnull %101) #17
+  call void @_ZdaPv(ptr noundef nonnull %101) #18
   br label %105
 
 105:                                              ; preds = %104, %102
@@ -11590,7 +11590,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %._crit_edge105, %10
   br i1 %or.cond, label %_ZN2cv10AutoBufferItLm520EED2Ev.exit, label %108
 
 108:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %106) #17
+  call void @_ZdaPv(ptr noundef nonnull %106) #18
   br label %_ZN2cv10AutoBufferItLm520EED2Ev.exit
 
 _ZN2cv10AutoBufferItLm520EED2Ev.exit:             ; preds = %108, %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
@@ -11607,7 +11607,7 @@ _ZN2cv10AutoBufferItLm520EED2Ev.exit:             ; preds = %108, %_ZN2cv10AutoB
   br i1 %112, label %114, label %113
 
 113:                                              ; preds = %111
-  call void @_ZdaPv(ptr noundef nonnull %110) #17
+  call void @_ZdaPv(ptr noundef nonnull %110) #18
   br label %114
 
 114:                                              ; preds = %113, %111
@@ -11623,7 +11623,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit86:           ; preds = %109, %114
   br i1 %or.cond137, label %_ZN2cv10AutoBufferItLm520EED2Ev.exit89, label %117
 
 117:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit86
-  call void @_ZdaPv(ptr noundef nonnull %115) #17
+  call void @_ZdaPv(ptr noundef nonnull %115) #18
   br label %_ZN2cv10AutoBufferItLm520EED2Ev.exit89
 
 _ZN2cv10AutoBufferItLm520EED2Ev.exit89:           ; preds = %117, %_ZN2cv10AutoBufferIiLm264EED2Ev.exit86
@@ -11656,12 +11656,12 @@ define internal void @_ZN2cvL8sortIdx_IsEEvRKNS_3MatERS1_i(ptr nocapture noundef
   br i1 %.not70, label %19, label %27
 
 19:                                               ; preds = %3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %20 unwind label %22
 
 20:                                               ; preds = %19
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i, ptr noundef nonnull @.str.1, i32 noundef 1124) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i, ptr noundef nonnull @.str.1, i32 noundef 1124) #16
           to label %21 unwind label %24
 
 21:                                               ; preds = %20
@@ -11675,12 +11675,12 @@ define internal void @_ZN2cvL8sortIdx_IsEEvRKNS_3MatERS1_i(ptr nocapture noundef
 24:                                               ; preds = %20
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   br label %26
 
 26:                                               ; preds = %24, %22
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   br label %109
 
 27:                                               ; preds = %3
@@ -11707,7 +11707,7 @@ define internal void @_ZN2cvL8sortIdx_IsEEvRKNS_3MatERS1_i(ptr nocapture noundef
   %40 = shl nuw nsw i64 %38, 1
   %.inv.i = icmp sgt i32 %37, -1
   %41 = select i1 %.inv.i, i64 %40, i64 -1
-  %42 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %41) #18
+  %42 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %41) #19
           to label %_ZN2cv10AutoBufferIsLm520EE8allocateEm.exit.thread unwind label %.loopexit.split-lp
 
 _ZN2cv10AutoBufferIsLm520EE8allocateEm.exit.thread: ; preds = %39
@@ -11728,7 +11728,7 @@ _ZN2cv10AutoBufferIsLm520EE8allocateEm.exit:      ; preds = %33
   %46 = icmp slt i32 %37, 0
   %47 = shl nuw nsw i64 %38, 2
   %48 = select i1 %46, i64 -1, i64 %47
-  %49 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %48) #18
+  %49 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %48) #19
           to label %.noexc76 unwind label %.loopexit.split-lp
 
 .noexc76:                                         ; preds = %44
@@ -11891,7 +11891,7 @@ _ZSt4sortIPiN2cv11LessThanIdxIsEEEvT_S4_T0_.exit: ; preds = %.noexc78
   br i1 %103, label %105, label %104
 
 104:                                              ; preds = %102
-  call void @_ZdaPv(ptr noundef nonnull %101) #17
+  call void @_ZdaPv(ptr noundef nonnull %101) #18
   br label %105
 
 105:                                              ; preds = %104, %102
@@ -11907,7 +11907,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %._crit_edge105, %10
   br i1 %or.cond, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit, label %108
 
 108:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %106) #17
+  call void @_ZdaPv(ptr noundef nonnull %106) #18
   br label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit
 
 _ZN2cv10AutoBufferIsLm520EED2Ev.exit:             ; preds = %108, %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
@@ -11924,7 +11924,7 @@ _ZN2cv10AutoBufferIsLm520EED2Ev.exit:             ; preds = %108, %_ZN2cv10AutoB
   br i1 %112, label %114, label %113
 
 113:                                              ; preds = %111
-  call void @_ZdaPv(ptr noundef nonnull %110) #17
+  call void @_ZdaPv(ptr noundef nonnull %110) #18
   br label %114
 
 114:                                              ; preds = %113, %111
@@ -11940,7 +11940,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit86:           ; preds = %109, %114
   br i1 %or.cond137, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit89, label %117
 
 117:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit86
-  call void @_ZdaPv(ptr noundef nonnull %115) #17
+  call void @_ZdaPv(ptr noundef nonnull %115) #18
   br label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit89
 
 _ZN2cv10AutoBufferIsLm520EED2Ev.exit89:           ; preds = %117, %_ZN2cv10AutoBufferIiLm264EED2Ev.exit86
@@ -11973,12 +11973,12 @@ define internal void @_ZN2cvL8sortIdx_IiEEvRKNS_3MatERS1_i(ptr nocapture noundef
   br i1 %.not70, label %19, label %27
 
 19:                                               ; preds = %3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %20 unwind label %22
 
 20:                                               ; preds = %19
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i, ptr noundef nonnull @.str.1, i32 noundef 1124) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i, ptr noundef nonnull @.str.1, i32 noundef 1124) #16
           to label %21 unwind label %24
 
 21:                                               ; preds = %20
@@ -11992,12 +11992,12 @@ define internal void @_ZN2cvL8sortIdx_IiEEvRKNS_3MatERS1_i(ptr nocapture noundef
 24:                                               ; preds = %20
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   br label %26
 
 26:                                               ; preds = %24, %22
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   br label %108
 
 27:                                               ; preds = %3
@@ -12024,7 +12024,7 @@ define internal void @_ZN2cvL8sortIdx_IiEEvRKNS_3MatERS1_i(ptr nocapture noundef
   %40 = icmp slt i32 %37, 0
   %41 = shl nuw nsw i64 %38, 2
   %42 = select i1 %40, i64 -1, i64 %41
-  %43 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %42) #18
+  %43 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %42) #19
           to label %45 unwind label %.loopexit.split-lp
 
 44:                                               ; preds = %33
@@ -12037,7 +12037,7 @@ define internal void @_ZN2cvL8sortIdx_IiEEvRKNS_3MatERS1_i(ptr nocapture noundef
   %46 = icmp slt i32 %37, 0
   %47 = shl nuw nsw i64 %38, 2
   %48 = select i1 %46, i64 -1, i64 %47
-  %49 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %48) #18
+  %49 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %48) #19
           to label %.noexc77 unwind label %.loopexit.split-lp
 
 .noexc77:                                         ; preds = %45
@@ -12203,7 +12203,7 @@ _ZSt4sortIPiN2cv11LessThanIdxIiEEEvT_S4_T0_.exit: ; preds = %.noexc80
   br i1 %102, label %104, label %103
 
 103:                                              ; preds = %101
-  call void @_ZdaPv(ptr noundef nonnull %100) #17
+  call void @_ZdaPv(ptr noundef nonnull %100) #18
   br label %104
 
 104:                                              ; preds = %103, %101
@@ -12219,7 +12219,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %._crit_edge108, %10
   br i1 %or.cond, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit86, label %107
 
 107:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %105) #17
+  call void @_ZdaPv(ptr noundef nonnull %105) #18
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit86
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit86:           ; preds = %107, %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
@@ -12236,7 +12236,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit86:           ; preds = %107, %_ZN2cv10AutoB
   br i1 %111, label %113, label %112
 
 112:                                              ; preds = %110
-  call void @_ZdaPv(ptr noundef nonnull %109) #17
+  call void @_ZdaPv(ptr noundef nonnull %109) #18
   br label %113
 
 113:                                              ; preds = %112, %110
@@ -12252,7 +12252,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit89:           ; preds = %108, %113
   br i1 %or.cond140, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit92, label %116
 
 116:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit89
-  call void @_ZdaPv(ptr noundef nonnull %114) #17
+  call void @_ZdaPv(ptr noundef nonnull %114) #18
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit92
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit92:           ; preds = %116, %_ZN2cv10AutoBufferIiLm264EED2Ev.exit89
@@ -12285,12 +12285,12 @@ define internal void @_ZN2cvL8sortIdx_IfEEvRKNS_3MatERS1_i(ptr nocapture noundef
   br i1 %.not70, label %19, label %27
 
 19:                                               ; preds = %3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %20 unwind label %22
 
 20:                                               ; preds = %19
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i, ptr noundef nonnull @.str.1, i32 noundef 1124) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i, ptr noundef nonnull @.str.1, i32 noundef 1124) #16
           to label %21 unwind label %24
 
 21:                                               ; preds = %20
@@ -12304,12 +12304,12 @@ define internal void @_ZN2cvL8sortIdx_IfEEvRKNS_3MatERS1_i(ptr nocapture noundef
 24:                                               ; preds = %20
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   br label %26
 
 26:                                               ; preds = %24, %22
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   br label %108
 
 27:                                               ; preds = %3
@@ -12336,7 +12336,7 @@ define internal void @_ZN2cvL8sortIdx_IfEEvRKNS_3MatERS1_i(ptr nocapture noundef
   %40 = icmp slt i32 %37, 0
   %41 = shl nuw nsw i64 %38, 2
   %42 = select i1 %40, i64 -1, i64 %41
-  %43 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %42) #18
+  %43 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %42) #19
           to label %45 unwind label %.loopexit.split-lp
 
 44:                                               ; preds = %33
@@ -12349,7 +12349,7 @@ define internal void @_ZN2cvL8sortIdx_IfEEvRKNS_3MatERS1_i(ptr nocapture noundef
   %46 = icmp slt i32 %37, 0
   %47 = shl nuw nsw i64 %38, 2
   %48 = select i1 %46, i64 -1, i64 %47
-  %49 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %48) #18
+  %49 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %48) #19
           to label %.noexc76 unwind label %.loopexit.split-lp
 
 .noexc76:                                         ; preds = %45
@@ -12515,7 +12515,7 @@ _ZSt4sortIPiN2cv11LessThanIdxIfEEEvT_S4_T0_.exit: ; preds = %.noexc78
   br i1 %102, label %104, label %103
 
 103:                                              ; preds = %101
-  call void @_ZdaPv(ptr noundef nonnull %100) #17
+  call void @_ZdaPv(ptr noundef nonnull %100) #18
   br label %104
 
 104:                                              ; preds = %103, %101
@@ -12531,7 +12531,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %._crit_edge105, %10
   br i1 %or.cond, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit, label %107
 
 107:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %105) #17
+  call void @_ZdaPv(ptr noundef nonnull %105) #18
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %107, %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
@@ -12548,7 +12548,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %107, %_ZN2cv10AutoB
   br i1 %111, label %113, label %112
 
 112:                                              ; preds = %110
-  call void @_ZdaPv(ptr noundef nonnull %109) #17
+  call void @_ZdaPv(ptr noundef nonnull %109) #18
   br label %113
 
 113:                                              ; preds = %112, %110
@@ -12564,7 +12564,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit86:           ; preds = %108, %113
   br i1 %or.cond137, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit89, label %116
 
 116:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit86
-  call void @_ZdaPv(ptr noundef nonnull %114) #17
+  call void @_ZdaPv(ptr noundef nonnull %114) #18
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit89
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit89:           ; preds = %116, %_ZN2cv10AutoBufferIiLm264EED2Ev.exit86
@@ -12597,12 +12597,12 @@ define internal void @_ZN2cvL8sortIdx_IdEEvRKNS_3MatERS1_i(ptr nocapture noundef
   br i1 %.not70, label %19, label %27
 
 19:                                               ; preds = %3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %20 unwind label %22
 
 20:                                               ; preds = %19
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i, ptr noundef nonnull @.str.1, i32 noundef 1124) #15
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cvL8sortIdx_IhEEvRKNS_3MatERS1_i, ptr noundef nonnull @.str.1, i32 noundef 1124) #16
           to label %21 unwind label %24
 
 21:                                               ; preds = %20
@@ -12616,12 +12616,12 @@ define internal void @_ZN2cvL8sortIdx_IdEEvRKNS_3MatERS1_i(ptr nocapture noundef
 24:                                               ; preds = %20
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   br label %26
 
 26:                                               ; preds = %24, %22
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   br label %109
 
 27:                                               ; preds = %3
@@ -12648,7 +12648,7 @@ define internal void @_ZN2cvL8sortIdx_IdEEvRKNS_3MatERS1_i(ptr nocapture noundef
   %40 = icmp slt i32 %37, 0
   %41 = shl nuw nsw i64 %38, 3
   %42 = select i1 %40, i64 -1, i64 %41
-  %43 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %42) #18
+  %43 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %42) #19
           to label %_ZN2cv10AutoBufferIdLm136EE8allocateEm.exit unwind label %.loopexit.split-lp
 
 _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit:      ; preds = %39
@@ -12666,7 +12666,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.thread: ; preds = %33, %_ZN2cv10Auto
   %46 = icmp slt i32 %37, 0
   %47 = shl nuw nsw i64 %38, 2
   %48 = select i1 %46, i64 -1, i64 %47
-  %49 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %48) #18
+  %49 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %48) #19
           to label %.noexc76 unwind label %.loopexit.split-lp
 
 .noexc76:                                         ; preds = %45
@@ -12829,7 +12829,7 @@ _ZSt4sortIPiN2cv11LessThanIdxIdEEEvT_S4_T0_.exit: ; preds = %.noexc78
   br i1 %103, label %105, label %104
 
 104:                                              ; preds = %102
-  call void @_ZdaPv(ptr noundef nonnull %101) #17
+  call void @_ZdaPv(ptr noundef nonnull %101) #18
   br label %105
 
 105:                                              ; preds = %104, %102
@@ -12845,7 +12845,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %._crit_edge105, %10
   br i1 %or.cond, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit, label %108
 
 108:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %106) #17
+  call void @_ZdaPv(ptr noundef nonnull %106) #18
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %108, %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
@@ -12862,7 +12862,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %108, %_ZN2cv10AutoB
   br i1 %112, label %114, label %113
 
 113:                                              ; preds = %111
-  call void @_ZdaPv(ptr noundef nonnull %110) #17
+  call void @_ZdaPv(ptr noundef nonnull %110) #18
   br label %114
 
 114:                                              ; preds = %113, %111
@@ -12878,7 +12878,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit86:           ; preds = %109, %114
   br i1 %or.cond137, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit89, label %117
 
 117:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EED2Ev.exit86
-  call void @_ZdaPv(ptr noundef nonnull %115) #17
+  call void @_ZdaPv(ptr noundef nonnull %115) #18
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit89
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit89:           ; preds = %117, %_ZN2cv10AutoBufferIiLm264EED2Ev.exit86
@@ -12893,17 +12893,18 @@ declare void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull al
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 declare void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #2
 
@@ -12921,7 +12922,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -12931,7 +12932,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5O
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -12952,7 +12953,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -12962,8 +12963,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5O
   br label %_ZN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -13087,10 +13088,10 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
@@ -13106,7 +13107,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -13116,7 +13117,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5O
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -13134,7 +13135,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -13144,8 +13145,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5O
   br label %_ZN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -13283,7 +13284,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -13293,7 +13294,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5O
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -13311,7 +13312,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -13321,8 +13322,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5O
   br label %_ZN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -13460,7 +13461,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -13470,7 +13471,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5O
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -13488,7 +13489,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -13498,8 +13499,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5O
   br label %_ZN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -13637,7 +13638,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -13647,7 +13648,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5O
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -13665,7 +13666,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -13675,8 +13676,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5O
   br label %_ZN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -13814,7 +13815,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -13824,7 +13825,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5O
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -13842,7 +13843,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -13852,8 +13853,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5O
   br label %_ZN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -13991,7 +13992,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -14001,7 +14002,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5O
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -14019,7 +14020,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -14029,8 +14030,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5O
   br label %_ZN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -14168,7 +14169,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -14178,7 +14179,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5O
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -14196,7 +14197,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -14206,8 +14207,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5O
   br label %_ZN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -14343,7 +14344,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -14353,7 +14354,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5O
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -14371,7 +14372,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -14381,8 +14382,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5O
   br label %_ZN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -14520,7 +14521,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -14530,7 +14531,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5O
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -14548,7 +14549,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5O
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -14558,8 +14559,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5O
   br label %_ZN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -14695,7 +14696,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -14705,7 +14706,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpN
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit
 
 _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -14723,7 +14724,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -14733,8 +14734,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpN
   br label %_ZN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -14875,7 +14876,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -14885,7 +14886,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpN
   br label %_ZN2cv10AutoBufferItLm520EED2Ev.exit
 
 _ZN2cv10AutoBufferItLm520EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -14903,7 +14904,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -14913,8 +14914,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpN
   br label %_ZN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -15050,7 +15051,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -15060,7 +15061,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpN
   br label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit
 
 _ZN2cv10AutoBufferIsLm520EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -15078,7 +15079,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -15088,8 +15089,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpN
   br label %_ZN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -15225,7 +15226,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -15235,7 +15236,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpN
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -15253,7 +15254,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -15263,8 +15264,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpN
   br label %_ZN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -15401,7 +15402,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -15411,7 +15412,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpN
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -15429,7 +15430,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -15439,8 +15440,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpN
   br label %_ZN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -15577,7 +15578,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -15587,7 +15588,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpN
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit
 
 _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -15605,7 +15606,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -15615,8 +15616,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpN
   br label %_ZN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -15757,7 +15758,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -15767,7 +15768,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpN
   br label %_ZN2cv10AutoBufferItLm520EED2Ev.exit
 
 _ZN2cv10AutoBufferItLm520EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -15785,7 +15786,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -15795,8 +15796,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpN
   br label %_ZN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpNopItttEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpNopItttEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -15932,7 +15933,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -15942,7 +15943,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpN
   br label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit
 
 _ZN2cv10AutoBufferIsLm520EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -15960,7 +15961,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -15970,8 +15971,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpN
   br label %_ZN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -16107,7 +16108,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -16117,7 +16118,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpN
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -16135,7 +16136,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -16145,8 +16146,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpN
   br label %_ZN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -16283,7 +16284,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -16293,7 +16294,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpN
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -16311,7 +16312,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpN
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -16321,8 +16322,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpN
   br label %_ZN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -16459,7 +16460,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -16469,7 +16470,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -16487,7 +16488,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -16497,8 +16498,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS
   br label %_ZN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -16637,7 +16638,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -16647,7 +16648,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -16665,7 +16666,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -16675,8 +16676,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS
   br label %_ZN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -16816,7 +16817,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -16826,7 +16827,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -16844,7 +16845,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -16854,8 +16855,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS
   br label %_ZN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -16995,7 +16996,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -17005,7 +17006,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -17023,7 +17024,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -17033,8 +17034,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS
   br label %_ZN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -17173,7 +17174,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -17183,7 +17184,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -17201,7 +17202,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -17211,8 +17212,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS
   br label %_ZN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -17351,7 +17352,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -17361,7 +17362,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -17379,7 +17380,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -17389,8 +17390,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS
   br label %_ZN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -17529,7 +17530,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -17539,7 +17540,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -17557,7 +17558,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -17567,8 +17568,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS
   br label %_ZN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -17707,7 +17708,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -17717,7 +17718,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -17735,7 +17736,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -17745,8 +17746,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS
   br label %_ZN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -17883,7 +17884,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -17893,7 +17894,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -17911,7 +17912,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -17921,8 +17922,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS
   br label %_ZN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -18061,7 +18062,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -18071,7 +18072,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
@@ -18089,7 +18090,7 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #18
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -18099,8 +18100,8 @@ define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS
   br label %_ZN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit
 
 _ZN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit: ; preds = %1, %8
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -18225,14 +18226,14 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -18260,7 +18261,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIhiiNS_5OpAddIiiiEENS_5
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 2
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit
 
@@ -18472,7 +18473,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit53, label %127
 
 127:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %125) #17
+  call void @_ZdaPv(ptr noundef nonnull %125) #18
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit53
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit53:           ; preds = %127, %._crit_edge
@@ -18481,14 +18482,14 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit53:           ; preds = %127, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -18516,7 +18517,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIhfiNS_5OpAddIiiiEENS_5
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 2
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit
 
@@ -18730,7 +18731,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit53, label %129
 
 129:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %127) #17
+  call void @_ZdaPv(ptr noundef nonnull %127) #18
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit53
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit53:           ; preds = %129, %._crit_edge
@@ -18739,14 +18740,14 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit53:           ; preds = %129, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -18774,7 +18775,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIhdiNS_5OpAddIiiiEENS_5
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 2
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit
 
@@ -18988,7 +18989,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit53, label %129
 
 129:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %127) #17
+  call void @_ZdaPv(ptr noundef nonnull %127) #18
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit53
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit53:           ; preds = %129, %._crit_edge
@@ -18997,14 +18998,14 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit53:           ; preds = %129, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -19032,7 +19033,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerItffNS_5OpAddIfffEENS_5
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 2
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
 
@@ -19244,7 +19245,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit53, label %127
 
 127:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %125) #17
+  call void @_ZdaPv(ptr noundef nonnull %125) #18
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit53
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit53:           ; preds = %127, %._crit_edge
@@ -19253,14 +19254,14 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit53:           ; preds = %127, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -19288,7 +19289,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerItddNS_5OpAddIdddEENS_5
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 3
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -19500,7 +19501,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit53, label %127
 
 127:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %125) #17
+  call void @_ZdaPv(ptr noundef nonnull %125) #18
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit53
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit53:           ; preds = %127, %._crit_edge
@@ -19509,14 +19510,14 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit53:           ; preds = %127, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -19544,7 +19545,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIsffNS_5OpAddIfffEENS_5
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 2
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
 
@@ -19756,7 +19757,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit53, label %127
 
 127:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %125) #17
+  call void @_ZdaPv(ptr noundef nonnull %125) #18
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit53
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit53:           ; preds = %127, %._crit_edge
@@ -19765,14 +19766,14 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit53:           ; preds = %127, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -19800,7 +19801,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIsddNS_5OpAddIdddEENS_5
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 3
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -20012,7 +20013,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit53, label %127
 
 127:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %125) #17
+  call void @_ZdaPv(ptr noundef nonnull %125) #18
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit53
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit53:           ; preds = %127, %._crit_edge
@@ -20021,14 +20022,14 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit53:           ; preds = %127, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -20056,7 +20057,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIfffNS_5OpAddIfffEENS_5
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 2
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
 
@@ -20264,7 +20265,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit53, label %123
 
 123:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %121) #17
+  call void @_ZdaPv(ptr noundef nonnull %121) #18
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit53
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit53:           ; preds = %123, %._crit_edge
@@ -20273,14 +20274,14 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit53:           ; preds = %123, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -20308,7 +20309,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIfddNS_5OpAddIdddEENS_5
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 3
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -20520,7 +20521,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit53, label %127
 
 127:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %125) #17
+  call void @_ZdaPv(ptr noundef nonnull %125) #18
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit53
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit53:           ; preds = %127, %._crit_edge
@@ -20529,14 +20530,14 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit53:           ; preds = %127, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -20564,7 +20565,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIdddNS_5OpAddIdddEENS_5
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 3
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -20772,7 +20773,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit53, label %123
 
 123:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %121) #17
+  call void @_ZdaPv(ptr noundef nonnull %121) #18
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit53
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit53:           ; preds = %123, %._crit_edge
@@ -20781,14 +20782,14 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit53:           ; preds = %123, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -21021,7 +21022,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:
   br i1 %or.cond, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit53, label %124
 
 124:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %122) #17
+  call void @_ZdaPv(ptr noundef nonnull %122) #18
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit53
 
 _ZN2cv10AutoBufferIhLm1032EED2Ev.exit53:          ; preds = %124, %._crit_edge
@@ -21030,14 +21031,14 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit53:          ; preds = %124, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -21264,7 +21265,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit:
   br i1 %or.cond, label %_ZN2cv10AutoBufferItLm520EED2Ev.exit53, label %118
 
 118:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %116) #17
+  call void @_ZdaPv(ptr noundef nonnull %116) #18
   br label %_ZN2cv10AutoBufferItLm520EED2Ev.exit53
 
 _ZN2cv10AutoBufferItLm520EED2Ev.exit53:           ; preds = %118, %._crit_edge
@@ -21273,14 +21274,14 @@ _ZN2cv10AutoBufferItLm520EED2Ev.exit53:           ; preds = %118, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -21507,7 +21508,7 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:
   br i1 %or.cond, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit53, label %118
 
 118:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %116) #17
+  call void @_ZdaPv(ptr noundef nonnull %116) #18
   br label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit53
 
 _ZN2cv10AutoBufferIsLm520EED2Ev.exit53:           ; preds = %118, %._crit_edge
@@ -21516,14 +21517,14 @@ _ZN2cv10AutoBufferIsLm520EED2Ev.exit53:           ; preds = %118, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -21551,7 +21552,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIfffNS_5OpMaxIfEENS_5Op
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 2
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
 
@@ -21760,7 +21761,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit53, label %123
 
 123:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %121) #17
+  call void @_ZdaPv(ptr noundef nonnull %121) #18
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit53
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit53:           ; preds = %123, %._crit_edge
@@ -21769,14 +21770,14 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit53:           ; preds = %123, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -21804,7 +21805,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIdddNS_5OpMaxIdEENS_5Op
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 3
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -22013,7 +22014,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit53, label %123
 
 123:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %121) #17
+  call void @_ZdaPv(ptr noundef nonnull %121) #18
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit53
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit53:           ; preds = %123, %._crit_edge
@@ -22022,14 +22023,14 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit53:           ; preds = %123, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -22262,7 +22263,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:
   br i1 %or.cond, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit53, label %125
 
 125:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %123) #17
+  call void @_ZdaPv(ptr noundef nonnull %123) #18
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit53
 
 _ZN2cv10AutoBufferIhLm1032EED2Ev.exit53:          ; preds = %125, %._crit_edge
@@ -22271,14 +22272,14 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit53:          ; preds = %125, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerItttNS_5OpMinItEENS_5OpNopItttEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerItttNS_5OpMinItEENS_5OpNopItttEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -22505,7 +22506,7 @@ _ZN2cv10AutoBufferItLm520EEC2Em.exit:
   br i1 %or.cond, label %_ZN2cv10AutoBufferItLm520EED2Ev.exit53, label %118
 
 118:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %116) #17
+  call void @_ZdaPv(ptr noundef nonnull %116) #18
   br label %_ZN2cv10AutoBufferItLm520EED2Ev.exit53
 
 _ZN2cv10AutoBufferItLm520EED2Ev.exit53:           ; preds = %118, %._crit_edge
@@ -22514,14 +22515,14 @@ _ZN2cv10AutoBufferItLm520EED2Ev.exit53:           ; preds = %118, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -22748,7 +22749,7 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:
   br i1 %or.cond, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit53, label %118
 
 118:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %116) #17
+  call void @_ZdaPv(ptr noundef nonnull %116) #18
   br label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit53
 
 _ZN2cv10AutoBufferIsLm520EED2Ev.exit53:           ; preds = %118, %._crit_edge
@@ -22757,14 +22758,14 @@ _ZN2cv10AutoBufferIsLm520EED2Ev.exit53:           ; preds = %118, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -22792,7 +22793,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIfffNS_5OpMinIfEENS_5Op
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 2
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
 
@@ -23001,7 +23002,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit53, label %123
 
 123:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %121) #17
+  call void @_ZdaPv(ptr noundef nonnull %121) #18
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit53
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit53:           ; preds = %123, %._crit_edge
@@ -23010,14 +23011,14 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit53:           ; preds = %123, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -23045,7 +23046,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIdddNS_5OpMinIdEENS_5Op
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 3
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -23254,7 +23255,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit53, label %123
 
 123:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %121) #17
+  call void @_ZdaPv(ptr noundef nonnull %121) #18
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit53
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit53:           ; preds = %123, %._crit_edge
@@ -23263,14 +23264,14 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit53:           ; preds = %123, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -23298,7 +23299,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIhiiNS_8OpAddSqrIiiiEEN
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 2
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit
 
@@ -23514,7 +23515,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit, label %131
 
 131:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %129) #17
+  call void @_ZdaPv(ptr noundef nonnull %129) #18
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %131, %._crit_edge
@@ -23523,14 +23524,14 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %131, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -23558,7 +23559,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIhfiNS_8OpAddSqrIiiiEEN
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 2
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit
 
@@ -23777,7 +23778,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit, label %134
 
 134:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %132) #17
+  call void @_ZdaPv(ptr noundef nonnull %132) #18
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %134, %._crit_edge
@@ -23786,14 +23787,14 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %134, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -23821,7 +23822,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIhdiNS_8OpAddSqrIiiiEEN
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 2
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit
 
@@ -24040,7 +24041,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit, label %134
 
 134:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %132) #17
+  call void @_ZdaPv(ptr noundef nonnull %132) #18
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %134, %._crit_edge
@@ -24049,14 +24050,14 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %134, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -24084,7 +24085,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerItffNS_8OpAddSqrIfffEEN
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 2
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
 
@@ -24299,7 +24300,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit, label %130
 
 130:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %128) #17
+  call void @_ZdaPv(ptr noundef nonnull %128) #18
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %130, %._crit_edge
@@ -24308,14 +24309,14 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %130, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -24343,7 +24344,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerItddNS_8OpAddSqrIdddEEN
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 3
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -24558,7 +24559,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit, label %130
 
 130:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %128) #17
+  call void @_ZdaPv(ptr noundef nonnull %128) #18
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %130, %._crit_edge
@@ -24567,14 +24568,14 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %130, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -24602,7 +24603,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIsffNS_8OpAddSqrIfffEEN
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 2
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
 
@@ -24817,7 +24818,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit, label %130
 
 130:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %128) #17
+  call void @_ZdaPv(ptr noundef nonnull %128) #18
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %130, %._crit_edge
@@ -24826,14 +24827,14 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %130, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -24861,7 +24862,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIsddNS_8OpAddSqrIdddEEN
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 3
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -25076,7 +25077,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit, label %130
 
 130:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %128) #17
+  call void @_ZdaPv(ptr noundef nonnull %128) #18
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %130, %._crit_edge
@@ -25085,14 +25086,14 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %130, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -25120,7 +25121,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIfffNS_8OpAddSqrIfffEEN
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 2
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
 
@@ -25331,7 +25332,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit, label %126
 
 126:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %124) #17
+  call void @_ZdaPv(ptr noundef nonnull %124) #18
   br label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit
 
 _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %126, %._crit_edge
@@ -25340,14 +25341,14 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %126, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -25375,7 +25376,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIfddNS_8OpAddSqrIdddEEN
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 3
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -25590,7 +25591,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit, label %130
 
 130:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %128) #17
+  call void @_ZdaPv(ptr noundef nonnull %128) #18
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %130, %._crit_edge
@@ -25599,14 +25600,14 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %130, %._crit_edge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceC_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -25634,7 +25635,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceC_InvokerIdddNS_8OpAddSqrIdddEEN
 
 18:                                               ; preds = %2
   %19 = shl nuw nsw i64 %15, 3
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #18
+  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   br label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -25845,7 +25846,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
   br i1 %or.cond, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit, label %126
 
 126:                                              ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %124) #17
+  call void @_ZdaPv(ptr noundef nonnull %124) #18
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %126, %._crit_edge
@@ -35932,28 +35933,28 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIdEE
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #13
+declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #13
+declare i16 @llvm.smin.i16(i16, i16) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #13
+declare i16 @llvm.umin.i16(i16, i16) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smax.i16(i16, i16) #13
+declare i16 @llvm.smax.i16(i16, i16) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #13
+declare i16 @llvm.umax.i16(i16, i16) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -35964,16 +35965,17 @@ attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { builtin nounwind }
-attributes #18 = { builtin allocsize(0) }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { builtin nounwind }
+attributes #19 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

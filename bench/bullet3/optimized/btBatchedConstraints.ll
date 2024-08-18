@@ -334,7 +334,7 @@ if.then35:                                        ; preds = %if.then
 lpad:                                             ; preds = %if.then3.i.i.i42, %if.then.i.i.i, %if.then3.i.i.i
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %bodyBatchId) #11
+  call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %bodyBatchId) #12
   resume { ptr, i32 } %54
 
 if.else:                                          ; preds = %if.then
@@ -430,7 +430,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i97
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  tail call void @__clang_call_terminate(ptr %79) #12
+  tail call void @__clang_call_terminate(ptr %79) #13
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %entry, %for.end70, %if.then3.i.i.i97
@@ -472,7 +472,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #12
+  tail call void @__clang_call_terminate(ptr %3) #13
   unreachable
 }
 
@@ -866,14 +866,14 @@ lpad2.i.i:                                        ; preds = %.noexc161.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %30, %lpad.i.i ], [ %31, %lpad2.i.i ]
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i) #12
   br label %common.resume
 
 invoke.cont50.i:                                  ; preds = %while.end29.loopexit.i.i.i, %.noexc.i.i
   %iDest.0.lcssa.i.i.i = phi i32 [ 0, %.noexc.i.i ], [ %29, %while.end29.loopexit.i.i.i ]
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i.i) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i.i.i)
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %loop.i.i)
   %32 = load i32, ptr %m_size.i76.i, align 4
@@ -1049,7 +1049,7 @@ for.inc.i.i:                                      ; preds = %if.then.i11.i.i.i, 
 invoke.cont79.i:                                  ; preds = %for.inc.i.i, %.noexc200.i
   %retval.sroa.0.0.lcssa.i.i = phi <2 x float> [ <float 0x3F50624DE0000000, float 0x3F50624DE0000000>, %.noexc200.i ], [ %retval.sroa.0.1.i.i, %for.inc.i.i ]
   %retval.sroa.6.0.lcssa.i.i = phi <2 x float> [ <float 0x3F50624DE0000000, float 0.000000e+00>, %.noexc200.i ], [ %retval.sroa.6.1.i.i, %for.inc.i.i ]
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i188.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i188.i) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i188.i)
   %bboxMax.sroa.0.0.vec.extract392.i = extractelement <2 x float> %bboxMax.sroa.0.0.lcssa.i, i64 0
   %sub.i.i = fsub float %bboxMax.sroa.0.0.vec.extract392.i, %bboxMin.sroa.0.0.lcssa.i
@@ -1456,7 +1456,7 @@ for.inc51.i.i:                                    ; preds = %while.cond.i.i, %if
   br i1 %exitcond.not.i300.i, label %_ZL17mergeSmallBatchesP11btBatchInfoiiii.exit.i, label %for.body31.i.i, !llvm.loop !26
 
 _ZL17mergeSmallBatchesP11btBatchInfoiiii.exit.i:  ; preds = %for.inc51.i.i
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i292.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i292.i) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i292.i)
   br label %for.inc342.i
 
@@ -1488,11 +1488,11 @@ for.end344.i:                                     ; preds = %for.inc342.i
 lpad1.i.i:                                        ; preds = %.noexc309.i
   %112 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i307.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i307.i) #12
   br label %common.resume
 
 invoke.cont346.i:                                 ; preds = %.noexc309.i
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i307.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i307.i) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i307.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %loop.i308.i)
   %cmp347.i = icmp sgt i32 %1, %iDest.0.lcssa.i.i.i
@@ -1523,11 +1523,11 @@ if.then348.i:                                     ; preds = %invoke.cont346.i
 lpad1.i314.i:                                     ; preds = %.noexc315.i
   %116 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i312.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i312.i) #12
   br label %common.resume
 
 _ZL22expandConstraintRowsMtPiPKiPK23btBatchedConstraintInfoii.exit.i: ; preds = %.noexc315.i
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i312.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i312.i) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i312.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %loop.i313.i)
   %.pre.i = load ptr, ptr %constraintRowBatchIds.i, align 8
@@ -1815,7 +1815,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i: ; preds = %call1
 
 lpad.body.i.i:                                    ; preds = %lpad1.i.i.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, %lpad.loopexit.split-lp.loopexit.i.i, %lpad.loopexit.i.i
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %167, %lpad1.i.i.i ], [ %lpad.loopexit241.i.i, %lpad.loopexit.i.i ], [ %lpad.loopexit243.i.i, %lpad.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit246.i.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp247.i.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i ]
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i319.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i319.i) #12
   br label %common.resume
 
 for.inc.i338.i:                                   ; preds = %_ZN20btAlignedObjectArrayIN20btBatchedConstraints5RangeEE9push_backERKS1_.exit.i.i, %for.body7.i.i
@@ -2008,11 +2008,11 @@ invoke.cont34.i.i:                                ; preds = %_ZN20btAlignedObjec
 lpad1.i.i.i:                                      ; preds = %.noexc182.i.i
   %167 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i318.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i318.i) #12
   br label %lpad.body.i.i
 
 _ZL27writeOutConstraintIndicesMtP20btBatchedConstraintsPKiiPiii.exit.i.i: ; preds = %.noexc182.i.i
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i318.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i318.i) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i.i318.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %loop.i.i.i)
   %168 = load i32, ptr %m_size.i.i48.i.i, align 4
@@ -2269,13 +2269,13 @@ for.body.i.i327.i:                                ; preds = %for.body.i.i327.i, 
 common.resume:                                    ; preds = %lpad.i, %lpad.i.i35, %lpad.loopexit.i, %lpad.loopexit.split-lp.i, %ehcleanup.i.i, %lpad309.i, %lpad1.i.i, %lpad1.i314.i, %lpad.body.i.i, %lpad.i68
   %__profile.i63.sink = phi ptr [ %__profile.i63, %lpad.i68 ], [ %__profile.i, %lpad.body.i.i ], [ %__profile.i, %lpad1.i314.i ], [ %__profile.i, %lpad1.i.i ], [ %__profile.i, %lpad309.i ], [ %__profile.i, %ehcleanup.i.i ], [ %__profile.i, %lpad.loopexit.split-lp.i ], [ %__profile.i, %lpad.loopexit.i ], [ %__profile.i7, %lpad.i.i35 ], [ %__profile.i7, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %268, %lpad.i68 ], [ %eh.lpad-body.i.i, %lpad.body.i.i ], [ %116, %lpad1.i314.i ], [ %112, %lpad1.i.i ], [ %88, %lpad309.i ], [ %.pn.i.i, %ehcleanup.i.i ], [ %lpad.loopexit.split-lp434.i, %lpad.loopexit.split-lp.i ], [ %lpad.loopexit433.i, %lpad.loopexit.i ], [ %256, %lpad.i.i35 ], [ %211, %lpad.i ]
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i63.sink) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i63.sink) #12
   resume { ptr, i32 } %common.resume.op
 
 _ZL25setupSpatialGridBatchesMtP20btBatchedConstraintsP20btAlignedObjectArrayIcEPS1_I18btSolverConstraintERKS1_I12btSolverBodyEiib.exit: ; preds = %for.body.i.i327.i, %call2.i.noexc.i.i
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i319.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i319.i) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i319.i)
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bodyPositions.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bodyDynamicFlags.i)
@@ -2543,11 +2543,11 @@ for.inc.i.i26:                                    ; preds = %for.inc.loopexit.i.
 lpad.i.i35:                                       ; preds = %for.body.i.i.i31
   %256 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i6) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i6) #12
   br label %common.resume
 
 for.inc60.i:                                      ; preds = %for.inc.i.i26, %if.then.i.i, %.noexc.i
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i6) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i.i6) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i.i6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %col.i.i)
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
@@ -2555,7 +2555,7 @@ for.inc60.i:                                      ; preds = %for.inc.i.i26, %if.
   br i1 %exitcond113.not.i, label %_ZL19debugDrawAllBatchesPK20btBatchedConstraintsP20btAlignedObjectArrayI18btSolverConstraintERKS2_I12btSolverBodyE.exit, label %invoke.cont56.i, !llvm.loop !39
 
 _ZL19debugDrawAllBatchesPK20btBatchedConstraintsP20btAlignedObjectArrayI18btSolverConstraintERKS2_I12btSolverBodyE.exit: ; preds = %for.inc60.i, %if.then4, %land.lhs.true2.i
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i7) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i7) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i7)
   br label %if.end6
 
@@ -3156,7 +3156,7 @@ _ZN20btAlignedObjectArrayIcE9push_backERKc.exit.i: ; preds = %_ZN20btAlignedObje
   br label %_ZL16setupSingleBatchP20btBatchedConstraintsi.exit
 
 _ZL16setupSingleBatchP20btBatchedConstraintsi.exit: ; preds = %invoke.cont6.i, %_ZN20btAlignedObjectArrayIcE9push_backERKc.exit.i
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i63) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i63) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i63)
   br label %if.end6
 
@@ -3193,7 +3193,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25ReadSolverConstraintsLoopD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
 }
 
@@ -3247,7 +3247,7 @@ declare float @llvm.fabs.f32(float) #7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN34AssignConstraintsToGridBatchesLoopD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
 }
 
@@ -3412,7 +3412,7 @@ for.end86.i:                                      ; preds = %_Z7btClampIiEvRT_RK
   br i1 %exitcond72.not.i, label %_ZL30assignConstraintsToGridBatchesRK36AssignConstraintsToGridBatchesParamsii.exit, label %for.body.i, !llvm.loop !44
 
 _ZL30assignConstraintsToGridBatchesRK36AssignConstraintsToGridBatchesParamsii.exit: ; preds = %for.end86.i, %entry
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %gridCoord.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %chunkCoord.i)
@@ -3429,7 +3429,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN37UpdateConstraintBatchIdsForMergesLoopD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
 }
 
@@ -3478,15 +3478,15 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   br i1 %exitcond.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !45
 
 invoke.cont:                                      ; preds = %for.inc.i, %.noexc
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i)
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #12
   ret void
 
 lpad:                                             ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #12
   resume { ptr, i32 } %4
 }
 
@@ -3499,7 +3499,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24ExpandConstraintRowsLoopD0Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
 }
 
@@ -3554,7 +3554,7 @@ for.inc9.i:                                       ; preds = %for.body6.i, %for.b
   br i1 %exitcond.not.i, label %_ZL20expandConstraintRowsPiPKiPK23btBatchedConstraintInfoii.exit, label %for.body.i, !llvm.loop !47
 
 _ZL20expandConstraintRowsPiPKiPK23btBatchedConstraintInfoii.exit: ; preds = %for.inc9.i, %entry
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i)
   ret void
 }
@@ -3669,7 +3669,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN29WriteOutConstraintIndicesLoopD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
 }
 
@@ -3732,15 +3732,15 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   br i1 %exitcond.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !51
 
 invoke.cont:                                      ; preds = %for.inc.i, %.noexc
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i)
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #12
   ret void
 
 lpad:                                             ; preds = %entry
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #11
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #12
   resume { ptr, i32 } %9
 }
 
@@ -3757,26 +3757,27 @@ declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #12
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #13
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3787,11 +3788,12 @@ attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { builtin nounwind }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

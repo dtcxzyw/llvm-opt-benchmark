@@ -64,12 +64,12 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 if.then4.i:                                       ; preds = %land.lhs.true.i
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %tempArray.i)
   tail call void @ucln_i18n_registerCleanup_75(i32 noundef 29, ptr noundef nonnull @_ZL13csdet_cleanupv)
-  %call.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull.i = icmp eq ptr %call.i, null
   br i1 %new.isnull.i, label %new.cont5.i, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.then4.i
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull2.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull2.i, label %new.cont.i, label %new.notnull3.i
 
@@ -86,12 +86,12 @@ new.cont.i:                                       ; preds = %new.notnull3.i, %ne
 new.cont5.i:                                      ; preds = %new.cont.i, %if.then4.i
   store ptr %call.i, ptr %tempArray.i, align 16
   %arrayinit.element.i = getelementptr inbounds i8, ptr %tempArray.i, i64 8
-  %call6.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call6.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull7.i = icmp eq ptr %call6.i, null
   br i1 %new.isnull7.i, label %new.cont22.i, label %new.notnull8.i
 
 new.notnull8.i:                                   ; preds = %new.cont5.i
-  %call11.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call11.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull12.i = icmp eq ptr %call11.i, null
   br i1 %new.isnull12.i, label %new.cont16.i, label %new.notnull13.i
 
@@ -108,12 +108,12 @@ new.cont16.i:                                     ; preds = %new.notnull13.i, %n
 new.cont22.i:                                     ; preds = %new.cont16.i, %new.cont5.i
   store ptr %call6.i, ptr %arrayinit.element.i, align 8
   %arrayinit.element23.i = getelementptr inbounds i8, ptr %tempArray.i, i64 16
-  %call24.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call24.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull25.i = icmp eq ptr %call24.i, null
   br i1 %new.isnull25.i, label %new.cont40.i, label %new.notnull26.i
 
 new.notnull26.i:                                  ; preds = %new.cont22.i
-  %call29.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call29.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull30.i = icmp eq ptr %call29.i, null
   br i1 %new.isnull30.i, label %new.cont34.i, label %new.notnull31.i
 
@@ -130,12 +130,12 @@ new.cont34.i:                                     ; preds = %new.notnull31.i, %n
 new.cont40.i:                                     ; preds = %new.cont34.i, %new.cont22.i
   store ptr %call24.i, ptr %arrayinit.element23.i, align 16
   %arrayinit.element41.i = getelementptr inbounds i8, ptr %tempArray.i, i64 24
-  %call42.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call42.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull43.i = icmp eq ptr %call42.i, null
   br i1 %new.isnull43.i, label %new.cont58.i, label %new.notnull44.i
 
 new.notnull44.i:                                  ; preds = %new.cont40.i
-  %call47.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call47.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull48.i = icmp eq ptr %call47.i, null
   br i1 %new.isnull48.i, label %new.cont52.i, label %new.notnull49.i
 
@@ -152,12 +152,12 @@ new.cont52.i:                                     ; preds = %new.notnull49.i, %n
 new.cont58.i:                                     ; preds = %new.cont52.i, %new.cont40.i
   store ptr %call42.i, ptr %arrayinit.element41.i, align 8
   %arrayinit.element59.i = getelementptr inbounds i8, ptr %tempArray.i, i64 32
-  %call60.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call60.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull61.i = icmp eq ptr %call60.i, null
   br i1 %new.isnull61.i, label %new.cont76.i, label %new.notnull62.i
 
 new.notnull62.i:                                  ; preds = %new.cont58.i
-  %call65.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call65.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull66.i = icmp eq ptr %call65.i, null
   br i1 %new.isnull66.i, label %new.cont70.i, label %new.notnull67.i
 
@@ -174,12 +174,12 @@ new.cont70.i:                                     ; preds = %new.notnull67.i, %n
 new.cont76.i:                                     ; preds = %new.cont70.i, %new.cont58.i
   store ptr %call60.i, ptr %arrayinit.element59.i, align 16
   %arrayinit.element77.i = getelementptr inbounds i8, ptr %tempArray.i, i64 40
-  %call78.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call78.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull79.i = icmp eq ptr %call78.i, null
   br i1 %new.isnull79.i, label %new.cont99.i, label %new.notnull80.i
 
 new.notnull80.i:                                  ; preds = %new.cont76.i
-  %call83.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call83.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull84.i = icmp eq ptr %call83.i, null
   br i1 %new.isnull84.i, label %new.cont93.i, label %new.notnull85.i
 
@@ -201,12 +201,12 @@ new.cont93.i:                                     ; preds = %_ZN6icu_7519Charset
 new.cont99.i:                                     ; preds = %new.cont93.i, %new.cont76.i
   store ptr %call78.i, ptr %arrayinit.element77.i, align 8
   %arrayinit.element100.i = getelementptr inbounds i8, ptr %tempArray.i, i64 48
-  %call101.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call101.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull102.i = icmp eq ptr %call101.i, null
   br i1 %new.isnull102.i, label %new.cont124.i, label %new.notnull103.i
 
 new.notnull103.i:                                 ; preds = %new.cont99.i
-  %call106.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call106.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull107.i = icmp eq ptr %call106.i, null
   br i1 %new.isnull107.i, label %new.cont117.i, label %new.notnull108.i
 
@@ -228,12 +228,12 @@ new.cont117.i:                                    ; preds = %_ZN6icu_7519Charset
 new.cont124.i:                                    ; preds = %new.cont117.i, %new.cont99.i
   store ptr %call101.i, ptr %arrayinit.element100.i, align 16
   %arrayinit.element125.i = getelementptr inbounds i8, ptr %tempArray.i, i64 56
-  %call126.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call126.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull127.i = icmp eq ptr %call126.i, null
   br i1 %new.isnull127.i, label %new.cont149.i, label %new.notnull128.i
 
 new.notnull128.i:                                 ; preds = %new.cont124.i
-  %call131.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call131.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull132.i = icmp eq ptr %call131.i, null
   br i1 %new.isnull132.i, label %new.cont142.i, label %new.notnull133.i
 
@@ -255,12 +255,12 @@ new.cont142.i:                                    ; preds = %_ZN6icu_7522Charset
 new.cont149.i:                                    ; preds = %new.cont142.i, %new.cont124.i
   store ptr %call126.i, ptr %arrayinit.element125.i, align 8
   %arrayinit.element150.i = getelementptr inbounds i8, ptr %tempArray.i, i64 64
-  %call151.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call151.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull152.i = icmp eq ptr %call151.i, null
   br i1 %new.isnull152.i, label %new.cont174.i, label %new.notnull153.i
 
 new.notnull153.i:                                 ; preds = %new.cont149.i
-  %call156.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call156.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull157.i = icmp eq ptr %call156.i, null
   br i1 %new.isnull157.i, label %new.cont167.i, label %new.notnull158.i
 
@@ -282,12 +282,12 @@ new.cont167.i:                                    ; preds = %_ZN6icu_7522Charset
 new.cont174.i:                                    ; preds = %new.cont167.i, %new.cont149.i
   store ptr %call151.i, ptr %arrayinit.element150.i, align 16
   %arrayinit.element175.i = getelementptr inbounds i8, ptr %tempArray.i, i64 72
-  %call176.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call176.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull177.i = icmp eq ptr %call176.i, null
   br i1 %new.isnull177.i, label %new.cont199.i, label %new.notnull178.i
 
 new.notnull178.i:                                 ; preds = %new.cont174.i
-  %call181.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call181.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull182.i = icmp eq ptr %call181.i, null
   br i1 %new.isnull182.i, label %new.cont192.i, label %new.notnull183.i
 
@@ -309,12 +309,12 @@ new.cont192.i:                                    ; preds = %_ZN6icu_7522Charset
 new.cont199.i:                                    ; preds = %new.cont192.i, %new.cont174.i
   store ptr %call176.i, ptr %arrayinit.element175.i, align 8
   %arrayinit.element200.i = getelementptr inbounds i8, ptr %tempArray.i, i64 80
-  %call201.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call201.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull202.i = icmp eq ptr %call201.i, null
   br i1 %new.isnull202.i, label %new.cont224.i, label %new.notnull203.i
 
 new.notnull203.i:                                 ; preds = %new.cont199.i
-  %call206.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call206.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull207.i = icmp eq ptr %call206.i, null
   br i1 %new.isnull207.i, label %new.cont217.i, label %new.notnull208.i
 
@@ -336,12 +336,12 @@ new.cont217.i:                                    ; preds = %_ZN6icu_7524Charset
 new.cont224.i:                                    ; preds = %new.cont217.i, %new.cont199.i
   store ptr %call201.i, ptr %arrayinit.element200.i, align 16
   %arrayinit.element225.i = getelementptr inbounds i8, ptr %tempArray.i, i64 88
-  %call226.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call226.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull227.i = icmp eq ptr %call226.i, null
   br i1 %new.isnull227.i, label %new.cont249.i, label %new.notnull228.i
 
 new.notnull228.i:                                 ; preds = %new.cont224.i
-  %call231.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call231.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull232.i = icmp eq ptr %call231.i, null
   br i1 %new.isnull232.i, label %new.cont242.i, label %new.notnull233.i
 
@@ -363,12 +363,12 @@ new.cont242.i:                                    ; preds = %_ZN6icu_7522Charset
 new.cont249.i:                                    ; preds = %new.cont242.i, %new.cont224.i
   store ptr %call226.i, ptr %arrayinit.element225.i, align 8
   %arrayinit.element250.i = getelementptr inbounds i8, ptr %tempArray.i, i64 96
-  %call251.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call251.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull252.i = icmp eq ptr %call251.i, null
   br i1 %new.isnull252.i, label %new.cont274.i, label %new.notnull253.i
 
 new.notnull253.i:                                 ; preds = %new.cont249.i
-  %call256.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call256.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull257.i = icmp eq ptr %call256.i, null
   br i1 %new.isnull257.i, label %new.cont267.i, label %new.notnull258.i
 
@@ -390,12 +390,12 @@ new.cont267.i:                                    ; preds = %_ZN6icu_7525Charset
 new.cont274.i:                                    ; preds = %new.cont267.i, %new.cont249.i
   store ptr %call251.i, ptr %arrayinit.element250.i, align 16
   %arrayinit.element275.i = getelementptr inbounds i8, ptr %tempArray.i, i64 104
-  %call276.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call276.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull277.i = icmp eq ptr %call276.i, null
   br i1 %new.isnull277.i, label %new.cont299.i, label %new.notnull278.i
 
 new.notnull278.i:                                 ; preds = %new.cont274.i
-  %call281.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call281.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull282.i = icmp eq ptr %call281.i, null
   br i1 %new.isnull282.i, label %new.cont292.i, label %new.notnull283.i
 
@@ -417,12 +417,12 @@ new.cont292.i:                                    ; preds = %_ZN6icu_7525Charset
 new.cont299.i:                                    ; preds = %new.cont292.i, %new.cont274.i
   store ptr %call276.i, ptr %arrayinit.element275.i, align 8
   %arrayinit.element300.i = getelementptr inbounds i8, ptr %tempArray.i, i64 112
-  %call301.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call301.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull302.i = icmp eq ptr %call301.i, null
   br i1 %new.isnull302.i, label %new.cont324.i, label %new.notnull303.i
 
 new.notnull303.i:                                 ; preds = %new.cont299.i
-  %call306.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call306.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull307.i = icmp eq ptr %call306.i, null
   br i1 %new.isnull307.i, label %new.cont317.i, label %new.notnull308.i
 
@@ -444,12 +444,12 @@ new.cont317.i:                                    ; preds = %_ZN6icu_7519Charset
 new.cont324.i:                                    ; preds = %new.cont317.i, %new.cont299.i
   store ptr %call301.i, ptr %arrayinit.element300.i, align 16
   %arrayinit.element325.i = getelementptr inbounds i8, ptr %tempArray.i, i64 120
-  %call326.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call326.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull327.i = icmp eq ptr %call326.i, null
   br i1 %new.isnull327.i, label %new.cont349.i, label %new.notnull328.i
 
 new.notnull328.i:                                 ; preds = %new.cont324.i
-  %call331.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call331.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull332.i = icmp eq ptr %call331.i, null
   br i1 %new.isnull332.i, label %new.cont342.i, label %new.notnull333.i
 
@@ -471,12 +471,12 @@ new.cont342.i:                                    ; preds = %_ZN6icu_7522Charset
 new.cont349.i:                                    ; preds = %new.cont342.i, %new.cont324.i
   store ptr %call326.i, ptr %arrayinit.element325.i, align 8
   %arrayinit.element350.i = getelementptr inbounds i8, ptr %tempArray.i, i64 128
-  %call351.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call351.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull352.i = icmp eq ptr %call351.i, null
   br i1 %new.isnull352.i, label %new.cont368.i, label %new.notnull353.i
 
 new.notnull353.i:                                 ; preds = %new.cont349.i
-  %call356.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call356.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull357.i = icmp eq ptr %call356.i, null
   br i1 %new.isnull357.i, label %new.cont361.i, label %new.notnull358.i
 
@@ -493,12 +493,12 @@ new.cont361.i:                                    ; preds = %new.notnull358.i, %
 new.cont368.i:                                    ; preds = %new.cont361.i, %new.cont349.i
   store ptr %call351.i, ptr %arrayinit.element350.i, align 16
   %arrayinit.element369.i = getelementptr inbounds i8, ptr %tempArray.i, i64 136
-  %call370.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call370.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull371.i = icmp eq ptr %call370.i, null
   br i1 %new.isnull371.i, label %new.cont387.i, label %new.notnull372.i
 
 new.notnull372.i:                                 ; preds = %new.cont368.i
-  %call375.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call375.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull376.i = icmp eq ptr %call375.i, null
   br i1 %new.isnull376.i, label %new.cont380.i, label %new.notnull377.i
 
@@ -515,12 +515,12 @@ new.cont380.i:                                    ; preds = %new.notnull377.i, %
 new.cont387.i:                                    ; preds = %new.cont380.i, %new.cont368.i
   store ptr %call370.i, ptr %arrayinit.element369.i, align 8
   %arrayinit.element388.i = getelementptr inbounds i8, ptr %tempArray.i, i64 144
-  %call389.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call389.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull390.i = icmp eq ptr %call389.i, null
   br i1 %new.isnull390.i, label %new.cont406.i, label %new.notnull391.i
 
 new.notnull391.i:                                 ; preds = %new.cont387.i
-  %call394.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call394.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull395.i = icmp eq ptr %call394.i, null
   br i1 %new.isnull395.i, label %new.cont399.i, label %new.notnull396.i
 
@@ -537,12 +537,12 @@ new.cont399.i:                                    ; preds = %new.notnull396.i, %
 new.cont406.i:                                    ; preds = %new.cont399.i, %new.cont387.i
   store ptr %call389.i, ptr %arrayinit.element388.i, align 16
   %arrayinit.element407.i = getelementptr inbounds i8, ptr %tempArray.i, i64 152
-  %call408.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call408.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull409.i = icmp eq ptr %call408.i, null
   br i1 %new.isnull409.i, label %new.cont425.i, label %new.notnull410.i
 
 new.notnull410.i:                                 ; preds = %new.cont406.i
-  %call413.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call413.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull414.i = icmp eq ptr %call413.i, null
   br i1 %new.isnull414.i, label %new.cont418.i, label %new.notnull415.i
 
@@ -559,12 +559,12 @@ new.cont418.i:                                    ; preds = %new.notnull415.i, %
 new.cont425.i:                                    ; preds = %new.cont418.i, %new.cont406.i
   store ptr %call408.i, ptr %arrayinit.element407.i, align 8
   %arrayinit.element426.i = getelementptr inbounds i8, ptr %tempArray.i, i64 160
-  %call427.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call427.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull428.i = icmp eq ptr %call427.i, null
   br i1 %new.isnull428.i, label %new.cont444.i, label %new.notnull429.i
 
 new.notnull429.i:                                 ; preds = %new.cont425.i
-  %call432.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call432.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull433.i = icmp eq ptr %call432.i, null
   br i1 %new.isnull433.i, label %new.cont437.i, label %new.notnull434.i
 
@@ -581,12 +581,12 @@ new.cont437.i:                                    ; preds = %new.notnull434.i, %
 new.cont444.i:                                    ; preds = %new.cont437.i, %new.cont425.i
   store ptr %call427.i, ptr %arrayinit.element426.i, align 16
   %arrayinit.element445.i = getelementptr inbounds i8, ptr %tempArray.i, i64 168
-  %call446.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call446.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull447.i = icmp eq ptr %call446.i, null
   br i1 %new.isnull447.i, label %new.cont463.i, label %new.notnull448.i
 
 new.notnull448.i:                                 ; preds = %new.cont444.i
-  %call451.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call451.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull452.i = icmp eq ptr %call451.i, null
   br i1 %new.isnull452.i, label %new.cont456.i, label %new.notnull453.i
 
@@ -603,12 +603,12 @@ new.cont456.i:                                    ; preds = %new.notnull453.i, %
 new.cont463.i:                                    ; preds = %new.cont456.i, %new.cont444.i
   store ptr %call446.i, ptr %arrayinit.element445.i, align 8
   %arrayinit.element464.i = getelementptr inbounds i8, ptr %tempArray.i, i64 176
-  %call465.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call465.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull466.i = icmp eq ptr %call465.i, null
   br i1 %new.isnull466.i, label %new.cont482.i, label %new.notnull467.i
 
 new.notnull467.i:                                 ; preds = %new.cont463.i
-  %call470.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call470.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull471.i = icmp eq ptr %call470.i, null
   br i1 %new.isnull471.i, label %new.cont475.i, label %new.notnull472.i
 
@@ -625,12 +625,12 @@ new.cont475.i:                                    ; preds = %new.notnull472.i, %
 new.cont482.i:                                    ; preds = %new.cont475.i, %new.cont463.i
   store ptr %call465.i, ptr %arrayinit.element464.i, align 16
   %arrayinit.element483.i = getelementptr inbounds i8, ptr %tempArray.i, i64 184
-  %call484.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call484.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull485.i = icmp eq ptr %call484.i, null
   br i1 %new.isnull485.i, label %new.cont501.i, label %new.notnull486.i
 
 new.notnull486.i:                                 ; preds = %new.cont482.i
-  %call489.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call489.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull490.i = icmp eq ptr %call489.i, null
   br i1 %new.isnull490.i, label %new.cont494.i, label %new.notnull491.i
 
@@ -647,12 +647,12 @@ new.cont494.i:                                    ; preds = %new.notnull491.i, %
 new.cont501.i:                                    ; preds = %new.cont494.i, %new.cont482.i
   store ptr %call484.i, ptr %arrayinit.element483.i, align 8
   %arrayinit.element502.i = getelementptr inbounds i8, ptr %tempArray.i, i64 192
-  %call503.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call503.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull504.i = icmp eq ptr %call503.i, null
   br i1 %new.isnull504.i, label %new.cont526.i, label %new.notnull505.i
 
 new.notnull505.i:                                 ; preds = %new.cont501.i
-  %call508.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call508.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull509.i = icmp eq ptr %call508.i, null
   br i1 %new.isnull509.i, label %new.cont519.i, label %new.notnull510.i
 
@@ -674,12 +674,12 @@ new.cont519.i:                                    ; preds = %_ZN6icu_7526Charset
 new.cont526.i:                                    ; preds = %new.cont519.i, %new.cont501.i
   store ptr %call503.i, ptr %arrayinit.element502.i, align 16
   %arrayinit.element527.i = getelementptr inbounds i8, ptr %tempArray.i, i64 200
-  %call528.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call528.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull529.i = icmp eq ptr %call528.i, null
   br i1 %new.isnull529.i, label %new.cont551.i, label %new.notnull530.i
 
 new.notnull530.i:                                 ; preds = %new.cont526.i
-  %call533.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call533.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull534.i = icmp eq ptr %call533.i, null
   br i1 %new.isnull534.i, label %new.cont544.i, label %new.notnull535.i
 
@@ -701,12 +701,12 @@ new.cont544.i:                                    ; preds = %_ZN6icu_7526Charset
 new.cont551.i:                                    ; preds = %new.cont544.i, %new.cont526.i
   store ptr %call528.i, ptr %arrayinit.element527.i, align 8
   %arrayinit.element552.i = getelementptr inbounds i8, ptr %tempArray.i, i64 208
-  %call553.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call553.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull554.i = icmp eq ptr %call553.i, null
   br i1 %new.isnull554.i, label %new.cont576.i, label %new.notnull555.i
 
 new.notnull555.i:                                 ; preds = %new.cont551.i
-  %call558.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call558.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull559.i = icmp eq ptr %call558.i, null
   br i1 %new.isnull559.i, label %new.cont569.i, label %new.notnull560.i
 
@@ -728,12 +728,12 @@ new.cont569.i:                                    ; preds = %_ZN6icu_7526Charset
 new.cont576.i:                                    ; preds = %new.cont569.i, %new.cont551.i
   store ptr %call553.i, ptr %arrayinit.element552.i, align 16
   %arrayinit.element577.i = getelementptr inbounds i8, ptr %tempArray.i, i64 216
-  %call578.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #14
+  %call578.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #15
   %new.isnull579.i = icmp eq ptr %call578.i, null
   br i1 %new.isnull579.i, label %new.cont601.i, label %new.notnull580.i
 
 new.notnull580.i:                                 ; preds = %new.cont576.i
-  %call583.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #14
+  %call583.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #15
   %new.isnull584.i = icmp eq ptr %call583.i, null
   br i1 %new.isnull584.i, label %new.cont594.i, label %new.notnull585.i
 
@@ -754,7 +754,7 @@ new.cont594.i:                                    ; preds = %_ZN6icu_7526Charset
 
 new.cont601.i:                                    ; preds = %new.cont594.i, %new.cont576.i
   store ptr %call578.i, ptr %arrayinit.element577.i, align 8
-  %call602.i = tail call noalias dereferenceable_or_null(224) ptr @uprv_malloc_75(i64 noundef 224) #15
+  %call602.i = tail call noalias dereferenceable_or_null(224) ptr @uprv_malloc_75(i64 noundef 224) #16
   store ptr %call602.i, ptr @_ZL14fCSRecognizers, align 8
   %cmp.i = icmp eq ptr %call602.i, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i1
@@ -863,8 +863,8 @@ eh.resume.i:                                      ; preds = %lpad588.i, %lpad563
   %call583.sink.i = phi ptr [ %call583.i, %lpad588.i ], [ %call558.i, %lpad563.i ], [ %call533.i, %lpad538.i ], [ %call508.i, %lpad513.i ], [ %call331.i, %lpad336.i ], [ %call306.i, %lpad311.i ], [ %call281.i, %lpad286.i ], [ %call256.i, %lpad261.i ], [ %call231.i, %lpad236.i ], [ %call206.i, %lpad211.i ], [ %call181.i, %lpad186.i ], [ %call156.i, %lpad161.i ], [ %call131.i, %lpad136.i ], [ %call106.i, %lpad111.i ], [ %call83.i, %lpad88.i ]
   %call578.sink.i = phi ptr [ %call578.i, %lpad588.i ], [ %call553.i, %lpad563.i ], [ %call528.i, %lpad538.i ], [ %call503.i, %lpad513.i ], [ %call326.i, %lpad336.i ], [ %call301.i, %lpad311.i ], [ %call276.i, %lpad286.i ], [ %call251.i, %lpad261.i ], [ %call226.i, %lpad236.i ], [ %call201.i, %lpad211.i ], [ %call176.i, %lpad186.i ], [ %call151.i, %lpad161.i ], [ %call126.i, %lpad136.i ], [ %call101.i, %lpad111.i ], [ %call78.i, %lpad88.i ]
   %.pn.i = phi { ptr, i32 } [ %16, %lpad588.i ], [ %15, %lpad563.i ], [ %14, %lpad538.i ], [ %13, %lpad513.i ], [ %12, %lpad336.i ], [ %11, %lpad311.i ], [ %10, %lpad286.i ], [ %9, %lpad261.i ], [ %8, %lpad236.i ], [ %7, %lpad211.i ], [ %6, %lpad186.i ], [ %5, %lpad161.i ], [ %4, %lpad136.i ], [ %3, %lpad111.i ], [ %2, %lpad88.i ]
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call583.sink.i) #14
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call578.sink.i) #14
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call583.sink.i) #15
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call578.sink.i) #15
   resume { ptr, i32 } %.pn.i
 
 _ZL15initRecognizersR10UErrorCode.exit.loopexit:  ; preds = %for.inc.i
@@ -894,7 +894,7 @@ _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %e
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7515CharsetDetectorC2ER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 56) #14
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 56) #15
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -926,7 +926,7 @@ if.end:                                           ; preds = %new.cont
 if.end6:                                          ; preds = %if.end
   %.b9 = load i1, ptr @_ZL19fCSRecognizers_size, align 4
   %mul = select i1 %.b9, i64 224, i64 0
-  %call7 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul) #15
+  %call7 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul) #16
   store ptr %call7, ptr %resultArray, align 8
   %cmp = icmp eq ptr %call7, null
   br i1 %cmp, label %for.end.sink.split, label %for.cond.preheader
@@ -944,7 +944,7 @@ for.cond:                                         ; preds = %new.cont22
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %for.cond.preheader ]
-  %call13 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #14
+  %call13 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #15
   %new.isnull14 = icmp eq ptr %call13, null
   br i1 %new.isnull14, label %new.cont22, label %new.notnull15
 
@@ -977,7 +977,7 @@ for.end:                                          ; preds = %for.cond, %for.end.
 eh.resume:                                        ; preds = %lpad17, %lpad
   %call13.lcssa.sink = phi ptr [ %call13, %lpad17 ], [ %call, %lpad ]
   %.pn = phi { ptr, i32 } [ %6, %lpad17 ], [ %1, %lpad ]
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call13.lcssa.sink) #14
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call13.lcssa.sink) #15
   resume { ptr, i32 } %.pn
 }
 
@@ -1004,8 +1004,8 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZN6icu_759InputTextD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #14
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #14
+  tail call void @_ZN6icu_759InputTextD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #15
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #15
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -1025,7 +1025,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %isnull2, label %for.inc, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %for.body
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %2) #15
   %.b.pre = load i1, ptr @_ZL19fCSRecognizers_size, align 4
   br label %for.inc
 
@@ -1059,7 +1059,7 @@ terminate.lpad:                                   ; preds = %if.then, %for.end
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #16
+  tail call void @__clang_call_terminate(ptr %6) #17
   unreachable
 }
 
@@ -1070,14 +1070,15 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7515CharsetDetector7setTextEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %in, i32 noundef %len) local_unnamed_addr #0 align 2 {
@@ -1092,7 +1093,7 @@ entry:
 declare void @_ZN6icu_759InputText7setTextEPKci(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef signext i8 @_ZN6icu_7515CharsetDetector16setStripTagsFlagEa(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i8 noundef signext %flag) local_unnamed_addr #6 align 2 {
+define noundef signext i8 @_ZN6icu_7515CharsetDetector16setStripTagsFlagEa(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i8 noundef signext %flag) local_unnamed_addr #7 align 2 {
 entry:
   %fStripTags = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i8, ptr %fStripTags, align 4
@@ -1103,7 +1104,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZNK6icu_7515CharsetDetector16getStripTagsFlagEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #7 align 2 {
+define noundef signext i8 @_ZNK6icu_7515CharsetDetector16getStripTagsFlagEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #8 align 2 {
 entry:
   %fStripTags = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i8, ptr %fStripTags, align 4
@@ -1289,7 +1290,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %vtable = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %vtable, align 8
   %call2 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(1) %encoding) #17
+  %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(1) %encoding) #18
   %cmp4 = icmp eq i32 %call3, 0
   br i1 %cmp4, label %if.end12, label %for.inc
 
@@ -1317,7 +1318,7 @@ if.end12:                                         ; preds = %for.body
 if.then15:                                        ; preds = %if.end12
   %.b12 = load i1, ptr @_ZL19fCSRecognizers_size, align 4
   %conv16 = select i1 %.b12, i64 28, i64 0
-  %call17 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv16) #15
+  %call17 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv16) #16
   store ptr %call17, ptr %fEnabledRecognizers, align 8
   %cmp20 = icmp eq ptr %call17, null
   br i1 %cmp20, label %if.then21, label %for.cond24.preheader
@@ -1368,7 +1369,7 @@ if.end43:                                         ; preds = %entry, %if.then39, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_7515CharsetDetector24getAllDetectableCharsetsER10UErrorCode(ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 {
@@ -1379,7 +1380,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call noalias dereferenceable_or_null(56) ptr @uprv_malloc_75(i64 noundef 56) #15
+  %call1 = tail call noalias dereferenceable_or_null(56) ptr @uprv_malloc_75(i64 noundef 56) #16
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %if.then2, label %if.end3
 
@@ -1389,7 +1390,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call1, ptr noundef nonnull align 8 dereferenceable(56) @_ZL17gCSDetEnumeration, i64 56, i1 false)
-  %call4 = tail call noalias dereferenceable_or_null(16) ptr @uprv_malloc_75(i64 noundef 16) #15
+  %call4 = tail call noalias dereferenceable_or_null(16) ptr @uprv_malloc_75(i64 noundef 16) #16
   %context = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %call4, ptr %context, align 8
   %cmp6 = icmp eq ptr %call4, null
@@ -1412,10 +1413,10 @@ return:                                           ; preds = %entry, %if.end8, %i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7515CharsetDetector21getDetectableCharsetsER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 {
@@ -1425,7 +1426,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call noalias dereferenceable_or_null(56) ptr @uprv_malloc_75(i64 noundef 56) #15
+  %call2 = tail call noalias dereferenceable_or_null(56) ptr @uprv_malloc_75(i64 noundef 56) #16
   %cmp = icmp eq ptr %call2, null
   br i1 %cmp, label %if.then3, label %if.end4
 
@@ -1435,7 +1436,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call2, ptr noundef nonnull align 8 dereferenceable(56) @_ZL17gCSDetEnumeration, i64 56, i1 false)
-  %call5 = tail call noalias dereferenceable_or_null(16) ptr @uprv_malloc_75(i64 noundef 16) #15
+  %call5 = tail call noalias dereferenceable_or_null(16) ptr @uprv_malloc_75(i64 noundef 16) #16
   %context = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %call5, ptr %context, align 8
   %cmp7 = icmp eq ptr %call5, null
@@ -1493,11 +1494,11 @@ delete.notnull.i:                                 ; preds = %delete.notnull
   %vtable.i = load ptr, ptr %3, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %4 = load ptr, ptr %vfn.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN6icu_7516CSRecognizerInfoD2Ev.exit
 
 _ZN6icu_7516CSRecognizerInfoD2Ev.exit:            ; preds = %delete.notnull, %delete.notnull.i
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %2) #15
   %.pre = load ptr, ptr @_ZL14fCSRecognizers, align 8
   %.b.pre = load i1, ptr @_ZL19fCSRecognizers_size, align 4
   br label %delete.end
@@ -1546,7 +1547,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL9enumCountP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %en, ptr nocapture readnone %0) #11 {
+define internal noundef i32 @_ZL9enumCountP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %en, ptr nocapture readnone %0) #12 {
 entry:
   %context = getelementptr inbounds i8, ptr %en, i64 8
   %1 = load ptr, ptr %context, align 8
@@ -1734,7 +1735,7 @@ if.then63:                                        ; preds = %if.end61
   br i1 %cmp64, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.then63
-  %call65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %currName.0) #17
+  %call65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %currName.0) #18
   %conv = trunc i64 %call65 to i32
   br label %cond.end
 
@@ -1748,7 +1749,7 @@ if.end66:                                         ; preds = %cond.end, %if.end61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL9enumResetP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %en, ptr nocapture readnone %0) #12 {
+define internal void @_ZL9enumResetP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %en, ptr nocapture readnone %0) #13 {
 entry:
   %context = getelementptr inbounds i8, ptr %en, i64 8
   %1 = load ptr, ptr %context, align 8
@@ -1757,13 +1758,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1771,18 +1772,19 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { allocsize(0) }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { nounwind willreturn memory(read) }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind }
+attributes #16 = { allocsize(0) }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

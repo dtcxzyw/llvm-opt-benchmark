@@ -351,12 +351,12 @@ if.then1.i:                                       ; preds = %if.end.i
 
 _ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb.exit: ; preds = %entry, %if.end.i, %if.then1.i
   %retval.0.i = phi i64 [ 0, %entry ], [ %mul.i, %if.end.i ], [ %sub3.i, %if.then1.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #10
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #11
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %retval.0.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb.exit
-  %call3 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #10
+  %call3 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #11
   %2 = load ptr, ptr %e_.i, align 8
   %3 = load ptr, ptr %data, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -479,7 +479,7 @@ if.end64.sink.split.i:                            ; preds = %if.then38.i, %if.th
 lpad:                                             ; preds = %_ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb.exit
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #10
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #11
   resume { ptr, i32 } %18
 
 nrvo.skipdtor:                                    ; preds = %if.end64.sink.split.i, %if.else.i, %if.then38.i, %for.end.i, %invoke.cont
@@ -538,12 +538,12 @@ if.then1.i:                                       ; preds = %if.end.i
 
 _ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb.exit: ; preds = %entry, %if.end.i, %if.then1.i
   %retval.0.i = phi i64 [ 0, %entry ], [ %mul.i, %if.end.i ], [ %sub3.i, %if.then1.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #10
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #11
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %retval.0.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb.exit
-  %call3 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #10
+  %call3 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #11
   %data.val.i = load ptr, ptr %data, align 8
   %call.i.i6 = invoke noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %data.val.i)
           to label %call.i.i.noexc unwind label %lpad
@@ -1154,7 +1154,7 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exi
   br i1 %cmp.not.i.i.i.i91.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i93.i, label %if.then.i.i.i.i92.i.invoke
 
 if.then.i.i.i.i92.i.invoke:                       ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit291.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit196.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit481.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14pullAtMostSlowEPvm.exit386.i
-  invoke void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef nonnull @.str.12) #11
+  invoke void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef nonnull @.str.12) #6
           to label %if.then.i.i.i.i92.i.cont unwind label %lpad
 
 if.then.i.i.i.i92.i.cont:                         ; preds = %if.then.i.i.i.i92.i.invoke
@@ -1207,7 +1207,7 @@ if.end68.sink.split.i:                            ; preds = %_ZN8facebook5velox8
 lpad:                                             ; preds = %if.then.i.i.i.i92.i.invoke, %invoke.cont, %_ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb.exit
   %62 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #10
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #11
   resume { ptr, i32 } %62
 
 nrvo.skipdtor:                                    ; preds = %if.end68.sink.split.i, %if.else.i, %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit94.i, %for.end.i, %call.i.i.noexc
@@ -1231,10 +1231,10 @@ if.end.i:                                         ; preds = %entry
 
 _ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb.exit: ; preds = %entry, %if.end.i
   %retval.0.i = phi i64 [ 0, %entry ], [ %mul.i, %if.end.i ]
-  %call2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %out) #10
+  %call2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %out) #11
   %add = add i64 %call2, %retval.0.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %out, i64 noundef %add)
-  %call3 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %out) #10
+  %call3 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %out) #11
   br i1 %cmp.i, label %_ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEEvRKT_RKSt5arrayIcLm64EEbPc.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb.exit
@@ -1360,7 +1360,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataE
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox8encoding6Base646decodeB5cxx11EN5folly5RangeIPKcEE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr %encoded.coerce0, ptr %encoded.coerce1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #10
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #11
   %sub.ptr.lhs.cast.i = ptrtoint ptr %encoded.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %encoded.coerce0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -1388,7 +1388,7 @@ call.i.i.noexc:                                   ; preds = %call.i.noexc
 lpad:                                             ; preds = %call.i.i.noexc, %call.i.noexc, %.noexc, %invoke.cont6
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #10
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.i.noexc
@@ -1451,7 +1451,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception, align 8
   %msg_.i = getelementptr inbounds i8, ptr %exception, i64 8
   store ptr @.str, ptr %msg_.i, align 8
@@ -1467,11 +1467,12 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox8encoding15Base64ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #11
   ret void
 }
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr nocapture noundef readonly %src, i64 noundef %src_len, ptr nocapture noundef writeonly %dst, i64 noundef %dst_len, ptr nocapture noundef nonnull readonly align 1 dereferenceable(256) %reverse_lookup, i1 noundef zeroext %include_pad) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
@@ -1487,7 +1488,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %for.condthread-pre-split
 
 if.then2:                                         ; preds = %if.end
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception, align 8
   %msg_.i = getelementptr inbounds i8, ptr %exception, i64 8
   store ptr @.str.3, ptr %msg_.i, align 8
@@ -1511,7 +1512,7 @@ for.body:                                         ; preds = %for.condthread-pre-
   br i1 %cmp.i, label %if.then.i, label %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit
 
 if.then.i:                                        ; preds = %for.body
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception.i, align 8
   %msg_.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   store ptr @.str, ptr %msg_.i.i, align 8
@@ -1528,7 +1529,7 @@ _ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exi
   br i1 %cmp.i32, label %if.then.i33, label %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit36
 
 if.then.i33:                                      ; preds = %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit
-  %exception.i34 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  %exception.i34 = tail call ptr @__cxa_allocate_exception(i64 16) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception.i34, align 8
   %msg_.i.i35 = getelementptr inbounds i8, ptr %exception.i34, i64 8
   store ptr @.str, ptr %msg_.i.i35, align 8
@@ -1550,7 +1551,7 @@ _ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exi
   br i1 %cmp.i39, label %if.then.i40, label %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit43
 
 if.then.i40:                                      ; preds = %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit36
-  %exception.i41 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  %exception.i41 = tail call ptr @__cxa_allocate_exception(i64 16) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception.i41, align 8
   %msg_.i.i42 = getelementptr inbounds i8, ptr %exception.i41, i64 8
   store ptr @.str, ptr %msg_.i.i42, align 8
@@ -1567,7 +1568,7 @@ _ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exi
   br i1 %cmp.i46, label %if.then.i47, label %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit50
 
 if.then.i47:                                      ; preds = %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit43
-  %exception.i48 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  %exception.i48 = tail call ptr @__cxa_allocate_exception(i64 16) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception.i48, align 8
   %msg_.i.i49 = getelementptr inbounds i8, ptr %exception.i48, i64 8
   store ptr @.str, ptr %msg_.i.i49, align 8
@@ -1608,7 +1609,7 @@ while.end:                                        ; preds = %_ZN8facebook5velox8
   br i1 %cmp.i53, label %if.then.i54, label %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit57
 
 if.then.i54:                                      ; preds = %while.end
-  %exception.i55 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  %exception.i55 = tail call ptr @__cxa_allocate_exception(i64 16) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception.i55, align 8
   %msg_.i.i56 = getelementptr inbounds i8, ptr %exception.i55, i64 8
   store ptr @.str, ptr %msg_.i.i56, align 8
@@ -1625,7 +1626,7 @@ _ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exi
   br i1 %cmp.i60, label %if.then.i61, label %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit64
 
 if.then.i61:                                      ; preds = %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit57
-  %exception.i62 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  %exception.i62 = tail call ptr @__cxa_allocate_exception(i64 16) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception.i62, align 8
   %msg_.i.i63 = getelementptr inbounds i8, ptr %exception.i62, i64 8
   store ptr @.str, ptr %msg_.i.i63, align 8
@@ -1654,7 +1655,7 @@ if.then56:                                        ; preds = %_ZN8facebook5velox8
   br i1 %cmp.i67, label %if.then.i68, label %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit71
 
 if.then.i68:                                      ; preds = %if.then56
-  %exception.i69 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  %exception.i69 = tail call ptr @__cxa_allocate_exception(i64 16) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception.i69, align 8
   %msg_.i.i70 = getelementptr inbounds i8, ptr %exception.i69, i64 8
   store ptr @.str, ptr %msg_.i.i70, align 8
@@ -1682,7 +1683,7 @@ if.then67:                                        ; preds = %_ZN8facebook5velox8
   br i1 %cmp.i74, label %if.then.i75, label %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit78
 
 if.then.i75:                                      ; preds = %if.then67
-  %exception.i76 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  %exception.i76 = tail call ptr @__cxa_allocate_exception(i64 16) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception.i76, align 8
   %msg_.i.i77 = getelementptr inbounds i8, ptr %exception.i76, i64 8
   store ptr @.str, ptr %msg_.i.i77, align 8
@@ -1719,7 +1720,7 @@ if.then1:                                         ; preds = %if.end
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.then1
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception, align 8
   %msg_.i = getelementptr inbounds i8, ptr %exception, i64 8
   store ptr @.str.1, ptr %msg_.i, align 8
@@ -1754,7 +1755,7 @@ if.end6:                                          ; preds = %if.end
   ]
 
 if.then11:                                        ; preds = %if.end6
-  %exception12 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  %exception12 = tail call ptr @__cxa_allocate_exception(i64 16) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8encoding15Base64ExceptionE, i64 16), ptr %exception12, align 8
   %msg_.i16 = getelementptr inbounds i8, ptr %exception12, i64 8
   store ptr @.str.2, ptr %msg_.i16, align 8
@@ -1836,7 +1837,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox8encoding6Base649decodeUrlB5cxx11EN5folly5RangeIPKcEE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr %encoded.coerce0, ptr %encoded.coerce1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #10
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #11
   %sub.ptr.lhs.cast.i = ptrtoint ptr %encoded.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %encoded.coerce0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -1865,7 +1866,7 @@ call3.i.noexc:                                    ; preds = %call.i.noexc
 lpad:                                             ; preds = %call3.i.noexc, %call.i.noexc, %.noexc, %invoke.cont6
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #10
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call3.i.noexc
@@ -1894,7 +1895,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox8encoding15Base64ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #11
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void
 }
@@ -1908,7 +1909,7 @@ entry:
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
@@ -1916,14 +1917,14 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef %args) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef %args) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::out_of_range", align 8
   call void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %args)
-  invoke void @_ZN5folly15throw_exceptionISt12out_of_rangeEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #11
+  invoke void @_ZN5folly15throw_exceptionISt12out_of_rangeEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #6
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1932,15 +1933,15 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #10
+  call void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #11
   resume { ptr, i32 } %0
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionISt12out_of_rangeEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ex) local_unnamed_addr #8 comdat {
+define linkonce_odr void @_ZN5folly15throw_exceptionISt12out_of_rangeEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ex) local_unnamed_addr #9 comdat {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  tail call void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 8 dereferenceable(16) %ex) #10
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #11
+  tail call void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 8 dereferenceable(16) %ex) #11
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZNSt12out_of_rangeD1Ev) #12
   unreachable
 }
@@ -1953,7 +1954,7 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #10
+  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8
   ret void
 }
@@ -1962,10 +1963,10 @@ entry:
 declare void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -1973,12 +1974,12 @@ attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { cold noreturn }
+attributes #6 = { cold noreturn }
+attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind }
 attributes #12 = { noreturn }
 attributes #13 = { builtin nounwind }
 

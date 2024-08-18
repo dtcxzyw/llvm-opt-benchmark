@@ -70,7 +70,7 @@ entry:
   tail call void @_ZN7Imf_3_27IStreamC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %fileName)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_211StdIFStreamE, i64 16), ptr %this, align 8
   %_is = getelementptr inbounds i8, ptr %this, i64 40
-  %call.i2 = invoke noalias noundef nonnull dereferenceable(520) ptr @_Znwm(i64 noundef 520) #9
+  %call.i2 = invoke noalias noundef nonnull dereferenceable(520) ptr @_Znwm(i64 noundef 520) #10
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
@@ -80,7 +80,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %call.i.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i2) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i2) #11
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %call.i.noexc
@@ -106,7 +106,7 @@ delete.notnull:                                   ; preds = %if.then
   %vtable6 = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable6, i64 8
   %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(256) %1) #11
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(256) %1) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -120,7 +120,7 @@ lpad:                                             ; preds = %entry, %delete.end,
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad ], [ %0, %lpad.i ]
-  tail call void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #11
+  tail call void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
   resume { ptr, i32 } %eh.lpad-body
 
 if.end:                                           ; preds = %delete.end, %invoke.cont3
@@ -169,19 +169,19 @@ delete.notnull:                                   ; preds = %if.then
   %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(256) %1) #11
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(256) %1) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %delete.notnull, %entry
-  tail call void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #11
+  tail call void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_211StdIFStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN7Imf_3_211StdIFStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZN7Imf_3_211StdIFStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -201,22 +201,22 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #11
+  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #12
   invoke void @_ZN7Iex_3_28InputExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull @.str)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_28InputExcE, ptr nonnull @_ZN7Iex_3_28InputExcD1Ev) #12
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_28InputExcE, ptr nonnull @_ZN7Iex_3_28InputExcD1Ev) #13
   unreachable
 
 lpad:                                             ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #11
+  tail call void @__cxa_free_exception(ptr %exception) #12
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call ptr @__errno_location() #13
+  %call.i = tail call ptr @__errno_location() #14
   store i32 0, ptr %call.i, align 4
   %2 = load ptr, ptr %_is, align 8
   %conv = sext i32 %n to i64
@@ -235,7 +235,8 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZN7Iex_3_28InputExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #0
 
@@ -251,7 +252,7 @@ entry:
   br i1 %call, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @__errno_location() #13
+  %call1 = tail call ptr @__errno_location() #14
   %0 = load i32, ptr %call1, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then2
@@ -293,12 +294,12 @@ invoke.cont13:                                    ; preds = %invoke.cont11
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont13
-  %exception = call ptr @__cxa_allocate_exception(i64 72) #11
+  %exception = call ptr @__cxa_allocate_exception(i64 72) #12
   invoke void @_ZN7Iex_3_28InputExcC1ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont15
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_28InputExcE, ptr nonnull @_ZN7Iex_3_28InputExcD1Ev) #12
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_28InputExcE, ptr nonnull @_ZN7Iex_3_28InputExcD1Ev) #13
           to label %unreachable unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont18, %invoke.cont13, %invoke.cont11, %invoke.cont9, %invoke.cont7, %invoke.cont, %do.body
@@ -309,12 +310,12 @@ lpad:                                             ; preds = %invoke.cont18, %inv
 lpad17:                                           ; preds = %invoke.cont15
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #11
+  call void @__cxa_free_exception(ptr %exception) #12
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad17, %lpad
   %.pn = phi { ptr, i32 } [ %1, %lpad ], [ %2, %lpad17 ]
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s) #11
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s) #12
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %if.end
@@ -380,7 +381,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #11
+  tail call void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
   resume { ptr, i32 } %0
 }
 
@@ -391,8 +392,8 @@ define void @_ZN7Imf_3_211StdISStreamD2Ev(ptr noundef nonnull align 8 dereferenc
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_211StdISStreamE, i64 16), ptr %this, align 8
   %_is = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %_is) #11
-  tail call void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #11
+  tail call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %_is) #12
+  tail call void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
   ret void
 }
 
@@ -402,8 +403,8 @@ declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_211StdISStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN7Imf_3_211StdISStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZN7Imf_3_211StdISStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -419,22 +420,22 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #11
+  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #12
   invoke void @_ZN7Iex_3_28InputExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull @.str)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_28InputExcE, ptr nonnull @_ZN7Iex_3_28InputExcD1Ev) #12
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_28InputExcE, ptr nonnull @_ZN7Iex_3_28InputExcD1Ev) #13
   unreachable
 
 lpad:                                             ; preds = %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #11
+  tail call void @__cxa_free_exception(ptr %exception) #12
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call ptr @__errno_location() #13
+  %call.i = tail call ptr @__errno_location() #14
   store i32 0, ptr %call.i, align 4
   %conv = sext i32 %n to i64
   %call3 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %_is, ptr noundef %c, i64 noundef %conv)
@@ -498,7 +499,7 @@ entry:
   tail call void @_ZN7Imf_3_27OStreamC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %fileName)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_211StdOFStreamE, i64 16), ptr %this, align 8
   %_os = getelementptr inbounds i8, ptr %this, i64 40
-  %call.i2 = invoke noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #9
+  %call.i2 = invoke noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #10
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
@@ -508,7 +509,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %call.i.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i2) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i2) #11
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %call.i.noexc
@@ -534,7 +535,7 @@ delete.notnull:                                   ; preds = %if.then
   %vtable6 = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable6, i64 8
   %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(248) %1) #11
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(248) %1) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -548,7 +549,7 @@ lpad:                                             ; preds = %entry, %delete.end,
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad ], [ %0, %lpad.i ]
-  tail call void @_ZN7Imf_3_27OStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #11
+  tail call void @_ZN7Imf_3_27OStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
   resume { ptr, i32 } %eh.lpad-body
 
 if.end:                                           ; preds = %delete.end, %invoke.cont3
@@ -591,26 +592,26 @@ delete.notnull:                                   ; preds = %if.then
   %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(248) %1) #11
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(248) %1) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %delete.notnull, %entry
-  tail call void @_ZN7Imf_3_27OStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #11
+  tail call void @_ZN7Imf_3_27OStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_211StdOFStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN7Imf_3_211StdOFStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZN7Imf_3_211StdOFStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_211StdOFStream5writeEPKci(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr noundef %c, i32 noundef %n) unnamed_addr #3 align 2 {
 entry:
-  %call.i = tail call ptr @__errno_location() #13
+  %call.i = tail call ptr @__errno_location() #14
   store i32 0, ptr %call.i, align 4
   %_os = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_os, align 8
@@ -634,7 +635,7 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @__errno_location() #13
+  %call1 = tail call ptr @__errno_location() #14
   %0 = load i32, ptr %call1, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then2
@@ -644,18 +645,18 @@ if.then2:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %if.then
-  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #11
+  %exception = tail call ptr @__cxa_allocate_exception(i64 72) #12
   invoke void @_ZN7Iex_3_28ErrnoExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull @.str.5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_28ErrnoExcE, ptr nonnull @_ZN7Iex_3_28ErrnoExcD1Ev) #12
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7Iex_3_28ErrnoExcE, ptr nonnull @_ZN7Iex_3_28ErrnoExcD1Ev) #13
   unreachable
 
 lpad:                                             ; preds = %if.end
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #11
+  tail call void @__cxa_free_exception(ptr %exception) #12
   resume { ptr, i32 } %1
 
 if.end3:                                          ; preds = %entry
@@ -702,7 +703,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7Imf_3_27OStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #11
+  tail call void @_ZN7Imf_3_27OStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
   resume { ptr, i32 } %0
 }
 
@@ -713,8 +714,8 @@ define void @_ZN7Imf_3_211StdOSStreamD2Ev(ptr noundef nonnull align 8 dereferenc
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_211StdOSStreamE, i64 16), ptr %this, align 8
   %_os = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_os) #11
-  tail call void @_ZN7Imf_3_27OStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #11
+  tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_os) #12
+  tail call void @_ZN7Imf_3_27OStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
   ret void
 }
 
@@ -724,15 +725,15 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_211StdOSStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN7Imf_3_211StdOSStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZN7Imf_3_211StdOSStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_211StdOSStream5writeEPKci(ptr noundef nonnull align 8 dereferenceable(416) %this, ptr noundef %c, i32 noundef %n) unnamed_addr #3 align 2 {
 entry:
-  %call.i = tail call ptr @__errno_location() #13
+  %call.i = tail call ptr @__errno_location() #14
   store i32 0, ptr %call.i, align 4
   %_os = getelementptr inbounds i8, ptr %this, i64 40
   %conv = sext i32 %n to i64
@@ -774,12 +775,12 @@ declare noundef zeroext i1 @_ZNK7Imf_3_27IStream14isMemoryMappedEv(ptr noundef n
 declare noundef ptr @_ZN7Imf_3_27IStream16readMemoryMappedEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #7
+declare ptr @__errno_location() local_unnamed_addr #8
 
 declare noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
@@ -804,10 +805,10 @@ declare void @_ZN7Iex_3_28ErrnoExcC1EPKc(ptr noundef nonnull align 8 dereference
 declare void @_ZN7Iex_3_28ErrnoExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_ImfStdIO.cpp() #8 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_ImfStdIO.cpp() #9 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #11
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
   ret void
 }
 
@@ -817,14 +818,15 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { builtin allocsize(0) }
-attributes #10 = { builtin nounwind }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { nounwind willreturn memory(none) }
+attributes #6 = { cold noreturn }
+attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { builtin allocsize(0) }
+attributes #11 = { builtin nounwind }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn }
+attributes #14 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -43,8 +43,8 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) #10
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #10
+  tail call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) #11
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -66,8 +66,8 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %isnull5, label %delete.end7, label %delete.notnull6
 
 delete.notnull6:                                  ; preds = %if.then
-  tail call void @_ZN6icu_7512RegexPatternD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %3) #10
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %3) #10
+  tail call void @_ZN6icu_7512RegexPatternD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %3) #11
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %3) #11
   br label %delete.end7
 
 delete.end7:                                      ; preds = %delete.notnull6, %if.then
@@ -105,7 +105,7 @@ terminate.lpad:                                   ; preds = %if.then13, %invoke.
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #11
+  tail call void @__clang_call_terminate(ptr %9) #12
   unreachable
 }
 
@@ -119,22 +119,23 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #11
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
+  tail call void @_ZSt9terminatev() #12
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare void @_ZN6icu_7512RegexPatternD1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #2
 
-declare void @uprv_free_75(ptr noundef) local_unnamed_addr #4
+declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uregex_open_75(ptr noundef %pattern, i32 noundef %patternLength, i32 noundef %flags, ptr noundef %pe, ptr noundef %status) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @uregex_open_75(ptr noundef %pattern, i32 noundef %patternLength, i32 noundef %flags, ptr noundef %pe, ptr noundef %status) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %patText = alloca %struct.UText, align 8
   %0 = load i32, ptr %status, align 4
@@ -163,7 +164,7 @@ if.then7:                                         ; preds = %if.end5
 
 if.end9:                                          ; preds = %if.then7, %if.end5
   %actualPatLen.0 = phi i32 [ %call8, %if.then7 ], [ %patternLength, %if.end5 ]
-  %call10 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #10
+  %call10 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #11
   %new.isnull = icmp eq ptr %call10, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -172,11 +173,11 @@ new.notnull:                                      ; preds = %if.end9
           to label %new.cont unwind label %lpad
 
 new.cont:                                         ; preds = %new.notnull, %if.end9
-  %call11 = tail call noalias dereferenceable_or_null(4) ptr @uprv_malloc_75(i64 noundef 4) #12
+  %call11 = tail call noalias dereferenceable_or_null(4) ptr @uprv_malloc_75(i64 noundef 4) #13
   %add = add nsw i32 %actualPatLen.0, 1
   %conv = sext i32 %add to i64
   %mul = shl nsw i64 %conv, 1
-  %call12 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul) #12
+  %call12 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul) #13
   %cmp15 = icmp eq ptr %call11, null
   %or.cond2 = or i1 %new.isnull, %cmp15
   %cmp17 = icmp eq ptr %call12, null
@@ -188,8 +189,8 @@ if.then18:                                        ; preds = %new.cont
   br i1 %new.isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then18
-  tail call void @_ZN6icu_7517RegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(61) %call10) #10
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call10) #10
+  tail call void @_ZN6icu_7517RegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(61) %call10) #11
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call10) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then18
@@ -200,7 +201,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
 lpad:                                             ; preds = %new.notnull
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call10) #10
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call10) #11
   resume { ptr, i32 } %1
 
 if.end19:                                         ; preds = %new.cont
@@ -251,8 +252,8 @@ if.end35:                                         ; preds = %if.end30
   br i1 %cmp.i43, label %delete.notnull43, label %return
 
 delete.notnull43:                                 ; preds = %if.end30, %if.end35
-  call void @_ZN6icu_7517RegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(61) %call10) #10
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call10) #10
+  call void @_ZN6icu_7517RegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(61) %call10) #11
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call10) #11
   br label %return
 
 return:                                           ; preds = %if.end35, %entry, %delete.notnull43, %delete.end, %if.then4
@@ -260,31 +261,31 @@ return:                                           ; preds = %if.end35, %entry, %
   ret ptr %retval.0
 }
 
-declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #4
+declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #6
+declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #7
 
-declare ptr @u_memcpy_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @u_memcpy_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
-declare ptr @utext_openUChars_75(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @utext_openUChars_75(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
-declare noundef ptr @_ZN6icu_7512RegexPattern7compileEP5UTextjR11UParseErrorR10UErrorCode(ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(72), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4
+declare noundef ptr @_ZN6icu_7512RegexPattern7compileEP5UTextjR11UParseErrorR10UErrorCode(ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(72), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
-declare noundef ptr @_ZN6icu_7512RegexPattern7compileEP5UTextjR10UErrorCode(ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4
+declare noundef ptr @_ZN6icu_7512RegexPattern7compileEP5UTextjR10UErrorCode(ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
-declare ptr @utext_close_75(ptr noundef) local_unnamed_addr #4
+declare ptr @utext_close_75(ptr noundef) local_unnamed_addr #5
 
-declare noundef ptr @_ZNK6icu_7512RegexPattern7matcherER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef ptr @_ZNK6icu_7512RegexPattern7matcherER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uregex_openUText_75(ptr noundef %pattern, i32 noundef %flags, ptr noundef %pe, ptr noundef %status) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @uregex_openUText_75(ptr noundef %pattern, i32 noundef %flags, ptr noundef %pe, ptr noundef %status) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %lengthStatus = alloca i32, align 4
   %patText = alloca %struct.UText, align 8
@@ -310,7 +311,7 @@ if.then5:                                         ; preds = %if.end2
   br label %return
 
 if.end6:                                          ; preds = %if.end2
-  %call7 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #10
+  %call7 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #11
   %new.isnull = icmp eq ptr %call7, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -321,11 +322,11 @@ new.notnull:                                      ; preds = %if.end6
 new.cont:                                         ; preds = %new.notnull, %if.end6
   store i32 0, ptr %lengthStatus, align 4
   %call8 = call i32 @utext_extract_75(ptr noundef nonnull %pattern, i64 noundef 0, i64 noundef %call3, ptr noundef null, i32 noundef 0, ptr noundef nonnull %lengthStatus)
-  %call9 = call noalias dereferenceable_or_null(4) ptr @uprv_malloc_75(i64 noundef 4) #12
+  %call9 = call noalias dereferenceable_or_null(4) ptr @uprv_malloc_75(i64 noundef 4) #13
   %add = add nsw i32 %call8, 1
   %conv = sext i32 %add to i64
   %mul = shl nsw i64 %conv, 1
-  %call10 = call noalias ptr @uprv_malloc_75(i64 noundef %mul) #12
+  %call10 = call noalias ptr @uprv_malloc_75(i64 noundef %mul) #13
   %cmp12 = icmp eq ptr %call9, null
   %or.cond = or i1 %new.isnull, %cmp12
   %cmp14 = icmp eq ptr %call10, null
@@ -337,8 +338,8 @@ if.then15:                                        ; preds = %new.cont
   br i1 %new.isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then15
-  call void @_ZN6icu_7517RegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(61) %call7) #10
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call7) #10
+  call void @_ZN6icu_7517RegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(61) %call7) #11
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call7) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then15
@@ -349,7 +350,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
 lpad:                                             ; preds = %new.notnull
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call7) #10
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call7) #11
   resume { ptr, i32 } %1
 
 if.end16:                                         ; preds = %new.cont
@@ -397,8 +398,8 @@ if.end33:                                         ; preds = %if.end28
   br i1 %cmp.i41, label %delete.notnull41, label %return
 
 delete.notnull41:                                 ; preds = %if.end28, %if.end33
-  call void @_ZN6icu_7517RegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(61) %call7) #10
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call7) #10
+  call void @_ZN6icu_7517RegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(61) %call7) #11
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call7) #11
   br label %return
 
 return:                                           ; preds = %if.end33, %entry, %delete.notnull41, %delete.end, %if.then5, %if.then1
@@ -406,12 +407,12 @@ return:                                           ; preds = %if.end33, %entry, %
   ret ptr %retval.0
 }
 
-declare i64 @utext_nativeLength_75(ptr noundef) local_unnamed_addr #4
+declare i64 @utext_nativeLength_75(ptr noundef) local_unnamed_addr #5
 
-declare i32 @utext_extract_75(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @utext_extract_75(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_close_75(ptr noundef %re2) local_unnamed_addr #5 {
+define void @uregex_close_75(ptr noundef %re2) local_unnamed_addr #6 {
 if.end.i:
   %cmp.i = icmp eq ptr %re2, null
   br i1 %cmp.i, label %delete.end, label %lor.lhs.false.i
@@ -422,8 +423,8 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   br i1 %cmp1.not.i.not, label %delete.notnull, label %delete.end
 
 delete.notnull:                                   ; preds = %lor.lhs.false.i
-  tail call void @_ZN6icu_7517RegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(61) %re2) #10
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %re2) #10
+  tail call void @_ZN6icu_7517RegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(61) %re2) #11
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %re2) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %lor.lhs.false.i, %if.end.i, %delete.notnull
@@ -431,7 +432,7 @@ delete.end:                                       ; preds = %lor.lhs.false.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uregex_clone_75(ptr noundef readonly %source2, ptr noundef %status) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @uregex_clone_75(ptr noundef readonly %source2, ptr noundef %status) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -451,7 +452,7 @@ return.sink.split.i:                              ; preds = %lor.lhs.false.i, %i
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false.i
-  %call1 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #10
+  %call1 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #11
   %new.isnull = icmp eq ptr %call1, null
   br i1 %new.isnull, label %if.then3, label %new.notnull
 
@@ -466,7 +467,7 @@ if.then3:                                         ; preds = %if.end
 lpad:                                             ; preds = %new.notnull
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1) #10
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1) #11
   resume { ptr, i32 } %2
 
 if.end4:                                          ; preds = %new.notnull
@@ -480,8 +481,8 @@ if.end4:                                          ; preds = %new.notnull
   br i1 %cmp.i17, label %if.end8, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end4
-  tail call void @_ZN6icu_7517RegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(61) %call1) #10
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1) #10
+  tail call void @_ZN6icu_7517RegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(61) %call1) #11
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1) #11
   br label %return
 
 if.end8:                                          ; preds = %if.end4
@@ -510,7 +511,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @uregex_pattern_75(ptr noundef readonly %regexp2, ptr noundef writeonly %patLength, ptr nocapture noundef %status) local_unnamed_addr #8 {
+define ptr @uregex_pattern_75(ptr noundef readonly %regexp2, ptr noundef writeonly %patLength, ptr nocapture noundef %status) local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -550,7 +551,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uregex_patternUText_75(ptr nocapture noundef readonly %regexp2, ptr noundef nonnull %status) local_unnamed_addr #5 {
+define noundef ptr @uregex_patternUText_75(ptr nocapture noundef readonly %regexp2, ptr noundef nonnull %status) local_unnamed_addr #6 {
 entry:
   %fPat = getelementptr inbounds i8, ptr %regexp2, i64 8
   %0 = load ptr, ptr %fPat, align 8
@@ -558,10 +559,10 @@ entry:
   ret ptr %call
 }
 
-declare noundef ptr @_ZNK6icu_7512RegexPattern11patternTextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef ptr @_ZNK6icu_7512RegexPattern11patternTextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_flags_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define noundef i32 @uregex_flags_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -591,10 +592,10 @@ return:                                           ; preds = %return.sink.split.i
   ret i32 %retval.0
 }
 
-declare noundef i32 @_ZNK6icu_7512RegexPattern5flagsEv(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #4
+declare noundef i32 @_ZNK6icu_7512RegexPattern5flagsEv(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setText_75(ptr noundef %regexp2, ptr noundef %text, i32 noundef %textLength, ptr noundef %status) local_unnamed_addr #5 {
+define void @uregex_setText_75(ptr noundef %regexp2, ptr noundef %text, i32 noundef %textLength, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %input = alloca %struct.UText, align 8
   %0 = load i32, ptr %status, align 4
@@ -662,10 +663,10 @@ return:                                           ; preds = %return.sink.split.i
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetEP5UText(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef) unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetEP5UText(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setUText_75(ptr noundef %regexp2, ptr noundef %text, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define void @uregex_setUText_75(ptr noundef %regexp2, ptr noundef %text, ptr nocapture noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -724,7 +725,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uregex_getText_75(ptr noundef %regexp2, ptr noundef writeonly %textLength, ptr noundef %status) local_unnamed_addr #5 {
+define ptr @uregex_getText_75(ptr noundef %regexp2, ptr noundef writeonly %textLength, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %lengthStatus = alloca i32, align 4
   %0 = load i32, ptr %status, align 4
@@ -790,7 +791,7 @@ if.else:                                          ; preds = %land.lhs.true7, %la
   %add = add nsw i32 %call13, 1
   %conv16 = sext i32 %add to i64
   %mul = shl nsw i64 %conv16, 1
-  %call17 = call noalias ptr @uprv_malloc_75(i64 noundef %mul) #12
+  %call17 = call noalias ptr @uprv_malloc_75(i64 noundef %mul) #13
   %8 = load i32, ptr %fTextLength14, align 8
   %add19 = add nsw i32 %8, 1
   %call20 = call i32 @utext_extract_75(ptr noundef nonnull %call3, i64 noundef 0, i64 noundef %call4, ptr noundef %call17, i32 noundef %add19, ptr noundef nonnull %status)
@@ -821,10 +822,10 @@ return:                                           ; preds = %if.end24, %if.then2
   ret ptr %retval.0
 }
 
-declare noundef ptr @_ZNK6icu_7512RegexMatcher9inputTextEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #4
+declare noundef ptr @_ZNK6icu_7512RegexMatcher9inputTextEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uregex_getUText_75(ptr noundef readonly %regexp2, ptr noundef %dest, ptr noundef %status) local_unnamed_addr #5 {
+define noundef ptr @uregex_getUText_75(ptr noundef readonly %regexp2, ptr noundef %dest, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -854,10 +855,10 @@ return:                                           ; preds = %return.sink.split.i
   ret ptr %retval.0
 }
 
-declare noundef ptr @_ZNK6icu_7512RegexMatcher8getInputEP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef ptr @_ZNK6icu_7512RegexMatcher8getInputEP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_refreshUText_75(ptr noundef readonly %regexp2, ptr noundef %text, ptr noundef %status) local_unnamed_addr #5 {
+define void @uregex_refreshUText_75(ptr noundef readonly %regexp2, ptr noundef %text, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -886,10 +887,10 @@ return:                                           ; preds = %return.sink.split.i
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher16refreshInputTextEP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher16refreshInputTextEP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_matches_75(ptr noundef readonly %regexp2, i32 noundef %startIndex, ptr noundef %status) local_unnamed_addr #5 {
+define noundef signext i8 @uregex_matches_75(ptr noundef readonly %regexp2, i32 noundef %startIndex, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %conv = sext i32 %startIndex to i64
   %0 = load i32, ptr %status, align 4
@@ -942,7 +943,7 @@ uregex_matches64_75.exit:                         ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_matches64_75(ptr noundef readonly %regexp2, i64 noundef %startIndex, ptr noundef %status) local_unnamed_addr #5 {
+define noundef signext i8 @uregex_matches64_75(ptr noundef readonly %regexp2, i64 noundef %startIndex, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -993,12 +994,12 @@ return:                                           ; preds = %return.sink.split.i
   ret i8 %retval.0
 }
 
-declare noundef signext i8 @_ZN6icu_7512RegexMatcher7matchesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef signext i8 @_ZN6icu_7512RegexMatcher7matchesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
-declare noundef signext i8 @_ZN6icu_7512RegexMatcher7matchesElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef signext i8 @_ZN6icu_7512RegexMatcher7matchesElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_lookingAt_75(ptr noundef readonly %regexp2, i32 noundef %startIndex, ptr noundef %status) local_unnamed_addr #5 {
+define noundef signext i8 @uregex_lookingAt_75(ptr noundef readonly %regexp2, i32 noundef %startIndex, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %conv = sext i32 %startIndex to i64
   %0 = load i32, ptr %status, align 4
@@ -1051,7 +1052,7 @@ uregex_lookingAt64_75.exit:                       ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_lookingAt64_75(ptr noundef readonly %regexp2, i64 noundef %startIndex, ptr noundef %status) local_unnamed_addr #5 {
+define noundef signext i8 @uregex_lookingAt64_75(ptr noundef readonly %regexp2, i64 noundef %startIndex, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1102,12 +1103,12 @@ return:                                           ; preds = %return.sink.split.i
   ret i8 %retval.0
 }
 
-declare noundef signext i8 @_ZN6icu_7512RegexMatcher9lookingAtER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef signext i8 @_ZN6icu_7512RegexMatcher9lookingAtER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
-declare noundef signext i8 @_ZN6icu_7512RegexMatcher9lookingAtElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef signext i8 @_ZN6icu_7512RegexMatcher9lookingAtElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_find_75(ptr noundef readonly %regexp2, i32 noundef %startIndex, ptr noundef %status) local_unnamed_addr #5 {
+define noundef signext i8 @uregex_find_75(ptr noundef readonly %regexp2, i32 noundef %startIndex, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %conv = sext i32 %startIndex to i64
   %0 = load i32, ptr %status, align 4
@@ -1162,7 +1163,7 @@ uregex_find64_75.exit:                            ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_find64_75(ptr noundef readonly %regexp2, i64 noundef %startIndex, ptr noundef %status) local_unnamed_addr #5 {
+define noundef signext i8 @uregex_find64_75(ptr noundef readonly %regexp2, i64 noundef %startIndex, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1215,14 +1216,14 @@ return:                                           ; preds = %return.sink.split.i
   ret i8 %retval.0
 }
 
-declare void @_ZN6icu_7512RegexMatcher19resetPreserveRegionEv(ptr noundef nonnull align 8 dereferenceable(336)) local_unnamed_addr #4
+declare void @_ZN6icu_7512RegexMatcher19resetPreserveRegionEv(ptr noundef nonnull align 8 dereferenceable(336)) local_unnamed_addr #5
 
-declare noundef signext i8 @_ZN6icu_7512RegexMatcher4findER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef signext i8 @_ZN6icu_7512RegexMatcher4findER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
-declare noundef signext i8 @_ZN6icu_7512RegexMatcher4findElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef signext i8 @_ZN6icu_7512RegexMatcher4findElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_findNext_75(ptr noundef readonly %regexp2, ptr noundef %status) local_unnamed_addr #5 {
+define noundef signext i8 @uregex_findNext_75(ptr noundef readonly %regexp2, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1266,7 +1267,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_groupCount_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define noundef i32 @uregex_groupCount_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1296,10 +1297,10 @@ return:                                           ; preds = %return.sink.split.i
   ret i32 %retval.0
 }
 
-declare noundef i32 @_ZNK6icu_7512RegexMatcher10groupCountEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #4
+declare noundef i32 @_ZNK6icu_7512RegexMatcher10groupCountEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_groupNumberFromName_75(ptr noundef readonly %regexp2, ptr noundef %groupName, i32 noundef %nameLength, ptr noundef %status) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @uregex_groupNumberFromName_75(ptr noundef readonly %regexp2, ptr noundef %groupName, i32 noundef %nameLength, ptr noundef %status) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %0 = load i32, ptr %status, align 4
@@ -1327,13 +1328,13 @@ if.end:                                           ; preds = %lor.lhs.false.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #10
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #11
   br label %return
 
 lpad:                                             ; preds = %if.end
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #10
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #11
   resume { ptr, i32 } %3
 
 return:                                           ; preds = %return.sink.split.i, %entry, %invoke.cont
@@ -1341,15 +1342,15 @@ return:                                           ; preds = %return.sink.split.i
   ret i32 %retval.0
 }
 
-declare noundef i32 @_ZNK6icu_7512RegexPattern19groupNumberFromNameERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef i32 @_ZNK6icu_7512RegexPattern19groupNumberFromNameERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
-declare void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef) unnamed_addr #4
+declare void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef) unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_groupNumberFromCName_75(ptr noundef readonly %regexp2, ptr noundef %groupName, i32 noundef %nameLength, ptr noundef %status) local_unnamed_addr #5 {
+define noundef i32 @uregex_groupNumberFromCName_75(ptr noundef readonly %regexp2, ptr noundef %groupName, i32 noundef %nameLength, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1379,10 +1380,10 @@ return:                                           ; preds = %return.sink.split.i
   ret i32 %retval.0
 }
 
-declare noundef i32 @_ZNK6icu_7512RegexPattern19groupNumberFromNameEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef i32 @_ZNK6icu_7512RegexPattern19groupNumberFromNameEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uregex_group_75(ptr noundef readonly %regexp2, i32 noundef %groupNum, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %status) local_unnamed_addr #5 {
+define i32 @uregex_group_75(ptr noundef readonly %regexp2, i32 noundef %groupNum, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1497,16 +1498,16 @@ return:                                           ; preds = %return.sink.split.i
   ret i32 %retval.0
 }
 
-declare noundef i32 @_ZNK6icu_7512RegexMatcher5startEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef i32 @_ZNK6icu_7512RegexMatcher5startEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
-declare noundef i32 @_ZNK6icu_7512RegexMatcher3endEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef i32 @_ZNK6icu_7512RegexMatcher3endEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
-declare noundef i64 @_ZNK6icu_7512RegexMatcher7start64EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef i64 @_ZNK6icu_7512RegexMatcher7start64EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
-declare noundef i64 @_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef i64 @_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uregex_groupUText_75(ptr noundef readonly %regexp2, i32 noundef %groupNum, ptr noundef %dest, ptr noundef %groupLength, ptr noundef %status) local_unnamed_addr #5 {
+define ptr @uregex_groupUText_75(ptr noundef readonly %regexp2, i32 noundef %groupNum, ptr noundef %dest, ptr noundef %groupLength, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %emptyTextStatus = alloca i32, align 4
   %0 = load i32, ptr %status, align 4
@@ -1559,10 +1560,10 @@ return:                                           ; preds = %cond.false, %if.the
   ret ptr %retval.0
 }
 
-declare noundef ptr @_ZNK6icu_7512RegexMatcher5groupEiP5UTextRlR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef ptr @_ZNK6icu_7512RegexMatcher5groupEiP5UTextRlR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_start_75(ptr noundef readonly %regexp2, i32 noundef %groupNum, ptr noundef %status) local_unnamed_addr #5 {
+define noundef i32 @uregex_start_75(ptr noundef readonly %regexp2, i32 noundef %groupNum, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -1607,7 +1608,7 @@ uregex_start64_75.exit:                           ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @uregex_start64_75(ptr noundef readonly %regexp2, i32 noundef %groupNum, ptr noundef %status) local_unnamed_addr #5 {
+define noundef i64 @uregex_start64_75(ptr noundef readonly %regexp2, i32 noundef %groupNum, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1651,7 +1652,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_end_75(ptr noundef readonly %regexp2, i32 noundef %groupNum, ptr noundef %status) local_unnamed_addr #5 {
+define noundef i32 @uregex_end_75(ptr noundef readonly %regexp2, i32 noundef %groupNum, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -1696,7 +1697,7 @@ uregex_end64_75.exit:                             ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @uregex_end64_75(ptr noundef readonly %regexp2, i32 noundef %groupNum, ptr noundef %status) local_unnamed_addr #5 {
+define noundef i64 @uregex_end64_75(ptr noundef readonly %regexp2, i32 noundef %groupNum, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1740,7 +1741,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_reset_75(ptr noundef readonly %regexp2, i32 noundef %index, ptr noundef %status) local_unnamed_addr #5 {
+define void @uregex_reset_75(ptr noundef readonly %regexp2, i32 noundef %index, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %conv = sext i32 %index to i64
   %0 = load i32, ptr %status, align 4
@@ -1784,7 +1785,7 @@ uregex_reset64_75.exit:                           ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_reset64_75(ptr noundef readonly %regexp2, i64 noundef %index, ptr noundef %status) local_unnamed_addr #5 {
+define void @uregex_reset64_75(ptr noundef readonly %regexp2, i64 noundef %index, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1826,10 +1827,10 @@ return:                                           ; preds = %return.sink.split.i
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setRegion_75(ptr noundef readonly %regexp2, i32 noundef %regionStart, i32 noundef %regionLimit, ptr noundef %status) local_unnamed_addr #5 {
+define void @uregex_setRegion_75(ptr noundef readonly %regexp2, i32 noundef %regionStart, i32 noundef %regionLimit, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %conv = sext i32 %regionStart to i64
   %conv1 = sext i32 %regionLimit to i64
@@ -1874,7 +1875,7 @@ uregex_setRegion64_75.exit:                       ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setRegion64_75(ptr noundef readonly %regexp2, i64 noundef %regionStart, i64 noundef %regionLimit, ptr noundef %status) local_unnamed_addr #5 {
+define void @uregex_setRegion64_75(ptr noundef readonly %regexp2, i64 noundef %regionStart, i64 noundef %regionLimit, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1916,10 +1917,10 @@ return:                                           ; preds = %return.sink.split.i
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher6regionEllR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher6regionEllR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setRegionAndStart_75(ptr noundef readonly %regexp2, i64 noundef %regionStart, i64 noundef %regionLimit, i64 noundef %startIndex, ptr noundef %status) local_unnamed_addr #5 {
+define void @uregex_setRegionAndStart_75(ptr noundef readonly %regexp2, i64 noundef %regionStart, i64 noundef %regionLimit, i64 noundef %startIndex, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1961,10 +1962,10 @@ return:                                           ; preds = %return.sink.split.i
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher6regionElllR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher6regionElllR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i64 noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_regionStart_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define noundef i32 @uregex_regionStart_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -2008,7 +2009,7 @@ uregex_regionStart64_75.exit:                     ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 -2147483648, 2147483648) i64 @uregex_regionStart64_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define range(i64 -2147483648, 2147483648) i64 @uregex_regionStart64_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2052,10 +2053,10 @@ return:                                           ; preds = %return.sink.split.i
   ret i64 %retval.0
 }
 
-declare noundef i32 @_ZNK6icu_7512RegexMatcher11regionStartEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #4
+declare noundef i32 @_ZNK6icu_7512RegexMatcher11regionStartEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_regionEnd_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define noundef i32 @uregex_regionEnd_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -2099,7 +2100,7 @@ uregex_regionEnd64_75.exit:                       ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 -2147483648, 2147483648) i64 @uregex_regionEnd64_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define range(i64 -2147483648, 2147483648) i64 @uregex_regionEnd64_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2143,10 +2144,10 @@ return:                                           ; preds = %return.sink.split.i
   ret i64 %retval.0
 }
 
-declare noundef i32 @_ZNK6icu_7512RegexMatcher9regionEndEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #4
+declare noundef i32 @_ZNK6icu_7512RegexMatcher9regionEndEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_hasTransparentBounds_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define noundef signext i8 @uregex_hasTransparentBounds_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2176,10 +2177,10 @@ return:                                           ; preds = %return.sink.split.i
   ret i8 %retval.0
 }
 
-declare noundef signext i8 @_ZNK6icu_7512RegexMatcher20hasTransparentBoundsEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #4
+declare noundef signext i8 @_ZNK6icu_7512RegexMatcher20hasTransparentBoundsEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_useTransparentBounds_75(ptr noundef readonly %regexp2, i8 noundef signext %b, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define void @uregex_useTransparentBounds_75(ptr noundef readonly %regexp2, i8 noundef signext %b, ptr nocapture noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2208,10 +2209,10 @@ return:                                           ; preds = %return.sink.split.i
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher20useTransparentBoundsEa(ptr noundef nonnull align 8 dereferenceable(336), i8 noundef signext) unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher20useTransparentBoundsEa(ptr noundef nonnull align 8 dereferenceable(336), i8 noundef signext) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_hasAnchoringBounds_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define noundef signext i8 @uregex_hasAnchoringBounds_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2241,10 +2242,10 @@ return:                                           ; preds = %return.sink.split.i
   ret i8 %retval.0
 }
 
-declare noundef signext i8 @_ZNK6icu_7512RegexMatcher18hasAnchoringBoundsEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #4
+declare noundef signext i8 @_ZNK6icu_7512RegexMatcher18hasAnchoringBoundsEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_useAnchoringBounds_75(ptr noundef readonly %regexp2, i8 noundef signext %b, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define void @uregex_useAnchoringBounds_75(ptr noundef readonly %regexp2, i8 noundef signext %b, ptr nocapture noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2273,10 +2274,10 @@ return:                                           ; preds = %return.sink.split.i
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher18useAnchoringBoundsEa(ptr noundef nonnull align 8 dereferenceable(336), i8 noundef signext) unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher18useAnchoringBoundsEa(ptr noundef nonnull align 8 dereferenceable(336), i8 noundef signext) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_hitEnd_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define noundef signext i8 @uregex_hitEnd_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2319,10 +2320,10 @@ return:                                           ; preds = %return.sink.split.i
   ret i8 %retval.0
 }
 
-declare noundef signext i8 @_ZNK6icu_7512RegexMatcher6hitEndEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #4
+declare noundef signext i8 @_ZNK6icu_7512RegexMatcher6hitEndEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uregex_requireEnd_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define noundef signext i8 @uregex_requireEnd_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2365,10 +2366,10 @@ return:                                           ; preds = %return.sink.split.i
   ret i8 %retval.0
 }
 
-declare noundef signext i8 @_ZNK6icu_7512RegexMatcher10requireEndEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #4
+declare noundef signext i8 @_ZNK6icu_7512RegexMatcher10requireEndEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setTimeLimit_75(ptr noundef readonly %regexp2, i32 noundef %limit, ptr noundef %status) local_unnamed_addr #5 {
+define void @uregex_setTimeLimit_75(ptr noundef readonly %regexp2, i32 noundef %limit, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2397,10 +2398,10 @@ if.end:                                           ; preds = %return.sink.split.i
   ret void
 }
 
-declare void @_ZN6icu_7512RegexMatcher12setTimeLimitEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare void @_ZN6icu_7512RegexMatcher12setTimeLimitEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_getTimeLimit_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define noundef i32 @uregex_getTimeLimit_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2430,10 +2431,10 @@ if.end:                                           ; preds = %return.sink.split.i
   ret i32 %retVal.0
 }
 
-declare noundef i32 @_ZNK6icu_7512RegexMatcher12getTimeLimitEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #4
+declare noundef i32 @_ZNK6icu_7512RegexMatcher12getTimeLimitEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setStackLimit_75(ptr noundef readonly %regexp2, i32 noundef %limit, ptr noundef %status) local_unnamed_addr #5 {
+define void @uregex_setStackLimit_75(ptr noundef readonly %regexp2, i32 noundef %limit, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2462,10 +2463,10 @@ if.end:                                           ; preds = %return.sink.split.i
   ret void
 }
 
-declare void @_ZN6icu_7512RegexMatcher13setStackLimitEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare void @_ZN6icu_7512RegexMatcher13setStackLimitEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_getStackLimit_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define noundef i32 @uregex_getStackLimit_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2495,10 +2496,10 @@ if.end:                                           ; preds = %return.sink.split.i
   ret i32 %retVal.0
 }
 
-declare noundef i32 @_ZNK6icu_7512RegexMatcher13getStackLimitEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #4
+declare noundef i32 @_ZNK6icu_7512RegexMatcher13getStackLimitEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setMatchCallback_75(ptr noundef readonly %regexp2, ptr noundef %callback, ptr noundef %context, ptr noundef %status) local_unnamed_addr #5 {
+define void @uregex_setMatchCallback_75(ptr noundef readonly %regexp2, ptr noundef %callback, ptr noundef %context, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2527,10 +2528,10 @@ if.end:                                           ; preds = %return.sink.split.i
   ret void
 }
 
-declare void @_ZN6icu_7512RegexMatcher16setMatchCallbackEPFaPKviES2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare void @_ZN6icu_7512RegexMatcher16setMatchCallbackEPFaPKviES2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_getMatchCallback_75(ptr noundef readonly %regexp2, ptr noundef %callback, ptr noundef %context, ptr noundef %status) local_unnamed_addr #5 {
+define void @uregex_getMatchCallback_75(ptr noundef readonly %regexp2, ptr noundef %callback, ptr noundef %context, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2559,10 +2560,10 @@ if.end:                                           ; preds = %return.sink.split.i
   ret void
 }
 
-declare void @_ZN6icu_7512RegexMatcher16getMatchCallbackERPFaPKviERS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare void @_ZN6icu_7512RegexMatcher16getMatchCallbackERPFaPKviERS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_setFindProgressCallback_75(ptr noundef readonly %regexp2, ptr noundef %callback, ptr noundef %context, ptr noundef %status) local_unnamed_addr #5 {
+define void @uregex_setFindProgressCallback_75(ptr noundef readonly %regexp2, ptr noundef %callback, ptr noundef %context, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2591,10 +2592,10 @@ if.end:                                           ; preds = %return.sink.split.i
   ret void
 }
 
-declare void @_ZN6icu_7512RegexMatcher23setFindProgressCallbackEPFaPKvlES2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare void @_ZN6icu_7512RegexMatcher23setFindProgressCallbackEPFaPKvlES2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_getFindProgressCallback_75(ptr noundef readonly %regexp2, ptr noundef %callback, ptr noundef %context, ptr noundef %status) local_unnamed_addr #5 {
+define void @uregex_getFindProgressCallback_75(ptr noundef readonly %regexp2, ptr noundef %callback, ptr noundef %context, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2623,10 +2624,10 @@ if.end:                                           ; preds = %return.sink.split.i
   ret void
 }
 
-declare void @_ZN6icu_7512RegexMatcher23getFindProgressCallbackERPFaPKvlERS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare void @_ZN6icu_7512RegexMatcher23getFindProgressCallbackERPFaPKvlERS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uregex_replaceAll_75(ptr noundef %regexp2, ptr noundef %replacementText, i32 noundef %replacementLength, ptr noundef %destBuf, i32 noundef %destCapacity, ptr noundef %status) local_unnamed_addr #5 {
+define i32 @uregex_replaceAll_75(ptr noundef %regexp2, ptr noundef %replacementText, i32 noundef %replacementLength, ptr noundef %destBuf, i32 noundef %destCapacity, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %destBuf.addr = alloca ptr, align 8
   %destCapacity.addr = alloca i32, align 4
@@ -2754,21 +2755,21 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_appendReplacement_75(ptr noundef %regexp2, ptr noundef %replacementText, i32 noundef %replacementLength, ptr noundef %destBuf, ptr noundef %destCapacity, ptr noundef %status) local_unnamed_addr #5 {
+define noundef i32 @uregex_appendReplacement_75(ptr noundef %regexp2, ptr noundef %replacementText, i32 noundef %replacementLength, ptr noundef %destBuf, ptr noundef %destCapacity, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %call = tail call noundef i32 @_ZN6icu_7510RegexCImpl17appendReplacementEPNS_17RegularExpressionEPKDsiPPDsPiP10UErrorCode(ptr noundef %regexp2, ptr noundef %replacementText, i32 noundef %replacementLength, ptr noundef %destBuf, ptr noundef %destCapacity, ptr noundef %status)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_appendTail_75(ptr noundef %regexp2, ptr noundef %destBuf, ptr noundef %destCapacity, ptr noundef %status) local_unnamed_addr #5 {
+define noundef i32 @uregex_appendTail_75(ptr noundef %regexp2, ptr noundef %destBuf, ptr noundef %destCapacity, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %call = tail call noundef i32 @_ZN6icu_7510RegexCImpl10appendTailEPNS_17RegularExpressionEPPDsPiP10UErrorCode(ptr noundef %regexp2, ptr noundef %destBuf, ptr noundef %destCapacity, ptr noundef %status)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uregex_replaceAllUText_75(ptr noundef readonly %regexp2, ptr noundef %replacementText, ptr noundef %dest, ptr noundef %status) local_unnamed_addr #5 {
+define noundef ptr @uregex_replaceAllUText_75(ptr noundef readonly %regexp2, ptr noundef %replacementText, ptr noundef %dest, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2819,10 +2820,10 @@ return:                                           ; preds = %return.sink.split.i
   ret ptr %retval.0
 }
 
-declare noundef ptr @_ZN6icu_7512RegexMatcher10replaceAllEP5UTextS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef ptr @_ZN6icu_7512RegexMatcher10replaceAllEP5UTextS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uregex_replaceFirst_75(ptr noundef %regexp2, ptr noundef %replacementText, i32 noundef %replacementLength, ptr noundef %destBuf, i32 noundef %destCapacity, ptr noundef %status) local_unnamed_addr #5 {
+define i32 @uregex_replaceFirst_75(ptr noundef %regexp2, ptr noundef %replacementText, i32 noundef %replacementLength, ptr noundef %destBuf, i32 noundef %destCapacity, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %destBuf.addr = alloca ptr, align 8
   %destCapacity.addr = alloca i32, align 4
@@ -2940,7 +2941,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uregex_replaceFirstUText_75(ptr noundef readonly %regexp2, ptr noundef %replacementText, ptr noundef %dest, ptr noundef %status) local_unnamed_addr #5 {
+define noundef ptr @uregex_replaceFirstUText_75(ptr noundef readonly %regexp2, ptr noundef %replacementText, ptr noundef %dest, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2991,10 +2992,10 @@ return:                                           ; preds = %return.sink.split.i
   ret ptr %retval.0
 }
 
-declare noundef ptr @_ZN6icu_7512RegexMatcher12replaceFirstEP5UTextS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef ptr @_ZN6icu_7512RegexMatcher12replaceFirstEP5UTextS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN6icu_7510RegexCImpl17appendReplacementEPNS_17RegularExpressionEPKDsiPPDsPiP10UErrorCode(ptr noundef %regexp, ptr noundef %replacementText, i32 noundef %replacementLength, ptr noundef %destBuf, ptr noundef %destCapacity, ptr noundef %status) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN6icu_7510RegexCImpl17appendReplacementEPNS_17RegularExpressionEPKDsiPPDsPiP10UErrorCode(ptr noundef %regexp, ptr noundef %replacementText, i32 noundef %replacementLength, ptr noundef %destBuf, ptr noundef %destCapacity, ptr noundef %status) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tempStatus = alloca i32, align 4
   %possibleOverflowError = alloca i32, align 4
@@ -3556,7 +3557,7 @@ lpad.loopexit.split-lp:                           ; preds = %cond.true309
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit319, %lpad.loopexit ], [ %lpad.loopexit.split-lp320, %lpad.loopexit.split-lp ]
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %groupName) #10
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %groupName) #11
   resume { ptr, i32 } %lpad.phi
 
 if.else305:                                       ; preds = %do.end291
@@ -3595,7 +3596,7 @@ while.end.sink.split:                             ; preds = %while.body262, %con
 
 while.end:                                        ; preds = %if.end322, %while.end.sink.split, %cond.end315, %do.end255
   %groupNum.2262 = phi i32 [ 0, %do.end255 ], [ %call313, %cond.end315 ], [ 0, %while.end.sink.split ], [ 0, %if.end322 ]
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %groupName) #10
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %groupName) #11
   br label %if.end325
 
 if.end325:                                        ; preds = %do.end196, %do.end226, %if.then147, %while.end, %if.else228
@@ -3714,7 +3715,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uregex_appendReplacementUText_75(ptr nocapture noundef readonly %regexp2, ptr noundef %replText, ptr noundef %dest, ptr noundef nonnull %status) local_unnamed_addr #5 {
+define void @uregex_appendReplacementUText_75(ptr nocapture noundef readonly %regexp2, ptr noundef %replText, ptr noundef %dest, ptr noundef nonnull %status) local_unnamed_addr #6 {
 entry:
   %fMatcher = getelementptr inbounds i8, ptr %regexp2, i64 40
   %0 = load ptr, ptr %fMatcher, align 8
@@ -3722,10 +3723,10 @@ entry:
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher17appendReplacementEP5UTextS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher17appendReplacementEP5UTextS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN6icu_7510RegexCImpl10appendTailEPNS_17RegularExpressionEPPDsPiP10UErrorCode(ptr noundef %regexp, ptr noundef %destBuf, ptr noundef %destCapacity, ptr noundef %status) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef i32 @_ZN6icu_7510RegexCImpl10appendTailEPNS_17RegularExpressionEPPDsPiP10UErrorCode(ptr noundef %regexp, ptr noundef %destBuf, ptr noundef %destCapacity, ptr noundef %status) local_unnamed_addr #6 comdat align 2 {
 entry:
   %newStatus = alloca i32, align 4
   %0 = load i32, ptr %status, align 4
@@ -3960,7 +3961,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uregex_appendTailUText_75(ptr nocapture noundef readonly %regexp2, ptr noundef %dest, ptr noundef nonnull %status) local_unnamed_addr #5 {
+define noundef ptr @uregex_appendTailUText_75(ptr nocapture noundef readonly %regexp2, ptr noundef %dest, ptr noundef nonnull %status) local_unnamed_addr #6 {
 entry:
   %fMatcher = getelementptr inbounds i8, ptr %regexp2, i64 40
   %0 = load ptr, ptr %fMatcher, align 8
@@ -3968,10 +3969,10 @@ entry:
   ret ptr %call
 }
 
-declare noundef ptr @_ZN6icu_7512RegexMatcher10appendTailEP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef ptr @_ZN6icu_7512RegexMatcher10appendTailEP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_split_75(ptr noundef %regexp2, ptr noundef %destBuf, i32 noundef %destCapacity, ptr noundef %requiredCapacity, ptr noundef %destFields, i32 noundef %destFieldsCapacity, ptr noundef %status) local_unnamed_addr #5 {
+define noundef i32 @uregex_split_75(ptr noundef %regexp2, ptr noundef %destBuf, i32 noundef %destCapacity, ptr noundef %requiredCapacity, ptr noundef %destFields, i32 noundef %destFieldsCapacity, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -4029,7 +4030,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN6icu_7510RegexCImpl5splitEPNS_17RegularExpressionEPDsiPiPS3_iP10UErrorCode(ptr noundef %regexp, ptr noundef %destBuf, i32 noundef %destCapacity, ptr noundef %requiredCapacity, ptr noundef %destFields, i32 noundef %destFieldsCapacity, ptr noundef %status) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef i32 @_ZN6icu_7510RegexCImpl5splitEPNS_17RegularExpressionEPDsiPiPS3_iP10UErrorCode(ptr noundef %regexp, ptr noundef %destBuf, i32 noundef %destCapacity, ptr noundef %requiredCapacity, ptr noundef %destFields, i32 noundef %destFieldsCapacity, ptr noundef %status) local_unnamed_addr #6 comdat align 2 {
 entry:
   %tStatus = alloca i32, align 4
   %fMatcher = getelementptr inbounds i8, ptr %regexp, i64 40
@@ -4429,7 +4430,7 @@ return:                                           ; preds = %if.end145, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uregex_splitUText_75(ptr nocapture noundef readonly %regexp2, ptr noundef %destFields, i32 noundef %destFieldsCapacity, ptr noundef %status) local_unnamed_addr #5 {
+define noundef i32 @uregex_splitUText_75(ptr nocapture noundef readonly %regexp2, ptr noundef %destFields, i32 noundef %destFieldsCapacity, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %fMatcher = getelementptr inbounds i8, ptr %regexp2, i64 40
   %0 = load ptr, ptr %fMatcher, align 8
@@ -4438,40 +4439,41 @@ entry:
   ret i32 %call2
 }
 
-declare noundef i32 @_ZN6icu_7512RegexMatcher5splitEP5UTextPS2_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare noundef i32 @_ZN6icu_7512RegexMatcher5splitEP5UTextPS2_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
-declare i32 @u_unescapeAt_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @u_unescapeAt_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare zeroext i16 @uregex_ucstr_unescape_charAt_75(i32 noundef, ptr noundef) #4
+declare zeroext i16 @uregex_ucstr_unescape_charAt_75(i32 noundef, ptr noundef) #5
 
-declare signext i8 @u_isdigit_75(i32 noundef) local_unnamed_addr #4
+declare signext i8 @u_isdigit_75(i32 noundef) local_unnamed_addr #5
 
-declare i32 @u_charDigitValue_75(i32 noundef) local_unnamed_addr #4
+declare i32 @u_charDigitValue_75(i32 noundef) local_unnamed_addr #5
 
-declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #5
 
-declare i32 @uhash_geti_75(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @uhash_geti_75(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
-declare noundef signext i8 @_ZN6icu_7512RegexMatcher4findEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #4
+declare noundef signext i8 @_ZN6icu_7512RegexMatcher4findEv(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { allocsize(0) }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

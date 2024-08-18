@@ -162,19 +162,19 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %invoke.cont29 unwind label %lpad
 
 invoke.cont29:                                    ; preds = %invoke.cont27
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #8
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #9
   %call31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8facebook5velox19threadNumVeloxThrowEv()
   %6 = load i64, ptr %call31, align 8
   %inc = add nsw i64 %6, 1
   store i64 %inc, ptr %call31, align 8
-  %exception = call ptr @__cxa_allocate_exception(i64 24) #8
+  %exception = call ptr @__cxa_allocate_exception(i64 24) #9
   %7 = load ptr, ptr %args, align 8
   %8 = load i64, ptr %line, align 8
   %9 = load ptr, ptr %function, align 8
   %10 = load ptr, ptr %expression, align 8
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #8
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #9
   %11 = load ptr, ptr %errorCode, align 8
-  %call.i.i16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #8
+  %call.i.i16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #9
   %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %12 = load i8, ptr %isRetriable, align 8
   %tobool = trunc i8 %12 to i1
@@ -201,19 +201,19 @@ invoke.cont45:                                    ; preds = %invoke.cont29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4222)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4423)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
-  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox17VeloxRuntimeErrorE, ptr nonnull @_ZN8facebook5velox17VeloxRuntimeErrorD2Ev) #9
+  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox17VeloxRuntimeErrorE, ptr nonnull @_ZN8facebook5velox17VeloxRuntimeErrorD2Ev) #10
   unreachable
 
 lpad:                                             ; preds = %invoke.cont27, %invoke.cont25, %invoke.cont23, %invoke.cont21, %invoke.cont17, %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont9, %invoke.cont7, %invoke.cont5, %invoke.cont3, %invoke.cont1, %invoke.cont, %entry
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #8
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #9
   br label %eh.resume
 
 lpad37:                                           ; preds = %invoke.cont29
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #8
+  call void @__cxa_free_exception(ptr %exception) #9
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad37, %lpad
@@ -263,7 +263,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -289,7 +289,7 @@ if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
@@ -314,15 +314,16 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   br label %_ZN8facebook5velox14VeloxExceptionD2Ev.exit
 
 _ZN8facebook5velox14VeloxExceptionD2Ev.exit:      ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #9
   ret void
 }
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress noreturn uwtable
 define weak_odr void @_ZN8facebook5velox6detail14veloxCheckFailINS0_17VeloxRuntimeErrorEPKcEEvRKNS1_18VeloxCheckFailArgsET0_(ptr noundef nonnull align 8 dereferenceable(56) %args, ptr noundef %s) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -404,20 +405,20 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %invoke.cont25
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #8
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #9
   %call29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8facebook5velox19threadNumVeloxThrowEv()
   %6 = load i64, ptr %call29, align 8
   %inc = add nsw i64 %6, 1
   store i64 %inc, ptr %call29, align 8
-  %exception = call ptr @__cxa_allocate_exception(i64 24) #8
+  %exception = call ptr @__cxa_allocate_exception(i64 24) #9
   %7 = load ptr, ptr %args, align 8
   %8 = load i64, ptr %line, align 8
   %9 = load ptr, ptr %function, align 8
   %10 = load ptr, ptr %expression, align 8
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #8
-  %call.i.i15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #8
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #9
+  %call.i.i15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #9
   %11 = load ptr, ptr %errorCode, align 8
-  %call.i.i19 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #8
+  %call.i.i19 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #9
   %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %12 = load i8, ptr %isRetriable, align 8
   %tobool = trunc i8 %12 to i1
@@ -446,19 +447,19 @@ invoke.cont41:                                    ; preds = %invoke.cont27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3725)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3926)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
-  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox17VeloxRuntimeErrorE, ptr nonnull @_ZN8facebook5velox17VeloxRuntimeErrorD2Ev) #9
+  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox17VeloxRuntimeErrorE, ptr nonnull @_ZN8facebook5velox17VeloxRuntimeErrorD2Ev) #10
   unreachable
 
 lpad:                                             ; preds = %invoke.cont25, %invoke.cont23, %invoke.cont21, %invoke.cont19, %invoke.cont17, %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont9, %invoke.cont7, %invoke.cont5, %invoke.cont3, %invoke.cont1, %invoke.cont, %entry
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #8
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #9
   br label %eh.resume
 
 lpad40:                                           ; preds = %invoke.cont27
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #8
+  call void @__cxa_free_exception(ptr %exception) #9
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad40, %lpad
@@ -546,22 +547,22 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %invoke.cont25
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #8
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #9
   %call29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8facebook5velox19threadNumVeloxThrowEv()
   %6 = load i64, ptr %call29, align 8
   %inc = add nsw i64 %6, 1
   store i64 %inc, ptr %call29, align 8
-  %exception = call ptr @__cxa_allocate_exception(i64 24) #8
+  %exception = call ptr @__cxa_allocate_exception(i64 24) #9
   %7 = load ptr, ptr %args, align 8
   %8 = load i64, ptr %line, align 8
   %9 = load ptr, ptr %function, align 8
   %10 = load ptr, ptr %expression, align 8
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #8
-  %call35 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #8
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #9
+  %call35 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #9
   %11 = extractvalue { i64, ptr } %call35, 0
   %12 = extractvalue { i64, ptr } %call35, 1
   %13 = load ptr, ptr %errorCode, align 8
-  %call.i.i17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #8
+  %call.i.i17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #9
   %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %14 = load i8, ptr %isRetriable, align 8
   %tobool = trunc i8 %14 to i1
@@ -590,19 +591,19 @@ invoke.cont42:                                    ; preds = %invoke.cont27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3823)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4024)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
-  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox17VeloxRuntimeErrorE, ptr nonnull @_ZN8facebook5velox17VeloxRuntimeErrorD2Ev) #9
+  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox17VeloxRuntimeErrorE, ptr nonnull @_ZN8facebook5velox17VeloxRuntimeErrorD2Ev) #10
   unreachable
 
 lpad:                                             ; preds = %invoke.cont25, %invoke.cont23, %invoke.cont21, %invoke.cont19, %invoke.cont17, %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont9, %invoke.cont7, %invoke.cont5, %invoke.cont3, %invoke.cont1, %invoke.cont, %entry
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #8
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #9
   br label %eh.resume
 
 lpad41:                                           ; preds = %invoke.cont27
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #8
+  call void @__cxa_free_exception(ptr %exception) #9
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad41, %lpad
@@ -626,7 +627,7 @@ entry:
   %0 = load i64, ptr %call, align 8
   %inc = add nsw i64 %0, 1
   store i64 %inc, ptr %call, align 8
-  %exception = tail call ptr @__cxa_allocate_exception(i64 24) #8
+  %exception = tail call ptr @__cxa_allocate_exception(i64 24) #9
   %1 = load ptr, ptr %args, align 8
   %line = getelementptr inbounds i8, ptr %args, i64 8
   %2 = load i64, ptr %line, align 8
@@ -634,10 +635,10 @@ entry:
   %3 = load ptr, ptr %function, align 8
   %expression = getelementptr inbounds i8, ptr %args, i64 24
   %4 = load ptr, ptr %expression, align 8
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
   %errorCode = getelementptr inbounds i8, ptr %args, i64 40
   %5 = load ptr, ptr %errorCode, align 8
-  %call.i.i9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #8
+  %call.i.i9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #9
   %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %6 = load i8, ptr %isRetriable, align 8
   %tobool = trunc i8 %6 to i1
@@ -664,13 +665,13 @@ invoke.cont6:                                     ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp415)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp516)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox14VeloxUserErrorE, ptr nonnull @_ZN8facebook5velox14VeloxUserErrorD2Ev) #9
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox14VeloxUserErrorE, ptr nonnull @_ZN8facebook5velox14VeloxUserErrorD2Ev) #10
   unreachable
 
 lpad:                                             ; preds = %entry
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #8
+  tail call void @__cxa_free_exception(ptr %exception) #9
   resume { ptr, i32 } %8
 }
 
@@ -697,7 +698,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -723,7 +724,7 @@ if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
@@ -748,11 +749,11 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   br label %_ZN8facebook5velox14VeloxExceptionD2Ev.exit
 
 _ZN8facebook5velox14VeloxExceptionD2Ev.exit:      ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #9
   ret void
 }
 
@@ -767,7 +768,7 @@ entry:
   %0 = load i64, ptr %call, align 8
   %inc = add nsw i64 %0, 1
   store i64 %inc, ptr %call, align 8
-  %exception = tail call ptr @__cxa_allocate_exception(i64 24) #8
+  %exception = tail call ptr @__cxa_allocate_exception(i64 24) #9
   %1 = load ptr, ptr %args, align 8
   %line = getelementptr inbounds i8, ptr %args, i64 8
   %2 = load i64, ptr %line, align 8
@@ -775,11 +776,11 @@ entry:
   %3 = load ptr, ptr %function, align 8
   %expression = getelementptr inbounds i8, ptr %args, i64 24
   %4 = load ptr, ptr %expression, align 8
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
-  %call.i.i7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #8
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
+  %call.i.i7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #9
   %errorCode = getelementptr inbounds i8, ptr %args, i64 40
   %5 = load ptr, ptr %errorCode, align 8
-  %call.i.i11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #8
+  %call.i.i11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #9
   %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %6 = load i8, ptr %isRetriable, align 8
   %tobool = trunc i8 %6 to i1
@@ -808,13 +809,13 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp317)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp418)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox14VeloxUserErrorE, ptr nonnull @_ZN8facebook5velox14VeloxUserErrorD2Ev) #9
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox14VeloxUserErrorE, ptr nonnull @_ZN8facebook5velox14VeloxUserErrorD2Ev) #10
   unreachable
 
 lpad:                                             ; preds = %entry
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #8
+  tail call void @__cxa_free_exception(ptr %exception) #9
   resume { ptr, i32 } %8
 }
 
@@ -829,7 +830,7 @@ entry:
   %0 = load i64, ptr %call, align 8
   %inc = add nsw i64 %0, 1
   store i64 %inc, ptr %call, align 8
-  %exception = tail call ptr @__cxa_allocate_exception(i64 24) #8
+  %exception = tail call ptr @__cxa_allocate_exception(i64 24) #9
   %1 = load ptr, ptr %args, align 8
   %line = getelementptr inbounds i8, ptr %args, i64 8
   %2 = load i64, ptr %line, align 8
@@ -837,13 +838,13 @@ entry:
   %3 = load ptr, ptr %function, align 8
   %expression = getelementptr inbounds i8, ptr %args, i64 24
   %4 = load ptr, ptr %expression, align 8
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
-  %call2 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #8
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
+  %call2 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #9
   %5 = extractvalue { i64, ptr } %call2, 0
   %6 = extractvalue { i64, ptr } %call2, 1
   %errorCode = getelementptr inbounds i8, ptr %args, i64 40
   %7 = load ptr, ptr %errorCode, align 8
-  %call.i.i9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #8
+  %call.i.i9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #9
   %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %8 = load i8, ptr %isRetriable, align 8
   %tobool = trunc i8 %8 to i1
@@ -872,18 +873,18 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp415)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp516)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox14VeloxUserErrorE, ptr nonnull @_ZN8facebook5velox14VeloxUserErrorD2Ev) #9
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook5velox14VeloxUserErrorE, ptr nonnull @_ZN8facebook5velox14VeloxUserErrorD2Ev) #10
   unreachable
 
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #8
+  tail call void @__cxa_free_exception(ptr %exception) #9
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 declare void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i64 noundef, ptr noundef, i64, ptr, ptr noundef byval(%"class.std::basic_string_view") align 8, ptr noundef byval(%"class.std::basic_string_view") align 8, ptr noundef byval(%"class.std::basic_string_view") align 8, i1 noundef zeroext, i32 noundef, ptr noundef byval(%"class.std::basic_string_view") align 8) unnamed_addr #1
 
@@ -910,7 +911,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   br label %if.end8.sink.split.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
@@ -936,7 +937,7 @@ if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
@@ -961,12 +962,12 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   br label %_ZN8facebook5velox17VeloxRuntimeErrorD2Ev.exit
 
 _ZN8facebook5velox17VeloxRuntimeErrorD2Ev.exit:   ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #9
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -975,12 +976,12 @@ define linkonce_odr noundef ptr @_ZNK8facebook5velox14VeloxException4whatEv(ptr 
 entry:
   %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %state_, align 8
-  %call2 = tail call noundef ptr @_ZNK8facebook5velox14VeloxException5State4whatEv(ptr noundef nonnull align 8 dereferenceable(320) %0) #8
+  %call2 = tail call noundef ptr @_ZNK8facebook5velox14VeloxException5State4whatEv(ptr noundef nonnull align 8 dereferenceable(320) %0) #9
   ret ptr %call2
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNK8facebook5velox14VeloxException5State4whatEv(ptr noundef nonnull align 8 dereferenceable(320)) local_unnamed_addr #2
@@ -1011,7 +1012,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -1037,7 +1038,7 @@ if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %7, 0
@@ -1062,11 +1063,11 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   br label %_ZNSt10shared_ptrIKN8facebook5velox14VeloxException5StateEED2Ev.exit
 
 _ZNSt10shared_ptrIKN8facebook5velox14VeloxException5StateEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #9
   ret void
 }
 
@@ -1093,7 +1094,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -1119,7 +1120,7 @@ if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
@@ -1144,12 +1145,12 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   br label %_ZN8facebook5velox14VeloxExceptionD2Ev.exit
 
 _ZN8facebook5velox14VeloxExceptionD2Ev.exit:      ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #9
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -1176,7 +1177,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   br label %if.end8.sink.split.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
@@ -1202,7 +1203,7 @@ if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
@@ -1227,35 +1228,36 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   br label %_ZN8facebook5velox14VeloxUserErrorD2Ev.exit
 
 _ZN8facebook5velox14VeloxUserErrorD2Ev.exit:      ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #9
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 attributes #0 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn }
-attributes #10 = { builtin nounwind }
+attributes #4 = { cold noreturn }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn }
+attributes #11 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

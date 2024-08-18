@@ -174,7 +174,7 @@ if.then17:                                        ; preds = %if.else
 if.then.i.i:                                      ; preds = %if.then17
   %1 = and i32 %sub.i.i, -32
   %mul.i.i = zext i32 %1 to i64
-  %call.i6.i = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i) #8
+  %call.i6.i = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i) #9
           to label %call.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i
 
 call.i.noexc.i:                                   ; preds = %if.then.i.i
@@ -222,7 +222,7 @@ common.resume:                                    ; preds = %lpad.i27, %lpad.i
 
 lpad.i:                                           ; preds = %lpad.loopexit.split-lp.loopexit.split-lp.i, %lpad.loopexit.split-lp.loopexit.i, %lpad.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit16.i, %lpad.loopexit.i ], [ %lpad.loopexit18.i, %lpad.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp19.i, %lpad.loopexit.split-lp.loopexit.split-lp.i ]
-  call void @_ZN6icu_7515MaybeStackArrayI11max_align_tLi7EED2Ev(ptr noundef nonnull align 16 dereferenceable(240) %v.i) #9
+  call void @_ZN6icu_7515MaybeStackArrayI11max_align_tLi7EED2Ev(ptr noundef nonnull align 16 dereferenceable(240) %v.i) #10
   br label %common.resume
 
 for.body.lr.ph.i.i:                               ; preds = %if.then17, %invoke.cont6.i
@@ -348,7 +348,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i13.i
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #10
+  call void @__clang_call_terminate(ptr %16) #11
   unreachable
 
 _ZL13insertionSortPciiPFiPKvS1_S1_ES1_P10UErrorCode.exit: ; preds = %cleanup.i, %if.then.i.i13.i
@@ -370,7 +370,7 @@ if.else18:                                        ; preds = %if.else
 if.then.i.i30:                                    ; preds = %if.else18
   %conv.i.i = zext nneg i32 %mul.i to i64
   %mul.i.i31 = shl nuw nsw i64 %conv.i.i, 5
-  %call.i7.i = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i31) #8
+  %call.i7.i = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i31) #9
           to label %call.i.noexc.i32 unwind label %lpad.i27
 
 call.i.noexc.i32:                                 ; preds = %if.then.i.i30
@@ -400,7 +400,7 @@ if.then.i37:                                      ; preds = %call.i.noexc.i32
 lpad.i27:                                         ; preds = %if.end.i26, %if.then.i.i.i36, %if.then.i.i30
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayI11max_align_tLi14EED2Ev(ptr noundef nonnull align 16 dereferenceable(464) %xw.i) #9
+  call void @_ZN6icu_7515MaybeStackArrayI11max_align_tLi14EED2Ev(ptr noundef nonnull align 16 dereferenceable(464) %xw.i) #10
   br label %common.resume
 
 if.end.i26:                                       ; preds = %invoke.cont5.i, %if.else18
@@ -424,7 +424,7 @@ terminate.lpad.i.i29:                             ; preds = %if.then.i.i12.i
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #10
+  call void @__clang_call_terminate(ptr %24) #11
   unreachable
 
 _ZL9quickSortPciiPFiPKvS1_S1_ES1_P10UErrorCode.exit: ; preds = %cleanup.i28, %if.then.i.i12.i
@@ -457,7 +457,7 @@ terminate.lpad:                                   ; preds = %if.then.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #10
+  tail call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -474,14 +474,15 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
-  tail call void @_ZSt9terminatev() #10
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
+  tail call void @_ZSt9terminatev() #11
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL12subQuickSortPciiiPFiPKvS1_S1_ES1_PvS4_(ptr noundef %array, i32 noundef %start, i32 noundef %limit, i32 noundef %itemSize, ptr noundef %cmp, ptr noundef %context, ptr noundef %px, ptr noundef %pw) unnamed_addr #1 {
@@ -732,15 +733,15 @@ terminate.lpad:                                   ; preds = %if.then.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #10
+  tail call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -749,10 +750,11 @@ attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { allocsize(0) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { allocsize(0) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

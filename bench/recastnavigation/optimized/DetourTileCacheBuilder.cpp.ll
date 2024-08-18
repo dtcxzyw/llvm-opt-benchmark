@@ -39,8 +39,8 @@ define void @_ZN16dtTileCacheAllocD2Ev(ptr nocapture nonnull readnone align 8 %0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN16dtTileCacheAllocD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZN16dtTileCacheAllocD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #19
+  tail call void @_ZN16dtTileCacheAllocD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }
 
@@ -54,7 +54,7 @@ define void @_ZN21dtTileCacheCompressorD2Ev(ptr nocapture nonnull readnone align
 
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN21dtTileCacheCompressorD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  tail call void @llvm.trap() #20
+  tail call void @llvm.trap() #21
   unreachable
 }
 
@@ -957,7 +957,7 @@ _ZL8canMergehhPK21dtLayerMonotoneRegioni.exit:    ; preds = %.loopexit.i
   %312 = landingpad { ptr, i32 }
           catch ptr null
   %313 = extractvalue { ptr, i32 } %312, 0
-  tail call void @__clang_call_terminate(ptr %313) #20
+  tail call void @__clang_call_terminate(ptr %313) #21
   unreachable
 
 _ZN12dtFixedArrayI21dtLayerMonotoneRegionED2Ev.exit263: ; preds = %125, %10, %.loopexit
@@ -972,7 +972,7 @@ _ZN12dtFixedArrayI21dtLayerMonotoneRegionED2Ev.exit263: ; preds = %125, %10, %.l
   %318 = landingpad { ptr, i32 }
           catch ptr null
   %319 = extractvalue { ptr, i32 } %318, 0
-  tail call void @__clang_call_terminate(ptr %319) #20
+  tail call void @__clang_call_terminate(ptr %319) #21
   unreachable
 
 _ZN12dtFixedArrayI16dtLayerSweepSpanED2Ev.exit:   ; preds = %_ZN12dtFixedArrayI21dtLayerMonotoneRegionED2Ev.exit263
@@ -982,7 +982,7 @@ _ZN12dtFixedArrayI16dtLayerSweepSpanED2Ev.exit:   ; preds = %_ZN12dtFixedArrayI2
   %321 = landingpad { ptr, i32 }
           catch ptr null
   %322 = extractvalue { ptr, i32 } %321, 0
-  tail call void @__clang_call_terminate(ptr %322) #20
+  tail call void @__clang_call_terminate(ptr %322) #21
   unreachable
 
 _ZN12dtFixedArrayI16dtLayerSweepSpanED2Ev.exit266: ; preds = %28
@@ -1945,7 +1945,7 @@ _ZL15simplifyContourR13dtTempContourf.exit.us:    ; preds = %._crit_edge221.i.us
   %518 = landingpad { ptr, i32 }
           catch ptr null
   %519 = extractvalue { ptr, i32 } %518, 0
-  tail call void @__clang_call_terminate(ptr %519) #20
+  tail call void @__clang_call_terminate(ptr %519) #21
   unreachable
 
 default.unreachable:                              ; preds = %167
@@ -1963,7 +1963,7 @@ _ZL11walkContourR16dtTileCacheLayeriiR13dtTempContour.exit: ; preds = %._crit_ed
   %524 = landingpad { ptr, i32 }
           catch ptr null
   %525 = extractvalue { ptr, i32 } %524, 0
-  tail call void @__clang_call_terminate(ptr %525) #20
+  tail call void @__clang_call_terminate(ptr %525) #21
   unreachable
 
 _ZN12dtFixedArrayItED2Ev.exit108:                 ; preds = %26, %_ZL11walkContourR16dtTileCacheLayeriiR13dtTempContour.exit
@@ -1978,7 +1978,7 @@ _ZN12dtFixedArrayItED2Ev.exit108:                 ; preds = %26, %_ZL11walkConto
   %530 = landingpad { ptr, i32 }
           catch ptr null
   %531 = extractvalue { ptr, i32 } %530, 0
-  tail call void @__clang_call_terminate(ptr %531) #20
+  tail call void @__clang_call_terminate(ptr %531) #21
   unreachable
 
 _ZN12dtFixedArrayItED2Ev.exit:                    ; preds = %40, %.split.us
@@ -1993,7 +1993,7 @@ _ZN12dtFixedArrayItED2Ev.exit:                    ; preds = %40, %.split.us
   %536 = landingpad { ptr, i32 }
           catch ptr null
   %537 = extractvalue { ptr, i32 } %536, 0
-  tail call void @__clang_call_terminate(ptr %537) #20
+  tail call void @__clang_call_terminate(ptr %537) #21
   unreachable
 
 _ZN12dtFixedArrayIhED2Ev.exit111:                 ; preds = %_ZN12dtFixedArrayItED2Ev.exit
@@ -2240,7 +2240,7 @@ _ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit261: ; preds = %99
   %118 = landingpad { ptr, i32 }
           catch ptr null
   %119 = extractvalue { ptr, i32 } %118, 0
-  tail call void @__clang_call_terminate(ptr %119) #20
+  tail call void @__clang_call_terminate(ptr %119) #21
   unreachable
 
 .preheader415:                                    ; preds = %.loopexit418, %.preheader422
@@ -3214,7 +3214,7 @@ _ZL14countPolyVertsPKt.exit87.i:                  ; preds = %473
   %538 = landingpad { ptr, i32 }
           catch ptr null
   %539 = extractvalue { ptr, i32 } %538, 0
-  tail call void @__clang_call_terminate(ptr %539) #20
+  tail call void @__clang_call_terminate(ptr %539) #21
   unreachable
 
 540:                                              ; preds = %.thread378, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit260
@@ -3229,7 +3229,7 @@ _ZL14countPolyVertsPKt.exit87.i:                  ; preds = %473
   %545 = landingpad { ptr, i32 }
           catch ptr null
   %546 = extractvalue { ptr, i32 } %545, 0
-  tail call void @__clang_call_terminate(ptr %546) #20
+  tail call void @__clang_call_terminate(ptr %546) #21
   unreachable
 
 547:                                              ; preds = %113, %97
@@ -3244,7 +3244,7 @@ _ZL14countPolyVertsPKt.exit87.i:                  ; preds = %473
   %552 = landingpad { ptr, i32 }
           catch ptr null
   %553 = extractvalue { ptr, i32 } %552, 0
-  tail call void @__clang_call_terminate(ptr %553) #20
+  tail call void @__clang_call_terminate(ptr %553) #21
   unreachable
 
 554:                                              ; preds = %540, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit259
@@ -3259,7 +3259,7 @@ _ZL14countPolyVertsPKt.exit87.i:                  ; preds = %473
   %559 = landingpad { ptr, i32 }
           catch ptr null
   %560 = extractvalue { ptr, i32 } %559, 0
-  tail call void @__clang_call_terminate(ptr %560) #20
+  tail call void @__clang_call_terminate(ptr %560) #21
   unreachable
 
 561:                                              ; preds = %547, %87
@@ -3274,7 +3274,7 @@ _ZL14countPolyVertsPKt.exit87.i:                  ; preds = %473
   %566 = landingpad { ptr, i32 }
           catch ptr null
   %567 = extractvalue { ptr, i32 } %566, 0
-  tail call void @__clang_call_terminate(ptr %567) #20
+  tail call void @__clang_call_terminate(ptr %567) #21
   unreachable
 
 568:                                              ; preds = %554, %_ZN12dtFixedArrayItEC2EP16dtTileCacheAlloci.exit
@@ -3289,7 +3289,7 @@ _ZL14countPolyVertsPKt.exit87.i:                  ; preds = %473
   %573 = landingpad { ptr, i32 }
           catch ptr null
   %574 = extractvalue { ptr, i32 } %573, 0
-  tail call void @__clang_call_terminate(ptr %574) #20
+  tail call void @__clang_call_terminate(ptr %574) #21
   unreachable
 
 575:                                              ; preds = %561, %78
@@ -3304,7 +3304,7 @@ _ZL14countPolyVertsPKt.exit87.i:                  ; preds = %473
   %580 = landingpad { ptr, i32 }
           catch ptr null
   %581 = extractvalue { ptr, i32 } %580, 0
-  tail call void @__clang_call_terminate(ptr %581) #20
+  tail call void @__clang_call_terminate(ptr %581) #21
   unreachable
 
 582:                                              ; preds = %568, %65, %58, %51, %41, %._crit_edge
@@ -3319,7 +3319,7 @@ _ZL14countPolyVertsPKt.exit87.i:                  ; preds = %473
   %587 = landingpad { ptr, i32 }
           catch ptr null
   %588 = extractvalue { ptr, i32 } %587, 0
-  tail call void @__clang_call_terminate(ptr %588) #20
+  tail call void @__clang_call_terminate(ptr %588) #21
   unreachable
 
 _ZN12dtFixedArrayIhED2Ev.exit:                    ; preds = %.loopexit, %582
@@ -3338,7 +3338,7 @@ _ZN12dtFixedArrayIhED2Ev.exit:                    ; preds = %.loopexit, %582
   %594 = landingpad { ptr, i32 }
           catch ptr null
   %595 = extractvalue { ptr, i32 } %594, 0
-  tail call void @__clang_call_terminate(ptr %595) #20
+  tail call void @__clang_call_terminate(ptr %595) #21
   unreachable
 
 _ZN12dtFixedArrayIhED2Ev.exit309:                 ; preds = %111, %589
@@ -4621,7 +4621,7 @@ define internal fastcc noundef zeroext i1 @_ZL18buildMeshAdjacencyP16dtTileCache
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #20
+  tail call void @__clang_call_terminate(ptr %22) #21
   unreachable
 
 _ZN12dtFixedArrayItED2Ev.exit:                    ; preds = %15
@@ -5127,7 +5127,7 @@ _ZN12dtFixedArrayI6rcEdgeEC2EP16dtTileCacheAlloci.exit: ; preds = %23
   %266 = landingpad { ptr, i32 }
           catch ptr null
   %267 = extractvalue { ptr, i32 } %266, 0
-  tail call void @__clang_call_terminate(ptr %267) #20
+  tail call void @__clang_call_terminate(ptr %267) #21
   unreachable
 
 _ZN12dtFixedArrayI6rcEdgeED2Ev.exit:              ; preds = %6, %.loopexit
@@ -5142,7 +5142,7 @@ _ZN12dtFixedArrayI6rcEdgeED2Ev.exit:              ; preds = %6, %.loopexit
   %272 = landingpad { ptr, i32 }
           catch ptr null
   %273 = extractvalue { ptr, i32 } %272, 0
-  tail call void @__clang_call_terminate(ptr %273) #20
+  tail call void @__clang_call_terminate(ptr %273) #21
   unreachable
 
 _ZN12dtFixedArrayItED2Ev.exit226:                 ; preds = %_ZN12dtFixedArrayI6rcEdgeED2Ev.exit
@@ -6423,41 +6423,42 @@ _ZL10diagonalieiiiPKhPKt.exit:                    ; preds = %_ZL9intersectPKhS0_
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #14 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
-  tail call void @_ZSt9terminatev() #20
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
+  tail call void @_ZSt9terminatev() #21
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #15
+declare i32 @llvm.abs.i32(i32, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #15
+declare i8 @llvm.umax.i8(i8, i8) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #15
+declare i16 @llvm.umin.i16(i16, i16) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #15
+declare i16 @llvm.umax.i16(i16, i16) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #15
+declare i8 @llvm.umin.i8(i8, i8) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6474,12 +6475,13 @@ attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind }
-attributes #19 = { builtin nounwind }
-attributes #20 = { noreturn nounwind }
+attributes #15 = { cold nofree noreturn }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nounwind }
+attributes #20 = { builtin nounwind }
+attributes #21 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

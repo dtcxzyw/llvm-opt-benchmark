@@ -712,7 +712,7 @@ if.end:                                           ; preds = %if.then
   %x.addr.0.i.i = select i1 %cmp.i.i, float -1.000000e+00, float %qDeltaAB.sroa.3.12.vec.extract
   %cmp1.i.i = fcmp ogt float %x.addr.0.i.i, 1.000000e+00
   %x.addr.1.i.i = select i1 %cmp1.i.i, float 1.000000e+00, float %x.addr.0.i.i
-  %call.i.i = call noundef float @acosf(float noundef %x.addr.1.i.i) #20
+  %call.i.i = call noundef float @acosf(float noundef %x.addr.1.i.i) #21
   %mul.i = fmul float %call.i.i, 2.000000e+00
   store float %mul.i, ptr %m_swingCorrection, align 8
   %162 = call noundef float @llvm.fabs.f32(float %mul.i)
@@ -872,7 +872,7 @@ if.end.i:                                         ; preds = %if.end24
   %222 = call float @llvm.fmuladd.f32(float %mul7.i.i.i299, float 0.000000e+00, float %neg.i.i304)
   %add.i = fadd float %219, 1.000000e+00
   %mul.i305 = fmul float %add.i, 2.000000e+00
-  %call.i.i306 = call noundef float @sqrtf(float noundef %mul.i305) #20
+  %call.i.i306 = call noundef float @sqrtf(float noundef %mul.i305) #21
   %div.i = fdiv float 1.000000e+00, %call.i.i306
   %mul8.i = fmul float %222, %div.i
   %mul11.i = fmul float %221, %div.i
@@ -950,7 +950,7 @@ if.then74:                                        ; preds = %_Z15shortestArcQuat
   %x.addr.0.i.i.i = select i1 %cmp.i.i.i, float -1.000000e+00, float %mul10.i.i.i322
   %cmp1.i.i.i = fcmp ogt float %x.addr.0.i.i.i, 1.000000e+00
   %x.addr.1.i.i.i = select i1 %cmp1.i.i.i, float 1.000000e+00, float %x.addr.0.i.i.i
-  %call.i.i.i = call noundef float @acosf(float noundef %x.addr.1.i.i.i) #20
+  %call.i.i.i = call noundef float @acosf(float noundef %x.addr.1.i.i.i) #21
   %mul.i.i365 = fmul float %call.i.i.i, 2.000000e+00
   %cmp.i366 = fcmp ogt float %mul.i.i365, 0x3E80000000000000
   br i1 %cmp.i366, label %if.then.i367, label %_ZN21btConeTwistConstraint20computeConeLimitInfoERK12btQuaternionRfR9btVector3S3_.exit
@@ -1293,15 +1293,15 @@ if.then174:                                       ; preds = %if.then170
   br i1 %cmp73, label %if.end233, label %if.then179
 
 if.then179:                                       ; preds = %if.then174
-  %call.i = call noundef float @atan2f(float noundef %370, float noundef %366) #20
+  %call.i = call noundef float @atan2f(float noundef %370, float noundef %366) #21
   %381 = load float, ptr %m_swingSpan2, align 8
   %cmp182 = fcmp ogt float %call.i, %381
   br i1 %cmp182, label %if.then183, label %if.else188
 
 if.then183:                                       ; preds = %if.then179
-  %call.i576 = call noundef float @cosf(float noundef %381) #20
+  %call.i576 = call noundef float @cosf(float noundef %381) #21
   %382 = load float, ptr %m_swingSpan2, align 8
-  %call.i577 = call noundef float @sinf(float noundef %382) #20
+  %call.i577 = call noundef float @sinf(float noundef %382) #21
   br label %if.end233
 
 if.else188:                                       ; preds = %if.then179
@@ -1310,9 +1310,9 @@ if.else188:                                       ; preds = %if.then179
   br i1 %cmp190, label %if.then191, label %if.end233
 
 if.then191:                                       ; preds = %if.else188
-  %call.i578 = call noundef float @cosf(float noundef %381) #20
+  %call.i578 = call noundef float @cosf(float noundef %381) #21
   %383 = load float, ptr %m_swingSpan2, align 8
-  %call.i579 = call noundef float @sinf(float noundef %383) #20
+  %call.i579 = call noundef float @sinf(float noundef %383) #21
   %fneg196 = fneg float %call.i579
   br label %if.end233
 
@@ -1327,15 +1327,15 @@ if.then205:                                       ; preds = %if.else201
   br i1 %cmp, label %if.end233, label %if.then210
 
 if.then210:                                       ; preds = %if.then205
-  %call.i582 = call noundef float @atan2f(float noundef %368, float noundef %366) #20
+  %call.i582 = call noundef float @atan2f(float noundef %368, float noundef %366) #21
   %385 = load float, ptr %m_swingSpan1, align 4
   %cmp213 = fcmp ogt float %call.i582, %385
   br i1 %cmp213, label %if.then214, label %if.else219
 
 if.then214:                                       ; preds = %if.then210
-  %call.i583 = call noundef float @cosf(float noundef %385) #20
+  %call.i583 = call noundef float @cosf(float noundef %385) #21
   %386 = load float, ptr %m_swingSpan1, align 4
-  %call.i584 = call noundef float @sinf(float noundef %386) #20
+  %call.i584 = call noundef float @sinf(float noundef %386) #21
   br label %if.end233
 
 if.else219:                                       ; preds = %if.then210
@@ -1344,9 +1344,9 @@ if.else219:                                       ; preds = %if.then210
   br i1 %cmp222, label %if.then223, label %if.end233
 
 if.then223:                                       ; preds = %if.else219
-  %call.i585 = call noundef float @cosf(float noundef %385) #20
+  %call.i585 = call noundef float @cosf(float noundef %385) #21
   %387 = load float, ptr %m_swingSpan1, align 4
-  %call.i586 = call noundef float @sinf(float noundef %387) #20
+  %call.i586 = call noundef float @sinf(float noundef %387) #21
   %fneg228 = fneg float %call.i586
   br label %if.end233
 
@@ -1422,7 +1422,7 @@ if.then286:                                       ; preds = %if.end284
   %x.addr.0.i.i.i629 = select i1 %cmp.i.i.i628, float -1.000000e+00, float %mul10.i.i.i363
   %cmp1.i.i.i630 = fcmp ogt float %x.addr.0.i.i.i629, 1.000000e+00
   %x.addr.1.i.i.i631 = select i1 %cmp1.i.i.i630, float 1.000000e+00, float %x.addr.0.i.i.i629
-  %call.i.i.i632 = call noundef float @acosf(float noundef %x.addr.1.i.i.i631) #20
+  %call.i.i.i632 = call noundef float @acosf(float noundef %x.addr.1.i.i.i631) #21
   %mul.i.i633 = fmul float %call.i.i.i632, 2.000000e+00
   store float %mul.i.i633, ptr %m_twistAngle344, align 8
   %cmp.i634 = fcmp ogt float %mul.i.i633, 0x400921FB60000000
@@ -1441,7 +1441,7 @@ if.then.i642:                                     ; preds = %if.then286
   %x.addr.0.i.i11.i = select i1 %cmp.i.i10.i, float -1.000000e+00, float %fneg9.i.i
   %cmp1.i.i12.i = fcmp ogt float %x.addr.0.i.i11.i, 1.000000e+00
   %x.addr.1.i.i13.i = select i1 %cmp1.i.i12.i, float 1.000000e+00, float %x.addr.0.i.i11.i
-  %call.i.i14.i = call noundef float @acosf(float noundef %x.addr.1.i.i13.i) #20
+  %call.i.i14.i = call noundef float @acosf(float noundef %x.addr.1.i.i13.i) #21
   %mul.i15.i = fmul float %call.i.i14.i, 2.000000e+00
   store float %mul.i15.i, ptr %m_twistAngle344, align 8
   br label %if.end.i635
@@ -4795,7 +4795,7 @@ if.then11:                                        ; preds = %entry
 if.else:                                          ; preds = %entry
   %mul24 = fmul float %fAngle.1, 5.000000e-01
   %mul25 = fmul float %mul24, %timeStep
-  %call.i31 = tail call noundef float @sinf(float noundef %mul25) #20
+  %call.i31 = tail call noundef float @sinf(float noundef %mul25) #21
   %div27 = fdiv float %call.i31, %fAngle.1
   %14 = load float, ptr %angvel, align 4
   %mul.i32 = fmul float %14, %div27
@@ -4811,7 +4811,7 @@ if.end30:                                         ; preds = %if.else, %if.then11
   %mul8.i36.sink = phi float [ %mul8.i36, %if.else ], [ %mul8.i25, %if.then11 ]
   %mul35 = fmul float %fAngle.1, %timeStep
   %mul36 = fmul float %mul35, 5.000000e-01
-  %call.i43 = tail call noundef float @cosf(float noundef %mul36) #20
+  %call.i43 = tail call noundef float @cosf(float noundef %mul36) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %curTrans, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
@@ -5317,7 +5317,7 @@ if.end.i:                                         ; preds = %if.then117
   %120 = tail call float @llvm.fmuladd.f32(float %32, float %18, float %neg.i.i)
   %add.i251 = fadd float %113, 1.000000e+00
   %mul.i252 = fmul float %add.i251, 2.000000e+00
-  %call.i.i = tail call noundef float @sqrtf(float noundef %mul.i252) #20
+  %call.i.i = tail call noundef float @sqrtf(float noundef %mul.i252) #21
   %div.i253 = fdiv float 1.000000e+00, %call.i.i
   %mul8.i254 = fmul float %120, %div.i253
   %mul11.i = fmul float %119, %div.i253
@@ -5488,7 +5488,7 @@ entry:
   %x.addr.0.i.i = select i1 %cmp.i.i, float -1.000000e+00, float %0
   %cmp1.i.i = fcmp ogt float %x.addr.0.i.i, 1.000000e+00
   %x.addr.1.i.i = select i1 %cmp1.i.i, float 1.000000e+00, float %x.addr.0.i.i
-  %call.i.i = tail call noundef float @acosf(float noundef %x.addr.1.i.i) #20
+  %call.i.i = tail call noundef float @acosf(float noundef %x.addr.1.i.i) #21
   %mul.i = fmul float %call.i.i, 2.000000e+00
   store float %mul.i, ptr %swingAngle, align 4
   %cmp = fcmp ogt float %mul.i, 0x3E80000000000000
@@ -5598,7 +5598,7 @@ entry:
   %x.addr.0.i.i = select i1 %cmp.i.i, float -1.000000e+00, float %0
   %cmp1.i.i = fcmp ogt float %x.addr.0.i.i, 1.000000e+00
   %x.addr.1.i.i = select i1 %cmp1.i.i, float 1.000000e+00, float %x.addr.0.i.i
-  %call.i.i = tail call noundef float @acosf(float noundef %x.addr.1.i.i) #20
+  %call.i.i = tail call noundef float @acosf(float noundef %x.addr.1.i.i) #21
   %mul.i = fmul float %call.i.i, 2.000000e+00
   store float %mul.i, ptr %twistAngle, align 4
   %cmp = fcmp ogt float %mul.i, 0x400921FB60000000
@@ -5623,7 +5623,7 @@ if.then:                                          ; preds = %entry
   %x.addr.0.i.i11 = select i1 %cmp.i.i10, float -1.000000e+00, float %fneg9.i
   %cmp1.i.i12 = fcmp ogt float %x.addr.0.i.i11, 1.000000e+00
   %x.addr.1.i.i13 = select i1 %cmp1.i.i12, float 1.000000e+00, float %x.addr.0.i.i11
-  %call.i.i14 = tail call noundef float @acosf(float noundef %x.addr.1.i.i13) #20
+  %call.i.i14 = tail call noundef float @acosf(float noundef %x.addr.1.i.i13) #21
   %mul.i15 = fmul float %call.i.i14, 2.000000e+00
   store float %mul.i15, ptr %twistAngle, align 4
   br label %if.end
@@ -5666,8 +5666,8 @@ if.end15:                                         ; preds = %if.then13, %if.end
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK21btConeTwistConstraint16GetPointForAngleEff(ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %this, float noundef %fAngleInRadians, float noundef %fLength) local_unnamed_addr #11 align 2 {
 entry:
-  %call.i = tail call noundef float @cosf(float noundef %fAngleInRadians) #20
-  %call.i6 = tail call noundef float @sinf(float noundef %fAngleInRadians) #20
+  %call.i = tail call noundef float @cosf(float noundef %fAngleInRadians) #21
+  %call.i6 = tail call noundef float @sinf(float noundef %fAngleInRadians) #21
   %m_swingSpan1 = getelementptr inbounds i8, ptr %this, i64 468
   %0 = load float, ptr %m_swingSpan1, align 4
   %1 = tail call noundef float @llvm.fabs.f32(float %call.i)
@@ -5701,12 +5701,12 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %3 = tail call noundef float @llvm.fmuladd.f32(float %call.i6, float %call.i6, float %mul8.i.i.i.i.i.pre-phi)
   %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %3)
   %mul.i.i = fmul float %swingLimit.0, 5.000000e-01
-  %call.i.i.i = tail call noundef float @sinf(float noundef %mul.i.i) #20
+  %call.i.i.i = tail call noundef float @sinf(float noundef %mul.i.i) #21
   %div.i.i = fdiv float %call.i.i.i, %sqrt.i.i.i
   %mul4.i.i = fmul float %div.i.i, 0.000000e+00
   %mul7.i.i = fmul float %call.i, %div.i.i
   %mul10.i.i = fmul float %div.i.i, %fneg
-  %call.i8.i.i = tail call noundef float @cosf(float noundef %mul.i.i) #20
+  %call.i8.i.i = tail call noundef float @cosf(float noundef %mul.i.i) #21
   %mul4.i.i11 = fmul float %mul7.i.i, 0.000000e+00
   %4 = tail call float @llvm.fmuladd.f32(float %call.i8.i.i, float %fLength, float %mul4.i.i11)
   %neg.i.i = fneg float %mul10.i.i
@@ -5879,7 +5879,7 @@ if.end.i:                                         ; preds = %entry
   %25 = tail call float @llvm.fmuladd.f32(float %20, float 0.000000e+00, float %neg.i.i12)
   %add.i = fadd float %22, 1.000000e+00
   %mul.i = fmul float %add.i, 2.000000e+00
-  %call.i.i = tail call noundef float @sqrtf(float noundef %mul.i) #20
+  %call.i.i = tail call noundef float @sqrtf(float noundef %mul.i) #21
   %div.i = fdiv float 1.000000e+00, %call.i.i
   %mul8.i = fmul float %25, %div.i
   %mul11.i = fmul float %24, %div.i
@@ -5967,7 +5967,7 @@ if.then:                                          ; preds = %_Z15shortestArcQuat
   %x.addr.0.i.i.i = select i1 %cmp.i.i.i, float -1.000000e+00, float %mul10.i.i.i
   %cmp1.i.i.i = fcmp ogt float %x.addr.0.i.i.i, 1.000000e+00
   %x.addr.1.i.i.i = select i1 %cmp1.i.i.i, float 1.000000e+00, float %x.addr.0.i.i.i
-  %call.i.i.i = tail call noundef float @acosf(float noundef %x.addr.1.i.i.i) #20
+  %call.i.i.i = tail call noundef float @acosf(float noundef %x.addr.1.i.i.i) #21
   %mul.i.i42 = fmul float %call.i.i.i, 2.000000e+00
   %cmp.i43 = fcmp ogt float %mul.i.i42, 0x3E80000000000000
   br i1 %cmp.i43, label %if.then.i44, label %_ZN21btConeTwistConstraint20computeConeLimitInfoERK12btQuaternionRfR9btVector3S3_.exit
@@ -6029,12 +6029,12 @@ if.end27:                                         ; preds = %if.then18, %if.else
   %59 = tail call noundef float @llvm.fmuladd.f32(float %swingAxis.sroa.6.0, float %swingAxis.sroa.6.0, float %58)
   %sqrt.i.i.i50 = tail call noundef float @llvm.sqrt.f32(float %59)
   %mul.i.i51 = fmul float %swingAngle.0, 5.000000e-01
-  %call.i.i.i52 = tail call noundef float @sinf(float noundef %mul.i.i51) #20
+  %call.i.i.i52 = tail call noundef float @sinf(float noundef %mul.i.i51) #21
   %div.i.i53 = fdiv float %call.i.i.i52, %sqrt.i.i.i50
   %mul4.i.i54 = fmul float %swingAxis.sroa.0.0, %div.i.i53
   %mul7.i.i = fmul float %swingAxis.sroa.3.0, %div.i.i53
   %mul10.i.i55 = fmul float %swingAxis.sroa.6.0, %div.i.i53
-  %call.i8.i.i = tail call noundef float @cosf(float noundef %mul.i.i51) #20
+  %call.i8.i.i = tail call noundef float @cosf(float noundef %mul.i.i51) #21
   %qTargetCone.sroa.0.0.vec.insert159 = insertelement <2 x float> poison, float %mul4.i.i54, i64 0
   %qTargetCone.sroa.0.4.vec.insert168 = insertelement <2 x float> %qTargetCone.sroa.0.0.vec.insert159, float %mul7.i.i, i64 1
   %qTargetCone.sroa.13.8.vec.insert177 = insertelement <2 x float> poison, float %mul10.i.i55, i64 0
@@ -6054,7 +6054,7 @@ if.then32:                                        ; preds = %if.end30
   %x.addr.0.i.i.i58 = select i1 %cmp.i.i.i57, float -1.000000e+00, float %mul10.i.i.i40
   %cmp1.i.i.i59 = fcmp ogt float %x.addr.0.i.i.i58, 1.000000e+00
   %x.addr.1.i.i.i60 = select i1 %cmp1.i.i.i59, float 1.000000e+00, float %x.addr.0.i.i.i58
-  %call.i.i.i61 = tail call noundef float @acosf(float noundef %x.addr.1.i.i.i60) #20
+  %call.i.i.i61 = tail call noundef float @acosf(float noundef %x.addr.1.i.i.i60) #21
   %mul.i.i62 = fmul float %call.i.i.i61, 2.000000e+00
   %cmp.i63 = fcmp ogt float %mul.i.i62, 0x400921FB60000000
   br i1 %cmp.i63, label %if.then.i71, label %if.end.i64
@@ -6072,7 +6072,7 @@ if.then.i71:                                      ; preds = %if.then32
   %x.addr.0.i.i11.i = select i1 %cmp.i.i10.i, float -1.000000e+00, float %fneg9.i.i
   %cmp1.i.i12.i = fcmp ogt float %x.addr.0.i.i11.i, 1.000000e+00
   %x.addr.1.i.i13.i = select i1 %cmp1.i.i12.i, float 1.000000e+00, float %x.addr.0.i.i11.i
-  %call.i.i14.i = tail call noundef float @acosf(float noundef %x.addr.1.i.i13.i) #20
+  %call.i.i14.i = tail call noundef float @acosf(float noundef %x.addr.1.i.i13.i) #21
   %mul.i15.i = fmul float %call.i.i14.i, 2.000000e+00
   br label %if.end.i64
 
@@ -6125,12 +6125,12 @@ if.end52:                                         ; preds = %if.then35, %if.else
   %66 = tail call noundef float @llvm.fmuladd.f32(float %twistAxis.sroa.8.0, float %twistAxis.sroa.8.0, float %65)
   %sqrt.i.i.i77 = tail call noundef float @llvm.sqrt.f32(float %66)
   %mul.i.i78 = fmul float %twistAngle.0, 5.000000e-01
-  %call.i.i.i79 = tail call noundef float @sinf(float noundef %mul.i.i78) #20
+  %call.i.i.i79 = tail call noundef float @sinf(float noundef %mul.i.i78) #21
   %div.i.i80 = fdiv float %call.i.i.i79, %sqrt.i.i.i77
   %mul4.i.i81 = fmul float %twistAxis.sroa.0.0, %div.i.i80
   %mul7.i.i82 = fmul float %twistAxis.sroa.4.0, %div.i.i80
   %mul10.i.i83 = fmul float %twistAxis.sroa.8.0, %div.i.i80
-  %call.i8.i.i85 = tail call noundef float @cosf(float noundef %mul.i.i78) #20
+  %call.i8.i.i85 = tail call noundef float @cosf(float noundef %mul.i.i78) #21
   %qTargetTwist.sroa.0.0.vec.insert128 = insertelement <2 x float> poison, float %mul4.i.i81, i64 0
   %qTargetTwist.sroa.0.4.vec.insert135 = insertelement <2 x float> %qTargetTwist.sroa.0.0.vec.insert128, float %mul7.i.i82, i64 1
   %qTargetTwist.sroa.12.8.vec.insert143 = insertelement <2 x float> poison, float %mul10.i.i83, i64 0
@@ -6324,7 +6324,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17btTypedConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #21
+  tail call void @llvm.trap() #22
   unreachable
 }
 
@@ -6368,7 +6368,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #21
+  tail call void @__clang_call_terminate(ptr %1) #22
   unreachable
 
 _ZN21btConeTwistConstraintdlEPv.exit:             ; preds = %entry
@@ -6653,7 +6653,7 @@ entry:
   %x.addr.0.i.i = select i1 %cmp.i.i, float -1.000000e+00, float %mul10.i.i.i
   %cmp1.i.i = fcmp ogt float %x.addr.0.i.i, 1.000000e+00
   %x.addr.1.i.i = select i1 %cmp1.i.i, float 1.000000e+00, float %x.addr.0.i.i
-  %call.i.i = call noundef float @acosf(float noundef %x.addr.1.i.i) #20
+  %call.i.i = call noundef float @acosf(float noundef %x.addr.1.i.i) #21
   %mul.i21 = fmul float %call.i.i, 2.000000e+00
   store float %mul.i21, ptr %angle, align 4
   %60 = load float, ptr %dorn, align 4
@@ -6705,7 +6705,7 @@ if.then:                                          ; preds = %entry
   %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
   %add9 = fadd float %add8, 1.000000e+00
-  %call.i = tail call noundef float @sqrtf(float noundef %add9) #20
+  %call.i = tail call noundef float @sqrtf(float noundef %add9) #21
   %mul = fmul float %call.i, 5.000000e-01
   %div = fdiv float 5.000000e-01, %call.i
   %arrayidx.i31 = getelementptr inbounds i8, ptr %this, i64 36
@@ -6754,7 +6754,7 @@ if.else:                                          ; preds = %entry
   %12 = load float, ptr %arrayidx82, align 4
   %sub83 = fsub float %sub76, %12
   %add84 = fadd float %sub83, 1.000000e+00
-  %call.i39 = tail call noundef float @sqrtf(float noundef %add84) #20
+  %call.i39 = tail call noundef float @sqrtf(float noundef %add84) #21
   %mul86 = fmul float %call.i39, 5.000000e-01
   %arrayidx88 = getelementptr inbounds [4 x float], ptr %temp, i64 0, i64 %idxprom
   store float %mul86, ptr %arrayidx88, align 4
@@ -6828,29 +6828,30 @@ declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #15 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
-  tail call void @_ZSt9terminatev() #21
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
+  tail call void @_ZSt9terminatev() #22
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #17
+declare float @llvm.sqrt.f32(float) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6868,12 +6869,13 @@ attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #13 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #15 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #20 = { nounwind }
-attributes #21 = { noreturn nounwind }
+attributes #16 = { cold nofree noreturn }
+attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #21 = { nounwind }
+attributes #22 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -34,12 +34,12 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !5
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  %call = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #13
+  %call = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #14
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -48,7 +48,7 @@ invoke.cont:                                      ; preds = %init
 
 invoke.cont2:                                     ; preds = %invoke.cont
   store ptr %call, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont2, %init.check, %entry
@@ -63,12 +63,12 @@ lpad:                                             ; preds = %init
 lpad1:                                            ; preds = %invoke.cont
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad1, %lpad
   %.pn = phi { ptr, i32 } [ %4, %lpad1 ], [ %3, %lpad ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   resume { ptr, i32 } %.pn
 }
 
@@ -107,7 +107,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #15
+  tail call void @__clang_call_terminate(ptr %1) #16
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %entry
@@ -221,12 +221,12 @@ if.then:                                          ; preds = %_ZN4absl18container
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, !prof !5
 
 init.check.i:                                     ; preds = %if.then
-  %3 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
+  %3 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #13
+  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #14
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -235,7 +235,7 @@ invoke.cont.i:                                    ; preds = %init.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i
   store ptr %call.i, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   br label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit
 
 lpad.i:                                           ; preds = %init.i
@@ -246,12 +246,12 @@ lpad.i:                                           ; preds = %init.i
 lpad1.i:                                          ; preds = %invoke.cont.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #15
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad1.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %5, %lpad1.i ], [ %4, %lpad.i ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   resume { ptr, i32 } %.pn.i
 
 _ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %if.then, %init.check.i, %invoke.cont2.i
@@ -293,7 +293,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp9, label %invoke.cont, label %return
 
 invoke.cont:                                      ; preds = %if.end
-  %call11 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #13
+  %call11 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call11, i8 0, i64 24, i1 false)
   %create_time.i = getelementptr inbounds i8, ptr %call11, i64 112
   %hi_.i.i.i.i = getelementptr inbounds i8, ptr %call11, i64 116
@@ -354,7 +354,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont15
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #15
+  tail call void @__clang_call_terminate(ptr %9) #16
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %invoke.cont15
@@ -387,7 +387,7 @@ terminate.lpad.i25:                               ; preds = %lpad13
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #15
+  tail call void @__clang_call_terminate(ptr %20) #16
   unreachable
 
 return:                                           ; preds = %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i, %_ZN4absl9MutexLockD2Ev.exit, %if.end, %monotonic.i47
@@ -406,12 +406,12 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, !prof !5
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #13
+  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #14
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -420,7 +420,7 @@ invoke.cont.i:                                    ; preds = %init.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i
   store ptr %call.i, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   br label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit
 
 lpad.i:                                           ; preds = %init.i
@@ -431,12 +431,12 @@ lpad.i:                                           ; preds = %init.i
 lpad1.i:                                          ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #15
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad1.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %3, %lpad1.i ], [ %2, %lpad.i ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   resume { ptr, i32 } %.pn.i
 
 _ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %entry, %init.check.i, %invoke.cont2.i
@@ -641,12 +641,12 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, !prof !5
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #13
+  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #14
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -655,7 +655,7 @@ invoke.cont.i:                                    ; preds = %init.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i
   store ptr %call.i, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   br label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit
 
 lpad.i:                                           ; preds = %init.i
@@ -666,12 +666,12 @@ lpad.i:                                           ; preds = %init.i
 lpad1.i:                                          ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #15
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad1.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %3, %lpad1.i ], [ %2, %lpad.i ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   resume { ptr, i32 } %.pn.i
 
 _ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %entry, %init.check.i, %invoke.cont2.i
@@ -710,12 +710,12 @@ if.then:                                          ; preds = %entry
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, !prof !5
 
 init.check.i:                                     ; preds = %if.then
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #13
+  %call.i = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #14
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -724,7 +724,7 @@ invoke.cont.i:                                    ; preds = %init.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i
   store ptr %call.i, ptr @_ZZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   br label %_ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit
 
 lpad.i:                                           ; preds = %init.i
@@ -735,12 +735,12 @@ lpad.i:                                           ; preds = %init.i
 lpad1.i:                                          ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #15
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad1.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %3, %lpad1.i ], [ %2, %lpad.i ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #12
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4absl18container_internal23GlobalHashtablezSamplerEvE7sampler) #13
   resume { ptr, i32 } %.pn.i
 
 _ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %if.then, %init.check.i, %invoke.cont2.i
@@ -759,14 +759,15 @@ if.end:                                           ; preds = %do.body, %_ZN4absl1
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #15
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 declare zeroext i1 @AbslContainerInternalSampleEverything() local_unnamed_addr #6
 
@@ -841,7 +842,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont12
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #15
+  tail call void @__clang_call_terminate(ptr %3) #16
   unreachable
 
 lpad:                                             ; preds = %if.end
@@ -859,7 +860,7 @@ terminate.lpad.i9:                                ; preds = %lpad11
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #15
+  tail call void @__clang_call_terminate(ptr %7) #16
   unreachable
 
 cleanup:                                          ; preds = %invoke.cont12, %entry
@@ -871,7 +872,7 @@ terminate.lpad.i11:                               ; preds = %cleanup
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #15
+  tail call void @__clang_call_terminate(ptr %9) #16
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit12:                    ; preds = %cleanup
@@ -886,7 +887,7 @@ terminate.lpad.i13:                               ; preds = %ehcleanup
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #15
+  tail call void @__clang_call_terminate(ptr %11) #16
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit14:                    ; preds = %ehcleanup
@@ -927,7 +928,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #15
+  tail call void @__clang_call_terminate(ptr %3) #16
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %invoke.cont
@@ -938,7 +939,7 @@ terminate.lpad.i5:                                ; preds = %_ZN4absl9MutexLockD
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #15
+  tail call void @__clang_call_terminate(ptr %5) #16
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit6:                     ; preds = %_ZN4absl9MutexLockD2Ev.exit
@@ -954,7 +955,7 @@ terminate.lpad.i7:                                ; preds = %lpad
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #15
+  tail call void @__clang_call_terminate(ptr %8) #16
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit8:                     ; preds = %lpad
@@ -962,10 +963,10 @@ _ZN4absl9MutexLockD2Ev.exit8:                     ; preds = %lpad
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #11
+declare i64 @llvm.umax.i64(i64, i64) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
@@ -977,12 +978,13 @@ attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { builtin allocsize(0) }
-attributes #14 = { builtin nounwind }
-attributes #15 = { noreturn nounwind }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { builtin nounwind }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

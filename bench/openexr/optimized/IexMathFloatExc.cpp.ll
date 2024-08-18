@@ -30,7 +30,7 @@ declare void @_ZN7Iex_3_221setFpExceptionHandlerEPFviPKcE(ptr noundef) local_unn
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN7Iex_3_212_GLOBAL__N_110fpeHandlerEiPKc(i32 noundef %type, ptr noundef %explanation) #2 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception17 = tail call ptr @__cxa_allocate_exception(i64 72) #6
+  %exception17 = tail call ptr @__cxa_allocate_exception(i64 72) #8
   switch i32 %type, label %sw.epilog [
     i32 1, label %sw.bb
     i32 2, label %sw.bb1
@@ -44,7 +44,7 @@ sw.bb:                                            ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %sw.bb
-  tail call void @__cxa_throw(ptr nonnull %exception17, ptr nonnull @_ZTIN7Iex_3_211OverflowExcE, ptr nonnull @_ZN7Iex_3_211OverflowExcD1Ev) #7
+  tail call void @__cxa_throw(ptr nonnull %exception17, ptr nonnull @_ZTIN7Iex_3_211OverflowExcE, ptr nonnull @_ZN7Iex_3_211OverflowExcD1Ev) #9
   unreachable
 
 lpad:                                             ; preds = %sw.bb
@@ -57,7 +57,7 @@ sw.bb1:                                           ; preds = %entry
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %sw.bb1
-  tail call void @__cxa_throw(ptr nonnull %exception17, ptr nonnull @_ZTIN7Iex_3_212UnderflowExcE, ptr nonnull @_ZN7Iex_3_212UnderflowExcD1Ev) #7
+  tail call void @__cxa_throw(ptr nonnull %exception17, ptr nonnull @_ZTIN7Iex_3_212UnderflowExcE, ptr nonnull @_ZN7Iex_3_212UnderflowExcD1Ev) #9
   unreachable
 
 lpad3:                                            ; preds = %sw.bb1
@@ -70,7 +70,7 @@ sw.bb5:                                           ; preds = %entry
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %sw.bb5
-  tail call void @__cxa_throw(ptr nonnull %exception17, ptr nonnull @_ZTIN7Iex_3_210DivzeroExcE, ptr nonnull @_ZN7Iex_3_210DivzeroExcD1Ev) #7
+  tail call void @__cxa_throw(ptr nonnull %exception17, ptr nonnull @_ZTIN7Iex_3_210DivzeroExcE, ptr nonnull @_ZN7Iex_3_210DivzeroExcD1Ev) #9
   unreachable
 
 lpad7:                                            ; preds = %sw.bb5
@@ -83,7 +83,7 @@ sw.bb9:                                           ; preds = %entry
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %sw.bb9
-  tail call void @__cxa_throw(ptr nonnull %exception17, ptr nonnull @_ZTIN7Iex_3_210InexactExcE, ptr nonnull @_ZN7Iex_3_210InexactExcD1Ev) #7
+  tail call void @__cxa_throw(ptr nonnull %exception17, ptr nonnull @_ZTIN7Iex_3_210InexactExcE, ptr nonnull @_ZN7Iex_3_210InexactExcD1Ev) #9
   unreachable
 
 lpad11:                                           ; preds = %sw.bb9
@@ -96,7 +96,7 @@ sw.bb13:                                          ; preds = %entry
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %sw.bb13
-  tail call void @__cxa_throw(ptr nonnull %exception17, ptr nonnull @_ZTIN7Iex_3_214InvalidFpOpExcE, ptr nonnull @_ZN7Iex_3_214InvalidFpOpExcD1Ev) #7
+  tail call void @__cxa_throw(ptr nonnull %exception17, ptr nonnull @_ZTIN7Iex_3_214InvalidFpOpExcE, ptr nonnull @_ZN7Iex_3_214InvalidFpOpExcD1Ev) #9
   unreachable
 
 lpad15:                                           ; preds = %sw.bb13
@@ -109,7 +109,7 @@ sw.epilog:                                        ; preds = %entry
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %sw.epilog
-  tail call void @__cxa_throw(ptr nonnull %exception17, ptr nonnull @_ZTIN7Iex_3_27MathExcE, ptr nonnull @_ZN7Iex_3_27MathExcD1Ev) #7
+  tail call void @__cxa_throw(ptr nonnull %exception17, ptr nonnull @_ZTIN7Iex_3_27MathExcE, ptr nonnull @_ZN7Iex_3_27MathExcD1Ev) #9
   unreachable
 
 lpad18:                                           ; preds = %sw.epilog
@@ -119,7 +119,7 @@ lpad18:                                           ; preds = %sw.epilog
 
 eh.resume:                                        ; preds = %lpad18, %lpad15, %lpad11, %lpad7, %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %5, %lpad18 ], [ %4, %lpad15 ], [ %3, %lpad11 ], [ %2, %lpad7 ], [ %1, %lpad3 ], [ %0, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception17) #6
+  tail call void @__cxa_free_exception(ptr %exception17) #8
   resume { ptr, i32 } %.pn
 }
 
@@ -176,7 +176,7 @@ terminate.lpad:                                   ; preds = %.noexc, %if.then
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #8
+  tail call void @__clang_call_terminate(ptr %3) #10
   unreachable
 }
 
@@ -184,14 +184,15 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #6
-  tail call void @_ZSt9terminatev() #8
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
+  tail call void @_ZSt9terminatev() #10
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Iex_3_29MathExcOn27handleOutstandingExceptionsEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
@@ -209,44 +210,47 @@ declare void @_ZN7Iex_3_211OverflowExcC1EPKc(ptr noundef nonnull align 8 derefer
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211OverflowExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #5
+declare void @_ZN7Iex_3_211OverflowExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #6
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 
 declare void @_ZN7Iex_3_212UnderflowExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212UnderflowExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #5
+declare void @_ZN7Iex_3_212UnderflowExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #6
 
 declare void @_ZN7Iex_3_210DivzeroExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210DivzeroExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #5
+declare void @_ZN7Iex_3_210DivzeroExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #6
 
 declare void @_ZN7Iex_3_210InexactExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210InexactExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #5
+declare void @_ZN7Iex_3_210InexactExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #6
 
 declare void @_ZN7Iex_3_214InvalidFpOpExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_214InvalidFpOpExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #5
+declare void @_ZN7Iex_3_214InvalidFpOpExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #6
 
 declare void @_ZN7Iex_3_27MathExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_27MathExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #5
+declare void @_ZN7Iex_3_27MathExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #6
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn }
-attributes #8 = { noreturn nounwind }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold noreturn }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn }
+attributes #10 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -114,12 +114,12 @@ define void @_ZN2cv4cuda9SURF_CUDAC2Ev(ptr noundef nonnull align 8 dereferenceab
   %44 = getelementptr inbounds i8, ptr %0, i64 400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, i8 0, i64 40, i1 false)
   store ptr %39, ptr %44, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #6
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %45 unwind label %57
 
 45:                                               ; preds = %40
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDAC2Ev, ptr noundef nonnull @.str.1, i32 noundef 55) #7
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDAC2Ev, ptr noundef nonnull @.str.1, i32 noundef 55) #8
           to label %46 unwind label %59
 
 46:                                               ; preds = %45
@@ -158,12 +158,12 @@ define void @_ZN2cv4cuda9SURF_CUDAC2Ev(ptr noundef nonnull align 8 dereferenceab
 59:                                               ; preds = %45
   %60 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #7
   br label %61
 
 61:                                               ; preds = %59, %57
   %.pn = phi { ptr, i32 } [ %60, %59 ], [ %58, %57 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #6
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #7
   invoke void @_ZN2cv4cuda6GpuMat7releaseEv(ptr noundef nonnull align 8 dereferenceable(64) %38)
           to label %_ZN2cv4cuda6GpuMatD2Ev.exit unwind label %62
 
@@ -171,7 +171,7 @@ define void @_ZN2cv4cuda9SURF_CUDAC2Ev(ptr noundef nonnull align 8 dereferenceab
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #8
+  call void @__clang_call_terminate(ptr %64) #9
   unreachable
 
 _ZN2cv4cuda6GpuMatD2Ev.exit:                      ; preds = %61, %55
@@ -183,7 +183,7 @@ _ZN2cv4cuda6GpuMatD2Ev.exit:                      ; preds = %61, %55
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #8
+  call void @__clang_call_terminate(ptr %67) #9
   unreachable
 
 _ZN2cv4cuda6GpuMatD2Ev.exit14:                    ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit, %53
@@ -195,7 +195,7 @@ _ZN2cv4cuda6GpuMatD2Ev.exit14:                    ; preds = %_ZN2cv4cuda6GpuMatD
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #8
+  call void @__clang_call_terminate(ptr %70) #9
   unreachable
 
 _ZN2cv4cuda6GpuMatD2Ev.exit15:                    ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit14, %51
@@ -207,7 +207,7 @@ _ZN2cv4cuda6GpuMatD2Ev.exit15:                    ; preds = %_ZN2cv4cuda6GpuMatD
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #8
+  call void @__clang_call_terminate(ptr %73) #9
   unreachable
 
 _ZN2cv4cuda6GpuMatD2Ev.exit16:                    ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit15, %49
@@ -219,7 +219,7 @@ _ZN2cv4cuda6GpuMatD2Ev.exit16:                    ; preds = %_ZN2cv4cuda6GpuMatD
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #8
+  call void @__clang_call_terminate(ptr %76) #9
   unreachable
 
 _ZN2cv4cuda6GpuMatD2Ev.exit17:                    ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit16, %47
@@ -231,7 +231,7 @@ _ZN2cv4cuda6GpuMatD2Ev.exit17:                    ; preds = %_ZN2cv4cuda6GpuMatD
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #8
+  call void @__clang_call_terminate(ptr %79) #9
   unreachable
 
 _ZN2cv4cuda6GpuMatD2Ev.exit18:                    ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit17
@@ -341,12 +341,12 @@ define void @_ZN2cv4cuda9SURF_CUDAC2Ediibfb(ptr noundef nonnull align 8 derefere
   %50 = getelementptr inbounds i8, ptr %0, i64 400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %49, i8 0, i64 40, i1 false)
   store ptr %45, ptr %50, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #6
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %51 unwind label %63
 
 51:                                               ; preds = %46
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDAC2Ev, ptr noundef nonnull @.str.1, i32 noundef 56) #7
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDAC2Ev, ptr noundef nonnull @.str.1, i32 noundef 56) #8
           to label %52 unwind label %65
 
 52:                                               ; preds = %51
@@ -385,12 +385,12 @@ define void @_ZN2cv4cuda9SURF_CUDAC2Ediibfb(ptr noundef nonnull align 8 derefere
 65:                                               ; preds = %51
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
   br label %67
 
 67:                                               ; preds = %65, %63
   %.pn = phi { ptr, i32 } [ %66, %65 ], [ %64, %63 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #6
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #7
   invoke void @_ZN2cv4cuda6GpuMat7releaseEv(ptr noundef nonnull align 8 dereferenceable(64) %44)
           to label %_ZN2cv4cuda6GpuMatD2Ev.exit unwind label %68
 
@@ -398,7 +398,7 @@ define void @_ZN2cv4cuda9SURF_CUDAC2Ediibfb(ptr noundef nonnull align 8 derefere
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #8
+  call void @__clang_call_terminate(ptr %70) #9
   unreachable
 
 _ZN2cv4cuda6GpuMatD2Ev.exit:                      ; preds = %67, %61
@@ -410,7 +410,7 @@ _ZN2cv4cuda6GpuMatD2Ev.exit:                      ; preds = %67, %61
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #8
+  call void @__clang_call_terminate(ptr %73) #9
   unreachable
 
 _ZN2cv4cuda6GpuMatD2Ev.exit14:                    ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit, %59
@@ -422,7 +422,7 @@ _ZN2cv4cuda6GpuMatD2Ev.exit14:                    ; preds = %_ZN2cv4cuda6GpuMatD
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #8
+  call void @__clang_call_terminate(ptr %76) #9
   unreachable
 
 _ZN2cv4cuda6GpuMatD2Ev.exit15:                    ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit14, %57
@@ -434,7 +434,7 @@ _ZN2cv4cuda6GpuMatD2Ev.exit15:                    ; preds = %_ZN2cv4cuda6GpuMatD
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #8
+  call void @__clang_call_terminate(ptr %79) #9
   unreachable
 
 _ZN2cv4cuda6GpuMatD2Ev.exit16:                    ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit15, %55
@@ -446,7 +446,7 @@ _ZN2cv4cuda6GpuMatD2Ev.exit16:                    ; preds = %_ZN2cv4cuda6GpuMatD
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #8
+  call void @__clang_call_terminate(ptr %82) #9
   unreachable
 
 _ZN2cv4cuda6GpuMatD2Ev.exit17:                    ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit16, %53
@@ -458,7 +458,7 @@ _ZN2cv4cuda6GpuMatD2Ev.exit17:                    ; preds = %_ZN2cv4cuda6GpuMatD
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #8
+  call void @__clang_call_terminate(ptr %85) #9
   unreachable
 
 _ZN2cv4cuda6GpuMatD2Ev.exit18:                    ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit17
@@ -469,12 +469,12 @@ _ZN2cv4cuda6GpuMatD2Ev.exit18:                    ; preds = %_ZN2cv4cuda6GpuMatD
 define void @_ZN2cv4cuda9SURF_CUDA6createEdiibfb(ptr dead_on_unwind noalias nocapture readnone sret(%"struct.cv::Ptr") align 8 %0, double noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, float noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #6
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %10 unwind label %12
 
 10:                                               ; preds = %7
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDA6createEdiibfb, ptr noundef nonnull @.str.1, i32 noundef 57) #7
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDA6createEdiibfb, ptr noundef nonnull @.str.1, i32 noundef 57) #8
           to label %11 unwind label %14
 
 11:                                               ; preds = %10
@@ -488,12 +488,12 @@ define void @_ZN2cv4cuda9SURF_CUDA6createEdiibfb(ptr dead_on_unwind noalias noca
 14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
   br label %16
 
 16:                                               ; preds = %14, %12
   %.pn = phi { ptr, i32 } [ %15, %14 ], [ %13, %12 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #6
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #7
   resume { ptr, i32 } %.pn
 }
 
@@ -501,12 +501,12 @@ define void @_ZN2cv4cuda9SURF_CUDA6createEdiibfb(ptr dead_on_unwind noalias noca
 define noundef i32 @_ZNK2cv4cuda9SURF_CUDA14descriptorSizeEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #6
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %4 unwind label %6
 
 4:                                                ; preds = %1
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__func__._ZNK2cv4cuda9SURF_CUDA14descriptorSizeEv, ptr noundef nonnull @.str.1, i32 noundef 58) #7
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__func__._ZNK2cv4cuda9SURF_CUDA14descriptorSizeEv, ptr noundef nonnull @.str.1, i32 noundef 58) #8
           to label %5 unwind label %8
 
 5:                                                ; preds = %4
@@ -520,12 +520,12 @@ define noundef i32 @_ZNK2cv4cuda9SURF_CUDA14descriptorSizeEv(ptr nocapture nound
 8:                                                ; preds = %4
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #7
   br label %10
 
 10:                                               ; preds = %8, %6
   %.pn = phi { ptr, i32 } [ %9, %8 ], [ %7, %6 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #6
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #7
   resume { ptr, i32 } %.pn
 }
 
@@ -533,12 +533,12 @@ define noundef i32 @_ZNK2cv4cuda9SURF_CUDA14descriptorSizeEv(ptr nocapture nound
 define noundef i32 @_ZNK2cv4cuda9SURF_CUDA11defaultNormEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #6
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %4 unwind label %6
 
 4:                                                ; preds = %1
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__func__._ZNK2cv4cuda9SURF_CUDA11defaultNormEv, ptr noundef nonnull @.str.1, i32 noundef 59) #7
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__func__._ZNK2cv4cuda9SURF_CUDA11defaultNormEv, ptr noundef nonnull @.str.1, i32 noundef 59) #8
           to label %5 unwind label %8
 
 5:                                                ; preds = %4
@@ -552,12 +552,12 @@ define noundef i32 @_ZNK2cv4cuda9SURF_CUDA11defaultNormEv(ptr nocapture noundef 
 8:                                                ; preds = %4
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #7
   br label %10
 
 10:                                               ; preds = %8, %6
   %.pn = phi { ptr, i32 } [ %9, %8 ], [ %7, %6 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #6
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #7
   resume { ptr, i32 } %.pn
 }
 
@@ -565,12 +565,12 @@ define noundef i32 @_ZNK2cv4cuda9SURF_CUDA11defaultNormEv(ptr nocapture noundef 
 define void @_ZN2cv4cuda9SURF_CUDA15uploadKeypointsERKSt6vectorINS_8KeyPointESaIS3_EERNS0_6GpuMatE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %6 unwind label %8
 
 6:                                                ; preds = %3
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDA15uploadKeypointsERKSt6vectorINS_8KeyPointESaIS3_EERNS0_6GpuMatE, ptr noundef nonnull @.str.1, i32 noundef 60) #7
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDA15uploadKeypointsERKSt6vectorINS_8KeyPointESaIS3_EERNS0_6GpuMatE, ptr noundef nonnull @.str.1, i32 noundef 60) #8
           to label %7 unwind label %10
 
 7:                                                ; preds = %6
@@ -584,12 +584,12 @@ define void @_ZN2cv4cuda9SURF_CUDA15uploadKeypointsERKSt6vectorINS_8KeyPointESaI
 10:                                               ; preds = %6
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   br label %12
 
 12:                                               ; preds = %10, %8
   %.pn = phi { ptr, i32 } [ %11, %10 ], [ %9, %8 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #7
   resume { ptr, i32 } %.pn
 }
 
@@ -597,12 +597,12 @@ define void @_ZN2cv4cuda9SURF_CUDA15uploadKeypointsERKSt6vectorINS_8KeyPointESaI
 define void @_ZN2cv4cuda9SURF_CUDA17downloadKeypointsERKNS0_6GpuMatERSt6vectorINS_8KeyPointESaIS6_EE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %6 unwind label %8
 
 6:                                                ; preds = %3
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDA17downloadKeypointsERKNS0_6GpuMatERSt6vectorINS_8KeyPointESaIS6_EE, ptr noundef nonnull @.str.1, i32 noundef 61) #7
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDA17downloadKeypointsERKNS0_6GpuMatERSt6vectorINS_8KeyPointESaIS6_EE, ptr noundef nonnull @.str.1, i32 noundef 61) #8
           to label %7 unwind label %10
 
 7:                                                ; preds = %6
@@ -616,12 +616,12 @@ define void @_ZN2cv4cuda9SURF_CUDA17downloadKeypointsERKNS0_6GpuMatERSt6vectorIN
 10:                                               ; preds = %6
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   br label %12
 
 12:                                               ; preds = %10, %8
   %.pn = phi { ptr, i32 } [ %11, %10 ], [ %9, %8 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #7
   resume { ptr, i32 } %.pn
 }
 
@@ -629,12 +629,12 @@ define void @_ZN2cv4cuda9SURF_CUDA17downloadKeypointsERKNS0_6GpuMatERSt6vectorIN
 define void @_ZN2cv4cuda9SURF_CUDA19downloadDescriptorsERKNS0_6GpuMatERSt6vectorIfSaIfEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readnone align 1 %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %6 unwind label %8
 
 6:                                                ; preds = %3
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDA19downloadDescriptorsERKNS0_6GpuMatERSt6vectorIfSaIfEE, ptr noundef nonnull @.str.1, i32 noundef 62) #7
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDA19downloadDescriptorsERKNS0_6GpuMatERSt6vectorIfSaIfEE, ptr noundef nonnull @.str.1, i32 noundef 62) #8
           to label %7 unwind label %10
 
 7:                                                ; preds = %6
@@ -648,12 +648,12 @@ define void @_ZN2cv4cuda9SURF_CUDA19downloadDescriptorsERKNS0_6GpuMatERSt6vector
 10:                                               ; preds = %6
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   br label %12
 
 12:                                               ; preds = %10, %8
   %.pn = phi { ptr, i32 } [ %11, %10 ], [ %9, %8 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #7
   resume { ptr, i32 } %.pn
 }
 
@@ -661,12 +661,12 @@ define void @_ZN2cv4cuda9SURF_CUDA19downloadDescriptorsERKNS0_6GpuMatERSt6vector
 define void @_ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RS2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #6
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %7 unwind label %9
 
 7:                                                ; preds = %4
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RS2_, ptr noundef nonnull @.str.1, i32 noundef 63) #7
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RS2_, ptr noundef nonnull @.str.1, i32 noundef 63) #8
           to label %8 unwind label %11
 
 8:                                                ; preds = %7
@@ -680,12 +680,12 @@ define void @_ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RS2_(ptr nocapture noundef
 11:                                               ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   br label %13
 
 13:                                               ; preds = %11, %9
   %.pn = phi { ptr, i32 } [ %12, %11 ], [ %10, %9 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #6
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #7
   resume { ptr, i32 } %.pn
 }
 
@@ -693,12 +693,12 @@ define void @_ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RS2_(ptr nocapture noundef
 define void @_ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RS2_S5_b(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #6
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %9 unwind label %11
 
 9:                                                ; preds = %6
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RS2_, ptr noundef nonnull @.str.1, i32 noundef 64) #7
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RS2_, ptr noundef nonnull @.str.1, i32 noundef 64) #8
           to label %10 unwind label %13
 
 10:                                               ; preds = %9
@@ -712,12 +712,12 @@ define void @_ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RS2_S5_b(ptr nocapture nou
 13:                                               ; preds = %9
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
   br label %15
 
 15:                                               ; preds = %13, %11
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #6
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #7
   resume { ptr, i32 } %.pn
 }
 
@@ -725,12 +725,12 @@ define void @_ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RS2_S5_b(ptr nocapture nou
 define void @_ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RSt6vectorINS_8KeyPointESaIS6_EE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #6
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %7 unwind label %9
 
 7:                                                ; preds = %4
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RS2_, ptr noundef nonnull @.str.1, i32 noundef 65) #7
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RS2_, ptr noundef nonnull @.str.1, i32 noundef 65) #8
           to label %8 unwind label %11
 
 8:                                                ; preds = %7
@@ -744,12 +744,12 @@ define void @_ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RSt6vectorINS_8KeyPointESa
 11:                                               ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   br label %13
 
 13:                                               ; preds = %11, %9
   %.pn = phi { ptr, i32 } [ %12, %11 ], [ %10, %9 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #6
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #7
   resume { ptr, i32 } %.pn
 }
 
@@ -757,12 +757,12 @@ define void @_ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RSt6vectorINS_8KeyPointESa
 define void @_ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RSt6vectorINS_8KeyPointESaIS6_EERS2_b(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #6
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %9 unwind label %11
 
 9:                                                ; preds = %6
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RS2_, ptr noundef nonnull @.str.1, i32 noundef 66) #7
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RS2_, ptr noundef nonnull @.str.1, i32 noundef 66) #8
           to label %10 unwind label %13
 
 10:                                               ; preds = %9
@@ -776,12 +776,12 @@ define void @_ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RSt6vectorINS_8KeyPointESa
 13:                                               ; preds = %9
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
   br label %15
 
 15:                                               ; preds = %13, %11
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #6
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #7
   resume { ptr, i32 } %.pn
 }
 
@@ -789,12 +789,12 @@ define void @_ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RSt6vectorINS_8KeyPointESa
 define void @_ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RSt6vectorINS_8KeyPointESaIS6_EERS5_IfSaIfEEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readnone align 1 %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #6
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %9 unwind label %11
 
 9:                                                ; preds = %6
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RS2_, ptr noundef nonnull @.str.1, i32 noundef 67) #7
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RS2_, ptr noundef nonnull @.str.1, i32 noundef 67) #8
           to label %10 unwind label %13
 
 10:                                               ; preds = %9
@@ -808,12 +808,12 @@ define void @_ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RSt6vectorINS_8KeyPointESa
 13:                                               ; preds = %9
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
   br label %15
 
 15:                                               ; preds = %13, %11
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #6
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #7
   resume { ptr, i32 } %.pn
 }
 
@@ -821,12 +821,12 @@ define void @_ZN2cv4cuda9SURF_CUDAclERKNS0_6GpuMatES4_RSt6vectorINS_8KeyPointESa
 define void @_ZN2cv4cuda9SURF_CUDA13releaseMemoryEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #6
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %4 unwind label %6
 
 4:                                                ; preds = %1
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDA13releaseMemoryEv, ptr noundef nonnull @.str.1, i32 noundef 68) #7
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__func__._ZN2cv4cuda9SURF_CUDA13releaseMemoryEv, ptr noundef nonnull @.str.1, i32 noundef 68) #8
           to label %5 unwind label %8
 
 5:                                                ; preds = %4
@@ -840,12 +840,12 @@ define void @_ZN2cv4cuda9SURF_CUDA13releaseMemoryEv(ptr nocapture noundef nonnul
 8:                                                ; preds = %4
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #7
   br label %10
 
 10:                                               ; preds = %8, %6
   %.pn = phi { ptr, i32 } [ %9, %8 ], [ %7, %6 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #6
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #7
   resume { ptr, i32 } %.pn
 }
 
@@ -853,27 +853,29 @@ declare void @_ZN2cv4cuda6GpuMat7releaseEv(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #6
-  tail call void @_ZSt9terminatev() #8
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
+  tail call void @_ZSt9terminatev() #9
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn }
-attributes #8 = { noreturn nounwind }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

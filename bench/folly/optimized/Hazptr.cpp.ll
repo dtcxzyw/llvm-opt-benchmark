@@ -64,7 +64,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %rec.08.i = phi ptr [ %1, %while.body.i ], [ %atomic-temp.0.i.i.i.i, %while.body.preheader.i ]
   %next_.i.i = getelementptr inbounds i8, ptr %rec.08.i, i64 16
   %1 = load ptr, ptr %next_.i.i, align 16, !tbaa !26
-  tail call void @free(ptr noundef nonnull %rec.08.i) #11
+  tail call void @free(ptr noundef nonnull %rec.08.i) #12
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %invoke.cont2, label %while.body.i, !llvm.loop !30
 
@@ -75,7 +75,7 @@ terminate.lpad:                                   ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #12
+  tail call void @__clang_call_terminate(ptr %3) #13
   unreachable
 }
 
@@ -97,7 +97,7 @@ while.body.i.preheader:                           ; preds = %entry
 
 while.body.i:                                     ; preds = %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i, %while.body.i.preheader
   %head.addr.04.i = phi ptr [ %3, %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i ], [ %cond.i, %while.body.i.preheader ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %children.i) #11
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %children.i) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %children.i, i8 0, i64 20, i1 false)
   br label %while.body.i.i
 
@@ -112,7 +112,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 _ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i: ; preds = %while.body.i.i
   %3 = load ptr, ptr %children.i, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %children.i) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %children.i) #12
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit, label %while.body.i, !llvm.loop !38
 
@@ -128,7 +128,7 @@ while.body.i.preheader.1:                         ; preds = %_ZN5folly13hazptr_d
 
 while.body.i.1:                                   ; preds = %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.1, %while.body.i.preheader.1
   %head.addr.04.i.1 = phi ptr [ %7, %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.1 ], [ %cond.i.1, %while.body.i.preheader.1 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %children.i) #11
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %children.i) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %children.i, i8 0, i64 20, i1 false)
   br label %while.body.i.i.1
 
@@ -143,7 +143,7 @@ while.body.i.i.1:                                 ; preds = %while.body.i.i.1, %
 
 _ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.1: ; preds = %while.body.i.i.1
   %7 = load ptr, ptr %children.i, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %children.i) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %children.i) #12
   %tobool.not.i.1 = icmp eq ptr %7, null
   br i1 %tobool.not.i.1, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.1, label %while.body.i.1, !llvm.loop !38
 
@@ -159,7 +159,7 @@ while.body.i.preheader.2:                         ; preds = %_ZN5folly13hazptr_d
 
 while.body.i.2:                                   ; preds = %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.2, %while.body.i.preheader.2
   %head.addr.04.i.2 = phi ptr [ %11, %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.2 ], [ %cond.i.2, %while.body.i.preheader.2 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %children.i) #11
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %children.i) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %children.i, i8 0, i64 20, i1 false)
   br label %while.body.i.i.2
 
@@ -174,7 +174,7 @@ while.body.i.i.2:                                 ; preds = %while.body.i.i.2, %
 
 _ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.2: ; preds = %while.body.i.i.2
   %11 = load ptr, ptr %children.i, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %children.i) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %children.i) #12
   %tobool.not.i.2 = icmp eq ptr %11, null
   br i1 %tobool.not.i.2, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.2, label %while.body.i.2, !llvm.loop !38
 
@@ -190,7 +190,7 @@ while.body.i.preheader.3:                         ; preds = %_ZN5folly13hazptr_d
 
 while.body.i.3:                                   ; preds = %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.3, %while.body.i.preheader.3
   %head.addr.04.i.3 = phi ptr [ %15, %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.3 ], [ %cond.i.3, %while.body.i.preheader.3 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %children.i) #11
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %children.i) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %children.i, i8 0, i64 20, i1 false)
   br label %while.body.i.i.3
 
@@ -205,7 +205,7 @@ while.body.i.i.3:                                 ; preds = %while.body.i.i.3, %
 
 _ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.3: ; preds = %while.body.i.i.3
   %15 = load ptr, ptr %children.i, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %children.i) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %children.i) #12
   %tobool.not.i.3 = icmp eq ptr %15, null
   br i1 %tobool.not.i.3, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.3, label %while.body.i.3, !llvm.loop !38
 
@@ -221,7 +221,7 @@ while.body.i.preheader.4:                         ; preds = %_ZN5folly13hazptr_d
 
 while.body.i.4:                                   ; preds = %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.4, %while.body.i.preheader.4
   %head.addr.04.i.4 = phi ptr [ %19, %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.4 ], [ %cond.i.4, %while.body.i.preheader.4 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %children.i) #11
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %children.i) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %children.i, i8 0, i64 20, i1 false)
   br label %while.body.i.i.4
 
@@ -236,7 +236,7 @@ while.body.i.i.4:                                 ; preds = %while.body.i.i.4, %
 
 _ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.4: ; preds = %while.body.i.i.4
   %19 = load ptr, ptr %children.i, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %children.i) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %children.i) #12
   %tobool.not.i.4 = icmp eq ptr %19, null
   br i1 %tobool.not.i.4, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.4, label %while.body.i.4, !llvm.loop !38
 
@@ -252,7 +252,7 @@ while.body.i.preheader.5:                         ; preds = %_ZN5folly13hazptr_d
 
 while.body.i.5:                                   ; preds = %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.5, %while.body.i.preheader.5
   %head.addr.04.i.5 = phi ptr [ %23, %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.5 ], [ %cond.i.5, %while.body.i.preheader.5 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %children.i) #11
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %children.i) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %children.i, i8 0, i64 20, i1 false)
   br label %while.body.i.i.5
 
@@ -267,7 +267,7 @@ while.body.i.i.5:                                 ; preds = %while.body.i.i.5, %
 
 _ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.5: ; preds = %while.body.i.i.5
   %23 = load ptr, ptr %children.i, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %children.i) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %children.i) #12
   %tobool.not.i.5 = icmp eq ptr %23, null
   br i1 %tobool.not.i.5, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.5, label %while.body.i.5, !llvm.loop !38
 
@@ -283,7 +283,7 @@ while.body.i.preheader.6:                         ; preds = %_ZN5folly13hazptr_d
 
 while.body.i.6:                                   ; preds = %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.6, %while.body.i.preheader.6
   %head.addr.04.i.6 = phi ptr [ %27, %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.6 ], [ %cond.i.6, %while.body.i.preheader.6 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %children.i) #11
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %children.i) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %children.i, i8 0, i64 20, i1 false)
   br label %while.body.i.i.6
 
@@ -298,7 +298,7 @@ while.body.i.i.6:                                 ; preds = %while.body.i.i.6, %
 
 _ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.6: ; preds = %while.body.i.i.6
   %27 = load ptr, ptr %children.i, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %children.i) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %children.i) #12
   %tobool.not.i.6 = icmp eq ptr %27, null
   br i1 %tobool.not.i.6, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.6, label %while.body.i.6, !llvm.loop !38
 
@@ -314,7 +314,7 @@ while.body.i.preheader.7:                         ; preds = %_ZN5folly13hazptr_d
 
 while.body.i.7:                                   ; preds = %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.7, %while.body.i.preheader.7
   %head.addr.04.i.7 = phi ptr [ %31, %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.7 ], [ %cond.i.7, %while.body.i.preheader.7 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %children.i) #11
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %children.i) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %children.i, i8 0, i64 20, i1 false)
   br label %while.body.i.i.7
 
@@ -329,7 +329,7 @@ while.body.i.i.7:                                 ; preds = %while.body.i.i.7, %
 
 _ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.7: ; preds = %while.body.i.i.7
   %31 = load ptr, ptr %children.i, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %children.i) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %children.i) #12
   %tobool.not.i.7 = icmp eq ptr %31, null
   br i1 %tobool.not.i.7, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.7, label %while.body.i.7, !llvm.loop !38
 
@@ -341,26 +341,27 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #12
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #13
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN5folly19hazptr_use_executorEv() local_unnamed_addr #7 {
+define noundef zeroext i1 @_ZN5folly19hazptr_use_executorEv() local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr @_ZN3fLB31FLAGS_folly_hazptr_use_executorE, align 1, !tbaa !39, !range !40, !noundef !41
   %tobool = icmp ne i8 %0, 0
@@ -368,7 +369,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @_GLOBAL__I_000102() #8 section ".text.startup" {
+define internal void @_GLOBAL__I_000102() #9 section ".text.startup" {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN5folly14default_domainE, i64 32), i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN5folly14default_domainE, i64 56), i8 0, i64 20, i1 false)
@@ -389,33 +390,34 @@ entry:
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN5folly14default_domainE, i64 416), align 8, !tbaa !42
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(31) @_ZN5folly14default_domainE, i8 0, i64 31, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN5folly14default_domainE, i64 424), i8 0, i64 20, i1 false)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5folly13hazptr_domainISt6atomicED2Ev, ptr nonnull @_ZN5folly14default_domainE, ptr nonnull @__dso_handle) #11
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5folly13hazptr_domainISt6atomicED2Ev, ptr nonnull @_ZN5folly14default_domainE, ptr nonnull @__dso_handle) #12
   ret void
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_Hazptr.cpp() #9 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_Hazptr.cpp() #10 section ".text.startup" {
 entry:
   tail call void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLBL27o_folly_hazptr_use_executorE, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZN3fLB31FLAGS_folly_hazptr_use_executorE, ptr noundef nonnull @_ZN3fLBL33FLAGS_nofolly_hazptr_use_executorE)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

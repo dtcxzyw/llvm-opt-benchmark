@@ -90,7 +90,7 @@ define hidden noundef ptr @get_proc_handle(ptr noundef %0, ptr noundef %1) local
 
 ; Function Attrs: mustprogress uwtable
 define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_init0(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #13
+  %3 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #14
   %4 = icmp ne ptr %3, null
   %5 = tail call zeroext i1 @init_libproc(i1 noundef zeroext %4)
   %6 = load ptr, ptr %0, align 8
@@ -325,7 +325,7 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_setSAAltRoot
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %3
-  tail call void @free(ptr noundef nonnull %4) #13
+  tail call void @free(ptr noundef nonnull %4) #14
   br label %6
 
 6:                                                ; preds = %5, %3
@@ -337,13 +337,13 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_setSAAltRoot
   br i1 %11, label %22, label %12
 
 12:                                               ; preds = %6
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #14
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #15
   %14 = add i64 %13, 12
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #15
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #16
   store ptr %15, ptr @_ZL9saaltroot, align 8
-  %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef %14, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.20, ptr noundef nonnull %10) #13
+  %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef %14, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.20, ptr noundef nonnull %10) #14
   %17 = load ptr, ptr @_ZL9saaltroot, align 8
-  %18 = tail call i32 @putenv(ptr noundef %17) #13
+  %18 = tail call i32 @putenv(ptr noundef %17) #14
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 1360
   %21 = load ptr, ptr %20, align 8
@@ -374,7 +374,7 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_attach0__I(p
   %4 = alloca [4096 x i8], align 16
   %5 = alloca [200 x i8], align 16
   %6 = alloca [230 x i8], align 16
-  %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.22, i32 noundef %2) #13
+  %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.22, i32 noundef %2) #14
   call void @_Z13verifyBitnessP7JNIEnv_PKc(ptr noundef %0, ptr noundef nonnull %4)
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 120
@@ -389,7 +389,7 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_attach0__I(p
   br i1 %14, label %15, label %30
 
 15:                                               ; preds = %12
-  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 230, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #13
+  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 230, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #14
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 48
   %19 = load ptr, ptr %18, align 8
@@ -624,7 +624,7 @@ _ZN7JNIEnv_17ExceptionOccurredEv.exit23:          ; preds = %30
 37:                                               ; preds = %50, %40, %30, %_ZN7JNIEnv_12SetLongFieldEP8_jobjectP9_jfieldIDl.exit, %49, %45, %39
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14AutoJavaStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
+  call void @_ZN14AutoJavaStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
   br label %71
 
 39:                                               ; preds = %_ZN7JNIEnv_17ExceptionOccurredEv.exit23
@@ -682,7 +682,7 @@ _ZN7JNIEnv_12SetLongFieldEP8_jobjectP9_jfieldIDl.exit: ; preds = %50
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  tail call void @__clang_call_terminate(ptr %63) #16
+  tail call void @__clang_call_terminate(ptr %63) #17
   unreachable
 
 _ZN14AutoJavaStringD2Ev.exit:                     ; preds = %57, %56, %_ZN7JNIEnv_17ExceptionOccurredEv.exit
@@ -700,7 +700,7 @@ _ZN14AutoJavaStringD2Ev.exit:                     ; preds = %57, %56, %_ZN7JNIEn
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  tail call void @__clang_call_terminate(ptr %70) #16
+  tail call void @__clang_call_terminate(ptr %70) #17
   unreachable
 
 _ZN14AutoJavaStringD2Ev.exit28:                   ; preds = %_ZN14AutoJavaStringD2Ev.exit, %64
@@ -708,7 +708,7 @@ _ZN14AutoJavaStringD2Ev.exit28:                   ; preds = %_ZN14AutoJavaString
 
 71:                                               ; preds = %37, %20
   %.pn = phi { ptr, i32 } [ %38, %37 ], [ %21, %20 ]
-  call void @_ZN14AutoJavaStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
+  call void @_ZN14AutoJavaStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
   resume { ptr, i32 } %.pn
 }
 
@@ -740,7 +740,7 @@ _ZN7JNIEnv_21ReleaseStringUTFCharsEP8_jstringPKc.exit: ; preds = %4, %1
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #16
+  tail call void @__clang_call_terminate(ptr %13) #17
   unreachable
 }
 
@@ -765,7 +765,7 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_detach0(ptr 
   br i1 %.not5, label %13, label %12
 
 12:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %11) #13
+  tail call void @free(ptr noundef nonnull %11) #14
   store ptr null, ptr @_ZL9saaltroot, align 8
   br label %13
 
@@ -848,7 +848,7 @@ _ZN7JNIEnv_17ExceptionOccurredEv.exit18:          ; preds = %36
 43:                                               ; preds = %36, %45
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN14AutoJavaStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
+  call void @_ZN14AutoJavaStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
   br label %62
 
 45:                                               ; preds = %_ZN7JNIEnv_17ExceptionOccurredEv.exit18
@@ -871,7 +871,7 @@ _ZN7JNIEnv_17ExceptionOccurredEv.exit18:          ; preds = %36
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  tail call void @__clang_call_terminate(ptr %54) #16
+  tail call void @__clang_call_terminate(ptr %54) #17
   unreachable
 
 _ZN14AutoJavaStringD2Ev.exit:                     ; preds = %48, %47, %_ZN7JNIEnv_17ExceptionOccurredEv.exit
@@ -890,7 +890,7 @@ _ZN14AutoJavaStringD2Ev.exit:                     ; preds = %48, %47, %_ZN7JNIEn
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  tail call void @__clang_call_terminate(ptr %61) #16
+  tail call void @__clang_call_terminate(ptr %61) #17
   unreachable
 
 _ZN14AutoJavaStringD2Ev.exit20:                   ; preds = %_ZN14AutoJavaStringD2Ev.exit, %55
@@ -898,7 +898,7 @@ _ZN14AutoJavaStringD2Ev.exit20:                   ; preds = %_ZN14AutoJavaString
 
 62:                                               ; preds = %43, %26
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %27, %26 ]
-  call void @_ZN14AutoJavaStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
+  call void @_ZN14AutoJavaStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
   resume { ptr, i32 } %.pn
 }
 
@@ -1026,7 +1026,7 @@ define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_getTh
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr @stdout, align 8
-  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.25, i32 noundef %2) #13
+  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.25, i32 noundef %2) #14
   %16 = load ptr, ptr @stdout, align 8
   %17 = call i32 @fflush(ptr noundef %16)
   br label %108
@@ -1211,7 +1211,7 @@ define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_deman
   %34 = getelementptr inbounds i8, ptr %33, i64 1336
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef ptr %35(ptr noundef nonnull %0, ptr noundef nonnull %25)
-  call void @free(ptr noundef nonnull %25) #13
+  call void @free(ptr noundef nonnull %25) #14
   br label %throw_new_debugger_exception.exit
 
 37:                                               ; preds = %24
@@ -1289,14 +1289,15 @@ declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1311,10 +1312,11 @@ attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #10 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { nounwind allocsize(0) }
-attributes #16 = { noreturn nounwind }
+attributes #13 = { cold nofree noreturn }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { nounwind allocsize(0) }
+attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

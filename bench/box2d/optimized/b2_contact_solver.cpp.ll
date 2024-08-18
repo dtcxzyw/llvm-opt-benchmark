@@ -279,7 +279,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #12
+  tail call void @__clang_call_terminate(ptr %5) #13
   unreachable
 }
 
@@ -289,17 +289,18 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #12
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #13
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15b2ContactSolver29InitializeVelocityConstraintsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN15b2ContactSolver29InitializeVelocityConstraintsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #6 align 2 {
 entry:
   %xfA = alloca %struct.b2Transform, align 8
   %xfB = alloca %struct.b2Transform, align 8
@@ -387,13 +388,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %30 = load float, ptr %arrayidx30.sroa_idx, align 4
   %w35 = getelementptr inbounds %struct.b2Velocity, ptr %22, i64 %idxprom21, i32 1
   %31 = load float, ptr %w35, align 4
-  %call.i = call float @sinf(float noundef %21) #13
+  %call.i = call float @sinf(float noundef %21) #14
   store float %call.i, ptr %q, align 8
-  %call2.i = call float @cosf(float noundef %21) #13
+  %call2.i = call float @cosf(float noundef %21) #14
   store float %call2.i, ptr %c.i, align 4
-  %call.i95 = call float @sinf(float noundef %28) #13
+  %call.i95 = call float @sinf(float noundef %28) #14
   store float %call.i95, ptr %q36, align 8
-  %call2.i96 = call float @cosf(float noundef %28) #13
+  %call2.i96 = call float @cosf(float noundef %28) #14
   store float %call2.i96, ptr %c.i97, align 4
   %32 = load float, ptr %c.i, align 4
   %33 = load float, ptr %q, align 8
@@ -618,10 +619,10 @@ for.end161:                                       ; preds = %for.inc159, %entry
 declare void @_ZN15b2WorldManifold10InitializeEPK10b2ManifoldRK11b2TransformfS5_f(ptr noundef nonnull align 4 dereferenceable(32), ptr noundef, ptr noundef nonnull align 4 dereferenceable(16), float noundef, ptr noundef nonnull align 4 dereferenceable(16), float noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #6
+declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN15b2ContactSolver9WarmStartEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN15b2ContactSolver9WarmStartEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_count = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %m_count, align 8
@@ -755,7 +756,7 @@ for.end50:                                        ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN15b2ContactSolver24SolveVelocityConstraintsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN15b2ContactSolver24SolveVelocityConstraintsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_count = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %m_count, align 8
@@ -1245,7 +1246,7 @@ for.end341:                                       ; preds = %if.end322, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN15b2ContactSolver13StoreImpulsesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN15b2ContactSolver13StoreImpulsesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #9 align 2 {
 entry:
   %m_count = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %m_count, align 8
@@ -1308,7 +1309,7 @@ for.end20:                                        ; preds = %for.inc18, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN15b2ContactSolver24SolvePositionConstraintsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN15b2ContactSolver24SolvePositionConstraintsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #6 align 2 {
 entry:
   %xfA = alloca %struct.b2Transform, align 8
   %xfB = alloca %struct.b2Transform, align 8
@@ -1390,13 +1391,13 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   %cA.sroa.0.0131 = phi float [ %14, %for.body20.lr.ph ], [ %sub.i77, %for.body20 ]
   %cB.sroa.6.0130 = phi float [ %18, %for.body20.lr.ph ], [ %add4.i, %for.body20 ]
   %cB.sroa.0.0129 = phi float [ %17, %for.body20.lr.ph ], [ %add.i, %for.body20 ]
-  %call.i = call float @sinf(float noundef %aA.0135) #13
+  %call.i = call float @sinf(float noundef %aA.0135) #14
   store float %call.i, ptr %q, align 8
-  %call2.i = call float @cosf(float noundef %aA.0135) #13
+  %call2.i = call float @cosf(float noundef %aA.0135) #14
   store float %call2.i, ptr %c.i, align 4
-  %call.i33 = call float @sinf(float noundef %aB.0134) #13
+  %call.i33 = call float @sinf(float noundef %aB.0134) #14
   store float %call.i33, ptr %q21, align 8
-  %call2.i34 = call float @cosf(float noundef %aB.0134) #13
+  %call2.i34 = call float @cosf(float noundef %aB.0134) #14
   store float %call2.i34, ptr %c.i35, align 4
   %20 = load float, ptr %c.i, align 4
   %21 = load float, ptr %q, align 8
@@ -1517,7 +1518,7 @@ for.end73:                                        ; preds = %for.end73.loopexit,
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN24b2PositionSolverManifold10InitializeEP27b2ContactPositionConstraintRK11b2TransformS4_i(ptr noundef nonnull align 4 dereferenceable(20) %this, ptr noundef %pc, ptr noundef nonnull align 4 dereferenceable(16) %xfA, ptr noundef nonnull align 4 dereferenceable(16) %xfB, i32 noundef %index) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN24b2PositionSolverManifold10InitializeEP27b2ContactPositionConstraintRK11b2TransformS4_i(ptr noundef nonnull align 4 dereferenceable(20) %this, ptr noundef %pc, ptr noundef nonnull align 4 dereferenceable(16) %xfA, ptr noundef nonnull align 4 dereferenceable(16) %xfB, i32 noundef %index) local_unnamed_addr #6 comdat align 2 {
 entry:
   %type = getelementptr inbounds i8, ptr %pc, i64 72
   %0 = load i32, ptr %type, align 4
@@ -1756,7 +1757,7 @@ sw.epilog:                                        ; preds = %sw.bb34, %sw.bb15, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN15b2ContactSolver27SolveTOIPositionConstraintsEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this, i32 noundef %toiIndexA, i32 noundef %toiIndexB) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN15b2ContactSolver27SolveTOIPositionConstraintsEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this, i32 noundef %toiIndexA, i32 noundef %toiIndexB) local_unnamed_addr #6 align 2 {
 entry:
   %xfA = alloca %struct.b2Transform, align 8
   %xfB = alloca %struct.b2Transform, align 8
@@ -1860,13 +1861,13 @@ for.body27:                                       ; preds = %for.body27.lr.ph, %
   %cA.sroa.0.0139 = phi float [ %14, %for.body27.lr.ph ], [ %sub.i85, %for.body27 ]
   %cB.sroa.6.0138 = phi float [ %18, %for.body27.lr.ph ], [ %add4.i, %for.body27 ]
   %cB.sroa.0.0137 = phi float [ %17, %for.body27.lr.ph ], [ %add.i, %for.body27 ]
-  %call.i = call float @sinf(float noundef %aA.0143) #13
+  %call.i = call float @sinf(float noundef %aA.0143) #14
   store float %call.i, ptr %q, align 8
-  %call2.i = call float @cosf(float noundef %aA.0143) #13
+  %call2.i = call float @cosf(float noundef %aA.0143) #14
   store float %call2.i, ptr %c.i, align 4
-  %call.i41 = call float @sinf(float noundef %aB.0142) #13
+  %call.i41 = call float @sinf(float noundef %aB.0142) #14
   store float %call.i41, ptr %q28, align 8
-  %call2.i42 = call float @cosf(float noundef %aB.0142) #13
+  %call2.i42 = call float @cosf(float noundef %aB.0142) #14
   store float %call2.i42, ptr %c.i43, align 4
   %20 = load float, ptr %c.i, align 4
   %21 = load float, ptr %q, align 8
@@ -1987,31 +1988,32 @@ for.end80:                                        ; preds = %for.end80.loopexit,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sinf(float noundef) local_unnamed_addr #9
+declare float @sinf(float noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @cosf(float noundef) local_unnamed_addr #9
+declare float @cosf(float noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #11
+declare float @llvm.sqrt.f32(float) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

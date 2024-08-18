@@ -2121,7 +2121,7 @@ $_ZN3ue213RoseInstrBaseIL19RoseInstructionCode60E37ROSE_STRUCT_CHECK_MULTIPATH_S
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZN3ue215RoseInstructionD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @llvm.trap() #22
+  tail call void @llvm.trap() #24
   unreachable
 }
 
@@ -2137,7 +2137,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue216RoseInstrCatchUpD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -2153,7 +2153,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue219RoseInstrCatchUpMpvD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -2166,7 +2166,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue216RoseInstrSomZeroD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -2179,7 +2179,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue220RoseInstrSuffixesEodD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -2192,7 +2192,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue219RoseInstrMatcherEodD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -2205,7 +2205,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue212RoseInstrEndD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -2218,7 +2218,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue222RoseInstrClearWorkDoneD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -2231,7 +2231,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue225RoseInstrFlushCombinationD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -2244,7 +2244,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue229RoseInstrLastFlushCombinationD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -2338,7 +2338,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i
@@ -2406,7 +2406,7 @@ lor.lhs.false.i.i.i.i.i18:                        ; preds = %if.end3.i.i.i.i.i15
   br i1 %cmp.not.i.i.i.i.i21, label %for.cond.i.i.i.i.i23, label %if.then.i.i22, !llvm.loop !7
 
 if.then.i.i22:                                    ; preds = %lor.lhs.false.i.i.i.i.i18, %if.end3.i.i.i.i.i15, %for.cond.i.i.i29, %if.end15.i.i.i7
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit36: ; preds = %for.cond.i.i.i.i.i23, %for.body.i.i.i33, %if.end.i.i.i.i.i12
@@ -2510,9 +2510,9 @@ entry:
   %0 = load i8, ptr %offset, align 8
   %offset2 = getelementptr inbounds i8, ptr %dest, i64 1
   store i8 %0, ptr %offset2, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #27
   %reach = getelementptr inbounds i8, ptr %this, i64 16
-  %call5.i.i.i.i5.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
+  %call5.i.i.i.i5.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   store ptr %call5.i.i.i.i5.i, ptr %ref.tmp, align 8
   %add.ptr.i4.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i, i64 32
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
@@ -2532,11 +2532,11 @@ invoke.cont6:                                     ; preds = %entry
   br i1 %tobool.not.i.i.i20, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont6
-  call void @_ZdlPv(ptr noundef nonnull %1) #23
+  call void @_ZdlPv(ptr noundef nonnull %1) #25
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %if.then.i.i.i, %invoke.cont6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #27
   %target = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %target, align 8
   %call10 = call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %2)
@@ -2552,11 +2552,11 @@ lpad5:                                            ; preds = %entry
   br i1 %tobool.not.i.i.i22, label %ehcleanup, label %if.then.i.i.i23
 
 if.then.i.i.i23:                                  ; preds = %lpad5
-  call void @_ZdlPv(ptr noundef nonnull %4) #23
+  call void @_ZdlPv(ptr noundef nonnull %4) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i.i23, %lpad5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #27
   resume { ptr, i32 } %3
 }
 
@@ -2574,9 +2574,9 @@ entry:
   %reaches = alloca %"class.std::vector.108", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %dest, i8 0, i64 20, i1 false)
   store i8 8, ptr %dest, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %look_offsets) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %look_offsets) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %look_offsets, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %reaches) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %reaches) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %reaches, i8 0, i64 24, i1 false)
   %look = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %look, align 8
@@ -2625,7 +2625,7 @@ if.else.i:                                        ; preds = %for.body
   br i1 %cmp.i.i.i, label %if.then.i.i.i.invoke, label %_ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i.invoke:                             ; preds = %if.else.i44, %if.else.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #24
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #26
           to label %if.then.i.i.i.cont unwind label %lpad.loopexit.split-lp
 
 if.then.i.i.i.cont:                               ; preds = %if.then.i.i.i.invoke
@@ -2641,7 +2641,7 @@ _ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIaSaIaEE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIaEE8allocateERS0_m.exit.i.i.i
 
 _ZNSt16allocator_traitsISaIaEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i
-  %call5.i.i.i.i.i38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %cond.i.i.i) #26
+  %call5.i.i.i.i.i38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %cond.i.i.i) #28
           to label %_ZNSt12_Vector_baseIaSaIaEE11_M_allocateEm.exit.i.i unwind label %lpad.loopexit
 
 _ZNSt12_Vector_baseIaSaIaEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIaEE8allocateERS0_m.exit.i.i.i, %_ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i
@@ -2662,7 +2662,7 @@ _ZNSt6vectorIaSaIaEE11_S_relocateEPaS2_S2_RS0_.exit38.i.i: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIaSaIaEE17_M_realloc_insertIJRKaEEEvN9__gnu_cxx17__normal_iteratorIPaS1_EEDpOT_.exit.i, label %if.then.i39.i.i
 
 if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIaSaIaEE11_S_relocateEPaS2_S2_RS0_.exit38.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #25
   br label %_ZNSt6vectorIaSaIaEE17_M_realloc_insertIJRKaEEEvN9__gnu_cxx17__normal_iteratorIPaS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIaSaIaEE17_M_realloc_insertIJRKaEEEvN9__gnu_cxx17__normal_iteratorIPaS1_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIaSaIaEE11_S_relocateEPaS2_S2_RS0_.exit38.i.i
@@ -2706,7 +2706,7 @@ _ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.
 
 _ZNSt16allocator_traitsISaIN3ue29CharReachEEE8allocateERS2_m.exit.i.i: ; preds = %_ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i
   %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i, 5
-  %call5.i.i.i.i64 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #26
+  %call5.i.i.i.i64 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #28
           to label %_ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i unwind label %lpad.loopexit
 
 _ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN3ue29CharReachEEE8allocateERS2_m.exit.i.i, %_ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i
@@ -2732,7 +2732,7 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40.i: ; pr
   br i1 %tobool.not.i.i, label %.noexc45, label %if.then.i41.i
 
 if.then.i41.i:                                    ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40.i
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #25
   br label %.noexc45
 
 .noexc45:                                         ; preds = %if.then.i41.i, %_ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40.i
@@ -2778,12 +2778,12 @@ invoke.cont12:                                    ; preds = %invoke.cont9
   br i1 %cmp.not.i.i, label %invoke.cont16, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont12
-  %exception.i.i = call ptr @__cxa_allocate_exception(i64 48) #25
+  %exception.i.i = call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #26
           to label %.noexc48 unwind label %lpad8
 
 .noexc48:                                         ; preds = %invoke.cont.i.i
@@ -2792,7 +2792,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #25
+  call void @__cxa_free_exception(ptr %exception.i.i) #27
   br label %ehcleanup
 
 invoke.cont16:                                    ; preds = %invoke.cont12
@@ -2812,21 +2812,21 @@ invoke.cont18:                                    ; preds = %invoke.cont16
   br i1 %tobool.not.i.i.i49, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit, label %if.then.i.i.i50
 
 if.then.i.i.i50:                                  ; preds = %invoke.cont18
-  call void @_ZdlPv(ptr noundef nonnull %22) #23
+  call void @_ZdlPv(ptr noundef nonnull %22) #25
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %if.then.i.i.i50, %invoke.cont18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %reaches) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %reaches) #27
   %23 = load ptr, ptr %look_offsets, align 8
   %tobool.not.i.i.i51 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i51, label %_ZNSt6vectorIaSaIaEED2Ev.exit, label %if.then.i.i.i52
 
 if.then.i.i.i52:                                  ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %23) #23
+  call void @_ZdlPv(ptr noundef nonnull %23) #25
   br label %_ZNSt6vectorIaSaIaEED2Ev.exit
 
 _ZNSt6vectorIaSaIaEED2Ev.exit:                    ; preds = %if.then.i.i.i52, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %look_offsets) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %look_offsets) #27
   ret void
 
 lpad8:                                            ; preds = %invoke.cont16, %invoke.cont.i.i, %invoke.cont9, %for.cond.cleanup
@@ -2841,21 +2841,21 @@ ehcleanup:                                        ; preds = %lpad8, %lpad.i.i, %
   br i1 %tobool.not.i.i.i53, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit55, label %if.then.i.i.i54
 
 if.then.i.i.i54:                                  ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef nonnull %25) #23
+  call void @_ZdlPv(ptr noundef nonnull %25) #25
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit55
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit55: ; preds = %if.then.i.i.i54, %ehcleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %reaches) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %reaches) #27
   %26 = load ptr, ptr %look_offsets, align 8
   %tobool.not.i.i.i56 = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i56, label %_ZNSt6vectorIaSaIaEED2Ev.exit58, label %if.then.i.i.i57
 
 if.then.i.i.i57:                                  ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit55
-  call void @_ZdlPv(ptr noundef nonnull %26) #23
+  call void @_ZdlPv(ptr noundef nonnull %26) #25
   br label %_ZNSt6vectorIaSaIaEED2Ev.exit58
 
 _ZNSt6vectorIaSaIaEED2Ev.exit58:                  ; preds = %if.then.i.i.i57, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit55
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %look_offsets) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %look_offsets) #27
   resume { ptr, i32 } %.pn
 }
 
@@ -3609,7 +3609,7 @@ entry:
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %0)
   %fail_jump = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %call, ptr %fail_jump, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %keys) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %keys) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %keys, i8 0, i64 24, i1 false)
   %jump_table = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %jump_table, align 8
@@ -3629,7 +3629,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.cond.cleanup:                                 ; preds = %invoke.cont9, %entry
   %jump_offsets.sroa.9.0.lcssa = phi ptr [ null, %entry ], [ %jump_offsets.sroa.9.1, %invoke.cont9 ]
   %jump_offsets.sroa.0.0.lcssa = phi ptr [ null, %entry ], [ %jump_offsets.sroa.0.1, %invoke.cont9 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %iter) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %iter) #27
   %num_keys = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %num_keys, align 8
   invoke void @_ZN3ue222mmbBuildSparseIteratorERKSt6vectorIjSaIjEEj(ptr nonnull sret(%"class.std::vector.210") align 8 %iter, ptr noundef nonnull align 8 dereferenceable(24) %keys, i32 noundef %3)
@@ -3662,7 +3662,7 @@ if.else.i:                                        ; preds = %for.body
   br i1 %cmp.i.i.i, label %if.then.i.i.i.invoke, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i.invoke:                             ; preds = %if.else.i59, %if.else.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #24
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #26
           to label %if.then.i.i.i.cont unwind label %lpad.loopexit.split-lp135
 
 if.then.i.i.i.cont:                               ; preds = %if.then.i.i.i.invoke
@@ -3680,7 +3680,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
 
 _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 2
-  %call5.i.i.i.i.i51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #26
+  %call5.i.i.i.i.i51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #28
           to label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i unwind label %lpad.loopexit134
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
@@ -3701,7 +3701,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit39.i.i: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, label %if.then.i40.i.i
 
 if.then.i40.i.i:                                  ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit39.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #25
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %if.then.i40.i.i, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit39.i.i
@@ -3766,7 +3766,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %if.end15.i.i.i, %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i
-  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
           to label %.noexc53 unwind label %lpad.loopexit.split-lp135
 
 .noexc53:                                         ; preds = %if.then.i.i
@@ -3802,7 +3802,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i64: ; preds = %if.else.i59
 
 _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i73: ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i64
   %mul.i.i.i.i.i74 = shl nuw nsw i64 %cond.i.i.i71, 2
-  %call5.i.i.i.i.i89 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i74) #26
+  %call5.i.i.i.i.i89 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i74) #28
           to label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i75 unwind label %lpad.loopexit134
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i75: ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i73, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i64
@@ -3822,7 +3822,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit39.i.i79: ; preds = %if.then.
   br i1 %tobool.not.i.i.i81, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i83, label %if.then.i40.i.i82
 
 if.then.i40.i.i82:                                ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit39.i.i79
-  tail call void @_ZdlPv(ptr noundef nonnull %jump_offsets.sroa.0.0165) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %jump_offsets.sroa.0.0165) #25
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i83
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i83: ; preds = %if.then.i40.i.i82, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit39.i.i79
@@ -3863,7 +3863,7 @@ if.then.i92:                                      ; preds = %call.i.i.noexc
   br label %invoke.cont14
 
 if.end.i:                                         ; preds = %call.i.i.noexc
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %offset9.i) #25
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %offset9.i) #27
   %27 = load ptr, ptr %iter, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %iter, i64 8
   %28 = load ptr, ptr %_M_finish.i.i, align 8
@@ -3897,7 +3897,7 @@ _ZN3ue214RoseEngineBlob3addIN9__gnu_cxx17__normal_iteratorIPK17mmbit_sparse_iter
 
 call.i.i22.i.noexc:                               ; preds = %_ZN3ue214RoseEngineBlob3addIN9__gnu_cxx17__normal_iteratorIPK17mmbit_sparse_iterSt6vectorIS4_SaIS4_EEEEEEjT_RKSB_.exit.i
   %29 = load i32, ptr %offset9.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %offset9.i) #25
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %offset9.i) #27
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %call.i.i22.i.noexc, %if.then.i92
@@ -3943,16 +3943,16 @@ invoke.cont22:                                    ; preds = %call.i11.i.noexc, %
   br i1 %tobool.not.i.i.i104, label %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit, label %if.then.i.i.i105
 
 if.then.i.i.i105:                                 ; preds = %invoke.cont22
-  call void @_ZdlPv(ptr noundef nonnull %32) #23
+  call void @_ZdlPv(ptr noundef nonnull %32) #25
   br label %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit: ; preds = %if.then.i.i.i105, %invoke.cont22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter) #27
   %tobool.not.i.i.i106 = icmp eq ptr %jump_offsets.sroa.0.0.lcssa, null
   br i1 %tobool.not.i.i.i106, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i107
 
 if.then.i.i.i107:                                 ; preds = %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %jump_offsets.sroa.0.0.lcssa) #23
+  call void @_ZdlPv(ptr noundef nonnull %jump_offsets.sroa.0.0.lcssa) #25
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %if.then.i.i.i107, %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit
@@ -3961,11 +3961,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %if.then.i.i.i107, %
   br i1 %tobool.not.i.i.i108, label %_ZNSt6vectorIjSaIjEED2Ev.exit110, label %if.then.i.i.i109
 
 if.then.i.i.i109:                                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %33) #23
+  call void @_ZdlPv(ptr noundef nonnull %33) #25
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit110
 
 _ZNSt6vectorIjSaIjEED2Ev.exit110:                 ; preds = %if.then.i.i.i109, %_ZNSt6vectorIjSaIjEED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %keys) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %keys) #27
   ret void
 
 lpad11:                                           ; preds = %for.cond.cleanup
@@ -4000,12 +4000,12 @@ ehcleanup:                                        ; preds = %lpad21.loopexit.spl
   br i1 %tobool.not.i.i.i111, label %ehcleanup28, label %if.then.i.i.i112
 
 if.then.i.i.i112:                                 ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef nonnull %35) #23
+  call void @_ZdlPv(ptr noundef nonnull %35) #25
   br label %ehcleanup28
 
 ehcleanup28:                                      ; preds = %if.then.i.i.i112, %ehcleanup, %lpad11
   %.pn.pn = phi { ptr, i32 } [ %34, %lpad11 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i112 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter) #27
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %ehcleanup28, %lpad.loopexit.split-lp135, %lpad.loopexit134
@@ -4015,7 +4015,7 @@ ehcleanup29:                                      ; preds = %ehcleanup28, %lpad.
   br i1 %tobool.not.i.i.i114, label %_ZNSt6vectorIjSaIjEED2Ev.exit116, label %if.then.i.i.i115
 
 if.then.i.i.i115:                                 ; preds = %ehcleanup29
-  call void @_ZdlPv(ptr noundef nonnull %jump_offsets.sroa.0.0148) #23
+  call void @_ZdlPv(ptr noundef nonnull %jump_offsets.sroa.0.0148) #25
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit116
 
 _ZNSt6vectorIjSaIjEED2Ev.exit116:                 ; preds = %if.then.i.i.i115, %ehcleanup29
@@ -4024,11 +4024,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit116:                 ; preds = %if.then.i.i.i115, %
   br i1 %tobool.not.i.i.i117, label %_ZNSt6vectorIjSaIjEED2Ev.exit119, label %if.then.i.i.i118
 
 if.then.i.i.i118:                                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit116
-  call void @_ZdlPv(ptr noundef nonnull %36) #23
+  call void @_ZdlPv(ptr noundef nonnull %36) #25
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit119
 
 _ZNSt6vectorIjSaIjEED2Ev.exit119:                 ; preds = %if.then.i.i.i118, %_ZNSt6vectorIjSaIjEED2Ev.exit116
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %keys) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %keys) #27
   resume { ptr, i32 } %.pn48
 }
 
@@ -4095,7 +4095,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i, !llvm.loop !7
 
 if.then.i:                                        ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt8__detail9_Map_baseIPKN3ue215RoseInstructionESt4pairIKS4_jESaIS7_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EE2atERS6_.exit: ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
@@ -4146,7 +4146,7 @@ entry:
   %call = tail call fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %this, ptr noundef %0)
   %fail_jump = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 %call, ptr %fail_jump, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %iter) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %iter) #27
   %keys = getelementptr inbounds i8, ptr %this, i64 16
   %num_keys = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %num_keys, align 8
@@ -4165,7 +4165,7 @@ if.then.i:                                        ; preds = %call.i.i.noexc
   br label %invoke.cont
 
 if.end.i:                                         ; preds = %call.i.i.noexc
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %offset9.i) #25
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %offset9.i) #27
   %3 = load ptr, ptr %iter, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %iter, i64 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
@@ -4199,7 +4199,7 @@ _ZN3ue214RoseEngineBlob3addIN9__gnu_cxx17__normal_iteratorIPK17mmbit_sparse_iter
 
 call.i.i22.i.noexc:                               ; preds = %_ZN3ue214RoseEngineBlob3addIN9__gnu_cxx17__normal_iteratorIPK17mmbit_sparse_iterSt6vectorIS4_SaIS4_EEEEEEjT_RKSB_.exit.i
   %5 = load i32, ptr %offset9.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %offset9.i) #25
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %offset9.i) #27
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %call.i.i22.i.noexc, %if.then.i
@@ -4211,11 +4211,11 @@ invoke.cont:                                      ; preds = %call.i.i22.i.noexc,
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef nonnull %6) #23
+  call void @_ZdlPv(ptr noundef nonnull %6) #25
   br label %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit: ; preds = %if.then.i.i.i, %invoke.cont
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter) #27
   ret void
 
 lpad.loopexit:                                    ; preds = %for.body.i.i
@@ -4235,11 +4235,11 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i.i12, label %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit14, label %if.then.i.i.i13
 
 if.then.i.i.i13:                                  ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %7) #23
+  call void @_ZdlPv(ptr noundef nonnull %7) #25
   br label %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit14
 
 _ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit14: ; preds = %if.then.i.i.i13, %lpad
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter) #27
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -4304,18 +4304,18 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %if.t
   br i1 %cmp.not.i.i.i, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, label %if.then.i.i25.i
 
 if.then.i.i25.i:                                  ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #25
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i25.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #26
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i, %lpad.i.i.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %lpad.i.i ], [ %exception.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %7, %lpad.i.i ], [ %5, %lpad.i.i.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i.i.sink) #25
+  tail call void @__cxa_free_exception(ptr %exception.i.i.sink) #27
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i25.i
@@ -4332,12 +4332,12 @@ _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue2
   br i1 %cmp.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #25
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #26
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -4440,18 +4440,18 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit: ; preds = %if.the
   br i1 %cmp.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %if.then.i.i25
 
 if.then.i.i25:                                    ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #25
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i25
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #26
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i25
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #25
+  tail call void @__cxa_free_exception(ptr %exception.i.i) #27
   resume { ptr, i32 } %5
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
@@ -4509,18 +4509,18 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %if.t
   br i1 %cmp.not.i.i.i, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, label %if.then.i.i25.i
 
 if.then.i.i25.i:                                  ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #25
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i25.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #26
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i, %lpad.i.i.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %lpad.i.i ], [ %exception.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %7, %lpad.i.i ], [ %5, %lpad.i.i.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i.i.sink) #25
+  tail call void @__cxa_free_exception(ptr %exception.i.i.sink) #27
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i25.i
@@ -4537,12 +4537,12 @@ _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue2
   br i1 %cmp.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #25
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #26
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -4612,18 +4612,18 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %if.t
   br i1 %cmp.not.i.i.i, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, label %if.then.i.i25.i
 
 if.then.i.i25.i:                                  ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #25
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i25.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #26
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i, %lpad.i.i.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %lpad.i.i ], [ %exception.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %7, %lpad.i.i ], [ %5, %lpad.i.i.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i.i.sink) #25
+  tail call void @__cxa_free_exception(ptr %exception.i.i.sink) #27
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i25.i
@@ -4640,12 +4640,12 @@ _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue2
   br i1 %cmp.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #25
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #26
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -4715,18 +4715,18 @@ _ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i: ; preds = %if.t
   br i1 %cmp.not.i.i.i, label %_ZN3ue214RoseEngineBlob3addEPKvmm.exit, label %if.then.i.i25.i
 
 if.then.i.i25.i:                                  ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit.i
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #25
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i25.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #26
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i, %lpad.i.i.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %lpad.i.i ], [ %exception.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %7, %lpad.i.i ], [ %5, %lpad.i.i.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i.i.sink) #25
+  tail call void @__cxa_free_exception(ptr %exception.i.i.sink) #27
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i25.i
@@ -4743,12 +4743,12 @@ _ZN3ue214RoseEngineBlob3addEPKvmm.exit:           ; preds = %_ZNSt6vectorIcN3ue2
   br i1 %cmp.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN3ue214RoseEngineBlob3addEPKvmm.exit
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #25
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #26
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -4777,9 +4777,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %dest, i8 0, i64 40, i1 false)
   store i8 56, ptr %dest, align 4
   %lookaround_cache = getelementptr inbounds i8, ptr %blob, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %look_offsets) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %look_offsets) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %look_offsets, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %reaches) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %reaches) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %reaches, i8 0, i64 24, i1 false)
   %multi_look = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %multi_look, align 8
@@ -4804,7 +4804,7 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup12,
 for.body:                                         ; preds = %for.cond.cleanup12, %for.body.lr.ph
   %2 = phi ptr [ null, %for.body.lr.ph ], [ %10, %for.cond.cleanup12 ]
   %__begin1.sroa.0.0118 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i, %for.cond.cleanup12 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %_M_end_of_storage.i.i, align 8
@@ -4834,11 +4834,11 @@ invoke.cont:                                      ; preds = %if.else.i.i
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef nonnull %.pr) #23
+  call void @_ZdlPv(ptr noundef nonnull %.pr) #25
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %if.then.i.i.i, %invoke.cont, %invoke.cont.thread
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #27
   %8 = load ptr, ptr %__begin1.sroa.0.0118, align 8
   %_M_finish.i73 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0118, i64 8
   %9 = load ptr, ptr %_M_finish.i73, align 8
@@ -4859,11 +4859,11 @@ lpad:                                             ; preds = %if.else.i.i
   br i1 %tobool.not.i.i.i75, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit77, label %if.then.i.i.i76
 
 if.then.i.i.i76:                                  ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %12) #23
+  call void @_ZdlPv(ptr noundef nonnull %12) #25
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit77
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit77: ; preds = %if.then.i.i.i76, %lpad
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #27
   br label %ehcleanup49
 
 for.body13:                                       ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit, %if.end
@@ -4896,7 +4896,7 @@ if.else.i:                                        ; preds = %for.body13
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #24
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #26
           to label %.noexc unwind label %lpad16.loopexit.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then.i.i
@@ -4914,7 +4914,7 @@ _ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.
 
 _ZNSt16allocator_traitsISaIN3ue29CharReachEEE8allocateERS2_m.exit.i.i: ; preds = %_ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i
   %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i, 5
-  %call5.i.i.i.i19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #26
+  %call5.i.i.i.i19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #28
           to label %_ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i unwind label %lpad16.loopexit.loopexit
 
 _ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN3ue29CharReachEEE8allocateERS2_m.exit.i.i, %_ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i
@@ -4940,7 +4940,7 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40.i: ; pr
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %if.then.i41.i
 
 if.then.i41.i:                                    ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40.i
-  call void @_ZdlPv(ptr noundef nonnull %18) #23
+  call void @_ZdlPv(ptr noundef nonnull %18) #25
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40.i, %if.then.i41.i
@@ -4993,7 +4993,7 @@ if.else.i87:                                      ; preds = %if.then
   br i1 %cmp.i.i.i, label %if.then.i.i.i91, label %_ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i91:                                  ; preds = %if.else.i87
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #24
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #26
           to label %.noexc92 unwind label %lpad16.loopexit.split-lp
 
 .noexc92:                                         ; preds = %if.then.i.i.i91
@@ -5009,7 +5009,7 @@ _ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i87
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIaSaIaEE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIaEE8allocateERS0_m.exit.i.i.i
 
 _ZNSt16allocator_traitsISaIaEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i
-  %call5.i.i.i.i.i93 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %cond.i.i.i) #26
+  %call5.i.i.i.i.i93 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %cond.i.i.i) #28
           to label %_ZNSt12_Vector_baseIaSaIaEE11_M_allocateEm.exit.i.i unwind label %lpad16.loopexit.loopexit
 
 _ZNSt12_Vector_baseIaSaIaEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIaEE8allocateERS0_m.exit.i.i.i, %_ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i
@@ -5030,7 +5030,7 @@ _ZNSt6vectorIaSaIaEE11_S_relocateEPaS2_S2_RS0_.exit38.i.i: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i90, label %_ZNSt6vectorIaSaIaEE17_M_realloc_insertIJRKaEEEvN9__gnu_cxx17__normal_iteratorIPaS1_EEDpOT_.exit.i, label %if.then.i39.i.i
 
 if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIaSaIaEE11_S_relocateEPaS2_S2_RS0_.exit38.i.i
-  call void @_ZdlPv(ptr noundef nonnull %27) #23
+  call void @_ZdlPv(ptr noundef nonnull %27) #25
   br label %_ZNSt6vectorIaSaIaEE17_M_realloc_insertIJRKaEEEvN9__gnu_cxx17__normal_iteratorIPaS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIaSaIaEE17_M_realloc_insertIJRKaEEEvN9__gnu_cxx17__normal_iteratorIPaS1_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIaSaIaEE11_S_relocateEPaS2_S2_RS0_.exit38.i.i
@@ -5081,12 +5081,12 @@ invoke.cont32:                                    ; preds = %invoke.cont30
   br i1 %cmp.not.i.i96, label %invoke.cont45, label %if.then.i.i97
 
 if.then.i.i97:                                    ; preds = %invoke.cont32
-  %exception.i.i = call ptr @__cxa_allocate_exception(i64 48) #25
+  %exception.i.i = call ptr @__cxa_allocate_exception(i64 48) #27
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i97
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #26
           to label %.noexc98 unwind label %lpad29
 
 .noexc98:                                         ; preds = %invoke.cont.i.i
@@ -5095,7 +5095,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i97
 lpad.i.i:                                         ; preds = %if.then.i.i97
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #25
+  call void @__cxa_free_exception(ptr %exception.i.i) #27
   br label %ehcleanup49
 
 invoke.cont45:                                    ; preds = %invoke.cont32
@@ -5130,7 +5130,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont47, %_ZS
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIN3ue29CharReachESaIS2_EEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %38) #23
+  call void @_ZdlPv(ptr noundef nonnull %38) #25
   br label %_ZSt8_DestroyISt6vectorIN3ue29CharReachESaIS2_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt6vectorIN3ue29CharReachESaIS2_EEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
@@ -5148,21 +5148,21 @@ invoke.cont.i:                                    ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i101, label %_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EED2Ev.exit, label %if.then.i.i.i102
 
 if.then.i.i.i102:                                 ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %39) #23
+  call void @_ZdlPv(ptr noundef nonnull %39) #25
   br label %_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EED2Ev.exit: ; preds = %if.then.i.i.i102, %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %reaches) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %reaches) #27
   %40 = load ptr, ptr %look_offsets, align 8
   %tobool.not.i.i.i104 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i104, label %_ZNSt6vectorIaSaIaEED2Ev.exit, label %if.then.i.i.i105
 
 if.then.i.i.i105:                                 ; preds = %_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %40) #23
+  call void @_ZdlPv(ptr noundef nonnull %40) #25
   br label %_ZNSt6vectorIaSaIaEED2Ev.exit
 
 _ZNSt6vectorIaSaIaEED2Ev.exit:                    ; preds = %if.then.i.i.i105, %_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %look_offsets) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %look_offsets) #27
   ret void
 
 lpad29:                                           ; preds = %invoke.cont45, %invoke.cont.i.i, %invoke.cont30, %for.cond.cleanup
@@ -5172,18 +5172,18 @@ lpad29:                                           ; preds = %invoke.cont45, %inv
 
 ehcleanup49:                                      ; preds = %lpad16.loopexit.loopexit, %lpad16.loopexit.loopexit.split-lp, %lpad29, %lpad.i.i, %lpad16.loopexit.split-lp, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit77
   %.pn.pn = phi { ptr, i32 } [ %11, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit77 ], [ %41, %lpad29 ], [ %33, %lpad.i.i ], [ %lpad.loopexit.split-lp, %lpad16.loopexit.split-lp ], [ %lpad.loopexit20, %lpad16.loopexit.loopexit ], [ %lpad.loopexit.split-lp21, %lpad16.loopexit.loopexit.split-lp ]
-  call void @_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %reaches) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %reaches) #25
+  call void @_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %reaches) #27
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %reaches) #27
   %42 = load ptr, ptr %look_offsets, align 8
   %tobool.not.i.i.i107 = icmp eq ptr %42, null
   br i1 %tobool.not.i.i.i107, label %_ZNSt6vectorIaSaIaEED2Ev.exit109, label %if.then.i.i.i108
 
 if.then.i.i.i108:                                 ; preds = %ehcleanup49
-  call void @_ZdlPv(ptr noundef nonnull %42) #23
+  call void @_ZdlPv(ptr noundef nonnull %42) #25
   br label %_ZNSt6vectorIaSaIaEED2Ev.exit109
 
 _ZNSt6vectorIaSaIaEED2Ev.exit109:                 ; preds = %if.then.i.i.i108, %ehcleanup49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %look_offsets) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %look_offsets) #27
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -5208,7 +5208,7 @@ for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_Destr
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIN3ue29CharReachESaIS2_EEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
   br label %_ZSt8_DestroyISt6vectorIN3ue29CharReachESaIS2_EEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt6vectorIN3ue29CharReachESaIS2_EEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i
@@ -5226,7 +5226,7 @@ invoke.cont:                                      ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #25
   br label %_ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EED2Ev.exit
 
 _ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EED2Ev.exit: ; preds = %if.then.i.i, %invoke.cont
@@ -5474,7 +5474,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrAnchoredDelayD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -5510,7 +5510,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode1E26ROSE_STRUCT_ANCHORED_DELAYNS_22RoseInstrAnchoredDelayEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode1E26ROSE_STRUCT_ANCHORED_DELAYNS_22RoseInstrAnchoredDelayEEE, ptr nonnull @_ZTIN3ue222RoseInstrAnchoredDelayE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode1E26ROSE_STRUCT_ANCHORED_DELAYNS_22RoseInstrAnchoredDelayEEE, ptr nonnull @_ZTIN3ue222RoseInstrAnchoredDelayE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -5527,12 +5527,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode1E26ROSE_STRUCT_ANCHORED_DELAYNS_22RoseInstrAnchoredDelayEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrAnchoredDelayE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrAnchoredDelayE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode1E26ROSE_STRUCT_ANCHORED_DELAYNS_22RoseInstrAnchoredDelayEEE, ptr nonnull @_ZTIN3ue222RoseInstrAnchoredDelayE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode1E26ROSE_STRUCT_ANCHORED_DELAYNS_22RoseInstrAnchoredDelayEEE, ptr nonnull @_ZTIN3ue222RoseInstrAnchoredDelayE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue222RoseInstrAnchoredDelay8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -5544,7 +5544,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrCheckLitEarlyD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -5575,7 +5575,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode2E27ROSE_STRUCT_CHECK_LIT_EARLYNS_22RoseInstrCheckLitEarlyEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode2E27ROSE_STRUCT_CHECK_LIT_EARLYNS_22RoseInstrCheckLitEarlyEEE, ptr nonnull @_ZTIN3ue222RoseInstrCheckLitEarlyE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode2E27ROSE_STRUCT_CHECK_LIT_EARLYNS_22RoseInstrCheckLitEarlyEEE, ptr nonnull @_ZTIN3ue222RoseInstrCheckLitEarlyE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -5592,12 +5592,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode2E27ROSE_STRUCT_CHECK_LIT_EARLYNS_22RoseInstrCheckLitEarlyEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrCheckLitEarlyE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrCheckLitEarlyE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode2E27ROSE_STRUCT_CHECK_LIT_EARLYNS_22RoseInstrCheckLitEarlyEEE, ptr nonnull @_ZTIN3ue222RoseInstrCheckLitEarlyE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode2E27ROSE_STRUCT_CHECK_LIT_EARLYNS_22RoseInstrCheckLitEarlyEEE, ptr nonnull @_ZTIN3ue222RoseInstrCheckLitEarlyE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue222RoseInstrCheckLitEarly8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -5609,7 +5609,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckGroupsD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -5645,12 +5645,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode3E24ROSE_STRUCT_CHECK_GROUPSNS_20RoseInstrCheckGroupsEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckGroupsE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckGroupsE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode3E24ROSE_STRUCT_CHECK_GROUPSNS_20RoseInstrCheckGroupsEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckGroupsE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode3E24ROSE_STRUCT_CHECK_GROUPSNS_20RoseInstrCheckGroupsEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckGroupsE, i64 0) #27
   %groups.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %groups.i, align 8
   %groups3.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -5666,7 +5666,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue221RoseInstrCheckOnlyEodD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -5691,7 +5691,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode4E26ROSE_STRUCT_CHECK_ONLY_EODNS_21RoseInstrCheckOnlyEodEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode4E26ROSE_STRUCT_CHECK_ONLY_EODNS_21RoseInstrCheckOnlyEodEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckOnlyEodE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode4E26ROSE_STRUCT_CHECK_ONLY_EODNS_21RoseInstrCheckOnlyEodEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckOnlyEodE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -5708,12 +5708,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode4E26ROSE_STRUCT_CHECK_ONLY_EODNS_21RoseInstrCheckOnlyEodEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrCheckOnlyEodE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrCheckOnlyEodE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode4E26ROSE_STRUCT_CHECK_ONLY_EODNS_21RoseInstrCheckOnlyEodEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckOnlyEodE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode4E26ROSE_STRUCT_CHECK_ONLY_EODNS_21RoseInstrCheckOnlyEodEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckOnlyEodE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue221RoseInstrCheckOnlyEod8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -5725,7 +5725,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckBoundsD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -5760,7 +5760,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode5E24ROSE_STRUCT_CHECK_BOUNDSNS_20RoseInstrCheckBoundsEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode5E24ROSE_STRUCT_CHECK_BOUNDSNS_20RoseInstrCheckBoundsEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckBoundsE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode5E24ROSE_STRUCT_CHECK_BOUNDSNS_20RoseInstrCheckBoundsEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckBoundsE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -5777,12 +5777,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode5E24ROSE_STRUCT_CHECK_BOUNDSNS_20RoseInstrCheckBoundsEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckBoundsE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckBoundsE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode5E24ROSE_STRUCT_CHECK_BOUNDSNS_20RoseInstrCheckBoundsEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckBoundsE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode5E24ROSE_STRUCT_CHECK_BOUNDSNS_20RoseInstrCheckBoundsEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckBoundsE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue220RoseInstrCheckBounds8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -5794,7 +5794,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckNotHandledD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -5825,7 +5825,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode6E29ROSE_STRUCT_CHECK_NOT_HANDLEDNS_24RoseInstrCheckNotHandledEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode6E29ROSE_STRUCT_CHECK_NOT_HANDLEDNS_24RoseInstrCheckNotHandledEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckNotHandledE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode6E29ROSE_STRUCT_CHECK_NOT_HANDLEDNS_24RoseInstrCheckNotHandledEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckNotHandledE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -5842,12 +5842,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode6E29ROSE_STRUCT_CHECK_NOT_HANDLEDNS_24RoseInstrCheckNotHandledEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckNotHandledE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckNotHandledE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode6E29ROSE_STRUCT_CHECK_NOT_HANDLEDNS_24RoseInstrCheckNotHandledEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckNotHandledE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode6E29ROSE_STRUCT_CHECK_NOT_HANDLEDNS_24RoseInstrCheckNotHandledEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckNotHandledE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue224RoseInstrCheckNotHandled8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -5859,7 +5859,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue230RoseInstrCheckSingleLookaroundD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -5912,7 +5912,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode7E35ROSE_STRUCT_CHECK_SINGLE_LOOKAROUNDNS_30RoseInstrCheckSingleLookaroundEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode7E35ROSE_STRUCT_CHECK_SINGLE_LOOKAROUNDNS_30RoseInstrCheckSingleLookaroundEEE, ptr nonnull @_ZTIN3ue230RoseInstrCheckSingleLookaroundE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode7E35ROSE_STRUCT_CHECK_SINGLE_LOOKAROUNDNS_30RoseInstrCheckSingleLookaroundEEE, ptr nonnull @_ZTIN3ue230RoseInstrCheckSingleLookaroundE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -5929,12 +5929,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode7E35ROSE_STRUCT_CHECK_SINGLE_LOOKAROUNDNS_30RoseInstrCheckSingleLookaroundEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue230RoseInstrCheckSingleLookaroundE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue230RoseInstrCheckSingleLookaroundE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode7E35ROSE_STRUCT_CHECK_SINGLE_LOOKAROUNDNS_30RoseInstrCheckSingleLookaroundEEE, ptr nonnull @_ZTIN3ue230RoseInstrCheckSingleLookaroundE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode7E35ROSE_STRUCT_CHECK_SINGLE_LOOKAROUNDNS_30RoseInstrCheckSingleLookaroundEEE, ptr nonnull @_ZTIN3ue230RoseInstrCheckSingleLookaroundE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue230RoseInstrCheckSingleLookaround8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -5953,7 +5953,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3ue29LookEntryESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   br label %_ZNSt6vectorIN3ue29LookEntryESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3ue29LookEntryESaIS1_EED2Ev.exit:   ; preds = %if.then.i.i.i, %entry
@@ -5970,11 +5970,11 @@ entry:
   br i1 %tobool.not.i.i.i.i, label %_ZN3ue224RoseInstrCheckLookaroundD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   br label %_ZN3ue224RoseInstrCheckLookaroundD2Ev.exit
 
 _ZN3ue224RoseInstrCheckLookaroundD2Ev.exit:       ; preds = %if.then.i.i.i.i, %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -6050,7 +6050,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode8E28ROSE_STRUCT_CHECK_LOOKAROUNDNS_24RoseInstrCheckLookaroundEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode8E28ROSE_STRUCT_CHECK_LOOKAROUNDNS_24RoseInstrCheckLookaroundEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckLookaroundE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode8E28ROSE_STRUCT_CHECK_LOOKAROUNDNS_24RoseInstrCheckLookaroundEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckLookaroundE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -6067,12 +6067,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode8E28ROSE_STRUCT_CHECK_LOOKAROUNDNS_24RoseInstrCheckLookaroundEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckLookaroundE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckLookaroundE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode8E28ROSE_STRUCT_CHECK_LOOKAROUNDNS_24RoseInstrCheckLookaroundEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckLookaroundE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode8E28ROSE_STRUCT_CHECK_LOOKAROUNDNS_24RoseInstrCheckLookaroundEEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckLookaroundE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue224RoseInstrCheckLookaround8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -6084,7 +6084,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue218RoseInstrCheckMaskD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -6130,7 +6130,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode9E22ROSE_STRUCT_CHECK_MASKNS_18RoseInstrCheckMaskEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode9E22ROSE_STRUCT_CHECK_MASKNS_18RoseInstrCheckMaskEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckMaskE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode9E22ROSE_STRUCT_CHECK_MASKNS_18RoseInstrCheckMaskEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckMaskE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -6147,12 +6147,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode9E22ROSE_STRUCT_CHECK_MASKNS_18RoseInstrCheckMaskEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrCheckMaskE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrCheckMaskE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode9E22ROSE_STRUCT_CHECK_MASKNS_18RoseInstrCheckMaskEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckMaskE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode9E22ROSE_STRUCT_CHECK_MASKNS_18RoseInstrCheckMaskEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckMaskE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue218RoseInstrCheckMask8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -6164,7 +6164,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckMask32D0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -6283,7 +6283,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode10E25ROSE_STRUCT_CHECK_MASK_32NS_20RoseInstrCheckMask32EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode10E25ROSE_STRUCT_CHECK_MASK_32NS_20RoseInstrCheckMask32EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask32E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode10E25ROSE_STRUCT_CHECK_MASK_32NS_20RoseInstrCheckMask32EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask32E, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -6300,12 +6300,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode10E25ROSE_STRUCT_CHECK_MASK_32NS_20RoseInstrCheckMask32EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask32E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask32E, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode10E25ROSE_STRUCT_CHECK_MASK_32NS_20RoseInstrCheckMask32EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask32E, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode10E25ROSE_STRUCT_CHECK_MASK_32NS_20RoseInstrCheckMask32EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask32E, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue220RoseInstrCheckMask328equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -6317,7 +6317,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckMask64D0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -6435,7 +6435,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode69E25ROSE_STRUCT_CHECK_MASK_64NS_20RoseInstrCheckMask64EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode69E25ROSE_STRUCT_CHECK_MASK_64NS_20RoseInstrCheckMask64EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask64E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode69E25ROSE_STRUCT_CHECK_MASK_64NS_20RoseInstrCheckMask64EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask64E, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -6452,12 +6452,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode69E25ROSE_STRUCT_CHECK_MASK_64NS_20RoseInstrCheckMask64EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask64E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask64E, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode69E25ROSE_STRUCT_CHECK_MASK_64NS_20RoseInstrCheckMask64EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask64E, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode69E25ROSE_STRUCT_CHECK_MASK_64NS_20RoseInstrCheckMask64EEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMask64E, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue220RoseInstrCheckMask648equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -6469,7 +6469,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue218RoseInstrCheckByteD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -6518,7 +6518,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode11E22ROSE_STRUCT_CHECK_BYTENS_18RoseInstrCheckByteEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode11E22ROSE_STRUCT_CHECK_BYTENS_18RoseInstrCheckByteEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckByteE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode11E22ROSE_STRUCT_CHECK_BYTENS_18RoseInstrCheckByteEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckByteE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -6535,12 +6535,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode11E22ROSE_STRUCT_CHECK_BYTENS_18RoseInstrCheckByteEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrCheckByteE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrCheckByteE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode11E22ROSE_STRUCT_CHECK_BYTENS_18RoseInstrCheckByteEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckByteE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode11E22ROSE_STRUCT_CHECK_BYTENS_18RoseInstrCheckByteEEE, ptr nonnull @_ZTIN3ue218RoseInstrCheckByteE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue218RoseInstrCheckByte8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -6552,7 +6552,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckShufti16x8D0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -6582,7 +6582,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode12E29ROSE_STRUCT_CHECK_SHUFTI_16x8NS_24RoseInstrCheckShufti16x8EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode12E29ROSE_STRUCT_CHECK_SHUFTI_16x8NS_24RoseInstrCheckShufti16x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti16x8E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode12E29ROSE_STRUCT_CHECK_SHUFTI_16x8NS_24RoseInstrCheckShufti16x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti16x8E, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -6599,12 +6599,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode12E29ROSE_STRUCT_CHECK_SHUFTI_16x8NS_24RoseInstrCheckShufti16x8EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti16x8E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti16x8E, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode12E29ROSE_STRUCT_CHECK_SHUFTI_16x8NS_24RoseInstrCheckShufti16x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti16x8E, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode12E29ROSE_STRUCT_CHECK_SHUFTI_16x8NS_24RoseInstrCheckShufti16x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti16x8E, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue224RoseInstrCheckShufti16x88equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -6616,7 +6616,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckShufti32x8D0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -6635,7 +6635,7 @@ entry:
   %bucket_select_mask = getelementptr inbounds i8, ptr %this, i64 40
   %neg_mask = getelementptr inbounds i8, ptr %this, i64 72
   %offset = getelementptr inbounds i8, ptr %this, i64 76
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i) #27
   %0 = load i8, ptr %hi_mask, align 8
   %conv.i.i.i.i.i.i.i = zext i8 %0 to i64
   %mul.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i.i.i, 814605021516865831
@@ -6736,7 +6736,7 @@ entry:
   store i64 %add.i.i.i.i.i, ptr %v.i, align 8
   call void @_ZN3ue211hash_detail10hash_buildISt5arrayIhLm16EEJRKS2_IhLm32EERKjRKiEEEvRmRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %v.i, ptr noundef nonnull align 1 dereferenceable(16) %lo_mask, ptr noundef nonnull align 1 dereferenceable(32) %bucket_select_mask, ptr noundef nonnull align 4 dereferenceable(4) %neg_mask, ptr noundef nonnull align 4 dereferenceable(4) %offset)
   %17 = load i64, ptr %v.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i) #27
   ret i64 %17
 }
 
@@ -6749,7 +6749,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode13E29ROSE_STRUCT_CHECK_SHUFTI_32x8NS_24RoseInstrCheckShufti32x8EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode13E29ROSE_STRUCT_CHECK_SHUFTI_32x8NS_24RoseInstrCheckShufti32x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti32x8E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode13E29ROSE_STRUCT_CHECK_SHUFTI_32x8NS_24RoseInstrCheckShufti32x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti32x8E, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -6766,12 +6766,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode13E29ROSE_STRUCT_CHECK_SHUFTI_32x8NS_24RoseInstrCheckShufti32x8EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti32x8E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti32x8E, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode13E29ROSE_STRUCT_CHECK_SHUFTI_32x8NS_24RoseInstrCheckShufti32x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti32x8E, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode13E29ROSE_STRUCT_CHECK_SHUFTI_32x8NS_24RoseInstrCheckShufti32x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti32x8E, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue224RoseInstrCheckShufti32x88equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -6783,7 +6783,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue225RoseInstrCheckShufti16x16D0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -6943,7 +6943,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode14E30ROSE_STRUCT_CHECK_SHUFTI_16x16NS_25RoseInstrCheckShufti16x16EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode14E30ROSE_STRUCT_CHECK_SHUFTI_16x16NS_25RoseInstrCheckShufti16x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti16x16E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode14E30ROSE_STRUCT_CHECK_SHUFTI_16x16NS_25RoseInstrCheckShufti16x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti16x16E, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -6960,12 +6960,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode14E30ROSE_STRUCT_CHECK_SHUFTI_16x16NS_25RoseInstrCheckShufti16x16EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti16x16E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti16x16E, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode14E30ROSE_STRUCT_CHECK_SHUFTI_16x16NS_25RoseInstrCheckShufti16x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti16x16E, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode14E30ROSE_STRUCT_CHECK_SHUFTI_16x16NS_25RoseInstrCheckShufti16x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti16x16E, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue225RoseInstrCheckShufti16x168equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -6977,7 +6977,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue225RoseInstrCheckShufti32x16D0Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -7178,7 +7178,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode15E30ROSE_STRUCT_CHECK_SHUFTI_32x16NS_25RoseInstrCheckShufti32x16EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode15E30ROSE_STRUCT_CHECK_SHUFTI_32x16NS_25RoseInstrCheckShufti32x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti32x16E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode15E30ROSE_STRUCT_CHECK_SHUFTI_32x16NS_25RoseInstrCheckShufti32x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti32x16E, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -7195,12 +7195,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode15E30ROSE_STRUCT_CHECK_SHUFTI_32x16NS_25RoseInstrCheckShufti32x16EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti32x16E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti32x16E, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode15E30ROSE_STRUCT_CHECK_SHUFTI_32x16NS_25RoseInstrCheckShufti32x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti32x16E, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode15E30ROSE_STRUCT_CHECK_SHUFTI_32x16NS_25RoseInstrCheckShufti32x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti32x16E, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue225RoseInstrCheckShufti32x168equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -7212,7 +7212,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue224RoseInstrCheckShufti64x8D0Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -7371,7 +7371,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode67E29ROSE_STRUCT_CHECK_SHUFTI_64x8NS_24RoseInstrCheckShufti64x8EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode67E29ROSE_STRUCT_CHECK_SHUFTI_64x8NS_24RoseInstrCheckShufti64x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti64x8E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode67E29ROSE_STRUCT_CHECK_SHUFTI_64x8NS_24RoseInstrCheckShufti64x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti64x8E, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 216
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -7388,12 +7388,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode67E29ROSE_STRUCT_CHECK_SHUFTI_64x8NS_24RoseInstrCheckShufti64x8EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti64x8E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti64x8E, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode67E29ROSE_STRUCT_CHECK_SHUFTI_64x8NS_24RoseInstrCheckShufti64x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti64x8E, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode67E29ROSE_STRUCT_CHECK_SHUFTI_64x8NS_24RoseInstrCheckShufti64x8EEE, ptr nonnull @_ZTIN3ue224RoseInstrCheckShufti64x8E, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue224RoseInstrCheckShufti64x88equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -7405,7 +7405,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue225RoseInstrCheckShufti64x16D0Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -7439,7 +7439,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode68E30ROSE_STRUCT_CHECK_SHUFTI_64x16NS_25RoseInstrCheckShufti64x16EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode68E30ROSE_STRUCT_CHECK_SHUFTI_64x16NS_25RoseInstrCheckShufti64x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti64x16E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode68E30ROSE_STRUCT_CHECK_SHUFTI_64x16NS_25RoseInstrCheckShufti64x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti64x16E, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 408
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -7456,12 +7456,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode68E30ROSE_STRUCT_CHECK_SHUFTI_64x16NS_25RoseInstrCheckShufti64x16EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti64x16E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti64x16E, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode68E30ROSE_STRUCT_CHECK_SHUFTI_64x16NS_25RoseInstrCheckShufti64x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti64x16E, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode68E30ROSE_STRUCT_CHECK_SHUFTI_64x16NS_25RoseInstrCheckShufti64x16EEE, ptr nonnull @_ZTIN3ue225RoseInstrCheckShufti64x16E, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue225RoseInstrCheckShufti64x168equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(416) %1, ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -7473,7 +7473,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue219RoseInstrCheckInfixD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -7516,7 +7516,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode16E23ROSE_STRUCT_CHECK_INFIXNS_19RoseInstrCheckInfixEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode16E23ROSE_STRUCT_CHECK_INFIXNS_19RoseInstrCheckInfixEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckInfixE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode16E23ROSE_STRUCT_CHECK_INFIXNS_19RoseInstrCheckInfixEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckInfixE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -7533,12 +7533,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode16E23ROSE_STRUCT_CHECK_INFIXNS_19RoseInstrCheckInfixEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrCheckInfixE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrCheckInfixE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode16E23ROSE_STRUCT_CHECK_INFIXNS_19RoseInstrCheckInfixEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckInfixE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode16E23ROSE_STRUCT_CHECK_INFIXNS_19RoseInstrCheckInfixEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckInfixE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue219RoseInstrCheckInfix8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -7550,7 +7550,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue220RoseInstrCheckPrefixD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -7593,7 +7593,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode17E24ROSE_STRUCT_CHECK_PREFIXNS_20RoseInstrCheckPrefixEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode17E24ROSE_STRUCT_CHECK_PREFIXNS_20RoseInstrCheckPrefixEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckPrefixE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode17E24ROSE_STRUCT_CHECK_PREFIXNS_20RoseInstrCheckPrefixEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckPrefixE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -7610,12 +7610,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode17E24ROSE_STRUCT_CHECK_PREFIXNS_20RoseInstrCheckPrefixEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckPrefixE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckPrefixE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode17E24ROSE_STRUCT_CHECK_PREFIXNS_20RoseInstrCheckPrefixEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckPrefixE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode17E24ROSE_STRUCT_CHECK_PREFIXNS_20RoseInstrCheckPrefixEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckPrefixE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue220RoseInstrCheckPrefix8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -7627,7 +7627,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue220RoseInstrPushDelayedD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -7670,12 +7670,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode18E24ROSE_STRUCT_PUSH_DELAYEDNS_20RoseInstrPushDelayedEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrPushDelayedE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrPushDelayedE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode18E24ROSE_STRUCT_PUSH_DELAYEDNS_20RoseInstrPushDelayedEEE, ptr nonnull @_ZTIN3ue220RoseInstrPushDelayedE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode18E24ROSE_STRUCT_PUSH_DELAYEDNS_20RoseInstrPushDelayedEEE, ptr nonnull @_ZTIN3ue220RoseInstrPushDelayedE, i64 0) #27
   %delay.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr %delay.i, align 8
   %delay3.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -7697,7 +7697,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue218RoseInstrSomAdjustD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -7734,12 +7734,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode22E22ROSE_STRUCT_SOM_ADJUSTNS_18RoseInstrSomAdjustEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrSomAdjustE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrSomAdjustE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode22E22ROSE_STRUCT_SOM_ADJUSTNS_18RoseInstrSomAdjustEEE, ptr nonnull @_ZTIN3ue218RoseInstrSomAdjustE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode22E22ROSE_STRUCT_SOM_ADJUSTNS_18RoseInstrSomAdjustEEE, ptr nonnull @_ZTIN3ue218RoseInstrSomAdjustE, i64 0) #27
   %distance.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %distance.i, align 8
   %distance3.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -7755,7 +7755,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue219RoseInstrSomLeftfixD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -7798,12 +7798,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode23E23ROSE_STRUCT_SOM_LEFTFIXNS_19RoseInstrSomLeftfixEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrSomLeftfixE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrSomLeftfixE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode23E23ROSE_STRUCT_SOM_LEFTFIXNS_19RoseInstrSomLeftfixEEE, ptr nonnull @_ZTIN3ue219RoseInstrSomLeftfixE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode23E23ROSE_STRUCT_SOM_LEFTFIXNS_19RoseInstrSomLeftfixEEE, ptr nonnull @_ZTIN3ue219RoseInstrSomLeftfixE, i64 0) #27
   %queue.i = getelementptr inbounds i8, ptr %1, i64 8
   %queue3.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load <2 x i32>, ptr %queue.i, align 8
@@ -7822,7 +7822,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrSomFromReportD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -7865,12 +7865,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode24E27ROSE_STRUCT_SOM_FROM_REPORTNS_22RoseInstrSomFromReportEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrSomFromReportE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrSomFromReportE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode24E27ROSE_STRUCT_SOM_FROM_REPORTNS_22RoseInstrSomFromReportEEE, ptr nonnull @_ZTIN3ue222RoseInstrSomFromReportE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode24E27ROSE_STRUCT_SOM_FROM_REPORTNS_22RoseInstrSomFromReportEEE, ptr nonnull @_ZTIN3ue222RoseInstrSomFromReportE, i64 0) #27
   %som.i = getelementptr inbounds i8, ptr %1, i64 8
   %som3.i = getelementptr inbounds i8, ptr %0, i64 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %som.i, ptr noundef nonnull dereferenceable(16) %som3.i, i64 16)
@@ -7885,7 +7885,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue221RoseInstrTriggerInfixD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -7934,12 +7934,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode26E25ROSE_STRUCT_TRIGGER_INFIXNS_21RoseInstrTriggerInfixEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrTriggerInfixE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrTriggerInfixE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode26E25ROSE_STRUCT_TRIGGER_INFIXNS_21RoseInstrTriggerInfixEEE, ptr nonnull @_ZTIN3ue221RoseInstrTriggerInfixE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode26E25ROSE_STRUCT_TRIGGER_INFIXNS_21RoseInstrTriggerInfixEEE, ptr nonnull @_ZTIN3ue221RoseInstrTriggerInfixE, i64 0) #27
   %cancel.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr %cancel.i, align 8
   %cancel3.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -7971,7 +7971,7 @@ cleanup:                                          ; preds = %land.rhs.i, %land.l
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrTriggerSuffixD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8014,12 +8014,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode27E26ROSE_STRUCT_TRIGGER_SUFFIXNS_22RoseInstrTriggerSuffixEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrTriggerSuffixE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrTriggerSuffixE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode27E26ROSE_STRUCT_TRIGGER_SUFFIXNS_22RoseInstrTriggerSuffixEEE, ptr nonnull @_ZTIN3ue222RoseInstrTriggerSuffixE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode27E26ROSE_STRUCT_TRIGGER_SUFFIXNS_22RoseInstrTriggerSuffixEEE, ptr nonnull @_ZTIN3ue222RoseInstrTriggerSuffixE, i64 0) #27
   %queue.i = getelementptr inbounds i8, ptr %1, i64 8
   %queue3.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load <2 x i32>, ptr %queue.i, align 8
@@ -8038,7 +8038,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue215RoseInstrDedupeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8081,7 +8081,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode28E18ROSE_STRUCT_DEDUPENS_15RoseInstrDedupeEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode28E18ROSE_STRUCT_DEDUPENS_15RoseInstrDedupeEEE, ptr nonnull @_ZTIN3ue215RoseInstrDedupeE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode28E18ROSE_STRUCT_DEDUPENS_15RoseInstrDedupeEEE, ptr nonnull @_ZTIN3ue215RoseInstrDedupeE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -8098,12 +8098,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode28E18ROSE_STRUCT_DEDUPENS_15RoseInstrDedupeEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue215RoseInstrDedupeE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue215RoseInstrDedupeE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode28E18ROSE_STRUCT_DEDUPENS_15RoseInstrDedupeEEE, ptr nonnull @_ZTIN3ue215RoseInstrDedupeE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode28E18ROSE_STRUCT_DEDUPENS_15RoseInstrDedupeEEE, ptr nonnull @_ZTIN3ue215RoseInstrDedupeE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue215RoseInstrDedupe8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -8115,7 +8115,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue218RoseInstrDedupeSomD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8158,7 +8158,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode29E22ROSE_STRUCT_DEDUPE_SOMNS_18RoseInstrDedupeSomEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode29E22ROSE_STRUCT_DEDUPE_SOMNS_18RoseInstrDedupeSomEEE, ptr nonnull @_ZTIN3ue218RoseInstrDedupeSomE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode29E22ROSE_STRUCT_DEDUPE_SOMNS_18RoseInstrDedupeSomEEE, ptr nonnull @_ZTIN3ue218RoseInstrDedupeSomE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -8175,12 +8175,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode29E22ROSE_STRUCT_DEDUPE_SOMNS_18RoseInstrDedupeSomEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrDedupeSomE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrDedupeSomE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode29E22ROSE_STRUCT_DEDUPE_SOMNS_18RoseInstrDedupeSomEEE, ptr nonnull @_ZTIN3ue218RoseInstrDedupeSomE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode29E22ROSE_STRUCT_DEDUPE_SOMNS_18RoseInstrDedupeSomEEE, ptr nonnull @_ZTIN3ue218RoseInstrDedupeSomE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue218RoseInstrDedupeSom8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -8192,7 +8192,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue220RoseInstrReportChainD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8234,12 +8234,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode30E24ROSE_STRUCT_REPORT_CHAINNS_20RoseInstrReportChainEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrReportChainE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrReportChainE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode30E24ROSE_STRUCT_REPORT_CHAINNS_20RoseInstrReportChainEEE, ptr nonnull @_ZTIN3ue220RoseInstrReportChainE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode30E24ROSE_STRUCT_REPORT_CHAINNS_20RoseInstrReportChainEEE, ptr nonnull @_ZTIN3ue220RoseInstrReportChainE, i64 0) #27
   %event.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %event.i, align 8
   %event3.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -8261,7 +8261,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue221RoseInstrReportSomIntD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8304,12 +8304,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode31E26ROSE_STRUCT_REPORT_SOM_INTNS_21RoseInstrReportSomIntEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrReportSomIntE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrReportSomIntE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode31E26ROSE_STRUCT_REPORT_SOM_INTNS_21RoseInstrReportSomIntEEE, ptr nonnull @_ZTIN3ue221RoseInstrReportSomIntE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode31E26ROSE_STRUCT_REPORT_SOM_INTNS_21RoseInstrReportSomIntEEE, ptr nonnull @_ZTIN3ue221RoseInstrReportSomIntE, i64 0) #27
   %som.i = getelementptr inbounds i8, ptr %1, i64 8
   %som3.i = getelementptr inbounds i8, ptr %0, i64 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %som.i, ptr noundef nonnull dereferenceable(16) %som3.i, i64 16)
@@ -8324,7 +8324,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue223RoseInstrReportSomAwareD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8367,12 +8367,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode32E28ROSE_STRUCT_REPORT_SOM_AWARENS_23RoseInstrReportSomAwareEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrReportSomAwareE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrReportSomAwareE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode32E28ROSE_STRUCT_REPORT_SOM_AWARENS_23RoseInstrReportSomAwareEEE, ptr nonnull @_ZTIN3ue223RoseInstrReportSomAwareE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode32E28ROSE_STRUCT_REPORT_SOM_AWARENS_23RoseInstrReportSomAwareEEE, ptr nonnull @_ZTIN3ue223RoseInstrReportSomAwareE, i64 0) #27
   %som.i = getelementptr inbounds i8, ptr %1, i64 8
   %som3.i = getelementptr inbounds i8, ptr %0, i64 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %som.i, ptr noundef nonnull dereferenceable(16) %som3.i, i64 16)
@@ -8387,7 +8387,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue215RoseInstrReportD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8430,12 +8430,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode33E18ROSE_STRUCT_REPORTNS_15RoseInstrReportEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue215RoseInstrReportE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue215RoseInstrReportE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode33E18ROSE_STRUCT_REPORTNS_15RoseInstrReportEEE, ptr nonnull @_ZTIN3ue215RoseInstrReportE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode33E18ROSE_STRUCT_REPORTNS_15RoseInstrReportEEE, ptr nonnull @_ZTIN3ue215RoseInstrReportE, i64 0) #27
   %onmatch.i = getelementptr inbounds i8, ptr %1, i64 8
   %onmatch3.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load <2 x i32>, ptr %onmatch.i, align 8
@@ -8454,7 +8454,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrReportExhaustD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8503,12 +8503,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode34E26ROSE_STRUCT_REPORT_EXHAUSTNS_22RoseInstrReportExhaustEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrReportExhaustE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrReportExhaustE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode34E26ROSE_STRUCT_REPORT_EXHAUSTNS_22RoseInstrReportExhaustEEE, ptr nonnull @_ZTIN3ue222RoseInstrReportExhaustE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode34E26ROSE_STRUCT_REPORT_EXHAUSTNS_22RoseInstrReportExhaustEEE, ptr nonnull @_ZTIN3ue222RoseInstrReportExhaustE, i64 0) #27
   %onmatch.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %onmatch.i, align 8
   %onmatch3.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -8540,7 +8540,7 @@ cleanup:                                          ; preds = %land.rhs.i, %land.l
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue218RoseInstrReportSomD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8583,12 +8583,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode35E22ROSE_STRUCT_REPORT_SOMNS_18RoseInstrReportSomEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrReportSomE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrReportSomE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode35E22ROSE_STRUCT_REPORT_SOMNS_18RoseInstrReportSomEEE, ptr nonnull @_ZTIN3ue218RoseInstrReportSomE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode35E22ROSE_STRUCT_REPORT_SOMNS_18RoseInstrReportSomEEE, ptr nonnull @_ZTIN3ue218RoseInstrReportSomE, i64 0) #27
   %onmatch.i = getelementptr inbounds i8, ptr %1, i64 8
   %onmatch3.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load <2 x i32>, ptr %onmatch.i, align 8
@@ -8607,7 +8607,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue225RoseInstrReportSomExhaustD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8656,12 +8656,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode36E30ROSE_STRUCT_REPORT_SOM_EXHAUSTNS_25RoseInstrReportSomExhaustEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrReportSomExhaustE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrReportSomExhaustE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode36E30ROSE_STRUCT_REPORT_SOM_EXHAUSTNS_25RoseInstrReportSomExhaustEEE, ptr nonnull @_ZTIN3ue225RoseInstrReportSomExhaustE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode36E30ROSE_STRUCT_REPORT_SOM_EXHAUSTNS_25RoseInstrReportSomExhaustEEE, ptr nonnull @_ZTIN3ue225RoseInstrReportSomExhaustE, i64 0) #27
   %onmatch.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %onmatch.i, align 8
   %onmatch3.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -8693,7 +8693,7 @@ cleanup:                                          ; preds = %land.rhs.i, %land.l
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue224RoseInstrDedupeAndReportD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8742,7 +8742,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode37E29ROSE_STRUCT_DEDUPE_AND_REPORTNS_24RoseInstrDedupeAndReportEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode37E29ROSE_STRUCT_DEDUPE_AND_REPORTNS_24RoseInstrDedupeAndReportEEE, ptr nonnull @_ZTIN3ue224RoseInstrDedupeAndReportE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode37E29ROSE_STRUCT_DEDUPE_AND_REPORTNS_24RoseInstrDedupeAndReportEEE, ptr nonnull @_ZTIN3ue224RoseInstrDedupeAndReportE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -8759,12 +8759,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode37E29ROSE_STRUCT_DEDUPE_AND_REPORTNS_24RoseInstrDedupeAndReportEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrDedupeAndReportE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrDedupeAndReportE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode37E29ROSE_STRUCT_DEDUPE_AND_REPORTNS_24RoseInstrDedupeAndReportEEE, ptr nonnull @_ZTIN3ue224RoseInstrDedupeAndReportE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode37E29ROSE_STRUCT_DEDUPE_AND_REPORTNS_24RoseInstrDedupeAndReportEEE, ptr nonnull @_ZTIN3ue224RoseInstrDedupeAndReportE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue224RoseInstrDedupeAndReport8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -8776,7 +8776,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue220RoseInstrFinalReportD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8819,12 +8819,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode38E24ROSE_STRUCT_FINAL_REPORTNS_20RoseInstrFinalReportEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrFinalReportE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrFinalReportE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode38E24ROSE_STRUCT_FINAL_REPORTNS_20RoseInstrFinalReportEEE, ptr nonnull @_ZTIN3ue220RoseInstrFinalReportE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode38E24ROSE_STRUCT_FINAL_REPORTNS_20RoseInstrFinalReportEEE, ptr nonnull @_ZTIN3ue220RoseInstrFinalReportE, i64 0) #27
   %onmatch.i = getelementptr inbounds i8, ptr %1, i64 8
   %onmatch3.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load <2 x i32>, ptr %onmatch.i, align 8
@@ -8843,7 +8843,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue223RoseInstrCheckExhaustedD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8874,7 +8874,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode39E27ROSE_STRUCT_CHECK_EXHAUSTEDNS_23RoseInstrCheckExhaustedEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode39E27ROSE_STRUCT_CHECK_EXHAUSTEDNS_23RoseInstrCheckExhaustedEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckExhaustedE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode39E27ROSE_STRUCT_CHECK_EXHAUSTEDNS_23RoseInstrCheckExhaustedEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckExhaustedE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -8891,12 +8891,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode39E27ROSE_STRUCT_CHECK_EXHAUSTEDNS_23RoseInstrCheckExhaustedEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrCheckExhaustedE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrCheckExhaustedE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode39E27ROSE_STRUCT_CHECK_EXHAUSTEDNS_23RoseInstrCheckExhaustedEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckExhaustedE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode39E27ROSE_STRUCT_CHECK_EXHAUSTEDNS_23RoseInstrCheckExhaustedEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckExhaustedE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue223RoseInstrCheckExhausted8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -8908,7 +8908,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue223RoseInstrCheckMinLengthD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8944,7 +8944,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode40E28ROSE_STRUCT_CHECK_MIN_LENGTHNS_23RoseInstrCheckMinLengthEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode40E28ROSE_STRUCT_CHECK_MIN_LENGTHNS_23RoseInstrCheckMinLengthEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckMinLengthE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode40E28ROSE_STRUCT_CHECK_MIN_LENGTHNS_23RoseInstrCheckMinLengthEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckMinLengthE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -8961,12 +8961,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode40E28ROSE_STRUCT_CHECK_MIN_LENGTHNS_23RoseInstrCheckMinLengthEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrCheckMinLengthE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrCheckMinLengthE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode40E28ROSE_STRUCT_CHECK_MIN_LENGTHNS_23RoseInstrCheckMinLengthEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckMinLengthE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode40E28ROSE_STRUCT_CHECK_MIN_LENGTHNS_23RoseInstrCheckMinLengthEEE, ptr nonnull @_ZTIN3ue223RoseInstrCheckMinLengthE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue223RoseInstrCheckMinLength8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -8978,7 +8978,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue217RoseInstrSetStateD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -9015,12 +9015,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode41E21ROSE_STRUCT_SET_STATENS_17RoseInstrSetStateEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue217RoseInstrSetStateE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue217RoseInstrSetStateE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode41E21ROSE_STRUCT_SET_STATENS_17RoseInstrSetStateEEE, ptr nonnull @_ZTIN3ue217RoseInstrSetStateE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode41E21ROSE_STRUCT_SET_STATENS_17RoseInstrSetStateEEE, ptr nonnull @_ZTIN3ue217RoseInstrSetStateE, i64 0) #27
   %index.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %index.i, align 8
   %index3.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -9036,7 +9036,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue218RoseInstrSetGroupsD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -9072,12 +9072,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode42E22ROSE_STRUCT_SET_GROUPSNS_18RoseInstrSetGroupsEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrSetGroupsE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue218RoseInstrSetGroupsE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode42E22ROSE_STRUCT_SET_GROUPSNS_18RoseInstrSetGroupsEEE, ptr nonnull @_ZTIN3ue218RoseInstrSetGroupsE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode42E22ROSE_STRUCT_SET_GROUPSNS_18RoseInstrSetGroupsEEE, ptr nonnull @_ZTIN3ue218RoseInstrSetGroupsE, i64 0) #27
   %groups.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %groups.i, align 8
   %groups3.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -9093,7 +9093,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue221RoseInstrSquashGroupsD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -9129,12 +9129,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode43E25ROSE_STRUCT_SQUASH_GROUPSNS_21RoseInstrSquashGroupsEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrSquashGroupsE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrSquashGroupsE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode43E25ROSE_STRUCT_SQUASH_GROUPSNS_21RoseInstrSquashGroupsEEE, ptr nonnull @_ZTIN3ue221RoseInstrSquashGroupsE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode43E25ROSE_STRUCT_SQUASH_GROUPSNS_21RoseInstrSquashGroupsEEE, ptr nonnull @_ZTIN3ue221RoseInstrSquashGroupsE, i64 0) #27
   %groups.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %groups.i, align 8
   %groups3.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -9150,7 +9150,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue219RoseInstrCheckStateD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -9181,7 +9181,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode44E23ROSE_STRUCT_CHECK_STATENS_19RoseInstrCheckStateEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode44E23ROSE_STRUCT_CHECK_STATENS_19RoseInstrCheckStateEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckStateE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode44E23ROSE_STRUCT_CHECK_STATENS_19RoseInstrCheckStateEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckStateE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -9198,12 +9198,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode44E23ROSE_STRUCT_CHECK_STATENS_19RoseInstrCheckStateEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrCheckStateE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrCheckStateE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode44E23ROSE_STRUCT_CHECK_STATENS_19RoseInstrCheckStateEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckStateE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode44E23ROSE_STRUCT_CHECK_STATENS_19RoseInstrCheckStateEEE, ptr nonnull @_ZTIN3ue219RoseInstrCheckStateE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue219RoseInstrCheckState8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -9222,7 +9222,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIjPKN3ue215RoseInstructionEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   br label %_ZNSt6vectorISt4pairIjPKN3ue215RoseInstructionEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIjPKN3ue215RoseInstructionEESaIS5_EED2Ev.exit: ; preds = %if.then.i.i.i, %entry
@@ -9239,11 +9239,11 @@ entry:
   br i1 %tobool.not.i.i.i.i, label %_ZN3ue224RoseInstrSparseIterBeginD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   br label %_ZN3ue224RoseInstrSparseIterBeginD2Ev.exit
 
 _ZN3ue224RoseInstrSparseIterBeginD2Ev.exit:       ; preds = %if.then.i.i.i.i, %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -9335,12 +9335,12 @@ if.end10:                                         ; preds = %if.then8, %for.body
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode45E29ROSE_STRUCT_SPARSE_ITER_BEGINNS_24RoseInstrSparseIterBeginEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrSparseIterBeginE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue224RoseInstrSparseIterBeginE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode45E29ROSE_STRUCT_SPARSE_ITER_BEGINNS_24RoseInstrSparseIterBeginEEE, ptr nonnull @_ZTIN3ue224RoseInstrSparseIterBeginE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode45E29ROSE_STRUCT_SPARSE_ITER_BEGINNS_24RoseInstrSparseIterBeginEEE, ptr nonnull @_ZTIN3ue224RoseInstrSparseIterBeginE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue224RoseInstrSparseIterBegin8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(60) %1, ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -9352,7 +9352,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue223RoseInstrSparseIterNextD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -9409,12 +9409,12 @@ if.end6:                                          ; preds = %if.then4, %if.end
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode46E28ROSE_STRUCT_SPARSE_ITER_NEXTNS_23RoseInstrSparseIterNextEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrSparseIterNextE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrSparseIterNextE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode46E28ROSE_STRUCT_SPARSE_ITER_NEXTNS_23RoseInstrSparseIterNextEEE, ptr nonnull @_ZTIN3ue223RoseInstrSparseIterNextE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode46E28ROSE_STRUCT_SPARSE_ITER_NEXTNS_23RoseInstrSparseIterNextEEE, ptr nonnull @_ZTIN3ue223RoseInstrSparseIterNextE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue223RoseInstrSparseIterNext8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -9433,7 +9433,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %if.then.i.i.i, %entry
@@ -9450,11 +9450,11 @@ entry:
   br i1 %tobool.not.i.i.i.i, label %_ZN3ue222RoseInstrSparseIterAnyD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   br label %_ZN3ue222RoseInstrSparseIterAnyD2Ev.exit
 
 _ZN3ue222RoseInstrSparseIterAnyD2Ev.exit:         ; preds = %if.then.i.i.i.i, %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -9512,7 +9512,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode47E27ROSE_STRUCT_SPARSE_ITER_ANYNS_22RoseInstrSparseIterAnyEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode47E27ROSE_STRUCT_SPARSE_ITER_ANYNS_22RoseInstrSparseIterAnyEEE, ptr nonnull @_ZTIN3ue222RoseInstrSparseIterAnyE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode47E27ROSE_STRUCT_SPARSE_ITER_ANYNS_22RoseInstrSparseIterAnyEEE, ptr nonnull @_ZTIN3ue222RoseInstrSparseIterAnyE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -9529,12 +9529,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode47E27ROSE_STRUCT_SPARSE_ITER_ANYNS_22RoseInstrSparseIterAnyEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrSparseIterAnyE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrSparseIterAnyE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode47E27ROSE_STRUCT_SPARSE_ITER_ANYNS_22RoseInstrSparseIterAnyEEE, ptr nonnull @_ZTIN3ue222RoseInstrSparseIterAnyE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode47E27ROSE_STRUCT_SPARSE_ITER_ANYNS_22RoseInstrSparseIterAnyEEE, ptr nonnull @_ZTIN3ue222RoseInstrSparseIterAnyE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue222RoseInstrSparseIterAny8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -9546,7 +9546,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue219RoseInstrEnginesEodD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -9583,12 +9583,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode48E23ROSE_STRUCT_ENGINES_EODNS_19RoseInstrEnginesEodEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrEnginesEodE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrEnginesEodE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode48E23ROSE_STRUCT_ENGINES_EODNS_19RoseInstrEnginesEodEEE, ptr nonnull @_ZTIN3ue219RoseInstrEnginesEodE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode48E23ROSE_STRUCT_ENGINES_EODNS_19RoseInstrEnginesEodEEE, ptr nonnull @_ZTIN3ue219RoseInstrEnginesEodE, i64 0) #27
   %iter_offset.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %iter_offset.i, align 8
   %iter_offset3.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -9619,7 +9619,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef %0) #25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -9644,11 +9644,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN3ue221RoseInstrCheckLongLitD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef %0) #25
   br label %_ZN3ue221RoseInstrCheckLongLitD2Ev.exit
 
 _ZN3ue221RoseInstrCheckLongLitD2Ev.exit:          ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -9672,7 +9672,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #22
+  tail call void @__clang_call_terminate(ptr %3) #24
   unreachable
 
 _ZN3ue28hash_allIJRK19RoseInstructionCodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEmDpOT_.exit: ; preds = %entry
@@ -9691,7 +9691,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode51E26ROSE_STRUCT_CHECK_LONG_LITNS_21RoseInstrCheckLongLitEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode51E26ROSE_STRUCT_CHECK_LONG_LITNS_21RoseInstrCheckLongLitEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckLongLitE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode51E26ROSE_STRUCT_CHECK_LONG_LITNS_21RoseInstrCheckLongLitEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckLongLitE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -9708,12 +9708,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode51E26ROSE_STRUCT_CHECK_LONG_LITNS_21RoseInstrCheckLongLitEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrCheckLongLitE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrCheckLongLitE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode51E26ROSE_STRUCT_CHECK_LONG_LITNS_21RoseInstrCheckLongLitEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckLongLitE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode51E26ROSE_STRUCT_CHECK_LONG_LITNS_21RoseInstrCheckLongLitEEE, ptr nonnull @_ZTIN3ue221RoseInstrCheckLongLitE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue221RoseInstrCheckLongLit8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -9740,7 +9740,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef %0) #25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -9765,11 +9765,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN3ue227RoseInstrCheckLongLitNocaseD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef %0) #25
   br label %_ZN3ue227RoseInstrCheckLongLitNocaseD2Ev.exit
 
 _ZN3ue227RoseInstrCheckLongLitNocaseD2Ev.exit:    ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -9793,7 +9793,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #22
+  tail call void @__clang_call_terminate(ptr %3) #24
   unreachable
 
 _ZN3ue28hash_allIJRK19RoseInstructionCodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEmDpOT_.exit: ; preds = %entry
@@ -9812,7 +9812,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode52E33ROSE_STRUCT_CHECK_LONG_LIT_NOCASENS_27RoseInstrCheckLongLitNocaseEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode52E33ROSE_STRUCT_CHECK_LONG_LIT_NOCASENS_27RoseInstrCheckLongLitNocaseEEE, ptr nonnull @_ZTIN3ue227RoseInstrCheckLongLitNocaseE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode52E33ROSE_STRUCT_CHECK_LONG_LIT_NOCASENS_27RoseInstrCheckLongLitNocaseEEE, ptr nonnull @_ZTIN3ue227RoseInstrCheckLongLitNocaseE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -9829,12 +9829,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode52E33ROSE_STRUCT_CHECK_LONG_LIT_NOCASENS_27RoseInstrCheckLongLitNocaseEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue227RoseInstrCheckLongLitNocaseE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue227RoseInstrCheckLongLitNocaseE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode52E33ROSE_STRUCT_CHECK_LONG_LIT_NOCASENS_27RoseInstrCheckLongLitNocaseEEE, ptr nonnull @_ZTIN3ue227RoseInstrCheckLongLitNocaseE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode52E33ROSE_STRUCT_CHECK_LONG_LIT_NOCASENS_27RoseInstrCheckLongLitNocaseEEE, ptr nonnull @_ZTIN3ue227RoseInstrCheckLongLitNocaseE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue227RoseInstrCheckLongLitNocase8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -9861,7 +9861,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef %0) #25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -9886,11 +9886,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN3ue220RoseInstrCheckMedLitD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef %0) #25
   br label %_ZN3ue220RoseInstrCheckMedLitD2Ev.exit
 
 _ZN3ue220RoseInstrCheckMedLitD2Ev.exit:           ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -9914,7 +9914,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #22
+  tail call void @__clang_call_terminate(ptr %3) #24
   unreachable
 
 _ZN3ue28hash_allIJRK19RoseInstructionCodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEmDpOT_.exit: ; preds = %entry
@@ -9933,7 +9933,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode53E25ROSE_STRUCT_CHECK_MED_LITNS_20RoseInstrCheckMedLitEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode53E25ROSE_STRUCT_CHECK_MED_LITNS_20RoseInstrCheckMedLitEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMedLitE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode53E25ROSE_STRUCT_CHECK_MED_LITNS_20RoseInstrCheckMedLitEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMedLitE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -9950,12 +9950,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode53E25ROSE_STRUCT_CHECK_MED_LITNS_20RoseInstrCheckMedLitEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMedLitE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMedLitE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode53E25ROSE_STRUCT_CHECK_MED_LITNS_20RoseInstrCheckMedLitEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMedLitE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode53E25ROSE_STRUCT_CHECK_MED_LITNS_20RoseInstrCheckMedLitEEE, ptr nonnull @_ZTIN3ue220RoseInstrCheckMedLitE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue220RoseInstrCheckMedLit8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -9982,7 +9982,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef %0) #25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -10007,11 +10007,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN3ue226RoseInstrCheckMedLitNocaseD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef %0) #25
   br label %_ZN3ue226RoseInstrCheckMedLitNocaseD2Ev.exit
 
 _ZN3ue226RoseInstrCheckMedLitNocaseD2Ev.exit:     ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -10035,7 +10035,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #22
+  tail call void @__clang_call_terminate(ptr %3) #24
   unreachable
 
 _ZN3ue28hash_allIJRK19RoseInstructionCodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEmDpOT_.exit: ; preds = %entry
@@ -10054,7 +10054,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode54E32ROSE_STRUCT_CHECK_MED_LIT_NOCASENS_26RoseInstrCheckMedLitNocaseEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode54E32ROSE_STRUCT_CHECK_MED_LIT_NOCASENS_26RoseInstrCheckMedLitNocaseEEE, ptr nonnull @_ZTIN3ue226RoseInstrCheckMedLitNocaseE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode54E32ROSE_STRUCT_CHECK_MED_LIT_NOCASENS_26RoseInstrCheckMedLitNocaseEEE, ptr nonnull @_ZTIN3ue226RoseInstrCheckMedLitNocaseE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -10071,12 +10071,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode54E32ROSE_STRUCT_CHECK_MED_LIT_NOCASENS_26RoseInstrCheckMedLitNocaseEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue226RoseInstrCheckMedLitNocaseE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue226RoseInstrCheckMedLitNocaseE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode54E32ROSE_STRUCT_CHECK_MED_LIT_NOCASENS_26RoseInstrCheckMedLitNocaseEEE, ptr nonnull @_ZTIN3ue226RoseInstrCheckMedLitNocaseE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode54E32ROSE_STRUCT_CHECK_MED_LIT_NOCASENS_26RoseInstrCheckMedLitNocaseEEE, ptr nonnull @_ZTIN3ue226RoseInstrCheckMedLitNocaseE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue226RoseInstrCheckMedLitNocase8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -10103,7 +10103,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_Destr
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
   br label %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
@@ -10121,7 +10121,7 @@ invoke.cont.i:                                    ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIS_IN3ue29LookEntryESaIS1_EESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #25
   br label %_ZNSt6vectorIS_IN3ue29LookEntryESaIS1_EESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIS_IN3ue29LookEntryESaIS1_EESaIS3_EED2Ev.exit: ; preds = %if.then.i.i.i, %invoke.cont.i
@@ -10146,7 +10146,7 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_Destr
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
   br label %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
@@ -10164,11 +10164,11 @@ invoke.cont.i.i:                                  ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i, label %_ZN3ue228RoseInstrMultipathLookaroundD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #25
   br label %_ZN3ue228RoseInstrMultipathLookaroundD2Ev.exit
 
 _ZN3ue228RoseInstrMultipathLookaroundD2Ev.exit:   ; preds = %if.then.i.i.i.i, %invoke.cont.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -10185,11 +10185,11 @@ entry:
   %multi_look = getelementptr inbounds i8, ptr %this, i64 8
   %last_start = getelementptr inbounds i8, ptr %this, i64 32
   %start_mask = getelementptr inbounds i8, ptr %this, i64 36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i) #27
   store i64 -6151269530789553039, ptr %v.i, align 8
   call void @_ZN3ue211hash_detail10hash_buildISt6vectorIS2_INS_9LookEntryESaIS3_EESaIS5_EEJRKiRKSt5arrayIhLm16EEEEEvRmRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %v.i, ptr noundef nonnull align 8 dereferenceable(24) %multi_look, ptr noundef nonnull align 4 dereferenceable(4) %last_start, ptr noundef nonnull align 1 dereferenceable(16) %start_mask)
   %0 = load i64, ptr %v.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i) #27
   ret i64 %0
 }
 
@@ -10202,7 +10202,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode56E32ROSE_STRUCT_MULTIPATH_LOOKAROUNDNS_28RoseInstrMultipathLookaroundEE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode56E32ROSE_STRUCT_MULTIPATH_LOOKAROUNDNS_28RoseInstrMultipathLookaroundEEE, ptr nonnull @_ZTIN3ue228RoseInstrMultipathLookaroundE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode56E32ROSE_STRUCT_MULTIPATH_LOOKAROUNDNS_28RoseInstrMultipathLookaroundEEE, ptr nonnull @_ZTIN3ue228RoseInstrMultipathLookaroundE, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -10219,12 +10219,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode56E32ROSE_STRUCT_MULTIPATH_LOOKAROUNDNS_28RoseInstrMultipathLookaroundEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue228RoseInstrMultipathLookaroundE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue228RoseInstrMultipathLookaroundE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode56E32ROSE_STRUCT_MULTIPATH_LOOKAROUNDNS_28RoseInstrMultipathLookaroundEEE, ptr nonnull @_ZTIN3ue228RoseInstrMultipathLookaroundE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode56E32ROSE_STRUCT_MULTIPATH_LOOKAROUNDNS_28RoseInstrMultipathLookaroundEEE, ptr nonnull @_ZTIN3ue228RoseInstrMultipathLookaroundE, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue228RoseInstrMultipathLookaround8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -10236,7 +10236,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue233RoseInstrCheckMultipathShufti16x8D0Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -10414,7 +10414,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode57E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8NS_33RoseInstrCheckMultipathShufti16x8EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode57E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8NS_33RoseInstrCheckMultipathShufti16x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti16x8E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode57E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8NS_33RoseInstrCheckMultipathShufti16x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti16x8E, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 184
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -10431,12 +10431,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode57E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8NS_33RoseInstrCheckMultipathShufti16x8EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti16x8E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti16x8E, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode57E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8NS_33RoseInstrCheckMultipathShufti16x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti16x8E, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode57E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_16x8NS_33RoseInstrCheckMultipathShufti16x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti16x8E, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue233RoseInstrCheckMultipathShufti16x88equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -10448,7 +10448,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue233RoseInstrCheckMultipathShufti32x8D0Ev(ptr noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -10483,7 +10483,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode58E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8NS_33RoseInstrCheckMultipathShufti32x8EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode58E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8NS_33RoseInstrCheckMultipathShufti32x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti32x8E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode58E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8NS_33RoseInstrCheckMultipathShufti32x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti32x8E, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 224
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -10500,12 +10500,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode58E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8NS_33RoseInstrCheckMultipathShufti32x8EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti32x8E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti32x8E, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode58E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8NS_33RoseInstrCheckMultipathShufti32x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti32x8E, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode58E39ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x8NS_33RoseInstrCheckMultipathShufti32x8EEE, ptr nonnull @_ZTIN3ue233RoseInstrCheckMultipathShufti32x8E, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue233RoseInstrCheckMultipathShufti32x88equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(232) %1, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -10517,7 +10517,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue234RoseInstrCheckMultipathShufti32x16D0Ev(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -10553,7 +10553,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode59E40ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16NS_34RoseInstrCheckMultipathShufti32x16EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode59E40ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16NS_34RoseInstrCheckMultipathShufti32x16EEE, ptr nonnull @_ZTIN3ue234RoseInstrCheckMultipathShufti32x16E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode59E40ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16NS_34RoseInstrCheckMultipathShufti32x16EEE, ptr nonnull @_ZTIN3ue234RoseInstrCheckMultipathShufti32x16E, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 288
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -10570,12 +10570,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode59E40ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16NS_34RoseInstrCheckMultipathShufti32x16EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue234RoseInstrCheckMultipathShufti32x16E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue234RoseInstrCheckMultipathShufti32x16E, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode59E40ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16NS_34RoseInstrCheckMultipathShufti32x16EEE, ptr nonnull @_ZTIN3ue234RoseInstrCheckMultipathShufti32x16E, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode59E40ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_32x16NS_34RoseInstrCheckMultipathShufti32x16EEE, ptr nonnull @_ZTIN3ue234RoseInstrCheckMultipathShufti32x16E, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue234RoseInstrCheckMultipathShufti32x168equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -10587,7 +10587,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue231RoseInstrCheckMultipathShufti64D0Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -10622,7 +10622,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode60E37ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64NS_31RoseInstrCheckMultipathShufti64EE13update_targetEPKNS_15RoseInstructionES7_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %old_target, ptr noundef %new_target) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode60E37ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64NS_31RoseInstrCheckMultipathShufti64EEE, ptr nonnull @_ZTIN3ue231RoseInstrCheckMultipathShufti64E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue222RoseInstrBaseOneTargetIL19RoseInstructionCode60E37ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64NS_31RoseInstrCheckMultipathShufti64EEE, ptr nonnull @_ZTIN3ue231RoseInstrCheckMultipathShufti64E, i64 0) #27
   %target = getelementptr inbounds i8, ptr %0, i64 232
   %1 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %old_target
@@ -10639,12 +10639,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode60E37ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64NS_31RoseInstrCheckMultipathShufti64EE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue231RoseInstrCheckMultipathShufti64E, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue231RoseInstrCheckMultipathShufti64E, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode60E37ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64NS_31RoseInstrCheckMultipathShufti64EEE, ptr nonnull @_ZTIN3ue231RoseInstrCheckMultipathShufti64E, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode60E37ROSE_STRUCT_CHECK_MULTIPATH_SHUFTI_64NS_31RoseInstrCheckMultipathShufti64EEE, ptr nonnull @_ZTIN3ue231RoseInstrCheckMultipathShufti64E, i64 0) #27
   %call = tail call noundef zeroext i1 @_ZNK3ue231RoseInstrCheckMultipathShufti648equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets)
   br label %cleanup
 
@@ -10656,7 +10656,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue221RoseInstrIncludedJumpD0Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -10699,12 +10699,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode61E25ROSE_STRUCT_INCLUDED_JUMPNS_21RoseInstrIncludedJumpEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrIncludedJumpE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue221RoseInstrIncludedJumpE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode61E25ROSE_STRUCT_INCLUDED_JUMPNS_21RoseInstrIncludedJumpEEE, ptr nonnull @_ZTIN3ue221RoseInstrIncludedJumpE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode61E25ROSE_STRUCT_INCLUDED_JUMPNS_21RoseInstrIncludedJumpEEE, ptr nonnull @_ZTIN3ue221RoseInstrIncludedJumpE, i64 0) #27
   %child_offset.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %child_offset.i, align 8
   %child_offset3.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -10726,7 +10726,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue219RoseInstrSetLogicalD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -10769,12 +10769,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode62E23ROSE_STRUCT_SET_LOGICALNS_19RoseInstrSetLogicalEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrSetLogicalE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrSetLogicalE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode62E23ROSE_STRUCT_SET_LOGICALNS_19RoseInstrSetLogicalEEE, ptr nonnull @_ZTIN3ue219RoseInstrSetLogicalE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode62E23ROSE_STRUCT_SET_LOGICALNS_19RoseInstrSetLogicalEEE, ptr nonnull @_ZTIN3ue219RoseInstrSetLogicalE, i64 0) #27
   %lkey.i = getelementptr inbounds i8, ptr %1, i64 8
   %lkey3.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load <2 x i32>, ptr %lkey.i, align 8
@@ -10793,7 +10793,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue223RoseInstrSetCombinationD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -10830,12 +10830,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode63E27ROSE_STRUCT_SET_COMBINATIONNS_23RoseInstrSetCombinationEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrSetCombinationE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue223RoseInstrSetCombinationE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode63E27ROSE_STRUCT_SET_COMBINATIONNS_23RoseInstrSetCombinationEEE, ptr nonnull @_ZTIN3ue223RoseInstrSetCombinationE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode63E27ROSE_STRUCT_SET_COMBINATIONNS_23RoseInstrSetCombinationEEE, ptr nonnull @_ZTIN3ue223RoseInstrSetCombinationE, i64 0) #27
   %ckey.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %ckey.i, align 8
   %ckey3.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -10857,7 +10857,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue219RoseInstrSetExhaustD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -10894,12 +10894,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode65E23ROSE_STRUCT_SET_EXHAUSTNS_19RoseInstrSetExhaustEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrSetExhaustE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrSetExhaustE, i64 0) #27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %dynamic_cast.notnull2
 
 dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode65E23ROSE_STRUCT_SET_EXHAUSTNS_19RoseInstrSetExhaustEEE, ptr nonnull @_ZTIN3ue219RoseInstrSetExhaustE, i64 0) #25
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode65E23ROSE_STRUCT_SET_EXHAUSTNS_19RoseInstrSetExhaustEEE, ptr nonnull @_ZTIN3ue219RoseInstrSetExhaustE, i64 0) #27
   %ekey.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %ekey.i, align 8
   %ekey3.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -10946,7 +10946,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode20E20ROSE_STRUCT_CATCH_UPNS_16RoseInstrCatchUpEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue216RoseInstrCatchUpE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue216RoseInstrCatchUpE, i64 0) #27
   %tobool.not = icmp ne ptr %0, null
   ret i1 %tobool.not
 }
@@ -10991,7 +10991,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode21E24ROSE_STRUCT_CATCH_UP_MPVNS_19RoseInstrCatchUpMpvEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrCatchUpMpvE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrCatchUpMpvE, i64 0) #27
   %tobool.not = icmp ne ptr %0, null
   ret i1 %tobool.not
 }
@@ -11036,7 +11036,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode25E20ROSE_STRUCT_SOM_ZERONS_16RoseInstrSomZeroEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue216RoseInstrSomZeroE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue216RoseInstrSomZeroE, i64 0) #27
   %tobool.not = icmp ne ptr %0, null
   ret i1 %tobool.not
 }
@@ -11081,7 +11081,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode49E24ROSE_STRUCT_SUFFIXES_EODNS_20RoseInstrSuffixesEodEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrSuffixesEodE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrSuffixesEodE, i64 0) #27
   %tobool.not = icmp ne ptr %0, null
   ret i1 %tobool.not
 }
@@ -11126,7 +11126,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode50E23ROSE_STRUCT_MATCHER_EODNS_19RoseInstrMatcherEodEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrMatcherEodE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrMatcherEodE, i64 0) #27
   %tobool.not = icmp ne ptr %0, null
   ret i1 %tobool.not
 }
@@ -11171,7 +11171,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode0E15ROSE_STRUCT_ENDNS_12RoseInstrEndEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue212RoseInstrEndE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue212RoseInstrEndE, i64 0) #27
   %tobool.not = icmp ne ptr %0, null
   ret i1 %tobool.not
 }
@@ -11216,7 +11216,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode55E27ROSE_STRUCT_CLEAR_WORK_DONENS_22RoseInstrClearWorkDoneEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrClearWorkDoneE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrClearWorkDoneE, i64 0) #27
   %tobool.not = icmp ne ptr %0, null
   ret i1 %tobool.not
 }
@@ -11261,7 +11261,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode64E29ROSE_STRUCT_FLUSH_COMBINATIONNS_25RoseInstrFlushCombinationEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrFlushCombinationE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrFlushCombinationE, i64 0) #27
   %tobool.not = icmp ne ptr %0, null
   ret i1 %tobool.not
 }
@@ -11306,7 +11306,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseInstructionCode66E34ROSE_STRUCT_LAST_FLUSH_COMBINATIONNS_29RoseInstrLastFlushCombinationEE10equiv_implERKNS_15RoseInstructionERKSt13unordered_mapIPS6_jSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEESK_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %other, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) unnamed_addr #5 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue229RoseInstrLastFlushCombinationE, i64 0) #25
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue229RoseInstrLastFlushCombinationE, i64 0) #27
   %tobool.not = icmp ne ptr %0, null
   ret i1 %tobool.not
 }
@@ -11527,20 +11527,21 @@ return:                                           ; preds = %if.end3.i.i, %lor.l
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #25
-  tail call void @_ZSt9terminatev() #22
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
+  tail call void @_ZSt9terminatev() #24
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS5_RjEEES4_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node = alloca %"struct.std::_Hashtable<std::vector<mmbit_sparse_iter>, std::pair<const std::vector<mmbit_sparse_iter>, unsigned int>, std::allocator<std::pair<const std::vector<mmbit_sparse_iter>, unsigned int>>, std::__detail::_Select1st, std::equal_to<std::vector<mmbit_sparse_iter>>, ue2::ue2_hasher, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__node) #25
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__node) #27
   store ptr %this, ptr %__node, align 8
   %_M_node.i = getelementptr inbounds i8, ptr %__node, i64 8
   %call.i = tail call noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE16_M_allocate_nodeIJRS7_RjEEEPS9_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1)
@@ -11764,8 +11765,8 @@ if.end46:                                         ; preds = %if.end3.i.i, %lor.l
 lpad48:                                           ; preds = %if.end46
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__node) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node) #25
+  call void @_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__node) #27
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node) #27
   resume { ptr, i32 } %37
 
 cleanup64:                                        ; preds = %for.inc.i.i.i.i.i.i.i, %for.body.us, %land.rhs.i.i.i84.us, %invoke.cont33
@@ -11779,17 +11780,17 @@ if.then.i:                                        ; preds = %cleanup64
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE18_M_deallocate_nodeEPS9_.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i
-  tail call void @_ZdlPv(ptr noundef nonnull %38) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %38) #25
   br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE18_M_deallocate_nodeEPS9_.exit.i
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE18_M_deallocate_nodeEPS9_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then.i
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i) #25
   br label %_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE18_M_deallocate_nodeEPS9_.exit.i, %cleanup64, %if.end46
   %retval.sroa.4.0101 = phi i8 [ 0, %cleanup64 ], [ 0, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE18_M_deallocate_nodeEPS9_.exit.i ], [ 1, %if.end46 ]
   %retval.sroa.0.0100 = phi ptr [ %retval.sroa.0.0.ph, %cleanup64 ], [ %retval.sroa.0.0.ph, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE18_M_deallocate_nodeEPS9_.exit.i ], [ %call50, %if.end46 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node) #25
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node) #27
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0100, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0101, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -11820,9 +11821,9 @@ lpad.i:                                           ; preds = %if.then
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #25
+  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #27
   store i64 %0, ptr %_M_next_resize.i, align 8
-  invoke void @__cxa_rethrow() #24
+  invoke void @__cxa_rethrow() #26
           to label %unreachable.i unwind label %lpad2.i
 
 lpad2.i:                                          ; preds = %lpad.i
@@ -11838,7 +11839,7 @@ terminate.lpad.i:                                 ; preds = %lpad2.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #22
+  tail call void @__clang_call_terminate(ptr %11) #24
   unreachable
 
 unreachable.i:                                    ; preds = %lpad.i
@@ -11915,11 +11916,11 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE18_M_deallocate_nodeEPS9_.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #25
   br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE18_M_deallocate_nodeEPS9_.exit
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE18_M_deallocate_nodeEPS9_.exit: ; preds = %if.then.i.i.i.i.i.i.i, %if.then
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE18_M_deallocate_nodeEPS9_.exit, %entry
@@ -11929,7 +11930,7 @@ if.end:                                           ; preds = %_ZNSt8__detail16_Ha
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE16_M_allocate_nodeIJRS7_RjEEEPS9_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %call5.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26
+  %call5.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
   store ptr null, ptr %call5.i.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i, i64 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
@@ -11955,14 +11956,14 @@ cond.true.i.i.i.i.i.i.i:                          ; preds = %invoke.cont
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaI17mmbit_sparse_iterEE8allocateERS1_m.exit.i.i.i.i.i.i.i, !prof !30
 
 if.then3.i.i.i.i.i.i.i.i.i:                       ; preds = %cond.true.i.i.i.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
           to label %.noexc unwind label %invoke.cont12
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaI17mmbit_sparse_iterEE8allocateERS1_m.exit.i.i.i.i.i.i.i: ; preds = %cond.true.i.i.i.i.i.i.i
-  %call5.i.i.i.i4.i20.i.i.i.i19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i) #26
+  %call5.i.i.i.i4.i20.i.i.i.i19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i) #28
           to label %if.then.i.i.i.i.i.i.i.i.i.i.i.i unwind label %invoke.cont12
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZNSt16allocator_traitsISaI17mmbit_sparse_iterEE8allocateERS1_m.exit.i.i.i.i.i.i.i
@@ -11988,9 +11989,9 @@ invoke.cont12:                                    ; preds = %_ZNSt16allocator_tr
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i) #23
-  invoke void @__cxa_rethrow() #24
+  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i) #25
+  invoke void @__cxa_rethrow() #26
           to label %unreachable unwind label %lpad9
 
 lpad9:                                            ; preds = %invoke.cont12
@@ -12006,7 +12007,7 @@ terminate.lpad:                                   ; preds = %lpad9
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #22
+  tail call void @__clang_call_terminate(ptr %8) #24
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont12
@@ -12018,13 +12019,13 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #13
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #14
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #13
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #14
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
@@ -12051,16 +12052,16 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i
   br i1 %cmp2.i.i.i.i, label %if.then3.i.i.i.i, label %if.end.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #24
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #26
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
-  tail call void @_ZSt17__throw_bad_allocv() #24
+  tail call void @_ZSt17__throw_bad_allocv() #26
   unreachable
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorI17mmbit_sparse_iterSaIS4_EEjELb1EEEEE19_M_allocate_bucketsEm.exit.i: ; preds = %if.end.i
   %mul.i.i.i.i = shl nuw nsw i64 %__bkt_count, 3
-  %call5.i.i8.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #26
+  %call5.i.i8.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #28
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i8.i.i, i8 0, i64 %mul.i.i.i.i, i1 false)
   br label %_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -12121,7 +12122,7 @@ while.end:                                        ; preds = %if.end22, %_ZNSt10_
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
-  tail call void @_ZdlPv(ptr noundef %8) #23
+  tail call void @_ZdlPv(ptr noundef %8) #25
   br label %_ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableISt6vectorI17mmbit_sparse_iterSaIS1_EESt4pairIKS3_jESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_EN3ue210ue2_hasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %if.end.i.i, %while.end
@@ -12167,7 +12168,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #24
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #26
   unreachable
 
 _ZNKSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE12_M_check_lenEmPKc.exit: ; preds = %if.else
@@ -12179,9 +12180,9 @@ _ZNKSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE12_M_check_lenEmPKc.exit: ; pred
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt27__uninitialized_default_n_aIPcmN3ue216AlignedAllocatorIcLm64EEEET_S4_T0_RT1_.exit67
 
 if.then.i.i.i:                                    ; preds = %_ZNKSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE12_M_check_lenEmPKc.exit
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #25
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #27
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #26
   unreachable
 
 _ZSt27__uninitialized_default_n_aIPcmN3ue216AlignedAllocatorIcLm64EEEET_S4_T0_RT1_.exit67: ; preds = %_ZNKSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE12_M_check_lenEmPKc.exit
@@ -12281,7 +12282,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i68
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #22
+  tail call void @__clang_call_terminate(ptr %9) #24
   unreachable
 
 _ZNSt12_Vector_baseIcN3ue216AlignedAllocatorIcLm64EEEE13_M_deallocateEPcm.exit: ; preds = %if.then.i68, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE11_S_relocateEPcS4_S4_RS2_.exit
@@ -12297,16 +12298,17 @@ if.end43:                                         ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 
 declare noundef ptr @_ZN3ue223aligned_malloc_internalEmm(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #15
+declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #16
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #17
 
 declare void @_ZN3ue221aligned_free_internalEPv(ptr noundef) local_unnamed_addr #8
 
@@ -13648,10 +13650,10 @@ declare void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 derefe
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZN3ue218ResourceLimitErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #15
+declare void @_ZN3ue218ResourceLimitErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #16
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #13
+declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %__args) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13666,7 +13668,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #24
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #26
   unreachable
 
 _ZNKSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -13684,7 +13686,7 @@ _ZNKSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit: ; pre
 
 _ZNSt16allocator_traitsISaISt6vectorIN3ue29CharReachESaIS2_EEEE8allocateERS5_m.exit.i: ; preds = %_ZNKSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #26
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #28
   br label %_ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EE11_M_allocateEm.exit: ; preds = %_ZNSt16allocator_traitsISaISt6vectorIN3ue29CharReachESaIS2_EEEE8allocateERS5_m.exit.i, %_ZNKSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit
@@ -13746,7 +13748,7 @@ _ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exi
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit, label %if.then.i45
 
 if.then.i45:                                      ; preds = %_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit44
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #25
   br label %_ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit
 
 _ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %if.then.i45, %_ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit44
@@ -13759,7 +13761,7 @@ _ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EE13_M_deallocateEPS
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #16
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue222RoseInstrAnchoredDelay8equiv_toERKS0_RKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_jEEESH_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ri, ptr noundef nonnull align 8 dereferenceable(56) %offsets, ptr noundef nonnull align 8 dereferenceable(56) %other_offsets) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13841,7 +13843,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -13909,7 +13911,7 @@ lor.lhs.false.i.i.i.i.i23:                        ; preds = %if.end3.i.i.i.i.i20
   br i1 %cmp.not.i.i.i.i.i26, label %for.cond.i.i.i.i.i28, label %if.then.i.i27, !llvm.loop !7
 
 if.then.i.i27:                                    ; preds = %lor.lhs.false.i.i.i.i.i23, %if.end3.i.i.i.i.i20, %for.cond.i.i.i34, %if.end15.i.i.i12
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit41: ; preds = %for.cond.i.i.i.i.i28, %for.body.i.i.i38, %if.end.i.i.i.i.i17
@@ -13996,7 +13998,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -14064,7 +14066,7 @@ lor.lhs.false.i.i.i.i.i20:                        ; preds = %if.end3.i.i.i.i.i17
   br i1 %cmp.not.i.i.i.i.i23, label %for.cond.i.i.i.i.i25, label %if.then.i.i24, !llvm.loop !7
 
 if.then.i.i24:                                    ; preds = %lor.lhs.false.i.i.i.i.i20, %if.end3.i.i.i.i.i17, %for.cond.i.i.i31, %if.end15.i.i.i9
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit38: ; preds = %for.cond.i.i.i.i.i25, %for.body.i.i.i35, %if.end.i.i.i.i.i14
@@ -14143,7 +14145,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -14211,7 +14213,7 @@ lor.lhs.false.i.i.i.i.i17:                        ; preds = %if.end3.i.i.i.i.i14
   br i1 %cmp.not.i.i.i.i.i20, label %for.cond.i.i.i.i.i22, label %if.then.i.i21, !llvm.loop !7
 
 if.then.i.i21:                                    ; preds = %lor.lhs.false.i.i.i.i.i17, %if.end3.i.i.i.i.i14, %for.cond.i.i.i28, %if.end15.i.i.i6
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit35: ; preds = %for.cond.i.i.i.i.i22, %for.body.i.i.i32, %if.end.i.i.i.i.i11
@@ -14302,7 +14304,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -14370,7 +14372,7 @@ lor.lhs.false.i.i.i.i.i23:                        ; preds = %if.end3.i.i.i.i.i20
   br i1 %cmp.not.i.i.i.i.i26, label %for.cond.i.i.i.i.i28, label %if.then.i.i27, !llvm.loop !7
 
 if.then.i.i27:                                    ; preds = %lor.lhs.false.i.i.i.i.i23, %if.end3.i.i.i.i.i20, %for.cond.i.i.i34, %if.end15.i.i.i12
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit41: ; preds = %for.cond.i.i.i.i.i28, %for.body.i.i.i38, %if.end.i.i.i.i.i17
@@ -14457,7 +14459,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -14525,7 +14527,7 @@ lor.lhs.false.i.i.i.i.i20:                        ; preds = %if.end3.i.i.i.i.i17
   br i1 %cmp.not.i.i.i.i.i23, label %for.cond.i.i.i.i.i25, label %if.then.i.i24, !llvm.loop !7
 
 if.then.i.i24:                                    ; preds = %lor.lhs.false.i.i.i.i.i20, %if.end3.i.i.i.i.i17, %for.cond.i.i.i31, %if.end15.i.i.i9
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit38: ; preds = %for.cond.i.i.i.i.i25, %for.body.i.i.i35, %if.end.i.i.i.i.i14
@@ -14619,7 +14621,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -14687,7 +14689,7 @@ lor.lhs.false.i.i.i.i.i24:                        ; preds = %if.end3.i.i.i.i.i21
   br i1 %cmp.not.i.i.i.i.i27, label %for.cond.i.i.i.i.i29, label %if.then.i.i28, !llvm.loop !7
 
 if.then.i.i28:                                    ; preds = %lor.lhs.false.i.i.i.i.i24, %if.end3.i.i.i.i.i21, %for.cond.i.i.i35, %if.end15.i.i.i13
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit42: ; preds = %for.cond.i.i.i.i.i29, %for.body.i.i.i39, %if.end.i.i.i.i.i18
@@ -14809,7 +14811,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i7, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -14877,7 +14879,7 @@ lor.lhs.false.i.i.i.i.i21:                        ; preds = %if.end3.i.i.i.i.i18
   br i1 %cmp.not.i.i.i.i.i24, label %for.cond.i.i.i.i.i26, label %if.then.i.i25, !llvm.loop !7
 
 if.then.i.i25:                                    ; preds = %lor.lhs.false.i.i.i.i.i21, %if.end3.i.i.i.i.i18, %for.cond.i.i.i32, %if.end15.i.i.i10
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit39: ; preds = %for.cond.i.i.i.i.i26, %for.body.i.i.i36, %if.end.i.i.i.i.i15
@@ -14988,7 +14990,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -15056,7 +15058,7 @@ lor.lhs.false.i.i.i.i.i31:                        ; preds = %if.end3.i.i.i.i.i28
   br i1 %cmp.not.i.i.i.i.i34, label %for.cond.i.i.i.i.i36, label %if.then.i.i35, !llvm.loop !7
 
 if.then.i.i35:                                    ; preds = %lor.lhs.false.i.i.i.i.i31, %if.end3.i.i.i.i.i28, %for.cond.i.i.i42, %if.end15.i.i.i20
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit49: ; preds = %for.cond.i.i.i.i.i36, %for.body.i.i.i46, %if.end.i.i.i.i.i25
@@ -15165,7 +15167,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -15233,7 +15235,7 @@ lor.lhs.false.i.i.i.i.i33:                        ; preds = %if.end3.i.i.i.i.i30
   br i1 %cmp.not.i.i.i.i.i36, label %for.cond.i.i.i.i.i38, label %if.then.i.i37, !llvm.loop !7
 
 if.then.i.i37:                                    ; preds = %lor.lhs.false.i.i.i.i.i33, %if.end3.i.i.i.i.i30, %for.cond.i.i.i44, %if.end15.i.i.i22
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit51: ; preds = %for.cond.i.i.i.i.i38, %for.body.i.i.i48, %if.end.i.i.i.i.i27
@@ -15342,7 +15344,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -15410,7 +15412,7 @@ lor.lhs.false.i.i.i.i.i33:                        ; preds = %if.end3.i.i.i.i.i30
   br i1 %cmp.not.i.i.i.i.i36, label %for.cond.i.i.i.i.i38, label %if.then.i.i37, !llvm.loop !7
 
 if.then.i.i37:                                    ; preds = %lor.lhs.false.i.i.i.i.i33, %if.end3.i.i.i.i.i30, %for.cond.i.i.i44, %if.end15.i.i.i22
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit51: ; preds = %for.cond.i.i.i.i.i38, %for.body.i.i.i48, %if.end.i.i.i.i.i27
@@ -15521,7 +15523,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -15589,7 +15591,7 @@ lor.lhs.false.i.i.i.i.i36:                        ; preds = %if.end3.i.i.i.i.i33
   br i1 %cmp.not.i.i.i.i.i39, label %for.cond.i.i.i.i.i41, label %if.then.i.i40, !llvm.loop !7
 
 if.then.i.i40:                                    ; preds = %lor.lhs.false.i.i.i.i.i36, %if.end3.i.i.i.i.i33, %for.cond.i.i.i47, %if.end15.i.i.i25
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit54: ; preds = %for.cond.i.i.i.i.i41, %for.body.i.i.i51, %if.end.i.i.i.i.i30
@@ -15698,7 +15700,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -15766,7 +15768,7 @@ lor.lhs.false.i.i.i.i.i33:                        ; preds = %if.end3.i.i.i.i.i30
   br i1 %cmp.not.i.i.i.i.i36, label %for.cond.i.i.i.i.i38, label %if.then.i.i37, !llvm.loop !7
 
 if.then.i.i37:                                    ; preds = %lor.lhs.false.i.i.i.i.i33, %if.end3.i.i.i.i.i30, %for.cond.i.i.i44, %if.end15.i.i.i22
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit51: ; preds = %for.cond.i.i.i.i.i38, %for.body.i.i.i48, %if.end.i.i.i.i.i27
@@ -15882,7 +15884,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -15950,7 +15952,7 @@ lor.lhs.false.i.i.i.i.i39:                        ; preds = %if.end3.i.i.i.i.i36
   br i1 %cmp.not.i.i.i.i.i42, label %for.cond.i.i.i.i.i44, label %if.then.i.i43, !llvm.loop !7
 
 if.then.i.i43:                                    ; preds = %lor.lhs.false.i.i.i.i.i39, %if.end3.i.i.i.i.i36, %for.cond.i.i.i50, %if.end15.i.i.i28
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit57: ; preds = %for.cond.i.i.i.i.i44, %for.body.i.i.i54, %if.end.i.i.i.i.i33
@@ -16066,7 +16068,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -16134,7 +16136,7 @@ lor.lhs.false.i.i.i.i.i39:                        ; preds = %if.end3.i.i.i.i.i36
   br i1 %cmp.not.i.i.i.i.i42, label %for.cond.i.i.i.i.i44, label %if.then.i.i43, !llvm.loop !7
 
 if.then.i.i43:                                    ; preds = %lor.lhs.false.i.i.i.i.i39, %if.end3.i.i.i.i.i36, %for.cond.i.i.i50, %if.end15.i.i.i28
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit57: ; preds = %for.cond.i.i.i.i.i44, %for.body.i.i.i54, %if.end.i.i.i.i.i33
@@ -16311,7 +16313,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -16379,7 +16381,7 @@ lor.lhs.false.i.i.i.i.i39:                        ; preds = %if.end3.i.i.i.i.i36
   br i1 %cmp.not.i.i.i.i.i42, label %for.cond.i.i.i.i.i44, label %if.then.i.i43, !llvm.loop !7
 
 if.then.i.i43:                                    ; preds = %lor.lhs.false.i.i.i.i.i39, %if.end3.i.i.i.i.i36, %for.cond.i.i.i50, %if.end15.i.i.i28
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit57: ; preds = %for.cond.i.i.i.i.i44, %for.body.i.i.i54, %if.end.i.i.i.i.i33
@@ -16557,7 +16559,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -16625,7 +16627,7 @@ lor.lhs.false.i.i.i.i.i27:                        ; preds = %if.end3.i.i.i.i.i24
   br i1 %cmp.not.i.i.i.i.i30, label %for.cond.i.i.i.i.i32, label %if.then.i.i31, !llvm.loop !7
 
 if.then.i.i31:                                    ; preds = %lor.lhs.false.i.i.i.i.i27, %if.end3.i.i.i.i.i24, %for.cond.i.i.i38, %if.end15.i.i.i16
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit45: ; preds = %for.cond.i.i.i.i.i32, %for.body.i.i.i42, %if.end.i.i.i.i.i21
@@ -16728,7 +16730,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -16796,7 +16798,7 @@ lor.lhs.false.i.i.i.i.i27:                        ; preds = %if.end3.i.i.i.i.i24
   br i1 %cmp.not.i.i.i.i.i30, label %for.cond.i.i.i.i.i32, label %if.then.i.i31, !llvm.loop !7
 
 if.then.i.i31:                                    ; preds = %lor.lhs.false.i.i.i.i.i27, %if.end3.i.i.i.i.i24, %for.cond.i.i.i38, %if.end15.i.i.i16
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit45: ; preds = %for.cond.i.i.i.i.i32, %for.body.i.i.i42, %if.end.i.i.i.i.i21
@@ -16899,7 +16901,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -16967,7 +16969,7 @@ lor.lhs.false.i.i.i.i.i28:                        ; preds = %if.end3.i.i.i.i.i25
   br i1 %cmp.not.i.i.i.i.i31, label %for.cond.i.i.i.i.i33, label %if.then.i.i32, !llvm.loop !7
 
 if.then.i.i32:                                    ; preds = %lor.lhs.false.i.i.i.i.i28, %if.end3.i.i.i.i.i25, %for.cond.i.i.i39, %if.end15.i.i.i17
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit46: ; preds = %for.cond.i.i.i.i.i33, %for.body.i.i.i43, %if.end.i.i.i.i.i22
@@ -17070,7 +17072,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -17138,7 +17140,7 @@ lor.lhs.false.i.i.i.i.i28:                        ; preds = %if.end3.i.i.i.i.i25
   br i1 %cmp.not.i.i.i.i.i31, label %for.cond.i.i.i.i.i33, label %if.then.i.i32, !llvm.loop !7
 
 if.then.i.i32:                                    ; preds = %lor.lhs.false.i.i.i.i.i28, %if.end3.i.i.i.i.i25, %for.cond.i.i.i39, %if.end15.i.i.i17
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit46: ; preds = %for.cond.i.i.i.i.i33, %for.body.i.i.i43, %if.end.i.i.i.i.i22
@@ -17249,7 +17251,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -17317,7 +17319,7 @@ lor.lhs.false.i.i.i.i.i32:                        ; preds = %if.end3.i.i.i.i.i29
   br i1 %cmp.not.i.i.i.i.i35, label %for.cond.i.i.i.i.i37, label %if.then.i.i36, !llvm.loop !7
 
 if.then.i.i36:                                    ; preds = %lor.lhs.false.i.i.i.i.i32, %if.end3.i.i.i.i.i29, %for.cond.i.i.i43, %if.end15.i.i.i21
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit50: ; preds = %for.cond.i.i.i.i.i37, %for.body.i.i.i47, %if.end.i.i.i.i.i26
@@ -17404,7 +17406,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -17472,7 +17474,7 @@ lor.lhs.false.i.i.i.i.i20:                        ; preds = %if.end3.i.i.i.i.i17
   br i1 %cmp.not.i.i.i.i.i23, label %for.cond.i.i.i.i.i25, label %if.then.i.i24, !llvm.loop !7
 
 if.then.i.i24:                                    ; preds = %lor.lhs.false.i.i.i.i.i20, %if.end3.i.i.i.i.i17, %for.cond.i.i.i31, %if.end15.i.i.i9
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit38: ; preds = %for.cond.i.i.i.i.i25, %for.body.i.i.i35, %if.end.i.i.i.i.i14
@@ -17567,7 +17569,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -17635,7 +17637,7 @@ lor.lhs.false.i.i.i.i.i23:                        ; preds = %if.end3.i.i.i.i.i20
   br i1 %cmp.not.i.i.i.i.i26, label %for.cond.i.i.i.i.i28, label %if.then.i.i27, !llvm.loop !7
 
 if.then.i.i27:                                    ; preds = %lor.lhs.false.i.i.i.i.i23, %if.end3.i.i.i.i.i20, %for.cond.i.i.i34, %if.end15.i.i.i12
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit41: ; preds = %for.cond.i.i.i.i.i28, %for.body.i.i.i38, %if.end.i.i.i.i.i17
@@ -17722,7 +17724,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -17790,7 +17792,7 @@ lor.lhs.false.i.i.i.i.i20:                        ; preds = %if.end3.i.i.i.i.i17
   br i1 %cmp.not.i.i.i.i.i23, label %for.cond.i.i.i.i.i25, label %if.then.i.i24, !llvm.loop !7
 
 if.then.i.i24:                                    ; preds = %lor.lhs.false.i.i.i.i.i20, %if.end3.i.i.i.i.i17, %for.cond.i.i.i31, %if.end15.i.i.i9
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit38: ; preds = %for.cond.i.i.i.i.i25, %for.body.i.i.i35, %if.end.i.i.i.i.i14
@@ -17877,7 +17879,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -17945,7 +17947,7 @@ lor.lhs.false.i.i.i.i.i56:                        ; preds = %if.end3.i.i.i.i.i53
   br i1 %cmp.not.i.i.i.i.i59, label %for.cond.i.i.i.i.i61, label %if.then.i.i60, !llvm.loop !7
 
 if.then.i.i60:                                    ; preds = %lor.lhs.false.i.i.i.i.i56, %if.end3.i.i.i.i.i53, %for.cond.i.i.i67, %if.end15.i.i.i45
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit74: ; preds = %for.cond.i.i.i.i.i61, %for.body.i.i.i71, %if.end.i.i.i.i.i50
@@ -18047,7 +18049,7 @@ lor.lhs.false.i.i.i.i.i94:                        ; preds = %if.end3.i.i.i.i.i91
   br i1 %cmp.not.i.i.i.i.i97, label %for.cond.i.i.i.i.i99, label %if.then.i.i98, !llvm.loop !7
 
 if.then.i.i98:                                    ; preds = %if.end15.i.i.i83, %lor.lhs.false.i.i.i.i.i94, %if.end3.i.i.i.i.i91, %for.cond.i.i.i105
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit112: ; preds = %for.cond.i.i.i.i.i99, %for.body.i.i.i109, %if.end.i.i.i.i.i88
@@ -18104,7 +18106,7 @@ lor.lhs.false.i.i.i.i.i126:                       ; preds = %if.end3.i.i.i.i.i12
   br i1 %cmp.not.i.i.i.i.i129, label %for.cond.i.i.i.i.i131, label %if.then.i.i130, !llvm.loop !7
 
 if.then.i.i130:                                   ; preds = %if.end15.i.i.i115, %lor.lhs.false.i.i.i.i.i126, %if.end3.i.i.i.i.i123, %for.cond.i.i.i137
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit144: ; preds = %for.cond.i.i.i.i.i131, %for.body.i.i.i141, %if.end.i.i.i.i.i120
@@ -18196,7 +18198,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -18263,7 +18265,7 @@ lor.lhs.false.i.i.i.i.i28:                        ; preds = %if.end3.i.i.i.i.i25
   br i1 %cmp.not.i.i.i.i.i31, label %for.cond.i.i.i.i.i33, label %if.then.i.i32, !llvm.loop !7
 
 if.then.i.i32:                                    ; preds = %lor.lhs.false.i.i.i.i.i28, %if.end3.i.i.i.i.i25, %for.cond.i.i.i39, %if.end15.i.i.i17
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit46: ; preds = %for.cond.i.i.i.i.i33, %for.body.i.i.i43, %if.end.i.i.i.i.i22
@@ -18332,7 +18334,7 @@ lor.lhs.false.i.i.i.i.i60:                        ; preds = %if.end3.i.i.i.i.i57
   br i1 %cmp.not.i.i.i.i.i63, label %for.cond.i.i.i.i.i65, label %if.then.i.i64, !llvm.loop !7
 
 if.then.i.i64:                                    ; preds = %lor.lhs.false.i.i.i.i.i60, %if.end3.i.i.i.i.i57, %for.cond.i.i.i71, %if.end15.i.i.i49
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit78: ; preds = %for.cond.i.i.i.i.i65, %for.body.i.i.i75, %if.end.i.i.i.i.i54
@@ -18397,7 +18399,7 @@ lor.lhs.false.i.i.i.i.i92:                        ; preds = %if.end3.i.i.i.i.i89
   br i1 %cmp.not.i.i.i.i.i95, label %for.cond.i.i.i.i.i97, label %if.then.i.i96, !llvm.loop !7
 
 if.then.i.i96:                                    ; preds = %lor.lhs.false.i.i.i.i.i92, %if.end3.i.i.i.i.i89, %for.cond.i.i.i103, %if.end15.i.i.i81
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit110: ; preds = %for.cond.i.i.i.i.i97, %for.body.i.i.i107, %if.end.i.i.i.i.i86
@@ -18511,7 +18513,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -18579,7 +18581,7 @@ lor.lhs.false.i.i.i.i.i23:                        ; preds = %if.end3.i.i.i.i.i20
   br i1 %cmp.not.i.i.i.i.i26, label %for.cond.i.i.i.i.i28, label %if.then.i.i27, !llvm.loop !7
 
 if.then.i.i27:                                    ; preds = %lor.lhs.false.i.i.i.i.i23, %if.end3.i.i.i.i.i20, %for.cond.i.i.i34, %if.end15.i.i.i12
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit41: ; preds = %for.cond.i.i.i.i.i28, %for.body.i.i.i38, %if.end.i.i.i.i.i17
@@ -18679,7 +18681,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -18747,7 +18749,7 @@ lor.lhs.false.i.i.i.i.i20:                        ; preds = %if.end3.i.i.i.i.i17
   br i1 %cmp.not.i.i.i.i.i23, label %for.cond.i.i.i.i.i25, label %if.then.i.i24, !llvm.loop !7
 
 if.then.i.i24:                                    ; preds = %lor.lhs.false.i.i.i.i.i20, %if.end3.i.i.i.i.i17, %for.cond.i.i.i31, %if.end15.i.i.i9
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit38: ; preds = %for.cond.i.i.i.i.i25, %for.body.i.i.i35, %if.end.i.i.i.i.i14
@@ -18847,7 +18849,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -18915,7 +18917,7 @@ lor.lhs.false.i.i.i.i.i20:                        ; preds = %if.end3.i.i.i.i.i17
   br i1 %cmp.not.i.i.i.i.i23, label %for.cond.i.i.i.i.i25, label %if.then.i.i24, !llvm.loop !7
 
 if.then.i.i24:                                    ; preds = %lor.lhs.false.i.i.i.i.i20, %if.end3.i.i.i.i.i17, %for.cond.i.i.i31, %if.end15.i.i.i9
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit38: ; preds = %for.cond.i.i.i.i.i25, %for.body.i.i.i35, %if.end.i.i.i.i.i14
@@ -19015,7 +19017,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -19083,7 +19085,7 @@ lor.lhs.false.i.i.i.i.i20:                        ; preds = %if.end3.i.i.i.i.i17
   br i1 %cmp.not.i.i.i.i.i23, label %for.cond.i.i.i.i.i25, label %if.then.i.i24, !llvm.loop !7
 
 if.then.i.i24:                                    ; preds = %lor.lhs.false.i.i.i.i.i20, %if.end3.i.i.i.i.i17, %for.cond.i.i.i31, %if.end15.i.i.i9
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit38: ; preds = %for.cond.i.i.i.i.i25, %for.body.i.i.i35, %if.end.i.i.i.i.i14
@@ -19183,7 +19185,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -19251,7 +19253,7 @@ lor.lhs.false.i.i.i.i.i20:                        ; preds = %if.end3.i.i.i.i.i17
   br i1 %cmp.not.i.i.i.i.i23, label %for.cond.i.i.i.i.i25, label %if.then.i.i24, !llvm.loop !7
 
 if.then.i.i24:                                    ; preds = %lor.lhs.false.i.i.i.i.i20, %if.end3.i.i.i.i.i17, %for.cond.i.i.i31, %if.end15.i.i.i9
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit38: ; preds = %for.cond.i.i.i.i.i25, %for.body.i.i.i35, %if.end.i.i.i.i.i14
@@ -19416,7 +19418,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i14, label %for.cond.i.i.i.i.i, label %if.then.i.i, !llvm.loop !7
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit: ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
@@ -19484,7 +19486,7 @@ lor.lhs.false.i.i.i.i.i28:                        ; preds = %if.end3.i.i.i.i.i25
   br i1 %cmp.not.i.i.i.i.i31, label %for.cond.i.i.i.i.i33, label %if.then.i.i32, !llvm.loop !7
 
 if.then.i.i32:                                    ; preds = %lor.lhs.false.i.i.i.i.i28, %if.end3.i.i.i.i.i25, %for.cond.i.i.i39, %if.end15.i.i.i17
-  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEE2atERS9_.exit46: ; preds = %for.cond.i.i.i.i.i33, %for.body.i.i.i43, %if.end.i.i.i.i.i22
@@ -19840,19 +19842,19 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #17
+declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
+declare i64 @llvm.umax.i64(i64, i64) #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #20
+declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #21
+declare i64 @llvm.umin.i64(i64, i64) #23
 
 attributes #0 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }
@@ -19867,20 +19869,22 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { noreturn nounwind }
-attributes #23 = { builtin nounwind }
-attributes #24 = { noreturn }
-attributes #25 = { nounwind }
-attributes #26 = { builtin allocsize(0) }
+attributes #13 = { cold nofree noreturn }
+attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { cold noreturn }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { noreturn nounwind }
+attributes #25 = { builtin nounwind }
+attributes #26 = { noreturn }
+attributes #27 = { nounwind }
+attributes #28 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -73,11 +73,11 @@ define void @_ZN5Yosys5RTLIL9const_notERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   br i1 %23, label %.noexc.i.i.i, label %24
 
 .noexc.i.i.i:                                     ; preds = %22
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 24:                                               ; preds = %22
-  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #16
+  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #17
   store ptr %25, ptr %18, align 8
   %26 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %25, ptr %26, align 8
@@ -126,7 +126,7 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit:               ; preds = %.thread, %24
   br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %44
 
 44:                                               ; preds = %41
-  call void @_ZdlPv(ptr noundef nonnull %43) #17
+  call void @_ZdlPv(ptr noundef nonnull %43) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %41, %44
@@ -161,7 +161,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %41, %44
   br i1 %.not.i.i.i.i19, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit20, label %54
 
 54:                                               ; preds = %._crit_edge
-  call void @_ZdlPv(ptr noundef nonnull %53) #17
+  call void @_ZdlPv(ptr noundef nonnull %53) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit20
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit20:                 ; preds = %._crit_edge, %54
@@ -217,7 +217,7 @@ define internal fastcc void @_ZN5YosysL9extend_u0ERNS_5RTLIL5ConstEib(ptr nounde
   br i1 %27, label %28, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 28:                                               ; preds = %26
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #15
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #16
   unreachable
 
 _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %26
@@ -230,7 +230,7 @@ _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds 
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i, label %33
 
 33:                                               ; preds = %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #16
+  %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #17
   br label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %33, %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -250,7 +250,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %40
 
 40:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %20) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %20) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %40, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
@@ -311,11 +311,11 @@ define void @_ZN5Yosys5RTLIL9const_andERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   br i1 %22, label %.noexc.i.i.i, label %23
 
 .noexc.i.i.i:                                     ; preds = %21
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 23:                                               ; preds = %21
-  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #16
+  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #17
   store ptr %24, ptr %10, align 8
   %25 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %24, ptr %25, align 8
@@ -358,14 +358,14 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit:               ; preds = %.thread, %23
   br i1 %45, label %.noexc.i.i.i11, label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i9
 
 .noexc.i.i.i11:                                   ; preds = %44
-  invoke void @_ZSt17__throw_bad_allocv() #15
+  invoke void @_ZSt17__throw_bad_allocv() #16
           to label %.noexc unwind label %98
 
 .noexc:                                           ; preds = %.noexc.i.i.i11
   unreachable
 
 _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i9: ; preds = %44
-  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #16
+  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #17
           to label %47 unwind label %98
 
 47:                                               ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i9
@@ -476,7 +476,7 @@ _ZN5YosysL13logic_wrapperEPFNS_5RTLIL5StateES1_S1_ENS0_5ConstES4_bbi.exit: ; pre
   br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %95
 
 95:                                               ; preds = %_ZN5YosysL13logic_wrapperEPFNS_5RTLIL5StateES1_S1_ENS0_5ConstES4_bbi.exit
-  call void @_ZdlPv(ptr noundef nonnull %94) #17
+  call void @_ZdlPv(ptr noundef nonnull %94) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %_ZN5YosysL13logic_wrapperEPFNS_5RTLIL5StateES1_S1_ENS0_5ConstES4_bbi.exit, %95
@@ -485,7 +485,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %_ZN5YosysL13logic_w
   br i1 %.not.i.i.i.i18, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit19, label %97
 
 97:                                               ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %96) #17
+  call void @_ZdlPv(ptr noundef nonnull %96) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit19
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit19:                 ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %97
@@ -504,7 +504,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit19:                 ; preds = %_ZN5Yosys5RTLIL5Con
   br i1 %.not.i.i.i.i20, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit21, label %102
 
 102:                                              ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %101) #17
+  call void @_ZdlPv(ptr noundef nonnull %101) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit21
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit21:                 ; preds = %102, %.body, %98
@@ -514,7 +514,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit21:                 ; preds = %102, %.body, %98
   br i1 %.not.i.i.i.i22, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit23, label %104
 
 104:                                              ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit21
-  call void @_ZdlPv(ptr noundef nonnull %103) #17
+  call void @_ZdlPv(ptr noundef nonnull %103) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit23
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit23:                 ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit21, %104
@@ -573,11 +573,11 @@ define void @_ZN5Yosys5RTLIL8const_orERKNS0_5ConstES3_bbi(ptr dead_on_unwind noa
   br i1 %22, label %.noexc.i.i.i, label %23
 
 .noexc.i.i.i:                                     ; preds = %21
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 23:                                               ; preds = %21
-  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #16
+  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #17
   store ptr %24, ptr %10, align 8
   %25 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %24, ptr %25, align 8
@@ -620,14 +620,14 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit:               ; preds = %.thread, %23
   br i1 %45, label %.noexc.i.i.i11, label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i9
 
 .noexc.i.i.i11:                                   ; preds = %44
-  invoke void @_ZSt17__throw_bad_allocv() #15
+  invoke void @_ZSt17__throw_bad_allocv() #16
           to label %.noexc unwind label %100
 
 .noexc:                                           ; preds = %.noexc.i.i.i11
   unreachable
 
 _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i9: ; preds = %44
-  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #16
+  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #17
           to label %47 unwind label %100
 
 47:                                               ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i9
@@ -742,7 +742,7 @@ _ZN5YosysL13logic_wrapperEPFNS_5RTLIL5StateES1_S1_ENS0_5ConstES4_bbi.exit: ; pre
   br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %97
 
 97:                                               ; preds = %_ZN5YosysL13logic_wrapperEPFNS_5RTLIL5StateES1_S1_ENS0_5ConstES4_bbi.exit
-  call void @_ZdlPv(ptr noundef nonnull %96) #17
+  call void @_ZdlPv(ptr noundef nonnull %96) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %_ZN5YosysL13logic_wrapperEPFNS_5RTLIL5StateES1_S1_ENS0_5ConstES4_bbi.exit, %97
@@ -751,7 +751,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %_ZN5YosysL13logic_w
   br i1 %.not.i.i.i.i18, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit19, label %99
 
 99:                                               ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %98) #17
+  call void @_ZdlPv(ptr noundef nonnull %98) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit19
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit19:                 ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %99
@@ -770,7 +770,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit19:                 ; preds = %_ZN5Yosys5RTLIL5Con
   br i1 %.not.i.i.i.i20, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit21, label %104
 
 104:                                              ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %103) #17
+  call void @_ZdlPv(ptr noundef nonnull %103) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit21
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit21:                 ; preds = %104, %.body, %100
@@ -780,7 +780,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit21:                 ; preds = %104, %.body, %100
   br i1 %.not.i.i.i.i22, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit23, label %106
 
 106:                                              ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit21
-  call void @_ZdlPv(ptr noundef nonnull %105) #17
+  call void @_ZdlPv(ptr noundef nonnull %105) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit23
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit23:                 ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit21, %106
@@ -839,11 +839,11 @@ define void @_ZN5Yosys5RTLIL9const_xorERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   br i1 %22, label %.noexc.i.i.i, label %23
 
 .noexc.i.i.i:                                     ; preds = %21
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 23:                                               ; preds = %21
-  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #16
+  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #17
   store ptr %24, ptr %10, align 8
   %25 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %24, ptr %25, align 8
@@ -886,14 +886,14 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit:               ; preds = %.thread, %23
   br i1 %45, label %.noexc.i.i.i11, label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i9
 
 .noexc.i.i.i11:                                   ; preds = %44
-  invoke void @_ZSt17__throw_bad_allocv() #15
+  invoke void @_ZSt17__throw_bad_allocv() #16
           to label %.noexc unwind label %98
 
 .noexc:                                           ; preds = %.noexc.i.i.i11
   unreachable
 
 _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i9: ; preds = %44
-  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #16
+  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #17
           to label %47 unwind label %98
 
 47:                                               ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i9
@@ -997,7 +997,7 @@ _ZN5YosysL13logic_wrapperEPFNS_5RTLIL5StateES1_S1_ENS0_5ConstES4_bbi.exit: ; pre
   br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %95
 
 95:                                               ; preds = %_ZN5YosysL13logic_wrapperEPFNS_5RTLIL5StateES1_S1_ENS0_5ConstES4_bbi.exit
-  call void @_ZdlPv(ptr noundef nonnull %94) #17
+  call void @_ZdlPv(ptr noundef nonnull %94) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %_ZN5YosysL13logic_wrapperEPFNS_5RTLIL5StateES1_S1_ENS0_5ConstES4_bbi.exit, %95
@@ -1006,7 +1006,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %_ZN5YosysL13logic_w
   br i1 %.not.i.i.i.i18, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit19, label %97
 
 97:                                               ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %96) #17
+  call void @_ZdlPv(ptr noundef nonnull %96) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit19
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit19:                 ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %97
@@ -1025,7 +1025,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit19:                 ; preds = %_ZN5Yosys5RTLIL5Con
   br i1 %.not.i.i.i.i20, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit21, label %102
 
 102:                                              ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %101) #17
+  call void @_ZdlPv(ptr noundef nonnull %101) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit21
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit21:                 ; preds = %102, %.body, %98
@@ -1035,7 +1035,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit21:                 ; preds = %102, %.body, %98
   br i1 %.not.i.i.i.i22, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit23, label %104
 
 104:                                              ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit21
-  call void @_ZdlPv(ptr noundef nonnull %103) #17
+  call void @_ZdlPv(ptr noundef nonnull %103) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit23
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit23:                 ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit21, %104
@@ -1073,11 +1073,11 @@ define void @_ZN5Yosys5RTLIL10const_xnorERKNS0_5ConstES3_bbi(ptr dead_on_unwind 
   br i1 %22, label %.noexc.i.i.i, label %23
 
 .noexc.i.i.i:                                     ; preds = %21
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 23:                                               ; preds = %21
-  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #16
+  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #17
   store ptr %24, ptr %10, align 8
   %25 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %24, ptr %25, align 8
@@ -1120,14 +1120,14 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit:               ; preds = %.thread, %23
   br i1 %45, label %.noexc.i.i.i11, label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i9
 
 .noexc.i.i.i11:                                   ; preds = %44
-  invoke void @_ZSt17__throw_bad_allocv() #15
+  invoke void @_ZSt17__throw_bad_allocv() #16
           to label %.noexc unwind label %99
 
 .noexc:                                           ; preds = %.noexc.i.i.i11
   unreachable
 
 _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i9: ; preds = %44
-  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #16
+  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #17
           to label %47 unwind label %99
 
 47:                                               ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i9
@@ -1231,7 +1231,7 @@ _ZN5YosysL13logic_wrapperEPFNS_5RTLIL5StateES1_S1_ENS0_5ConstES4_bbi.exit: ; pre
   br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %96
 
 96:                                               ; preds = %_ZN5YosysL13logic_wrapperEPFNS_5RTLIL5StateES1_S1_ENS0_5ConstES4_bbi.exit
-  call void @_ZdlPv(ptr noundef nonnull %95) #17
+  call void @_ZdlPv(ptr noundef nonnull %95) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %_ZN5YosysL13logic_wrapperEPFNS_5RTLIL5StateES1_S1_ENS0_5ConstES4_bbi.exit, %96
@@ -1240,7 +1240,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %_ZN5YosysL13logic_w
   br i1 %.not.i.i.i.i18, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit19, label %98
 
 98:                                               ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %97) #17
+  call void @_ZdlPv(ptr noundef nonnull %97) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit19
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit19:                 ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %98
@@ -1259,7 +1259,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit19:                 ; preds = %_ZN5Yosys5RTLIL5Con
   br i1 %.not.i.i.i.i20, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit21, label %103
 
 103:                                              ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %102) #17
+  call void @_ZdlPv(ptr noundef nonnull %102) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit21
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit21:                 ; preds = %103, %.body, %99
@@ -1269,7 +1269,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit21:                 ; preds = %103, %.body, %99
   br i1 %.not.i.i.i.i22, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit23, label %105
 
 105:                                              ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit21
-  call void @_ZdlPv(ptr noundef nonnull %104) #17
+  call void @_ZdlPv(ptr noundef nonnull %104) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit23
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit23:                 ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit21, %105
@@ -1346,7 +1346,7 @@ define internal fastcc void @_ZN5YosysL20logic_reduce_wrapperENS_5RTLIL5StateEPF
   br i1 %40, label %41, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 41:                                               ; preds = %39
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #16
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %41
@@ -1362,7 +1362,7 @@ _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pred
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i, label %46
 
 46:                                               ; preds = %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %47 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #16
+  %47 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #17
           to label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i unwind label %.loopexit
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %46, %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -1382,7 +1382,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %53
 
 53:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %33) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %33) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %53, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
@@ -1420,7 +1420,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %36, %_
   br i1 %.not.i.i.i.i14, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %64
 
 64:                                               ; preds = %62
-  tail call void @_ZdlPv(ptr noundef nonnull %63) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %63) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %62, %64
@@ -1506,7 +1506,7 @@ define void @_ZN5Yosys5RTLIL16const_reduce_xorERKNS0_5ConstES3_bbi(ptr dead_on_u
   br i1 %38, label %39, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
 39:                                               ; preds = %37
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #16
           to label %.noexc.i unwind label %.loopexit.split-lp.i
 
 .noexc.i:                                         ; preds = %39
@@ -1522,7 +1522,7 @@ _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; pr
   br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i.i, label %44
 
 44:                                               ; preds = %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  %45 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #16
+  %45 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #17
           to label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i.i unwind label %.loopexit.i
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i.i: ; preds = %44, %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
@@ -1542,7 +1542,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br i1 %.not.i17.i.i.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, label %51
 
 51:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %31) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %51, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i
@@ -1580,7 +1580,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit.i: ; preds = %_ZNS
   br i1 %.not.i.i.i.i14.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i, label %62
 
 62:                                               ; preds = %60
-  tail call void @_ZdlPv(ptr noundef nonnull %61) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %61) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit.i:                 ; preds = %62, %60
@@ -1660,7 +1660,7 @@ define void @_ZN5Yosys5RTLIL17const_reduce_xnorERKNS0_5ConstES3_bbi(ptr dead_on_
   br i1 %38, label %39, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
 39:                                               ; preds = %37
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #16
           to label %.noexc.i unwind label %.loopexit.split-lp.i
 
 .noexc.i:                                         ; preds = %39
@@ -1676,7 +1676,7 @@ _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; pr
   br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i.i, label %44
 
 44:                                               ; preds = %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  %45 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #16
+  %45 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #17
           to label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i.i unwind label %.loopexit.i
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i.i: ; preds = %44, %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
@@ -1696,7 +1696,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br i1 %.not.i17.i.i.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, label %51
 
 51:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %31) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %51, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i
@@ -1734,7 +1734,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit.i: ; preds = %_ZNS
   br i1 %.not.i.i.i.i14.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i, label %62
 
 62:                                               ; preds = %60
-  tail call void @_ZdlPv(ptr noundef nonnull %61) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %61) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit.i:                 ; preds = %62, %60
@@ -1823,7 +1823,7 @@ define void @_ZN5Yosys5RTLIL15const_logic_notERKNS0_5ConstES3_bbi(ptr dead_on_un
   br i1 %34, label %35, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 35:                                               ; preds = %33
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #16
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %35
@@ -1839,7 +1839,7 @@ _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pred
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i, label %40
 
 40:                                               ; preds = %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %41 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #16
+  %41 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #17
           to label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i unwind label %.loopexit
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %40, %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -1859,7 +1859,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %47
 
 47:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %27) #17
+  call void @_ZdlPv(ptr noundef nonnull %27) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %47, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
@@ -1902,7 +1902,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %30, %_
   br i1 %.not.i.i.i.i8, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %60
 
 60:                                               ; preds = %58
-  call void @_ZdlPv(ptr noundef nonnull %59) #17
+  call void @_ZdlPv(ptr noundef nonnull %59) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit, %.preheader
@@ -1912,7 +1912,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %30, %_
   br i1 %63, label %_ZN10BigIntegerD2Ev.exit, label %64
 
 64:                                               ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %62) #17
+  call void @_ZdaPv(ptr noundef nonnull %62) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %._crit_edge, %64
@@ -1926,7 +1926,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %60, %58, %56
   br i1 %67, label %_ZN10BigIntegerD2Ev.exit9, label %68
 
 68:                                               ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %66) #17
+  call void @_ZdaPv(ptr noundef nonnull %66) #18
   br label %_ZN10BigIntegerD2Ev.exit9
 
 _ZN10BigIntegerD2Ev.exit9:                        ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %68
@@ -2030,7 +2030,7 @@ _ZN11BigUnsignedpLERKS_.exit:                     ; preds = %38
   br i1 %41, label %_ZN11BigUnsignedD2Ev.exit, label %42
 
 42:                                               ; preds = %_ZN11BigUnsignedpLERKS_.exit
-  call void @_ZdaPv(ptr noundef nonnull %40) #17
+  call void @_ZdaPv(ptr noundef nonnull %40) #18
   br label %_ZN11BigUnsignedD2Ev.exit
 
 43:                                               ; preds = %38
@@ -2042,7 +2042,7 @@ _ZN11BigUnsignedpLERKS_.exit:                     ; preds = %38
   br i1 %47, label %_ZN11BigUnsignedD2Ev.exit31, label %48
 
 48:                                               ; preds = %43
-  call void @_ZdaPv(ptr noundef nonnull %46) #17
+  call void @_ZdaPv(ptr noundef nonnull %46) #18
   br label %_ZN11BigUnsignedD2Ev.exit31
 
 _ZN11BigUnsignedD2Ev.exit:                        ; preds = %42, %_ZN11BigUnsignedpLERKS_.exit, %._crit_edge
@@ -2056,7 +2056,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %42, %_ZN11BigUnsign
   br i1 %52, label %_ZN11BigUnsignedD2Ev.exit32, label %53
 
 53:                                               ; preds = %49
-  call void @_ZdaPv(ptr noundef nonnull %51) #17
+  call void @_ZdaPv(ptr noundef nonnull %51) #18
   br label %_ZN11BigUnsignedD2Ev.exit32
 
 _ZN11BigUnsignedD2Ev.exit32:                      ; preds = %49, %53
@@ -2070,7 +2070,7 @@ _ZN11BigUnsignedD2Ev.exit31:                      ; preds = %.loopexit, %.loopex
   br i1 %56, label %_ZN11BigUnsignedD2Ev.exit33, label %57
 
 57:                                               ; preds = %_ZN11BigUnsignedD2Ev.exit31
-  call void @_ZdaPv(ptr noundef nonnull %55) #17
+  call void @_ZdaPv(ptr noundef nonnull %55) #18
   br label %_ZN11BigUnsignedD2Ev.exit33
 
 _ZN11BigUnsignedD2Ev.exit33:                      ; preds = %_ZN11BigUnsignedD2Ev.exit31, %57
@@ -2144,7 +2144,7 @@ _ZN5YosysL9logic_andENS_5RTLIL5StateES1_.exit:    ; preds = %6
   br i1 %41, label %42, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 42:                                               ; preds = %40
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #16
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %42
@@ -2160,7 +2160,7 @@ _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pred
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i, label %47
 
 47:                                               ; preds = %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %48 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %46) #16
+  %48 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %46) #17
           to label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i unwind label %.loopexit
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %47, %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -2180,7 +2180,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %54
 
 54:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %34) #17
+  call void @_ZdlPv(ptr noundef nonnull %34) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %54, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
@@ -2228,7 +2228,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %37, %_
   br i1 %.not.i.i.i.i14, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %69
 
 69:                                               ; preds = %67
-  call void @_ZdlPv(ptr noundef nonnull %68) #17
+  call void @_ZdlPv(ptr noundef nonnull %68) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit, %.preheader
@@ -2238,7 +2238,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %37, %_
   br i1 %72, label %_ZN10BigIntegerD2Ev.exit, label %73
 
 73:                                               ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %71) #17
+  call void @_ZdaPv(ptr noundef nonnull %71) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %._crit_edge, %73
@@ -2248,7 +2248,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %._crit_edge, %73
   br i1 %76, label %_ZN10BigIntegerD2Ev.exit15, label %77
 
 77:                                               ; preds = %_ZN10BigIntegerD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %75) #17
+  call void @_ZdaPv(ptr noundef nonnull %75) #18
   br label %_ZN10BigIntegerD2Ev.exit15
 
 _ZN10BigIntegerD2Ev.exit15:                       ; preds = %_ZN10BigIntegerD2Ev.exit, %77
@@ -2262,7 +2262,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %69, %67, %65
   br i1 %80, label %_ZN10BigIntegerD2Ev.exit16, label %81
 
 81:                                               ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %79) #17
+  call void @_ZdaPv(ptr noundef nonnull %79) #18
   br label %_ZN10BigIntegerD2Ev.exit16
 
 _ZN10BigIntegerD2Ev.exit16:                       ; preds = %81, %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %63
@@ -2273,7 +2273,7 @@ _ZN10BigIntegerD2Ev.exit16:                       ; preds = %81, %_ZN5Yosys5RTLI
   br i1 %84, label %_ZN10BigIntegerD2Ev.exit17, label %85
 
 85:                                               ; preds = %_ZN10BigIntegerD2Ev.exit16
-  call void @_ZdaPv(ptr noundef nonnull %83) #17
+  call void @_ZdaPv(ptr noundef nonnull %83) #18
   br label %_ZN10BigIntegerD2Ev.exit17
 
 _ZN10BigIntegerD2Ev.exit17:                       ; preds = %_ZN10BigIntegerD2Ev.exit16, %85
@@ -2356,7 +2356,7 @@ _ZN5YosysL8logic_orENS_5RTLIL5StateES1_.exit:     ; preds = %11, %17, %20
   br i1 %40, label %41, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 41:                                               ; preds = %39
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #16
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %41
@@ -2372,7 +2372,7 @@ _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pred
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i, label %46
 
 46:                                               ; preds = %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %47 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #16
+  %47 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #17
           to label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i unwind label %.loopexit
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %46, %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -2392,7 +2392,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %53
 
 53:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %33) #17
+  call void @_ZdlPv(ptr noundef nonnull %33) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %53, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
@@ -2440,7 +2440,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %36, %_
   br i1 %.not.i.i.i.i14, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %68
 
 68:                                               ; preds = %66
-  call void @_ZdlPv(ptr noundef nonnull %67) #17
+  call void @_ZdlPv(ptr noundef nonnull %67) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit, %.preheader
@@ -2450,7 +2450,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %36, %_
   br i1 %71, label %_ZN10BigIntegerD2Ev.exit, label %72
 
 72:                                               ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %70) #17
+  call void @_ZdaPv(ptr noundef nonnull %70) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %._crit_edge, %72
@@ -2460,7 +2460,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %._crit_edge, %72
   br i1 %75, label %_ZN10BigIntegerD2Ev.exit15, label %76
 
 76:                                               ; preds = %_ZN10BigIntegerD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %74) #17
+  call void @_ZdaPv(ptr noundef nonnull %74) #18
   br label %_ZN10BigIntegerD2Ev.exit15
 
 _ZN10BigIntegerD2Ev.exit15:                       ; preds = %_ZN10BigIntegerD2Ev.exit, %76
@@ -2474,7 +2474,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %68, %66, %64
   br i1 %79, label %_ZN10BigIntegerD2Ev.exit16, label %80
 
 80:                                               ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %78) #17
+  call void @_ZdaPv(ptr noundef nonnull %78) #18
   br label %_ZN10BigIntegerD2Ev.exit16
 
 _ZN10BigIntegerD2Ev.exit16:                       ; preds = %80, %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %62
@@ -2485,7 +2485,7 @@ _ZN10BigIntegerD2Ev.exit16:                       ; preds = %80, %_ZN5Yosys5RTLI
   br i1 %83, label %_ZN10BigIntegerD2Ev.exit17, label %84
 
 84:                                               ; preds = %_ZN10BigIntegerD2Ev.exit16
-  call void @_ZdaPv(ptr noundef nonnull %82) #17
+  call void @_ZdaPv(ptr noundef nonnull %82) #18
   br label %_ZN10BigIntegerD2Ev.exit17
 
 _ZN10BigIntegerD2Ev.exit17:                       ; preds = %_ZN10BigIntegerD2Ev.exit16, %84
@@ -2522,11 +2522,11 @@ define void @_ZN5Yosys5RTLIL9const_shlERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   br i1 %21, label %.noexc.i.i.i, label %22
 
 .noexc.i.i.i:                                     ; preds = %20
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 22:                                               ; preds = %20
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #16
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #17
   store ptr %23, ptr %9, align 8
   %24 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %23, ptr %24, align 8
@@ -2553,7 +2553,7 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit:               ; preds = %.thread, %22
   br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %32
 
 32:                                               ; preds = %30
-  call void @_ZdlPv(ptr noundef nonnull %31) #17
+  call void @_ZdlPv(ptr noundef nonnull %31) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %30, %32
@@ -2567,7 +2567,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %30, %32
   br i1 %.not.i.i.i.i6, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit7, label %36
 
 36:                                               ; preds = %33
-  call void @_ZdlPv(ptr noundef nonnull %35) #17
+  call void @_ZdlPv(ptr noundef nonnull %35) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit7
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit7:                  ; preds = %33, %36
@@ -2605,7 +2605,7 @@ define internal fastcc void @_ZN5YosysL18const_shift_workerERKNS_5RTLIL5ConstES3
   br i1 %23, label %.body, label %24
 
 24:                                               ; preds = %19
-  call void @_ZdaPv(ptr noundef nonnull %22) #17
+  call void @_ZdaPv(ptr noundef nonnull %22) #18
   br label %.body
 
 _ZNK10BigIntegermlERKS_.exit:                     ; preds = %17
@@ -2615,7 +2615,7 @@ _ZNK10BigIntegermlERKS_.exit:                     ; preds = %17
   br i1 %27, label %_ZN10BigIntegerD2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNK10BigIntegermlERKS_.exit
-  call void @_ZdaPv(ptr noundef nonnull %26) #17
+  call void @_ZdaPv(ptr noundef nonnull %26) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %_ZNK10BigIntegermlERKS_.exit, %28
@@ -2625,7 +2625,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %_ZNK10BigIntegermlE
   br i1 %31, label %_ZN10BigIntegerD2Ev.exit36, label %32
 
 32:                                               ; preds = %_ZN10BigIntegerD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %30) #17
+  call void @_ZdaPv(ptr noundef nonnull %30) #18
   br label %_ZN10BigIntegerD2Ev.exit36
 
 _ZN10BigIntegerD2Ev.exit36:                       ; preds = %_ZN10BigIntegerD2Ev.exit, %32
@@ -2654,7 +2654,7 @@ _ZN10BigIntegerD2Ev.exit36:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %46, label %_ZN10BigIntegerD2Ev.exit37, label %47
 
 47:                                               ; preds = %.body
-  call void @_ZdaPv(ptr noundef nonnull %45) #17
+  call void @_ZdaPv(ptr noundef nonnull %45) #18
   br label %_ZN10BigIntegerD2Ev.exit37
 
 _ZN10BigIntegerD2Ev.exit37:                       ; preds = %47, %.body, %42
@@ -2706,7 +2706,7 @@ _ZN10BigIntegerD2Ev.exit37:                       ; preds = %47, %.body, %42
   br i1 %69, label %.body40, label %70
 
 70:                                               ; preds = %66
-  call void @_ZdaPv(ptr noundef nonnull %68) #17
+  call void @_ZdaPv(ptr noundef nonnull %68) #18
   br label %.body40
 
 _ZNK10BigIntegerplERKS_.exit:                     ; preds = %65
@@ -2715,7 +2715,7 @@ _ZNK10BigIntegerplERKS_.exit:                     ; preds = %65
   br i1 %72, label %_ZN10BigIntegerD2Ev.exit42, label %73
 
 73:                                               ; preds = %_ZNK10BigIntegerplERKS_.exit
-  call void @_ZdaPv(ptr noundef nonnull %71) #17
+  call void @_ZdaPv(ptr noundef nonnull %71) #18
   br label %_ZN10BigIntegerD2Ev.exit42
 
 _ZN10BigIntegerD2Ev.exit42:                       ; preds = %_ZNK10BigIntegerplERKS_.exit, %73
@@ -2733,7 +2733,7 @@ _ZN10BigIntegerD2Ev.exit42:                       ; preds = %_ZNK10BigIntegerplE
   br i1 %79, label %_ZN10BigIntegerD2Ev.exit43, label %80
 
 80:                                               ; preds = %76
-  call void @_ZdaPv(ptr noundef nonnull %78) #17
+  call void @_ZdaPv(ptr noundef nonnull %78) #18
   br label %_ZN10BigIntegerD2Ev.exit43
 
 _ZN10BigIntegerD2Ev.exit43:                       ; preds = %76, %80
@@ -2750,7 +2750,7 @@ _ZN10BigIntegerD2Ev.exit43:                       ; preds = %76, %80
   br i1 %84, label %_ZN10BigIntegerD2Ev.exit44, label %85
 
 85:                                               ; preds = %.body40
-  call void @_ZdaPv(ptr noundef nonnull %83) #17
+  call void @_ZdaPv(ptr noundef nonnull %83) #18
   br label %_ZN10BigIntegerD2Ev.exit44
 
 86:                                               ; preds = %112, %93, %_ZN10BigIntegerD2Ev.exit42
@@ -2766,7 +2766,7 @@ _ZN10BigIntegerD2Ev.exit43:                       ; preds = %76, %80
   br i1 %91, label %_ZN10BigIntegerD2Ev.exit45, label %92
 
 92:                                               ; preds = %88
-  call void @_ZdaPv(ptr noundef nonnull %90) #17
+  call void @_ZdaPv(ptr noundef nonnull %90) #18
   br label %_ZN10BigIntegerD2Ev.exit45
 
 93:                                               ; preds = %_ZN10BigIntegerD2Ev.exit43
@@ -2790,7 +2790,7 @@ _ZN10BigIntegerD2Ev.exit43:                       ; preds = %76, %80
   br i1 %104, label %_ZN10BigIntegerD2Ev.exit46, label %105
 
 105:                                              ; preds = %102
-  call void @_ZdaPv(ptr noundef nonnull %103) #17
+  call void @_ZdaPv(ptr noundef nonnull %103) #18
   br label %_ZN10BigIntegerD2Ev.exit46
 
 _ZN10BigIntegerD2Ev.exit46:                       ; preds = %102, %105
@@ -2807,7 +2807,7 @@ _ZN10BigIntegerD2Ev.exit46:                       ; preds = %102, %105
   br i1 %110, label %_ZN10BigIntegerD2Ev.exit45, label %111
 
 111:                                              ; preds = %107
-  call void @_ZdaPv(ptr noundef nonnull %109) #17
+  call void @_ZdaPv(ptr noundef nonnull %109) #18
   br label %_ZN10BigIntegerD2Ev.exit45
 
 112:                                              ; preds = %_ZN10BigIntegerD2Ev.exit46
@@ -2836,7 +2836,7 @@ _ZN10BigIntegerD2Ev.exit46:                       ; preds = %102, %105
   br i1 %123, label %_ZN10BigIntegerD2Ev.exit48, label %124
 
 124:                                              ; preds = %119
-  call void @_ZdaPv(ptr noundef nonnull %122) #17
+  call void @_ZdaPv(ptr noundef nonnull %122) #18
   br label %_ZN10BigIntegerD2Ev.exit48
 
 _ZN10BigIntegerD2Ev.exit48:                       ; preds = %119, %124
@@ -2851,7 +2851,7 @@ _ZN10BigIntegerD2Ev.exit45:                       ; preds = %111, %107, %92, %88
   br i1 %126, label %_ZN10BigIntegerD2Ev.exit44, label %127
 
 127:                                              ; preds = %_ZN10BigIntegerD2Ev.exit45
-  call void @_ZdaPv(ptr noundef nonnull %125) #17
+  call void @_ZdaPv(ptr noundef nonnull %125) #18
   br label %_ZN10BigIntegerD2Ev.exit44
 
 .loopexit:                                        ; preds = %_ZN10BigIntegerD2Ev.exit48, %51
@@ -2861,7 +2861,7 @@ _ZN10BigIntegerD2Ev.exit45:                       ; preds = %111, %107, %92, %88
   br i1 %130, label %_ZN10BigIntegerD2Ev.exit50, label %131
 
 131:                                              ; preds = %.loopexit
-  call void @_ZdaPv(ptr noundef nonnull %129) #17
+  call void @_ZdaPv(ptr noundef nonnull %129) #18
   br label %_ZN10BigIntegerD2Ev.exit50
 
 _ZN10BigIntegerD2Ev.exit50:                       ; preds = %.loopexit, %131
@@ -2874,7 +2874,7 @@ _ZN10BigIntegerD2Ev.exit44:                       ; preds = %127, %_ZN10BigInteg
   br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %133
 
 133:                                              ; preds = %_ZN10BigIntegerD2Ev.exit44
-  call void @_ZdlPv(ptr noundef nonnull %132) #17
+  call void @_ZdlPv(ptr noundef nonnull %132) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %133, %_ZN10BigIntegerD2Ev.exit44, %61
@@ -2887,7 +2887,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %133, %_ZN10BigInteg
 _ZN10BigIntegerD2Ev.exit38.sink.split:            ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %_ZN10BigIntegerD2Ev.exit37
   %.sink56 = phi ptr [ %49, %_ZN10BigIntegerD2Ev.exit37 ], [ %135, %_ZN5Yosys5RTLIL5ConstD2Ev.exit ]
   %.pn31.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn, %_ZN10BigIntegerD2Ev.exit37 ], [ %.pn31.pn.pn, %_ZN5Yosys5RTLIL5ConstD2Ev.exit ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink56) #17
+  call void @_ZdaPv(ptr noundef nonnull %.sink56) #18
   br label %_ZN10BigIntegerD2Ev.exit38
 
 _ZN10BigIntegerD2Ev.exit38:                       ; preds = %_ZN10BigIntegerD2Ev.exit38.sink.split, %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %_ZN10BigIntegerD2Ev.exit37
@@ -2925,11 +2925,11 @@ define void @_ZN5Yosys5RTLIL9const_shrERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   br i1 %21, label %.noexc.i.i.i, label %22
 
 .noexc.i.i.i:                                     ; preds = %20
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 22:                                               ; preds = %20
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #16
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #17
   store ptr %23, ptr %9, align 8
   %24 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %23, ptr %24, align 8
@@ -2958,7 +2958,7 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit:               ; preds = %.thread, %22
   br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %33
 
 33:                                               ; preds = %31
-  call void @_ZdlPv(ptr noundef nonnull %32) #17
+  call void @_ZdlPv(ptr noundef nonnull %32) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %31, %33
@@ -2972,7 +2972,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %31, %33
   br i1 %.not.i.i.i.i5, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit6, label %37
 
 37:                                               ; preds = %34
-  call void @_ZdlPv(ptr noundef nonnull %36) #17
+  call void @_ZdlPv(ptr noundef nonnull %36) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit6
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit6:                  ; preds = %34, %37
@@ -3021,11 +3021,11 @@ define void @_ZN5Yosys5RTLIL11const_shiftERKNS0_5ConstES3_bbi(ptr dead_on_unwind
   br i1 %21, label %.noexc.i.i.i, label %22
 
 .noexc.i.i.i:                                     ; preds = %20
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 22:                                               ; preds = %20
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #16
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #17
   store ptr %23, ptr %9, align 8
   %24 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %23, ptr %24, align 8
@@ -3054,7 +3054,7 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit:               ; preds = %.thread, %22
   br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %33
 
 33:                                               ; preds = %31
-  call void @_ZdlPv(ptr noundef nonnull %32) #17
+  call void @_ZdlPv(ptr noundef nonnull %32) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %31, %33
@@ -3068,7 +3068,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %31, %33
   br i1 %.not.i.i.i.i6, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit7, label %37
 
 37:                                               ; preds = %34
-  call void @_ZdlPv(ptr noundef nonnull %36) #17
+  call void @_ZdlPv(ptr noundef nonnull %36) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit7
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit7:                  ; preds = %34, %37
@@ -3103,7 +3103,7 @@ define void @_ZN5Yosys5RTLIL8const_ltERKNS0_5ConstES3_bbi(ptr dead_on_unwind noa
   br i1 %16, label %_ZN10BigIntegerD2Ev.exit, label %17
 
 17:                                               ; preds = %12
-  call void @_ZdaPv(ptr noundef nonnull %15) #17
+  call void @_ZdaPv(ptr noundef nonnull %15) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %12, %17
@@ -3113,7 +3113,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %12, %17
   br i1 %20, label %_ZN10BigIntegerD2Ev.exit13, label %21
 
 21:                                               ; preds = %_ZN10BigIntegerD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %19) #17
+  call void @_ZdaPv(ptr noundef nonnull %19) #18
   br label %_ZN10BigIntegerD2Ev.exit13
 
 _ZN10BigIntegerD2Ev.exit13:                       ; preds = %_ZN10BigIntegerD2Ev.exit, %21
@@ -3158,7 +3158,7 @@ _ZN10BigIntegerD2Ev.exit13:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %45, label %46, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 46:                                               ; preds = %44
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #16
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %46
@@ -3174,7 +3174,7 @@ _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pred
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i, label %51
 
 51:                                               ; preds = %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #16
+  %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #17
           to label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i unwind label %.loopexit
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %51, %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -3194,7 +3194,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %58
 
 58:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %38) #17
+  call void @_ZdlPv(ptr noundef nonnull %38) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %58, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
@@ -3228,7 +3228,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %41, %_
   br i1 %73, label %_ZN10BigIntegerD2Ev.exit15, label %74
 
 74:                                               ; preds = %69
-  call void @_ZdaPv(ptr noundef nonnull %72) #17
+  call void @_ZdaPv(ptr noundef nonnull %72) #18
   br label %_ZN10BigIntegerD2Ev.exit15
 
 _ZN10BigIntegerD2Ev.exit15:                       ; preds = %74, %69, %67
@@ -3239,7 +3239,7 @@ _ZN10BigIntegerD2Ev.exit15:                       ; preds = %74, %69, %67
   br i1 %77, label %_ZN10BigIntegerD2Ev.exit16, label %78
 
 78:                                               ; preds = %_ZN10BigIntegerD2Ev.exit15
-  call void @_ZdaPv(ptr noundef nonnull %76) #17
+  call void @_ZdaPv(ptr noundef nonnull %76) #18
   br label %_ZN10BigIntegerD2Ev.exit16
 
 .loopexit:                                        ; preds = %51
@@ -3260,7 +3260,7 @@ _ZN10BigIntegerD2Ev.exit15:                       ; preds = %74, %69, %67
   br i1 %.not.i.i.i.i17, label %_ZN10BigIntegerD2Ev.exit16, label %81
 
 81:                                               ; preds = %79
-  call void @_ZdlPv(ptr noundef nonnull %80) #17
+  call void @_ZdlPv(ptr noundef nonnull %80) #18
   br label %_ZN10BigIntegerD2Ev.exit16
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit, %_ZN10BigIntegerD2Ev.exit13
@@ -3293,7 +3293,7 @@ define void @_ZN5Yosys5RTLIL8const_leERKNS0_5ConstES3_bbi(ptr dead_on_unwind noa
   br i1 %16, label %_ZN10BigIntegerD2Ev.exit, label %17
 
 17:                                               ; preds = %12
-  call void @_ZdaPv(ptr noundef nonnull %15) #17
+  call void @_ZdaPv(ptr noundef nonnull %15) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %12, %17
@@ -3303,7 +3303,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %12, %17
   br i1 %20, label %_ZN10BigIntegerD2Ev.exit13, label %21
 
 21:                                               ; preds = %_ZN10BigIntegerD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %19) #17
+  call void @_ZdaPv(ptr noundef nonnull %19) #18
   br label %_ZN10BigIntegerD2Ev.exit13
 
 _ZN10BigIntegerD2Ev.exit13:                       ; preds = %_ZN10BigIntegerD2Ev.exit, %21
@@ -3348,7 +3348,7 @@ _ZN10BigIntegerD2Ev.exit13:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %45, label %46, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 46:                                               ; preds = %44
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #16
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %46
@@ -3364,7 +3364,7 @@ _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pred
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i, label %51
 
 51:                                               ; preds = %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #16
+  %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #17
           to label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i unwind label %.loopexit
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %51, %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -3384,7 +3384,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %58
 
 58:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %38) #17
+  call void @_ZdlPv(ptr noundef nonnull %38) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %58, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
@@ -3418,7 +3418,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %41, %_
   br i1 %73, label %_ZN10BigIntegerD2Ev.exit15, label %74
 
 74:                                               ; preds = %69
-  call void @_ZdaPv(ptr noundef nonnull %72) #17
+  call void @_ZdaPv(ptr noundef nonnull %72) #18
   br label %_ZN10BigIntegerD2Ev.exit15
 
 _ZN10BigIntegerD2Ev.exit15:                       ; preds = %74, %69, %67
@@ -3429,7 +3429,7 @@ _ZN10BigIntegerD2Ev.exit15:                       ; preds = %74, %69, %67
   br i1 %77, label %_ZN10BigIntegerD2Ev.exit16, label %78
 
 78:                                               ; preds = %_ZN10BigIntegerD2Ev.exit15
-  call void @_ZdaPv(ptr noundef nonnull %76) #17
+  call void @_ZdaPv(ptr noundef nonnull %76) #18
   br label %_ZN10BigIntegerD2Ev.exit16
 
 .loopexit:                                        ; preds = %51
@@ -3450,7 +3450,7 @@ _ZN10BigIntegerD2Ev.exit15:                       ; preds = %74, %69, %67
   br i1 %.not.i.i.i.i17, label %_ZN10BigIntegerD2Ev.exit16, label %81
 
 81:                                               ; preds = %79
-  call void @_ZdlPv(ptr noundef nonnull %80) #17
+  call void @_ZdlPv(ptr noundef nonnull %80) #18
   br label %_ZN10BigIntegerD2Ev.exit16
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit, %_ZN10BigIntegerD2Ev.exit13
@@ -3492,11 +3492,11 @@ define void @_ZN5Yosys5RTLIL8const_eqERKNS0_5ConstES3_bbi(ptr dead_on_unwind noa
   br i1 %22, label %.noexc.i.i.i, label %23
 
 .noexc.i.i.i:                                     ; preds = %21
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 23:                                               ; preds = %21
-  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #16
+  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #17
   store ptr %24, ptr %10, align 8
   %25 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %24, ptr %25, align 8
@@ -3537,14 +3537,14 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit:               ; preds = %.thread, %23
   br i1 %43, label %.noexc.i.i.i31, label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i29
 
 .noexc.i.i.i31:                                   ; preds = %42
-  invoke void @_ZSt17__throw_bad_allocv() #15
+  invoke void @_ZSt17__throw_bad_allocv() #16
           to label %.noexc unwind label %86
 
 .noexc:                                           ; preds = %.noexc.i.i.i31
   unreachable
 
 _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i29: ; preds = %42
-  %44 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #16
+  %44 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #17
           to label %45 unwind label %86
 
 45:                                               ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i29
@@ -3644,7 +3644,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i2
   br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %94
 
 94:                                               ; preds = %90
-  call void @_ZdlPv(ptr noundef nonnull %93) #17
+  call void @_ZdlPv(ptr noundef nonnull %93) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 95:                                               ; preds = %78
@@ -3663,7 +3663,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE2atEm.exit40.thread: ; preds = %82, %96
   br i1 %.not.i.i47, label %101, label %.invoke
 
 .invoke:                                          ; preds = %81, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE2atEm.exit40.thread, %95
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %.072, i64 noundef %77) #15
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %.072, i64 noundef %77) #16
           to label %.cont unwind label %90
 
 .cont:                                            ; preds = %.invoke
@@ -3693,7 +3693,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE2atEm.exit46: ; preds = %78, %101
 
 .loopexit.thread:                                 ; preds = %82, %96, %.loopexit
   %107 = phi ptr [ %.pre, %.loopexit ], [ %74, %96 ], [ %74, %82 ]
-  call void @_ZdlPv(ptr noundef nonnull %107) #17
+  call void @_ZdlPv(ptr noundef nonnull %107) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit51
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit51:                 ; preds = %.loopexit, %.loopexit.thread
@@ -3702,7 +3702,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit51:                 ; preds = %.loopexit, %.loopex
   br i1 %.not.i.i.i.i52, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit53, label %109
 
 109:                                              ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit51
-  call void @_ZdlPv(ptr noundef nonnull %108) #17
+  call void @_ZdlPv(ptr noundef nonnull %108) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit53
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit53:                 ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit51, %109
@@ -3715,7 +3715,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %94, %90, %88
   br i1 %.not.i.i.i.i54, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit55, label %111
 
 111:                                              ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %110) #17
+  call void @_ZdlPv(ptr noundef nonnull %110) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit55
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit55:                 ; preds = %111, %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %86
@@ -3725,7 +3725,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit55:                 ; preds = %111, %_ZN5Yosys5RTL
   br i1 %.not.i.i.i.i56, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit57, label %113
 
 113:                                              ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit55
-  call void @_ZdlPv(ptr noundef nonnull %112) #17
+  call void @_ZdlPv(ptr noundef nonnull %112) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit57
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit57:                 ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit55, %113
@@ -3786,11 +3786,11 @@ define void @_ZN5Yosys5RTLIL9const_eqxERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   br i1 %22, label %.noexc.i.i.i, label %23
 
 .noexc.i.i.i:                                     ; preds = %21
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 23:                                               ; preds = %21
-  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #16
+  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #17
   store ptr %24, ptr %10, align 8
   %25 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %24, ptr %25, align 8
@@ -3833,14 +3833,14 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit:               ; preds = %.thread, %23
   br i1 %45, label %.noexc.i.i.i24, label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i22
 
 .noexc.i.i.i24:                                   ; preds = %44
-  invoke void @_ZSt17__throw_bad_allocv() #15
+  invoke void @_ZSt17__throw_bad_allocv() #16
           to label %.noexc unwind label %83
 
 .noexc:                                           ; preds = %.noexc.i.i.i24
   unreachable
 
 _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i22: ; preds = %44
-  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #16
+  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #17
           to label %47 unwind label %83
 
 47:                                               ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i22
@@ -3903,7 +3903,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i2
   br i1 %exitcond.not, label %77, label %78
 
 77:                                               ; preds = %76
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %75, i64 noundef %75) #15
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %75, i64 noundef %75) #16
           to label %.noexc29 unwind label %87
 
 .noexc29:                                         ; preds = %77
@@ -3936,7 +3936,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i2
   br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %91
 
 91:                                               ; preds = %87
-  call void @_ZdlPv(ptr noundef nonnull %90) #17
+  call void @_ZdlPv(ptr noundef nonnull %90) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 92:                                               ; preds = %78
@@ -3954,7 +3954,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i2
 
 .loopexit.thread:                                 ; preds = %78, %.loopexit
   %96 = phi ptr [ %.pre, %.loopexit ], [ %72, %78 ]
-  call void @_ZdlPv(ptr noundef nonnull %96) #17
+  call void @_ZdlPv(ptr noundef nonnull %96) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit32
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit32:                 ; preds = %.loopexit, %.loopexit.thread
@@ -3963,7 +3963,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit32:                 ; preds = %.loopexit, %.loopex
   br i1 %.not.i.i.i.i33, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit34, label %98
 
 98:                                               ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit32
-  call void @_ZdlPv(ptr noundef nonnull %97) #17
+  call void @_ZdlPv(ptr noundef nonnull %97) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit34
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit34:                 ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit32, %98
@@ -3976,7 +3976,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %91, %87, %85
   br i1 %.not.i.i.i.i35, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit36, label %100
 
 100:                                              ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %99) #17
+  call void @_ZdlPv(ptr noundef nonnull %99) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit36
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit36:                 ; preds = %100, %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %83
@@ -3986,7 +3986,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit36:                 ; preds = %100, %_ZN5Yosys5RTL
   br i1 %.not.i.i.i.i37, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit38, label %102
 
 102:                                              ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit36
-  call void @_ZdlPv(ptr noundef nonnull %101) #17
+  call void @_ZdlPv(ptr noundef nonnull %101) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit38
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit38:                 ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit36, %102
@@ -4038,7 +4038,7 @@ define void @_ZN5Yosys5RTLIL8const_geERKNS0_5ConstES3_bbi(ptr dead_on_unwind noa
   br i1 %16, label %_ZN10BigIntegerD2Ev.exit, label %17
 
 17:                                               ; preds = %12
-  call void @_ZdaPv(ptr noundef nonnull %15) #17
+  call void @_ZdaPv(ptr noundef nonnull %15) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %12, %17
@@ -4048,7 +4048,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %12, %17
   br i1 %20, label %_ZN10BigIntegerD2Ev.exit13, label %21
 
 21:                                               ; preds = %_ZN10BigIntegerD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %19) #17
+  call void @_ZdaPv(ptr noundef nonnull %19) #18
   br label %_ZN10BigIntegerD2Ev.exit13
 
 _ZN10BigIntegerD2Ev.exit13:                       ; preds = %_ZN10BigIntegerD2Ev.exit, %21
@@ -4093,7 +4093,7 @@ _ZN10BigIntegerD2Ev.exit13:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %45, label %46, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 46:                                               ; preds = %44
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #16
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %46
@@ -4109,7 +4109,7 @@ _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pred
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i, label %51
 
 51:                                               ; preds = %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #16
+  %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #17
           to label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i unwind label %.loopexit
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %51, %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -4129,7 +4129,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %58
 
 58:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %38) #17
+  call void @_ZdlPv(ptr noundef nonnull %38) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %58, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
@@ -4163,7 +4163,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %41, %_
   br i1 %73, label %_ZN10BigIntegerD2Ev.exit15, label %74
 
 74:                                               ; preds = %69
-  call void @_ZdaPv(ptr noundef nonnull %72) #17
+  call void @_ZdaPv(ptr noundef nonnull %72) #18
   br label %_ZN10BigIntegerD2Ev.exit15
 
 _ZN10BigIntegerD2Ev.exit15:                       ; preds = %74, %69, %67
@@ -4174,7 +4174,7 @@ _ZN10BigIntegerD2Ev.exit15:                       ; preds = %74, %69, %67
   br i1 %77, label %_ZN10BigIntegerD2Ev.exit16, label %78
 
 78:                                               ; preds = %_ZN10BigIntegerD2Ev.exit15
-  call void @_ZdaPv(ptr noundef nonnull %76) #17
+  call void @_ZdaPv(ptr noundef nonnull %76) #18
   br label %_ZN10BigIntegerD2Ev.exit16
 
 .loopexit:                                        ; preds = %51
@@ -4195,7 +4195,7 @@ _ZN10BigIntegerD2Ev.exit15:                       ; preds = %74, %69, %67
   br i1 %.not.i.i.i.i17, label %_ZN10BigIntegerD2Ev.exit16, label %81
 
 81:                                               ; preds = %79
-  call void @_ZdlPv(ptr noundef nonnull %80) #17
+  call void @_ZdlPv(ptr noundef nonnull %80) #18
   br label %_ZN10BigIntegerD2Ev.exit16
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit, %_ZN10BigIntegerD2Ev.exit13
@@ -4228,7 +4228,7 @@ define void @_ZN5Yosys5RTLIL8const_gtERKNS0_5ConstES3_bbi(ptr dead_on_unwind noa
   br i1 %16, label %_ZN10BigIntegerD2Ev.exit, label %17
 
 17:                                               ; preds = %12
-  call void @_ZdaPv(ptr noundef nonnull %15) #17
+  call void @_ZdaPv(ptr noundef nonnull %15) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %12, %17
@@ -4238,7 +4238,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %12, %17
   br i1 %20, label %_ZN10BigIntegerD2Ev.exit13, label %21
 
 21:                                               ; preds = %_ZN10BigIntegerD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %19) #17
+  call void @_ZdaPv(ptr noundef nonnull %19) #18
   br label %_ZN10BigIntegerD2Ev.exit13
 
 _ZN10BigIntegerD2Ev.exit13:                       ; preds = %_ZN10BigIntegerD2Ev.exit, %21
@@ -4283,7 +4283,7 @@ _ZN10BigIntegerD2Ev.exit13:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %45, label %46, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 46:                                               ; preds = %44
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #16
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %46
@@ -4299,7 +4299,7 @@ _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pred
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i, label %51
 
 51:                                               ; preds = %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #16
+  %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #17
           to label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i unwind label %.loopexit
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %51, %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -4319,7 +4319,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %58
 
 58:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %38) #17
+  call void @_ZdlPv(ptr noundef nonnull %38) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %58, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
@@ -4353,7 +4353,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %41, %_
   br i1 %73, label %_ZN10BigIntegerD2Ev.exit15, label %74
 
 74:                                               ; preds = %69
-  call void @_ZdaPv(ptr noundef nonnull %72) #17
+  call void @_ZdaPv(ptr noundef nonnull %72) #18
   br label %_ZN10BigIntegerD2Ev.exit15
 
 _ZN10BigIntegerD2Ev.exit15:                       ; preds = %74, %69, %67
@@ -4364,7 +4364,7 @@ _ZN10BigIntegerD2Ev.exit15:                       ; preds = %74, %69, %67
   br i1 %77, label %_ZN10BigIntegerD2Ev.exit16, label %78
 
 78:                                               ; preds = %_ZN10BigIntegerD2Ev.exit15
-  call void @_ZdaPv(ptr noundef nonnull %76) #17
+  call void @_ZdaPv(ptr noundef nonnull %76) #18
   br label %_ZN10BigIntegerD2Ev.exit16
 
 .loopexit:                                        ; preds = %51
@@ -4385,7 +4385,7 @@ _ZN10BigIntegerD2Ev.exit15:                       ; preds = %74, %69, %67
   br i1 %.not.i.i.i.i17, label %_ZN10BigIntegerD2Ev.exit16, label %81
 
 81:                                               ; preds = %79
-  call void @_ZdlPv(ptr noundef nonnull %80) #17
+  call void @_ZdlPv(ptr noundef nonnull %80) #18
   br label %_ZN10BigIntegerD2Ev.exit16
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit, %_ZN10BigIntegerD2Ev.exit13
@@ -4423,7 +4423,7 @@ define void @_ZN5Yosys5RTLIL9const_addERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   br i1 %17, label %.body, label %18
 
 18:                                               ; preds = %13
-  call void @_ZdaPv(ptr noundef nonnull %16) #17
+  call void @_ZdaPv(ptr noundef nonnull %16) #18
   br label %.body
 
 _ZNK10BigIntegerplERKS_.exit:                     ; preds = %11
@@ -4433,7 +4433,7 @@ _ZNK10BigIntegerplERKS_.exit:                     ; preds = %11
   br i1 %21, label %_ZN10BigIntegerD2Ev.exit, label %22
 
 22:                                               ; preds = %_ZNK10BigIntegerplERKS_.exit
-  call void @_ZdaPv(ptr noundef nonnull %20) #17
+  call void @_ZdaPv(ptr noundef nonnull %20) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %_ZNK10BigIntegerplERKS_.exit, %22
@@ -4443,7 +4443,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %_ZNK10BigIntegerplE
   br i1 %25, label %_ZN10BigIntegerD2Ev.exit15, label %26
 
 26:                                               ; preds = %_ZN10BigIntegerD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %24) #17
+  call void @_ZdaPv(ptr noundef nonnull %24) #18
   br label %_ZN10BigIntegerD2Ev.exit15
 
 _ZN10BigIntegerD2Ev.exit15:                       ; preds = %_ZN10BigIntegerD2Ev.exit, %26
@@ -4482,7 +4482,7 @@ _ZN10BigIntegerD2Ev.exit15:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %50, label %_ZN10BigIntegerD2Ev.exit16, label %51
 
 51:                                               ; preds = %47
-  call void @_ZdaPv(ptr noundef nonnull %49) #17
+  call void @_ZdaPv(ptr noundef nonnull %49) #18
   br label %_ZN10BigIntegerD2Ev.exit16
 
 _ZN10BigIntegerD2Ev.exit16:                       ; preds = %47, %51
@@ -4500,7 +4500,7 @@ _ZN10BigIntegerD2Ev.exit16:                       ; preds = %47, %51
   br i1 %56, label %_ZN10BigIntegerD2Ev.exit17, label %57
 
 57:                                               ; preds = %.body
-  call void @_ZdaPv(ptr noundef nonnull %55) #17
+  call void @_ZdaPv(ptr noundef nonnull %55) #18
   br label %_ZN10BigIntegerD2Ev.exit17
 
 _ZN10BigIntegerD2Ev.exit17:                       ; preds = %57, %.body, %52
@@ -4521,7 +4521,7 @@ _ZN10BigIntegerD2Ev.exit17:                       ; preds = %57, %.body, %52
 _ZN10BigIntegerD2Ev.exit18.sink.split:            ; preds = %61, %_ZN10BigIntegerD2Ev.exit17
   %.sink = phi ptr [ %59, %_ZN10BigIntegerD2Ev.exit17 ], [ %64, %61 ]
   %.pn13.ph = phi { ptr, i32 } [ %.pn, %_ZN10BigIntegerD2Ev.exit17 ], [ %62, %61 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #17
+  call void @_ZdaPv(ptr noundef nonnull %.sink) #18
   br label %_ZN10BigIntegerD2Ev.exit18
 
 _ZN10BigIntegerD2Ev.exit18:                       ; preds = %_ZN10BigIntegerD2Ev.exit18.sink.split, %61, %_ZN10BigIntegerD2Ev.exit17
@@ -4547,7 +4547,7 @@ define internal fastcc void @_ZN5YosysL9big2constERK10BigIntegerii(ptr dead_on_u
   store i32 %11, ptr %5, align 8
   %12 = zext i32 %11 to i64
   %13 = shl nuw nsw i64 %12, 3
-  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #16
+  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #17
   %15 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %14, ptr %15, align 8
   %.not.i.i = icmp eq i32 %11, 0
@@ -4645,7 +4645,7 @@ _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %18, %8
   br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %55
 
 55:                                               ; preds = %51
-  call void @_ZdlPv(ptr noundef nonnull %54) #17
+  call void @_ZdlPv(ptr noundef nonnull %54) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 56:                                               ; preds = %.lr.ph, %63
@@ -4681,7 +4681,7 @@ _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %18, %8
   br i1 %73, label %_ZN11BigUnsignedD2Ev.exit, label %74
 
 74:                                               ; preds = %.loopexit
-  call void @_ZdaPv(ptr noundef nonnull %72) #17
+  call void @_ZdaPv(ptr noundef nonnull %72) #18
   br label %_ZN11BigUnsignedD2Ev.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %55, %51, %49
@@ -4691,7 +4691,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %55, %51, %49
   br i1 %76, label %_ZN11BigUnsignedD2Ev.exit24, label %77
 
 77:                                               ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %75) #17
+  call void @_ZdaPv(ptr noundef nonnull %75) #18
   br label %_ZN11BigUnsignedD2Ev.exit24
 
 _ZN11BigUnsignedD2Ev.exit24:                      ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %77
@@ -4728,7 +4728,7 @@ define void @_ZN5Yosys5RTLIL9const_subERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   br i1 %17, label %.body, label %18
 
 18:                                               ; preds = %13
-  call void @_ZdaPv(ptr noundef nonnull %16) #17
+  call void @_ZdaPv(ptr noundef nonnull %16) #18
   br label %.body
 
 _ZNK10BigIntegermiERKS_.exit:                     ; preds = %11
@@ -4738,7 +4738,7 @@ _ZNK10BigIntegermiERKS_.exit:                     ; preds = %11
   br i1 %21, label %_ZN10BigIntegerD2Ev.exit, label %22
 
 22:                                               ; preds = %_ZNK10BigIntegermiERKS_.exit
-  call void @_ZdaPv(ptr noundef nonnull %20) #17
+  call void @_ZdaPv(ptr noundef nonnull %20) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %_ZNK10BigIntegermiERKS_.exit, %22
@@ -4748,7 +4748,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %_ZNK10BigIntegermiE
   br i1 %25, label %_ZN10BigIntegerD2Ev.exit15, label %26
 
 26:                                               ; preds = %_ZN10BigIntegerD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %24) #17
+  call void @_ZdaPv(ptr noundef nonnull %24) #18
   br label %_ZN10BigIntegerD2Ev.exit15
 
 _ZN10BigIntegerD2Ev.exit15:                       ; preds = %_ZN10BigIntegerD2Ev.exit, %26
@@ -4787,7 +4787,7 @@ _ZN10BigIntegerD2Ev.exit15:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %50, label %_ZN10BigIntegerD2Ev.exit16, label %51
 
 51:                                               ; preds = %47
-  call void @_ZdaPv(ptr noundef nonnull %49) #17
+  call void @_ZdaPv(ptr noundef nonnull %49) #18
   br label %_ZN10BigIntegerD2Ev.exit16
 
 _ZN10BigIntegerD2Ev.exit16:                       ; preds = %47, %51
@@ -4805,7 +4805,7 @@ _ZN10BigIntegerD2Ev.exit16:                       ; preds = %47, %51
   br i1 %56, label %_ZN10BigIntegerD2Ev.exit17, label %57
 
 57:                                               ; preds = %.body
-  call void @_ZdaPv(ptr noundef nonnull %55) #17
+  call void @_ZdaPv(ptr noundef nonnull %55) #18
   br label %_ZN10BigIntegerD2Ev.exit17
 
 _ZN10BigIntegerD2Ev.exit17:                       ; preds = %57, %.body, %52
@@ -4826,7 +4826,7 @@ _ZN10BigIntegerD2Ev.exit17:                       ; preds = %57, %.body, %52
 _ZN10BigIntegerD2Ev.exit18.sink.split:            ; preds = %61, %_ZN10BigIntegerD2Ev.exit17
   %.sink = phi ptr [ %59, %_ZN10BigIntegerD2Ev.exit17 ], [ %64, %61 ]
   %.pn13.ph = phi { ptr, i32 } [ %.pn, %_ZN10BigIntegerD2Ev.exit17 ], [ %62, %61 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #17
+  call void @_ZdaPv(ptr noundef nonnull %.sink) #18
   br label %_ZN10BigIntegerD2Ev.exit18
 
 _ZN10BigIntegerD2Ev.exit18:                       ; preds = %_ZN10BigIntegerD2Ev.exit18.sink.split, %61, %_ZN10BigIntegerD2Ev.exit17
@@ -4861,7 +4861,7 @@ define void @_ZN5Yosys5RTLIL9const_mulERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   br i1 %17, label %.body, label %18
 
 18:                                               ; preds = %13
-  call void @_ZdaPv(ptr noundef nonnull %16) #17
+  call void @_ZdaPv(ptr noundef nonnull %16) #18
   br label %.body
 
 _ZNK10BigIntegermlERKS_.exit:                     ; preds = %11
@@ -4871,7 +4871,7 @@ _ZNK10BigIntegermlERKS_.exit:                     ; preds = %11
   br i1 %21, label %_ZN10BigIntegerD2Ev.exit, label %22
 
 22:                                               ; preds = %_ZNK10BigIntegermlERKS_.exit
-  call void @_ZdaPv(ptr noundef nonnull %20) #17
+  call void @_ZdaPv(ptr noundef nonnull %20) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %_ZNK10BigIntegermlERKS_.exit, %22
@@ -4881,7 +4881,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %_ZNK10BigIntegermlE
   br i1 %25, label %_ZN10BigIntegerD2Ev.exit15, label %26
 
 26:                                               ; preds = %_ZN10BigIntegerD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %24) #17
+  call void @_ZdaPv(ptr noundef nonnull %24) #18
   br label %_ZN10BigIntegerD2Ev.exit15
 
 _ZN10BigIntegerD2Ev.exit15:                       ; preds = %_ZN10BigIntegerD2Ev.exit, %26
@@ -4921,7 +4921,7 @@ _ZN10BigIntegerD2Ev.exit15:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %50, label %_ZN10BigIntegerD2Ev.exit17, label %51
 
 51:                                               ; preds = %47
-  call void @_ZdaPv(ptr noundef nonnull %49) #17
+  call void @_ZdaPv(ptr noundef nonnull %49) #18
   br label %_ZN10BigIntegerD2Ev.exit17
 
 _ZN10BigIntegerD2Ev.exit17:                       ; preds = %47, %51
@@ -4939,7 +4939,7 @@ _ZN10BigIntegerD2Ev.exit17:                       ; preds = %47, %51
   br i1 %56, label %_ZN10BigIntegerD2Ev.exit18, label %57
 
 57:                                               ; preds = %.body
-  call void @_ZdaPv(ptr noundef nonnull %55) #17
+  call void @_ZdaPv(ptr noundef nonnull %55) #18
   br label %_ZN10BigIntegerD2Ev.exit18
 
 _ZN10BigIntegerD2Ev.exit18:                       ; preds = %57, %.body, %52
@@ -4960,7 +4960,7 @@ _ZN10BigIntegerD2Ev.exit18:                       ; preds = %57, %.body, %52
 _ZN10BigIntegerD2Ev.exit19.sink.split:            ; preds = %61, %_ZN10BigIntegerD2Ev.exit18
   %.sink = phi ptr [ %59, %_ZN10BigIntegerD2Ev.exit18 ], [ %64, %61 ]
   %.pn13.ph = phi { ptr, i32 } [ %.pn, %_ZN10BigIntegerD2Ev.exit18 ], [ %62, %61 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #17
+  call void @_ZdaPv(ptr noundef nonnull %.sink) #18
   br label %_ZN10BigIntegerD2Ev.exit19
 
 _ZN10BigIntegerD2Ev.exit19:                       ; preds = %_ZN10BigIntegerD2Ev.exit19.sink.split, %61, %_ZN10BigIntegerD2Ev.exit18
@@ -5024,7 +5024,7 @@ define void @_ZN5Yosys5RTLIL9const_divERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   br i1 %32, label %.body, label %33
 
 33:                                               ; preds = %28
-  call void @_ZdaPv(ptr noundef nonnull %31) #17
+  call void @_ZdaPv(ptr noundef nonnull %31) #18
   br label %.body
 
 34:                                               ; preds = %22
@@ -5036,7 +5036,7 @@ define void @_ZN5Yosys5RTLIL9const_divERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   store i32 %37, ptr %26, align 8
   %38 = zext i32 %37 to i64
   %39 = shl nuw nsw i64 %38, 3
-  %40 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %39) #16
+  %40 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %39) #17
           to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %34
@@ -5074,7 +5074,7 @@ _ZNK10BigIntegerngEv.exit:                        ; preds = %43, %.noexc, %27
   br i1 %55, label %_ZN10BigIntegerD2Ev.exit, label %56
 
 56:                                               ; preds = %52
-  call void @_ZdaPv(ptr noundef nonnull %54) #17
+  call void @_ZdaPv(ptr noundef nonnull %54) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %52, %56
@@ -5098,7 +5098,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %52, %56
   br i1 %65, label %.body, label %66
 
 66:                                               ; preds = %61
-  call void @_ZdaPv(ptr noundef nonnull %64) #17
+  call void @_ZdaPv(ptr noundef nonnull %64) #18
   br label %.body
 
 67:                                               ; preds = %_ZN10BigIntegerD2Ev.exit
@@ -5110,7 +5110,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %52, %56
   store i32 %70, ptr %59, align 8
   %71 = zext i32 %70 to i64
   %72 = shl nuw nsw i64 %71, 3
-  %73 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %72) #16
+  %73 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %72) #17
           to label %.noexc32 unwind label %20
 
 .noexc32:                                         ; preds = %67
@@ -5148,7 +5148,7 @@ _ZNK10BigIntegerngEv.exit27:                      ; preds = %76, %.noexc32, %60
   br i1 %88, label %_ZN10BigIntegerD2Ev.exit34, label %89
 
 89:                                               ; preds = %85
-  call void @_ZdaPv(ptr noundef nonnull %87) #17
+  call void @_ZdaPv(ptr noundef nonnull %87) #18
   br label %_ZN10BigIntegerD2Ev.exit34
 
 _ZN10BigIntegerD2Ev.exit34:                       ; preds = %85, %89
@@ -5174,7 +5174,7 @@ _ZN10BigIntegerD2Ev.exit34:                       ; preds = %85, %89
   br i1 %97, label %.body36.thread, label %98
 
 98:                                               ; preds = %93
-  call void @_ZdaPv(ptr noundef nonnull %96) #17
+  call void @_ZdaPv(ptr noundef nonnull %96) #18
   br label %.body36.thread
 
 99:                                               ; preds = %_ZN10BigIntegerD2Ev.exit34
@@ -5218,7 +5218,7 @@ _ZNK10BigIntegerngEv.exit38:                      ; preds = %91, %99
   br i1 %123, label %_ZN10BigIntegerD2Ev.exit40, label %124
 
 124:                                              ; preds = %120
-  call void @_ZdaPv(ptr noundef nonnull %122) #17
+  call void @_ZdaPv(ptr noundef nonnull %122) #18
   br label %_ZN10BigIntegerD2Ev.exit40
 
 _ZN10BigIntegerD2Ev.exit40:                       ; preds = %120, %124
@@ -5231,7 +5231,7 @@ _ZN10BigIntegerD2Ev.exit40:                       ; preds = %120, %124
   br i1 %128, label %_ZN10BigIntegerD2Ev.exit41, label %129
 
 129:                                              ; preds = %125
-  call void @_ZdaPv(ptr noundef nonnull %127) #17
+  call void @_ZdaPv(ptr noundef nonnull %127) #18
   br label %_ZN10BigIntegerD2Ev.exit41
 
 130:                                              ; preds = %_ZNK10BigIntegerngEv.exit
@@ -5243,7 +5243,7 @@ _ZN10BigIntegerD2Ev.exit40:                       ; preds = %120, %124
   br i1 %134, label %.body, label %135
 
 135:                                              ; preds = %130
-  call void @_ZdaPv(ptr noundef nonnull %133) #17
+  call void @_ZdaPv(ptr noundef nonnull %133) #18
   br label %.body
 
 136:                                              ; preds = %_ZNK10BigIntegerngEv.exit27
@@ -5255,7 +5255,7 @@ _ZN10BigIntegerD2Ev.exit40:                       ; preds = %120, %124
   br i1 %140, label %.body, label %141
 
 141:                                              ; preds = %136
-  call void @_ZdaPv(ptr noundef nonnull %139) #17
+  call void @_ZdaPv(ptr noundef nonnull %139) #18
   br label %.body
 
 .body36.thread59:                                 ; preds = %99
@@ -5272,7 +5272,7 @@ _ZN10BigIntegerD2Ev.exit40:                       ; preds = %120, %124
   br i1 %147, label %.body36, label %148
 
 148:                                              ; preds = %143
-  call void @_ZdaPv(ptr noundef nonnull %146) #17
+  call void @_ZdaPv(ptr noundef nonnull %146) #18
   br label %.body36
 
 .body36:                                          ; preds = %148, %143
@@ -5286,7 +5286,7 @@ _ZN10BigIntegerD2Ev.exit40:                       ; preds = %120, %124
   br i1 %151, label %.body, label %152
 
 152:                                              ; preds = %.body36.thread
-  call void @_ZdaPv(ptr noundef nonnull %150) #17
+  call void @_ZdaPv(ptr noundef nonnull %150) #18
   br label %.body
 
 _ZN10BigIntegerD2Ev.exit41:                       ; preds = %129, %125, %_ZN10BigIntegerD2Ev.exit40, %17
@@ -5296,7 +5296,7 @@ _ZN10BigIntegerD2Ev.exit41:                       ; preds = %129, %125, %_ZN10Bi
   br i1 %155, label %_ZN10BigIntegerD2Ev.exit46, label %156
 
 156:                                              ; preds = %_ZN10BigIntegerD2Ev.exit41
-  call void @_ZdaPv(ptr noundef nonnull %154) #17
+  call void @_ZdaPv(ptr noundef nonnull %154) #18
   br label %_ZN10BigIntegerD2Ev.exit46
 
 _ZN10BigIntegerD2Ev.exit46:                       ; preds = %_ZN10BigIntegerD2Ev.exit41, %156
@@ -5306,7 +5306,7 @@ _ZN10BigIntegerD2Ev.exit46:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %159, label %_ZN10BigIntegerD2Ev.exit47, label %160
 
 160:                                              ; preds = %_ZN10BigIntegerD2Ev.exit46
-  call void @_ZdaPv(ptr noundef nonnull %158) #17
+  call void @_ZdaPv(ptr noundef nonnull %158) #18
   br label %_ZN10BigIntegerD2Ev.exit47
 
 _ZN10BigIntegerD2Ev.exit47:                       ; preds = %_ZN10BigIntegerD2Ev.exit46, %160
@@ -5320,7 +5320,7 @@ _ZN10BigIntegerD2Ev.exit47:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %163, label %_ZN10BigIntegerD2Ev.exit48, label %164
 
 164:                                              ; preds = %.body
-  call void @_ZdaPv(ptr noundef nonnull %162) #17
+  call void @_ZdaPv(ptr noundef nonnull %162) #18
   br label %_ZN10BigIntegerD2Ev.exit48
 
 _ZN10BigIntegerD2Ev.exit48:                       ; preds = %164, %.body, %18
@@ -5331,7 +5331,7 @@ _ZN10BigIntegerD2Ev.exit48:                       ; preds = %164, %.body, %18
   br i1 %167, label %_ZN10BigIntegerD2Ev.exit49, label %168
 
 168:                                              ; preds = %_ZN10BigIntegerD2Ev.exit48
-  call void @_ZdaPv(ptr noundef nonnull %166) #17
+  call void @_ZdaPv(ptr noundef nonnull %166) #18
   br label %_ZN10BigIntegerD2Ev.exit49
 
 _ZN10BigIntegerD2Ev.exit49:                       ; preds = %_ZN10BigIntegerD2Ev.exit48, %168
@@ -5348,9 +5348,9 @@ define linkonce_odr void @_ZNK10BigIntegerdvERKS_(ptr dead_on_unwind noalias wri
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @__cxa_allocate_exception(i64 8) #18
+  %8 = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr @.str.3, ptr %8, align 16
-  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIPKc, ptr null) #15
+  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIPKc, ptr null) #16
   unreachable
 
 9:                                                ; preds = %3
@@ -5374,7 +5374,7 @@ define linkonce_odr void @_ZNK10BigIntegerdvERKS_(ptr dead_on_unwind noalias wri
   br i1 %16, label %_ZN10BigIntegerD2Ev.exit, label %17
 
 17:                                               ; preds = %13
-  call void @_ZdaPv(ptr noundef nonnull %15) #17
+  call void @_ZdaPv(ptr noundef nonnull %15) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %13, %17
@@ -5389,7 +5389,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %13, %17
   br i1 %22, label %_ZN10BigIntegerD2Ev.exit7, label %23
 
 23:                                               ; preds = %18
-  call void @_ZdaPv(ptr noundef nonnull %21) #17
+  call void @_ZdaPv(ptr noundef nonnull %21) #18
   br label %_ZN10BigIntegerD2Ev.exit7
 
 _ZN10BigIntegerD2Ev.exit7:                        ; preds = %23, %18
@@ -5399,7 +5399,7 @@ _ZN10BigIntegerD2Ev.exit7:                        ; preds = %23, %18
   br i1 %26, label %_ZN10BigIntegerD2Ev.exit8, label %27
 
 27:                                               ; preds = %_ZN10BigIntegerD2Ev.exit7
-  call void @_ZdaPv(ptr noundef nonnull %25) #17
+  call void @_ZdaPv(ptr noundef nonnull %25) #18
   br label %_ZN10BigIntegerD2Ev.exit8
 
 _ZN10BigIntegerD2Ev.exit8:                        ; preds = %_ZN10BigIntegerD2Ev.exit7, %27
@@ -5460,7 +5460,7 @@ define void @_ZN5Yosys5RTLIL9const_modERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   br i1 %31, label %.body, label %32
 
 32:                                               ; preds = %27
-  call void @_ZdaPv(ptr noundef nonnull %30) #17
+  call void @_ZdaPv(ptr noundef nonnull %30) #18
   br label %.body
 
 33:                                               ; preds = %22
@@ -5472,7 +5472,7 @@ define void @_ZN5Yosys5RTLIL9const_modERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   store i32 %36, ptr %25, align 8
   %37 = zext i32 %36 to i64
   %38 = shl nuw nsw i64 %37, 3
-  %39 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %38) #16
+  %39 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %38) #17
           to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %33
@@ -5510,7 +5510,7 @@ _ZNK10BigIntegerngEv.exit:                        ; preds = %42, %.noexc, %26
   br i1 %54, label %_ZN10BigIntegerD2Ev.exit, label %55
 
 55:                                               ; preds = %51
-  call void @_ZdaPv(ptr noundef nonnull %53) #17
+  call void @_ZdaPv(ptr noundef nonnull %53) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %51, %55
@@ -5534,7 +5534,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %51, %55
   br i1 %64, label %.body, label %65
 
 65:                                               ; preds = %60
-  call void @_ZdaPv(ptr noundef nonnull %63) #17
+  call void @_ZdaPv(ptr noundef nonnull %63) #18
   br label %.body
 
 66:                                               ; preds = %_ZN10BigIntegerD2Ev.exit
@@ -5546,7 +5546,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %51, %55
   store i32 %69, ptr %58, align 8
   %70 = zext i32 %69 to i64
   %71 = shl nuw nsw i64 %70, 3
-  %72 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %71) #16
+  %72 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %71) #17
           to label %.noexc32 unwind label %20
 
 .noexc32:                                         ; preds = %66
@@ -5584,7 +5584,7 @@ _ZNK10BigIntegerngEv.exit27:                      ; preds = %75, %.noexc32, %59
   br i1 %87, label %_ZN10BigIntegerD2Ev.exit34, label %88
 
 88:                                               ; preds = %84
-  call void @_ZdaPv(ptr noundef nonnull %86) #17
+  call void @_ZdaPv(ptr noundef nonnull %86) #18
   br label %_ZN10BigIntegerD2Ev.exit34
 
 _ZN10BigIntegerD2Ev.exit34:                       ; preds = %84, %88
@@ -5610,7 +5610,7 @@ _ZN10BigIntegerD2Ev.exit34:                       ; preds = %84, %88
   br i1 %96, label %.body36.thread, label %97
 
 97:                                               ; preds = %92
-  call void @_ZdaPv(ptr noundef nonnull %95) #17
+  call void @_ZdaPv(ptr noundef nonnull %95) #18
   br label %.body36.thread
 
 98:                                               ; preds = %_ZN10BigIntegerD2Ev.exit34
@@ -5654,7 +5654,7 @@ _ZNK10BigIntegerngEv.exit38:                      ; preds = %90, %98
   br i1 %122, label %_ZN10BigIntegerD2Ev.exit40, label %123
 
 123:                                              ; preds = %119
-  call void @_ZdaPv(ptr noundef nonnull %121) #17
+  call void @_ZdaPv(ptr noundef nonnull %121) #18
   br label %_ZN10BigIntegerD2Ev.exit40
 
 _ZN10BigIntegerD2Ev.exit40:                       ; preds = %119, %123
@@ -5667,7 +5667,7 @@ _ZN10BigIntegerD2Ev.exit40:                       ; preds = %119, %123
   br i1 %127, label %_ZN10BigIntegerD2Ev.exit41, label %128
 
 128:                                              ; preds = %124
-  call void @_ZdaPv(ptr noundef nonnull %126) #17
+  call void @_ZdaPv(ptr noundef nonnull %126) #18
   br label %_ZN10BigIntegerD2Ev.exit41
 
 129:                                              ; preds = %_ZNK10BigIntegerngEv.exit
@@ -5679,7 +5679,7 @@ _ZN10BigIntegerD2Ev.exit40:                       ; preds = %119, %123
   br i1 %133, label %.body, label %134
 
 134:                                              ; preds = %129
-  call void @_ZdaPv(ptr noundef nonnull %132) #17
+  call void @_ZdaPv(ptr noundef nonnull %132) #18
   br label %.body
 
 135:                                              ; preds = %_ZNK10BigIntegerngEv.exit27
@@ -5691,7 +5691,7 @@ _ZN10BigIntegerD2Ev.exit40:                       ; preds = %119, %123
   br i1 %139, label %.body, label %140
 
 140:                                              ; preds = %135
-  call void @_ZdaPv(ptr noundef nonnull %138) #17
+  call void @_ZdaPv(ptr noundef nonnull %138) #18
   br label %.body
 
 .body36.thread59:                                 ; preds = %98
@@ -5708,7 +5708,7 @@ _ZN10BigIntegerD2Ev.exit40:                       ; preds = %119, %123
   br i1 %146, label %.body36, label %147
 
 147:                                              ; preds = %142
-  call void @_ZdaPv(ptr noundef nonnull %145) #17
+  call void @_ZdaPv(ptr noundef nonnull %145) #18
   br label %.body36
 
 .body36:                                          ; preds = %147, %142
@@ -5722,7 +5722,7 @@ _ZN10BigIntegerD2Ev.exit40:                       ; preds = %119, %123
   br i1 %150, label %.body, label %151
 
 151:                                              ; preds = %.body36.thread
-  call void @_ZdaPv(ptr noundef nonnull %149) #17
+  call void @_ZdaPv(ptr noundef nonnull %149) #18
   br label %.body
 
 _ZN10BigIntegerD2Ev.exit41:                       ; preds = %128, %124, %_ZN10BigIntegerD2Ev.exit40, %17
@@ -5732,7 +5732,7 @@ _ZN10BigIntegerD2Ev.exit41:                       ; preds = %128, %124, %_ZN10Bi
   br i1 %154, label %_ZN10BigIntegerD2Ev.exit46, label %155
 
 155:                                              ; preds = %_ZN10BigIntegerD2Ev.exit41
-  call void @_ZdaPv(ptr noundef nonnull %153) #17
+  call void @_ZdaPv(ptr noundef nonnull %153) #18
   br label %_ZN10BigIntegerD2Ev.exit46
 
 _ZN10BigIntegerD2Ev.exit46:                       ; preds = %_ZN10BigIntegerD2Ev.exit41, %155
@@ -5742,7 +5742,7 @@ _ZN10BigIntegerD2Ev.exit46:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %158, label %_ZN10BigIntegerD2Ev.exit47, label %159
 
 159:                                              ; preds = %_ZN10BigIntegerD2Ev.exit46
-  call void @_ZdaPv(ptr noundef nonnull %157) #17
+  call void @_ZdaPv(ptr noundef nonnull %157) #18
   br label %_ZN10BigIntegerD2Ev.exit47
 
 _ZN10BigIntegerD2Ev.exit47:                       ; preds = %_ZN10BigIntegerD2Ev.exit46, %159
@@ -5756,7 +5756,7 @@ _ZN10BigIntegerD2Ev.exit47:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %162, label %_ZN10BigIntegerD2Ev.exit48, label %163
 
 163:                                              ; preds = %.body
-  call void @_ZdaPv(ptr noundef nonnull %161) #17
+  call void @_ZdaPv(ptr noundef nonnull %161) #18
   br label %_ZN10BigIntegerD2Ev.exit48
 
 _ZN10BigIntegerD2Ev.exit48:                       ; preds = %163, %.body, %18
@@ -5767,7 +5767,7 @@ _ZN10BigIntegerD2Ev.exit48:                       ; preds = %163, %.body, %18
   br i1 %166, label %_ZN10BigIntegerD2Ev.exit49, label %167
 
 167:                                              ; preds = %_ZN10BigIntegerD2Ev.exit48
-  call void @_ZdaPv(ptr noundef nonnull %165) #17
+  call void @_ZdaPv(ptr noundef nonnull %165) #18
   br label %_ZN10BigIntegerD2Ev.exit49
 
 _ZN10BigIntegerD2Ev.exit49:                       ; preds = %_ZN10BigIntegerD2Ev.exit48, %167
@@ -5782,9 +5782,9 @@ define linkonce_odr void @_ZNK10BigIntegerrmERKS_(ptr dead_on_unwind noalias wri
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @__cxa_allocate_exception(i64 8) #18
+  %8 = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr @.str.4, ptr %8, align 16
-  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIPKc, ptr null) #15
+  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIPKc, ptr null) #16
   unreachable
 
 9:                                                ; preds = %3
@@ -5810,7 +5810,7 @@ define linkonce_odr void @_ZNK10BigIntegerrmERKS_(ptr dead_on_unwind noalias wri
   br i1 %17, label %_ZN10BigIntegerD2Ev.exit, label %18
 
 18:                                               ; preds = %13
-  call void @_ZdaPv(ptr noundef nonnull %16) #17
+  call void @_ZdaPv(ptr noundef nonnull %16) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 19:                                               ; preds = %12
@@ -5820,7 +5820,7 @@ define linkonce_odr void @_ZNK10BigIntegerrmERKS_(ptr dead_on_unwind noalias wri
   br i1 %22, label %_ZN10BigIntegerD2Ev.exit7, label %23
 
 23:                                               ; preds = %19
-  call void @_ZdaPv(ptr noundef nonnull %21) #17
+  call void @_ZdaPv(ptr noundef nonnull %21) #18
   br label %_ZN10BigIntegerD2Ev.exit7
 
 _ZN10BigIntegerD2Ev.exit7:                        ; preds = %19, %23
@@ -5833,7 +5833,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %18, %13
   br i1 %26, label %_ZN10BigIntegerD2Ev.exit8, label %27
 
 27:                                               ; preds = %_ZN10BigIntegerD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %25) #17
+  call void @_ZdaPv(ptr noundef nonnull %25) #18
   br label %_ZN10BigIntegerD2Ev.exit8
 
 _ZN10BigIntegerD2Ev.exit8:                        ; preds = %_ZN10BigIntegerD2Ev.exit, %27
@@ -5902,7 +5902,7 @@ define void @_ZN5Yosys5RTLIL14const_divfloorERKNS0_5ConstES3_bbi(ptr dead_on_unw
   br i1 %39, label %.body, label %40
 
 40:                                               ; preds = %35
-  call void @_ZdaPv(ptr noundef nonnull %38) #17
+  call void @_ZdaPv(ptr noundef nonnull %38) #18
   br label %.body
 
 41:                                               ; preds = %28
@@ -5914,7 +5914,7 @@ define void @_ZN5Yosys5RTLIL14const_divfloorERKNS0_5ConstES3_bbi(ptr dead_on_unw
   store i32 %44, ptr %33, align 8
   %45 = zext i32 %44 to i64
   %46 = shl nuw nsw i64 %45, 3
-  %47 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %46) #16
+  %47 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %46) #17
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %41
@@ -5952,7 +5952,7 @@ _ZNK10BigIntegerngEv.exit:                        ; preds = %50, %.noexc, %34
   br i1 %62, label %_ZN10BigIntegerD2Ev.exit, label %63
 
 63:                                               ; preds = %59
-  call void @_ZdaPv(ptr noundef nonnull %61) #17
+  call void @_ZdaPv(ptr noundef nonnull %61) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %59, %63
@@ -5976,7 +5976,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %59, %63
   br i1 %72, label %.body, label %73
 
 73:                                               ; preds = %68
-  call void @_ZdaPv(ptr noundef nonnull %71) #17
+  call void @_ZdaPv(ptr noundef nonnull %71) #18
   br label %.body
 
 74:                                               ; preds = %_ZN10BigIntegerD2Ev.exit
@@ -5988,7 +5988,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %59, %63
   store i32 %77, ptr %66, align 8
   %78 = zext i32 %77 to i64
   %79 = shl nuw nsw i64 %78, 3
-  %80 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %79) #16
+  %80 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %79) #17
           to label %.noexc39 unwind label %26
 
 .noexc39:                                         ; preds = %74
@@ -6026,7 +6026,7 @@ _ZNK10BigIntegerngEv.exit34:                      ; preds = %83, %.noexc39, %67
   br i1 %95, label %97, label %96
 
 96:                                               ; preds = %92
-  call void @_ZdaPv(ptr noundef nonnull %94) #17
+  call void @_ZdaPv(ptr noundef nonnull %94) #18
   br label %97
 
 97:                                               ; preds = %96, %92
@@ -6091,11 +6091,11 @@ _ZNK10BigIntegereqERKS_.exit.thread.thread:       ; preds = %.preheader.i.i.i
   br i1 %124, label %_ZN10BigIntegerD2Ev.exit46.thread, label %.thread
 
 .thread:                                          ; preds = %_ZNK10BigIntegereqERKS_.exit.thread.thread
-  call void @_ZdaPv(ptr noundef nonnull %123) #17
+  call void @_ZdaPv(ptr noundef nonnull %123) #18
   br label %_ZN10BigIntegerD2Ev.exit46.thread
 
 125:                                              ; preds = %_ZNK10BigIntegereqERKS_.exit.thread
-  call void @_ZdaPv(ptr noundef nonnull %120) #17
+  call void @_ZdaPv(ptr noundef nonnull %120) #18
   br i1 %118, label %_ZN10BigIntegerD2Ev.exit46.thread, label %151
 
 _ZN10BigIntegerD2Ev.exit46:                       ; preds = %_ZNK10BigIntegereqERKS_.exit.thread
@@ -6124,7 +6124,7 @@ _ZN10BigIntegerD2Ev.exit46.thread:                ; preds = %_ZNK10BigIntegereqE
   br i1 %135, label %.body, label %136
 
 136:                                              ; preds = %131
-  call void @_ZdaPv(ptr noundef nonnull %134) #17
+  call void @_ZdaPv(ptr noundef nonnull %134) #18
   br label %.body
 
 137:                                              ; preds = %_ZNK10BigIntegerngEv.exit34
@@ -6136,7 +6136,7 @@ _ZN10BigIntegerD2Ev.exit46.thread:                ; preds = %_ZNK10BigIntegereqE
   br i1 %141, label %.body, label %142
 
 142:                                              ; preds = %137
-  call void @_ZdaPv(ptr noundef nonnull %140) #17
+  call void @_ZdaPv(ptr noundef nonnull %140) #18
   br label %.body
 
 143:                                              ; preds = %234, %_ZN10BigIntegerD2Ev.exit46.thread, %99
@@ -6153,7 +6153,7 @@ _ZN10BigIntegerD2Ev.exit46.thread:                ; preds = %_ZNK10BigIntegereqE
   br i1 %149, label %.body53, label %150
 
 150:                                              ; preds = %145
-  call void @_ZdaPv(ptr noundef nonnull %148) #17
+  call void @_ZdaPv(ptr noundef nonnull %148) #18
   br label %.body53
 
 151:                                              ; preds = %125, %_ZN10BigIntegerD2Ev.exit46
@@ -6172,7 +6172,7 @@ _ZN10BigIntegerD2Ev.exit46.thread:                ; preds = %_ZNK10BigIntegereqE
   br i1 %157, label %.body53, label %158
 
 158:                                              ; preds = %153
-  call void @_ZdaPv(ptr noundef nonnull %156) #17
+  call void @_ZdaPv(ptr noundef nonnull %156) #18
   br label %.body53
 
 _ZNK10BigIntegerplERKS_.exit:                     ; preds = %151
@@ -6224,7 +6224,7 @@ _ZNK10BigIntegerngEv.exit61:                      ; preds = %166
   br i1 %176, label %_ZN10BigIntegerD2Ev.exit62, label %177
 
 177:                                              ; preds = %173
-  call void @_ZdaPv(ptr noundef nonnull %175) #17
+  call void @_ZdaPv(ptr noundef nonnull %175) #18
   br label %_ZN10BigIntegerD2Ev.exit62
 
 _ZN10BigIntegerD2Ev.exit62:                       ; preds = %173, %177
@@ -6234,7 +6234,7 @@ _ZN10BigIntegerD2Ev.exit62:                       ; preds = %173, %177
   br i1 %180, label %_ZN10BigIntegerD2Ev.exit63, label %181
 
 181:                                              ; preds = %_ZN10BigIntegerD2Ev.exit62
-  call void @_ZdaPv(ptr noundef nonnull %179) #17
+  call void @_ZdaPv(ptr noundef nonnull %179) #18
   br label %_ZN10BigIntegerD2Ev.exit63
 
 _ZN10BigIntegerD2Ev.exit63:                       ; preds = %_ZN10BigIntegerD2Ev.exit62, %181
@@ -6244,7 +6244,7 @@ _ZN10BigIntegerD2Ev.exit63:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %184, label %_ZN10BigIntegerD2Ev.exit64, label %185
 
 185:                                              ; preds = %_ZN10BigIntegerD2Ev.exit63
-  call void @_ZdaPv(ptr noundef nonnull %183) #17
+  call void @_ZdaPv(ptr noundef nonnull %183) #18
   br label %_ZN10BigIntegerD2Ev.exit64
 
 _ZN10BigIntegerD2Ev.exit64:                       ; preds = %_ZN10BigIntegerD2Ev.exit63, %185
@@ -6254,7 +6254,7 @@ _ZN10BigIntegerD2Ev.exit64:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %188, label %_ZN10BigIntegerD2Ev.exit65, label %189
 
 189:                                              ; preds = %_ZN10BigIntegerD2Ev.exit64
-  call void @_ZdaPv(ptr noundef nonnull %187) #17
+  call void @_ZdaPv(ptr noundef nonnull %187) #18
   br label %_ZN10BigIntegerD2Ev.exit65
 
 _ZN10BigIntegerD2Ev.exit65:                       ; preds = %_ZN10BigIntegerD2Ev.exit64, %189
@@ -6284,7 +6284,7 @@ _ZN10BigIntegerD2Ev.exit65:                       ; preds = %_ZN10BigIntegerD2Ev
 .body59.sink.split:                               ; preds = %197, %168
   %.sink = phi ptr [ %171, %168 ], [ %200, %197 ]
   %.pn.ph = phi { ptr, i32 } [ %169, %168 ], [ %198, %197 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #17
+  call void @_ZdaPv(ptr noundef nonnull %.sink) #18
   br label %.body59
 
 .body59:                                          ; preds = %.body59.sink.split, %197, %168
@@ -6295,7 +6295,7 @@ _ZN10BigIntegerD2Ev.exit65:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %204, label %_ZN10BigIntegerD2Ev.exit68, label %205
 
 205:                                              ; preds = %.body59
-  call void @_ZdaPv(ptr noundef nonnull %203) #17
+  call void @_ZdaPv(ptr noundef nonnull %203) #18
   br label %_ZN10BigIntegerD2Ev.exit68
 
 _ZN10BigIntegerD2Ev.exit68:                       ; preds = %205, %.body59, %195
@@ -6308,7 +6308,7 @@ _ZN10BigIntegerD2Ev.exit68:                       ; preds = %205, %.body59, %195
 .body56.sink.split:                               ; preds = %_ZN10BigIntegerD2Ev.exit68, %161
   %.sink88 = phi ptr [ %164, %161 ], [ %207, %_ZN10BigIntegerD2Ev.exit68 ]
   %.pn.pn.pn.ph = phi { ptr, i32 } [ %162, %161 ], [ %.pn.pn, %_ZN10BigIntegerD2Ev.exit68 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink88) #17
+  call void @_ZdaPv(ptr noundef nonnull %.sink88) #18
   br label %.body56
 
 .body56:                                          ; preds = %.body56.sink.split, %_ZN10BigIntegerD2Ev.exit68, %161
@@ -6319,7 +6319,7 @@ _ZN10BigIntegerD2Ev.exit68:                       ; preds = %205, %.body59, %195
   br i1 %211, label %_ZN10BigIntegerD2Ev.exit70, label %212
 
 212:                                              ; preds = %.body56
-  call void @_ZdaPv(ptr noundef nonnull %210) #17
+  call void @_ZdaPv(ptr noundef nonnull %210) #18
   br label %_ZN10BigIntegerD2Ev.exit70
 
 _ZN10BigIntegerD2Ev.exit70:                       ; preds = %212, %.body56, %193
@@ -6330,12 +6330,12 @@ _ZN10BigIntegerD2Ev.exit70:                       ; preds = %212, %.body56, %193
   br i1 %215, label %.body53, label %216
 
 216:                                              ; preds = %_ZN10BigIntegerD2Ev.exit70
-  call void @_ZdaPv(ptr noundef nonnull %214) #17
+  call void @_ZdaPv(ptr noundef nonnull %214) #18
   br label %.body53
 
 _ZN10BigIntegerD2Ev.exit47.sink.split:            ; preds = %_ZN10BigIntegerD2Ev.exit65, %127
   %.sink89 = phi ptr [ %129, %127 ], [ %191, %_ZN10BigIntegerD2Ev.exit65 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink89) #17
+  call void @_ZdaPv(ptr noundef nonnull %.sink89) #18
   br label %_ZN10BigIntegerD2Ev.exit47
 
 _ZN10BigIntegerD2Ev.exit47:                       ; preds = %_ZN10BigIntegerD2Ev.exit47.sink.split, %_ZN10BigIntegerD2Ev.exit65, %127
@@ -6375,7 +6375,7 @@ _ZN10BigIntegerD2Ev.exit47:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %240, label %_ZN10BigIntegerD2Ev.exit73, label %241
 
 241:                                              ; preds = %237
-  call void @_ZdaPv(ptr noundef nonnull %239) #17
+  call void @_ZdaPv(ptr noundef nonnull %239) #18
   br label %_ZN10BigIntegerD2Ev.exit73
 
 .body53:                                          ; preds = %216, %_ZN10BigIntegerD2Ev.exit70, %153, %158, %150, %145, %143
@@ -6386,7 +6386,7 @@ _ZN10BigIntegerD2Ev.exit47:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %244, label %.body, label %245
 
 245:                                              ; preds = %.body53
-  call void @_ZdaPv(ptr noundef nonnull %243) #17
+  call void @_ZdaPv(ptr noundef nonnull %243) #18
   br label %.body
 
 _ZN10BigIntegerD2Ev.exit73:                       ; preds = %241, %237, %23
@@ -6396,7 +6396,7 @@ _ZN10BigIntegerD2Ev.exit73:                       ; preds = %241, %237, %23
   br i1 %248, label %_ZN10BigIntegerD2Ev.exit75, label %249
 
 249:                                              ; preds = %_ZN10BigIntegerD2Ev.exit73
-  call void @_ZdaPv(ptr noundef nonnull %247) #17
+  call void @_ZdaPv(ptr noundef nonnull %247) #18
   br label %_ZN10BigIntegerD2Ev.exit75
 
 _ZN10BigIntegerD2Ev.exit75:                       ; preds = %_ZN10BigIntegerD2Ev.exit73, %249
@@ -6406,7 +6406,7 @@ _ZN10BigIntegerD2Ev.exit75:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %252, label %_ZN10BigIntegerD2Ev.exit76, label %253
 
 253:                                              ; preds = %_ZN10BigIntegerD2Ev.exit75
-  call void @_ZdaPv(ptr noundef nonnull %251) #17
+  call void @_ZdaPv(ptr noundef nonnull %251) #18
   br label %_ZN10BigIntegerD2Ev.exit76
 
 _ZN10BigIntegerD2Ev.exit76:                       ; preds = %_ZN10BigIntegerD2Ev.exit75, %253
@@ -6420,7 +6420,7 @@ _ZN10BigIntegerD2Ev.exit76:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %256, label %_ZN10BigIntegerD2Ev.exit77, label %257
 
 257:                                              ; preds = %.body
-  call void @_ZdaPv(ptr noundef nonnull %255) #17
+  call void @_ZdaPv(ptr noundef nonnull %255) #18
   br label %_ZN10BigIntegerD2Ev.exit77
 
 _ZN10BigIntegerD2Ev.exit77:                       ; preds = %257, %.body, %24
@@ -6431,7 +6431,7 @@ _ZN10BigIntegerD2Ev.exit77:                       ; preds = %257, %.body, %24
   br i1 %260, label %_ZN10BigIntegerD2Ev.exit78, label %261
 
 261:                                              ; preds = %_ZN10BigIntegerD2Ev.exit77
-  call void @_ZdaPv(ptr noundef nonnull %259) #17
+  call void @_ZdaPv(ptr noundef nonnull %259) #18
   br label %_ZN10BigIntegerD2Ev.exit78
 
 _ZN10BigIntegerD2Ev.exit78:                       ; preds = %_ZN10BigIntegerD2Ev.exit77, %261
@@ -6497,7 +6497,7 @@ define void @_ZN5Yosys5RTLIL14const_modfloorERKNS0_5ConstES3_bbi(ptr dead_on_unw
   br i1 %34, label %.body, label %35
 
 35:                                               ; preds = %30
-  call void @_ZdaPv(ptr noundef nonnull %33) #17
+  call void @_ZdaPv(ptr noundef nonnull %33) #18
   br label %.body
 
 36:                                               ; preds = %25
@@ -6509,7 +6509,7 @@ define void @_ZN5Yosys5RTLIL14const_modfloorERKNS0_5ConstES3_bbi(ptr dead_on_unw
   store i32 %39, ptr %28, align 8
   %40 = zext i32 %39 to i64
   %41 = shl nuw nsw i64 %40, 3
-  %42 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %41) #16
+  %42 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %41) #17
           to label %.noexc unwind label %23
 
 .noexc:                                           ; preds = %36
@@ -6547,7 +6547,7 @@ _ZNK10BigIntegerngEv.exit:                        ; preds = %45, %.noexc, %29
   br i1 %57, label %_ZN10BigIntegerD2Ev.exit, label %58
 
 58:                                               ; preds = %54
-  call void @_ZdaPv(ptr noundef nonnull %56) #17
+  call void @_ZdaPv(ptr noundef nonnull %56) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %54, %58
@@ -6570,7 +6570,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %54, %58
   br i1 %66, label %.body, label %67
 
 67:                                               ; preds = %62
-  call void @_ZdaPv(ptr noundef nonnull %65) #17
+  call void @_ZdaPv(ptr noundef nonnull %65) #18
   br label %.body
 
 68:                                               ; preds = %_ZN10BigIntegerD2Ev.exit
@@ -6584,7 +6584,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %54, %58
   store i32 %73, ptr %70, align 8
   %74 = zext i32 %73 to i64
   %75 = shl nuw nsw i64 %74, 3
-  %76 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %75) #16
+  %76 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %75) #17
           to label %.noexc38 unwind label %23
 
 .noexc38:                                         ; preds = %68
@@ -6622,7 +6622,7 @@ _ZNK10BigIntegerngEv.exit33:                      ; preds = %79, %.noexc38, %60
   br i1 %91, label %_ZN10BigIntegerD2Ev.exit40, label %92
 
 92:                                               ; preds = %88
-  call void @_ZdaPv(ptr noundef nonnull %90) #17
+  call void @_ZdaPv(ptr noundef nonnull %90) #18
   br label %_ZN10BigIntegerD2Ev.exit40
 
 _ZN10BigIntegerD2Ev.exit40:                       ; preds = %88, %92
@@ -6648,7 +6648,7 @@ _ZN10BigIntegerD2Ev.exit40:                       ; preds = %88, %92
   br i1 %100, label %149, label %101
 
 101:                                              ; preds = %96
-  call void @_ZdaPv(ptr noundef nonnull %99) #17
+  call void @_ZdaPv(ptr noundef nonnull %99) #18
   br label %149
 
 102:                                              ; preds = %_ZN10BigIntegerD2Ev.exit40
@@ -6662,7 +6662,7 @@ _ZN10BigIntegerD2Ev.exit40:                       ; preds = %88, %92
   br i1 %106, label %108, label %107
 
 107:                                              ; preds = %103
-  call void @_ZdaPv(ptr noundef nonnull %105) #17
+  call void @_ZdaPv(ptr noundef nonnull %105) #18
   br label %108
 
 108:                                              ; preds = %102, %103, %107
@@ -6720,7 +6720,7 @@ _ZNK10BigIntegereqERKS_.exit:                     ; preds = %123, %.preheader.i.
   br i1 %133, label %_ZN10BigIntegerD2Ev.exit50, label %134
 
 134:                                              ; preds = %_ZNK10BigIntegereqERKS_.exit
-  call void @_ZdaPv(ptr noundef nonnull %132) #17
+  call void @_ZdaPv(ptr noundef nonnull %132) #18
   br label %_ZN10BigIntegerD2Ev.exit50
 
 _ZN10BigIntegerD2Ev.exit50:                       ; preds = %_ZNK10BigIntegereqERKS_.exit, %134
@@ -6739,7 +6739,7 @@ _ZN10BigIntegerD2Ev.exit50:                       ; preds = %_ZNK10BigIntegereqE
   br i1 %140, label %.body, label %141
 
 141:                                              ; preds = %136
-  call void @_ZdaPv(ptr noundef nonnull %139) #17
+  call void @_ZdaPv(ptr noundef nonnull %139) #18
   br label %.body
 
 142:                                              ; preds = %_ZNK10BigIntegerngEv.exit33
@@ -6751,7 +6751,7 @@ _ZN10BigIntegerD2Ev.exit50:                       ; preds = %_ZNK10BigIntegereqE
   br i1 %146, label %.body, label %147
 
 147:                                              ; preds = %142
-  call void @_ZdaPv(ptr noundef nonnull %145) #17
+  call void @_ZdaPv(ptr noundef nonnull %145) #18
   br label %.body
 
 .body42:                                          ; preds = %102
@@ -6766,7 +6766,7 @@ _ZN10BigIntegerD2Ev.exit50:                       ; preds = %_ZNK10BigIntegereqE
   br i1 %152, label %.body, label %153
 
 153:                                              ; preds = %149
-  call void @_ZdaPv(ptr noundef nonnull %151) #17
+  call void @_ZdaPv(ptr noundef nonnull %151) #18
   br label %.body
 
 154:                                              ; preds = %200, %135, %108
@@ -6793,7 +6793,7 @@ _ZN10BigIntegerD2Ev.exit50:                       ; preds = %_ZNK10BigIntegereqE
   br i1 %163, label %.body56, label %164
 
 164:                                              ; preds = %159
-  call void @_ZdaPv(ptr noundef nonnull %162) #17
+  call void @_ZdaPv(ptr noundef nonnull %162) #18
   br label %.body56
 
 165:                                              ; preds = %156
@@ -6809,7 +6809,7 @@ _ZN10BigIntegerD2Ev.exit50:                       ; preds = %_ZNK10BigIntegereqE
   br i1 %170, label %.body56, label %171
 
 171:                                              ; preds = %166
-  call void @_ZdaPv(ptr noundef nonnull %169) #17
+  call void @_ZdaPv(ptr noundef nonnull %169) #18
   br label %.body56
 
 _ZNK10BigIntegermiERKS_.exit:                     ; preds = %165, %158
@@ -6823,7 +6823,7 @@ _ZNK10BigIntegermiERKS_.exit:                     ; preds = %165, %158
   br i1 %175, label %_ZN10BigIntegerD2Ev.exit61, label %176
 
 176:                                              ; preds = %172
-  call void @_ZdaPv(ptr noundef nonnull %174) #17
+  call void @_ZdaPv(ptr noundef nonnull %174) #18
   br label %_ZN10BigIntegerD2Ev.exit61
 
 177:                                              ; preds = %_ZNK10BigIntegermiERKS_.exit
@@ -6835,7 +6835,7 @@ _ZNK10BigIntegermiERKS_.exit:                     ; preds = %165, %158
   br i1 %181, label %.body56, label %182
 
 182:                                              ; preds = %177
-  call void @_ZdaPv(ptr noundef nonnull %180) #17
+  call void @_ZdaPv(ptr noundef nonnull %180) #18
   br label %.body56
 
 _ZN10BigIntegerD2Ev.exit61:                       ; preds = %176, %172, %135
@@ -6875,7 +6875,7 @@ _ZN10BigIntegerD2Ev.exit61:                       ; preds = %176, %172, %135
   br i1 %206, label %_ZN10BigIntegerD2Ev.exit64, label %207
 
 207:                                              ; preds = %203
-  call void @_ZdaPv(ptr noundef nonnull %205) #17
+  call void @_ZdaPv(ptr noundef nonnull %205) #18
   br label %_ZN10BigIntegerD2Ev.exit64
 
 _ZN10BigIntegerD2Ev.exit64:                       ; preds = %203, %207
@@ -6885,7 +6885,7 @@ _ZN10BigIntegerD2Ev.exit64:                       ; preds = %203, %207
   br i1 %210, label %_ZN10BigIntegerD2Ev.exit65, label %211
 
 211:                                              ; preds = %_ZN10BigIntegerD2Ev.exit64
-  call void @_ZdaPv(ptr noundef nonnull %209) #17
+  call void @_ZdaPv(ptr noundef nonnull %209) #18
   br label %_ZN10BigIntegerD2Ev.exit65
 
 .body56:                                          ; preds = %182, %177, %166, %171, %159, %164, %154
@@ -6896,7 +6896,7 @@ _ZN10BigIntegerD2Ev.exit64:                       ; preds = %203, %207
   br i1 %214, label %_ZN10BigIntegerD2Ev.exit66, label %215
 
 215:                                              ; preds = %.body56
-  call void @_ZdaPv(ptr noundef nonnull %213) #17
+  call void @_ZdaPv(ptr noundef nonnull %213) #18
   br label %_ZN10BigIntegerD2Ev.exit66
 
 _ZN10BigIntegerD2Ev.exit66:                       ; preds = %215, %.body56
@@ -6906,7 +6906,7 @@ _ZN10BigIntegerD2Ev.exit66:                       ; preds = %215, %.body56
   br i1 %218, label %.body, label %219
 
 219:                                              ; preds = %_ZN10BigIntegerD2Ev.exit66
-  call void @_ZdaPv(ptr noundef nonnull %217) #17
+  call void @_ZdaPv(ptr noundef nonnull %217) #18
   br label %.body
 
 _ZN10BigIntegerD2Ev.exit65:                       ; preds = %211, %_ZN10BigIntegerD2Ev.exit64, %20
@@ -6916,7 +6916,7 @@ _ZN10BigIntegerD2Ev.exit65:                       ; preds = %211, %_ZN10BigInteg
   br i1 %222, label %_ZN10BigIntegerD2Ev.exit68, label %223
 
 223:                                              ; preds = %_ZN10BigIntegerD2Ev.exit65
-  call void @_ZdaPv(ptr noundef nonnull %221) #17
+  call void @_ZdaPv(ptr noundef nonnull %221) #18
   br label %_ZN10BigIntegerD2Ev.exit68
 
 _ZN10BigIntegerD2Ev.exit68:                       ; preds = %_ZN10BigIntegerD2Ev.exit65, %223
@@ -6926,7 +6926,7 @@ _ZN10BigIntegerD2Ev.exit68:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %226, label %_ZN10BigIntegerD2Ev.exit69, label %227
 
 227:                                              ; preds = %_ZN10BigIntegerD2Ev.exit68
-  call void @_ZdaPv(ptr noundef nonnull %225) #17
+  call void @_ZdaPv(ptr noundef nonnull %225) #18
   br label %_ZN10BigIntegerD2Ev.exit69
 
 _ZN10BigIntegerD2Ev.exit69:                       ; preds = %_ZN10BigIntegerD2Ev.exit68, %227
@@ -6940,7 +6940,7 @@ _ZN10BigIntegerD2Ev.exit69:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %230, label %_ZN10BigIntegerD2Ev.exit70, label %231
 
 231:                                              ; preds = %.body
-  call void @_ZdaPv(ptr noundef nonnull %229) #17
+  call void @_ZdaPv(ptr noundef nonnull %229) #18
   br label %_ZN10BigIntegerD2Ev.exit70
 
 _ZN10BigIntegerD2Ev.exit70:                       ; preds = %231, %.body, %21
@@ -6951,7 +6951,7 @@ _ZN10BigIntegerD2Ev.exit70:                       ; preds = %231, %.body, %21
   br i1 %234, label %_ZN10BigIntegerD2Ev.exit71, label %235
 
 235:                                              ; preds = %_ZN10BigIntegerD2Ev.exit70
-  call void @_ZdaPv(ptr noundef nonnull %233) #17
+  call void @_ZdaPv(ptr noundef nonnull %233) #18
   br label %_ZN10BigIntegerD2Ev.exit71
 
 _ZN10BigIntegerD2Ev.exit71:                       ; preds = %_ZN10BigIntegerD2Ev.exit70, %235
@@ -7066,7 +7066,7 @@ _ZNK10BigIntegereqERKS_.exit:                     ; preds = %59, %.preheader.i.i
   br i1 %71, label %_ZN10BigIntegerD2Ev.exit, label %72
 
 72:                                               ; preds = %67
-  call void @_ZdaPv(ptr noundef nonnull %70) #17
+  call void @_ZdaPv(ptr noundef nonnull %70) #18
   br label %_ZN10BigIntegerD2Ev.exit
 
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %60, %72, %67, %50, %46
@@ -7077,7 +7077,7 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %60, %72, %67, %50, 
   br i1 %76, label %_ZN10BigIntegerD2Ev.exit75, label %77
 
 77:                                               ; preds = %_ZN10BigIntegerD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %75) #17
+  call void @_ZdaPv(ptr noundef nonnull %75) #18
   br label %_ZN10BigIntegerD2Ev.exit75
 
 _ZN10BigIntegerD2Ev.exit75:                       ; preds = %_ZN10BigIntegerD2Ev.exit, %77
@@ -7112,7 +7112,7 @@ _ZN10BigIntegerD2Ev.exit75:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %90, label %_ZN10BigIntegerD2Ev.exit76, label %91
 
 91:                                               ; preds = %86
-  call void @_ZdaPv(ptr noundef nonnull %89) #17
+  call void @_ZdaPv(ptr noundef nonnull %89) #18
   br label %_ZN10BigIntegerD2Ev.exit76
 
 _ZN10BigIntegerD2Ev.exit76:                       ; preds = %91, %86, %84
@@ -7123,7 +7123,7 @@ _ZN10BigIntegerD2Ev.exit76:                       ; preds = %91, %86, %84
   br i1 %94, label %.body, label %95
 
 95:                                               ; preds = %_ZN10BigIntegerD2Ev.exit76
-  call void @_ZdaPv(ptr noundef nonnull %93) #17
+  call void @_ZdaPv(ptr noundef nonnull %93) #18
   br label %.body
 
 96:                                               ; preds = %_ZN10BigIntegerD2Ev.exit75
@@ -7186,7 +7186,7 @@ _ZNK10BigIntegereqERKS_.exit87:                   ; preds = %110, %.preheader.i.
   br i1 %122, label %_ZN10BigIntegerD2Ev.exit88, label %123
 
 123:                                              ; preds = %118
-  call void @_ZdaPv(ptr noundef nonnull %121) #17
+  call void @_ZdaPv(ptr noundef nonnull %121) #18
   br label %_ZN10BigIntegerD2Ev.exit88
 
 _ZN10BigIntegerD2Ev.exit88:                       ; preds = %111, %123, %118, %101, %97
@@ -7197,7 +7197,7 @@ _ZN10BigIntegerD2Ev.exit88:                       ; preds = %111, %123, %118, %1
   br i1 %127, label %_ZN10BigIntegerD2Ev.exit89, label %128
 
 128:                                              ; preds = %_ZN10BigIntegerD2Ev.exit88
-  call void @_ZdaPv(ptr noundef nonnull %126) #17
+  call void @_ZdaPv(ptr noundef nonnull %126) #18
   br label %_ZN10BigIntegerD2Ev.exit89
 
 _ZN10BigIntegerD2Ev.exit89:                       ; preds = %_ZN10BigIntegerD2Ev.exit88, %128
@@ -7222,7 +7222,7 @@ _ZN10BigIntegerD2Ev.exit89:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %136, label %_ZN10BigIntegerD2Ev.exit90, label %137
 
 137:                                              ; preds = %132
-  call void @_ZdaPv(ptr noundef nonnull %135) #17
+  call void @_ZdaPv(ptr noundef nonnull %135) #18
   br label %_ZN10BigIntegerD2Ev.exit90
 
 _ZN10BigIntegerD2Ev.exit90:                       ; preds = %137, %132, %130
@@ -7233,7 +7233,7 @@ _ZN10BigIntegerD2Ev.exit90:                       ; preds = %137, %132, %130
   br i1 %140, label %.body, label %141
 
 141:                                              ; preds = %_ZN10BigIntegerD2Ev.exit90
-  call void @_ZdaPv(ptr noundef nonnull %139) #17
+  call void @_ZdaPv(ptr noundef nonnull %139) #18
   br label %.body
 
 142:                                              ; preds = %_ZN10BigIntegerD2Ev.exit89
@@ -7252,7 +7252,7 @@ _ZN10BigIntegerD2Ev.exit90:                       ; preds = %137, %132, %130
   br i1 %149, label %_ZN10BigIntegerD2Ev.exit93, label %150
 
 150:                                              ; preds = %145
-  call void @_ZdaPv(ptr noundef nonnull %148) #17
+  call void @_ZdaPv(ptr noundef nonnull %148) #18
   br label %_ZN10BigIntegerD2Ev.exit93
 
 _ZN10BigIntegerD2Ev.exit93:                       ; preds = %145, %150
@@ -7286,7 +7286,7 @@ _ZN10BigIntegerD2Ev.exit93:                       ; preds = %145, %150
   br i1 %163, label %_ZN10BigIntegerD2Ev.exit96, label %164
 
 164:                                              ; preds = %159
-  call void @_ZdaPv(ptr noundef nonnull %162) #17
+  call void @_ZdaPv(ptr noundef nonnull %162) #18
   br label %_ZN10BigIntegerD2Ev.exit96
 
 _ZN10BigIntegerD2Ev.exit96:                       ; preds = %154, %164, %159
@@ -7297,7 +7297,7 @@ _ZN10BigIntegerD2Ev.exit96:                       ; preds = %154, %164, %159
   br i1 %168, label %_ZN10BigIntegerD2Ev.exit97, label %169
 
 169:                                              ; preds = %_ZN10BigIntegerD2Ev.exit96
-  call void @_ZdaPv(ptr noundef nonnull %167) #17
+  call void @_ZdaPv(ptr noundef nonnull %167) #18
   br label %_ZN10BigIntegerD2Ev.exit97
 
 _ZN10BigIntegerD2Ev.exit97:                       ; preds = %_ZN10BigIntegerD2Ev.exit96, %169
@@ -7318,7 +7318,7 @@ _ZN10BigIntegerD2Ev.exit97:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %175, label %_ZN10BigIntegerD2Ev.exit98, label %176
 
 176:                                              ; preds = %172
-  call void @_ZdaPv(ptr noundef nonnull %174) #17
+  call void @_ZdaPv(ptr noundef nonnull %174) #18
   br label %_ZN10BigIntegerD2Ev.exit98
 
 177:                                              ; preds = %143
@@ -7330,7 +7330,7 @@ _ZN10BigIntegerD2Ev.exit97:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %181, label %.body, label %182
 
 182:                                              ; preds = %177
-  call void @_ZdaPv(ptr noundef nonnull %180) #17
+  call void @_ZdaPv(ptr noundef nonnull %180) #18
   br label %.body
 
 183:                                              ; preds = %152, %156
@@ -7347,7 +7347,7 @@ _ZN10BigIntegerD2Ev.exit97:                       ; preds = %_ZN10BigIntegerD2Ev
   br i1 %189, label %_ZN10BigIntegerD2Ev.exit100, label %190
 
 190:                                              ; preds = %185
-  call void @_ZdaPv(ptr noundef nonnull %188) #17
+  call void @_ZdaPv(ptr noundef nonnull %188) #18
   br label %_ZN10BigIntegerD2Ev.exit100
 
 _ZN10BigIntegerD2Ev.exit100:                      ; preds = %190, %185, %183
@@ -7358,7 +7358,7 @@ _ZN10BigIntegerD2Ev.exit100:                      ; preds = %190, %185, %183
   br i1 %193, label %.body, label %194
 
 194:                                              ; preds = %_ZN10BigIntegerD2Ev.exit100
-  call void @_ZdaPv(ptr noundef nonnull %192) #17
+  call void @_ZdaPv(ptr noundef nonnull %192) #18
   br label %.body
 
 195:                                              ; preds = %171
@@ -7370,7 +7370,7 @@ _ZN10BigIntegerD2Ev.exit100:                      ; preds = %190, %185, %183
   br i1 %199, label %.body, label %200
 
 200:                                              ; preds = %195
-  call void @_ZdaPv(ptr noundef nonnull %198) #17
+  call void @_ZdaPv(ptr noundef nonnull %198) #18
   br label %.body
 
 _ZN10BigIntegerD2Ev.exit98:                       ; preds = %176, %172, %_ZN10BigIntegerD2Ev.exit97
@@ -7423,7 +7423,7 @@ _ZNK10BigIntegereqERKS_.exit112:                  ; preds = %214, %.preheader.i.
   br i1 %222, label %_ZN10BigIntegerD2Ev.exit113, label %223
 
 223:                                              ; preds = %_ZNK10BigIntegereqERKS_.exit112
-  call void @_ZdaPv(ptr noundef nonnull %221) #17
+  call void @_ZdaPv(ptr noundef nonnull %221) #18
   br label %_ZN10BigIntegerD2Ev.exit113
 
 _ZN10BigIntegerD2Ev.exit113:                      ; preds = %_ZNK10BigIntegereqERKS_.exit112, %223
@@ -7445,7 +7445,7 @@ _ZN10BigIntegerD2Ev.exit113:                      ; preds = %_ZNK10BigIntegereqE
   br i1 %230, label %.body, label %231
 
 231:                                              ; preds = %226
-  call void @_ZdaPv(ptr noundef nonnull %229) #17
+  call void @_ZdaPv(ptr noundef nonnull %229) #18
   br label %.body
 
 _ZNK10BigIntegerngEv.exit:                        ; preds = %224
@@ -7516,7 +7516,7 @@ _ZNK10BigIntegereqERKS_.exit123:                  ; preds = %248, %247, %238, %2
   br i1 %258, label %_ZN10BigIntegerD2Ev.exit124, label %259
 
 259:                                              ; preds = %255
-  call void @_ZdaPv(ptr noundef nonnull %257) #17
+  call void @_ZdaPv(ptr noundef nonnull %257) #18
   br label %_ZN10BigIntegerD2Ev.exit124
 
 _ZN10BigIntegerD2Ev.exit124:                      ; preds = %255, %259
@@ -7526,7 +7526,7 @@ _ZN10BigIntegerD2Ev.exit124:                      ; preds = %255, %259
   br i1 %262, label %_ZN10BigIntegerD2Ev.exit125, label %263
 
 263:                                              ; preds = %_ZN10BigIntegerD2Ev.exit124
-  call void @_ZdaPv(ptr noundef nonnull %261) #17
+  call void @_ZdaPv(ptr noundef nonnull %261) #18
   br label %_ZN10BigIntegerD2Ev.exit125
 
 _ZN10BigIntegerD2Ev.exit125:                      ; preds = %_ZN10BigIntegerD2Ev.exit124, %263
@@ -7536,7 +7536,7 @@ _ZN10BigIntegerD2Ev.exit125:                      ; preds = %_ZN10BigIntegerD2Ev
   br i1 %266, label %_ZN10BigIntegerD2Ev.exit126, label %267
 
 267:                                              ; preds = %_ZN10BigIntegerD2Ev.exit125
-  call void @_ZdaPv(ptr noundef nonnull %265) #17
+  call void @_ZdaPv(ptr noundef nonnull %265) #18
   br label %_ZN10BigIntegerD2Ev.exit126
 
 _ZN10BigIntegerD2Ev.exit126:                      ; preds = %_ZN10BigIntegerD2Ev.exit125, %267
@@ -7546,7 +7546,7 @@ _ZN10BigIntegerD2Ev.exit126:                      ; preds = %_ZN10BigIntegerD2Ev
   br i1 %270, label %_ZN10BigIntegerD2Ev.exit127, label %271
 
 271:                                              ; preds = %_ZN10BigIntegerD2Ev.exit126
-  call void @_ZdaPv(ptr noundef nonnull %269) #17
+  call void @_ZdaPv(ptr noundef nonnull %269) #18
   br label %_ZN10BigIntegerD2Ev.exit127
 
 _ZN10BigIntegerD2Ev.exit127:                      ; preds = %_ZN10BigIntegerD2Ev.exit126, %271
@@ -7556,7 +7556,7 @@ _ZN10BigIntegerD2Ev.exit127:                      ; preds = %_ZN10BigIntegerD2Ev
   br i1 %274, label %_ZN10BigIntegerD2Ev.exit128, label %275
 
 275:                                              ; preds = %_ZN10BigIntegerD2Ev.exit127
-  call void @_ZdaPv(ptr noundef nonnull %273) #17
+  call void @_ZdaPv(ptr noundef nonnull %273) #18
   br label %_ZN10BigIntegerD2Ev.exit128
 
 276:                                              ; preds = %_ZNK10BigIntegerngEv.exit
@@ -7588,7 +7588,7 @@ _ZN10BigIntegerD2Ev.exit127:                      ; preds = %_ZN10BigIntegerD2Ev
   br i1 %288, label %_ZN10BigIntegerD2Ev.exit130, label %289
 
 289:                                              ; preds = %284
-  call void @_ZdaPv(ptr noundef nonnull %287) #17
+  call void @_ZdaPv(ptr noundef nonnull %287) #18
   br label %_ZN10BigIntegerD2Ev.exit130
 
 _ZN10BigIntegerD2Ev.exit130:                      ; preds = %289, %284, %282
@@ -7599,7 +7599,7 @@ _ZN10BigIntegerD2Ev.exit130:                      ; preds = %289, %284, %282
   br i1 %292, label %_ZN10BigIntegerD2Ev.exit131, label %293
 
 293:                                              ; preds = %_ZN10BigIntegerD2Ev.exit130
-  call void @_ZdaPv(ptr noundef nonnull %291) #17
+  call void @_ZdaPv(ptr noundef nonnull %291) #18
   br label %_ZN10BigIntegerD2Ev.exit131
 
 _ZN10BigIntegerD2Ev.exit131:                      ; preds = %293, %_ZN10BigIntegerD2Ev.exit130, %280
@@ -7610,7 +7610,7 @@ _ZN10BigIntegerD2Ev.exit131:                      ; preds = %293, %_ZN10BigInteg
   br i1 %296, label %_ZN10BigIntegerD2Ev.exit132, label %297
 
 297:                                              ; preds = %_ZN10BigIntegerD2Ev.exit131
-  call void @_ZdaPv(ptr noundef nonnull %295) #17
+  call void @_ZdaPv(ptr noundef nonnull %295) #18
   br label %_ZN10BigIntegerD2Ev.exit132
 
 _ZN10BigIntegerD2Ev.exit132:                      ; preds = %297, %_ZN10BigIntegerD2Ev.exit131, %278
@@ -7621,7 +7621,7 @@ _ZN10BigIntegerD2Ev.exit132:                      ; preds = %297, %_ZN10BigInteg
   br i1 %300, label %_ZN10BigIntegerD2Ev.exit133, label %301
 
 301:                                              ; preds = %_ZN10BigIntegerD2Ev.exit132
-  call void @_ZdaPv(ptr noundef nonnull %299) #17
+  call void @_ZdaPv(ptr noundef nonnull %299) #18
   br label %_ZN10BigIntegerD2Ev.exit133
 
 _ZN10BigIntegerD2Ev.exit133:                      ; preds = %301, %_ZN10BigIntegerD2Ev.exit132, %276
@@ -7632,7 +7632,7 @@ _ZN10BigIntegerD2Ev.exit133:                      ; preds = %301, %_ZN10BigInteg
   br i1 %304, label %.body, label %305
 
 305:                                              ; preds = %_ZN10BigIntegerD2Ev.exit133
-  call void @_ZdaPv(ptr noundef nonnull %303) #17
+  call void @_ZdaPv(ptr noundef nonnull %303) #18
   br label %.body
 
 _ZN10BigIntegerD2Ev.exit128:                      ; preds = %275, %_ZN10BigIntegerD2Ev.exit127, %_ZN10BigIntegerD2Ev.exit113, %_ZN10BigIntegerD2Ev.exit93
@@ -7651,7 +7651,7 @@ _ZN10BigIntegerD2Ev.exit128:                      ; preds = %275, %_ZN10BigInteg
   br i1 %312, label %_ZN10BigIntegerD2Ev.exit136, label %313
 
 313:                                              ; preds = %308
-  call void @_ZdaPv(ptr noundef nonnull %311) #17
+  call void @_ZdaPv(ptr noundef nonnull %311) #18
   br label %_ZN10BigIntegerD2Ev.exit136
 
 _ZN10BigIntegerD2Ev.exit136:                      ; preds = %308, %313
@@ -7686,7 +7686,7 @@ _ZN10BigIntegermLERKS_.exit:                      ; preds = %320
   br i1 %322, label %_ZN10BigIntegerD2Ev.exit137, label %323
 
 323:                                              ; preds = %_ZN10BigIntegermLERKS_.exit
-  call void @_ZdaPv(ptr noundef nonnull %321) #17
+  call void @_ZdaPv(ptr noundef nonnull %321) #18
   br label %_ZN10BigIntegerD2Ev.exit137
 
 _ZN10BigIntegerD2Ev.exit137:                      ; preds = %_ZN10BigIntegermLERKS_.exit, %323
@@ -7703,7 +7703,7 @@ _ZN10BigIntegerD2Ev.exit137:                      ; preds = %_ZN10BigIntegermLER
   br i1 %329, label %.body, label %330
 
 330:                                              ; preds = %325
-  call void @_ZdaPv(ptr noundef nonnull %328) #17
+  call void @_ZdaPv(ptr noundef nonnull %328) #18
   br label %.body
 
 .loopexit:                                        ; preds = %_ZN10BigIntegerD2Ev.exit195, %428, %_ZN10BigIntegerD2Ev.exit181
@@ -7729,7 +7729,7 @@ _ZN10BigIntegerD2Ev.exit137:                      ; preds = %_ZN10BigIntegermLER
   br i1 %334, label %.body178, label %335
 
 335:                                              ; preds = %331
-  call void @_ZdaPv(ptr noundef nonnull %333) #17
+  call void @_ZdaPv(ptr noundef nonnull %333) #18
   br label %.body178
 
 ._crit_edge:                                      ; preds = %_ZN10BigIntegerD2Ev.exit137, %315
@@ -7748,7 +7748,7 @@ _ZN10BigIntegerD2Ev.exit137:                      ; preds = %_ZN10BigIntegermLER
   br i1 %342, label %_ZN10BigIntegerD2Ev.exit141, label %343
 
 343:                                              ; preds = %338
-  call void @_ZdaPv(ptr noundef nonnull %341) #17
+  call void @_ZdaPv(ptr noundef nonnull %341) #18
   br label %_ZN10BigIntegerD2Ev.exit141
 
 _ZN10BigIntegerD2Ev.exit141:                      ; preds = %338, %343
@@ -7769,7 +7769,7 @@ _ZN10BigIntegermLERKS_.exit142:                   ; preds = %345
   br i1 %348, label %_ZN10BigIntegerD2Ev.exit143, label %349
 
 349:                                              ; preds = %_ZN10BigIntegermLERKS_.exit142
-  call void @_ZdaPv(ptr noundef nonnull %347) #17
+  call void @_ZdaPv(ptr noundef nonnull %347) #18
   br label %_ZN10BigIntegerD2Ev.exit143
 
 _ZN10BigIntegerD2Ev.exit143:                      ; preds = %_ZN10BigIntegermLERKS_.exit142, %349
@@ -7830,7 +7830,7 @@ _ZNK10BigIntegereqERKS_.exit153:                  ; preds = %365, %.preheader.i.
   br i1 %373, label %_ZN10BigIntegerD2Ev.exit154, label %374
 
 374:                                              ; preds = %_ZNK10BigIntegereqERKS_.exit153
-  call void @_ZdaPv(ptr noundef nonnull %372) #17
+  call void @_ZdaPv(ptr noundef nonnull %372) #18
   br label %_ZN10BigIntegerD2Ev.exit154
 
 _ZN10BigIntegerD2Ev.exit154:                      ; preds = %_ZNK10BigIntegereqERKS_.exit153, %374
@@ -7840,7 +7840,7 @@ _ZN10BigIntegerD2Ev.exit154:                      ; preds = %_ZNK10BigIntegereqE
   br i1 %377, label %_ZN10BigIntegerD2Ev.exit155, label %378
 
 378:                                              ; preds = %_ZN10BigIntegerD2Ev.exit154
-  call void @_ZdaPv(ptr noundef nonnull %376) #17
+  call void @_ZdaPv(ptr noundef nonnull %376) #18
   br label %_ZN10BigIntegerD2Ev.exit155
 
 _ZN10BigIntegerD2Ev.exit155:                      ; preds = %_ZN10BigIntegerD2Ev.exit154, %378
@@ -7850,7 +7850,7 @@ _ZN10BigIntegerD2Ev.exit155:                      ; preds = %_ZN10BigIntegerD2Ev
   br i1 %381, label %_ZN10BigIntegerD2Ev.exit156, label %382
 
 382:                                              ; preds = %_ZN10BigIntegerD2Ev.exit155
-  call void @_ZdaPv(ptr noundef nonnull %380) #17
+  call void @_ZdaPv(ptr noundef nonnull %380) #18
   br label %_ZN10BigIntegerD2Ev.exit156
 
 383:                                              ; preds = %336
@@ -7862,7 +7862,7 @@ _ZN10BigIntegerD2Ev.exit155:                      ; preds = %_ZN10BigIntegerD2Ev
   br i1 %387, label %.body178, label %388
 
 388:                                              ; preds = %383
-  call void @_ZdaPv(ptr noundef nonnull %386) #17
+  call void @_ZdaPv(ptr noundef nonnull %386) #18
   br label %.body178
 
 389:                                              ; preds = %345
@@ -7874,7 +7874,7 @@ _ZN10BigIntegerD2Ev.exit155:                      ; preds = %_ZN10BigIntegerD2Ev
   br i1 %393, label %.body178, label %394
 
 394:                                              ; preds = %389
-  call void @_ZdaPv(ptr noundef nonnull %392) #17
+  call void @_ZdaPv(ptr noundef nonnull %392) #18
   br label %.body178
 
 395:                                              ; preds = %350
@@ -7891,7 +7891,7 @@ _ZN10BigIntegerD2Ev.exit155:                      ; preds = %_ZN10BigIntegerD2Ev
   br i1 %401, label %_ZN10BigIntegerD2Ev.exit160, label %402
 
 402:                                              ; preds = %397
-  call void @_ZdaPv(ptr noundef nonnull %400) #17
+  call void @_ZdaPv(ptr noundef nonnull %400) #18
   br label %_ZN10BigIntegerD2Ev.exit160
 
 _ZN10BigIntegerD2Ev.exit160:                      ; preds = %402, %397, %395
@@ -7902,7 +7902,7 @@ _ZN10BigIntegerD2Ev.exit160:                      ; preds = %402, %397, %395
   br i1 %405, label %.body178, label %406
 
 406:                                              ; preds = %_ZN10BigIntegerD2Ev.exit160
-  call void @_ZdaPv(ptr noundef nonnull %404) #17
+  call void @_ZdaPv(ptr noundef nonnull %404) #18
   br label %.body178
 
 _ZN10BigIntegerD2Ev.exit156:                      ; preds = %382, %_ZN10BigIntegerD2Ev.exit155, %_ZN10BigIntegerD2Ev.exit141
@@ -7938,7 +7938,7 @@ _ZN10BigIntegerD2Ev.exit195:                      ; preds = %_ZN10BigIntegerD2Ev
   br i1 %426, label %_ZN10BigIntegerD2Ev.exit163, label %427
 
 427:                                              ; preds = %423
-  call void @_ZdaPv(ptr noundef nonnull %425) #17
+  call void @_ZdaPv(ptr noundef nonnull %425) #18
   br label %_ZN10BigIntegerD2Ev.exit163
 
 _ZN10BigIntegerD2Ev.exit163:                      ; preds = %423, %427
@@ -7997,7 +7997,7 @@ _ZNK10BigIntegereqERKS_.exit173:                  ; preds = %440, %.preheader.i.
   br i1 %447, label %_ZN10BigIntegerD2Ev.exit174, label %448
 
 448:                                              ; preds = %_ZNK10BigIntegereqERKS_.exit173
-  call void @_ZdaPv(ptr noundef nonnull %446) #17
+  call void @_ZdaPv(ptr noundef nonnull %446) #18
   br label %_ZN10BigIntegerD2Ev.exit174
 
 _ZN10BigIntegerD2Ev.exit174:                      ; preds = %_ZNK10BigIntegereqERKS_.exit173, %448
@@ -8006,7 +8006,7 @@ _ZN10BigIntegerD2Ev.exit174:                      ; preds = %_ZNK10BigIntegereqE
   br i1 %450, label %_ZN10BigIntegerD2Ev.exit175, label %451
 
 451:                                              ; preds = %_ZN10BigIntegerD2Ev.exit174
-  call void @_ZdaPv(ptr noundef nonnull %449) #17
+  call void @_ZdaPv(ptr noundef nonnull %449) #18
   br label %_ZN10BigIntegerD2Ev.exit175
 
 _ZN10BigIntegerD2Ev.exit175:                      ; preds = %_ZN10BigIntegerD2Ev.exit174, %451
@@ -8015,7 +8015,7 @@ _ZN10BigIntegerD2Ev.exit175:                      ; preds = %_ZN10BigIntegerD2Ev
   br i1 %453, label %_ZN10BigIntegerD2Ev.exit176, label %454
 
 454:                                              ; preds = %_ZN10BigIntegerD2Ev.exit175
-  call void @_ZdaPv(ptr noundef nonnull %452) #17
+  call void @_ZdaPv(ptr noundef nonnull %452) #18
   br label %_ZN10BigIntegerD2Ev.exit176
 
 _ZN10BigIntegerD2Ev.exit176:                      ; preds = %_ZN10BigIntegerD2Ev.exit175, %454
@@ -8035,7 +8035,7 @@ _ZN10BigIntegerD2Ev.exit176:                      ; preds = %_ZN10BigIntegerD2Ev
   br i1 %459, label %.body178, label %460
 
 460:                                              ; preds = %456
-  call void @_ZdaPv(ptr noundef nonnull %458) #17
+  call void @_ZdaPv(ptr noundef nonnull %458) #18
   br label %.body178
 
 _ZNK10BigIntegermlERKS_.exit:                     ; preds = %455
@@ -8052,7 +8052,7 @@ _ZNK10BigIntegermlERKS_.exit:                     ; preds = %455
   br i1 %464, label %_ZN10BigIntegerD2Ev.exit180, label %465
 
 465:                                              ; preds = %462
-  call void @_ZdaPv(ptr noundef nonnull %463) #17
+  call void @_ZdaPv(ptr noundef nonnull %463) #18
   br label %_ZN10BigIntegerD2Ev.exit180
 
 _ZN10BigIntegerD2Ev.exit180:                      ; preds = %462, %465
@@ -8061,7 +8061,7 @@ _ZN10BigIntegerD2Ev.exit180:                      ; preds = %462, %465
   br i1 %467, label %_ZN10BigIntegerD2Ev.exit181, label %468
 
 468:                                              ; preds = %_ZN10BigIntegerD2Ev.exit180
-  call void @_ZdaPv(ptr noundef nonnull %466) #17
+  call void @_ZdaPv(ptr noundef nonnull %466) #18
   br label %_ZN10BigIntegerD2Ev.exit181
 
 469:                                              ; preds = %421
@@ -8072,7 +8072,7 @@ _ZN10BigIntegerD2Ev.exit180:                      ; preds = %462, %465
   br i1 %472, label %.body178, label %473
 
 473:                                              ; preds = %469
-  call void @_ZdaPv(ptr noundef nonnull %471) #17
+  call void @_ZdaPv(ptr noundef nonnull %471) #18
   br label %.body178
 
 474:                                              ; preds = %429
@@ -8088,7 +8088,7 @@ _ZN10BigIntegerD2Ev.exit180:                      ; preds = %462, %465
   br i1 %479, label %_ZN10BigIntegerD2Ev.exit184, label %480
 
 480:                                              ; preds = %476
-  call void @_ZdaPv(ptr noundef nonnull %478) #17
+  call void @_ZdaPv(ptr noundef nonnull %478) #18
   br label %_ZN10BigIntegerD2Ev.exit184
 
 _ZN10BigIntegerD2Ev.exit184:                      ; preds = %480, %476, %474
@@ -8098,7 +8098,7 @@ _ZN10BigIntegerD2Ev.exit184:                      ; preds = %480, %476, %474
   br i1 %482, label %.body178, label %483
 
 483:                                              ; preds = %_ZN10BigIntegerD2Ev.exit184
-  call void @_ZdaPv(ptr noundef nonnull %481) #17
+  call void @_ZdaPv(ptr noundef nonnull %481) #18
   br label %.body178
 
 484:                                              ; preds = %_ZNK10BigIntegermlERKS_.exit
@@ -8114,7 +8114,7 @@ _ZN10BigIntegerD2Ev.exit184:                      ; preds = %480, %476, %474
   br i1 %489, label %_ZN10BigIntegerD2Ev.exit186, label %490
 
 490:                                              ; preds = %486
-  call void @_ZdaPv(ptr noundef nonnull %488) #17
+  call void @_ZdaPv(ptr noundef nonnull %488) #18
   br label %_ZN10BigIntegerD2Ev.exit186
 
 _ZN10BigIntegerD2Ev.exit186:                      ; preds = %490, %486, %484
@@ -8124,7 +8124,7 @@ _ZN10BigIntegerD2Ev.exit186:                      ; preds = %490, %486, %484
   br i1 %492, label %.body178, label %493
 
 493:                                              ; preds = %_ZN10BigIntegerD2Ev.exit186
-  call void @_ZdaPv(ptr noundef nonnull %491) #17
+  call void @_ZdaPv(ptr noundef nonnull %491) #18
   br label %.body178
 
 _ZN10BigIntegerD2Ev.exit181:                      ; preds = %468, %_ZN10BigIntegerD2Ev.exit180, %_ZN10BigIntegerD2Ev.exit176
@@ -8145,7 +8145,7 @@ _ZN10BigIntegerD2Ev.exit181:                      ; preds = %468, %_ZN10BigInteg
   br i1 %498, label %_ZN10BigIntegerD2Ev.exit188, label %499
 
 499:                                              ; preds = %496
-  call void @_ZdaPv(ptr noundef nonnull %497) #17
+  call void @_ZdaPv(ptr noundef nonnull %497) #18
   br label %_ZN10BigIntegerD2Ev.exit188
 
 _ZN10BigIntegerD2Ev.exit188:                      ; preds = %496, %499
@@ -8154,7 +8154,7 @@ _ZN10BigIntegerD2Ev.exit188:                      ; preds = %496, %499
   br i1 %501, label %_ZN10BigIntegerD2Ev.exit189, label %502
 
 502:                                              ; preds = %_ZN10BigIntegerD2Ev.exit188
-  call void @_ZdaPv(ptr noundef nonnull %500) #17
+  call void @_ZdaPv(ptr noundef nonnull %500) #18
   br label %_ZN10BigIntegerD2Ev.exit189
 
 _ZN10BigIntegerD2Ev.exit189:                      ; preds = %_ZN10BigIntegerD2Ev.exit188, %502
@@ -8171,7 +8171,7 @@ _ZN10BigIntegerD2Ev.exit189:                      ; preds = %_ZN10BigIntegerD2Ev
   br i1 %506, label %.body178, label %507
 
 507:                                              ; preds = %503
-  call void @_ZdaPv(ptr noundef nonnull %505) #17
+  call void @_ZdaPv(ptr noundef nonnull %505) #18
   br label %.body178
 
 _ZNK10BigIntegermlERKS_.exit193:                  ; preds = %_ZN10BigIntegerD2Ev.exit189
@@ -8188,7 +8188,7 @@ _ZNK10BigIntegermlERKS_.exit193:                  ; preds = %_ZN10BigIntegerD2Ev
   br i1 %511, label %_ZN10BigIntegerD2Ev.exit194, label %512
 
 512:                                              ; preds = %509
-  call void @_ZdaPv(ptr noundef nonnull %510) #17
+  call void @_ZdaPv(ptr noundef nonnull %510) #18
   br label %_ZN10BigIntegerD2Ev.exit194
 
 _ZN10BigIntegerD2Ev.exit194:                      ; preds = %509, %512
@@ -8200,7 +8200,7 @@ _ZN10BigIntegerD2Ev.exit195.backedge:             ; preds = %_ZN10BigIntegerD2Ev
   br label %_ZN10BigIntegerD2Ev.exit195, !llvm.loop !111
 
 515:                                              ; preds = %_ZN10BigIntegerD2Ev.exit194
-  call void @_ZdaPv(ptr noundef nonnull %513) #17
+  call void @_ZdaPv(ptr noundef nonnull %513) #18
   br label %_ZN10BigIntegerD2Ev.exit195.backedge
 
 516:                                              ; preds = %494
@@ -8216,7 +8216,7 @@ _ZN10BigIntegerD2Ev.exit195.backedge:             ; preds = %_ZN10BigIntegerD2Ev
   br i1 %521, label %_ZN10BigIntegerD2Ev.exit196, label %522
 
 522:                                              ; preds = %518
-  call void @_ZdaPv(ptr noundef nonnull %520) #17
+  call void @_ZdaPv(ptr noundef nonnull %520) #18
   br label %_ZN10BigIntegerD2Ev.exit196
 
 _ZN10BigIntegerD2Ev.exit196:                      ; preds = %522, %518, %516
@@ -8226,7 +8226,7 @@ _ZN10BigIntegerD2Ev.exit196:                      ; preds = %522, %518, %516
   br i1 %524, label %.body178, label %525
 
 525:                                              ; preds = %_ZN10BigIntegerD2Ev.exit196
-  call void @_ZdaPv(ptr noundef nonnull %523) #17
+  call void @_ZdaPv(ptr noundef nonnull %523) #18
   br label %.body178
 
 526:                                              ; preds = %_ZNK10BigIntegermlERKS_.exit193
@@ -8242,7 +8242,7 @@ _ZN10BigIntegerD2Ev.exit196:                      ; preds = %522, %518, %516
   br i1 %531, label %_ZN10BigIntegerD2Ev.exit198, label %532
 
 532:                                              ; preds = %528
-  call void @_ZdaPv(ptr noundef nonnull %530) #17
+  call void @_ZdaPv(ptr noundef nonnull %530) #18
   br label %_ZN10BigIntegerD2Ev.exit198
 
 _ZN10BigIntegerD2Ev.exit198:                      ; preds = %532, %528, %526
@@ -8252,7 +8252,7 @@ _ZN10BigIntegerD2Ev.exit198:                      ; preds = %532, %528, %526
   br i1 %534, label %.body178, label %535
 
 535:                                              ; preds = %_ZN10BigIntegerD2Ev.exit198
-  call void @_ZdaPv(ptr noundef nonnull %533) #17
+  call void @_ZdaPv(ptr noundef nonnull %533) #18
   br label %.body178
 
 536:                                              ; preds = %_ZN10BigIntegerD2Ev.exit163
@@ -8273,7 +8273,7 @@ _ZN10BigIntegermLERKS_.exit200:                   ; preds = %538
   br i1 %541, label %_ZN10BigIntegerD2Ev.exit201, label %542
 
 542:                                              ; preds = %_ZN10BigIntegermLERKS_.exit200
-  call void @_ZdaPv(ptr noundef nonnull %540) #17
+  call void @_ZdaPv(ptr noundef nonnull %540) #18
   br label %_ZN10BigIntegerD2Ev.exit201
 
 543:                                              ; preds = %538
@@ -8285,7 +8285,7 @@ _ZN10BigIntegermLERKS_.exit200:                   ; preds = %538
   br i1 %547, label %.body178, label %548
 
 548:                                              ; preds = %543
-  call void @_ZdaPv(ptr noundef nonnull %546) #17
+  call void @_ZdaPv(ptr noundef nonnull %546) #18
   br label %.body178
 
 _ZN10BigIntegerD2Ev.exit201:                      ; preds = %542, %_ZN10BigIntegermLERKS_.exit200, %536
@@ -8295,7 +8295,7 @@ _ZN10BigIntegerD2Ev.exit201:                      ; preds = %542, %_ZN10BigInteg
   br i1 %551, label %_ZN10BigIntegerD2Ev.exit203, label %552
 
 552:                                              ; preds = %_ZN10BigIntegerD2Ev.exit201
-  call void @_ZdaPv(ptr noundef nonnull %550) #17
+  call void @_ZdaPv(ptr noundef nonnull %550) #18
   br label %_ZN10BigIntegerD2Ev.exit203
 
 .body178:                                         ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %548, %543, %535, %_ZN10BigIntegerD2Ev.exit198, %525, %_ZN10BigIntegerD2Ev.exit196, %503, %507, %493, %_ZN10BigIntegerD2Ev.exit186, %483, %_ZN10BigIntegerD2Ev.exit184, %473, %469, %456, %460, %406, %_ZN10BigIntegerD2Ev.exit160, %394, %389, %388, %383, %335, %331
@@ -8306,7 +8306,7 @@ _ZN10BigIntegerD2Ev.exit201:                      ; preds = %542, %_ZN10BigInteg
   br i1 %555, label %.body, label %556
 
 556:                                              ; preds = %.body178
-  call void @_ZdaPv(ptr noundef nonnull %554) #17
+  call void @_ZdaPv(ptr noundef nonnull %554) #18
   br label %.body
 
 _ZN10BigIntegerD2Ev.exit203:                      ; preds = %552, %_ZN10BigIntegerD2Ev.exit201, %_ZN10BigIntegerD2Ev.exit136
@@ -8346,7 +8346,7 @@ _ZN10BigIntegerD2Ev.exit203:                      ; preds = %552, %_ZN10BigInteg
   br i1 %580, label %_ZN10BigIntegerD2Ev.exit206, label %581
 
 581:                                              ; preds = %577
-  call void @_ZdaPv(ptr noundef nonnull %579) #17
+  call void @_ZdaPv(ptr noundef nonnull %579) #18
   br label %_ZN10BigIntegerD2Ev.exit206
 
 _ZN10BigIntegerD2Ev.exit206:                      ; preds = %577, %581
@@ -8356,7 +8356,7 @@ _ZN10BigIntegerD2Ev.exit206:                      ; preds = %577, %581
   br i1 %584, label %_ZN10BigIntegerD2Ev.exit207, label %585
 
 585:                                              ; preds = %_ZN10BigIntegerD2Ev.exit206
-  call void @_ZdaPv(ptr noundef nonnull %583) #17
+  call void @_ZdaPv(ptr noundef nonnull %583) #18
   br label %_ZN10BigIntegerD2Ev.exit207
 
 _ZN10BigIntegerD2Ev.exit207:                      ; preds = %_ZN10BigIntegerD2Ev.exit206, %585
@@ -8366,7 +8366,7 @@ _ZN10BigIntegerD2Ev.exit207:                      ; preds = %_ZN10BigIntegerD2Ev
   br i1 %588, label %_ZN10BigIntegerD2Ev.exit208, label %589
 
 589:                                              ; preds = %_ZN10BigIntegerD2Ev.exit207
-  call void @_ZdaPv(ptr noundef nonnull %587) #17
+  call void @_ZdaPv(ptr noundef nonnull %587) #18
   br label %_ZN10BigIntegerD2Ev.exit208
 
 _ZN10BigIntegerD2Ev.exit208:                      ; preds = %_ZN10BigIntegerD2Ev.exit207, %589
@@ -8380,7 +8380,7 @@ _ZN10BigIntegerD2Ev.exit208:                      ; preds = %_ZN10BigIntegerD2Ev
   br i1 %592, label %_ZN10BigIntegerD2Ev.exit209, label %593
 
 593:                                              ; preds = %.body
-  call void @_ZdaPv(ptr noundef nonnull %591) #17
+  call void @_ZdaPv(ptr noundef nonnull %591) #18
   br label %_ZN10BigIntegerD2Ev.exit209
 
 _ZN10BigIntegerD2Ev.exit209:                      ; preds = %593, %.body, %80
@@ -8391,7 +8391,7 @@ _ZN10BigIntegerD2Ev.exit209:                      ; preds = %593, %.body, %80
   br i1 %596, label %_ZN10BigIntegerD2Ev.exit210, label %597
 
 597:                                              ; preds = %_ZN10BigIntegerD2Ev.exit209
-  call void @_ZdaPv(ptr noundef nonnull %595) #17
+  call void @_ZdaPv(ptr noundef nonnull %595) #18
   br label %_ZN10BigIntegerD2Ev.exit210
 
 _ZN10BigIntegerD2Ev.exit210:                      ; preds = %597, %_ZN10BigIntegerD2Ev.exit209, %78
@@ -8402,7 +8402,7 @@ _ZN10BigIntegerD2Ev.exit210:                      ; preds = %597, %_ZN10BigInteg
   br i1 %600, label %_ZN10BigIntegerD2Ev.exit211, label %601
 
 601:                                              ; preds = %_ZN10BigIntegerD2Ev.exit210
-  call void @_ZdaPv(ptr noundef nonnull %599) #17
+  call void @_ZdaPv(ptr noundef nonnull %599) #18
   br label %_ZN10BigIntegerD2Ev.exit211
 
 _ZN10BigIntegerD2Ev.exit211:                      ; preds = %_ZN10BigIntegerD2Ev.exit210, %601
@@ -8438,11 +8438,11 @@ define void @_ZN5Yosys5RTLIL9const_posERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   br i1 %20, label %.noexc.i.i.i, label %21
 
 .noexc.i.i.i:                                     ; preds = %19
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 21:                                               ; preds = %19
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #16
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #17
   store ptr %22, ptr %8, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %22, ptr %23, align 8
@@ -8467,7 +8467,7 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit:               ; preds = %.thread, %21
   br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %31
 
 31:                                               ; preds = %28
-  tail call void @_ZdlPv(ptr noundef nonnull %30) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %30) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %28, %31
@@ -8508,11 +8508,11 @@ define void @_ZN5Yosys5RTLIL9const_negERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
   br i1 %22, label %.noexc.i.i.i, label %23
 
 .noexc.i.i.i:                                     ; preds = %21
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 23:                                               ; preds = %21
-  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #16
+  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #17
   store ptr %24, ptr %10, align 8
   %25 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %24, ptr %25, align 8
@@ -8541,7 +8541,7 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit:               ; preds = %.thread, %23
   br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %35
 
 35:                                               ; preds = %32
-  call void @_ZdlPv(ptr noundef nonnull %34) #17
+  call void @_ZdlPv(ptr noundef nonnull %34) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %32, %35
@@ -8549,7 +8549,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %32, %35
   br i1 %.not.i.i.i.i6, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit7, label %36
 
 36:                                               ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %30) #17
+  call void @_ZdlPv(ptr noundef nonnull %30) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit7
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit7:                  ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %36
@@ -8569,7 +8569,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit7:                  ; preds = %_ZN5Yosys5RTLIL5Con
   br i1 %.not.i.i.i.i8, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit9, label %43
 
 43:                                               ; preds = %39
-  call void @_ZdlPv(ptr noundef nonnull %42) #17
+  call void @_ZdlPv(ptr noundef nonnull %42) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit9
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit9:                  ; preds = %43, %39, %37
@@ -8578,7 +8578,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit9:                  ; preds = %43, %39, %37
   br i1 %.not.i.i.i.i10, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit11, label %44
 
 44:                                               ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit9
-  call void @_ZdlPv(ptr noundef nonnull %30) #17
+  call void @_ZdlPv(ptr noundef nonnull %30) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit11
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit11:                 ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit9, %44
@@ -8595,7 +8595,7 @@ define void @_ZN5Yosys5RTLIL9const_muxERKNS0_5ConstES3_S3_(ptr dead_on_unwind no
   br i1 %.not.i.i.i.not, label %9, label %_ZNK5Yosys5RTLIL5ConstixEi.exit
 
 9:                                                ; preds = %4
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef 0, i64 noundef 0) #15
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef 0, i64 noundef 0) #16
   unreachable
 
 _ZNK5Yosys5RTLIL5ConstixEi.exit:                  ; preds = %4
@@ -8633,11 +8633,11 @@ _ZNK5Yosys5RTLIL5ConstixEi.exit:                  ; preds = %4
   br i1 %25, label %.noexc.i.i.i, label %26
 
 .noexc.i.i.i:                                     ; preds = %24
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 26:                                               ; preds = %24
-  %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #16
+  %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #17
   store ptr %27, ptr %11, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %27, ptr %28, align 8
@@ -8680,11 +8680,11 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit:               ; preds = %.thread, %26
   br i1 %46, label %.noexc.i.i.i18, label %47
 
 .noexc.i.i.i18:                                   ; preds = %45
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 47:                                               ; preds = %45
-  %48 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %41) #16
+  %48 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %41) #17
   store ptr %48, ptr %11, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %48, ptr %49, align 8
@@ -8727,11 +8727,11 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit19:             ; preds = %.thread32, %47
   br i1 %67, label %.noexc.i.i.i23, label %68
 
 .noexc.i.i.i23:                                   ; preds = %66
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 68:                                               ; preds = %66
-  %69 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %62) #16
+  %69 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %62) #17
   store ptr %69, ptr %11, align 8
   %70 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %69, ptr %70, align 8
@@ -8770,7 +8770,7 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit24:             ; preds = %.thread33, %68
   br i1 %exitcond.not, label %89, label %90
 
 89:                                               ; preds = %88
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %78, i64 noundef %78) #15
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %78, i64 noundef %78) #16
           to label %.noexc unwind label %98
 
 .noexc:                                           ; preds = %89
@@ -8782,7 +8782,7 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit24:             ; preds = %.thread33, %68
   br i1 %exitcond45.not, label %92, label %94
 
 92:                                               ; preds = %90
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %87, i64 noundef %87) #15
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %87, i64 noundef %87) #16
           to label %.noexc27 unwind label %.thread34
 
 .thread34:                                        ; preds = %92
@@ -8812,7 +8812,7 @@ _ZN5Yosys5RTLIL5ConstixEi.exit31:                 ; preds = %94
 
 100:                                              ; preds = %.thread34, %98
   %101 = phi { ptr, i32 } [ %93, %.thread34 ], [ %99, %98 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %75) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %75) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %98, %100
@@ -8861,11 +8861,11 @@ define void @_ZN5Yosys5RTLIL10const_pmuxERKNS0_5ConstES3_S3_(ptr dead_on_unwind 
   br i1 %20, label %.noexc.i.i.i, label %21
 
 .noexc.i.i.i:                                     ; preds = %19
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 21:                                               ; preds = %19
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #16
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #17
   store ptr %22, ptr %8, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %22, ptr %23, align 8
@@ -8919,7 +8919,7 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit:               ; preds = %.thread, %21
   br i1 %exitcond.not, label %48, label %_ZNK5Yosys5RTLIL5ConstixEi.exit
 
 48:                                               ; preds = %.lr.ph
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %36, i64 noundef %36) #15
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %36, i64 noundef %36) #16
   unreachable
 
 _ZNK5Yosys5RTLIL5ConstixEi.exit:                  ; preds = %.lr.ph
@@ -8949,7 +8949,7 @@ _ZNK5Yosys5RTLIL5ConstixEi.exit:                  ; preds = %.lr.ph
   br i1 %68, label %.noexc.i, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
 
 .noexc.i:                                         ; preds = %52
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #15
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #16
   unreachable
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: ; preds = %52
@@ -8968,11 +8968,11 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: ; 
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit
 
 _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i22: ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %73 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %gepdiff) #16
+  %73 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %gepdiff) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr align 1 %64, i64 %gepdiff, i1 false)
   %74 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, i8 0, i64 24, i1 false)
-  %75 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %gepdiff) #16
+  %75 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %gepdiff) #17
           to label %76 unwind label %.body
 
 76:                                               ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i22
@@ -8984,13 +8984,13 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 1 %73, i64 %gepdiff, i1 false)
   store ptr %78, ptr %77, align 8
   store i32 0, ptr %0, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %73) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %73) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit
 
 .body:                                            ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i22
   %80 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %73) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %73) #18
   resume { ptr, i32 } %80
 
 81:                                               ; preds = %_ZNK5Yosys5RTLIL5ConstixEi.exit
@@ -8999,7 +8999,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i2
   br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %81, %.preheader
-  tail call void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 639) #15
+  tail call void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 639) #16
   unreachable
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit: ; preds = %.thread54, %76, %39, %_ZN5Yosys5RTLIL5ConstC2ERKS1_.exit
@@ -9030,11 +9030,11 @@ define void @_ZN5Yosys5RTLIL10const_bmuxERKNS0_5ConstES3_(ptr dead_on_unwind noa
   br i1 %12, label %.noexc.i.i, label %13
 
 .noexc.i.i:                                       ; preds = %11
-  tail call void @_ZSt17__throw_bad_allocv() #15
+  tail call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 13:                                               ; preds = %11
-  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #16
+  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #17
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %7, i64 %10, i1 false)
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EEC2ERKS4_.exit
 
@@ -9070,7 +9070,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EEC2ERKS4_.exit: ; preds = %3, %13
   br i1 %.not.i.i, label %34, label %33
 
 33:                                               ; preds = %27
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %indvars.iv.next206, i64 noundef %32) #15
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %indvars.iv.next206, i64 noundef %32) #16
           to label %.noexc unwind label %53
 
 .noexc:                                           ; preds = %33
@@ -9104,7 +9104,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EEC2ERKS4_.exit: ; preds = %3, %13
   br i1 %47, label %48, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
 
 48:                                               ; preds = %44
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #16
           to label %.noexc.i unwind label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit.i.loopexit.split-lp
 
 .noexc.i:                                         ; preds = %48
@@ -9120,7 +9120,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.thread.i.i:
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit
 
 50:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %46) #16
+  %51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %46) #17
           to label %.noexc5.i unwind label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit.i.loopexit
 
 .noexc5.i:                                        ; preds = %50
@@ -9154,7 +9154,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit.i.loopexit.split-lp: ;
   br i1 %61, label %62, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i26
 
 62:                                               ; preds = %55
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #16
           to label %.noexc.i32 unwind label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit.i29.loopexit.split-lp
 
 .noexc.i32:                                       ; preds = %62
@@ -9169,7 +9169,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.thread.i.i3
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit
 
 64:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i26
-  %65 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #16
+  %65 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #17
           to label %.noexc5.i30 unwind label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit.i29.loopexit
 
 .noexc5.i30:                                      ; preds = %64
@@ -9214,7 +9214,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit.i29.loopexit.split-lp:
   br i1 %78, label %79, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 79:                                               ; preds = %74
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #16
           to label %.noexc43 unwind label %.body.loopexit.split-lp
 
 .noexc43:                                         ; preds = %79
@@ -9230,7 +9230,7 @@ _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pred
   br i1 %.not.i.i.i.i42, label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i, label %84
 
 84:                                               ; preds = %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %85 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %83) #16
+  %85 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %83) #17
           to label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i unwind label %.body.loopexit
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %84, %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -9249,7 +9249,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %90
 
 90:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.076.3159) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.076.3159) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %90, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
@@ -9274,7 +9274,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit: ; preds = %.preheader, %_ZNS
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit.thread: ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit
   %.sroa.11.1213 = phi ptr [ %.sroa.11.1, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit ], [ %.sroa.11.3, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit ]
   %.sroa.076.1211 = phi ptr [ %.sroa.076.1, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit ], [ %.sroa.076.4, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.085.0172) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.085.0172) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit47
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit47: ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit.thread
@@ -9299,7 +9299,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit47: ; preds = %_ZNSt6vectorIN5
   br i1 %.not.i.i.i48, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit50.thread, label %93
 
 93:                                               ; preds = %.body
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.076.3159) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.076.3159) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit50.thread
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit47, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EEC2ERKS4_.exit
@@ -9326,14 +9326,14 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit47: ; preds = %_ZNSt6vectorIN5
   br i1 %102, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %101
-  invoke void @_ZSt17__throw_bad_allocv() #15
+  invoke void @_ZSt17__throw_bad_allocv() #16
           to label %.noexc52 unwind label %53
 
 .noexc52:                                         ; preds = %.noexc.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i: ; preds = %101
-  %103 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %97) #16
+  %103 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %97) #17
           to label %104 unwind label %53
 
 104:                                              ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i
@@ -9355,7 +9355,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i:
   br i1 %.not.i.i.i54, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit56, label %111
 
 111:                                              ; preds = %108
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.085.0.lcssa) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.085.0.lcssa) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit56
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit56: ; preds = %108, %111
@@ -9370,7 +9370,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit50: ; preds = %_ZNSt12_Vector_
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit50.thread: ; preds = %.body, %93, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit50
   %.sroa.085.0137 = phi ptr [ %.sroa.085.0133, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit50 ], [ %.sroa.085.0172, %93 ], [ %.sroa.085.0172, %.body ]
   %.pn.pn113 = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit50 ], [ %lpad.phi, %93 ], [ %lpad.phi, %.body ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.085.0137) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.085.0137) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit59
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit59: ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit50, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit50.thread
@@ -9437,7 +9437,7 @@ define void @_ZN5Yosys5RTLIL11const_demuxERKNS0_5ConstES3_(ptr dead_on_unwind no
   br i1 %exitcond.not, label %31, label %32
 
 31:                                               ; preds = %30
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %28, i64 noundef %28) #15
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %28, i64 noundef %28) #16
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %31
@@ -9481,7 +9481,7 @@ define void @_ZN5Yosys5RTLIL11const_demuxERKNS0_5ConstES3_(ptr dead_on_unwind no
   br i1 %.not.i.i.i41, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit, label %40
 
 40:                                               ; preds = %.loopexit.split-lp
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit: ; preds = %.loopexit.split-lp, %40
@@ -9529,7 +9529,7 @@ _ZNK5Yosys5RTLIL5ConstixEi.exit47:                ; preds = %_ZNK5Yosys5RTLIL5Co
   br i1 %47, label %48, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 48:                                               ; preds = %43
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #16
           to label %.noexc48 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc48:                                         ; preds = %48
@@ -9545,7 +9545,7 @@ _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pred
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i, label %53
 
 53:                                               ; preds = %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %54 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %52) #16
+  %54 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %52) #17
           to label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i unwind label %.loopexit88
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %53, %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -9564,7 +9564,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %59
 
 59:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2156) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2156) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %59, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
@@ -9614,7 +9614,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6
   br i1 %73, label %74, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i51
 
 74:                                               ; preds = %69
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #16
           to label %.noexc58 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc58:                                         ; preds = %74
@@ -9630,7 +9630,7 @@ _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i51: ; pr
   br i1 %.not.i.i.i.i53, label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i54, label %79
 
 79:                                               ; preds = %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i51
-  %80 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %78) #16
+  %80 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %78) #17
           to label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i54 unwind label %.loopexit.split-lp.loopexit
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i54: ; preds = %79, %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i51
@@ -9649,7 +9649,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br i1 %.not.i17.i.i.i56, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i57, label %85
 
 85:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i55
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.3148) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.3148) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i57
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i57: ; preds = %85, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i55
@@ -9688,7 +9688,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit60: ; preds = %_ZNS
   br i1 %95, label %96, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 96:                                               ; preds = %91
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #16
           to label %.noexc62 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc62:                                         ; preds = %96
@@ -9704,7 +9704,7 @@ _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds 
   br i1 %.not.i.i.i61, label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i, label %101
 
 101:                                              ; preds = %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %102 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %100) #16
+  %102 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %100) #17
           to label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %101, %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -9724,7 +9724,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %108
 
 108:                                              ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.4140) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.4140) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %108, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
@@ -9774,14 +9774,14 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt
   br i1 %121, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %120
-  invoke void @_ZSt17__throw_bad_allocv() #15
+  invoke void @_ZSt17__throw_bad_allocv() #16
           to label %.noexc64 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc64:                                         ; preds = %.noexc.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i: ; preds = %120
-  %122 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %114) #16
+  %122 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %114) #17
           to label %123 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 123:                                              ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i
@@ -9804,7 +9804,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i:
   br i1 %.not.i.i.i66, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit67, label %130
 
 130:                                              ; preds = %127
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0.lcssa207) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0.lcssa207) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit67
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit67: ; preds = %127, %130
@@ -9867,7 +9867,7 @@ define void @_ZN5Yosys5RTLIL11const_bweqxERKNS0_5ConstES3_(ptr dead_on_unwind no
 
 .invoke:                                          ; preds = %34, %26, %23
   %40 = phi i64 [ %24, %23 ], [ %33, %26 ], [ %39, %34 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %indvars.iv, i64 noundef %40) #15
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %indvars.iv, i64 noundef %40) #16
           to label %.cont unwind label %54
 
 .cont:                                            ; preds = %.invoke
@@ -9899,7 +9899,7 @@ define void @_ZN5Yosys5RTLIL11const_bweqxERKNS0_5ConstES3_(ptr dead_on_unwind no
   br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %57
 
 57:                                               ; preds = %54
-  tail call void @_ZdlPv(ptr noundef nonnull %56) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %56) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %54, %57
@@ -10005,7 +10005,7 @@ _ZNK5Yosys5RTLIL5ConstixEi.exit30:                ; preds = %_ZNK5Yosys5RTLIL5Co
 
 .invoke:                                          ; preds = %_ZNK5Yosys5RTLIL5ConstixEi.exit30, %_ZNK5Yosys5RTLIL5ConstixEi.exit27.thread, %51, %39, %38, %26
   %62 = phi i64 [ %34, %26 ], [ %29, %38 ], [ %44, %39 ], [ %56, %51 ], [ %29, %_ZNK5Yosys5RTLIL5ConstixEi.exit27.thread ], [ %61, %_ZNK5Yosys5RTLIL5ConstixEi.exit30 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %indvars.iv, i64 noundef %62) #15
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %indvars.iv, i64 noundef %62) #16
           to label %.cont unwind label %66
 
 .cont:                                            ; preds = %.invoke
@@ -10028,7 +10028,7 @@ _ZNK5Yosys5RTLIL5ConstixEi.exit30:                ; preds = %_ZNK5Yosys5RTLIL5Co
   br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %69
 
 69:                                               ; preds = %66
-  tail call void @_ZdlPv(ptr noundef nonnull %68) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %68) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %66, %69
@@ -10097,14 +10097,14 @@ _ZSt27__uninitialized_default_n_aIPN5Yosys5RTLIL5StateEmS2_ET_S4_T0_RSaIT1_E.exi
   br i1 %25, label %26, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 26:                                               ; preds = %24
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #15
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #16
   unreachable
 
 _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %24
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %8, i64 %11)
   %27 = add nuw i64 %.sroa.speculated.i.i, %8
   %28 = tail call i64 @llvm.umin.i64(i64 %27, i64 9223372036854775807)
-  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #16
+  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #17
   %30 = getelementptr inbounds i8, ptr %29, i64 %8
   store i8 0, ptr %30, align 1
   %31 = add nsw i64 %11, -1
@@ -10129,7 +10129,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; 
   br i1 %.not.i34.i, label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit35.i, label %35
 
 35:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #18
   br label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit35.i
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit35.i: ; preds = %35, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
@@ -10204,7 +10204,8 @@ declare void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 dereferenc
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #9
 
 declare void @_ZN10BigInteger19divideWithRemainderERKS_RS_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
@@ -10212,35 +10213,35 @@ declare void @_ZN10BigInteger19divideWithRemainderERKS_RS_(ptr noundef nonnull a
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_calc.cc() #9 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_calc.cc() #10 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
+declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #12
+declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #13
+declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -10251,16 +10252,17 @@ attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { noreturn }
-attributes #16 = { builtin allocsize(0) }
-attributes #17 = { builtin nounwind }
-attributes #18 = { nounwind }
+attributes #9 = { cold noreturn }
+attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { noreturn }
+attributes #17 = { builtin allocsize(0) }
+attributes #18 = { builtin nounwind }
+attributes #19 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -45,7 +45,7 @@ define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_22GetSecti
   br i1 %8, label %.lr.ph.i.i, label %9
 
 9:                                                ; preds = %4
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 10:                                               ; preds = %23
@@ -65,7 +65,7 @@ define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_22GetSecti
   br i1 %17, label %18, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i"
 
 18:                                               ; preds = %15
-  %19 = tail call ptr @__errno_location() #18
+  %19 = tail call ptr @__errno_location() #19
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 4
   br i1 %21, label %15, label %_ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit.thread, !llvm.loop !6
@@ -84,7 +84,7 @@ define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_22GetSecti
   br i1 %.not23.i.i, label %25, label %_ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit
 
 25:                                               ; preds = %._crit_edge.i.i
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit: ; preds = %._crit_edge.i.i
@@ -122,7 +122,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit: ; preds =
   br i1 %46, label %47, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i26"
 
 47:                                               ; preds = %44
-  %48 = tail call ptr @__errno_location() #18
+  %48 = tail call ptr @__errno_location() #19
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 4
   br i1 %50, label %44, label %_ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit.thread, !llvm.loop !6
@@ -141,7 +141,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit: ; preds =
   br i1 %.not23.i.i29, label %54, label %_ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit31
 
 54:                                               ; preds = %._crit_edge.i.i27
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit31: ; preds = %._crit_edge.i.i27
@@ -197,7 +197,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit39.us: ; pr
   br i1 %74, label %.split68.us, label %_ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit.thread
 
 75:                                               ; preds = %65
-  %76 = tail call ptr @__errno_location() #18
+  %76 = tail call ptr @__errno_location() #19
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, 4
   br i1 %78, label %65, label %_ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit.thread, !llvm.loop !6
@@ -226,7 +226,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit39.us: ; pr
   br i1 %89, label %90, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i34"
 
 90:                                               ; preds = %87
-  %91 = tail call ptr @__errno_location() #18
+  %91 = tail call ptr @__errno_location() #19
   %92 = load i32, ptr %91, align 4
   %93 = icmp eq i32 %92, 4
   br i1 %93, label %87, label %_ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit.thread, !llvm.loop !6
@@ -245,7 +245,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit39.us: ; pr
   br i1 %.not23.i.i37, label %.split.us, label %_ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit39
 
 .split.us:                                        ; preds = %._crit_edge.i.i35, %._crit_edge.i.i35.us
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit39: ; preds = %._crit_edge.i.i35
@@ -280,7 +280,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit39: ; preds
   br i1 %109, label %110, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i"
 
 110:                                              ; preds = %107
-  %111 = tail call ptr @__errno_location() #18
+  %111 = tail call ptr @__errno_location() #19
   %112 = load i32, ptr %111, align 4
   %113 = icmp eq i32 %112, 4
   br i1 %113, label %107, label %_ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit.thread, !llvm.loop !6
@@ -299,7 +299,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit39: ; preds
   br i1 %.not23.i, label %117, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit
 
 117:                                              ; preds = %._crit_edge.i
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit: ; preds = %._crit_edge.i
@@ -359,18 +359,18 @@ define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_9Symbolize
 
 24:                                               ; preds = %4
   store i8 0, ptr %1, align 1
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %26 = icmp ult i64 %25, %2
   br i1 %26, label %_ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit.i, label %27
 
 27:                                               ; preds = %24
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit.i: ; preds = %24
   %28 = getelementptr inbounds i8, ptr %1, i64 %25
   %29 = sub nuw i64 %2, %25
-  %30 = tail call ptr @strncpy(ptr noundef nonnull %28, ptr noundef nonnull readonly dereferenceable(2) @.str.2, i64 noundef %29) #20
+  %30 = tail call ptr @strncpy(ptr noundef nonnull %28, ptr noundef nonnull readonly dereferenceable(2) @.str.2, i64 noundef %29) #21
   %31 = getelementptr i8, ptr %1, i64 %2
   %32 = getelementptr i8, ptr %31, i64 -1
   store i8 0, ptr %32, align 1
@@ -416,7 +416,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit.i: ; preds =
 
 .body.i:                                          ; preds = %283, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i
   %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i, %283 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit113.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit118.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit122.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit134.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
-  call void @_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %21) #20
+  call void @_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %21) #21
   resume { ptr, i32 } %eh.lpad-body.i
 
 38:                                               ; preds = %_ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit.i
@@ -438,7 +438,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit.i: ; preds =
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %.noexc.i
-  %43 = tail call ptr @__errno_location() #18
+  %43 = tail call ptr @__errno_location() #19
   %44 = load i32, ptr %43, align 4, !noalias !8
   %45 = icmp eq i32 %44, 4
   br i1 %45, label %39, label %.loopexit136.i, !llvm.loop !11
@@ -456,7 +456,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit.i: ; preds =
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %.noexc.i.i
-  %51 = tail call ptr @__errno_location() #18
+  %51 = tail call ptr @__errno_location() #19
   %52 = load i32, ptr %51, align 4, !noalias !8
   %53 = icmp eq i32 %52, 4
   br i1 %53, label %47, label %.thread133.i.i, !llvm.loop !12
@@ -492,7 +492,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit.i: ; preds =
   br i1 %57, label %.lr.ph.i.i.i.i, label %66
 
 66:                                               ; preds = %65
-  call void @abort() #17, !noalias !8
+  call void @abort() #18, !noalias !8
   unreachable
 
 67:                                               ; preds = %81
@@ -516,7 +516,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit.i: ; preds =
   br i1 %75, label %76, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i.i.i"
 
 76:                                               ; preds = %.noexc56.i.i
-  %77 = tail call ptr @__errno_location() #18
+  %77 = tail call ptr @__errno_location() #19
   %78 = load i32, ptr %77, align 4, !noalias !8
   %79 = icmp eq i32 %78, 4
   br i1 %79, label %73, label %.loopexit146.i.i, !llvm.loop !6
@@ -535,7 +535,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit.i: ; preds =
   br i1 %.not23.i.i.i.i, label %83, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.i.i.i
 
 83:                                               ; preds = %._crit_edge.i.i.i.i
-  call void @abort() #17, !noalias !8
+  call void @abort() #18, !noalias !8
   unreachable
 
 _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.i.i.i: ; preds = %._crit_edge.i.i.i.i
@@ -553,14 +553,14 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.i.i.i: ; preds 
   br i1 %.not.i.i.i, label %90, label %_ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i.i.i
 
 90:                                               ; preds = %88
-  call void @abort() #17, !noalias !8
+  call void @abort() #18, !noalias !8
   unreachable
 
 _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i.i.i: ; preds = %88
   %91 = ptrtoint ptr %.sroa.27.0.i.i to i64
   %92 = ptrtoint ptr %89 to i64
   %93 = sub i64 %91, %92
-  %94 = call noundef ptr @memchr(ptr noundef nonnull %89, i32 noundef 10, i64 noundef %93) #19, !noalias !8
+  %94 = call noundef ptr @memchr(ptr noundef nonnull %89, i32 noundef 10, i64 noundef %93) #20, !noalias !8
   %.not34.i.i.i = icmp eq ptr %94, null
   br i1 %.not34.i.i.i, label %95, label %122
 
@@ -571,7 +571,7 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineE
   br i1 %57, label %99, label %98
 
 98:                                               ; preds = %95
-  call void @abort() #17, !noalias !8
+  call void @abort() #18, !noalias !8
   unreachable
 
 99:                                               ; preds = %95
@@ -583,7 +583,7 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineE
   br i1 %.not34.i23.i.i.i, label %.loopexit146.i.i, label %.lr.ph.i24.i.i.i
 
 100:                                              ; preds = %99
-  call void @abort() #17, !noalias !8
+  call void @abort() #18, !noalias !8
   unreachable
 
 101:                                              ; preds = %115
@@ -607,7 +607,7 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineE
   br i1 %109, label %110, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i26.i.i.i"
 
 110:                                              ; preds = %.noexc57.i.i
-  %111 = tail call ptr @__errno_location() #18
+  %111 = tail call ptr @__errno_location() #19
   %112 = load i32, ptr %111, align 4, !noalias !8
   %113 = icmp eq i32 %112, 4
   br i1 %113, label %107, label %.loopexit146.i.i, !llvm.loop !6
@@ -626,7 +626,7 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineE
   br i1 %.not23.i29.i.i.i, label %117, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit31.i.i.i
 
 117:                                              ; preds = %._crit_edge.i27.i.i.i
-  call void @abort() #17, !noalias !8
+  call void @abort() #18, !noalias !8
   unreachable
 
 _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit31.i.i.i: ; preds = %._crit_edge.i27.i.i.i
@@ -645,7 +645,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit31.i.i.i: ; pred
   %123 = ptrtoint ptr %.sroa.27.1.i.i to i64
   %124 = ptrtoint ptr %.sroa.18.0.i.i to i64
   %125 = sub i64 %123, %124
-  %126 = call noundef ptr @memchr(ptr noundef nonnull %.sroa.18.0.i.i, i32 noundef 10, i64 noundef %125) #19, !noalias !8
+  %126 = call noundef ptr @memchr(ptr noundef nonnull %.sroa.18.0.i.i, i32 noundef 10, i64 noundef %125) #20, !noalias !8
   %127 = ptrtoint ptr %126 to i64
   %128 = icmp eq ptr %126, null
   br i1 %128, label %.loopexit146.i.i, label %129
@@ -677,7 +677,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit31.i.i.i: ; pred
 
 .loopexit.split-lp.i.i:                           ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit.i.i
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit141.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit144.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit147.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp148.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i ]
-  call void @_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %13) #20, !noalias !8
+  call void @_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %13) #21, !noalias !8
   br label %283
 
 129:                                              ; preds = %122
@@ -739,7 +739,7 @@ switch.early.test._crit_edge.i.i.i:               ; preds = %136, %switch.early.
   br i1 %.not.i58.i.i, label %148, label %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit.i.i
 
 148:                                              ; preds = %switch.early.test._crit_edge.i.i.i
-  call void @abort() #17, !noalias !8
+  call void @abort() #18, !noalias !8
   unreachable
 
 _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit.i.i: ; preds = %switch.early.test._crit_edge.i.i.i
@@ -810,7 +810,7 @@ switch.early.test._crit_edge.i59.i.i:             ; preds = %160, %switch.early.
   br i1 %.not.i61.i.i, label %171, label %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i
 
 171:                                              ; preds = %switch.early.test._crit_edge.i59.i.i
-  call void @abort() #17, !noalias !8
+  call void @abort() #18, !noalias !8
   unreachable
 
 _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %switch.early.test._crit_edge.i59.i.i
@@ -862,7 +862,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   br i1 %63, label %.lr.ph.i.i72.i.i, label %186
 
 186:                                              ; preds = %185
-  call void @abort() #17, !noalias !8
+  call void @abort() #18, !noalias !8
   unreachable
 
 187:                                              ; preds = %201
@@ -886,7 +886,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   br i1 %195, label %196, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i74.i.i"
 
 196:                                              ; preds = %.noexc79.i.i
-  %197 = tail call ptr @__errno_location() #18
+  %197 = tail call ptr @__errno_location() #19
   %198 = load i32, ptr %197, align 4, !noalias !8
   %199 = icmp eq i32 %198, 4
   br i1 %199, label %193, label %.thread.i.i, !llvm.loop !6
@@ -905,7 +905,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   br i1 %.not23.i.i77.i.i, label %203, label %204
 
 203:                                              ; preds = %._crit_edge.i.i75.i.i
-  call void @abort() #17, !noalias !8
+  call void @abort() #18, !noalias !8
   unreachable
 
 204:                                              ; preds = %._crit_edge.i.i75.i.i
@@ -968,7 +968,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   br i1 %226, label %227, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i83.i.i"
 
 227:                                              ; preds = %.noexc89.i.i
-  %228 = tail call ptr @__errno_location() #18
+  %228 = tail call ptr @__errno_location() #19
   %229 = load i32, ptr %228, align 4, !noalias !8
   %230 = icmp eq i32 %229, 4
   br i1 %230, label %224, label %.loopexit139.i.i, !llvm.loop !6
@@ -987,7 +987,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   br i1 %.not23.i.i86.i.i, label %234, label %.loopexit139.i.i
 
 234:                                              ; preds = %._crit_edge.i.i84.i.i
-  call void @abort() #17, !noalias !8
+  call void @abort() #18, !noalias !8
   unreachable
 
 .loopexit139.i.i:                                 ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i83.i.i", %227, %._crit_edge.i.i84.i.i
@@ -1092,7 +1092,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   br i1 %.not138.i.i, label %271, label %273
 
 271:                                              ; preds = %270
-  %272 = call ptr @strncpy(ptr noundef nonnull %34, ptr noundef nonnull %storemerge49.lcssa.i.i, i64 noundef %35) #20, !noalias !8
+  %272 = call ptr @strncpy(ptr noundef nonnull %34, ptr noundef nonnull %storemerge49.lcssa.i.i, i64 noundef %35) #21, !noalias !8
   store i8 0, ptr %32, align 1, !noalias !8
   br label %274
 
@@ -1101,7 +1101,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   br label %274
 
 274:                                              ; preds = %273, %271
-  call void @_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %18) #20, !noalias !8
+  call void @_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %18) #21, !noalias !8
   br label %.loopexit146.i.i
 
 .loopexit146.i.i:                                 ; preds = %.critedge.i.i, %175, %173, %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i, %150, %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit.i.i, %122, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit31.i.i.i, %.preheader.i22.i.i.i, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.i.i.i, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i26.i.i.i", %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i.i.i", %110, %76, %274, %._crit_edge.i.i, %256, %251
@@ -1114,7 +1114,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   %277 = landingpad { ptr, i32 }
           catch ptr null
   %278 = extractvalue { ptr, i32 } %277, 0
-  call void @__clang_call_terminate(ptr %278) #17
+  call void @__clang_call_terminate(ptr %278) #18
   unreachable
 
 _ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit.i.i: ; preds = %.loopexit146.i.i, %.thread133.i.i
@@ -1127,12 +1127,12 @@ _ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit.i.i: ; preds = %.l
   %281 = landingpad { ptr, i32 }
           catch ptr null
   %282 = extractvalue { ptr, i32 } %281, 0
-  call void @__clang_call_terminate(ptr %282) #17
+  call void @__clang_call_terminate(ptr %282) #18
   unreachable
 
 283:                                              ; preds = %.loopexit.split-lp.i.i, %54
   %.pn.i.i = phi { ptr, i32 } [ %lpad.phi.i.i, %.loopexit.split-lp.i.i ], [ %55, %54 ]
-  call void @_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %12) #20, !noalias !8
+  call void @_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %12) #21, !noalias !8
   br label %.body.i
 
 .loopexit136.i:                                   ; preds = %42, %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit.i.i
@@ -1159,18 +1159,18 @@ _ZN6google24glog_internal_namespace_14FileDescriptor5resetEi.exit.i: ; preds = %
 
 286:                                              ; preds = %284
   store i8 0, ptr %32, align 1
-  %287 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
+  %287 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %288 = icmp ult i64 %287, %2
   br i1 %288, label %_ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit60.i, label %289
 
 289:                                              ; preds = %286
-  call void @abort() #17
+  call void @abort() #18
   unreachable
 
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit60.i: ; preds = %286
   %290 = getelementptr inbounds i8, ptr %1, i64 %287
   %291 = sub nuw i64 %2, %287
-  %292 = call ptr @strncpy(ptr noundef nonnull %290, ptr noundef nonnull readonly dereferenceable(4) @.str.3, i64 noundef %291) #20
+  %292 = call ptr @strncpy(ptr noundef nonnull %290, ptr noundef nonnull readonly dereferenceable(4) @.str.3, i64 noundef %291) #21
   store i8 0, ptr %32, align 1
   %293 = load i64, ptr %20, align 8
   %294 = sub i64 %22, %293
@@ -1219,32 +1219,32 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit60.i: ; preds
 
 _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i.i: ; preds = %.lr.ph.i.i61.i, %305, %296
   %.0.i.i.i = phi ptr [ null, %296 ], [ %11, %305 ], [ %11, %.lr.ph.i.i61.i ]
-  %313 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
+  %313 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %314 = icmp ult i64 %313, %2
   br i1 %314, label %316, label %315
 
 315:                                              ; preds = %_ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i.i
-  call void @abort() #17
+  call void @abort() #18
   unreachable
 
 316:                                              ; preds = %_ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i.i
   %317 = getelementptr inbounds i8, ptr %1, i64 %313
   %318 = sub nuw i64 %2, %313
-  %319 = call ptr @strncpy(ptr noundef nonnull %317, ptr noundef readonly %.0.i.i.i, i64 noundef %318) #20
+  %319 = call ptr @strncpy(ptr noundef nonnull %317, ptr noundef readonly %.0.i.i.i, i64 noundef %318) #21
   store i8 0, ptr %32, align 1
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11)
-  %320 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
+  %320 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %321 = icmp ult i64 %320, %2
   br i1 %321, label %_ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit62.i, label %322
 
 322:                                              ; preds = %316
-  call void @abort() #17
+  call void @abort() #18
   unreachable
 
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit62.i: ; preds = %316
   %323 = getelementptr inbounds i8, ptr %1, i64 %320
   %324 = sub nuw i64 %2, %320
-  %325 = call ptr @strncpy(ptr noundef nonnull %323, ptr noundef nonnull readonly dereferenceable(2) @.str.4, i64 noundef %324) #20
+  %325 = call ptr @strncpy(ptr noundef nonnull %323, ptr noundef nonnull readonly dereferenceable(2) @.str.4, i64 noundef %324) #21
   store i8 0, ptr %32, align 1
   br label %497
 
@@ -1254,7 +1254,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit62.i: ; preds
   br i1 %327, label %.lr.ph.i.i.i63.i, label %328
 
 328:                                              ; preds = %326
-  call void @abort() #17
+  call void @abort() #18
   unreachable
 
 329:                                              ; preds = %342
@@ -1277,7 +1277,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit62.i: ; preds
   br i1 %336, label %337, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i.i65.i"
 
 337:                                              ; preds = %.noexc72.i
-  %338 = tail call ptr @__errno_location() #18
+  %338 = tail call ptr @__errno_location() #19
   %339 = load i32, ptr %338, align 4
   %340 = icmp eq i32 %339, 4
   br i1 %340, label %334, label %.loopexit125.thread.i, !llvm.loop !6
@@ -1296,7 +1296,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit62.i: ; preds
   br i1 %.not23.i.i.i68.i, label %344, label %.loopexit125.i
 
 344:                                              ; preds = %._crit_edge.i.i.i66.i
-  call void @abort() #17
+  call void @abort() #18
   unreachable
 
 .loopexit125.thread.i:                            ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i.i65.i", %337
@@ -1364,7 +1364,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit62.i: ; preds
   br i1 %369, label %370, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i.i75.i"
 
 370:                                              ; preds = %.noexc80.i
-  %371 = tail call ptr @__errno_location() #18
+  %371 = tail call ptr @__errno_location() #19
   %372 = load i32, ptr %371, align 4
   %373 = icmp eq i32 %372, 4
   br i1 %373, label %367, label %.loopexit111.i, !llvm.loop !6
@@ -1383,7 +1383,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit62.i: ; preds
   br i1 %.not23.i.i.i78.i, label %377, label %_ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit.i.i
 
 377:                                              ; preds = %._crit_edge.i.i.i76.i
-  call void @abort() #17
+  call void @abort() #18
   unreachable
 
 _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit.i.i: ; preds = %._crit_edge.i.i.i76.i
@@ -1430,7 +1430,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit.i.i: ; pre
   br i1 %399, label %400, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i17.i.i"
 
 400:                                              ; preds = %.noexc82.i
-  %401 = tail call ptr @__errno_location() #18
+  %401 = tail call ptr @__errno_location() #19
   %402 = load i32, ptr %401, align 4
   %403 = icmp eq i32 %402, 4
   br i1 %403, label %397, label %.loopexit111.i, !llvm.loop !6
@@ -1449,7 +1449,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit.i.i: ; pre
   br i1 %.not23.i.i20.i.i, label %407, label %_ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit22.i.i
 
 407:                                              ; preds = %._crit_edge.i.i18.i.i
-  call void @abort() #17
+  call void @abort() #18
   unreachable
 
 _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit22.i.i: ; preds = %._crit_edge.i.i18.i.i
@@ -1499,7 +1499,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit22.i.i: ; p
   br i1 %427, label %428, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i25.i.i"
 
 428:                                              ; preds = %.noexc85.i
-  %429 = tail call ptr @__errno_location() #18
+  %429 = tail call ptr @__errno_location() #19
   %430 = load i32, ptr %429, align 4
   %431 = icmp eq i32 %430, 4
   br i1 %431, label %425, label %.loopexit111.i, !llvm.loop !6
@@ -1518,7 +1518,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit22.i.i: ; p
   br i1 %.not23.i.i28.i.i, label %435, label %_ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit30.i.i
 
 435:                                              ; preds = %._crit_edge.i.i26.i.i
-  call void @abort() #17
+  call void @abort() #18
   unreachable
 
 _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit30.i.i: ; preds = %._crit_edge.i.i26.i.i
@@ -1548,18 +1548,18 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit30.i.i: ; p
   %445 = add i64 %.051.i, -1
   %446 = getelementptr inbounds i8, ptr %.050.i, i64 %445
   store i8 0, ptr %446, align 1
-  %447 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.050.i) #19
+  %447 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.050.i) #20
   %448 = icmp ult i64 %447, %.051.i
   br i1 %448, label %_ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit87.i, label %449
 
 449:                                              ; preds = %444
-  call void @abort() #17
+  call void @abort() #18
   unreachable
 
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit87.i: ; preds = %444
   %450 = getelementptr inbounds i8, ptr %.050.i, i64 %447
   %451 = sub nuw i64 %.051.i, %447
-  %452 = call ptr @strncpy(ptr noundef %450, ptr noundef nonnull readonly dereferenceable(4) @.str.3, i64 noundef %451) #20
+  %452 = call ptr @strncpy(ptr noundef %450, ptr noundef nonnull readonly dereferenceable(4) @.str.3, i64 noundef %451) #21
   %453 = getelementptr i8, ptr %.050.i, i64 %.051.i
   %454 = getelementptr i8, ptr %453, i64 -1
   store i8 0, ptr %454, align 1
@@ -1610,32 +1610,32 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit87.i: ; preds
 
 _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i92.i: ; preds = %.lr.ph.i.i94.i, %467, %458
   %.0.i.i93.i = phi ptr [ null, %458 ], [ %6, %467 ], [ %6, %.lr.ph.i.i94.i ]
-  %475 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.050.i) #19
+  %475 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.050.i) #20
   %476 = icmp ult i64 %475, %.051.i
   br i1 %476, label %478, label %477
 
 477:                                              ; preds = %_ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i92.i
-  call void @abort() #17
+  call void @abort() #18
   unreachable
 
 478:                                              ; preds = %_ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i92.i
   %479 = getelementptr inbounds i8, ptr %.050.i, i64 %475
   %480 = sub nuw i64 %.051.i, %475
-  %481 = call ptr @strncpy(ptr noundef %479, ptr noundef readonly %.0.i.i93.i, i64 noundef %480) #20
+  %481 = call ptr @strncpy(ptr noundef %479, ptr noundef readonly %.0.i.i93.i, i64 noundef %480) #21
   store i8 0, ptr %454, align 1
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %6)
-  %482 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.050.i) #19
+  %482 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.050.i) #20
   %483 = icmp ult i64 %482, %.051.i
   br i1 %483, label %_ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit97.i, label %484
 
 484:                                              ; preds = %478
-  call void @abort() #17
+  call void @abort() #18
   unreachable
 
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit97.i: ; preds = %478
   %485 = getelementptr inbounds i8, ptr %.050.i, i64 %482
   %486 = sub nuw i64 %.051.i, %482
-  %487 = call ptr @strncpy(ptr noundef %485, ptr noundef nonnull readonly dereferenceable(2) @.str.4, i64 noundef %486) #20
+  %487 = call ptr @strncpy(ptr noundef %485, ptr noundef nonnull readonly dereferenceable(2) @.str.4, i64 noundef %486) #21
   store i8 0, ptr %454, align 1
   br label %497
 
@@ -1651,7 +1651,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit97.i: ; preds
   br i1 %489, label %490, label %_ZN6google24glog_internal_namespace_12_GLOBAL__N_115DemangleInplaceEPcm.exit.i
 
 490:                                              ; preds = %.noexc99.i
-  %491 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #19
+  %491 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #20
   %492 = add i64 %491, 1
   %.not.i98.i = icmp ugt i64 %492, %.051.i
   br i1 %.not.i98.i, label %_ZN6google24glog_internal_namespace_12_GLOBAL__N_115DemangleInplaceEPcm.exit.i, label %493
@@ -1661,7 +1661,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit97.i: ; preds
   br i1 %494, label %496, label %495
 
 495:                                              ; preds = %493
-  call void @abort() #17
+  call void @abort() #18
   unreachable
 
 496:                                              ; preds = %493
@@ -1685,7 +1685,7 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_115DemangleInplaceEPcm.exit.i: 
   %501 = landingpad { ptr, i32 }
           catch ptr null
   %502 = extractvalue { ptr, i32 } %501, 0
-  call void @__clang_call_terminate(ptr %502) #17
+  call void @__clang_call_terminate(ptr %502) #18
   unreachable
 
 _ZN6google24glog_internal_namespace_L20SymbolizeAndDemangleEPvPcmNS0_16SymbolizeOptionsE.exit: ; preds = %4, %284, %497, %498
@@ -1722,7 +1722,7 @@ define linkonce_odr hidden void @_ZN6google24glog_internal_namespace_14FileDescr
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #17
+  tail call void @__clang_call_terminate(ptr %7) #18
   unreachable
 
 _ZN6google24glog_internal_namespace_14FileDescriptor10safe_closeEv.exit: ; preds = %1, %3
@@ -1739,17 +1739,18 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
-  tail call void @_ZSt9terminatev() #17
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
+  tail call void @_ZSt9terminatev() #18
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef ptr @_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly %2) unnamed_addr #10 {
+define internal fastcc noundef ptr @_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly %2) unnamed_addr #11 {
   store i64 0, ptr %2, align 8
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %.lr.ph.preheader, label %switch.early.test._crit_edge
@@ -1808,7 +1809,7 @@ switch.early.test._crit_edge:                     ; preds = %12, %switch.early.t
   br i1 %.not, label %23, label %24
 
 23:                                               ; preds = %switch.early.test._crit_edge
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 24:                                               ; preds = %switch.early.test._crit_edge
@@ -1816,7 +1817,7 @@ switch.early.test._crit_edge:                     ; preds = %12, %switch.early.t
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc noundef i32 @"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L44OpenObjectFileContainingPcAndGetStartAddressEmRmS3_PcmE3$_2EEDaT_i"(ptr nocapture readonly %0) unnamed_addr #11 {
+define internal fastcc noundef i32 @"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L44OpenObjectFileContainingPcAndGetStartAddressEmRmS3_PcmE3$_2EEDaT_i"(ptr nocapture readonly %0) unnamed_addr #12 {
   br label %2
 
 2:                                                ; preds = %5, %1
@@ -1825,7 +1826,7 @@ define internal fastcc noundef i32 @"_ZN6google24glog_internal_namespace_12_GLOB
   br i1 %4, label %5, label %.critedge
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @__errno_location() #18
+  %6 = tail call ptr @__errno_location() #19
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 4
   br i1 %8, label %2, label %.critedge, !llvm.loop !20
@@ -1838,16 +1839,16 @@ define internal fastcc noundef i32 @"_ZN6google24glog_internal_namespace_12_GLOB
 declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L22GetSectionHeaderByTypeEitmjP10Elf64_Shdr(i32 noundef %0, i16 noundef zeroext %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L22GetSectionHeaderByTypeEitmjP10Elf64_Shdr(i32 noundef %0, i16 noundef zeroext %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #12 {
   %6 = alloca [16 x %struct.Elf64_Shdr], align 16
   %7 = zext i16 %1 to i64
   %.not = icmp eq i16 %1, 0
@@ -1867,7 +1868,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
   br label %.lr.ph.i
 
 14:                                               ; preds = %.lr.ph41
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 15:                                               ; preds = %29
@@ -1888,7 +1889,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
   br i1 %23, label %24, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i"
 
 24:                                               ; preds = %21
-  %25 = tail call ptr @__errno_location() #18
+  %25 = tail call ptr @__errno_location() #19
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 4
   br i1 %27, label %21, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread, !llvm.loop !6
@@ -1907,7 +1908,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
   br i1 %.not23.i, label %31, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit
 
 31:                                               ; preds = %._crit_edge.i
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit: ; preds = %._crit_edge.i
@@ -1916,7 +1917,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit: ; preds = %._c
   br i1 %33, label %.thread, label %34
 
 34:                                               ; preds = %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 .thread:                                          ; preds = %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit
@@ -1956,7 +1957,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L10FindSymbolEmiPcmmPK10Elf64_ShdrS4_(i64 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L10FindSymbolEmiPcmmPK10Elf64_ShdrS4_(i64 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6) unnamed_addr #12 {
   %8 = alloca [32 x %struct.Elf64_Sym], align 16
   %9 = icmp eq ptr %6, null
   br i1 %9, label %.loopexit, label %10
@@ -1987,7 +1988,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
   br label %.lr.ph.i
 
 25:                                               ; preds = %.lr.ph85
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 26:                                               ; preds = %40
@@ -2008,7 +2009,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
   br i1 %34, label %35, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i"
 
 35:                                               ; preds = %32
-  %36 = tail call ptr @__errno_location() #18
+  %36 = tail call ptr @__errno_location() #19
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 4
   br i1 %38, label %32, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread, !llvm.loop !6
@@ -2027,7 +2028,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
   br i1 %.not23.i, label %42, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit
 
 42:                                               ; preds = %._crit_edge.i
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit: ; preds = %._crit_edge.i
@@ -2037,7 +2038,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit: ; preds = %._c
   br i1 %45, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread71, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread
 
 _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread: ; preds = %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i", %35
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread71: ; preds = %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit
@@ -2049,7 +2050,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread71: ; pre
   br i1 %.not87, label %._crit_edge, label %.lr.ph
 
 46:                                               ; preds = %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread71
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %87
@@ -2089,7 +2090,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread71: ; pre
   br i1 %.not34.i58, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit66.thread, label %.lr.ph.i59
 
 65:                                               ; preds = %59
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 66:                                               ; preds = %80
@@ -2110,7 +2111,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread71: ; pre
   br i1 %74, label %75, label %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i61"
 
 75:                                               ; preds = %72
-  %76 = tail call ptr @__errno_location() #18
+  %76 = tail call ptr @__errno_location() #19
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, 4
   br i1 %78, label %72, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit66.thread, !llvm.loop !6
@@ -2129,7 +2130,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread71: ; pre
   br i1 %.not23.i64, label %82, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit66
 
 82:                                               ; preds = %._crit_edge.i62
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit66: ; preds = %._crit_edge.i62
@@ -2137,7 +2138,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit66: ; preds = %.
   br i1 %83, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit66.thread, label %84
 
 84:                                               ; preds = %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit66
-  %85 = tail call noundef ptr @memchr(ptr noundef %2, i32 noundef 0, i64 noundef %3) #19
+  %85 = tail call noundef ptr @memchr(ptr noundef %2, i32 noundef 0, i64 noundef %3) #20
   %86 = icmp eq ptr %85, null
   br i1 %86, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit66.thread, label %.loopexit
 
@@ -2163,24 +2164,24 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit66.thread: ; pre
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
 declare hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_8DemangleEPKcPcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
+declare i64 @llvm.umax.i64(i64, i64) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2192,17 +2193,18 @@ attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { nounwind willreturn memory(none) }
-attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { nounwind }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { nounwind willreturn memory(none) }
+attributes #20 = { nounwind willreturn memory(read) }
+attributes #21 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

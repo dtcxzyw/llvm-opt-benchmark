@@ -66,14 +66,14 @@ entry:
   %sync_lock = alloca %"struct.zmq::scoped_optional_lock_t", align 8
   %_sync = getelementptr inbounds i8, ptr %this, i64 1480
   store ptr %_sync, ptr %sync_lock, align 8
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %_sync) #9
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %_sync) #10
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %_ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call2.i.i = tail call ptr @strerror(i32 noundef %call.i.i) #9
+  %call2.i.i = tail call ptr @strerror(i32 noundef %call.i.i) #10
   %0 = load ptr, ptr @stderr, align 8
-  %call3.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %call2.i.i, ptr noundef nonnull @.str.1, i32 noundef 109) #10
+  %call3.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %call2.i.i, ptr noundef nonnull @.str.1, i32 noundef 109) #11
   %1 = load ptr, ptr @stderr, align 8
   %call4.i.i = tail call i32 @fflush(ptr noundef %1)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call2.i.i)
@@ -86,7 +86,7 @@ _ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit: ; preds = %entry, %if.then
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit
-  %call = tail call ptr @__errno_location() #11
+  %call = tail call ptr @__errno_location() #12
   store i32 14, ptr %call, align 4
   br label %if.then.i
 
@@ -101,7 +101,7 @@ invoke.cont:                                      ; preds = %if.end
 lpad:                                             ; preds = %if.end
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3zmq22scoped_optional_lock_tD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sync_lock) #9
+  call void @_ZN3zmq22scoped_optional_lock_tD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sync_lock) #10
   resume { ptr, i32 } %3
 
 if.end5:                                          ; preds = %invoke.cont
@@ -111,14 +111,14 @@ if.end5:                                          ; preds = %invoke.cont
 
 if.then.i:                                        ; preds = %if.then, %if.end5, %invoke.cont
   %retval.0 = phi i32 [ 0, %if.then ], [ %4, %if.end5 ], [ 0, %invoke.cont ]
-  %call.i.i1 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %_sync) #9
+  %call.i.i1 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %_sync) #10
   %tobool.not.i.i2 = icmp eq i32 %call.i.i1, 0
   br i1 %tobool.not.i.i2, label %_ZN3zmq22scoped_optional_lock_tD2Ev.exit, label %if.then.i.i3
 
 if.then.i.i3:                                     ; preds = %if.then.i
-  %call2.i.i4 = tail call ptr @strerror(i32 noundef %call.i.i1) #9
+  %call2.i.i4 = tail call ptr @strerror(i32 noundef %call.i.i1) #10
   %5 = load ptr, ptr @stderr, align 8
-  %call3.i.i5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef %call2.i.i4, ptr noundef nonnull @.str.1, i32 noundef 125) #10
+  %call3.i.i5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef %call2.i.i4, ptr noundef nonnull @.str.1, i32 noundef 125) #11
   %6 = load ptr, ptr @stderr, align 8
   %call4.i.i6 = tail call i32 @fflush(ptr noundef %6)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call2.i.i4)
@@ -128,7 +128,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i3
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #12
+  tail call void @__clang_call_terminate(ptr %8) #13
   unreachable
 
 _ZN3zmq22scoped_optional_lock_tD2Ev.exit:         ; preds = %if.then.i, %if.then.i.i3
@@ -150,14 +150,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #9
+  %call.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #10
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call2.i = tail call ptr @strerror(i32 noundef %call.i) #9
+  %call2.i = tail call ptr @strerror(i32 noundef %call.i) #10
   %1 = load ptr, ptr @stderr, align 8
-  %call3.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %call2.i, ptr noundef nonnull @.str.1, i32 noundef 125) #10
+  %call3.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %call2.i, ptr noundef nonnull @.str.1, i32 noundef 125) #11
   %2 = load ptr, ptr @stderr, align 8
   %call4.i = tail call i32 @fflush(ptr noundef %2)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call2.i)
@@ -170,7 +170,7 @@ terminate.lpad:                                   ; preds = %if.then.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #12
+  tail call void @__clang_call_terminate(ptr %4) #13
   unreachable
 }
 
@@ -191,15 +191,15 @@ declare noundef i32 @_ZNK3zmq6pipe_t28get_server_socket_routing_idEv(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3zmq6peer_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1936) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %this) #9
+  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %this) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3zmq6peer_tD0Ev(ptr noundef nonnull align 8 dereferenceable(1936) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %this) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
+  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %this) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
 }
 
@@ -291,7 +291,7 @@ declare noundef i32 @_ZN3zmq13socket_base_t6xleaveEPKc(ptr noundef nonnull align
 define linkonce_odr void @_ZThn1448_N3zmq6peer_tD1Ev(ptr noundef %this) unnamed_addr #4 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
-  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #9
+  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #10
   ret void
 }
 
@@ -299,8 +299,8 @@ entry:
 define linkonce_odr void @_ZThn1448_N3zmq6peer_tD0Ev(ptr noundef %this) unnamed_addr #4 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
-  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
+  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }
 
@@ -308,7 +308,7 @@ entry:
 define linkonce_odr void @_ZThn1464_N3zmq6peer_tD1Ev(ptr noundef %this) unnamed_addr #4 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1464
-  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #9
+  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #10
   ret void
 }
 
@@ -316,8 +316,8 @@ entry:
 define linkonce_odr void @_ZThn1464_N3zmq6peer_tD0Ev(ptr noundef %this) unnamed_addr #4 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1464
-  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
+  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }
 
@@ -331,7 +331,7 @@ declare void @_ZThn1464_N3zmq13socket_base_t11timer_eventEi(ptr noundef, i32 nou
 define linkonce_odr void @_ZThn1472_N3zmq6peer_tD1Ev(ptr noundef %this) unnamed_addr #4 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1472
-  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #9
+  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #10
   ret void
 }
 
@@ -339,8 +339,8 @@ entry:
 define linkonce_odr void @_ZThn1472_N3zmq6peer_tD0Ev(ptr noundef %this) unnamed_addr #4 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1472
-  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
+  tail call void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932) %0) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }
 
@@ -368,14 +368,15 @@ declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
-  tail call void @_ZSt9terminatev() #12
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
+  tail call void @_ZSt9terminatev() #13
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
@@ -384,7 +385,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 declare void @_ZN3zmq8server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1932)) unnamed_addr #5
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -394,12 +395,13 @@ attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { cold }
-attributes #11 = { nounwind willreturn memory(none) }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { builtin nounwind }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { cold }
+attributes #12 = { nounwind willreturn memory(none) }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

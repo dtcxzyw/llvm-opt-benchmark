@@ -99,7 +99,7 @@ define dso_local void @_ZN15Sample_SoloMeshC2Ev(ptr noundef nonnull align 8 dere
   %5 = getelementptr inbounds i8, ptr %0, i64 352
   store i32 0, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %3, i8 0, i64 44, i1 false)
-  %6 = invoke noalias noundef nonnull dereferenceable(33408) ptr @_Znwm(i64 noundef 33408) #10
+  %6 = invoke noalias noundef nonnull dereferenceable(33408) ptr @_Znwm(i64 noundef 33408) #11
           to label %7 unwind label %10
 
 7:                                                ; preds = %1
@@ -121,12 +121,12 @@ define dso_local void @_ZN15Sample_SoloMeshC2Ev(ptr noundef nonnull align 8 dere
 12:                                               ; preds = %7
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #12
   br label %14
 
 14:                                               ; preds = %12, %10
   %.pn = phi { ptr, i32 } [ %11, %10 ], [ %13, %12 ]
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #12
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #13
   resume { ptr, i32 } %.pn
 }
 
@@ -154,14 +154,14 @@ define dso_local void @_ZN15Sample_SoloMeshD2Ev(ptr noundef nonnull align 8 dere
           to label %2 unwind label %3
 
 2:                                                ; preds = %1
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #12
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #13
   ret void
 
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #13
+  tail call void @__clang_call_terminate(ptr %5) #14
   unreachable
 }
 
@@ -173,7 +173,7 @@ define dso_local void @_ZN15Sample_SoloMesh7cleanupEv(ptr nocapture noundef nonn
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #11
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #12
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -207,14 +207,15 @@ define dso_local void @_ZN15Sample_SoloMesh7cleanupEv(ptr nocapture noundef nonn
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15Sample_SoloMeshD0Ev(ptr noundef nonnull align 8 dereferenceable(356) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -226,12 +227,12 @@ define dso_local void @_ZN15Sample_SoloMeshD0Ev(ptr noundef nonnull align 8 dere
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #13
+  tail call void @__clang_call_terminate(ptr %4) #14
   unreachable
 
 _ZN15Sample_SoloMeshD2Ev.exit:                    ; preds = %1
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #11
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void
 }
 
@@ -301,7 +302,7 @@ define dso_local void @_ZN15Sample_SoloMesh14handleSettingsEv(ptr noundef nonnul
   %26 = getelementptr inbounds i8, ptr %0, i64 204
   %27 = load float, ptr %26, align 4
   %28 = fpext float %27 to double
-  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.4, double noundef %28) #12
+  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.4, double noundef %28) #13
   call void @_Z10imguiLabelPKc(ptr noundef nonnull %2)
   call void @_Z14imguiSeparatorv()
   ret void
@@ -326,7 +327,7 @@ declare noundef i32 @_ZN14dtNavMeshQuery4initEPK9dtNavMeshi(ptr noundef nonnull 
 declare void @_Z13imguiUnindentv() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 declare void @_Z10imguiLabelPKc(ptr noundef) local_unnamed_addr #1
 
@@ -351,7 +352,7 @@ define dso_local void @_ZN15Sample_SoloMesh11handleToolsEv(ptr noundef nonnull a
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %9
-  %14 = tail call noalias noundef nonnull dereferenceable(33408) ptr @_Znwm(i64 noundef 33408) #10
+  %14 = tail call noalias noundef nonnull dereferenceable(33408) ptr @_Znwm(i64 noundef 33408) #11
   invoke void @_ZN17NavMeshTesterToolC1Ev(ptr noundef nonnull align 8 dereferenceable(33408) %14)
           to label %15 unwind label %16
 
@@ -370,7 +371,7 @@ define dso_local void @_ZN15Sample_SoloMesh11handleToolsEv(ptr noundef nonnull a
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %18
-  %22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
+  %22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   invoke void @_ZN16NavMeshPruneToolC1Ev(ptr noundef nonnull align 8 dereferenceable(37) %22)
           to label %23 unwind label %24
 
@@ -389,7 +390,7 @@ define dso_local void @_ZN15Sample_SoloMesh11handleToolsEv(ptr noundef nonnull a
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %26
-  %30 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #10
+  %30 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11
   invoke void @_ZN21OffMeshConnectionToolC1Ev(ptr noundef nonnull align 8 dereferenceable(31) %30)
           to label %31 unwind label %32
 
@@ -408,7 +409,7 @@ define dso_local void @_ZN15Sample_SoloMesh11handleToolsEv(ptr noundef nonnull a
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %34
-  %38 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #10
+  %38 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #11
   invoke void @_ZN16ConvexVolumeToolC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %38)
           to label %39 unwind label %40
 
@@ -427,7 +428,7 @@ define dso_local void @_ZN15Sample_SoloMesh11handleToolsEv(ptr noundef nonnull a
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %42
-  %46 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #10
+  %46 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11
   invoke void @_ZN9CrowdToolC1Ev(ptr noundef nonnull align 8 dereferenceable(28) %46)
           to label %47 unwind label %48
 
@@ -461,7 +462,7 @@ define dso_local void @_ZN15Sample_SoloMesh11handleToolsEv(ptr noundef nonnull a
 57:                                               ; preds = %48, %40, %32, %24, %16
   %.sink = phi ptr [ %46, %48 ], [ %38, %40 ], [ %30, %32 ], [ %22, %24 ], [ %14, %16 ]
   %.pn = phi { ptr, i32 } [ %49, %48 ], [ %41, %40 ], [ %33, %32 ], [ %25, %24 ], [ %17, %16 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sink) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %.sink) #12
   resume { ptr, i32 } %.pn
 }
 
@@ -1470,7 +1471,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 
 146:                                              ; preds = %138
   %147 = sext i32 %29 to i64
-  %148 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %147) #10
+  %148 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %147) #11
   %149 = getelementptr inbounds i8, ptr %0, i64 208
   store ptr %148, ptr %149, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %148, i8 0, i64 %147, i1 false)
@@ -1501,7 +1502,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
   br i1 %165, label %167, label %166
 
 166:                                              ; preds = %163
-  tail call void @_ZdaPv(ptr noundef nonnull %164) #11
+  tail call void @_ZdaPv(ptr noundef nonnull %164) #12
   br label %167
 
 167:                                              ; preds = %166, %163
@@ -2066,13 +2067,13 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit65: ; preds = %_ZNK9rcCont
 declare void @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10), i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #9
+declare float @llvm.ceil.f32(float) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #9
+declare float @llvm.floor.f32(float) #10
 
 declare void @_Z14rcCalcGridSizePKfS0_fPiS1_(ptr noundef, ptr noundef, float noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2197,13 +2198,14 @@ attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { builtin allocsize(0) }
-attributes #11 = { builtin nounwind }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { builtin allocsize(0) }
+attributes #12 = { builtin nounwind }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

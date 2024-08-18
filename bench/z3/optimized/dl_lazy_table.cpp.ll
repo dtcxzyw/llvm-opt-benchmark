@@ -540,13 +540,13 @@ invoke.cont3:                                     ; preds = %if.then.i, %call6.i
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
+  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   invoke void @_ZN6symbolC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef %call.i)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %strm) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %strm) #17
   %2 = load ptr, ptr %retval, align 8
   ret ptr %2
 
@@ -558,12 +558,12 @@ lpad:                                             ; preds = %if.then.i, %call6.i
 lpad6:                                            ; preds = %invoke.cont5
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad6, %lpad
   %.pn = phi { ptr, i32 } [ %4, %lpad6 ], [ %3, %lpad ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %strm) #15
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %strm) #17
   resume { ptr, i32 } %.pn
 }
 
@@ -696,12 +696,12 @@ declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_ad
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE(ptr noundef nonnull readonly align 8 dereferenceable(36) %tb) local_unnamed_addr #3 align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 dynamic_cast.end:                                 ; preds = %entry
@@ -716,12 +716,12 @@ declare void @__cxa_bad_cast() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN7datalog17lazy_table_plugin3getERNS_10table_baseE(ptr noundef nonnull readonly align 8 dereferenceable(36) %tb) local_unnamed_addr #3 align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 dynamic_cast.end:                                 ; preds = %entry
@@ -735,7 +735,7 @@ entry:
   br i1 %0, label %dynamic_cast.end, label %dynamic_cast.notnull
 
 dynamic_cast.notnull:                             ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   br label %dynamic_cast.end
 
 dynamic_cast.end:                                 ; preds = %entry, %dynamic_cast.notnull
@@ -750,7 +750,7 @@ entry:
   br i1 %0, label %dynamic_cast.end, label %dynamic_cast.notnull
 
 dynamic_cast.notnull:                             ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   br label %dynamic_cast.end
 
 dynamic_cast.end:                                 ; preds = %entry, %dynamic_cast.notnull
@@ -897,12 +897,12 @@ lpad.i.i:                                         ; preds = %if.then.i.i.i.i.i
 lpad2.i.i:                                        ; preds = %invoke.cont.i.i
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols.i.i) #15
+  tail call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols.i.i) #17
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %10, %lpad2.i.i ], [ %9, %lpad.i.i ]
-  tail call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call2) #15
+  tail call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call2) #17
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7datalog17lazy_table_plugin10project_fnC2ERKNS_15table_signatureEjPKj.exit: ; preds = %invoke.cont.i.i
@@ -1053,13 +1053,13 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #19
   unreachable
 
 lpad:                                             ; preds = %_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_.exit
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cond) #15
+  call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cond) #17
   resume { ptr, i32 } %6
 
 return:                                           ; preds = %invoke.cont, %if.then2.i.i.i, %if.then.i.i.i, %entry
@@ -1095,7 +1095,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  tail call void @__clang_call_terminate(ptr %4) #19
   unreachable
 }
 
@@ -1237,7 +1237,7 @@ invoke.cont3:                                     ; preds = %_ZN6vectorIjLb0EjE9
 lpad2:                                            ; preds = %if.then.i.i.i23
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cols1) #15
+  tail call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cols1) #17
   resume { ptr, i32 } %16
 }
 
@@ -1341,12 +1341,12 @@ invoke.cont:                                      ; preds = %_ZNK7datalog10lazy_
 invoke.cont3:                                     ; preds = %invoke.cont
   %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %m_plugin.i.i, align 8
-  %6 = call ptr @__dynamic_cast(ptr nonnull %5, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #15
+  %6 = call ptr @__dynamic_cast(ptr nonnull %5, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %7 = icmp eq ptr %6, null
   br i1 %7, label %dynamic_cast.bad_cast.i, label %invoke.cont5
 
 dynamic_cast.bad_cast.i:                          ; preds = %invoke.cont3
-  invoke void @__cxa_bad_cast() #16
+  invoke void @__cxa_bad_cast() #18
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %dynamic_cast.bad_cast.i
@@ -1460,13 +1460,13 @@ invoke.cont10:                                    ; preds = %if.then.i.i.i.i.i.i
   %m_ref.i7 = getelementptr inbounds i8, ptr %call2, i64 40
   store ptr %call4, ptr %m_ref.i7, align 8
   store i32 1, ptr %m_ref.i.i, align 8
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #17
   ret ptr %call2
 
 lpad:                                             ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i, %dynamic_cast.bad_cast.i, %invoke.cont5, %invoke.cont, %_ZNK7datalog10lazy_table4evalEv.exit
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #17
   resume { ptr, i32 } %24
 }
 
@@ -1546,12 +1546,12 @@ _ZNK7datalog10lazy_table4evalEv.exit:             ; preds = %entry, %_ZN7datalog
   %call4 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %m_plugin.i.i, align 8
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %6, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #15
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %6, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %8 = icmp eq ptr %7, null
   br i1 %8, label %dynamic_cast.bad_cast.i, label %_ZNK7datalog10lazy_table11get_lpluginEv.exit
 
 dynamic_cast.bad_cast.i:                          ; preds = %_ZNK7datalog10lazy_table4evalEv.exit
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit:     ; preds = %_ZNK7datalog10lazy_table4evalEv.exit
@@ -1842,12 +1842,12 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #15
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZNK7datalog10lazy_table11get_lpluginEv.exit3
 
 dynamic_cast.bad_cast.i:                          ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit3:    ; preds = %entry
@@ -1925,7 +1925,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %13, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %15 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(48) %13) #15
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(48) %13) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %13)
   br label %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit
 
@@ -2148,19 +2148,19 @@ if.end.i18:                                       ; preds = %if.then.i15, %invok
   store ptr %call16, ptr %m_table, align 8
   %vtable.i19 = load ptr, ptr %call14, align 8
   %17 = load ptr, ptr %vtable.i19, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %call14) #15
+  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %call14) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call14)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %if.end.i18
   %18 = load ptr, ptr %m_table, align 8
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #17
   ret ptr %18
 
 lpad:                                             ; preds = %if.end.i18, %if.then.i15, %invoke.cont13, %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #17
   resume { ptr, i32 } %19
 }
 
@@ -2188,12 +2188,12 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %2 = load ptr, ptr %m_src, align 8
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN7datalog14lazy_table_refE, ptr nonnull @_ZTIN7datalog15lazy_table_joinE, i64 0) #15
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN7datalog14lazy_table_refE, ptr nonnull @_ZTIN7datalog15lazy_table_joinE, i64 0) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %sw.bb
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 dynamic_cast.end:                                 ; preds = %sw.bb
@@ -2309,7 +2309,7 @@ if.end.i:                                         ; preds = %if.then.i33, %invok
   store ptr %call15, ptr %m_table, align 8
   %vtable.i34 = load ptr, ptr %call6.i, align 8
   %24 = load ptr, ptr %vtable.i34, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %call6.i) #15
+  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %call6.i) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call6.i)
           to label %sw.epilog.sink.split unwind label %lpad
 
@@ -2320,12 +2320,12 @@ lpad:                                             ; preds = %if.end.i, %if.then.
 
 sw.bb19:                                          ; preds = %entry
   %26 = load ptr, ptr %m_src, align 8
-  %27 = tail call ptr @__dynamic_cast(ptr nonnull %26, ptr nonnull @_ZTIN7datalog14lazy_table_refE, ptr nonnull @_ZTIN7datalog29lazy_table_filter_interpretedE, i64 0) #15
+  %27 = tail call ptr @__dynamic_cast(ptr nonnull %26, ptr nonnull @_ZTIN7datalog14lazy_table_refE, ptr nonnull @_ZTIN7datalog29lazy_table_filter_interpretedE, i64 0) #17
   %28 = icmp eq ptr %27, null
   br i1 %28, label %dynamic_cast.bad_cast23, label %dynamic_cast.end24
 
 dynamic_cast.bad_cast23:                          ; preds = %sw.bb19
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 dynamic_cast.end24:                               ; preds = %sw.bb19
@@ -2427,7 +2427,7 @@ if.end.i74:                                       ; preds = %if.then.i69, %invok
   store ptr %call42, ptr %m_table43, align 8
   %vtable.i75 = load ptr, ptr %call32, align 8
   %44 = load ptr, ptr %vtable.i75, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(8) %call32) #15
+  call void %44(ptr noundef nonnull align 8 dereferenceable(8) %call32) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call32)
           to label %sw.epilog.sink.split unwind label %lpad36
 
@@ -2438,12 +2438,12 @@ lpad36:                                           ; preds = %if.end.i74, %if.the
 
 sw.bb48:                                          ; preds = %entry
   %46 = load ptr, ptr %m_src, align 8
-  %47 = tail call ptr @__dynamic_cast(ptr nonnull %46, ptr nonnull @_ZTIN7datalog14lazy_table_refE, ptr nonnull @_ZTIN7datalog23lazy_table_filter_equalE, i64 0) #15
+  %47 = tail call ptr @__dynamic_cast(ptr nonnull %46, ptr nonnull @_ZTIN7datalog14lazy_table_refE, ptr nonnull @_ZTIN7datalog23lazy_table_filter_equalE, i64 0) #17
   %48 = icmp eq ptr %47, null
   br i1 %48, label %dynamic_cast.bad_cast52, label %dynamic_cast.end53
 
 dynamic_cast.bad_cast52:                          ; preds = %sw.bb48
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 dynamic_cast.end53:                               ; preds = %sw.bb48
@@ -2509,7 +2509,7 @@ if.end.i99:                                       ; preds = %if.then.i94, %invok
   store ptr %call67, ptr %m_table68, align 8
   %vtable.i100 = load ptr, ptr %call59, align 8
   %59 = load ptr, ptr %vtable.i100, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(8) %call59) #15
+  call void %59(ptr noundef nonnull align 8 dereferenceable(8) %call59) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call59)
           to label %sw.epilog.sink.split unwind label %lpad65
 
@@ -2520,7 +2520,7 @@ lpad65:                                           ; preds = %if.end.i99, %if.the
 
 sw.epilog.sink.split:                             ; preds = %if.end.i99, %if.end.i74, %if.end.i
   %_t62.sink = phi ptr [ %_t, %if.end.i ], [ %_t35, %if.end.i74 ], [ %_t62, %if.end.i99 ]
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t62.sink) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t62.sink) #17
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry, %_ZN7datalog14lazy_table_ref4evalEv.exit88, %_ZNK6vectorIjLb0EjE4sizeEv.exit, %_ZN7datalog16relation_manager18mk_join_project_fnERKNS_10table_baseES3_RK7svectorIjjES7_S7_.exit
@@ -2598,13 +2598,13 @@ if.end.i131:                                      ; preds = %if.then.i126, %invo
   store ptr %call98, ptr %m_table73, align 8
   %vtable.i132 = load ptr, ptr %call94, align 8
   %73 = load ptr, ptr %vtable.i132, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(8) %call94) #15
+  call void %73(ptr noundef nonnull align 8 dereferenceable(8) %call94) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call94)
           to label %invoke.cont102 unwind label %lpad84
 
 invoke.cont102:                                   ; preds = %if.end.i131
   %74 = load ptr, ptr %m_table73, align 8
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t83) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t83) #17
   br label %return
 
 lpad84:                                           ; preds = %if.end.i131, %if.then.i126, %invoke.cont93, %_ZNK6vectorIjLb0EjE4sizeEv.exit122
@@ -2619,7 +2619,7 @@ return:                                           ; preds = %sw.epilog, %invoke.
 eh.resume:                                        ; preds = %lpad84, %lpad65, %lpad36, %lpad
   %_t83.sink = phi ptr [ %_t83, %lpad84 ], [ %_t62, %lpad65 ], [ %_t35, %lpad36 ], [ %_t, %lpad ]
   %.pn = phi { ptr, i32 } [ %75, %lpad84 ], [ %60, %lpad65 ], [ %45, %lpad36 ], [ %25, %lpad ]
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t83.sink) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t83.sink) #17
   resume { ptr, i32 } %.pn
 }
 
@@ -2703,19 +2703,19 @@ if.end.i6:                                        ; preds = %if.then.i3, %invoke
   store ptr %call12, ptr %m_table, align 8
   %vtable.i7 = load ptr, ptr %call10, align 8
   %11 = load ptr, ptr %vtable.i7, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %call10) #15
+  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %call10) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call10)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %if.end.i6
   %12 = load ptr, ptr %m_table, align 8
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #17
   ret ptr %12
 
 lpad:                                             ; preds = %if.end.i6, %if.then.i3, %invoke.cont9, %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #17
   resume { ptr, i32 } %13
 }
 
@@ -2784,7 +2784,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i5
   %vtable.i.i.i.i = load ptr, ptr %7, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %7) #15
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %7) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %7)
   br label %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit
 
@@ -2822,19 +2822,19 @@ invoke.cont17:                                    ; preds = %_ZNK6vectorIjLb0EjE
 if.end.i7:                                        ; preds = %invoke.cont17
   %vtable.i8 = load ptr, ptr %call18, align 8
   %17 = load ptr, ptr %vtable.i8, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %call18) #15
+  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %call18) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call18)
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %if.end.i7
   %18 = load ptr, ptr %m_table, align 8
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #17
   ret ptr %18
 
 lpad:                                             ; preds = %if.end.i7, %invoke.cont17, %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #17
   resume { ptr, i32 } %19
 }
 
@@ -2903,7 +2903,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i5
   %vtable.i.i.i.i = load ptr, ptr %7, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %7) #15
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %7) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %7)
   br label %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit
 
@@ -2932,19 +2932,19 @@ invoke.cont12:                                    ; preds = %_ZN3refIN7datalog14
 if.end.i:                                         ; preds = %invoke.cont12
   %vtable.i6 = load ptr, ptr %call13, align 8
   %16 = load ptr, ptr %vtable.i6, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %call13) #15
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %call13) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call13)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.end.i
   %17 = load ptr, ptr %m_table, align 8
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #17
   ret ptr %17
 
 lpad:                                             ; preds = %if.end.i, %invoke.cont12, %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #17
   resume { ptr, i32 } %18
 }
 
@@ -3013,7 +3013,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i5
   %vtable.i.i.i.i = load ptr, ptr %7, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %7) #15
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %7) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %7)
   br label %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit
 
@@ -3041,19 +3041,19 @@ invoke.cont14:                                    ; preds = %_ZN3refIN7datalog14
 if.end.i:                                         ; preds = %invoke.cont14
   %vtable.i6 = load ptr, ptr %call15, align 8
   %16 = load ptr, ptr %vtable.i6, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %call15) #15
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %call15) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call15)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %if.end.i
   %17 = load ptr, ptr %m_table, align 8
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #17
   ret ptr %17
 
 lpad:                                             ; preds = %if.end.i, %invoke.cont14, %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #17
   resume { ptr, i32 } %18
 }
 
@@ -3123,7 +3123,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i14
   %vtable.i.i.i.i = load ptr, ptr %7, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %7) #15
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %7) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %7)
   br label %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit
 
@@ -3140,12 +3140,12 @@ _ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit:  ; preds = %_ZN7datalog10scoped
 
 sw.bb:                                            ; preds = %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit
   %12 = load ptr, ptr %m_src, align 8
-  %13 = tail call ptr @__dynamic_cast(ptr nonnull %12, ptr nonnull @_ZTIN7datalog14lazy_table_refE, ptr nonnull @_ZTIN7datalog15lazy_table_joinE, i64 0) #15
+  %13 = tail call ptr @__dynamic_cast(ptr nonnull %12, ptr nonnull @_ZTIN7datalog14lazy_table_refE, ptr nonnull @_ZTIN7datalog15lazy_table_joinE, i64 0) #17
   %14 = icmp eq ptr %13, null
   br i1 %14, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %sw.bb
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 dynamic_cast.end:                                 ; preds = %sw.bb
@@ -3231,7 +3231,7 @@ if.then:                                          ; preds = %invoke.cont28
 if.end.i:                                         ; preds = %if.then
   %vtable.i39 = load ptr, ptr %call29, align 8
   %30 = load ptr, ptr %vtable.i39, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(8) %call29) #15
+  call void %30(ptr noundef nonnull align 8 dereferenceable(8) %call29) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call29)
           to label %return unwind label %lpad
 
@@ -3241,7 +3241,7 @@ lpad:                                             ; preds = %if.end.i, %if.then,
   br label %eh.resume
 
 cleanup:                                          ; preds = %invoke.cont28
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #17
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %cleanup, %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit
@@ -3305,7 +3305,7 @@ invoke.cont51:                                    ; preds = %_ZNK6vectorIjLb0EjE
 if.end.i56:                                       ; preds = %invoke.cont51
   %vtable.i57 = load ptr, ptr %call4.i54, align 8
   %45 = load ptr, ptr %vtable.i57, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(8) %call4.i54) #15
+  call void %45(ptr noundef nonnull align 8 dereferenceable(8) %call4.i54) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call4.i54)
           to label %return unwind label %lpad45
 
@@ -3317,13 +3317,13 @@ lpad45:                                           ; preds = %if.end.i56, %_ZNK6v
 return:                                           ; preds = %if.end.i56, %if.end.i
   %_t.sink = phi ptr [ %_t, %if.end.i ], [ %_t44, %if.end.i56 ]
   %47 = load ptr, ptr %m_table, align 8
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t.sink) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t.sink) #17
   ret ptr %47
 
 eh.resume:                                        ; preds = %lpad45, %lpad
   %_t44.sink = phi ptr [ %_t44, %lpad45 ], [ %_t, %lpad ]
   %.pn = phi { ptr, i32 } [ %46, %lpad45 ], [ %31, %lpad ]
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t44.sink) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t44.sink) #17
   resume { ptr, i32 } %.pn
 }
 
@@ -3338,7 +3338,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_pluginD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -3524,7 +3524,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #15
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -3532,7 +3532,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  tail call void @__clang_call_terminate(ptr %4) #19
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit:     ; preds = %entry, %if.then.i.i, %if.then.i.i.i
@@ -3551,7 +3551,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #17
+  tail call void @__clang_call_terminate(ptr %7) #19
   unreachable
 
 _ZN7datalog10table_baseD2Ev.exit:                 ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, %if.then.i.i.i.i.i.i.i
@@ -3579,7 +3579,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #15
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit.i unwind label %terminate.lpad.i.i
 
@@ -3587,7 +3587,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  tail call void @__clang_call_terminate(ptr %4) #19
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit.i:   ; preds = %if.then.i.i.i.i, %if.then.i.i.i, %entry
@@ -3606,11 +3606,11 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #17
+  tail call void @__clang_call_terminate(ptr %7) #19
   unreachable
 
 _ZN7datalog10lazy_tableD2Ev.exit:                 ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit.i, %if.then.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -3619,7 +3619,7 @@ define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_trait
 entry:
   %vtable.i = load ptr, ptr %this, align 8
   %0 = load ptr, ptr %vtable.i, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(36) %this) #15
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(36) %this) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %this)
   ret void
 }
@@ -3722,7 +3722,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #15
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -3730,7 +3730,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  tail call void @__clang_call_terminate(ptr %4) #19
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit:     ; preds = %entry, %if.then.i.i, %if.then.i.i.i
@@ -3751,7 +3751,7 @@ if.then.i.i.i6:                                   ; preds = %if.then.i.i2
   %vtable.i.i.i.i7 = load ptr, ptr %5, align 8
   %vfn.i.i.i.i8 = getelementptr inbounds i8, ptr %vtable.i.i.i.i7, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i8, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %5) #15
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %5)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit10 unwind label %terminate.lpad.i9
 
@@ -3759,7 +3759,7 @@ terminate.lpad.i9:                                ; preds = %if.then.i.i.i6
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #17
+  tail call void @__clang_call_terminate(ptr %9) #19
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit10:   ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, %if.then.i.i2, %if.then.i.i.i6
@@ -3777,7 +3777,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i11
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #17
+  tail call void @__clang_call_terminate(ptr %12) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit10, %if.then.i.i.i11
@@ -3795,7 +3795,7 @@ terminate.lpad.i.i15:                             ; preds = %if.then.i.i.i13
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #17
+  tail call void @__clang_call_terminate(ptr %15) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit16:                       ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i13
@@ -3813,7 +3813,7 @@ terminate.lpad.i.i19:                             ; preds = %if.then.i.i18
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #17
+  tail call void @__clang_call_terminate(ptr %18) #19
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i: ; preds = %if.then.i.i18, %_ZN7svectorIjjED2Ev.exit16
@@ -3831,7 +3831,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #17
+  tail call void @__clang_call_terminate(ptr %21) #19
   unreachable
 
 _ZN7datalog14lazy_table_refD2Ev.exit:             ; preds = %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i, %if.then.i.i.i.i.i.i
@@ -3841,8 +3841,8 @@ _ZN7datalog14lazy_table_refD2Ev.exit:             ; preds = %_ZN7datalog10scoped
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog15lazy_table_joinD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN7datalog15lazy_table_joinD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZN7datalog15lazy_table_joinD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -3873,7 +3873,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #15
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -3881,7 +3881,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  tail call void @__clang_call_terminate(ptr %4) #19
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit:     ; preds = %entry, %if.then.i.i, %if.then.i.i.i
@@ -3899,7 +3899,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i1
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #17
+  tail call void @__clang_call_terminate(ptr %7) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, %if.then.i.i.i1
@@ -3917,7 +3917,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i3
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #17
+  tail call void @__clang_call_terminate(ptr %10) #19
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i: ; preds = %if.then.i.i3, %_ZN7svectorIjjED2Ev.exit
@@ -3935,7 +3935,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #17
+  tail call void @__clang_call_terminate(ptr %13) #19
   unreachable
 
 _ZN7datalog14lazy_table_refD2Ev.exit:             ; preds = %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i, %if.then.i.i.i.i.i.i
@@ -3945,8 +3945,8 @@ _ZN7datalog14lazy_table_refD2Ev.exit:             ; preds = %_ZN7datalog10scoped
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18lazy_table_projectD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN7datalog18lazy_table_projectD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZN7datalog18lazy_table_projectD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -3977,7 +3977,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #15
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -3985,7 +3985,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  tail call void @__clang_call_terminate(ptr %4) #19
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit:     ; preds = %entry, %if.then.i.i, %if.then.i.i.i
@@ -4003,7 +4003,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i1
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #17
+  tail call void @__clang_call_terminate(ptr %7) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, %if.then.i.i.i1
@@ -4021,7 +4021,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i3
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #17
+  tail call void @__clang_call_terminate(ptr %10) #19
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i: ; preds = %if.then.i.i3, %_ZN7svectorIjjED2Ev.exit
@@ -4039,7 +4039,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #17
+  tail call void @__clang_call_terminate(ptr %13) #19
   unreachable
 
 _ZN7datalog14lazy_table_refD2Ev.exit:             ; preds = %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i, %if.then.i.i.i.i.i.i
@@ -4049,8 +4049,8 @@ _ZN7datalog14lazy_table_refD2Ev.exit:             ; preds = %_ZN7datalog10scoped
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_renameD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN7datalog17lazy_table_renameD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZN7datalog17lazy_table_renameD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -4081,7 +4081,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #15
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -4089,7 +4089,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  tail call void @__clang_call_terminate(ptr %4) #19
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit:     ; preds = %entry, %if.then.i.i, %if.then.i.i.i
@@ -4107,7 +4107,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i1
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #17
+  tail call void @__clang_call_terminate(ptr %7) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, %if.then.i.i.i1
@@ -4125,7 +4125,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i3
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #17
+  tail call void @__clang_call_terminate(ptr %10) #19
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i: ; preds = %if.then.i.i3, %_ZN7svectorIjjED2Ev.exit
@@ -4143,7 +4143,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #17
+  tail call void @__clang_call_terminate(ptr %13) #19
   unreachable
 
 _ZN7datalog14lazy_table_refD2Ev.exit:             ; preds = %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i, %if.then.i.i.i.i.i.i
@@ -4153,8 +4153,8 @@ _ZN7datalog14lazy_table_refD2Ev.exit:             ; preds = %_ZN7datalog10scoped
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog27lazy_table_filter_identicalD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN7datalog27lazy_table_filter_identicalD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZN7datalog27lazy_table_filter_identicalD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -4185,7 +4185,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #15
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -4193,7 +4193,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  tail call void @__clang_call_terminate(ptr %4) #19
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit:     ; preds = %entry, %if.then.i.i, %if.then.i.i.i
@@ -4211,7 +4211,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i2
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #17
+  tail call void @__clang_call_terminate(ptr %7) #19
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i: ; preds = %if.then.i.i2, %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit
@@ -4229,7 +4229,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #17
+  tail call void @__clang_call_terminate(ptr %10) #19
   unreachable
 
 _ZN7datalog14lazy_table_refD2Ev.exit:             ; preds = %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i, %if.then.i.i.i.i.i.i
@@ -4239,8 +4239,8 @@ _ZN7datalog14lazy_table_refD2Ev.exit:             ; preds = %_ZN7datalog10scoped
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog23lazy_table_filter_equalD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN7datalog23lazy_table_filter_equalD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZN7datalog23lazy_table_filter_equalD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -4271,7 +4271,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #15
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -4279,7 +4279,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  tail call void @__clang_call_terminate(ptr %4) #19
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit:     ; preds = %entry, %if.then.i.i, %if.then.i.i.i
@@ -4306,7 +4306,7 @@ terminate.lpad.i4:                                ; preds = %if.then2.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #17
+  tail call void @__clang_call_terminate(ptr %9) #19
   unreachable
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, %if.then.i.i.i2, %if.then2.i.i.i
@@ -4324,7 +4324,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i6
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #17
+  tail call void @__clang_call_terminate(ptr %12) #19
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i: ; preds = %if.then.i.i6, %_ZN7obj_refI3app11ast_managerED2Ev.exit
@@ -4342,7 +4342,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #17
+  tail call void @__clang_call_terminate(ptr %15) #19
   unreachable
 
 _ZN7datalog14lazy_table_refD2Ev.exit:             ; preds = %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i, %if.then.i.i.i.i.i.i
@@ -4352,8 +4352,8 @@ _ZN7datalog14lazy_table_refD2Ev.exit:             ; preds = %_ZN7datalog10scoped
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog29lazy_table_filter_interpretedD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN7datalog29lazy_table_filter_interpretedD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZN7datalog29lazy_table_filter_interpretedD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -4381,7 +4381,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
@@ -4399,7 +4399,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5:                        ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i2
@@ -4420,7 +4420,7 @@ if.then.i.i.i6:                                   ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %6, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(48) %6) #15
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(48) %6) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %6)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -4428,7 +4428,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i6
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #17
+  tail call void @__clang_call_terminate(ptr %10) #19
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit:     ; preds = %_ZN7svectorIjjED2Ev.exit5, %if.then.i.i, %if.then.i.i.i6
@@ -4449,7 +4449,7 @@ if.then.i.i.i12:                                  ; preds = %if.then.i.i8
   %vtable.i.i.i.i13 = load ptr, ptr %11, align 8
   %vfn.i.i.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i.i.i13, i64 8
   %13 = load ptr, ptr %vfn.i.i.i.i14, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(48) %11) #15
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(48) %11) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %11)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit16 unwind label %terminate.lpad.i15
 
@@ -4457,7 +4457,7 @@ terminate.lpad.i15:                               ; preds = %if.then.i.i.i12
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #17
+  tail call void @__clang_call_terminate(ptr %15) #19
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit16:   ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, %if.then.i.i8, %if.then.i.i.i12
@@ -4475,7 +4475,7 @@ terminate.lpad.i.i19:                             ; preds = %if.then.i.i18
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #17
+  tail call void @__clang_call_terminate(ptr %18) #19
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i: ; preds = %if.then.i.i18, %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit16
@@ -4493,7 +4493,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #17
+  tail call void @__clang_call_terminate(ptr %21) #19
   unreachable
 
 _ZN7datalog14lazy_table_refD2Ev.exit:             ; preds = %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i, %if.then.i.i.i.i.i.i
@@ -4503,8 +4503,8 @@ _ZN7datalog14lazy_table_refD2Ev.exit:             ; preds = %_ZN7datalog10scoped
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog29lazy_table_filter_by_negationD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN7datalog29lazy_table_filter_by_negationD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZN7datalog29lazy_table_filter_by_negationD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -4546,7 +4546,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i: ; preds = %if.then.i.i, %entry
@@ -4564,7 +4564,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #19
   unreachable
 
 _ZN7datalog14lazy_table_refD2Ev.exit:             ; preds = %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i, %if.then.i.i.i.i.i.i
@@ -4588,7 +4588,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -4606,11 +4606,11 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #19
   unreachable
 
 _ZN7datalog15lazy_table_baseD2Ev.exit:            ; preds = %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i.i, %if.then.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -4636,7 +4636,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7datalog17tr_infrastructureINS_12table_traitsEE14signature_baseD2Ev.exit: ; preds = %entry, %if.then.i.i.i.i
@@ -4662,7 +4662,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit: ; preds = %entry, %if.then.i
@@ -4680,7 +4680,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #19
   unreachable
 
 _ZN7datalog15table_signatureD2Ev.exit:            ; preds = %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit, %if.then.i.i.i.i.i
@@ -4690,7 +4690,7 @@ _ZN7datalog15table_signatureD2Ev.exit:            ; preds = %_ZN7datalog10scoped
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog14lazy_table_refD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #17
+  tail call void @llvm.trap() #19
   unreachable
 }
 
@@ -4699,24 +4699,25 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #17
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  tail call void @_ZSt9terminatev() #19
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #9
+declare void @llvm.trap() #10
 
 declare void @_ZN7datalog16universal_deleteEPNS_10table_baseE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4736,7 +4737,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7datalog15table_signatureD2Ev.exit:            ; preds = %entry, %if.then.i.i.i.i.i
@@ -4746,7 +4747,7 @@ _ZN7datalog15table_signatureD2Ev.exit:            ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorD0Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #17
+  tail call void @llvm.trap() #19
   unreachable
 }
 
@@ -4906,17 +4907,17 @@ lpad4:                                            ; preds = %if.then.i.i.i28
 lpad7:                                            ; preds = %invoke.cont5
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cols235) #15
+  tail call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cols235) #17
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad7, %lpad4
   %.pn = phi { ptr, i32 } [ %18, %lpad7 ], [ %17, %lpad4 ]
-  tail call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cols1) #15
+  tail call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cols1) #17
   br label %ehcleanup9
 
 ehcleanup9:                                       ; preds = %ehcleanup, %lpad2
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %16, %lpad2 ]
-  tail call void @_ZN7datalog15table_signatureD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %m_result_sig) #15
+  tail call void @_ZN7datalog15table_signatureD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %m_result_sig) #17
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -4938,7 +4939,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit.i:                       ; preds = %if.then.i.i.i.i, %entry
@@ -4956,7 +4957,7 @@ terminate.lpad.i.i4.i:                            ; preds = %if.then.i.i.i2.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5.i:                      ; preds = %if.then.i.i.i2.i, %_ZN7svectorIjjED2Ev.exit.i
@@ -4974,7 +4975,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #17
+  tail call void @__clang_call_terminate(ptr %8) #19
   unreachable
 
 _ZN7datalog17tr_infrastructureINS_12table_traitsEE18convenient_join_fnD2Ev.exit: ; preds = %_ZN7svectorIjjED2Ev.exit5.i, %if.then.i.i.i.i.i.i
@@ -4999,7 +5000,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit.i.i:                     ; preds = %if.then.i.i.i.i.i, %entry
@@ -5017,7 +5018,7 @@ terminate.lpad.i.i4.i.i:                          ; preds = %if.then.i.i.i2.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5.i.i:                    ; preds = %if.then.i.i.i2.i.i, %_ZN7svectorIjjED2Ev.exit.i.i
@@ -5035,32 +5036,32 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #17
+  tail call void @__clang_call_terminate(ptr %8) #19
   unreachable
 
 _ZN7datalog17lazy_table_plugin7join_fnD2Ev.exit:  ; preds = %_ZN7svectorIjjED2Ev.exit5.i.i, %if.then.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog17lazy_table_plugin7join_fnclERKNS_10table_baseES4_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t1, ptr noundef nonnull align 8 dereferenceable(36) %_t2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t1, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t1, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit
 
 dynamic_cast.bad_cast.i:                          ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 _ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t2, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t2, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i1, label %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit2
 
 dynamic_cast.bad_cast.i1:                         ; preds = %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 _ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit2: ; preds = %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit
@@ -5160,7 +5161,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %entry, %if.then.i.i
@@ -5185,7 +5186,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
@@ -5203,7 +5204,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5:                        ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i2
@@ -5221,7 +5222,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #17
+  tail call void @__clang_call_terminate(ptr %8) #19
   unreachable
 
 _ZN7datalog15table_signatureD2Ev.exit:            ; preds = %_ZN7svectorIjjED2Ev.exit5, %if.then.i.i.i.i.i
@@ -5231,7 +5232,7 @@ _ZN7datalog15table_signatureD2Ev.exit:            ; preds = %_ZN7svectorIjjED2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE18convenient_join_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #17
+  tail call void @llvm.trap() #19
   unreachable
 }
 
@@ -5271,30 +5272,30 @@ lor.lhs.false:                                    ; preds = %if.else
   br i1 %cmp16.not, label %if.end, label %if.then17
 
 if.then17:                                        ; preds = %lor.lhs.false, %if.else
-  %exception = tail call ptr @__cxa_allocate_exception(i64 40) #15
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #15
+  %exception = tail call ptr @__cxa_allocate_exception(i64 40) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #18
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #17
   br label %eh.resume
 
 cleanup.action:                                   ; preds = %if.then17
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #15
-  call void @__cxa_free_exception(ptr %exception) #15
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #17
+  call void @__cxa_free_exception(ptr %exception) #17
   br label %eh.resume
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -5330,7 +5331,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.17) #16
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.17) #18
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -5339,11 +5340,11 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #15
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #17
   %add.ptr = getelementptr inbounds i8, ptr %__s, i64 %call.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__s, ptr noundef nonnull %add.ptr)
           to label %invoke.cont4 unwind label %lpad
@@ -5357,11 +5358,12 @@ define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull 
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
   %m_msg = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #17
   ret void
 }
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -5375,7 +5377,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5404,7 +5406,7 @@ terminate.lpad.i:                                 ; preds = %if.else
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -5413,7 +5415,7 @@ if.end:                                           ; preds = %if.else, %if.then
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #17
   store ptr null, ptr %__guard, align 8
   %3 = load i64, ptr %__dnew, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %3)
@@ -5425,12 +5427,12 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 lpad:                                             ; preds = %invoke.cont, %if.end
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #15
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #17
   resume { ptr, i32 } %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -5463,7 +5465,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 }
 
@@ -5480,12 +5482,12 @@ define linkonce_odr hidden void @_ZN7datalog15lazy_table_joinC2EjPKjS2_RKNS_10la
 entry:
   %m_plugin.i.i = getelementptr inbounds i8, ptr %t1, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #15
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZNK7datalog10lazy_table11get_lpluginEv.exit
 
 dynamic_cast.bad_cast.i:                          ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit:     ; preds = %entry
@@ -5688,12 +5690,12 @@ lpad:                                             ; preds = %if.then.i.i.i
 lpad2:                                            ; preds = %if.then.i.i.i26
   %32 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cols1) #15
+  tail call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cols1) #17
   br label %ehcleanup13
 
 ehcleanup13:                                      ; preds = %lpad2, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %32, %lpad2 ], [ %31, %lpad ]
-  tail call void @_ZN7datalog14lazy_table_refD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
+  tail call void @_ZN7datalog14lazy_table_refD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #17
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -5716,7 +5718,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #15
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -5727,7 +5729,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  tail call void @__clang_call_terminate(ptr %4) #19
   unreachable
 }
 
@@ -5740,7 +5742,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin8union_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -5748,21 +5750,21 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin8union_fnclERNS_10table_baseERKS2_PS2_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(36) %_tgt, ptr noundef nonnull align 8 dereferenceable(36) %_src, ptr noundef %_delta) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_t = alloca %"class.datalog::verbose_action", align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_tgt, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_tgt, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit
 
 dynamic_cast.bad_cast.i:                          ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 _ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_src, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_src, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i7, label %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit
 
 dynamic_cast.bad_cast.i7:                         ; preds = %_ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 _ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit: ; preds = %_ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit
@@ -5770,7 +5772,7 @@ _ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit: ; preds = %_ZN7datal
   br i1 %4, label %_ZN7datalog17lazy_table_plugin3getEPNS_10table_baseE.exit, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_delta, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_delta, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   br label %_ZN7datalog17lazy_table_plugin3getEPNS_10table_baseE.exit
 
 _ZN7datalog17lazy_table_plugin3getEPNS_10table_baseE.exit: ; preds = %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit, %dynamic_cast.notnull.i
@@ -5863,12 +5865,12 @@ cond.end:                                         ; preds = %_ZN7datalog10scoped
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_t, ptr noundef nonnull @.str.18, i32 noundef 11)
   %m_plugin.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %21 = load ptr, ptr %m_plugin.i.i, align 8
-  %22 = call ptr @__dynamic_cast(ptr nonnull %21, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #15
+  %22 = call ptr @__dynamic_cast(ptr nonnull %21, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %23 = icmp eq ptr %22, null
   br i1 %23, label %dynamic_cast.bad_cast.i32, label %invoke.cont
 
 dynamic_cast.bad_cast.i32:                        ; preds = %cond.end
-  invoke void @__cxa_bad_cast() #16
+  invoke void @__cxa_bad_cast() #18
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %dynamic_cast.bad_cast.i32
@@ -5890,18 +5892,18 @@ invoke.cont10:                                    ; preds = %invoke.cont
 if.end.i:                                         ; preds = %invoke.cont10
   %vtable.i = load ptr, ptr %call11, align 8
   %26 = load ptr, ptr %vtable.i, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(8) %call11) #15
+  call void %26(ptr noundef nonnull align 8 dereferenceable(8) %call11) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call11)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %if.end.i
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #17
   ret void
 
 lpad:                                             ; preds = %if.end.i, %dynamic_cast.bad_cast.i32, %invoke.cont10, %invoke.cont
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #15
+  call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #17
   resume { ptr, i32 } %27
 }
 
@@ -5925,7 +5927,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit.i:                       ; preds = %if.then.i.i.i.i, %entry
@@ -5944,7 +5946,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #19
   unreachable
 
 _ZN7datalog17tr_infrastructureINS_12table_traitsEE21convenient_project_fnD2Ev.exit: ; preds = %_ZN7svectorIjjED2Ev.exit.i, %if.then.i.i.i.i.i.i.i
@@ -5969,7 +5971,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit.i.i:                     ; preds = %if.then.i.i.i.i.i, %entry
@@ -5988,23 +5990,23 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #19
   unreachable
 
 _ZN7datalog17lazy_table_plugin10project_fnD2Ev.exit: ; preds = %_ZN7svectorIjjED2Ev.exit.i.i, %if.then.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog17lazy_table_plugin10project_fnclERKNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit
 
 dynamic_cast.bad_cast.i:                          ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 _ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit: ; preds = %entry
@@ -6104,7 +6106,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
@@ -6123,7 +6125,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #19
   unreachable
 
 _ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2Ev.exit: ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i.i.i.i
@@ -6133,7 +6135,7 @@ _ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2E
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE21convenient_project_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #17
+  tail call void @llvm.trap() #19
   unreachable
 }
 
@@ -6155,7 +6157,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7datalog15table_signatureD2Ev.exit:            ; preds = %entry, %if.then.i.i.i.i.i
@@ -6165,7 +6167,7 @@ _ZN7datalog15table_signatureD2Ev.exit:            ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #17
+  tail call void @llvm.trap() #19
   unreachable
 }
 
@@ -6174,12 +6176,12 @@ define linkonce_odr hidden void @_ZN7datalog18lazy_table_projectC2EjPKjRKNS_10la
 entry:
   %m_plugin.i.i = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #15
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZNK7datalog10lazy_table11get_lpluginEv.exit
 
 dynamic_cast.bad_cast.i:                          ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit:     ; preds = %entry
@@ -6307,7 +6309,7 @@ invoke.cont5:                                     ; preds = %if.then.i.i, %invok
 lpad:                                             ; preds = %if.then.i.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7datalog14lazy_table_refD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
+  tail call void @_ZN7datalog14lazy_table_refD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #17
   resume { ptr, i32 } %21
 }
 
@@ -6488,12 +6490,12 @@ lpad:                                             ; preds = %if.then.i.i.i
 lpad2:                                            ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %28 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cycle) #15
+  tail call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cycle) #17
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %28, %lpad2 ], [ %27, %lpad ]
-  tail call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #15
+  tail call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #17
   resume { ptr, i32 } %.pn
 }
 
@@ -6515,7 +6517,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit.i:                       ; preds = %if.then.i.i.i.i, %entry
@@ -6534,7 +6536,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #19
   unreachable
 
 _ZN7datalog17tr_infrastructureINS_12table_traitsEE20convenient_rename_fnD2Ev.exit: ; preds = %_ZN7svectorIjjED2Ev.exit.i, %if.then.i.i.i.i.i.i.i
@@ -6559,7 +6561,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit.i.i:                     ; preds = %if.then.i.i.i.i.i, %entry
@@ -6578,23 +6580,23 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #19
   unreachable
 
 _ZN7datalog17lazy_table_plugin9rename_fnD2Ev.exit: ; preds = %_ZN7svectorIjjED2Ev.exit.i.i, %if.then.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog17lazy_table_plugin9rename_fnclERKNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit
 
 dynamic_cast.bad_cast.i:                          ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 _ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit: ; preds = %entry
@@ -6692,7 +6694,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
@@ -6711,7 +6713,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #19
   unreachable
 
 _ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2Ev.exit: ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i.i.i.i
@@ -6721,7 +6723,7 @@ _ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2E
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE20convenient_rename_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #17
+  tail call void @llvm.trap() #19
   unreachable
 }
 
@@ -6730,12 +6732,12 @@ define linkonce_odr hidden void @_ZN7datalog17lazy_table_renameC2EjPKjRKNS_10laz
 entry:
   %m_plugin.i.i = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #15
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZNK7datalog10lazy_table11get_lpluginEv.exit
 
 dynamic_cast.bad_cast.i:                          ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit:     ; preds = %entry
@@ -6863,7 +6865,7 @@ invoke.cont5:                                     ; preds = %if.then.i.i, %invok
 lpad:                                             ; preds = %if.then.i.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7datalog14lazy_table_refD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
+  tail call void @_ZN7datalog14lazy_table_refD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #17
   resume { ptr, i32 } %21
 }
 
@@ -6885,7 +6887,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
@@ -6910,23 +6912,23 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7datalog17lazy_table_plugin19filter_identical_fnD2Ev.exit: ; preds = %entry, %if.then.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin19filter_identical_fnclERNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit
 
 dynamic_cast.bad_cast.i:                          ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 _ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit: ; preds = %entry
@@ -6965,7 +6967,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %5) #15
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %5)
   br label %_ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit
 
@@ -6984,7 +6986,7 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE10mutator_fn6attachERNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(36) %other) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.19, i32 noundef 225, ptr noundef nonnull @.str.20)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #21
   unreachable
 }
 
@@ -6993,12 +6995,12 @@ define linkonce_odr hidden void @_ZN7datalog27lazy_table_filter_identicalC2EjPKj
 entry:
   %m_plugin.i.i = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #15
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZNK7datalog10lazy_table11get_lpluginEv.exit
 
 dynamic_cast.bad_cast.i:                          ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit:     ; preds = %entry
@@ -7127,14 +7129,14 @@ invoke.cont6:                                     ; preds = %if.then.i.i, %invok
 lpad:                                             ; preds = %if.then.i.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7datalog14lazy_table_refD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
+  tail call void @_ZN7datalog14lazy_table_refD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #17
   resume { ptr, i32 } %21
 }
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #13
+declare void @exit(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin21filter_interpreted_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -7163,7 +7165,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  tail call void @__clang_call_terminate(ptr %4) #19
   unreachable
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %entry, %if.then.i.i.i, %if.then2.i.i.i
@@ -7197,23 +7199,23 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #17
+  tail call void @__clang_call_terminate(ptr %4) #19
   unreachable
 
 _ZN7datalog17lazy_table_plugin21filter_interpreted_fnD2Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %if.then2.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin21filter_interpreted_fnclERNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %if.end.i.i
 
 dynamic_cast.bad_cast.i:                          ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 if.end.i.i:                                       ; preds = %entry
@@ -7242,7 +7244,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %4, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(48) %4) #15
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(48) %4) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %4)
   br label %_ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit
 
@@ -7256,12 +7258,12 @@ define linkonce_odr hidden void @_ZN7datalog29lazy_table_filter_interpretedC2ERK
 entry:
   %m_plugin.i.i = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #15
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZNK7datalog10lazy_table11get_lpluginEv.exit
 
 dynamic_cast.bad_cast.i:                          ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit:     ; preds = %entry
@@ -7317,12 +7319,12 @@ _ZN7datalog14lazy_table_refC2ERNS_17lazy_table_pluginERKNS_15table_signatureE.ex
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog29lazy_table_filter_interpretedE, i64 16), ptr %this, align 8
   %m_condition = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load ptr, ptr %m_plugin.i.i, align 8
-  %12 = tail call ptr @__dynamic_cast(ptr nonnull %11, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #15
+  %12 = tail call ptr @__dynamic_cast(ptr nonnull %11, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %13 = icmp eq ptr %12, null
   br i1 %13, label %dynamic_cast.bad_cast.i7, label %invoke.cont
 
 dynamic_cast.bad_cast.i7:                         ; preds = %_ZN7datalog14lazy_table_refC2ERNS_17lazy_table_pluginERKNS_15table_signatureE.exit
-  invoke void @__cxa_bad_cast() #16
+  invoke void @__cxa_bad_cast() #18
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %dynamic_cast.bad_cast.i7
@@ -7369,7 +7371,7 @@ invoke.cont10:                                    ; preds = %if.then.i.i, %invok
 lpad:                                             ; preds = %invoke.cont, %dynamic_cast.bad_cast.i7
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7datalog14lazy_table_refD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
+  tail call void @_ZN7datalog14lazy_table_refD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #17
   resume { ptr, i32 } %18
 }
 
@@ -7391,7 +7393,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
@@ -7409,7 +7411,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5:                        ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i2
@@ -7434,7 +7436,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN7svectorIjjED2Ev.exit.i:                       ; preds = %if.then.i.i.i.i, %entry
@@ -7452,32 +7454,32 @@ terminate.lpad.i.i4.i:                            ; preds = %if.then.i.i.i2.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #17
+  tail call void @__clang_call_terminate(ptr %5) #19
   unreachable
 
 _ZN7datalog17lazy_table_plugin21filter_by_negation_fnD2Ev.exit: ; preds = %_ZN7svectorIjjED2Ev.exit.i, %if.then.i.i.i2.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin21filter_by_negation_fnclERNS_10table_baseERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t, ptr noundef nonnull align 8 dereferenceable(36) %_intersected_obj) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit
 
 dynamic_cast.bad_cast.i:                          ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 _ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_intersected_obj, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_intersected_obj, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i2, label %if.end.i.i
 
 dynamic_cast.bad_cast.i2:                         ; preds = %_ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 if.end.i.i:                                       ; preds = %_ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit
@@ -7506,7 +7508,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %5) #15
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %5)
   br label %_ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit
 
@@ -7520,12 +7522,12 @@ define linkonce_odr hidden void @_ZN7datalog29lazy_table_filter_by_negationC2ERK
 entry:
   %m_plugin.i.i = getelementptr inbounds i8, ptr %tgt, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #15
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZNK7datalog10lazy_table11get_lpluginEv.exit
 
 dynamic_cast.bad_cast.i:                          ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit:     ; preds = %entry
@@ -7699,14 +7701,14 @@ lpad9:                                            ; preds = %_ZNK6vectorIjLb0EjE
 lpad11:                                           ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i17
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cols1) #15
+  tail call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cols1) #17
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad11, %lpad9
   %.pn = phi { ptr, i32 } [ %30, %lpad11 ], [ %29, %lpad9 ]
-  tail call void @_ZN3refIN7datalog14lazy_table_refEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_src) #15
-  tail call void @_ZN3refIN7datalog14lazy_table_refEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_tgt) #15
-  tail call void @_ZN7datalog14lazy_table_refD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
+  tail call void @_ZN3refIN7datalog14lazy_table_refEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_src) #17
+  tail call void @_ZN3refIN7datalog14lazy_table_refEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_tgt) #17
+  tail call void @_ZN7datalog14lazy_table_refD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #17
   resume { ptr, i32 } %.pn
 }
 
@@ -7719,19 +7721,19 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin15filter_equal_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin15filter_equal_fnclERNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #15
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %if.end.i.i
 
 dynamic_cast.bad_cast.i:                          ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 if.end.i.i:                                       ; preds = %entry
@@ -7762,7 +7764,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %5) #15
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %5)
   br label %_ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit
 
@@ -7776,12 +7778,12 @@ define linkonce_odr hidden void @_ZN7datalog23lazy_table_filter_equalC2EjmRKNS_1
 entry:
   %m_plugin.i.i = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #15
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZNK7datalog10lazy_table11get_lpluginEv.exit
 
 dynamic_cast.bad_cast.i:                          ; preds = %entry
-  tail call void @__cxa_bad_cast() #16
+  tail call void @__cxa_bad_cast() #18
   unreachable
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit:     ; preds = %entry
@@ -7866,10 +7868,10 @@ declare void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 de
 declare noundef nonnull align 8 dereferenceable(976) ptr @_ZN7datalog32get_ast_manager_from_rel_managerERKNS_16relation_managerE(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_dl_lazy_table.cpp() #14 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_dl_lazy_table.cpp() #16 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
   ret void
 }
 
@@ -7882,17 +7884,19 @@ attributes #5 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { builtin nounwind }
-attributes #19 = { cold noreturn nounwind }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold noreturn }
+attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { builtin nounwind }
+attributes #21 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

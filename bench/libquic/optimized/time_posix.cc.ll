@@ -69,7 +69,7 @@ entry:
   %tz = alloca %struct.timezone, align 8
   %ref.tmp2 = alloca %"class.logging::ErrnoLogMessage", align 8
   store i64 0, ptr %tz, align 8
-  %call = call i32 @gettimeofday(ptr noundef nonnull %tv, ptr noundef nonnull %tz) #12
+  %call = call i32 @gettimeofday(ptr noundef nonnull %tv, ptr noundef nonnull %tz) #13
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -85,13 +85,13 @@ invoke.cont:                                      ; preds = %if.then
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont
-  call void @_ZN7logging15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %ref.tmp2) #12
+  call void @_ZN7logging15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %ref.tmp2) #13
   br label %return
 
 lpad:                                             ; preds = %invoke.cont
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7logging15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %ref.tmp2) #12
+  call void @_ZN7logging15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %ref.tmp2) #13
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -191,11 +191,11 @@ _ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3Get
   br i1 %is_local, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit.i
-  %call1.i = call ptr @localtime_r(ptr noundef nonnull %t.addr.i, ptr noundef nonnull %timestruct) #12
+  %call1.i = call ptr @localtime_r(ptr noundef nonnull %t.addr.i, ptr noundef nonnull %timestruct) #13
   br label %if.end.i
 
 if.else.i:                                        ; preds = %_ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit.i
-  %call2.i = call ptr @gmtime_r(ptr noundef nonnull %t.addr.i, ptr noundef nonnull %timestruct) #12
+  %call2.i = call ptr @gmtime_r(ptr noundef nonnull %t.addr.i, ptr noundef nonnull %timestruct) #13
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
@@ -206,7 +206,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #13
+  call void @__clang_call_terminate(ptr %6) #14
   unreachable
 
 _ZN12_GLOBAL__N_119SysTimeToTimeStructElP2tmb.exit: ; preds = %if.end.i
@@ -370,11 +370,11 @@ _ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3Get
   br i1 %is_local, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit
-  %call1 = tail call i64 @mktime(ptr noundef %timestruct) #12
+  %call1 = tail call i64 @mktime(ptr noundef %timestruct) #13
   br label %cleanup
 
 if.else:                                          ; preds = %_ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit
-  %call2 = tail call i64 @timegm(ptr noundef %timestruct) #12
+  %call2 = tail call i64 @timegm(ptr noundef %timestruct) #13
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else, %if.then
@@ -386,7 +386,7 @@ terminate.lpad.i:                                 ; preds = %cleanup
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #13
+  tail call void @__clang_call_terminate(ptr %4) #14
   unreachable
 
 _ZN4base8AutoLockD2Ev.exit:                       ; preds = %cleanup
@@ -401,7 +401,7 @@ entry:
   %ref.tmp2.i.i.i = alloca %"class.logging::LogMessage", align 8
   %ts.i = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
-  %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #12
+  %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #13
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %_ZN12_GLOBAL__N_18ClockNowEi.exit
 
@@ -439,7 +439,7 @@ _ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i: ; preds = %if.else.i.
 
 cond.false.i.i.i:                                 ; preds = %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i
   call void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i.i.i, ptr noundef nonnull @.str.4, i32 noundef 90, ptr noundef nonnull @.str.5)
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i.i.i) #12
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i.i.i) #13
   br label %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.exit.i
 
 _ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.exit.i: ; preds = %cond.false.i.i.i, %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i
@@ -476,7 +476,7 @@ entry:
   %ref.tmp2.i.i.i = alloca %"class.logging::LogMessage", align 8
   %ts.i = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
-  %call.i = call i32 @clock_gettime(i32 noundef 3, ptr noundef nonnull %ts.i) #12
+  %call.i = call i32 @clock_gettime(i32 noundef 3, ptr noundef nonnull %ts.i) #13
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %_ZN12_GLOBAL__N_18ClockNowEi.exit
 
@@ -514,7 +514,7 @@ _ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i: ; preds = %if.else.i.
 
 cond.false.i.i.i:                                 ; preds = %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i
   call void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i.i.i, ptr noundef nonnull @.str.4, i32 noundef 90, ptr noundef nonnull @.str.5)
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i.i.i) #12
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i.i.i) #13
   br label %_ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.exit.i
 
 _ZN12_GLOBAL__N_123ConvertTimespecToMicrosERK8timespec.exit.i: ; preds = %cond.false.i.i.i, %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i
@@ -593,14 +593,15 @@ declare void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef, 
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 declare void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
 
@@ -609,7 +610,7 @@ declare void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dere
 declare void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i64 @timegm(ptr noundef) local_unnamed_addr #4
@@ -620,13 +621,13 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #4
 declare void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #11
+declare i64 @llvm.umin.i64(i64, i64) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -637,11 +638,12 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

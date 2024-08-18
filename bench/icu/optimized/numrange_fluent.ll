@@ -234,12 +234,12 @@ entry:
 lpad:                                             ; preds = %if.then.i.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) #10
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) #11
   resume { ptr, i32 } %0
 
 if.then.i:                                        ; preds = %entry
   %conv.i3 = zext nneg i32 %newCapacity to i64
-  %call.i4 = invoke noalias ptr @uprv_malloc_75(i64 noundef %conv.i3) #11
+  %call.i4 = invoke noalias ptr @uprv_malloc_75(i64 noundef %conv.i3) #12
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then.i
@@ -276,7 +276,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = zext nneg i32 %newCapacity to i64
-  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #11
+  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #12
   %cmp2.not = icmp eq ptr %call, null
   br i1 %cmp2.not, label %return, label %if.then3
 
@@ -337,7 +337,7 @@ terminate.lpad:                                   ; preds = %if.then.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #12
+  tail call void @__clang_call_terminate(ptr %3) #13
   unreachable
 }
 
@@ -360,14 +360,15 @@ if.end:                                           ; preds = %if.then, %entry
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #12
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
+  tail call void @_ZSt9terminatev() #13
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5EOS1_) align 2 personality ptr @__gxx_personality_v0 {
@@ -406,7 +407,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -468,7 +469,7 @@ terminate.lpad:                                   ; preds = %if.then.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #12
+  tail call void @__clang_call_terminate(ptr %7) #13
   unreachable
 }
 
@@ -545,7 +546,7 @@ if.end:                                           ; preds = %_ZN6icu_7515MaybeSt
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
@@ -568,7 +569,7 @@ if.else3:                                         ; preds = %if.else
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
   %conv = sext i32 %spec.select to i64
-  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #11
+  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #12
   %cmp7 = icmp eq ptr %call, null
   br i1 %cmp7, label %return, label %do.body
 
@@ -608,7 +609,7 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   %conv.i4 = zext nneg i32 %1 to i64
-  %call.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv.i4) #11
+  %call.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv.i4) #12
   %cmp2.not.i = icmp eq ptr %call.i, null
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
@@ -640,7 +641,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
   ret void
 }
 
-declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
+declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number4impl17touchRangeLocalesERNS1_15RangeMacroPropsE(ptr noundef nonnull align 8 dereferenceable(1208) %macros) local_unnamed_addr #1 {
@@ -653,7 +654,7 @@ entry:
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE19numberFormatterBothERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -679,19 +680,19 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #10
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473), ptr noundef nonnull align 8 dereferenceable(473)) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473), ptr noundef nonnull align 8 dereferenceable(473)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE19numberFormatterBothERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
@@ -712,7 +713,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #10
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -724,7 +725,7 @@ define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_31Un
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
   %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #10
+  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
   %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
   store i8 1, ptr %singleFormatter, align 8
   %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
@@ -740,7 +741,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #10
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -748,14 +749,14 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 }
 
 ; Function Attrs: nounwind
-declare noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473), ptr noundef nonnull align 8 dereferenceable(473)) local_unnamed_addr #6
+declare noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473), ptr noundef nonnull align 8 dereferenceable(473)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE19numberFormatterBothEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #10
+  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
   %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
   store i8 1, ptr %singleFormatter, align 8
   %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
@@ -771,7 +772,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #10
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -802,7 +803,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #10
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -812,7 +813,7 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE20numberFormatterFirstERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
@@ -833,7 +834,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #10
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -845,7 +846,7 @@ define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_31Un
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
   %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #10
+  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
   %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
   %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
@@ -861,7 +862,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #10
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -871,9 +872,9 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE20numberFormatterFirstEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #10
+  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
   %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
   %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
@@ -889,7 +890,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #10
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -920,7 +921,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #10
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -930,7 +931,7 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE21numberFormatterSecondERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   %formatter2 = getelementptr inbounds i8, ptr %agg.result, i64 488
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
@@ -951,7 +952,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #10
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -963,7 +964,7 @@ define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_31Un
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
   %formatter2 = getelementptr inbounds i8, ptr %agg.result, i64 488
-  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #10
+  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
   %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
   %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
@@ -979,7 +980,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #10
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -989,9 +990,9 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE21numberFormatterSecondEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   %formatter2 = getelementptr inbounds i8, ptr %agg.result, i64 488
-  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #10
+  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
   %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
   %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
@@ -1007,7 +1008,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #10
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -1026,7 +1027,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE8collapseE20UNumberRangeCollapse(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, i32 noundef %collapse) local_unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   %collapse2 = getelementptr inbounds i8, ptr %agg.result, i64 972
   store i32 %collapse, ptr %collapse2, align 4
   ret void
@@ -1044,7 +1045,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE16identityFallbackE28UNumberRangeIdentityFallback(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, i32 noundef %identityFallback) local_unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   %identityFallback2 = getelementptr inbounds i8, ptr %agg.result, i64 976
   store i32 %identityFallback, ptr %identityFallback2, align 8
   ret void
@@ -1053,7 +1054,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE5cloneEv(ptr noalias sret(%"class.icu_75::LocalPointer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 1216) #10
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 1216) #11
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -1068,25 +1069,25 @@ new.cont:                                         ; preds = %new.notnull, %entry
 lpad:                                             ; preds = %new.notnull
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #10
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #11
   resume { ptr, i32 } %0
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #6
+declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE5cloneEv(ptr noalias sret(%"class.icu_75::LocalPointer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 1216) #10
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 1216) #11
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %entry
-  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %call, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %call, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   br label %new.cont
 
 new.cont:                                         ; preds = %new.notnull, %entry
@@ -1147,7 +1148,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -1157,7 +1158,7 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE19numberFormatterBothERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
@@ -1178,7 +1179,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -1190,7 +1191,7 @@ define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_29Lo
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
   %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #10
+  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
   %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
   store i8 1, ptr %singleFormatter, align 8
   %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
@@ -1206,7 +1207,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -1216,9 +1217,9 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE19numberFormatterBothEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #10
+  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
   %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
   store i8 1, ptr %singleFormatter, align 8
   %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
@@ -1234,7 +1235,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -1265,7 +1266,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -1275,7 +1276,7 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE20numberFormatterFirstERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
@@ -1296,7 +1297,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -1308,7 +1309,7 @@ define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_29Lo
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
   %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #10
+  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
   %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
   %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
@@ -1324,7 +1325,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -1334,9 +1335,9 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE20numberFormatterFirstEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #10
+  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
   %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
   %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
@@ -1352,7 +1353,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -1383,7 +1384,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -1393,7 +1394,7 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE21numberFormatterSecondERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   %formatter2 = getelementptr inbounds i8, ptr %agg.result, i64 488
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
@@ -1414,7 +1415,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %call.i.noexc, %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -1426,7 +1427,7 @@ define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_29Lo
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
   %formatter2 = getelementptr inbounds i8, ptr %agg.result, i64 488
-  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #10
+  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
   %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
   %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
@@ -1442,7 +1443,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -1452,9 +1453,9 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE21numberFormatterSecondEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   %formatter2 = getelementptr inbounds i8, ptr %agg.result, i64 488
-  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #10
+  %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
   %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
   %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
@@ -1470,7 +1471,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad:                                             ; preds = %call.i.noexc, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result) #11
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %call.i.noexc
@@ -1489,7 +1490,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE8collapseE20UNumberRangeCollapse(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, i32 noundef %collapse) local_unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   %collapse2 = getelementptr inbounds i8, ptr %agg.result, i64 972
   store i32 %collapse, ptr %collapse2, align 4
   ret void
@@ -1507,7 +1508,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE16identityFallbackE28UNumberRangeIdentityFallback(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, i32 noundef %identityFallback) local_unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   %identityFallback2 = getelementptr inbounds i8, ptr %agg.result, i64 976
   store i32 %identityFallback, ptr %identityFallback2, align 8
   ret void
@@ -1516,7 +1517,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE5cloneEv(ptr noalias sret(%"class.icu_75::LocalPointer.4") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 1216) #10
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 1216) #11
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -1531,19 +1532,19 @@ new.cont:                                         ; preds = %new.notnull, %entry
 lpad:                                             ; preds = %new.notnull
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #10
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #11
   resume { ptr, i32 } %0
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE5cloneEv(ptr noalias sret(%"class.icu_75::LocalPointer.4") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 1216) #10
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 1216) #11
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %entry
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %call, ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %call, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   br label %new.cont
 
 new.cont:                                         ; preds = %new.notnull, %entry
@@ -1608,12 +1609,12 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad2.i.i.i:                                      ; preds = %invoke.cont.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i.i) #11
   br label %ehcleanup.i.i.i
 
 ehcleanup.i.i.i:                                  ; preds = %lpad2.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %1, %lpad2.i.i.i ], [ %0, %lpad.i.i.i ]
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i.i) #11
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZN6icu_756number31UnlocalizedNumberRangeFormatterC2Ev.exit: ; preds = %invoke.cont.i.i.i
@@ -1649,7 +1650,7 @@ lpad.i.i.i.i:                                     ; preds = %entry
 lpad2.i.i.i.i:                                    ; preds = %invoke.cont.i.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i.i.i) #10
+  call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i.i.i) #11
   br label %ehcleanup.i.i.i.i
 
 common.resume:                                    ; preds = %lpad, %ehcleanup.i.i.i.i
@@ -1658,7 +1659,7 @@ common.resume:                                    ; preds = %lpad, %ehcleanup.i.
 
 ehcleanup.i.i.i.i:                                ; preds = %lpad2.i.i.i.i, %lpad.i.i.i.i
   %.pn.i.i.i.i = phi { ptr, i32 } [ %1, %lpad2.i.i.i.i ], [ %0, %lpad.i.i.i.i ]
-  call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i.i.i) #10
+  call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i.i.i) #11
   br label %common.resume
 
 _ZN6icu_756number20NumberRangeFormatter4withEv.exit: ; preds = %invoke.cont.i.i.i.i
@@ -1666,13 +1667,13 @@ _ZN6icu_756number20NumberRangeFormatter4withEv.exit: ; preds = %invoke.cont.i.i.
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6icu_756number20NumberRangeFormatter4withEv.exit
-  call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %ref.tmp) #10
+  call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %ref.tmp) #11
   ret void
 
 lpad:                                             ; preds = %_ZN6icu_756number20NumberRangeFormatter4withEv.exit
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %ref.tmp) #10
+  call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %ref.tmp) #11
   br label %common.resume
 }
 
@@ -1711,12 +1712,12 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %invoke.cont.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i.i) #11
   br label %ehcleanup.i.i.i
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %1, %lpad6.i.i.i ], [ %0, %lpad.i.i.i ]
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i.i) #11
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZN6icu_756number31UnlocalizedNumberRangeFormatterC2ERKNS0_28NumberRangeFormatterSettingsIS1_EE.exit: ; preds = %invoke.cont.i.i.i
@@ -1751,12 +1752,12 @@ lpad.i.i:                                         ; preds = %entry
 lpad6.i.i:                                        ; preds = %invoke.cont.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i) #11
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad6.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad6.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i) #11
   resume { ptr, i32 } %.pn.i.i
 
 _ZN6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEEC2ERKS3_.exit: ; preds = %invoke.cont.i.i
@@ -1768,16 +1769,16 @@ define void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC2EOS1_(ptr nound
 entry:
   %formatter1.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %formatter12.i.i.i = getelementptr inbounds i8, ptr %src, i64 8
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i.i) #11
   %formatter2.i.i.i = getelementptr inbounds i8, ptr %this, i64 488
   %formatter23.i.i.i = getelementptr inbounds i8, ptr %src, i64 488
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i.i) #11
   %singleFormatter.i.i.i = getelementptr inbounds i8, ptr %this, i64 968
   %singleFormatter4.i.i.i = getelementptr inbounds i8, ptr %src, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter4.i.i.i, i64 12, i1 false)
   %locale.i.i.i = getelementptr inbounds i8, ptr %this, i64 984
   %locale5.i.i.i = getelementptr inbounds i8, ptr %src, i64 984
-  tail call void @_ZN6icu_756LocaleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale5.i.i.i) #10
+  tail call void @_ZN6icu_756LocaleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale5.i.i.i) #11
   ret void
 }
 
@@ -1786,16 +1787,16 @@ define void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC2EONS0_28NumberR
 entry:
   %formatter1.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %formatter12.i.i = getelementptr inbounds i8, ptr %src, i64 8
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i) #11
   %formatter2.i.i = getelementptr inbounds i8, ptr %this, i64 488
   %formatter23.i.i = getelementptr inbounds i8, ptr %src, i64 488
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i) #11
   %singleFormatter.i.i = getelementptr inbounds i8, ptr %this, i64 968
   %singleFormatter4.i.i = getelementptr inbounds i8, ptr %src, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter4.i.i, i64 12, i1 false)
   %locale.i.i = getelementptr inbounds i8, ptr %this, i64 984
   %locale5.i.i = getelementptr inbounds i8, ptr %src, i64 984
-  tail call void @_ZN6icu_756LocaleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale5.i.i) #10
+  tail call void @_ZN6icu_756LocaleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale5.i.i) #11
   ret void
 }
 
@@ -1822,16 +1823,16 @@ define noundef nonnull align 8 dereferenceable(1209) ptr @_ZN6icu_756number31Unl
 entry:
   %formatter1.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %formatter12.i.i = getelementptr inbounds i8, ptr %src, i64 8
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i) #10
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i) #11
   %formatter2.i.i = getelementptr inbounds i8, ptr %this, i64 488
   %formatter23.i.i = getelementptr inbounds i8, ptr %src, i64 488
-  %call4.i.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i) #10
+  %call4.i.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i) #11
   %singleFormatter.i.i = getelementptr inbounds i8, ptr %this, i64 968
   %singleFormatter5.i.i = getelementptr inbounds i8, ptr %src, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter5.i.i, i64 12, i1 false)
   %locale.i.i = getelementptr inbounds i8, ptr %this, i64 984
   %locale6.i.i = getelementptr inbounds i8, ptr %src, i64 984
-  %call7.i.i = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale6.i.i) #10
+  %call7.i.i = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale6.i.i) #11
   ret ptr %this
 }
 
@@ -1863,12 +1864,12 @@ lpad.i.i.i:                                       ; preds = %entry
 lpad6.i.i.i:                                      ; preds = %invoke.cont.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i.i) #11
   br label %ehcleanup.i.i.i
 
 ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %1, %lpad6.i.i.i ], [ %0, %lpad.i.i.i ]
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i.i) #11
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZN6icu_756number29LocalizedNumberRangeFormatterC2ERKNS0_28NumberRangeFormatterSettingsIS1_EE.exit: ; preds = %invoke.cont.i.i.i
@@ -1905,12 +1906,12 @@ lpad.i.i:                                         ; preds = %entry
 lpad6.i.i:                                        ; preds = %invoke.cont.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i) #11
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad6.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad6.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i) #11
   resume { ptr, i32 } %.pn.i.i
 
 _ZN6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEEC2ERKS3_.exit: ; preds = %invoke.cont.i.i
@@ -1920,12 +1921,12 @@ _ZN6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormat
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_756number29LocalizedNumberRangeFormatterC2EOS1_(ptr noundef nonnull align 8 dereferenceable(1216) %this, ptr noundef nonnull align 8 dereferenceable(1216) %src) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC2EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %this, ptr noundef nonnull align 8 dereferenceable(1208) %src) #10
+  tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC2EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %this, ptr noundef nonnull align 8 dereferenceable(1208) %src) #11
   ret void
 }
 
@@ -1934,16 +1935,16 @@ define void @_ZN6icu_756number29LocalizedNumberRangeFormatterC2EONS0_28NumberRan
 entry:
   %formatter1.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %formatter12.i.i = getelementptr inbounds i8, ptr %src, i64 8
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i) #11
   %formatter2.i.i = getelementptr inbounds i8, ptr %this, i64 488
   %formatter23.i.i = getelementptr inbounds i8, ptr %src, i64 488
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i) #11
   %singleFormatter.i.i = getelementptr inbounds i8, ptr %this, i64 968
   %singleFormatter4.i.i = getelementptr inbounds i8, ptr %src, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter4.i.i, i64 12, i1 false)
   %locale.i.i = getelementptr inbounds i8, ptr %this, i64 984
   %locale5.i.i = getelementptr inbounds i8, ptr %src, i64 984
-  tail call void @_ZN6icu_756LocaleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale5.i.i) #10
+  tail call void @_ZN6icu_756LocaleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale5.i.i) #11
   %fAtomicFormatter = getelementptr inbounds i8, ptr %this, i64 1208
   store i64 0, ptr %fAtomicFormatter, align 8
   %fAtomicFormatter2 = getelementptr inbounds i8, ptr %src, i64 1208
@@ -1969,19 +1970,19 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #12
+  tail call void @__clang_call_terminate(ptr %5) #13
   unreachable
 
 _ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit: ; preds = %delete.notnull, %if.then.i.i.i.i
   %fApproximatelyFormatter.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 1296
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter.i) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter.i) #11
   %fRangeFormatter.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 1224
-  tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter.i) #10
+  tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter.i) #11
   %formatterImpl2.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 608
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2.i) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2.i) #11
   %formatterImpl1.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 8
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1.i) #10
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %atomic-temp.i.0.i2) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1.i) #11
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %atomic-temp.i.0.i2) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit, %entry
@@ -2006,18 +2007,18 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #12
+  tail call void @__clang_call_terminate(ptr %3) #13
   unreachable
 
 _ZN6icu_7520StandardPluralRangesD2Ev.exit:        ; preds = %entry, %if.then.i.i.i
   %fApproximatelyFormatter = getelementptr inbounds i8, ptr %this, i64 1296
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter) #11
   %fRangeFormatter = getelementptr inbounds i8, ptr %this, i64 1224
-  tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter) #10
+  tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter) #11
   %formatterImpl2 = getelementptr inbounds i8, ptr %this, i64 608
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2) #11
   %formatterImpl1 = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1) #11
   ret void
 }
 
@@ -2062,19 +2063,19 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #12
+  tail call void @__clang_call_terminate(ptr %4) #13
   unreachable
 
 _ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit: ; preds = %delete.notnull, %if.then.i.i.i.i
   %fApproximatelyFormatter.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 1296
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter.i) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter.i) #11
   %fRangeFormatter.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 1224
-  tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter.i) #10
+  tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter.i) #11
   %formatterImpl2.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 608
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2.i) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2.i) #11
   %formatterImpl1.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 8
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1.i) #10
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %atomic-temp.i.0.i) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1.i) #11
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %atomic-temp.i.0.i) #11
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit, %entry
@@ -2086,16 +2087,16 @@ define noundef nonnull align 8 dereferenceable(1216) ptr @_ZN6icu_756number29Loc
 entry:
   %formatter1.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %formatter12.i.i = getelementptr inbounds i8, ptr %src, i64 8
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i) #10
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i) #11
   %formatter2.i.i = getelementptr inbounds i8, ptr %this, i64 488
   %formatter23.i.i = getelementptr inbounds i8, ptr %src, i64 488
-  %call4.i.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i) #10
+  %call4.i.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i) #11
   %singleFormatter.i.i = getelementptr inbounds i8, ptr %this, i64 968
   %singleFormatter5.i.i = getelementptr inbounds i8, ptr %src, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter5.i.i, i64 12, i1 false)
   %locale.i.i = getelementptr inbounds i8, ptr %this, i64 984
   %locale6.i.i = getelementptr inbounds i8, ptr %src, i64 984
-  %call7.i.i = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale6.i.i) #10
+  %call7.i.i = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale6.i.i) #11
   %fAtomicFormatter = getelementptr inbounds i8, ptr %src, i64 1208
   %0 = atomicrmw xchg ptr %fAtomicFormatter, i64 0 seq_cst, align 8
   %fAtomicFormatter3 = getelementptr inbounds i8, ptr %this, i64 1208
@@ -2120,19 +2121,19 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #12
+  tail call void @__clang_call_terminate(ptr %5) #13
   unreachable
 
 _ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit: ; preds = %delete.notnull, %if.then.i.i.i.i
   %fApproximatelyFormatter.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 1296
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter.i) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter.i) #11
   %fRangeFormatter.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 1224
-  tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter.i) #10
+  tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter.i) #11
   %formatterImpl2.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 608
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2.i) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2.i) #11
   %formatterImpl1.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 8
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1.i) #10
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %atomic-temp.i.0.i2) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1.i) #11
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %atomic-temp.i.0.i2) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit, %entry
@@ -2164,23 +2165,23 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #12
+  tail call void @__clang_call_terminate(ptr %4) #13
   unreachable
 
 _ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit: ; preds = %delete.notnull, %if.then.i.i.i.i
   %fApproximatelyFormatter.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 1296
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter.i) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter.i) #11
   %fRangeFormatter.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 1224
-  tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter.i) #10
+  tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter.i) #11
   %formatterImpl2.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 608
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2.i) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2.i) #11
   %formatterImpl1.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 8
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1.i) #10
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %atomic-temp.i.0.i) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1.i) #11
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %atomic-temp.i.0.i) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit, %entry
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   ret void
 }
 
@@ -2212,7 +2213,7 @@ lpad.i.i:                                         ; preds = %entry
 lpad2.i.i:                                        ; preds = %invoke.cont.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i) #11
   br label %ehcleanup.i.i
 
 common.resume:                                    ; preds = %lpad, %ehcleanup.i.i
@@ -2221,7 +2222,7 @@ common.resume:                                    ; preds = %lpad, %ehcleanup.i.
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad2.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i) #11
   br label %common.resume
 
 _ZN6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEEC2Ev.exit: ; preds = %invoke.cont.i.i
@@ -2263,7 +2264,7 @@ invoke.cont7:                                     ; preds = %call.i.noexc5
 lpad:                                             ; preds = %call.i.noexc5, %invoke.cont4, %call4.i.noexc, %call.i.noexc, %_ZN6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEEC2Ev.exit, %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   br label %common.resume
 }
 
@@ -2295,7 +2296,7 @@ lpad.i.i:                                         ; preds = %entry
 lpad2.i.i:                                        ; preds = %invoke.cont.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i) #11
   br label %ehcleanup.i.i
 
 common.resume:                                    ; preds = %lpad, %ehcleanup.i.i
@@ -2304,20 +2305,20 @@ common.resume:                                    ; preds = %lpad, %ehcleanup.i.
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad2.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i) #10
+  tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i) #11
   br label %common.resume
 
 _ZN6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEEC2Ev.exit: ; preds = %invoke.cont.i.i
   %fAtomicFormatter = getelementptr inbounds i8, ptr %this, i64 1208
   store i64 0, ptr %fAtomicFormatter, align 8
   %formatter12.i = getelementptr inbounds i8, ptr %macros, i64 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i) #10
+  %call.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i) #11
   %formatter23.i = getelementptr inbounds i8, ptr %macros, i64 488
-  %call4.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i) #10
+  %call4.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i) #11
   %singleFormatter5.i = getelementptr inbounds i8, ptr %macros, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter5.i, i64 12, i1 false)
   %locale6.i = getelementptr inbounds i8, ptr %macros, i64 984
-  %call7.i = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale6.i) #10
+  %call7.i = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale6.i) #11
   %call4 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale)
           to label %invoke.cont unwind label %lpad
 
@@ -2337,7 +2338,7 @@ invoke.cont6:                                     ; preds = %call.i2.noexc
 lpad:                                             ; preds = %call.i2.noexc, %invoke.cont, %_ZN6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEEC2Ev.exit
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %this) #10
+  tail call void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
   br label %common.resume
 }
 
@@ -2356,7 +2357,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 456) #10
+  %call2 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 456) #11
   %new.isnull = icmp eq ptr %call2, null
   br i1 %new.isnull, label %if.then3, label %new.notnull
 
@@ -2383,12 +2384,12 @@ lpad.i:                                           ; preds = %.noexc
 lpad2.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity1.i) #10
+  tail call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity1.i) #11
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(300) %call2) #10
+  tail call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(300) %call2) #11
   br label %lpad.body
 
 if.then3:                                         ; preds = %if.end
@@ -2402,7 +2403,7 @@ lpad:                                             ; preds = %new.notnull
 
 lpad.body:                                        ; preds = %ehcleanup.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad ], [ %.pn.i, %ehcleanup.i ]
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call2) #10
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call2) #11
   resume { ptr, i32 } %eh.lpad-body
 
 if.end4:                                          ; preds = %invoke.cont.i
@@ -2451,7 +2452,7 @@ delete.notnull:                                   ; preds = %if.end4.i, %if.then
   %vtable = load ptr, ptr %call2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(452) %call2) #10
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(452) %call2) #11
   %10 = load i32, ptr %status, align 4
   br label %return
 
@@ -2466,7 +2467,7 @@ return:                                           ; preds = %_ZNK6icu_756number2
   ret void
 }
 
-declare void @_ZNK6icu_7511Formattable23populateDecimalQuantityERNS_6number4impl15DecimalQuantityER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(66), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
+declare void @_ZNK6icu_7511Formattable23populateDecimalQuantityERNS_6number4impl15DecimalQuantityER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(66), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_756number29LocalizedNumberRangeFormatter10formatImplERNS0_4impl25UFormattedNumberRangeDataEbR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1216) %this, ptr noundef nonnull align 8 dereferenceable(452) %results, i1 noundef zeroext %equalBeforeRounding, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
@@ -2499,7 +2500,7 @@ return:                                           ; preds = %if.end4, %entry, %i
   ret void
 }
 
-declare noundef zeroext i1 @_ZNK6icu_7511FormattableeqERKS0_(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #5
+declare noundef zeroext i1 @_ZNK6icu_7511FormattableeqERKS0_(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_756number29LocalizedNumberRangeFormatter12getFormatterER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1216) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -2516,7 +2517,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 1960) #10
+  %call5 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 1960) #11
   %new.isnull = icmp eq ptr %call5, null
   br i1 %new.isnull, label %new.cont.thread, label %new.notnull
 
@@ -2550,25 +2551,25 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #12
+  tail call void @__clang_call_terminate(ptr %7) #13
   unreachable
 
 _ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit: ; preds = %delete.notnull, %if.then.i.i.i.i
   %fApproximatelyFormatter.i = getelementptr inbounds i8, ptr %call5, i64 1296
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter.i) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter.i) #11
   %fRangeFormatter.i = getelementptr inbounds i8, ptr %call5, i64 1224
-  tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter.i) #10
+  tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter.i) #11
   %formatterImpl2.i = getelementptr inbounds i8, ptr %call5, i64 608
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2.i) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2.i) #11
   %formatterImpl1.i = getelementptr inbounds i8, ptr %call5, i64 8
-  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1.i) #10
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call5) #10
+  tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1.i) #11
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call5) #11
   br label %return
 
 lpad:                                             ; preds = %new.notnull
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call5) #10
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call5) #11
   resume { ptr, i32 } %8
 
 if.then11:                                        ; preds = %new.cont.thread
@@ -2584,8 +2585,8 @@ if.end12:                                         ; preds = %new.cont
 delete.notnull17:                                 ; preds = %if.end12
   %12 = extractvalue { i64, i1 } %10, 0
   %13 = inttoptr i64 %12 to ptr
-  tail call void @_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(1960) %call5) #10
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call5) #10
+  tail call void @_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(1960) %call5) #11
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call5) #11
   br label %return
 
 return:                                           ; preds = %if.end12, %new.cont.thread, %_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit, %if.end, %entry, %delete.notnull17, %if.then11
@@ -2593,86 +2594,86 @@ return:                                           ; preds = %if.end12, %new.cont
   ret ptr %retval.0
 }
 
-declare void @_ZNK6icu_756number4impl24NumberRangeFormatterImpl6formatERNS1_25UFormattedNumberRangeDataEbR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1960), ptr noundef nonnull align 8 dereferenceable(452), i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
+declare void @_ZNK6icu_756number4impl24NumberRangeFormatterImpl6formatERNS1_25UFormattedNumberRangeDataEbR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1960), ptr noundef nonnull align 8 dereferenceable(452), i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
-declare void @_ZN6icu_7522FormattedStringBuilder15writeTerminatorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
+declare void @_ZN6icu_7522FormattedStringBuilder15writeTerminatorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
-declare void @_ZN6icu_756number4impl24NumberRangeFormatterImplC1ERKNS1_15RangeMacroPropsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1960), ptr noundef nonnull align 8 dereferenceable(1208), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
+declare void @_ZN6icu_756number4impl24NumberRangeFormatterImplC1ERKNS1_15RangeMacroPropsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1960), ptr noundef nonnull align 8 dereferenceable(1208), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %locale = getelementptr inbounds i8, ptr %this, i64 984
-  tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale) #10
+  tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale) #11
   %locale.i.i.i = getelementptr inbounds i8, ptr %this, i64 736
-  tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i.i) #10
+  tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i.i) #11
   %unitDisplayCase.i.i.i = getelementptr inbounds i8, ptr %this, i64 696
-  tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %unitDisplayCase.i.i.i) #10
+  tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %unitDisplayCase.i.i.i) #11
   %usage.i.i.i = getelementptr inbounds i8, ptr %this, i64 680
-  tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %usage.i.i.i) #10
+  tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %usage.i.i.i) #11
   %scale.i.i.i = getelementptr inbounds i8, ptr %this, i64 656
-  tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %scale.i.i.i) #10
+  tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %scale.i.i.i) #11
   %symbols.i.i.i = getelementptr inbounds i8, ptr %this, i64 624
-  tail call void @_ZN6icu_756number4impl14SymbolsWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %symbols.i.i.i) #10
+  tail call void @_ZN6icu_756number4impl14SymbolsWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %symbols.i.i.i) #11
   %perUnit.i.i.i = getelementptr inbounds i8, ptr %this, i64 528
-  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %perUnit.i.i.i) #10
+  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %perUnit.i.i.i) #11
   %unit.i.i.i = getelementptr inbounds i8, ptr %this, i64 504
-  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %unit.i.i.i) #10
+  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %unit.i.i.i) #11
   %locale.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 256
-  tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i.i1) #10
+  tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i.i1) #11
   %unitDisplayCase.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 216
-  tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %unitDisplayCase.i.i.i2) #10
+  tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %unitDisplayCase.i.i.i2) #11
   %usage.i.i.i3 = getelementptr inbounds i8, ptr %this, i64 200
-  tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %usage.i.i.i3) #10
+  tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %usage.i.i.i3) #11
   %scale.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %scale.i.i.i4) #10
+  tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %scale.i.i.i4) #11
   %symbols.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 144
-  tail call void @_ZN6icu_756number4impl14SymbolsWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %symbols.i.i.i5) #10
+  tail call void @_ZN6icu_756number4impl14SymbolsWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %symbols.i.i.i5) #11
   %perUnit.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 48
-  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %perUnit.i.i.i6) #10
+  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %perUnit.i.i.i6) #11
   %unit.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 24
-  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %unit.i.i.i7) #10
+  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %unit.i.i.i7) #11
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #6
+declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %locale.i.i = getelementptr inbounds i8, ptr %this, i64 248
-  tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i) #10
+  tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i) #11
   %unitDisplayCase.i.i = getelementptr inbounds i8, ptr %this, i64 208
-  tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %unitDisplayCase.i.i) #10
+  tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %unitDisplayCase.i.i) #11
   %usage.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %usage.i.i) #10
+  tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %usage.i.i) #11
   %scale.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %scale.i.i) #10
+  tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %scale.i.i) #11
   %symbols.i.i = getelementptr inbounds i8, ptr %this, i64 136
-  tail call void @_ZN6icu_756number4impl14SymbolsWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %symbols.i.i) #10
+  tail call void @_ZN6icu_756number4impl14SymbolsWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %symbols.i.i) #11
   %perUnit.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %perUnit.i.i) #10
+  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %perUnit.i.i) #11
   %unit.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %unit.i.i) #10
+  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %unit.i.i) #11
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
+declare void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #6
+declare void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_756number4impl14SymbolsWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
+declare void @_ZN6icu_756number4impl14SymbolsWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19)) unnamed_addr #6
+declare void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19)) unnamed_addr #7
 
-declare noundef signext i8 @_ZNK6icu_756number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(472), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
+declare noundef signext i8 @_ZNK6icu_756number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(472), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
-declare void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #5
+declare void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2749,30 +2750,30 @@ lpad:                                             ; preds = %entry
 lpad14:                                           ; preds = %invoke.cont
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %unitDisplayCase) #10
-  tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %usage) #10
-  tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %scale) #10
-  tail call void @_ZN6icu_756number4impl14SymbolsWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %symbols) #10
-  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %perUnit) #10
+  tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %unitDisplayCase) #11
+  tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %usage) #11
+  tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %scale) #11
+  tail call void @_ZN6icu_756number4impl14SymbolsWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %symbols) #11
+  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %perUnit) #11
   br label %ehcleanup19
 
 ehcleanup19:                                      ; preds = %lpad14, %lpad
   %.pn = phi { ptr, i32 } [ %1, %lpad14 ], [ %0, %lpad ]
-  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %unit) #10
+  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %unit) #11
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZN6icu_7511MeasureUnitC1Ev(ptr noundef nonnull align 8 dereferenceable(19)) unnamed_addr #5
+declare void @_ZN6icu_7511MeasureUnitC1Ev(ptr noundef nonnull align 8 dereferenceable(19)) unnamed_addr #6
 
-declare void @_ZN6icu_756number26UnlocalizedNumberFormatterC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(473), ptr noundef nonnull align 8 dereferenceable(473)) unnamed_addr #5
+declare void @_ZN6icu_756number26UnlocalizedNumberFormatterC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(473), ptr noundef nonnull align 8 dereferenceable(473)) unnamed_addr #6
 
-declare void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #5
-
-; Function Attrs: nounwind
-declare void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473), ptr noundef nonnull align 8 dereferenceable(473)) unnamed_addr #6
+declare void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_756LocaleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #6
+declare void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473), ptr noundef nonnull align 8 dereferenceable(473)) unnamed_addr #7
+
+; Function Attrs: nounwind
+declare void @_ZN6icu_756LocaleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %this) unnamed_addr #0 comdat align 2 {
@@ -2786,7 +2787,7 @@ delete.notnull.i:                                 ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %1 = load ptr, ptr %vfn.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(2065) %0) #10
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(2065) %0) #11
   br label %_ZN6icu_7512LocalPointerIKNS_6number4impl14CompactHandlerEED2Ev.exit
 
 _ZN6icu_7512LocalPointerIKNS_6number4impl14CompactHandlerEED2Ev.exit: ; preds = %entry, %delete.notnull.i
@@ -2799,7 +2800,7 @@ delete.notnull.i2:                                ; preds = %_ZN6icu_7512LocalPo
   %vtable.i3 = load ptr, ptr %2, align 8
   %vfn.i4 = getelementptr inbounds i8, ptr %vtable.i3, i64 8
   %3 = load ptr, ptr %vfn.i4, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(280) %2) #10
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(280) %2) #11
   br label %_ZN6icu_7512LocalPointerIKNS_6number4impl19LongNameMultiplexerEED2Ev.exit
 
 _ZN6icu_7512LocalPointerIKNS_6number4impl19LongNameMultiplexerEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerIKNS_6number4impl14CompactHandlerEED2Ev.exit, %delete.notnull.i2
@@ -2812,7 +2813,7 @@ delete.notnull.i6:                                ; preds = %_ZN6icu_7512LocalPo
   %vtable.i7 = load ptr, ptr %4, align 8
   %vfn.i8 = getelementptr inbounds i8, ptr %vtable.i7, i64 8
   %5 = load ptr, ptr %vfn.i8, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(552) %4) #10
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(552) %4) #11
   br label %_ZN6icu_7512LocalPointerINS_6number4impl24MixedUnitLongNameHandlerEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_6number4impl24MixedUnitLongNameHandlerEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerIKNS_6number4impl19LongNameMultiplexerEED2Ev.exit, %delete.notnull.i6
@@ -2825,7 +2826,7 @@ delete.notnull.i10:                               ; preds = %_ZN6icu_7512LocalPo
   %vtable.i11 = load ptr, ptr %6, align 8
   %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 8
   %7 = load ptr, ptr %vfn.i12, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(872) %6) #10
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(872) %6) #11
   br label %_ZN6icu_7512LocalPointerINS_6number4impl15LongNameHandlerEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_6number4impl15LongNameHandlerEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerINS_6number4impl24MixedUnitLongNameHandlerEED2Ev.exit, %delete.notnull.i10
@@ -2838,7 +2839,7 @@ delete.notnull.i14:                               ; preds = %_ZN6icu_7512LocalPo
   %vtable.i15 = load ptr, ptr %8, align 8
   %vfn.i16 = getelementptr inbounds i8, ptr %vtable.i15, i64 8
   %9 = load ptr, ptr %vfn.i16, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(32) %8) #10
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(32) %8) #11
   br label %_ZN6icu_7512LocalPointerINS_6number4impl24ImmutablePatternModifierEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_6number4impl24ImmutablePatternModifierEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerINS_6number4impl15LongNameHandlerEED2Ev.exit, %delete.notnull.i14
@@ -2851,7 +2852,7 @@ delete.notnull.i18:                               ; preds = %_ZN6icu_7512LocalPo
   %vtable.i19 = load ptr, ptr %10, align 8
   %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 8
   %11 = load ptr, ptr %vfn.i20, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(392) %10) #10
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(392) %10) #11
   br label %_ZN6icu_7512LocalPointerINS_6number4impl22MutablePatternModifierEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_6number4impl22MutablePatternModifierEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerINS_6number4impl24ImmutablePatternModifierEED2Ev.exit, %delete.notnull.i18
@@ -2864,7 +2865,7 @@ delete.notnull.i22:                               ; preds = %_ZN6icu_7512LocalPo
   %vtable.i23 = load ptr, ptr %12, align 8
   %vfn.i24 = getelementptr inbounds i8, ptr %vtable.i23, i64 8
   %13 = load ptr, ptr %vfn.i24, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(40) %12) #10
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(40) %12) #11
   br label %_ZN6icu_7512LocalPointerIKNS_6number4impl17ScientificHandlerEED2Ev.exit
 
 _ZN6icu_7512LocalPointerIKNS_6number4impl17ScientificHandlerEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerINS_6number4impl22MutablePatternModifierEED2Ev.exit, %delete.notnull.i22
@@ -2877,7 +2878,7 @@ delete.notnull.i26:                               ; preds = %_ZN6icu_7512LocalPo
   %vtable.i27 = load ptr, ptr %14, align 8
   %vfn.i28 = getelementptr inbounds i8, ptr %vtable.i27, i64 8
   %15 = load ptr, ptr %vfn.i28, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(433) %14) #10
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(433) %14) #11
   br label %_ZN6icu_7512LocalPointerIKNS_6number4impl17ParsedPatternInfoEED2Ev.exit
 
 _ZN6icu_7512LocalPointerIKNS_6number4impl17ParsedPatternInfoEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerIKNS_6number4impl17ScientificHandlerEED2Ev.exit, %delete.notnull.i26
@@ -2890,7 +2891,7 @@ delete.notnull.i30:                               ; preds = %_ZN6icu_7512LocalPo
   %vtable.i31 = load ptr, ptr %16, align 8
   %vfn.i32 = getelementptr inbounds i8, ptr %vtable.i31, i64 8
   %17 = load ptr, ptr %vfn.i32, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(28) %16) #10
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(28) %16) #11
   br label %_ZN6icu_7512LocalPointerIKNS_11PluralRulesEED2Ev.exit
 
 _ZN6icu_7512LocalPointerIKNS_11PluralRulesEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerIKNS_6number4impl17ParsedPatternInfoEED2Ev.exit, %delete.notnull.i30
@@ -2903,7 +2904,7 @@ delete.notnull.i34:                               ; preds = %_ZN6icu_7512LocalPo
   %vtable.i35 = load ptr, ptr %18, align 8
   %vfn.i36 = getelementptr inbounds i8, ptr %vtable.i35, i64 8
   %19 = load ptr, ptr %vfn.i36, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(2883) %18) #10
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(2883) %18) #11
   br label %_ZN6icu_7512LocalPointerIKNS_20DecimalFormatSymbolsEED2Ev.exit
 
 _ZN6icu_7512LocalPointerIKNS_20DecimalFormatSymbolsEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerIKNS_11PluralRulesEED2Ev.exit, %delete.notnull.i34
@@ -2916,7 +2917,7 @@ delete.notnull.i38:                               ; preds = %_ZN6icu_7512LocalPo
   %vtable.i39 = load ptr, ptr %20, align 8
   %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 8
   %21 = load ptr, ptr %vfn.i40, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(48) %20) #10
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(48) %20) #11
   br label %_ZN6icu_7512LocalPointerIKNS_6number4impl21UnitConversionHandlerEED2Ev.exit
 
 _ZN6icu_7512LocalPointerIKNS_6number4impl21UnitConversionHandlerEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerIKNS_20DecimalFormatSymbolsEED2Ev.exit, %delete.notnull.i38
@@ -2929,17 +2930,17 @@ delete.notnull.i42:                               ; preds = %_ZN6icu_7512LocalPo
   %vtable.i43 = load ptr, ptr %22, align 8
   %vfn.i44 = getelementptr inbounds i8, ptr %vtable.i43, i64 8
   %23 = load ptr, ptr %vfn.i44, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(192) %22) #10
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(192) %22) #11
   br label %_ZN6icu_7512LocalPointerIKNS_6number4impl17UsagePrefsHandlerEED2Ev.exit
 
 _ZN6icu_7512LocalPointerIKNS_6number4impl17UsagePrefsHandlerEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerIKNS_6number4impl21UnitConversionHandlerEED2Ev.exit, %delete.notnull.i42
   %fMicros = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN6icu_756number4impl10MicroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %fMicros) #10
+  tail call void @_ZN6icu_756number4impl10MicroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %fMicros) #11
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #6
+declare void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl10MicroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2960,37 +2961,37 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #12
+  tail call void @__clang_call_terminate(ptr %3) #13
   unreachable
 
 _ZN6icu_756number4impl11IntMeasuresD2Ev.exit:     ; preds = %entry, %if.then.i.i.i
   %outputUnit = getelementptr inbounds i8, ptr %this, i64 416
-  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %outputUnit) #10
+  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %outputUnit) #11
   %helpers = getelementptr inbounds i8, ptr %this, i64 216
   %mixedUnitModifier.i = getelementptr inbounds i8, ptr %this, i64 312
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 16), ptr %mixedUnitModifier.i, align 8
   %fCompiledPattern.i.i = getelementptr inbounds i8, ptr %this, i64 320
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern.i.i) #10
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mixedUnitModifier.i) #10
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern.i.i) #11
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mixedUnitModifier.i) #11
   %multiplier.i = getelementptr inbounds i8, ptr %this, i64 272
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl23MultiplierFormatHandlerE, i64 16), ptr %multiplier.i, align 8
   %fMultiplier.i.i = getelementptr inbounds i8, ptr %this, i64 280
-  tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier.i.i) #10
+  tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier.i.i) #11
   %emptyStrongModifier.i = getelementptr inbounds i8, ptr %this, i64 256
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %emptyStrongModifier.i) #10
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %emptyStrongModifier.i) #11
   %emptyWeakModifier.i = getelementptr inbounds i8, ptr %this, i64 240
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %emptyWeakModifier.i) #10
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %helpers) #10
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %emptyWeakModifier.i) #11
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %helpers) #11
   %currencyAsDecimal.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %currencyAsDecimal.i) #10
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %currencyAsDecimal.i) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl10MicroPropsD0Ev(ptr noundef nonnull align 8 dereferenceable(489) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_756number4impl10MicroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %this) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
+  tail call void @_ZN6icu_756number4impl10MicroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %this) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
 }
 
@@ -3014,13 +3015,13 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
+declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
+declare void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(489) ptr @_ZN6icu_756number4impl10MicroPropsaSERKS2_(ptr noundef nonnull align 8 dereferenceable(489) %this, ptr noundef nonnull align 8 dereferenceable(489) %other) local_unnamed_addr #1 comdat align 2 {
@@ -3087,7 +3088,7 @@ if.end.i.i:                                       ; preds = %if.end.i
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %conv.i4.i.i = zext nneg i32 %5 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i4.i.i, 3
-  %call.i.i.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i.i) #11
+  %call.i.i.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i.i) #12
   %cmp2.not.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp2.not.i.i.i, label %if.then3.i.i, label %if.then3.i.i.i
 
@@ -3122,42 +3123,43 @@ _ZN6icu_756number4impl11IntMeasuresaSERKS2_.exit: ; preds = %entry, %if.end.i, %
   ret ptr %this
 }
 
-declare noundef nonnull align 8 dereferenceable(19) ptr @_ZN6icu_7511MeasureUnitaSERKS0_(ptr noundef nonnull align 8 dereferenceable(19), ptr noundef nonnull align 8 dereferenceable(19)) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(19) ptr @_ZN6icu_7511MeasureUnitaSERKS0_(ptr noundef nonnull align 8 dereferenceable(19), ptr noundef nonnull align 8 dereferenceable(19)) local_unnamed_addr #6
 
-declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
-declare noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number5ScaleaSERKS1_(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #5
-
-; Function Attrs: nounwind
-declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #6
-
-declare void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(300), i8) unnamed_addr #5
-
-declare void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number5ScaleaSERKS1_(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #6
+declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #7
+
+declare void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(300), i8) unnamed_addr #6
+
+declare void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(300)) unnamed_addr #6
+declare void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #7
+
+; Function Attrs: nounwind
+declare void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(300)) unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { allocsize(0) }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { builtin nounwind }
+attributes #3 = { cold nofree noreturn }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { allocsize(0) }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

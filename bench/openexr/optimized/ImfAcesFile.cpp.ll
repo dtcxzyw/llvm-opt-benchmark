@@ -68,7 +68,7 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !4
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
@@ -89,7 +89,7 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
@@ -98,7 +98,7 @@ init.end:                                         ; preds = %invoke.cont, %init.
 lpad:                                             ; preds = %init
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   resume { ptr, i32 } %2
 }
 
@@ -133,7 +133,7 @@ delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -154,7 +154,7 @@ entry:
   %newHeader = alloca %"class.Imf_3_2::Header", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds i8, ptr %this, i64 8
-  %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
+  %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   store ptr null, ptr %call, align 8
   store ptr %call, ptr %_data, align 8
   %call2 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header11compressionEv(ptr noundef nonnull align 8 dereferenceable(49) %header)
@@ -166,12 +166,12 @@ entry:
   ]
 
 sw.default.i:                                     ; preds = %entry
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 72) #13
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 72) #14
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i, ptr noundef nonnull @.str)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %sw.default.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #16
   unreachable
 
 common.resume:                                    ; preds = %ehcleanup, %lpad.i
@@ -181,7 +181,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i
 lpad.i:                                           ; preds = %sw.default.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #13
+  tail call void @__cxa_free_exception(ptr %exception.i) #14
   br label %common.resume
 
 _ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %entry, %entry, %entry
@@ -195,7 +195,7 @@ _ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %e
   br i1 %guard.uninitialized.i, label %init.check.i, label %invoke.cont4, !prof !4
 
 init.check.i:                                     ; preds = %_ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit
-  %3 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  %3 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %invoke.cont4, label %init.i
 
@@ -216,13 +216,13 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i4 unwind label %lpad.i3
 
 invoke.cont.i4:                                   ; preds = %init.i
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %invoke.cont4
 
 lpad.i3:                                          ; preds = %init.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %ehcleanup
 
 invoke.cont4:                                     ; preds = %invoke.cont.i4, %init.check.i, %_ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit
@@ -243,7 +243,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   br i1 %guard.uninitialized.i9, label %init.check.i10, label %invoke.cont7, !prof !4
 
 init.check.i10:                                   ; preds = %invoke.cont6
-  %6 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  %6 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   %tobool.not.i11 = icmp eq i32 %6, 0
   br i1 %tobool.not.i11, label %invoke.cont7, label %init.i12
 
@@ -264,13 +264,13 @@ init.i12:                                         ; preds = %init.check.i10
           to label %invoke.cont.i18 unwind label %lpad.i17
 
 invoke.cont.i18:                                  ; preds = %init.i12
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %invoke.cont7
 
 lpad.i17:                                         ; preds = %init.i12
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %ehcleanup
 
 invoke.cont7:                                     ; preds = %invoke.cont.i18, %init.check.i10, %invoke.cont6
@@ -282,11 +282,11 @@ invoke.cont7:                                     ; preds = %invoke.cont.i18, %i
           to label %invoke.cont9 unwind label %lpad3
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %call11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
           to label %invoke.cont10 unwind label %lpad3
 
 invoke.cont10:                                    ; preds = %invoke.cont9
-  %call12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #13
+  %call12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #14
   invoke void @_ZN7Imf_3_214RgbaOutputFileC1EPKcRKNS_6HeaderENS_12RgbaChannelsEi(ptr noundef nonnull align 8 dereferenceable(24) %call11, ptr noundef %call12, ptr noundef nonnull align 8 dereferenceable(49) %newHeader, i32 noundef %rgbaChannels, i32 noundef %numThreads)
           to label %invoke.cont14 unwind label %lpad13
 
@@ -299,7 +299,7 @@ invoke.cont14:                                    ; preds = %invoke.cont10
           to label %invoke.cont18 unwind label %lpad3
 
 invoke.cont18:                                    ; preds = %invoke.cont14
-  call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %newHeader) #13
+  call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %newHeader) #14
   ret void
 
 lpad3:                                            ; preds = %invoke.cont14, %invoke.cont9, %invoke.cont7, %invoke.cont4
@@ -310,12 +310,12 @@ lpad3:                                            ; preds = %invoke.cont14, %inv
 lpad13:                                           ; preds = %invoke.cont10
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call11) #16
+  call void @_ZdlPv(ptr noundef nonnull %call11) #17
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad.i3, %lpad.i17, %lpad3, %lpad13
   %.pn = phi { ptr, i32 } [ %12, %lpad13 ], [ %4, %lpad.i3 ], [ %11, %lpad3 ], [ %7, %lpad.i17 ]
-  call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %newHeader) #13
+  call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %newHeader) #14
   br label %common.resume
 }
 
@@ -357,7 +357,7 @@ entry:
   %newHeader = alloca %"class.Imf_3_2::Header", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds i8, ptr %this, i64 8
-  %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
+  %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   store ptr null, ptr %call, align 8
   store ptr %call, ptr %_data, align 8
   %call2 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header11compressionEv(ptr noundef nonnull align 8 dereferenceable(49) %header)
@@ -369,12 +369,12 @@ entry:
   ]
 
 sw.default.i:                                     ; preds = %entry
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 72) #13
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 72) #14
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i, ptr noundef nonnull @.str)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %sw.default.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #16
   unreachable
 
 common.resume:                                    ; preds = %ehcleanup, %lpad.i
@@ -384,7 +384,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i
 lpad.i:                                           ; preds = %sw.default.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #13
+  tail call void @__cxa_free_exception(ptr %exception.i) #14
   br label %common.resume
 
 _ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %entry, %entry, %entry
@@ -398,7 +398,7 @@ _ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %e
   br i1 %guard.uninitialized.i, label %init.check.i, label %invoke.cont4, !prof !4
 
 init.check.i:                                     ; preds = %_ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit
-  %3 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  %3 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %invoke.cont4, label %init.i
 
@@ -419,13 +419,13 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i5 unwind label %lpad.i4
 
 invoke.cont.i5:                                   ; preds = %init.i
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %invoke.cont4
 
 lpad.i4:                                          ; preds = %init.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %ehcleanup
 
 invoke.cont4:                                     ; preds = %invoke.cont.i5, %init.check.i, %_ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit
@@ -446,7 +446,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   br i1 %guard.uninitialized.i10, label %init.check.i11, label %invoke.cont7, !prof !4
 
 init.check.i11:                                   ; preds = %invoke.cont6
-  %6 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  %6 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   %tobool.not.i12 = icmp eq i32 %6, 0
   br i1 %tobool.not.i12, label %invoke.cont7, label %init.i13
 
@@ -467,13 +467,13 @@ init.i13:                                         ; preds = %init.check.i11
           to label %invoke.cont.i19 unwind label %lpad.i18
 
 invoke.cont.i19:                                  ; preds = %init.i13
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %invoke.cont7
 
 lpad.i18:                                         ; preds = %init.i13
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %ehcleanup
 
 invoke.cont7:                                     ; preds = %invoke.cont.i19, %init.check.i11, %invoke.cont6
@@ -485,7 +485,7 @@ invoke.cont7:                                     ; preds = %invoke.cont.i19, %i
           to label %invoke.cont9 unwind label %lpad3
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %call11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
           to label %invoke.cont10 unwind label %lpad3
 
 invoke.cont10:                                    ; preds = %invoke.cont9
@@ -501,7 +501,7 @@ invoke.cont13:                                    ; preds = %invoke.cont10
           to label %invoke.cont17 unwind label %lpad3
 
 invoke.cont17:                                    ; preds = %invoke.cont13
-  call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %newHeader) #13
+  call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %newHeader) #14
   ret void
 
 lpad3:                                            ; preds = %invoke.cont13, %invoke.cont9, %invoke.cont7, %invoke.cont4
@@ -512,12 +512,12 @@ lpad3:                                            ; preds = %invoke.cont13, %inv
 lpad12:                                           ; preds = %invoke.cont10
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call11) #16
+  call void @_ZdlPv(ptr noundef nonnull %call11) #17
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad.i4, %lpad.i18, %lpad3, %lpad12
   %.pn = phi { ptr, i32 } [ %12, %lpad12 ], [ %4, %lpad.i4 ], [ %11, %lpad3 ], [ %7, %lpad.i18 ]
-  call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %newHeader) #13
+  call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %newHeader) #14
   br label %common.resume
 }
 
@@ -537,7 +537,7 @@ entry:
   %newHeader = alloca %"class.Imf_3_2::Header", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds i8, ptr %this, i64 8
-  %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
+  %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   store ptr null, ptr %call, align 8
   store ptr %call, ptr %_data, align 8
   switch i32 %compression, label %sw.default.i [
@@ -547,12 +547,12 @@ entry:
   ]
 
 sw.default.i:                                     ; preds = %entry
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 72) #13
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 72) #14
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i, ptr noundef nonnull @.str)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %sw.default.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #16
   unreachable
 
 common.resume:                                    ; preds = %ehcleanup, %lpad.i
@@ -562,7 +562,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i
 lpad.i:                                           ; preds = %sw.default.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #13
+  tail call void @__cxa_free_exception(ptr %exception.i) #14
   br label %common.resume
 
 _ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %entry, %entry, %entry
@@ -587,7 +587,7 @@ _ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %e
   br i1 %guard.uninitialized.i, label %init.check.i, label %invoke.cont4, !prof !4
 
 init.check.i:                                     ; preds = %_ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit
-  %6 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  %6 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   %tobool.not.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i, label %invoke.cont4, label %init.i
 
@@ -608,13 +608,13 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i6 unwind label %lpad.i5
 
 invoke.cont.i6:                                   ; preds = %init.i
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %invoke.cont4
 
 lpad.i5:                                          ; preds = %init.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %ehcleanup
 
 invoke.cont4:                                     ; preds = %invoke.cont.i6, %init.check.i, %_ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit
@@ -635,7 +635,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   br i1 %guard.uninitialized.i11, label %init.check.i12, label %invoke.cont7, !prof !4
 
 init.check.i12:                                   ; preds = %invoke.cont6
-  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   %tobool.not.i13 = icmp eq i32 %9, 0
   br i1 %tobool.not.i13, label %invoke.cont7, label %init.i14
 
@@ -656,13 +656,13 @@ init.i14:                                         ; preds = %init.check.i12
           to label %invoke.cont.i20 unwind label %lpad.i19
 
 invoke.cont.i20:                                  ; preds = %init.i14
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %invoke.cont7
 
 lpad.i19:                                         ; preds = %init.i14
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %ehcleanup
 
 invoke.cont7:                                     ; preds = %invoke.cont.i20, %init.check.i12, %invoke.cont6
@@ -674,11 +674,11 @@ invoke.cont7:                                     ; preds = %invoke.cont.i20, %i
           to label %invoke.cont9 unwind label %lpad3
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %call11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
           to label %invoke.cont10 unwind label %lpad3
 
 invoke.cont10:                                    ; preds = %invoke.cont9
-  %call12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #13
+  %call12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #14
   invoke void @_ZN7Imf_3_214RgbaOutputFileC1EPKcRKNS_6HeaderENS_12RgbaChannelsEi(ptr noundef nonnull align 8 dereferenceable(24) %call11, ptr noundef %call12, ptr noundef nonnull align 8 dereferenceable(49) %newHeader, i32 noundef %rgbaChannels, i32 noundef %numThreads)
           to label %invoke.cont14 unwind label %lpad13
 
@@ -691,7 +691,7 @@ invoke.cont14:                                    ; preds = %invoke.cont10
           to label %invoke.cont18 unwind label %lpad3
 
 invoke.cont18:                                    ; preds = %invoke.cont14
-  call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %newHeader) #13
+  call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %newHeader) #14
   ret void
 
 lpad3:                                            ; preds = %invoke.cont14, %invoke.cont9, %invoke.cont7, %invoke.cont4
@@ -702,12 +702,12 @@ lpad3:                                            ; preds = %invoke.cont14, %inv
 lpad13:                                           ; preds = %invoke.cont10
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call11) #16
+  call void @_ZdlPv(ptr noundef nonnull %call11) #17
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad.i5, %lpad.i19, %lpad3, %lpad13
   %.pn = phi { ptr, i32 } [ %15, %lpad13 ], [ %7, %lpad.i5 ], [ %14, %lpad3 ], [ %10, %lpad.i19 ]
-  call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %newHeader) #13
+  call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %newHeader) #14
   br label %common.resume
 }
 
@@ -727,7 +727,7 @@ entry:
   %newHeader = alloca %"class.Imf_3_2::Header", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds i8, ptr %this, i64 8
-  %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
+  %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   store ptr null, ptr %call, align 8
   store ptr %call, ptr %_data, align 8
   switch i32 %compression, label %sw.default.i [
@@ -737,12 +737,12 @@ entry:
   ]
 
 sw.default.i:                                     ; preds = %entry
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 72) #13
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 72) #14
   invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i, ptr noundef nonnull @.str)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %sw.default.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #16
   unreachable
 
 common.resume:                                    ; preds = %ehcleanup, %lpad.i
@@ -752,7 +752,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i
 lpad.i:                                           ; preds = %sw.default.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #13
+  tail call void @__cxa_free_exception(ptr %exception.i) #14
   br label %common.resume
 
 _ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %entry, %entry, %entry
@@ -766,7 +766,7 @@ _ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %e
   br i1 %guard.uninitialized.i, label %init.check.i, label %invoke.cont3, !prof !4
 
 init.check.i:                                     ; preds = %_ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit
-  %2 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  %2 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %invoke.cont3, label %init.i
 
@@ -787,13 +787,13 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i4 unwind label %lpad.i3
 
 invoke.cont.i4:                                   ; preds = %init.i
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %invoke.cont3
 
 lpad.i3:                                          ; preds = %init.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %ehcleanup
 
 invoke.cont3:                                     ; preds = %invoke.cont.i4, %init.check.i, %_ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit
@@ -814,7 +814,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   br i1 %guard.uninitialized.i9, label %init.check.i10, label %invoke.cont6, !prof !4
 
 init.check.i10:                                   ; preds = %invoke.cont5
-  %5 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  %5 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   %tobool.not.i11 = icmp eq i32 %5, 0
   br i1 %tobool.not.i11, label %invoke.cont6, label %init.i12
 
@@ -835,13 +835,13 @@ init.i12:                                         ; preds = %init.check.i10
           to label %invoke.cont.i18 unwind label %lpad.i17
 
 invoke.cont.i18:                                  ; preds = %init.i12
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %invoke.cont6
 
 lpad.i17:                                         ; preds = %init.i12
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %ehcleanup
 
 invoke.cont6:                                     ; preds = %invoke.cont.i18, %init.check.i10, %invoke.cont5
@@ -853,11 +853,11 @@ invoke.cont6:                                     ; preds = %invoke.cont.i18, %i
           to label %invoke.cont8 unwind label %lpad2
 
 invoke.cont8:                                     ; preds = %invoke.cont6
-  %call10 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call10 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
           to label %invoke.cont9 unwind label %lpad2
 
 invoke.cont9:                                     ; preds = %invoke.cont8
-  %call11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #13
+  %call11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #14
   invoke void @_ZN7Imf_3_214RgbaOutputFileC1EPKcRKNS_6HeaderENS_12RgbaChannelsEi(ptr noundef nonnull align 8 dereferenceable(24) %call10, ptr noundef %call11, ptr noundef nonnull align 8 dereferenceable(49) %newHeader, i32 noundef %rgbaChannels, i32 noundef %numThreads)
           to label %invoke.cont13 unwind label %lpad12
 
@@ -870,7 +870,7 @@ invoke.cont13:                                    ; preds = %invoke.cont9
           to label %invoke.cont17 unwind label %lpad2
 
 invoke.cont17:                                    ; preds = %invoke.cont13
-  call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %newHeader) #13
+  call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %newHeader) #14
   ret void
 
 lpad2:                                            ; preds = %invoke.cont13, %invoke.cont8, %invoke.cont6, %invoke.cont3
@@ -881,12 +881,12 @@ lpad2:                                            ; preds = %invoke.cont13, %inv
 lpad12:                                           ; preds = %invoke.cont9
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call10) #16
+  call void @_ZdlPv(ptr noundef nonnull %call10) #17
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad.i3, %lpad.i17, %lpad2, %lpad12
   %.pn = phi { ptr, i32 } [ %11, %lpad12 ], [ %3, %lpad.i3 ], [ %10, %lpad2 ], [ %6, %lpad.i17 ]
-  call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %newHeader) #13
+  call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %newHeader) #14
   br label %common.resume
 }
 
@@ -910,11 +910,11 @@ delete.notnull.i:                                 ; preds = %delete.notnull
   %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %2 = load ptr, ptr %vfn.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %1) #13
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %1) #14
   br label %_ZN7Imf_3_214AcesOutputFile4DataD2Ev.exit
 
 _ZN7Imf_3_214AcesOutputFile4DataD2Ev.exit:        ; preds = %delete.notnull, %delete.notnull.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN7Imf_3_214AcesOutputFile4DataD2Ev.exit, %entry
@@ -924,8 +924,8 @@ delete.end:                                       ; preds = %_ZN7Imf_3_214AcesOu
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_214AcesOutputFileD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
 entry:
-  tail call void @_ZN7Imf_3_214AcesOutputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZN7Imf_3_214AcesOutputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
 }
 
@@ -1117,7 +1117,7 @@ delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %0) #13
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -1227,7 +1227,7 @@ if.end14:                                         ; preds = %if.then9, %if.end
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN7Imf_3_218acesChromaticitiesEv.exit, !prof !4
 
 init.check.i:                                     ; preds = %if.end14
-  %14 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  %14 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   %tobool.not.i = icmp eq i32 %14, 0
   br i1 %tobool.not.i, label %_ZN7Imf_3_218acesChromaticitiesEv.exit, label %init.i
 
@@ -1248,13 +1248,13 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   br label %_ZN7Imf_3_218acesChromaticitiesEv.exit
 
 lpad.i:                                           ; preds = %init.i
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #13
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7Imf_3_218acesChromaticitiesEvE7acesChr) #14
   resume { ptr, i32 } %15
 
 _ZN7Imf_3_218acesChromaticitiesEv.exit:           ; preds = %if.end14, %init.check.i, %invoke.cont.i
@@ -1713,7 +1713,7 @@ define void @_ZN7Imf_3_213AcesInputFileC2ERKNSt7__cxx1112basic_stringIcSt11char_
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213AcesInputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds i8, ptr %this, i64 8
-  %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #14
+  %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #15
   %fileToAces.i = getelementptr inbounds i8, ptr %call, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %call, i8 0, i64 41, i1 false)
   store float 1.000000e+00, ptr %fileToAces.i, align 4
@@ -1730,8 +1730,8 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx35.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx47.i.i, align 4
   store ptr %call, ptr %_data, align 8
-  %call2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14
-  %call3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #13
+  %call2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
+  %call3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #14
   invoke void @_ZN7Imf_3_213RgbaInputFileC1EPKci(ptr noundef nonnull align 8 dereferenceable(64) %call2, ptr noundef %call3, i32 noundef %numThreads)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -1745,7 +1745,7 @@ invoke.cont5:                                     ; preds = %entry
 lpad4:                                            ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %call2) #17
   resume { ptr, i32 } %2
 }
 
@@ -1756,7 +1756,7 @@ define void @_ZN7Imf_3_213AcesInputFileC2ERNS_7IStreamEi(ptr nocapture noundef n
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213AcesInputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds i8, ptr %this, i64 8
-  %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #14
+  %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #15
   %fileToAces.i = getelementptr inbounds i8, ptr %call, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %call, i8 0, i64 41, i1 false)
   store float 1.000000e+00, ptr %fileToAces.i, align 4
@@ -1773,7 +1773,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx35.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx47.i.i, align 4
   store ptr %call, ptr %_data, align 8
-  %call2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14
+  %call2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   invoke void @_ZN7Imf_3_213RgbaInputFileC1ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(64) %call2, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 noundef %numThreads)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -1787,7 +1787,7 @@ invoke.cont4:                                     ; preds = %entry
 lpad3:                                            ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %call2) #17
   resume { ptr, i32 } %2
 }
 
@@ -1811,11 +1811,11 @@ delete.notnull.i:                                 ; preds = %delete.notnull
   %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %2 = load ptr, ptr %vfn.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(64) %1) #13
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(64) %1) #14
   br label %_ZN7Imf_3_213AcesInputFile4DataD2Ev.exit
 
 _ZN7Imf_3_213AcesInputFile4DataD2Ev.exit:         ; preds = %delete.notnull, %delete.notnull.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN7Imf_3_213AcesInputFile4DataD2Ev.exit, %entry
@@ -1825,8 +1825,8 @@ delete.end:                                       ; preds = %_ZN7Imf_3_213AcesIn
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_213AcesInputFileD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
 entry:
-  tail call void @_ZN7Imf_3_213AcesInputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZN7Imf_3_213AcesInputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
 }
 
@@ -2393,33 +2393,34 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: nounwind
 declare void @_ZN7Iex_3_26ArgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #8
+declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_ImfAcesFile.cpp() #9 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_ImfAcesFile.cpp() #10 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #10
+declare float @llvm.fabs.f32(float) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #10
+declare i32 @llvm.smin.i32(i32, i32) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2429,15 +2430,16 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nounwind }
-attributes #14 = { builtin allocsize(0) }
-attributes #15 = { noreturn }
-attributes #16 = { builtin nounwind }
+attributes #8 = { cold noreturn }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nounwind }
+attributes #15 = { builtin allocsize(0) }
+attributes #16 = { noreturn }
+attributes #17 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

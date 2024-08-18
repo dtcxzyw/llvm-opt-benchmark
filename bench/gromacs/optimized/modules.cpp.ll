@@ -126,7 +126,7 @@ define void @_ZN3gmx33registerTrajectoryAnalysisModulesEPNS_24CommandLineModuleM
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #4
+  call void @__clang_call_terminate(ptr %42) #5
   unreachable
 
 43:                                               ; preds = %1
@@ -144,7 +144,7 @@ define void @_ZN3gmx33registerTrajectoryAnalysisModulesEPNS_24CommandLineModuleM
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #4
+  call void @__clang_call_terminate(ptr %50) #5
   unreachable
 
 common.resume:                                    ; preds = %295, %298, %277, %280, %259, %262, %241, %244, %223, %226, %205, %208, %187, %190, %169, %172, %151, %154, %133, %136, %115, %118, %97, %100, %79, %82, %61, %64, %43, %46
@@ -181,7 +181,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9AngleInfoEEEvPNS_24Co
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #4
+  call void @__clang_call_terminate(ptr %60) #5
   unreachable
 
 61:                                               ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9AngleInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -199,7 +199,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9AngleInfoEEEvPNS_24Co
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #4
+  call void @__clang_call_terminate(ptr %68) #5
   unreachable
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ConvertTrjInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %54, %56
@@ -232,7 +232,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ConvertTrjInfoEEEvPN
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #4
+  call void @__clang_call_terminate(ptr %78) #5
   unreachable
 
 79:                                               ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ConvertTrjInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -250,7 +250,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ConvertTrjInfoEEEvPN
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #4
+  call void @__clang_call_terminate(ptr %86) #5
   unreachable
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules12DistanceInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %72, %74
@@ -283,7 +283,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules12DistanceInfoEEEvPNS_
   %95 = landingpad { ptr, i32 }
           catch ptr null
   %96 = extractvalue { ptr, i32 } %95, 0
-  call void @__clang_call_terminate(ptr %96) #4
+  call void @__clang_call_terminate(ptr %96) #5
   unreachable
 
 97:                                               ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules12DistanceInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -301,7 +301,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules12DistanceInfoEEEvPNS_
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #4
+  call void @__clang_call_terminate(ptr %104) #5
   unreachable
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8DsspInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %90, %92
@@ -334,7 +334,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8DsspInfoEEEvPNS_24Com
   %113 = landingpad { ptr, i32 }
           catch ptr null
   %114 = extractvalue { ptr, i32 } %113, 0
-  call void @__clang_call_terminate(ptr %114) #4
+  call void @__clang_call_terminate(ptr %114) #5
   unreachable
 
 115:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8DsspInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -352,7 +352,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8DsspInfoEEEvPNS_24Com
   %121 = landingpad { ptr, i32 }
           catch ptr null
   %122 = extractvalue { ptr, i32 } %121, 0
-  call void @__clang_call_terminate(ptr %122) #4
+  call void @__clang_call_terminate(ptr %122) #5
   unreachable
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules18ExtractClusterInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %108, %110
@@ -385,7 +385,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules18ExtractClusterInfoEE
   %131 = landingpad { ptr, i32 }
           catch ptr null
   %132 = extractvalue { ptr, i32 } %131, 0
-  call void @__clang_call_terminate(ptr %132) #4
+  call void @__clang_call_terminate(ptr %132) #5
   unreachable
 
 133:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules18ExtractClusterInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -403,7 +403,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules18ExtractClusterInfoEE
   %139 = landingpad { ptr, i32 }
           catch ptr null
   %140 = extractvalue { ptr, i32 } %139, 0
-  call void @__clang_call_terminate(ptr %140) #4
+  call void @__clang_call_terminate(ptr %140) #5
   unreachable
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14FreeVolumeInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %126, %128
@@ -436,7 +436,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14FreeVolumeInfoEEEvPN
   %149 = landingpad { ptr, i32 }
           catch ptr null
   %150 = extractvalue { ptr, i32 } %149, 0
-  call void @__clang_call_terminate(ptr %150) #4
+  call void @__clang_call_terminate(ptr %150) #5
   unreachable
 
 151:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14FreeVolumeInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -454,7 +454,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14FreeVolumeInfoEEEvPN
   %157 = landingpad { ptr, i32 }
           catch ptr null
   %158 = extractvalue { ptr, i32 } %157, 0
-  call void @__clang_call_terminate(ptr %158) #4
+  call void @__clang_call_terminate(ptr %158) #5
   unreachable
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9HbondInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %144, %146
@@ -487,7 +487,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9HbondInfoEEEvPNS_24Co
   %167 = landingpad { ptr, i32 }
           catch ptr null
   %168 = extractvalue { ptr, i32 } %167, 0
-  call void @__clang_call_terminate(ptr %168) #4
+  call void @__clang_call_terminate(ptr %168) #5
   unreachable
 
 169:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9HbondInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -505,7 +505,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9HbondInfoEEEvPNS_24Co
   %175 = landingpad { ptr, i32 }
           catch ptr null
   %176 = extractvalue { ptr, i32 } %175, 0
-  call void @__clang_call_terminate(ptr %176) #4
+  call void @__clang_call_terminate(ptr %176) #5
   unreachable
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7MsdInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %162, %164
@@ -538,7 +538,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7MsdInfoEEEvPNS_24Comm
   %185 = landingpad { ptr, i32 }
           catch ptr null
   %186 = extractvalue { ptr, i32 } %185, 0
-  call void @__clang_call_terminate(ptr %186) #4
+  call void @__clang_call_terminate(ptr %186) #5
   unreachable
 
 187:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7MsdInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -556,7 +556,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7MsdInfoEEEvPNS_24Comm
   %193 = landingpad { ptr, i32 }
           catch ptr null
   %194 = extractvalue { ptr, i32 } %193, 0
-  call void @__clang_call_terminate(ptr %194) #4
+  call void @__clang_call_terminate(ptr %194) #5
   unreachable
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules16PairDistanceInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %180, %182
@@ -589,7 +589,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules16PairDistanceInfoEEEv
   %203 = landingpad { ptr, i32 }
           catch ptr null
   %204 = extractvalue { ptr, i32 } %203, 0
-  call void @__clang_call_terminate(ptr %204) #4
+  call void @__clang_call_terminate(ptr %204) #5
   unreachable
 
 205:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules16PairDistanceInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -607,7 +607,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules16PairDistanceInfoEEEv
   %211 = landingpad { ptr, i32 }
           catch ptr null
   %212 = extractvalue { ptr, i32 } %211, 0
-  call void @__clang_call_terminate(ptr %212) #4
+  call void @__clang_call_terminate(ptr %212) #5
   unreachable
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7RdfInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %198, %200
@@ -640,7 +640,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7RdfInfoEEEvPNS_24Comm
   %221 = landingpad { ptr, i32 }
           catch ptr null
   %222 = extractvalue { ptr, i32 } %221, 0
-  call void @__clang_call_terminate(ptr %222) #4
+  call void @__clang_call_terminate(ptr %222) #5
   unreachable
 
 223:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7RdfInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -658,7 +658,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7RdfInfoEEEvPNS_24Comm
   %229 = landingpad { ptr, i32 }
           catch ptr null
   %230 = extractvalue { ptr, i32 } %229, 0
-  call void @__clang_call_terminate(ptr %230) #4
+  call void @__clang_call_terminate(ptr %230) #5
   unreachable
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8SasaInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %216, %218
@@ -691,7 +691,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8SasaInfoEEEvPNS_24Com
   %239 = landingpad { ptr, i32 }
           catch ptr null
   %240 = extractvalue { ptr, i32 } %239, 0
-  call void @__clang_call_terminate(ptr %240) #4
+  call void @__clang_call_terminate(ptr %240) #5
   unreachable
 
 241:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8SasaInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -709,7 +709,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8SasaInfoEEEvPNS_24Com
   %247 = landingpad { ptr, i32 }
           catch ptr null
   %248 = extractvalue { ptr, i32 } %247, 0
-  call void @__clang_call_terminate(ptr %248) #4
+  call void @__clang_call_terminate(ptr %248) #5
   unreachable
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ScatteringInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %234, %236
@@ -742,7 +742,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ScatteringInfoEEEvPN
   %257 = landingpad { ptr, i32 }
           catch ptr null
   %258 = extractvalue { ptr, i32 } %257, 0
-  call void @__clang_call_terminate(ptr %258) #4
+  call void @__clang_call_terminate(ptr %258) #5
   unreachable
 
 259:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ScatteringInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -760,7 +760,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ScatteringInfoEEEvPN
   %265 = landingpad { ptr, i32 }
           catch ptr null
   %266 = extractvalue { ptr, i32 } %265, 0
-  call void @__clang_call_terminate(ptr %266) #4
+  call void @__clang_call_terminate(ptr %266) #5
   unreachable
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules10SelectInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %252, %254
@@ -793,7 +793,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules10SelectInfoEEEvPNS_24
   %275 = landingpad { ptr, i32 }
           catch ptr null
   %276 = extractvalue { ptr, i32 } %275, 0
-  call void @__clang_call_terminate(ptr %276) #4
+  call void @__clang_call_terminate(ptr %276) #5
   unreachable
 
 277:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules10SelectInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -811,7 +811,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules10SelectInfoEEEvPNS_24
   %283 = landingpad { ptr, i32 }
           catch ptr null
   %284 = extractvalue { ptr, i32 } %283, 0
-  call void @__clang_call_terminate(ptr %284) #4
+  call void @__clang_call_terminate(ptr %284) #5
   unreachable
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14TrajectoryInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %270, %272
@@ -844,7 +844,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14TrajectoryInfoEEEvPN
   %293 = landingpad { ptr, i32 }
           catch ptr null
   %294 = extractvalue { ptr, i32 } %293, 0
-  call void @__clang_call_terminate(ptr %294) #4
+  call void @__clang_call_terminate(ptr %294) #5
   unreachable
 
 295:                                              ; preds = %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14TrajectoryInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit
@@ -862,7 +862,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14TrajectoryInfoEEEvPN
   %301 = landingpad { ptr, i32 }
           catch ptr null
   %302 = extractvalue { ptr, i32 } %301, 0
-  call void @__clang_call_terminate(ptr %302) #4
+  call void @__clang_call_terminate(ptr %302) #5
   unreachable
 
 _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules10GyrateInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit: ; preds = %288, %290
@@ -915,14 +915,15 @@ _ZNSt14_Function_base13_Base_managerIPFSt10unique_ptrIN3gmx24TrajectoryAnalysisM
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #5
-  tail call void @_ZSt9terminatev() #4
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #6
+  tail call void @_ZSt9terminatev() #5
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 declare void @_ZN3gmx15analysismodules14ConvertTrjInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #1
 
@@ -953,17 +954,18 @@ declare void @_ZN3gmx15analysismodules14TrajectoryInfo6createEv(ptr dead_on_unwi
 declare void @_ZN3gmx15analysismodules10GyrateInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { noreturn nounwind }
-attributes #5 = { nounwind }
+attributes #3 = { cold nofree noreturn }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { noreturn nounwind }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

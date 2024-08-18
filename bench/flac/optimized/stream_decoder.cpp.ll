@@ -54,7 +54,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %if.th
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #9
+  tail call void @__clang_call_terminate(ptr %3) #10
   unreachable
 }
 
@@ -64,29 +64,30 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #9
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
+  tail call void @_ZSt9terminatev() #10
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 declare void @FLAC__stream_decoder_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn nounwind sspstrong memory(inaccessiblemem: write) uwtable
-define void @_ZN4FLAC7Decoder6StreamD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define void @_ZN4FLAC7Decoder6StreamD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
 entry:
-  tail call void @llvm.trap() #9
+  tail call void @llvm.trap() #10
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #5
+declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4FLAC7Decoder6Stream8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK4FLAC7Decoder6Stream8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 {
 entry:
   %decoder_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %decoder_, align 8
@@ -490,31 +491,31 @@ entry:
 declare i32 @FLAC__stream_decoder_seek_absolute(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define noundef i32 @_ZN4FLAC7Decoder6Stream13seek_callbackEm(ptr nocapture nonnull readnone align 8 %this, i64 %absolute_byte_offset) unnamed_addr #7 align 2 {
+define noundef i32 @_ZN4FLAC7Decoder6Stream13seek_callbackEm(ptr nocapture nonnull readnone align 8 %this, i64 %absolute_byte_offset) unnamed_addr #8 align 2 {
 entry:
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define noundef i32 @_ZN4FLAC7Decoder6Stream13tell_callbackEPm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %absolute_byte_offset) unnamed_addr #7 align 2 {
+define noundef i32 @_ZN4FLAC7Decoder6Stream13tell_callbackEPm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %absolute_byte_offset) unnamed_addr #8 align 2 {
 entry:
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define noundef i32 @_ZN4FLAC7Decoder6Stream15length_callbackEPm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %stream_length) unnamed_addr #7 align 2 {
+define noundef i32 @_ZN4FLAC7Decoder6Stream15length_callbackEPm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %stream_length) unnamed_addr #8 align 2 {
 entry:
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN4FLAC7Decoder6Stream12eof_callbackEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Decoder6Stream12eof_callbackEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define void @_ZN4FLAC7Decoder6Stream17metadata_callbackEPK20FLAC__StreamMetadata(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %metadata) unnamed_addr #7 align 2 {
+define void @_ZN4FLAC7Decoder6Stream17metadata_callbackEPK20FLAC__StreamMetadata(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %metadata) unnamed_addr #8 align 2 {
 entry:
   ret void
 }
@@ -552,7 +553,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont.i, %if.
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #9
+  tail call void @__clang_call_terminate(ptr %3) #10
   unreachable
 
 _ZN4FLAC7Decoder6StreamD2Ev.exit:                 ; preds = %entry, %invoke.cont.i
@@ -560,9 +561,9 @@ _ZN4FLAC7Decoder6StreamD2Ev.exit:                 ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress noreturn nounwind sspstrong memory(inaccessiblemem: write) uwtable
-define void @_ZN4FLAC7Decoder4FileD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define void @_ZN4FLAC7Decoder4FileD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
 entry:
-  tail call void @llvm.trap() #9
+  tail call void @llvm.trap() #10
   unreachable
 }
 
@@ -591,7 +592,7 @@ declare i32 @FLAC__stream_decoder_init_file(ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef i32 @_ZN4FLAC7Decoder4File4initERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #10
+  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #11
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 304
   %0 = load ptr, ptr %vfn, align 8
@@ -600,7 +601,7 @@ entry:
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef i32 @_ZN4FLAC7Decoder4File8init_oggEP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %file) unnamed_addr #0 align 2 {
@@ -627,7 +628,7 @@ declare i32 @FLAC__stream_decoder_init_ogg_file(ptr noundef, ptr noundef, ptr no
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef i32 @_ZN4FLAC7Decoder4File8init_oggERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #10
+  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #11
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 328
   %0 = load ptr, ptr %vfn, align 8
@@ -636,7 +637,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define noundef i32 @_ZN4FLAC7Decoder4File13read_callbackEPhPm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %buffer, ptr nocapture readnone %bytes) unnamed_addr #7 align 2 {
+define noundef i32 @_ZN4FLAC7Decoder4File13read_callbackEPhPm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %buffer, ptr nocapture readnone %bytes) unnamed_addr #8 align 2 {
 entry:
   ret i32 2
 }
@@ -647,13 +648,14 @@ attributes #0 = { mustprogress sspstrong uwtable "frame-pointer"="all" "min-lega
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress noreturn nounwind sspstrong memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { mustprogress noreturn nounwind sspstrong memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

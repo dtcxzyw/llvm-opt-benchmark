@@ -350,14 +350,14 @@ if.end.i.i144:                                    ; preds = %invoke.cont47
   br i1 %cmp14.i.i154, label %land.lhs.true.i.i155, label %invoke.cont55
 
 land.lhs.true.i.i155:                             ; preds = %if.end.i.i144
-  %call15.i.i156 = tail call ptr @__errno_location() #24
+  %call15.i.i156 = tail call ptr @__errno_location() #26
   %17 = load i32, ptr %call15.i.i156, align 4
   %cmp16.i.i157 = icmp eq i32 %17, 12
   br i1 %cmp16.i.i157, label %if.then17.i.i158, label %invoke.cont55
 
 if.then17.i.i158:                                 ; preds = %land.lhs.true.i.i155
-  %exception.i.i159 = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  invoke void @__cxa_throw(ptr %exception.i.i159, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i159 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  invoke void @__cxa_throw(ptr %exception.i.i159, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
           to label %.noexc160 unwind label %lpad54
 
 .noexc160:                                        ; preds = %if.then17.i.i158
@@ -420,7 +420,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %add11.i.i = add nsw i32 %add.i.i.i, %21
   store i32 %add11.i.i, ptr %cap.i, align 4
   %conv.i.i = sext i32 %add11.i.i to i64
-  %call12.i.i = call ptr @realloc(ptr noundef %25, i64 noundef %conv.i.i) #27
+  %call12.i.i = call ptr @realloc(ptr noundef %25, i64 noundef %conv.i.i) #29
   store ptr %call12.i.i, ptr %frozen, align 8
   %cmp14.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp14.i.i, label %if.then17.i.i.invoke.sink.split, label %lor.lhs.false.i.i.invoke.cont69_crit_edge
@@ -430,15 +430,15 @@ lor.lhs.false.i.i.invoke.cont69_crit_edge:        ; preds = %lor.lhs.false.i.i
   br label %invoke.cont69
 
 if.then17.i.i.invoke.sink.split:                  ; preds = %lor.lhs.false.i.i, %lor.lhs.false.i.i101, %lor.lhs.false.i.i73, %lor.lhs.false.i.i49, %lor.lhs.false.i.i24
-  %call15.i.i = tail call ptr @__errno_location() #24
+  %call15.i.i = tail call ptr @__errno_location() #26
   %26 = load i32, ptr %call15.i.i, align 4
   %cmp16.i.i = icmp eq i32 %26, 12
   call void @llvm.assume(i1 %cmp16.i.i)
   br label %if.then17.i.i.invoke
 
 if.then17.i.i.invoke:                             ; preds = %if.end.i.i, %if.end.i.i96, %if.end.i.i68, %if.end.i.i44, %if.end.i.i19, %if.then17.i.i.invoke.sink.split
-  %exception.i.i110 = call ptr @__cxa_allocate_exception(i64 1) #25
-  invoke void @__cxa_throw(ptr %exception.i.i110, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i110 = call ptr @__cxa_allocate_exception(i64 1) #27
+  invoke void @__cxa_throw(ptr %exception.i.i110, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
           to label %if.then17.i.i.cont unwind label %lpad58.loopexit.split-lp
 
 if.then17.i.i.cont:                               ; preds = %if.then17.i.i.invoke
@@ -475,7 +475,7 @@ lor.lhs.false.i.i24:                              ; preds = %if.end.i.i19
   %add11.i.i25 = add nsw i32 %add.i.i.i21, %29
   store i32 %add11.i.i25, ptr %cap.i12, align 4
   %conv.i.i26 = sext i32 %add11.i.i25 to i64
-  %call12.i.i27 = call ptr @realloc(ptr noundef %33, i64 noundef %conv.i.i26) #27
+  %call12.i.i27 = call ptr @realloc(ptr noundef %33, i64 noundef %conv.i.i26) #29
   store ptr %call12.i.i27, ptr %eliminated, align 8
   %cmp14.i.i28 = icmp eq ptr %call12.i.i27, null
   br i1 %cmp14.i.i28, label %if.then17.i.i.invoke.sink.split, label %lor.lhs.false.i.i24.invoke.cont72_crit_edge
@@ -525,7 +525,7 @@ lor.lhs.false.i.i49:                              ; preds = %if.end.i.i44
   store i32 %add11.i.i50, ptr %cap.i37, align 4
   %conv.i.i51 = sext i32 %add11.i.i50 to i64
   %mul.i.i = shl nsw i64 %conv.i.i51, 2
-  %call12.i.i52 = call ptr @realloc(ptr noundef %41, i64 noundef %mul.i.i) #27
+  %call12.i.i52 = call ptr @realloc(ptr noundef %41, i64 noundef %mul.i.i) #29
   store ptr %call12.i.i52, ptr %n_occ, align 8
   %cmp14.i.i53 = icmp eq ptr %call12.i.i52, null
   br i1 %cmp14.i.i53, label %if.then17.i.i.invoke.sink.split, label %lor.lhs.false.i.i49.invoke.cont77_crit_edge
@@ -566,7 +566,7 @@ lor.lhs.false.i.i73:                              ; preds = %if.end.i.i68
   store i32 %add11.i.i74, ptr %cap.i37, align 4
   %conv.i.i75 = sext i32 %add11.i.i74 to i64
   %mul.i.i76 = shl nsw i64 %conv.i.i75, 2
-  %call12.i.i77 = call ptr @realloc(ptr noundef %48, i64 noundef %mul.i.i76) #27
+  %call12.i.i77 = call ptr @realloc(ptr noundef %48, i64 noundef %mul.i.i76) #29
   store ptr %call12.i.i77, ptr %n_occ, align 8
   %cmp14.i.i78 = icmp eq ptr %call12.i.i77, null
   br i1 %cmp14.i.i78, label %if.then17.i.i.invoke.sink.split, label %lor.lhs.false.i.i73.invoke.cont80_crit_edge
@@ -618,7 +618,7 @@ lor.lhs.false.i.i101:                             ; preds = %if.end.i.i96
   %add11.i.i102 = add nsw i32 %add.i.i.i98, %51
   store i32 %add11.i.i102, ptr %cap.i89, align 4
   %conv.i.i103 = sext i32 %add11.i.i102 to i64
-  %call12.i.i104 = call ptr @realloc(ptr noundef %55, i64 noundef %conv.i.i103) #27
+  %call12.i.i104 = call ptr @realloc(ptr noundef %55, i64 noundef %conv.i.i103) #29
   store ptr %call12.i.i104, ptr %touched, align 8
   %cmp14.i.i105 = icmp eq ptr %call12.i.i104, null
   br i1 %cmp14.i.i105, label %if.then17.i.i.invoke.sink.split, label %lor.lhs.false.i.i101.invoke.cont85_crit_edge
@@ -671,7 +671,7 @@ lpad58:                                           ; preds = %lpad58.loopexit.spl
 
 for.cond.preheader.i.i:                           ; preds = %lpad58
   store i32 0, ptr %sz.i140, align 8
-  call void @free(ptr noundef nonnull %61) #25
+  call void @free(ptr noundef nonnull %61) #27
   store ptr null, ptr %dummy, align 8
   %cap.i.i = getelementptr inbounds i8, ptr %dummy, i64 12
   store i32 0, ptr %cap.i.i, align 4
@@ -690,7 +690,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
 
 for.cond.preheader.i.i114:                        ; preds = %for.end
   store i32 0, ptr %sz.i140, align 8
-  call void @free(ptr noundef nonnull %63) #25
+  call void @free(ptr noundef nonnull %63) #27
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit117
 
 _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit117: ; preds = %for.end, %for.cond.preheader.i.i114
@@ -705,7 +705,7 @@ ehcleanup:                                        ; preds = %for.cond.preheader.
 for.cond.preheader.i.i119:                        ; preds = %ehcleanup
   %sz.le.i.i120 = getelementptr inbounds i8, ptr %this, i64 1088
   store i32 0, ptr %sz.le.i.i120, align 8
-  call void @free(ptr noundef nonnull %64) #25
+  call void @free(ptr noundef nonnull %64) #27
   store ptr null, ptr %eliminated, align 8
   %cap.i.i121 = getelementptr inbounds i8, ptr %this, i64 1092
   store i32 0, ptr %cap.i.i121, align 4
@@ -719,7 +719,7 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit:        ; preds = %ehcleanup, %for.con
 for.cond.preheader.i.i123:                        ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit
   %sz.le.i.i124 = getelementptr inbounds i8, ptr %this, i64 1072
   store i32 0, ptr %sz.le.i.i124, align 8
-  call void @free(ptr noundef nonnull %65) #25
+  call void @free(ptr noundef nonnull %65) #27
   store ptr null, ptr %frozen, align 8
   %cap.i.i125 = getelementptr inbounds i8, ptr %this, i64 1076
   store i32 0, ptr %cap.i.i125, align 4
@@ -733,7 +733,7 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit126:     ; preds = %_ZN4cvc58internal7M
 for.cond.preheader.i.i.i:                         ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit126
   %sz.le.i.i.i = getelementptr inbounds i8, ptr %this, i64 1048
   store i32 0, ptr %sz.le.i.i.i, align 8
-  call void @free(ptr noundef nonnull %66) #25
+  call void @free(ptr noundef nonnull %66) #27
   store ptr null, ptr %subsumption_queue, align 8
   %cap.i.i.i = getelementptr inbounds i8, ptr %this, i64 1052
   store i32 0, ptr %cap.i.i.i, align 4
@@ -741,7 +741,7 @@ for.cond.preheader.i.i.i:                         ; preds = %_ZN4cvc58internal7M
 
 ehcleanup90:                                      ; preds = %for.cond.preheader.i.i.i, %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit126, %lpad48
   %.pn.pn = phi { ptr, i32 } [ %59, %lpad48 ], [ %.pn, %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit126 ], [ %.pn, %for.cond.preheader.i.i.i ]
-  call void @_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %elim_heap) #25
+  call void @_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %elim_heap) #27
   %67 = load ptr, ptr %n_occ, align 8
   %cmp.not.i.i127 = icmp eq ptr %67, null
   br i1 %cmp.not.i.i127, label %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit, label %for.cond.preheader.i.i128
@@ -749,14 +749,14 @@ ehcleanup90:                                      ; preds = %for.cond.preheader.
 for.cond.preheader.i.i128:                        ; preds = %ehcleanup90
   %sz.le.i.i129 = getelementptr inbounds i8, ptr %this, i64 992
   store i32 0, ptr %sz.le.i.i129, align 8
-  call void @free(ptr noundef nonnull %67) #25
+  call void @free(ptr noundef nonnull %67) #27
   store ptr null, ptr %n_occ, align 8
   %cap.i.i130 = getelementptr inbounds i8, ptr %this, i64 996
   store i32 0, ptr %cap.i.i130, align 4
   br label %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit
 
 _ZN4cvc58internal7Minisat3vecIiED2Ev.exit:        ; preds = %ehcleanup90, %for.cond.preheader.i.i128
-  call void @_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %occurs) #25
+  call void @_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %occurs) #27
   %68 = load ptr, ptr %touched, align 8
   %cmp.not.i.i131 = icmp eq ptr %68, null
   br i1 %cmp.not.i.i131, label %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit135, label %for.cond.preheader.i.i132
@@ -764,7 +764,7 @@ _ZN4cvc58internal7Minisat3vecIiED2Ev.exit:        ; preds = %ehcleanup90, %for.c
 for.cond.preheader.i.i132:                        ; preds = %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit
   %sz.le.i.i133 = getelementptr inbounds i8, ptr %this, i64 920
   store i32 0, ptr %sz.le.i.i133, align 8
-  call void @free(ptr noundef nonnull %68) #25
+  call void @free(ptr noundef nonnull %68) #27
   store ptr null, ptr %touched, align 8
   %cap.i.i134 = getelementptr inbounds i8, ptr %this, i64 924
   store i32 0, ptr %cap.i.i134, align 4
@@ -778,7 +778,7 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit135:     ; preds = %_ZN4cvc58internal7M
 for.cond.preheader.i.i137:                        ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit135
   %sz.le.i.i138 = getelementptr inbounds i8, ptr %this, i64 904
   store i32 0, ptr %sz.le.i.i138, align 8
-  call void @free(ptr noundef nonnull %69) #25
+  call void @free(ptr noundef nonnull %69) #27
   store ptr null, ptr %elimclauses, align 8
   %cap.i.i139 = getelementptr inbounds i8, ptr %this, i64 908
   store i32 0, ptr %cap.i.i139, align 4
@@ -786,7 +786,7 @@ for.cond.preheader.i.i137:                        ; preds = %_ZN4cvc58internal7M
 
 ehcleanup95:                                      ; preds = %for.cond.preheader.i.i137, %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit135, %lpad
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %58, %lpad ], [ %.pn.pn, %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit135 ], [ %.pn.pn, %for.cond.preheader.i.i137 ]
-  call void @_ZN4cvc58internal7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(850) %this) #25
+  call void @_ZN4cvc58internal7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(850) %this) #27
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
 
@@ -821,8 +821,8 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZN4cvc58internal7Minisat15RegionAllocatorIjE5allocEi.exit
 
 if.then.i:                                        ; preds = %entry
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat15RegionAllocatorIjE5allocEi.exit: ; preds = %entry
@@ -952,7 +952,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   store i32 %add11.i.i, ptr %cap.i, align 4
   %conv.i.i = sext i32 %add11.i.i to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 2
-  %call12.i.i = call ptr @realloc(ptr noundef %5, i64 noundef %mul.i.i) #27
+  %call12.i.i = call ptr @realloc(ptr noundef %5, i64 noundef %mul.i.i) #29
   store ptr %call12.i.i, ptr %heap, align 8
   %cmp14.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp14.i.i, label %land.lhs.true.i.i, label %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge
@@ -962,15 +962,15 @@ lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge: ; pr
   br label %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
-  %call15.i.i = tail call ptr @__errno_location() #24
+  %call15.i.i = tail call ptr @__errno_location() #26
   %6 = load i32, ptr %call15.i.i, align 4
   %cmp16.i.i = icmp eq i32 %6, 12
   call void @llvm.assume(i1 %cmp16.i.i)
   br label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %land.lhs.true.i.i, %if.end.i.i
-  %exception.i.i = call ptr @__cxa_allocate_exception(i64 1) #25
-  call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i = call ptr @__cxa_allocate_exception(i64 1) #27
+  call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit:   ; preds = %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge, %entry.if.end_crit_edge.i
@@ -1076,7 +1076,7 @@ entry:
 for.cond.preheader.i.i:                           ; preds = %entry
   %sz.le.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %sz.le.i.i, align 8
-  tail call void @free(ptr noundef nonnull %0) #25
+  tail call void @free(ptr noundef nonnull %0) #27
   store ptr null, ptr %indices, align 8
   %cap.i.i = getelementptr inbounds i8, ptr %this, i64 36
   store i32 0, ptr %cap.i.i, align 4
@@ -1091,7 +1091,7 @@ _ZN4cvc58internal7Minisat3vecIiED2Ev.exit:        ; preds = %entry, %for.cond.pr
 for.cond.preheader.i.i2:                          ; preds = %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit
   %sz.le.i.i3 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %sz.le.i.i3, align 8
-  tail call void @free(ptr noundef nonnull %1) #25
+  tail call void @free(ptr noundef nonnull %1) #27
   store ptr null, ptr %heap, align 8
   %cap.i.i4 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %cap.i.i4, align 4
@@ -1112,7 +1112,7 @@ entry:
 for.cond.preheader.i.i:                           ; preds = %entry
   %sz.le.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %sz.le.i.i, align 8
-  tail call void @free(ptr noundef nonnull %0) #25
+  tail call void @free(ptr noundef nonnull %0) #27
   store ptr null, ptr %dirties, align 8
   %cap.i.i = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %cap.i.i, align 4
@@ -1127,7 +1127,7 @@ _ZN4cvc58internal7Minisat3vecIiED2Ev.exit:        ; preds = %entry, %for.cond.pr
 for.cond.preheader.i.i2:                          ; preds = %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit
   %sz.le.i.i3 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %sz.le.i.i3, align 8
-  tail call void @free(ptr noundef nonnull %1) #25
+  tail call void @free(ptr noundef nonnull %1) #27
   store ptr null, ptr %dirty, align 8
   %cap.i.i4 = getelementptr inbounds i8, ptr %this, i64 28
   store i32 0, ptr %cap.i.i4, align 4
@@ -1156,7 +1156,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
 for.cond.preheader.i.i.i.i:                       ; preds = %for.body.i.i
   %sz.le.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   store i32 0, ptr %sz.le.i.i.i.i, align 8
-  tail call void @free(ptr noundef nonnull %6) #25
+  tail call void @free(ptr noundef nonnull %6) #27
   store ptr null, ptr %arrayidx.i.i, align 8
   %cap.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
   store i32 0, ptr %cap.i.i.i.i, align 4
@@ -1177,7 +1177,7 @@ for.end.i.loopexit.i:                             ; preds = %_ZN4cvc58internal7M
 for.end.i.i:                                      ; preds = %for.end.i.loopexit.i, %for.cond.preheader.i.i6
   %9 = phi ptr [ %.pre.i, %for.end.i.loopexit.i ], [ %2, %for.cond.preheader.i.i6 ]
   store i32 0, ptr %sz.i.i, align 8
-  tail call void @free(ptr noundef %9) #25
+  tail call void @free(ptr noundef %9) #27
   store ptr null, ptr %this, align 8
   %cap.i.i7 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %cap.i.i7, align 4
@@ -1202,7 +1202,7 @@ entry:
 for.cond.preheader.i.i:                           ; preds = %entry
   %sz.le.i.i = getelementptr inbounds i8, ptr %this, i64 1088
   store i32 0, ptr %sz.le.i.i, align 8
-  tail call void @free(ptr noundef nonnull %0) #25
+  tail call void @free(ptr noundef nonnull %0) #27
   store ptr null, ptr %eliminated, align 8
   %cap.i.i = getelementptr inbounds i8, ptr %this, i64 1092
   store i32 0, ptr %cap.i.i, align 4
@@ -1217,7 +1217,7 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit:        ; preds = %entry, %for.cond.pr
 for.cond.preheader.i.i2:                          ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit
   %sz.le.i.i3 = getelementptr inbounds i8, ptr %this, i64 1072
   store i32 0, ptr %sz.le.i.i3, align 8
-  tail call void @free(ptr noundef nonnull %1) #25
+  tail call void @free(ptr noundef nonnull %1) #27
   store ptr null, ptr %frozen, align 8
   %cap.i.i4 = getelementptr inbounds i8, ptr %this, i64 1076
   store i32 0, ptr %cap.i.i4, align 4
@@ -1232,7 +1232,7 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit5:       ; preds = %_ZN4cvc58internal7M
 for.cond.preheader.i.i.i:                         ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit5
   %sz.le.i.i.i = getelementptr inbounds i8, ptr %this, i64 1048
   store i32 0, ptr %sz.le.i.i.i, align 8
-  tail call void @free(ptr noundef nonnull %2) #25
+  tail call void @free(ptr noundef nonnull %2) #27
   store ptr null, ptr %subsumption_queue, align 8
   %cap.i.i.i = getelementptr inbounds i8, ptr %this, i64 1052
   store i32 0, ptr %cap.i.i.i, align 4
@@ -1247,7 +1247,7 @@ _ZN4cvc58internal7Minisat5QueueIjED2Ev.exit:      ; preds = %_ZN4cvc58internal7M
 for.cond.preheader.i.i.i7:                        ; preds = %_ZN4cvc58internal7Minisat5QueueIjED2Ev.exit
   %sz.le.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 1032
   store i32 0, ptr %sz.le.i.i.i8, align 8
-  tail call void @free(ptr noundef nonnull %3) #25
+  tail call void @free(ptr noundef nonnull %3) #27
   store ptr null, ptr %indices.i, align 8
   %cap.i.i.i9 = getelementptr inbounds i8, ptr %this, i64 1036
   store i32 0, ptr %cap.i.i.i9, align 4
@@ -1262,7 +1262,7 @@ _ZN4cvc58internal7Minisat3vecIiED2Ev.exit.i:      ; preds = %for.cond.preheader.
 for.cond.preheader.i.i2.i:                        ; preds = %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit.i
   %sz.le.i.i3.i = getelementptr inbounds i8, ptr %this, i64 1016
   store i32 0, ptr %sz.le.i.i3.i, align 8
-  tail call void @free(ptr noundef nonnull %4) #25
+  tail call void @free(ptr noundef nonnull %4) #27
   store ptr null, ptr %heap.i, align 8
   %cap.i.i4.i = getelementptr inbounds i8, ptr %this, i64 1020
   store i32 0, ptr %cap.i.i4.i, align 4
@@ -1277,7 +1277,7 @@ _ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEED2Ev.exit: ; preds = %_Z
 for.cond.preheader.i.i11:                         ; preds = %_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEED2Ev.exit
   %sz.le.i.i12 = getelementptr inbounds i8, ptr %this, i64 992
   store i32 0, ptr %sz.le.i.i12, align 8
-  tail call void @free(ptr noundef nonnull %5) #25
+  tail call void @free(ptr noundef nonnull %5) #27
   store ptr null, ptr %n_occ, align 8
   %cap.i.i13 = getelementptr inbounds i8, ptr %this, i64 996
   store i32 0, ptr %cap.i.i13, align 4
@@ -1285,7 +1285,7 @@ for.cond.preheader.i.i11:                         ; preds = %_ZN4cvc58internal7M
 
 _ZN4cvc58internal7Minisat3vecIiED2Ev.exit:        ; preds = %_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEED2Ev.exit, %for.cond.preheader.i.i11
   %occurs = getelementptr inbounds i8, ptr %this, i64 928
-  tail call void @_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %occurs) #25
+  tail call void @_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %occurs) #27
   %touched = getelementptr inbounds i8, ptr %this, i64 912
   %6 = load ptr, ptr %touched, align 8
   %cmp.not.i.i14 = icmp eq ptr %6, null
@@ -1294,7 +1294,7 @@ _ZN4cvc58internal7Minisat3vecIiED2Ev.exit:        ; preds = %_ZN4cvc58internal7M
 for.cond.preheader.i.i15:                         ; preds = %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit
   %sz.le.i.i16 = getelementptr inbounds i8, ptr %this, i64 920
   store i32 0, ptr %sz.le.i.i16, align 8
-  tail call void @free(ptr noundef nonnull %6) #25
+  tail call void @free(ptr noundef nonnull %6) #27
   store ptr null, ptr %touched, align 8
   %cap.i.i17 = getelementptr inbounds i8, ptr %this, i64 924
   store i32 0, ptr %cap.i.i17, align 4
@@ -1309,22 +1309,22 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit18:      ; preds = %_ZN4cvc58internal7M
 for.cond.preheader.i.i20:                         ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit18
   %sz.le.i.i21 = getelementptr inbounds i8, ptr %this, i64 904
   store i32 0, ptr %sz.le.i.i21, align 8
-  tail call void @free(ptr noundef nonnull %7) #25
+  tail call void @free(ptr noundef nonnull %7) #27
   store ptr null, ptr %elimclauses, align 8
   %cap.i.i22 = getelementptr inbounds i8, ptr %this, i64 908
   store i32 0, ptr %cap.i.i22, align 4
   br label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit
 
 _ZN4cvc58internal7Minisat3vecIjED2Ev.exit:        ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit18, %for.cond.preheader.i.i20
-  tail call void @_ZN4cvc58internal7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(850) %this) #25
+  tail call void @_ZN4cvc58internal7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(850) %this) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal7Minisat10SimpSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(1108) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZN4cvc58internal7Minisat10SimpSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1108) %this) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #28
+  tail call void @_ZN4cvc58internal7Minisat10SimpSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1108) %this) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
   ret void
 }
 
@@ -1370,7 +1370,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %add11.i.i = add nsw i32 %add.i.i.i, %1
   store i32 %add11.i.i, ptr %cap.i, align 4
   %conv.i.i = sext i32 %add11.i.i to i64
-  %call12.i.i = tail call ptr @realloc(ptr noundef %5, i64 noundef %conv.i.i) #27
+  %call12.i.i = tail call ptr @realloc(ptr noundef %5, i64 noundef %conv.i.i) #29
   store ptr %call12.i.i, ptr %frozen, align 8
   %cmp14.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp14.i.i, label %land.lhs.true.i.i, label %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit_crit_edge
@@ -1380,15 +1380,15 @@ lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit_crit_edge: ; pr
   br label %_ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
-  %call15.i.i = tail call ptr @__errno_location() #24
+  %call15.i.i = tail call ptr @__errno_location() #26
   %6 = load i32, ptr %call15.i.i, align 4
   %cmp16.i.i = icmp eq i32 %6, 12
   tail call void @llvm.assume(i1 %cmp16.i.i)
   br label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %land.lhs.true.i.i, %if.end.i.i
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit:   ; preds = %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit_crit_edge, %entry.if.end_crit_edge.i
@@ -1425,7 +1425,7 @@ lor.lhs.false.i.i15:                              ; preds = %if.end.i.i10
   %add11.i.i16 = add nsw i32 %add.i.i.i12, %9
   store i32 %add11.i.i16, ptr %cap.i3, align 4
   %conv.i.i17 = sext i32 %add11.i.i16 to i64
-  %call12.i.i18 = tail call ptr @realloc(ptr noundef %13, i64 noundef %conv.i.i17) #27
+  %call12.i.i18 = tail call ptr @realloc(ptr noundef %13, i64 noundef %conv.i.i17) #29
   store ptr %call12.i.i18, ptr %eliminated, align 8
   %cmp14.i.i19 = icmp eq ptr %call12.i.i18, null
   br i1 %cmp14.i.i19, label %land.lhs.true.i.i20, label %lor.lhs.false.i.i15._ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit25_crit_edge
@@ -1435,15 +1435,15 @@ lor.lhs.false.i.i15._ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit25_crit_edge: 
   br label %_ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit25
 
 land.lhs.true.i.i20:                              ; preds = %lor.lhs.false.i.i15
-  %call15.i.i21 = tail call ptr @__errno_location() #24
+  %call15.i.i21 = tail call ptr @__errno_location() #26
   %14 = load i32, ptr %call15.i.i21, align 4
   %cmp16.i.i22 = icmp eq i32 %14, 12
   tail call void @llvm.assume(i1 %cmp16.i.i22)
   br label %if.then17.i.i23
 
 if.then17.i.i23:                                  ; preds = %land.lhs.true.i.i20, %if.end.i.i10
-  %exception.i.i24 = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i.i24, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i24 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i.i24, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit25: ; preds = %lor.lhs.false.i.i15._ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit25_crit_edge, %entry.if.end_crit_edge.i5
@@ -1481,7 +1481,7 @@ lor.lhs.false.i.i39:                              ; preds = %if.end.i.i34
   store i32 %add11.i.i40, ptr %cap.i27, align 4
   %conv.i.i41 = sext i32 %add11.i.i40 to i64
   %mul.i.i = shl nsw i64 %conv.i.i41, 2
-  %call12.i.i42 = tail call ptr @realloc(ptr noundef %21, i64 noundef %mul.i.i) #27
+  %call12.i.i42 = tail call ptr @realloc(ptr noundef %21, i64 noundef %mul.i.i) #29
   store ptr %call12.i.i42, ptr %n_occ, align 8
   %cmp14.i.i43 = icmp eq ptr %call12.i.i42, null
   br i1 %cmp14.i.i43, label %land.lhs.true.i.i44, label %lor.lhs.false.i.i39._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge
@@ -1491,15 +1491,15 @@ lor.lhs.false.i.i39._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge: ; 
   br label %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit
 
 land.lhs.true.i.i44:                              ; preds = %lor.lhs.false.i.i39
-  %call15.i.i45 = tail call ptr @__errno_location() #24
+  %call15.i.i45 = tail call ptr @__errno_location() #26
   %22 = load i32, ptr %call15.i.i45, align 4
   %cmp16.i.i46 = icmp eq i32 %22, 12
   tail call void @llvm.assume(i1 %cmp16.i.i46)
   br label %if.then17.i.i47
 
 if.then17.i.i47:                                  ; preds = %land.lhs.true.i.i44, %if.end.i.i34
-  %exception.i.i48 = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i.i48, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i48 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i.i48, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit:   ; preds = %lor.lhs.false.i.i39._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge, %entry.if.end_crit_edge.i29
@@ -1534,7 +1534,7 @@ lor.lhs.false.i.i62:                              ; preds = %if.end.i.i57
   store i32 %add11.i.i63, ptr %cap.i27, align 4
   %conv.i.i64 = sext i32 %add11.i.i63 to i64
   %mul.i.i65 = shl nsw i64 %conv.i.i64, 2
-  %call12.i.i66 = tail call ptr @realloc(ptr noundef %29, i64 noundef %mul.i.i65) #27
+  %call12.i.i66 = tail call ptr @realloc(ptr noundef %29, i64 noundef %mul.i.i65) #29
   store ptr %call12.i.i66, ptr %n_occ, align 8
   %cmp14.i.i67 = icmp eq ptr %call12.i.i66, null
   br i1 %cmp14.i.i67, label %land.lhs.true.i.i68, label %lor.lhs.false.i.i62._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit73_crit_edge
@@ -1544,15 +1544,15 @@ lor.lhs.false.i.i62._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit73_crit_edge: 
   br label %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit73
 
 land.lhs.true.i.i68:                              ; preds = %lor.lhs.false.i.i62
-  %call15.i.i69 = tail call ptr @__errno_location() #24
+  %call15.i.i69 = tail call ptr @__errno_location() #26
   %30 = load i32, ptr %call15.i.i69, align 4
   %cmp16.i.i70 = icmp eq i32 %30, 12
   tail call void @llvm.assume(i1 %cmp16.i.i70)
   br label %if.then17.i.i71
 
 if.then17.i.i71:                                  ; preds = %land.lhs.true.i.i68, %if.end.i.i57
-  %exception.i.i72 = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i.i72, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i72 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i.i72, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit73: ; preds = %lor.lhs.false.i.i62._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit73_crit_edge, %entry.if.end_crit_edge.i52
@@ -1597,7 +1597,7 @@ lor.lhs.false.i.i87:                              ; preds = %if.end.i.i82
   %add11.i.i88 = add nsw i32 %add.i.i.i84, %33
   store i32 %add11.i.i88, ptr %cap.i75, align 4
   %conv.i.i89 = sext i32 %add11.i.i88 to i64
-  %call12.i.i90 = call ptr @realloc(ptr noundef %37, i64 noundef %conv.i.i89) #27
+  %call12.i.i90 = call ptr @realloc(ptr noundef %37, i64 noundef %conv.i.i89) #29
   store ptr %call12.i.i90, ptr %touched, align 8
   %cmp14.i.i91 = icmp eq ptr %call12.i.i90, null
   br i1 %cmp14.i.i91, label %land.lhs.true.i.i92, label %lor.lhs.false.i.i87._ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit97_crit_edge
@@ -1607,15 +1607,15 @@ lor.lhs.false.i.i87._ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit97_crit_edge: 
   br label %_ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit97
 
 land.lhs.true.i.i92:                              ; preds = %lor.lhs.false.i.i87
-  %call15.i.i93 = tail call ptr @__errno_location() #24
+  %call15.i.i93 = tail call ptr @__errno_location() #26
   %38 = load i32, ptr %call15.i.i93, align 4
   %cmp16.i.i94 = icmp eq i32 %38, 12
   call void @llvm.assume(i1 %cmp16.i.i94)
   br label %if.then17.i.i95
 
 if.then17.i.i95:                                  ; preds = %land.lhs.true.i.i92, %if.end.i.i82
-  %exception.i.i96 = call ptr @__cxa_allocate_exception(i64 1) #25
-  call void @__cxa_throw(ptr %exception.i.i96, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i96 = call ptr @__cxa_allocate_exception(i64 1) #27
+  call void @__cxa_throw(ptr %exception.i.i96, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit97: ; preds = %lor.lhs.false.i.i87._ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit97_crit_edge, %entry.if.end_crit_edge.i77
@@ -1662,7 +1662,7 @@ invoke.cont.i:                                    ; preds = %if.then
 for.cond.preheader.i.i.i:                         ; preds = %invoke.cont.i
   %sz.le.i.i.i = getelementptr inbounds i8, ptr %as.i, i64 8
   store i32 0, ptr %sz.le.i.i.i, align 8
-  call void @free(ptr noundef nonnull %3) #25
+  call void @free(ptr noundef nonnull %3) #27
   br label %_ZN4cvc58internal7Minisat6Solver8toDimacsEv.exit
 
 lpad.i:                                           ; preds = %if.then
@@ -1675,7 +1675,7 @@ lpad.i:                                           ; preds = %if.then
 for.cond.preheader.i.i2.i:                        ; preds = %lpad.i
   %sz.le.i.i3.i = getelementptr inbounds i8, ptr %as.i, i64 8
   store i32 0, ptr %sz.le.i.i3.i, align 8
-  call void @free(ptr noundef nonnull %5) #25
+  call void @free(ptr noundef nonnull %5) #27
   br label %common.resume
 
 common.resume:                                    ; preds = %for.cond.preheader.i.i, %lpad, %lpad.i, %for.cond.preheader.i.i2.i
@@ -1740,12 +1740,12 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %add11.i.i = add nsw i32 %add.i.i.i, %extra_frozen.sroa.9.170
   %conv.i.i = sext i32 %add11.i.i to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 2
-  %call12.i.i = tail call ptr @realloc(ptr noundef %extra_frozen.sroa.0.271, i64 noundef %mul.i.i) #27
+  %call12.i.i = tail call ptr @realloc(ptr noundef %extra_frozen.sroa.0.271, i64 noundef %mul.i.i) #29
   %cmp14.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp14.i.i, label %land.lhs.true.i.i, label %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
-  %call15.i.i = tail call ptr @__errno_location() #24
+  %call15.i.i = tail call ptr @__errno_location() #26
   %15 = load i32, ptr %call15.i.i, align 4
   %cmp16.i.i = icmp eq i32 %15, 12
   tail call void @llvm.assume(i1 %cmp16.i.i)
@@ -1753,8 +1753,8 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i, %land.lhs.true.i.i
   %extra_frozen.sroa.0.4 = phi ptr [ null, %land.lhs.true.i.i ], [ %extra_frozen.sroa.0.271, %if.end.i.i ]
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  invoke void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  invoke void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then17.i.i
@@ -1780,7 +1780,7 @@ lpad:                                             ; preds = %if.then17.i.i, %if.
 for.cond.preheader.i.i:                           ; preds = %lpad.thread, %lpad
   %17 = phi { ptr, i32 } [ %45, %lpad.thread ], [ %16, %lpad ]
   %extra_frozen.sroa.0.053 = phi ptr [ %extra_frozen.sroa.0.16088, %lpad.thread ], [ %extra_frozen.sroa.0.0, %lpad ]
-  tail call void @free(ptr noundef nonnull %extra_frozen.sroa.0.053) #25
+  tail call void @free(ptr noundef nonnull %extra_frozen.sroa.0.053) #27
   br label %common.resume
 
 for.inc:                                          ; preds = %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit, %for.body
@@ -1982,7 +1982,7 @@ if.end67:                                         ; preds = %if.end52
   br i1 %cmp.not.i.i36, label %return, label %for.cond.preheader.i.i37
 
 for.cond.preheader.i.i37:                         ; preds = %for.inc64, %if.end67
-  tail call void @free(ptr noundef nonnull %extra_frozen.sroa.0.16088) #25
+  tail call void @free(ptr noundef nonnull %extra_frozen.sroa.0.16088) #27
   br label %return
 
 return:                                           ; preds = %for.cond.preheader.i.i37, %if.end67, %_ZN4cvc58internal7Minisat6Solver8toDimacsEv.exit
@@ -2263,7 +2263,7 @@ if.then80:                                        ; preds = %cleanup
 for.cond.preheader.i:                             ; preds = %if.then80
   %sz.le.i = getelementptr inbounds i8, ptr %this, i64 920
   store i32 0, ptr %sz.le.i, align 8
-  tail call void @free(ptr noundef nonnull %49) #25
+  tail call void @free(ptr noundef nonnull %49) #27
   store ptr null, ptr %touched, align 8
   %cap.i = getelementptr inbounds i8, ptr %this, i64 924
   store i32 0, ptr %cap.i, align 4
@@ -2280,7 +2280,7 @@ _ZN4cvc58internal7Minisat3vecIcE5clearEb.exit:    ; preds = %if.then80, %for.con
 for.cond.preheader.i42:                           ; preds = %_ZN4cvc58internal7Minisat3vecIcE5clearEb.exit
   %sz.le.i43 = getelementptr inbounds i8, ptr %this, i64 992
   store i32 0, ptr %sz.le.i43, align 8
-  tail call void @free(ptr noundef nonnull %50) #25
+  tail call void @free(ptr noundef nonnull %50) #27
   store ptr null, ptr %n_occ, align 8
   %cap.i44 = getelementptr inbounds i8, ptr %this, i64 996
   store i32 0, ptr %cap.i44, align 4
@@ -2313,7 +2313,7 @@ for.end.i48:                                      ; preds = %for.body.i53, %_ZN4
 
 for.cond.preheader.i.i50:                         ; preds = %for.end.i48
   store i32 0, ptr %sz.i.i, align 8
-  tail call void @free(ptr noundef nonnull %57) #25
+  tail call void @free(ptr noundef nonnull %57) #27
   store ptr null, ptr %heap.i15, align 8
   %cap.i.i = getelementptr inbounds i8, ptr %this, i64 1020
   store i32 0, ptr %cap.i.i, align 4
@@ -2327,7 +2327,7 @@ _ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE5clearEb.exit60: ; preds
 
 for.cond.preheader.i.i62:                         ; preds = %_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE5clearEb.exit60
   store i32 0, ptr %sz.i.i10, align 8
-  tail call void @free(ptr noundef nonnull %58) #25
+  tail call void @free(ptr noundef nonnull %58) #27
   store ptr null, ptr %subsumption_queue82, align 8
   %cap.i.i63 = getelementptr inbounds i8, ptr %this, i64 1052
   store i32 0, ptr %cap.i.i63, align 4
@@ -2579,7 +2579,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   store i32 %add11.i.i, ptr %cap.i, align 4
   %conv.i.i = sext i32 %add11.i.i to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 2
-  %call12.i.i = tail call ptr @realloc(ptr noundef %15, i64 noundef %mul.i.i) #27
+  %call12.i.i = tail call ptr @realloc(ptr noundef %15, i64 noundef %mul.i.i) #29
   store ptr %call12.i.i, ptr %arrayidx.i.i17, align 8
   %cmp14.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp14.i.i, label %land.lhs.true.i.i, label %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge
@@ -2589,15 +2589,15 @@ lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge: ; pr
   br label %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
-  %call15.i.i = tail call ptr @__errno_location() #24
+  %call15.i.i = tail call ptr @__errno_location() #26
   %16 = load i32, ptr %call15.i.i, align 4
   %cmp16.i.i = icmp eq i32 %16, 12
   tail call void @llvm.assume(i1 %cmp16.i.i)
   br label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i, %land.lhs.true.i.i
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit:   ; preds = %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge, %entry.if.end_crit_edge.i
@@ -2687,7 +2687,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   store i32 %add11.i.i, ptr %cap.i, align 4
   %conv.i.i = sext i32 %add11.i.i to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 2
-  %call12.i.i = tail call ptr @realloc(ptr noundef %5, i64 noundef %mul.i.i) #27
+  %call12.i.i = tail call ptr @realloc(ptr noundef %5, i64 noundef %mul.i.i) #29
   store ptr %call12.i.i, ptr %trail_lim, align 8
   %cmp14.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp14.i.i, label %land.lhs.true.i.i, label %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge
@@ -2697,15 +2697,15 @@ lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge: ; pr
   br label %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
-  %call15.i.i = tail call ptr @__errno_location() #24
+  %call15.i.i = tail call ptr @__errno_location() #26
   %6 = load i32, ptr %call15.i.i, align 4
   %cmp16.i.i = icmp eq i32 %6, 12
   tail call void @llvm.assume(i1 %cmp16.i.i)
   br label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %land.lhs.true.i.i, %if.end.i.i
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit:   ; preds = %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge, %entry.if.end_crit_edge.i
@@ -2873,7 +2873,7 @@ for.end31:                                        ; preds = %for.end31.loopexit,
 
 for.cond.preheader.i.i:                           ; preds = %for.end31
   store i32 0, ptr %sz.i, align 8
-  call void @free(ptr noundef nonnull %23) #25
+  call void @free(ptr noundef nonnull %23) #27
   br label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit
 
 _ZN4cvc58internal7Minisat3vecIjED2Ev.exit:        ; preds = %for.end31, %for.cond.preheader.i.i
@@ -3017,7 +3017,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end.i.i.i
   store i32 %add11.i.i.i, ptr %cap.i.i, align 4
   %conv.i.i.i = sext i32 %add11.i.i.i to i64
   %mul.i.i.i = shl nsw i64 %conv.i.i.i, 2
-  %call12.i.i.i = tail call ptr @realloc(ptr noundef %19, i64 noundef %mul.i.i.i) #27
+  %call12.i.i.i = tail call ptr @realloc(ptr noundef %19, i64 noundef %mul.i.i.i) #29
   store ptr %call12.i.i.i, ptr %dirties.i, align 8
   %cmp14.i.i.i = icmp eq ptr %call12.i.i.i, null
   br i1 %cmp14.i.i.i, label %land.lhs.true.i.i.i, label %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge.i
@@ -3027,15 +3027,15 @@ lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge.i: ; 
   br label %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit.i
 
 land.lhs.true.i.i.i:                              ; preds = %lor.lhs.false.i.i.i
-  %call15.i.i.i = tail call ptr @__errno_location() #24
+  %call15.i.i.i = tail call ptr @__errno_location() #26
   %20 = load i32, ptr %call15.i.i.i, align 4
   %cmp16.i.i.i = icmp eq i32 %20, 12
   tail call void @llvm.assume(i1 %cmp16.i.i.i)
   br label %if.then17.i.i.i
 
 if.then17.i.i.i:                                  ; preds = %if.end.i.i.i, %land.lhs.true.i.i.i
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit.i: ; preds = %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge.i, %entry.if.end_crit_edge.i.i
@@ -3553,7 +3553,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   store i32 %add11.i.i, ptr %cap.i, align 4
   %conv.i.i = sext i32 %add11.i.i to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 2
-  %call12.i.i = tail call ptr @realloc(ptr noundef %17, i64 noundef %mul.i.i) #27
+  %call12.i.i = tail call ptr @realloc(ptr noundef %17, i64 noundef %mul.i.i) #29
   store ptr %call12.i.i, ptr %out_clause, align 8
   %cmp14.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp14.i.i, label %land.lhs.true.i.i, label %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit_crit_edge
@@ -3563,15 +3563,15 @@ lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit_crit_
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
-  %call15.i.i = tail call ptr @__errno_location() #24
+  %call15.i.i = tail call ptr @__errno_location() #26
   %18 = load i32, ptr %call15.i.i, align 4
   %cmp16.i.i = icmp eq i32 %18, 12
   tail call void @llvm.assume(i1 %cmp16.i.i)
   br label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i, %land.lhs.true.i.i
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit: ; preds = %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit_crit_edge, %entry.if.end_crit_edge.i
@@ -3627,7 +3627,7 @@ lor.lhs.false.i.i80:                              ; preds = %if.end.i.i75
   store i32 %add11.i.i81, ptr %cap.i68, align 4
   %conv.i.i82 = sext i32 %add11.i.i81 to i64
   %mul.i.i83 = shl nsw i64 %conv.i.i82, 2
-  %call12.i.i84 = tail call ptr @realloc(ptr noundef %27, i64 noundef %mul.i.i83) #27
+  %call12.i.i84 = tail call ptr @realloc(ptr noundef %27, i64 noundef %mul.i.i83) #29
   store ptr %call12.i.i84, ptr %out_clause, align 8
   %cmp14.i.i85 = icmp eq ptr %call12.i.i84, null
   br i1 %cmp14.i.i85, label %land.lhs.true.i.i86, label %lor.lhs.false.i.i80._ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit91_crit_edge
@@ -3637,15 +3637,15 @@ lor.lhs.false.i.i80._ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit91_c
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit91
 
 land.lhs.true.i.i86:                              ; preds = %lor.lhs.false.i.i80
-  %call15.i.i87 = tail call ptr @__errno_location() #24
+  %call15.i.i87 = tail call ptr @__errno_location() #26
   %28 = load i32, ptr %call15.i.i87, align 4
   %cmp16.i.i88 = icmp eq i32 %28, 12
   tail call void @llvm.assume(i1 %cmp16.i.i88)
   br label %if.then17.i.i89
 
 if.then17.i.i89:                                  ; preds = %if.end.i.i75, %land.lhs.true.i.i86
-  %exception.i.i90 = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i.i90, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i90 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i.i90, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit91: ; preds = %lor.lhs.false.i.i80._ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit91_crit_edge, %entry.if.end_crit_edge.i70
@@ -4000,14 +4000,14 @@ lor.lhs.false.i.i:                                ; preds = %if.then8.i
   br i1 %cmp14.i.i, label %land.lhs.true.i.i, label %for.body.preheader.i84
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
-  %call15.i.i = tail call ptr @__errno_location() #24
+  %call15.i.i = tail call ptr @__errno_location() #26
   %51 = load i32, ptr %call15.i.i, align 4
   %cmp16.i.i = icmp eq i32 %51, 12
   br i1 %cmp16.i.i, label %if.then17.i.i, label %for.body.preheader.i84
 
 if.then17.i.i:                                    ; preds = %land.lhs.true.i.i
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 for.body.preheader.i84:                           ; preds = %lor.lhs.false.i.i, %land.lhs.true.i.i
@@ -4079,7 +4079,7 @@ for.end31.i:                                      ; preds = %for.cond21.preheade
 
 for.cond.preheader.i.i.i:                         ; preds = %for.end31.i.thread, %for.end31.i
   store i32 0, ptr %sz.i.i, align 8
-  tail call void @free(ptr noundef nonnull %.pre152.pre) #25
+  tail call void @free(ptr noundef nonnull %.pre152.pre) #27
   br label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit.i
 
 _ZN4cvc58internal7Minisat3vecIjED2Ev.exit.i:      ; preds = %for.cond.preheader.i.i.i, %for.end31.i
@@ -4662,7 +4662,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   store i32 %add11.i.i, ptr %cap.i, align 4
   %conv.i.i = sext i32 %add11.i.i to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 2
-  %call12.i.i = tail call ptr @realloc(ptr noundef %6, i64 noundef %mul.i.i) #27
+  %call12.i.i = tail call ptr @realloc(ptr noundef %6, i64 noundef %mul.i.i) #29
   store ptr %call12.i.i, ptr %trail_lim, align 8
   %cmp14.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp14.i.i, label %land.lhs.true.i.i, label %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge
@@ -4672,15 +4672,15 @@ lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge: ; pr
   br label %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
-  %call15.i.i = tail call ptr @__errno_location() #24
+  %call15.i.i = tail call ptr @__errno_location() #26
   %7 = load i32, ptr %call15.i.i, align 4
   %cmp16.i.i = icmp eq i32 %7, 12
   tail call void @llvm.assume(i1 %cmp16.i.i)
   br label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %land.lhs.true.i.i, %if.end.i.i
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit:   ; preds = %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge, %entry.if.end_crit_edge.i
@@ -5182,11 +5182,11 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   br i1 %cmp.lcssa.i208212, label %lor.lhs.false.i.i.cont.then, label %lor.lhs.false.i.i.cont.else
 
 lor.lhs.false.i.i.cont.then:                      ; preds = %lor.lhs.false.i.i
-  %call12.i.i219 = tail call ptr @realloc(ptr noundef %pos.sroa.0.0279, i64 noundef %mul.i.i218) #27
+  %call12.i.i219 = tail call ptr @realloc(ptr noundef %pos.sroa.0.0279, i64 noundef %mul.i.i218) #29
   br label %lor.lhs.false.i.i.cont.cont
 
 lor.lhs.false.i.i.cont.else:                      ; preds = %lor.lhs.false.i.i
-  %call12.i.i = tail call ptr @realloc(ptr noundef %neg.sroa.0.0276, i64 noundef %mul.i.i218) #27
+  %call12.i.i = tail call ptr @realloc(ptr noundef %neg.sroa.0.0276, i64 noundef %mul.i.i218) #29
   br label %lor.lhs.false.i.i.cont.cont
 
 lor.lhs.false.i.i.cont.cont:                      ; preds = %lor.lhs.false.i.i.cont.else, %lor.lhs.false.i.i.cont.then
@@ -5203,7 +5203,7 @@ lor.lhs.false.i.i.cont.cont._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_
   br label %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i.cont.cont
-  %call15.i.i = tail call ptr @__errno_location() #24
+  %call15.i.i = tail call ptr @__errno_location() #26
   %52 = load i32, ptr %call15.i.i, align 4
   %cmp16.i.i = icmp eq i32 %52, 12
   tail call void @llvm.assume(i1 %cmp16.i.i)
@@ -5212,8 +5212,8 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i.c
 if.then17.i.i:                                    ; preds = %if.end.i.i, %land.lhs.true.i.i
   %neg.sroa.0.2 = phi ptr [ %neg.sroa.0.4, %land.lhs.true.i.i ], [ %neg.sroa.0.0276, %if.end.i.i ]
   %pos.sroa.0.2 = phi ptr [ %pos.sroa.0.4, %land.lhs.true.i.i ], [ %pos.sroa.0.0279, %if.end.i.i ]
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  invoke void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  invoke void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
           to label %.noexc unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then17.i.i
@@ -5271,7 +5271,7 @@ for.cond.preheader.i.i:                           ; preds = %lpad2.thread.loopex
   %lpad.phi233 = phi { ptr, i32 } [ %lpad.phi247, %lpad2 ], [ %lpad.loopexit.us, %lpad2.thread.loopexit.split.us ], [ %lpad.loopexit.split-lp, %lpad2.thread.loopexit.split-lp ]
   %pos.sroa.0.1231 = phi ptr [ %pos.sroa.0.1.ph, %lpad2 ], [ %pos.sroa.0.0.lcssa357, %lpad2.thread.loopexit.split.us ], [ %pos.sroa.0.0.lcssa357, %lpad2.thread.loopexit.split-lp ]
   %neg.sroa.0.1230 = phi ptr [ %neg.sroa.0.1.ph, %lpad2 ], [ %neg.sroa.0.0.lcssa352, %lpad2.thread.loopexit.split.us ], [ %neg.sroa.0.0.lcssa352, %lpad2.thread.loopexit.split-lp ]
-  call void @free(ptr noundef nonnull %neg.sroa.0.1230) #25
+  call void @free(ptr noundef nonnull %neg.sroa.0.1230) #27
   br label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit
 
 _ZN4cvc58internal7Minisat3vecIjED2Ev.exit:        ; preds = %lpad2, %for.cond.preheader.i.i
@@ -5281,7 +5281,7 @@ _ZN4cvc58internal7Minisat3vecIjED2Ev.exit:        ; preds = %lpad2, %for.cond.pr
   br i1 %cmp.not.i.i36, label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit40, label %for.cond.preheader.i.i37
 
 for.cond.preheader.i.i37:                         ; preds = %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit
-  call void @free(ptr noundef nonnull %pos.sroa.0.1232) #25
+  call void @free(ptr noundef nonnull %pos.sroa.0.1232) #27
   br label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit40
 
 _ZN4cvc58internal7Minisat3vecIjED2Ev.exit40:      ; preds = %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit, %for.cond.preheader.i.i37
@@ -5516,7 +5516,7 @@ invoke.cont177:                                   ; preds = %for.cond132.for.inc
 for.cond.preheader.i:                             ; preds = %invoke.cont177
   %sz.le.i = getelementptr inbounds i8, ptr %arrayidx.i.i112, i64 8
   store i32 0, ptr %sz.le.i, align 8
-  call void @free(ptr noundef nonnull %85) #25
+  call void @free(ptr noundef nonnull %85) #27
   store ptr null, ptr %arrayidx.i.i112, align 8
   %cap.i113 = getelementptr inbounds i8, ptr %arrayidx.i.i112, i64 12
   store i32 0, ptr %cap.i113, align 4
@@ -5540,7 +5540,7 @@ invoke.cont195:                                   ; preds = %invoke.cont184
 
 for.cond.preheader.i124:                          ; preds = %invoke.cont195
   store i32 0, ptr %sz.i118, align 8
-  call void @free(ptr noundef nonnull %88) #25
+  call void @free(ptr noundef nonnull %88) #27
   store ptr null, ptr %arrayidx.i.i117, align 8
   %cap.i126 = getelementptr inbounds i8, ptr %arrayidx.i.i117, i64 12
   store i32 0, ptr %cap.i126, align 4
@@ -5564,7 +5564,7 @@ invoke.cont225:                                   ; preds = %invoke.cont209
 
 for.cond.preheader.i139:                          ; preds = %invoke.cont225
   store i32 0, ptr %sz.i132, align 8
-  call void @free(ptr noundef nonnull %91) #25
+  call void @free(ptr noundef nonnull %91) #27
   store ptr null, ptr %arrayidx.i.i131, align 8
   %cap.i141 = getelementptr inbounds i8, ptr %arrayidx.i.i131, i64 12
   store i32 0, ptr %cap.i141, align 4
@@ -5585,7 +5585,7 @@ for.cond.preheader.i.i144:                        ; preds = %invoke.cont166.us, 
   %pos.sroa.0.0.lcssa359 = phi ptr [ %pos.sroa.0.0.lcssa360, %cleanup ], [ %pos.sroa.0.0.lcssa357, %invoke.cont166.us ]
   %neg.sroa.0.0.lcssa354 = phi ptr [ %neg.sroa.0.0.lcssa353, %cleanup ], [ %neg.sroa.0.0.lcssa352, %invoke.cont166.us ]
   %retval.0240 = phi i1 [ %retval.0, %cleanup ], [ false, %invoke.cont166.us ]
-  call void @free(ptr noundef nonnull %neg.sroa.0.0.lcssa354) #25
+  call void @free(ptr noundef nonnull %neg.sroa.0.0.lcssa354) #27
   br label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit147
 
 _ZN4cvc58internal7Minisat3vecIjED2Ev.exit147:     ; preds = %cleanup, %for.cond.preheader.i.i144
@@ -5595,7 +5595,7 @@ _ZN4cvc58internal7Minisat3vecIjED2Ev.exit147:     ; preds = %cleanup, %for.cond.
   br i1 %cmp.not.i.i148, label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit152, label %for.cond.preheader.i.i149
 
 for.cond.preheader.i.i149:                        ; preds = %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit147
-  call void @free(ptr noundef nonnull %pos.sroa.0.0.lcssa358) #25
+  call void @free(ptr noundef nonnull %pos.sroa.0.0.lcssa358) #27
   br label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit152
 
 _ZN4cvc58internal7Minisat3vecIjED2Ev.exit152:     ; preds = %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit147, %for.cond.preheader.i.i149
@@ -5646,7 +5646,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   store i32 %add11.i.i, ptr %cap.i, align 4
   %conv.i.i = sext i32 %add11.i.i to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 2
-  %call12.i.i = tail call ptr @realloc(ptr noundef %6, i64 noundef %mul.i.i) #27
+  %call12.i.i = tail call ptr @realloc(ptr noundef %6, i64 noundef %mul.i.i) #29
   store ptr %call12.i.i, ptr %elimclauses, align 8
   %cmp14.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp14.i.i, label %land.lhs.true.i.i, label %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge
@@ -5656,15 +5656,15 @@ lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge: ; pr
   br label %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
-  %call15.i.i = tail call ptr @__errno_location() #24
+  %call15.i.i = tail call ptr @__errno_location() #26
   %7 = load i32, ptr %call15.i.i, align 4
   %cmp16.i.i = icmp eq i32 %7, 12
   tail call void @llvm.assume(i1 %cmp16.i.i)
   br label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i, %land.lhs.true.i.i
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit:   ; preds = %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge, %entry.if.end_crit_edge.i
@@ -5730,7 +5730,7 @@ lor.lhs.false.i.i45:                              ; preds = %if.end.i.i40
   store i32 %add11.i.i46, ptr %cap.i33, align 4
   %conv.i.i47 = sext i32 %add11.i.i46 to i64
   %mul.i.i48 = shl nsw i64 %conv.i.i47, 2
-  %call12.i.i49 = tail call ptr @realloc(ptr noundef %23, i64 noundef %mul.i.i48) #27
+  %call12.i.i49 = tail call ptr @realloc(ptr noundef %23, i64 noundef %mul.i.i48) #29
   store ptr %call12.i.i49, ptr %elimclauses, align 8
   %cmp14.i.i50 = icmp eq ptr %call12.i.i49, null
   br i1 %cmp14.i.i50, label %land.lhs.true.i.i51, label %lor.lhs.false.i.i45._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit56_crit_edge
@@ -5740,15 +5740,15 @@ lor.lhs.false.i.i45._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit56_crit_edge: 
   br label %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit56
 
 land.lhs.true.i.i51:                              ; preds = %lor.lhs.false.i.i45
-  %call15.i.i52 = tail call ptr @__errno_location() #24
+  %call15.i.i52 = tail call ptr @__errno_location() #26
   %24 = load i32, ptr %call15.i.i52, align 4
   %cmp16.i.i53 = icmp eq i32 %24, 12
   tail call void @llvm.assume(i1 %cmp16.i.i53)
   br label %if.then17.i.i54
 
 if.then17.i.i54:                                  ; preds = %land.lhs.true.i.i51, %if.end.i.i40
-  %exception.i.i55 = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i.i55, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i55 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i.i55, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit56: ; preds = %lor.lhs.false.i.i45._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit56_crit_edge, %entry.if.end_crit_edge.i35
@@ -5793,7 +5793,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   store i32 %add11.i.i, ptr %cap.i, align 4
   %conv.i.i = sext i32 %add11.i.i to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 2
-  %call12.i.i = tail call ptr @realloc(ptr noundef %4, i64 noundef %mul.i.i) #27
+  %call12.i.i = tail call ptr @realloc(ptr noundef %4, i64 noundef %mul.i.i) #29
   store ptr %call12.i.i, ptr %elimclauses, align 8
   %cmp14.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp14.i.i, label %land.lhs.true.i.i, label %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge
@@ -5803,15 +5803,15 @@ lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge: ; pr
   br label %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
-  %call15.i.i = tail call ptr @__errno_location() #24
+  %call15.i.i = tail call ptr @__errno_location() #26
   %5 = load i32, ptr %call15.i.i, align 4
   %cmp16.i.i = icmp eq i32 %5, 12
   tail call void @llvm.assume(i1 %cmp16.i.i)
   br label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %land.lhs.true.i.i, %if.end.i.i
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit:   ; preds = %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge, %entry.if.end_crit_edge.i
@@ -5846,7 +5846,7 @@ lor.lhs.false.i.i15:                              ; preds = %if.end.i.i10
   store i32 %add11.i.i16, ptr %cap.i, align 4
   %conv.i.i17 = sext i32 %add11.i.i16 to i64
   %mul.i.i18 = shl nsw i64 %conv.i.i17, 2
-  %call12.i.i19 = tail call ptr @realloc(ptr noundef %12, i64 noundef %mul.i.i18) #27
+  %call12.i.i19 = tail call ptr @realloc(ptr noundef %12, i64 noundef %mul.i.i18) #29
   store ptr %call12.i.i19, ptr %elimclauses, align 8
   %cmp14.i.i20 = icmp eq ptr %call12.i.i19, null
   br i1 %cmp14.i.i20, label %land.lhs.true.i.i21, label %lor.lhs.false.i.i15._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit26_crit_edge
@@ -5856,15 +5856,15 @@ lor.lhs.false.i.i15._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit26_crit_edge: 
   br label %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit26
 
 land.lhs.true.i.i21:                              ; preds = %lor.lhs.false.i.i15
-  %call15.i.i22 = tail call ptr @__errno_location() #24
+  %call15.i.i22 = tail call ptr @__errno_location() #26
   %13 = load i32, ptr %call15.i.i22, align 4
   %cmp16.i.i23 = icmp eq i32 %13, 12
   tail call void @llvm.assume(i1 %cmp16.i.i23)
   br label %if.then17.i.i24
 
 if.then17.i.i24:                                  ; preds = %land.lhs.true.i.i21, %if.end.i.i10
-  %exception.i.i25 = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i.i25, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i25 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i.i25, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit26: ; preds = %lor.lhs.false.i.i15._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit26_crit_edge, %entry.if.end_crit_edge.i5
@@ -6085,7 +6085,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   store i32 %add11.i.i, ptr %cap.i, align 4
   %conv.i.i = sext i32 %add11.i.i to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 2
-  %call12.i.i = call ptr @realloc(ptr noundef %38, i64 noundef %mul.i.i) #27
+  %call12.i.i = call ptr @realloc(ptr noundef %38, i64 noundef %mul.i.i) #29
   store ptr %call12.i.i, ptr %add_tmp, align 8
   %cmp14.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp14.i.i, label %land.lhs.true.i.i29, label %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit_crit_edge
@@ -6095,15 +6095,15 @@ lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit_crit_
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit
 
 land.lhs.true.i.i29:                              ; preds = %lor.lhs.false.i.i
-  %call15.i.i = tail call ptr @__errno_location() #24
+  %call15.i.i = tail call ptr @__errno_location() #26
   %39 = load i32, ptr %call15.i.i, align 4
   %cmp16.i.i = icmp eq i32 %39, 12
   call void @llvm.assume(i1 %cmp16.i.i)
   br label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i, %land.lhs.true.i.i29
-  %exception.i.i = call ptr @__cxa_allocate_exception(i64 1) #25
-  call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i = call ptr @__cxa_allocate_exception(i64 1) #27
+  call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit: ; preds = %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit_crit_edge, %entry.if.end_crit_edge.i
@@ -6169,7 +6169,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 for.cond.preheader.i.i.i:                         ; preds = %for.body.i
   %sz.le.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i32 0, ptr %sz.le.i.i.i, align 8
-  tail call void @free(ptr noundef nonnull %4) #25
+  tail call void @free(ptr noundef nonnull %4) #27
   store ptr null, ptr %arrayidx.i, align 8
   %cap.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   store i32 0, ptr %cap.i.i.i, align 4
@@ -6195,7 +6195,7 @@ _ZN4cvc58internal7Minisat3vecINS2_IjEEE5clearEb.exit: ; preds = %entry
 
 _ZN4cvc58internal7Minisat3vecINS2_IjEEE5clearEb.exit.thread17: ; preds = %for.end.i
   %8 = load ptr, ptr %this, align 8
-  tail call void @free(ptr noundef %8) #25
+  tail call void @free(ptr noundef %8) #27
   store ptr null, ptr %this, align 8
   %cap.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %cap.i, align 4
@@ -6228,7 +6228,7 @@ for.cond.preheader.i4:                            ; preds = %_ZN4cvc58internal7M
 if.then5.i5:                                      ; preds = %for.cond.preheader.i4.thread20, %for.cond.preheader.i4
   %dirty1423 = phi ptr [ %dirty18, %for.cond.preheader.i4.thread20 ], [ %dirty, %for.cond.preheader.i4 ]
   %11 = phi ptr [ %9, %for.cond.preheader.i4.thread20 ], [ %7, %for.cond.preheader.i4 ]
-  tail call void @free(ptr noundef nonnull %11) #25
+  tail call void @free(ptr noundef nonnull %11) #27
   store ptr null, ptr %dirty1423, align 8
   %cap.i6 = getelementptr inbounds i8, ptr %this, i64 28
   store i32 0, ptr %cap.i6, align 4
@@ -6246,7 +6246,7 @@ for.cond.preheader.i8:                            ; preds = %_ZN4cvc58internal7M
   br i1 %free, label %if.then5.i10, label %_ZN4cvc58internal7Minisat3vecIiE5clearEb.exit
 
 if.then5.i10:                                     ; preds = %for.cond.preheader.i8
-  tail call void @free(ptr noundef nonnull %12) #25
+  tail call void @free(ptr noundef nonnull %12) #27
   store ptr null, ptr %dirties, align 8
   %cap.i11 = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %cap.i11, align 4
@@ -6571,7 +6571,7 @@ lpad:                                             ; preds = %invoke.cont6, %entr
   br i1 %cmp.not.i.i, label %_ZN4cvc58internal7Minisat15ClauseAllocatorD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad
-  call void @free(ptr noundef nonnull %7) #25
+  call void @free(ptr noundef nonnull %7) #27
   br label %_ZN4cvc58internal7Minisat15ClauseAllocatorD2Ev.exit
 
 _ZN4cvc58internal7Minisat15ClauseAllocatorD2Ev.exit: ; preds = %lpad, %if.then.i.i
@@ -6586,7 +6586,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
   br i1 %cmp.not.i.i4, label %_ZN4cvc58internal7Minisat15ClauseAllocatorD2Ev.exit8, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %if.end
-  call void @free(ptr noundef nonnull %9) #25
+  call void @free(ptr noundef nonnull %9) #27
   br label %_ZN4cvc58internal7Minisat15ClauseAllocatorD2Ev.exit8
 
 _ZN4cvc58internal7Minisat15ClauseAllocatorD2Ev.exit8: ; preds = %if.end, %if.then.i.i5
@@ -6621,12 +6621,12 @@ init.check:                                       ; preds = %entry
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4cvc58internal4expr9NodeValue4nullEv.exit, !prof !60
 
 init.check.i:                                     ; preds = %init.check
-  %2 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #25
+  %2 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #27
   %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %_ZN4cvc58internal4expr9NodeValue4nullEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
+  %call.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -6636,13 +6636,13 @@ invoke.cont.i:                                    ; preds = %init.i
   %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #25
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #27
   br label %_ZN4cvc58internal4expr9NodeValue4nullEv.exit
 
 lpad.i:                                           ; preds = %init.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #25
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #27
   resume { ptr, i32 } %3
 
 _ZN4cvc58internal4expr9NodeValue4nullEv.exit:     ; preds = %init.check, %init.check.i, %invoke.cont.i
@@ -6674,7 +6674,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.then13.i.i
-  %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4cvc58internal12NodeTemplateILb1EED2Ev, ptr nonnull @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, ptr nonnull @__dso_handle) #25
+  %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4cvc58internal12NodeTemplateILb1EED2Ev, ptr nonnull @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, ptr nonnull @__dso_handle) #27
   br label %init.end
 
 init.end:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit, %entry
@@ -6710,7 +6710,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #30
+  tail call void @__clang_call_terminate(ptr %3) #32
   unreachable
 }
 
@@ -6731,14 +6731,14 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4cvc58internal7Minisat6Option13getOptionListEv.exit, !prof !60
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal7Minisat6Option13getOptionListEvE7options) #25
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal7Minisat6Option13getOptionListEvE7options) #27
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN4cvc58internal7Minisat6Option13getOptionListEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, i8 0, i64 16, i1 false)
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4cvc58internal7Minisat3vecIPNS1_6OptionEED2Ev, ptr nonnull @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #25
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal7Minisat6Option13getOptionListEvE7options) #25
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4cvc58internal7Minisat3vecIPNS1_6OptionEED2Ev, ptr nonnull @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #27
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal7Minisat6Option13getOptionListEvE7options) #27
   br label %_ZN4cvc58internal7Minisat6Option13getOptionListEv.exit
 
 _ZN4cvc58internal7Minisat6Option13getOptionListEv.exit: ; preds = %entry, %init.check.i, %init.i
@@ -6766,7 +6766,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   store i32 %add11.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, i64 12), align 4
   %conv.i.i = sext i32 %add11.i.i to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 3
-  %call12.i.i = tail call ptr @realloc(ptr noundef %7, i64 noundef %mul.i.i) #27
+  %call12.i.i = tail call ptr @realloc(ptr noundef %7, i64 noundef %mul.i.i) #29
   store ptr %call12.i.i, ptr @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, align 8
   %cmp14.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp14.i.i, label %land.lhs.true.i.i, label %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIPNS1_6OptionEE4pushERKS4_.exit_crit_edge
@@ -6776,15 +6776,15 @@ lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIPNS1_6OptionEE4pushERKS4_.exit_c
   br label %_ZN4cvc58internal7Minisat3vecIPNS1_6OptionEE4pushERKS4_.exit
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
-  %call15.i.i = tail call ptr @__errno_location() #24
+  %call15.i.i = tail call ptr @__errno_location() #26
   %8 = load i32, ptr %call15.i.i, align 4
   %cmp16.i.i = icmp eq i32 %8, 12
   tail call void @llvm.assume(i1 %cmp16.i.i)
   br label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %land.lhs.true.i.i, %if.end.i.i
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIPNS1_6OptionEE4pushERKS4_.exit: ; preds = %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIPNS1_6OptionEE4pushERKS4_.exit_crit_edge, %entry.if.end_crit_edge.i
@@ -6801,7 +6801,7 @@ _ZN4cvc58internal7Minisat3vecIPNS1_6OptionEE4pushERKS4_.exit: ; preds = %lor.lhs
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal7Minisat10BoolOptionD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
   ret void
 }
 
@@ -6839,7 +6839,7 @@ _ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit13: ; preds = %for.body.i2, %f
   %span.1 = phi ptr [ %add.ptr.i12, %for.end.i11 ], [ %add.ptr.i, %for.body.i2 ]
   %name = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %name, align 8
-  %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %span.1, ptr noundef nonnull dereferenceable(1) %4) #31
+  %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %span.1, ptr noundef nonnull dereferenceable(1) %4) #33
   %cmp = icmp eq i32 %call3, 0
   br i1 %cmp, label %if.then4, label %return
 
@@ -6860,9 +6860,9 @@ entry:
   %0 = load ptr, ptr @stderr, align 8
   %name = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %name, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.31, ptr noundef %1, ptr noundef %1) #32
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.31, ptr noundef %1, ptr noundef %1) #34
   %2 = load ptr, ptr %name, align 8
-  %call44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #31
+  %call44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #33
   %mul5.mask = and i64 %call44, 9223372036854775807
   %cmp7.not = icmp eq i64 %mul5.mask, 16
   br i1 %cmp7.not, label %for.end, label %for.body
@@ -6874,7 +6874,7 @@ for.body:                                         ; preds = %entry, %for.body
   %inc = add i32 %i.08, 1
   %conv = zext i32 %inc to i64
   %4 = load ptr, ptr %name, align 8
-  %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #31
+  %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #33
   %mul = shl i64 %call4, 1
   %sub = sub i64 32, %mul
   %cmp = icmp ugt i64 %sub, %conv
@@ -6888,14 +6888,14 @@ for.end:                                          ; preds = %for.body, %entry
   %7 = load i8, ptr %value, align 8
   %tobool = trunc i8 %7 to i1
   %cond = select i1 %tobool, ptr @.str.34, ptr @.str.35
-  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.33, ptr noundef nonnull %cond) #32
+  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.33, ptr noundef nonnull %cond) #34
   br i1 %verbose, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end
   %8 = load ptr, ptr @stderr, align 8
   %description = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %description, align 8
-  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.36, ptr noundef %9) #32
+  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.36, ptr noundef %9) #34
   %10 = load ptr, ptr @stderr, align 8
   %fputc2 = tail call i32 @fputc(i32 10, ptr %10)
   br label %if.end
@@ -6913,7 +6913,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal7Minisat6OptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #30
+  tail call void @llvm.trap() #32
   unreachable
 }
 
@@ -6932,7 +6932,7 @@ entry:
 for.cond.preheader.i:                             ; preds = %entry
   %sz.le.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %sz.le.i, align 8
-  tail call void @free(ptr noundef nonnull %0) #25
+  tail call void @free(ptr noundef nonnull %0) #27
   store ptr null, ptr %this, align 8
   %cap.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %cap.i, align 4
@@ -6950,44 +6950,46 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #25
-  tail call void @_ZSt9terminatev() #30
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
+  tail call void @_ZSt9terminatev() #32
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #13
+declare ptr @__errno_location() local_unnamed_addr #14
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #15
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #14
+declare void @llvm.trap() #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal7Minisat9IntOptionD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
   ret void
 }
 
@@ -7031,7 +7033,7 @@ lor.lhs.false3:                                   ; preds = %for.cond.i9, %for.c
 
 for.cond.i22:                                     ; preds = %lor.lhs.false3
   %add.ptr.i28 = getelementptr inbounds i8, ptr %add.ptr.i14, i64 1
-  %call5 = call i64 @strtol(ptr noundef nonnull %add.ptr.i28, ptr noundef nonnull %end, i32 noundef 10) #25
+  %call5 = call i64 @strtol(ptr noundef nonnull %add.ptr.i28, ptr noundef nonnull %end, i32 noundef 10) #27
   %conv = trunc i64 %call5 to i32
   %7 = load ptr, ptr %end, align 8
   %cmp = icmp eq ptr %7, null
@@ -7046,8 +7048,8 @@ if.else:                                          ; preds = %for.cond.i22
 if.then9:                                         ; preds = %if.else
   %9 = load ptr, ptr @stderr, align 8
   %10 = load ptr, ptr %name, align 8
-  %call11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.40, ptr noundef nonnull %add.ptr.i28, ptr noundef %10) #32
-  tail call void @exit(i32 noundef 1) #33
+  %call11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.40, ptr noundef nonnull %add.ptr.i28, ptr noundef %10) #34
+  tail call void @exit(i32 noundef 1) #35
   unreachable
 
 if.else12:                                        ; preds = %if.else
@@ -7059,8 +7061,8 @@ if.else12:                                        ; preds = %if.else
 if.then15:                                        ; preds = %if.else12
   %12 = load ptr, ptr @stderr, align 8
   %13 = load ptr, ptr %name, align 8
-  %call17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.41, ptr noundef nonnull %add.ptr.i28, ptr noundef %13) #32
-  tail call void @exit(i32 noundef 1) #33
+  %call17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.41, ptr noundef nonnull %add.ptr.i28, ptr noundef %13) #34
+  tail call void @exit(i32 noundef 1) #35
   unreachable
 
 if.end20:                                         ; preds = %if.else12
@@ -7081,7 +7083,7 @@ entry:
   %1 = load ptr, ptr %name, align 8
   %type_name = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %type_name, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.42, ptr noundef %1, ptr noundef %2) #32
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.42, ptr noundef %1, ptr noundef %2) #34
   %range = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load i32, ptr %range, align 8
   %cmp = icmp eq i32 %3, -2147483648
@@ -7089,16 +7091,16 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %5 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 4, i64 1, ptr %4) #32
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 4, i64 1, ptr %4) #34
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.44, i32 noundef %3) #32
+  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.44, i32 noundef %3) #34
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 4, i64 1, ptr %6) #32
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 4, i64 1, ptr %6) #34
   %end = getelementptr inbounds i8, ptr %this, i64 44
   %8 = load i32, ptr %end, align 4
   %cmp8 = icmp eq i32 %8, 2147483647
@@ -7106,25 +7108,25 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp8, label %if.then9, label %if.else11
 
 if.then9:                                         ; preds = %if.end
-  %10 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 4, i64 1, ptr %9) #32
+  %10 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 4, i64 1, ptr %9) #34
   br label %if.end15
 
 if.else11:                                        ; preds = %if.end
-  %call14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.44, i32 noundef %8) #32
+  %call14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.44, i32 noundef %8) #34
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else11, %if.then9
   %11 = load ptr, ptr @stderr, align 8
   %value = getelementptr inbounds i8, ptr %this, i64 48
   %12 = load i32, ptr %value, align 8
-  %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.47, i32 noundef %12) #32
+  %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.47, i32 noundef %12) #34
   br i1 %verbose, label %if.then17, label %if.end20
 
 if.then17:                                        ; preds = %if.end15
   %13 = load ptr, ptr @stderr, align 8
   %description = getelementptr inbounds i8, ptr %this, i64 16
   %14 = load ptr, ptr %description, align 8
-  %call18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.36, ptr noundef %14) #32
+  %call18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.36, ptr noundef %14) #34
   %15 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %15)
   br label %if.end20
@@ -7134,15 +7136,15 @@ if.end20:                                         ; preds = %if.then17, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #16
+declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #17
+declare void @exit(i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal7Minisat12DoubleOptionD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
   ret void
 }
 
@@ -7186,7 +7188,7 @@ lor.lhs.false3:                                   ; preds = %for.cond.i13, %for.
 
 for.cond.i26:                                     ; preds = %lor.lhs.false3
   %add.ptr.i32 = getelementptr inbounds i8, ptr %add.ptr.i18, i64 1
-  %call5 = call double @strtod(ptr noundef nonnull %add.ptr.i32, ptr noundef nonnull %end) #25
+  %call5 = call double @strtod(ptr noundef nonnull %add.ptr.i32, ptr noundef nonnull %end) #27
   %7 = load ptr, ptr %end, align 8
   %cmp = icmp eq ptr %7, null
   br i1 %cmp, label %return, label %if.else
@@ -7209,8 +7211,8 @@ land.lhs.true:                                    ; preds = %if.else
 if.then14:                                        ; preds = %land.lhs.true
   %10 = load ptr, ptr @stderr, align 8
   %11 = load ptr, ptr %name, align 8
-  %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.40, ptr noundef nonnull %add.ptr.i32, ptr noundef %11) #32
-  tail call void @exit(i32 noundef 1) #33
+  %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.40, ptr noundef nonnull %add.ptr.i32, ptr noundef %11) #34
+  tail call void @exit(i32 noundef 1) #35
   unreachable
 
 if.else17:                                        ; preds = %land.lhs.true, %if.else
@@ -7229,8 +7231,8 @@ land.lhs.true20:                                  ; preds = %if.else17
 if.then27:                                        ; preds = %land.lhs.true20
   %14 = load ptr, ptr @stderr, align 8
   %15 = load ptr, ptr %name, align 8
-  %call29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.41, ptr noundef nonnull %add.ptr.i32, ptr noundef %15) #32
-  tail call void @exit(i32 noundef 1) #33
+  %call29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.41, ptr noundef nonnull %add.ptr.i32, ptr noundef %15) #34
+  tail call void @exit(i32 noundef 1) #35
   unreachable
 
 if.end32:                                         ; preds = %land.lhs.true20, %if.else17
@@ -7265,14 +7267,14 @@ entry:
   %conv7 = select i1 %tobool5, i32 93, i32 41
   %value = getelementptr inbounds i8, ptr %this, i64 64
   %7 = load double, ptr %value, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.49, ptr noundef %1, ptr noundef %2, i32 noundef %conv, double noundef %4, double noundef %5, i32 noundef %conv7, double noundef %7) #32
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.49, ptr noundef %1, ptr noundef %2, i32 noundef %conv, double noundef %4, double noundef %5, i32 noundef %conv7, double noundef %7) #34
   br i1 %verbose, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %8 = load ptr, ptr @stderr, align 8
   %description = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %description, align 8
-  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.36, ptr noundef %9) #32
+  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.36, ptr noundef %9) #34
   %10 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %10)
   br label %if.end
@@ -7282,7 +7284,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #16
+declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #18
 
 declare void @_ZN4cvc58internal7Minisat6Solver8toDimacsEP8_IO_FILERKNS1_3vecINS1_3LitEEE(ptr noundef nonnull align 8 dereferenceable(850), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
@@ -7586,7 +7588,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   store i32 %add11.i.i, ptr %cap.i, align 4
   %conv.i.i = sext i32 %add11.i.i to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 2
-  %call12.i.i = call ptr @realloc(ptr noundef %5, i64 noundef %mul.i.i) #27
+  %call12.i.i = call ptr @realloc(ptr noundef %5, i64 noundef %mul.i.i) #29
   store ptr %call12.i.i, ptr %heap, align 8
   %cmp14.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp14.i.i, label %land.lhs.true.i.i, label %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge
@@ -7596,15 +7598,15 @@ lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge: ; pr
   br label %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
-  %call15.i.i = tail call ptr @__errno_location() #24
+  %call15.i.i = tail call ptr @__errno_location() #26
   %6 = load i32, ptr %call15.i.i, align 4
   %cmp16.i.i = icmp eq i32 %6, 12
   call void @llvm.assume(i1 %cmp16.i.i)
   br label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %land.lhs.true.i.i, %if.end.i.i
-  %exception.i.i = call ptr @__cxa_allocate_exception(i64 1) #25
-  call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i.i = call ptr @__cxa_allocate_exception(i64 1) #27
+  call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit:   ; preds = %lor.lhs.false.i.i._ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit_crit_edge, %entry.if.end_crit_edge.i
@@ -7704,20 +7706,20 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   store i32 %add11.i, ptr %cap.i, align 4
   %conv.i = sext i32 %add11.i to i64
   %mul.i = shl nsw i64 %conv.i, 2
-  %call12.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %mul.i) #27
+  %call12.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %mul.i) #29
   store ptr %call12.i, ptr %this, align 8
   %cmp14.i = icmp eq ptr %call12.i, null
   br i1 %cmp14.i, label %land.lhs.true.i, label %_ZN4cvc58internal7Minisat3vecIiE8capacityEi.exit
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %call15.i = tail call ptr @__errno_location() #24
+  %call15.i = tail call ptr @__errno_location() #26
   %4 = load i32, ptr %call15.i, align 4
   %cmp16.i = icmp eq i32 %4, 12
   br i1 %cmp16.i, label %if.then17.i, label %_ZN4cvc58internal7Minisat3vecIiE8capacityEi.exit
 
 if.then17.i:                                      ; preds = %land.lhs.true.i, %if.end.i
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIiE8capacityEi.exit: ; preds = %if.end, %lor.lhs.false.i, %land.lhs.true.i
@@ -7773,27 +7775,27 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp12.not, label %while.cond, label %if.then13, !llvm.loop !66
 
 if.then13:                                        ; preds = %while.body
-  %exception = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 while.end:                                        ; preds = %while.cond
   %3 = load ptr, ptr %this, align 8
   %conv = zext i32 %1 to i64
   %mul = shl nuw nsw i64 %conv, 2
-  %call.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %mul) #27
+  %call.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %mul) #29
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN4cvc58internal7MinisatL8xreallocEPvm.exit
 
 land.lhs.true.i:                                  ; preds = %while.end
-  %call1.i = tail call ptr @__errno_location() #24
+  %call1.i = tail call ptr @__errno_location() #26
   %4 = load i32, ptr %call1.i, align 4
   %cmp2.i = icmp eq i32 %4, 12
   br i1 %cmp2.i, label %if.then.i, label %_ZN4cvc58internal7MinisatL8xreallocEPvm.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7MinisatL8xreallocEPvm.exit:     ; preds = %while.end, %land.lhs.true.i
@@ -7805,7 +7807,7 @@ return:                                           ; preds = %entry, %_ZN4cvc58in
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #20
 
 declare void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
@@ -7843,20 +7845,20 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   store i32 %add11.i, ptr %cap.i, align 4
   %conv.i = sext i32 %add11.i to i64
   %mul.i = shl nsw i64 %conv.i, 2
-  %call12.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %mul.i) #27
+  %call12.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %mul.i) #29
   store ptr %call12.i, ptr %this, align 8
   %cmp14.i = icmp eq ptr %call12.i, null
   br i1 %cmp14.i, label %land.lhs.true.i, label %_ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %call15.i = tail call ptr @__errno_location() #24
+  %call15.i = tail call ptr @__errno_location() #26
   %4 = load i32, ptr %call15.i, align 4
   %cmp16.i = icmp eq i32 %4, 12
   br i1 %cmp16.i, label %if.then17.i, label %_ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit
 
 if.then17.i:                                      ; preds = %land.lhs.true.i, %if.end.i
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit: ; preds = %if.end, %lor.lhs.false.i, %land.lhs.true.i
@@ -7918,20 +7920,20 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   store i32 %add11.i, ptr %cap.i, align 4
   %conv.i = sext i32 %add11.i to i64
   %mul.i = shl nsw i64 %conv.i, 4
-  %call12.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %mul.i) #27
+  %call12.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %mul.i) #29
   store ptr %call12.i, ptr %this, align 8
   %cmp14.i = icmp eq ptr %call12.i, null
   br i1 %cmp14.i, label %land.lhs.true.i, label %_ZN4cvc58internal7Minisat3vecINS2_IjEEE8capacityEi.exit
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %call15.i = tail call ptr @__errno_location() #24
+  %call15.i = tail call ptr @__errno_location() #26
   %4 = load i32, ptr %call15.i, align 4
   %cmp16.i = icmp eq i32 %4, 12
   br i1 %cmp16.i, label %if.then17.i, label %_ZN4cvc58internal7Minisat3vecINS2_IjEEE8capacityEi.exit
 
 if.then17.i:                                      ; preds = %land.lhs.true.i, %if.end.i
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecINS2_IjEEE8capacityEi.exit: ; preds = %if.end, %lor.lhs.false.i, %land.lhs.true.i
@@ -7992,20 +7994,20 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   %add11.i = add nsw i32 %add.i.i, %1
   store i32 %add11.i, ptr %cap.i, align 4
   %conv.i = sext i32 %add11.i to i64
-  %call12.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %conv.i) #27
+  %call12.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %conv.i) #29
   store ptr %call12.i, ptr %this, align 8
   %cmp14.i = icmp eq ptr %call12.i, null
   br i1 %cmp14.i, label %land.lhs.true.i, label %_ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %call15.i = tail call ptr @__errno_location() #24
+  %call15.i = tail call ptr @__errno_location() #26
   %4 = load i32, ptr %call15.i, align 4
   %cmp16.i = icmp eq i32 %4, 12
   br i1 %cmp16.i, label %if.then17.i, label %_ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit
 
 if.then17.i:                                      ; preds = %land.lhs.true.i, %if.end.i
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 1) #25
-  tail call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #26
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  tail call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #28
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit: ; preds = %if.end, %lor.lhs.false.i, %land.lhs.true.i
@@ -8040,7 +8042,7 @@ return:                                           ; preds = %entry, %for.end
 define internal void @_GLOBAL__sub_I_SimpSolver.cc() #9 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #25
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #27
   tail call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL13opt_use_asymm, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal7Minisat10BoolOptionE, i64 16), ptr @_ZL13opt_use_asymm, align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL13opt_use_asymm, i64 40), align 8
@@ -8079,28 +8081,28 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
+declare i32 @llvm.smax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #21
+declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
+declare i32 @llvm.umax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #23
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
+declare i64 @llvm.umax.i64(i64, i64) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8113,29 +8115,31 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(readwrite
 attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #24 = { nounwind willreturn memory(none) }
-attributes #25 = { nounwind }
-attributes #26 = { noreturn }
-attributes #27 = { nounwind allocsize(1) }
-attributes #28 = { builtin nounwind }
-attributes #29 = { builtin allocsize(0) }
-attributes #30 = { noreturn nounwind }
-attributes #31 = { nounwind willreturn memory(read) }
-attributes #32 = { cold }
-attributes #33 = { cold noreturn nounwind }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { cold noreturn }
+attributes #16 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #25 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #26 = { nounwind willreturn memory(none) }
+attributes #27 = { nounwind }
+attributes #28 = { noreturn }
+attributes #29 = { nounwind allocsize(1) }
+attributes #30 = { builtin nounwind }
+attributes #31 = { builtin allocsize(0) }
+attributes #32 = { noreturn nounwind }
+attributes #33 = { nounwind willreturn memory(read) }
+attributes #34 = { cold }
+attributes #35 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

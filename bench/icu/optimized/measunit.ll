@@ -618,12 +618,12 @@ entry:
 lpad:                                             ; preds = %if.then.i.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) #17
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) #18
   resume { ptr, i32 } %0
 
 if.then.i:                                        ; preds = %entry
   %conv.i3 = zext nneg i32 %newCapacity to i64
-  %call.i4 = invoke noalias ptr @uprv_malloc_75(i64 noundef %conv.i3) #18
+  %call.i4 = invoke noalias ptr @uprv_malloc_75(i64 noundef %conv.i3) #19
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then.i
@@ -660,7 +660,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = zext nneg i32 %newCapacity to i64
-  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #18
+  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #19
   %cmp2.not = icmp eq ptr %call, null
   br i1 %cmp2.not, label %return, label %if.then3
 
@@ -721,7 +721,7 @@ terminate.lpad:                                   ; preds = %if.then.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #19
+  tail call void @__clang_call_terminate(ptr %3) #20
   unreachable
 }
 
@@ -744,14 +744,15 @@ if.end:                                           ; preds = %if.then, %entry
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
-  tail call void @_ZSt9terminatev() #19
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5EOS1_) align 2 personality ptr @__gxx_personality_v0 {
@@ -790,7 +791,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -852,7 +853,7 @@ terminate.lpad:                                   ; preds = %if.then.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #19
+  tail call void @__clang_call_terminate(ptr %7) #20
   unreachable
 }
 
@@ -929,7 +930,7 @@ if.end:                                           ; preds = %_ZN6icu_7515MaybeSt
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
@@ -952,7 +953,7 @@ if.else3:                                         ; preds = %if.else
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
   %conv = sext i32 %spec.select to i64
-  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #18
+  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #19
   %cmp7 = icmp eq ptr %call, null
   br i1 %cmp7, label %return, label %do.body
 
@@ -992,7 +993,7 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   %conv.i4 = zext nneg i32 %1 to i64
-  %call.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv.i4) #18
+  %call.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv.i4) #19
   %cmp2.not.i = icmp eq ptr %call.i, null
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
@@ -1024,16 +1025,16 @@ do.end:                                           ; preds = %entry, %do.body, %i
   ret void
 }
 
-declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
+declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN6icu_7511MeasureUnit16getStaticClassIDEv() local_unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZN6icu_7511MeasureUnit16getStaticClassIDEv() local_unnamed_addr #7 align 2 {
 entry:
   ret ptr @_ZZN6icu_7511MeasureUnit16getStaticClassIDEvE7classID
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7511MeasureUnit17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7511MeasureUnit17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
 entry:
   ret ptr @_ZZN6icu_7511MeasureUnit16getStaticClassIDEvE7classID
 }
@@ -1046,7 +1047,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1061,7 +1062,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1077,7 +1078,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull = icmp eq ptr %call1, null
   br i1 %new.isnull, label %if.then2, label %new.notnull
 
@@ -1092,7 +1093,7 @@ if.then2:                                         ; preds = %if.end
 lpad:                                             ; preds = %new.notnull
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1) #18
   resume { ptr, i32 } %1
 
 return:                                           ; preds = %new.notnull, %if.then2, %entry
@@ -1115,7 +1116,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1130,7 +1131,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1153,7 +1154,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1168,7 +1169,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1191,7 +1192,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1206,7 +1207,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1229,7 +1230,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1244,7 +1245,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1267,7 +1268,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1282,7 +1283,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1305,7 +1306,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1320,7 +1321,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1343,7 +1344,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1358,7 +1359,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1381,7 +1382,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1396,7 +1397,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1419,7 +1420,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1434,7 +1435,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1457,7 +1458,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1472,7 +1473,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1495,7 +1496,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1510,7 +1511,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1533,7 +1534,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1548,7 +1549,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1571,7 +1572,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1586,7 +1587,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1609,7 +1610,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1624,7 +1625,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1647,7 +1648,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1662,7 +1663,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1685,7 +1686,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1700,7 +1701,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1723,7 +1724,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1738,7 +1739,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1761,7 +1762,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1776,7 +1777,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1799,7 +1800,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1814,7 +1815,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1837,7 +1838,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1852,7 +1853,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1875,7 +1876,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1890,7 +1891,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1913,7 +1914,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1928,7 +1929,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1951,7 +1952,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -1966,7 +1967,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -1989,7 +1990,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2004,7 +2005,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2027,7 +2028,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2042,7 +2043,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2065,7 +2066,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2080,7 +2081,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2103,7 +2104,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2118,7 +2119,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2141,7 +2142,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2156,7 +2157,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2179,7 +2180,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2194,7 +2195,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2217,7 +2218,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2232,7 +2233,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2255,7 +2256,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2270,7 +2271,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2293,7 +2294,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2308,7 +2309,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2331,7 +2332,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2346,7 +2347,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2369,7 +2370,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2384,7 +2385,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2407,7 +2408,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2422,7 +2423,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2445,7 +2446,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2460,7 +2461,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2483,7 +2484,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2498,7 +2499,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2521,7 +2522,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2536,7 +2537,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2559,7 +2560,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2574,7 +2575,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2597,7 +2598,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2612,7 +2613,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2635,7 +2636,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2650,7 +2651,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2673,7 +2674,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2688,7 +2689,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2711,7 +2712,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2726,7 +2727,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2749,7 +2750,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2764,7 +2765,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2787,7 +2788,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2802,7 +2803,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2825,7 +2826,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2840,7 +2841,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2863,7 +2864,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2878,7 +2879,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2901,7 +2902,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2916,7 +2917,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2939,7 +2940,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2954,7 +2955,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -2977,7 +2978,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -2992,7 +2993,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3015,7 +3016,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3030,7 +3031,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3053,7 +3054,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3068,7 +3069,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3091,7 +3092,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3106,7 +3107,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3129,7 +3130,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3144,7 +3145,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3167,7 +3168,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3182,7 +3183,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3205,7 +3206,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3220,7 +3221,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3243,7 +3244,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3258,7 +3259,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3281,7 +3282,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3296,7 +3297,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3319,7 +3320,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3334,7 +3335,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3357,7 +3358,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3372,7 +3373,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3395,7 +3396,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3410,7 +3411,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3433,7 +3434,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3448,7 +3449,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3471,7 +3472,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3486,7 +3487,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3509,7 +3510,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3524,7 +3525,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3547,7 +3548,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3562,7 +3563,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3585,7 +3586,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3600,7 +3601,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3623,7 +3624,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3638,7 +3639,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3661,7 +3662,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3676,7 +3677,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3699,7 +3700,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3714,7 +3715,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3737,7 +3738,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3752,7 +3753,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3775,7 +3776,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3790,7 +3791,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3813,7 +3814,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3828,7 +3829,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3851,7 +3852,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3866,7 +3867,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3889,7 +3890,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3904,7 +3905,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3927,7 +3928,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3942,7 +3943,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -3965,7 +3966,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -3980,7 +3981,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4003,7 +4004,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4018,7 +4019,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4041,7 +4042,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4056,7 +4057,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4079,7 +4080,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4094,7 +4095,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4117,7 +4118,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4132,7 +4133,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4155,7 +4156,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4170,7 +4171,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4193,7 +4194,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4208,7 +4209,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4231,7 +4232,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4246,7 +4247,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4269,7 +4270,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4284,7 +4285,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4307,7 +4308,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4322,7 +4323,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4345,7 +4346,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4360,7 +4361,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4383,7 +4384,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4398,7 +4399,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4421,7 +4422,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4436,7 +4437,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4459,7 +4460,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4474,7 +4475,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4497,7 +4498,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4512,7 +4513,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4535,7 +4536,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4550,7 +4551,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4573,7 +4574,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4588,7 +4589,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4611,7 +4612,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4626,7 +4627,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4649,7 +4650,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4664,7 +4665,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4687,7 +4688,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4702,7 +4703,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4725,7 +4726,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4740,7 +4741,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4763,7 +4764,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4778,7 +4779,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4801,7 +4802,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4816,7 +4817,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4839,7 +4840,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4854,7 +4855,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4877,7 +4878,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4892,7 +4893,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4915,7 +4916,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4930,7 +4931,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4953,7 +4954,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -4968,7 +4969,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -4991,7 +4992,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5006,7 +5007,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5029,7 +5030,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5044,7 +5045,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5067,7 +5068,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5082,7 +5083,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5105,7 +5106,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5120,7 +5121,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5143,7 +5144,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5158,7 +5159,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5181,7 +5182,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5196,7 +5197,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5219,7 +5220,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5234,7 +5235,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5257,7 +5258,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5272,7 +5273,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5295,7 +5296,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5310,7 +5311,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5333,7 +5334,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5348,7 +5349,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5371,7 +5372,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5386,7 +5387,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5409,7 +5410,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5424,7 +5425,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5447,7 +5448,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5462,7 +5463,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5485,7 +5486,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5500,7 +5501,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5523,7 +5524,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5538,7 +5539,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5561,7 +5562,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5576,7 +5577,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5599,7 +5600,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5614,7 +5615,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5637,7 +5638,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5652,7 +5653,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5675,7 +5676,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5690,7 +5691,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5713,7 +5714,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5728,7 +5729,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5751,7 +5752,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5766,7 +5767,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5789,7 +5790,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5804,7 +5805,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5827,7 +5828,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5842,7 +5843,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5865,7 +5866,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5880,7 +5881,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5903,7 +5904,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5918,7 +5919,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5941,7 +5942,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5956,7 +5957,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -5979,7 +5980,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -5994,7 +5995,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6017,7 +6018,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6032,7 +6033,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6055,7 +6056,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6070,7 +6071,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6093,7 +6094,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6108,7 +6109,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6131,7 +6132,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6146,7 +6147,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6169,7 +6170,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6184,7 +6185,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6207,7 +6208,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6222,7 +6223,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6245,7 +6246,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6260,7 +6261,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6283,7 +6284,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6298,7 +6299,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6321,7 +6322,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6336,7 +6337,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6359,7 +6360,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6374,7 +6375,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6397,7 +6398,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6412,7 +6413,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6435,7 +6436,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6450,7 +6451,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6473,7 +6474,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6488,7 +6489,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6511,7 +6512,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6526,7 +6527,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6549,7 +6550,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6564,7 +6565,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6587,7 +6588,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6602,7 +6603,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6625,7 +6626,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6640,7 +6641,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6663,7 +6664,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6678,7 +6679,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6701,7 +6702,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6716,7 +6717,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6739,7 +6740,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6754,7 +6755,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6777,7 +6778,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6792,7 +6793,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6815,7 +6816,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6830,7 +6831,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6853,7 +6854,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6868,7 +6869,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6891,7 +6892,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6906,7 +6907,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6929,7 +6930,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6944,7 +6945,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -6967,7 +6968,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -6982,7 +6983,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7005,7 +7006,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7020,7 +7021,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7043,7 +7044,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7058,7 +7059,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7081,7 +7082,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7096,7 +7097,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7119,7 +7120,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7134,7 +7135,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7157,7 +7158,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7172,7 +7173,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7195,7 +7196,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7210,7 +7211,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7233,7 +7234,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7248,7 +7249,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7271,7 +7272,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7286,7 +7287,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7309,7 +7310,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7324,7 +7325,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7347,7 +7348,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7362,7 +7363,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7385,7 +7386,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7400,7 +7401,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7423,7 +7424,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7438,7 +7439,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7461,7 +7462,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7476,7 +7477,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7499,7 +7500,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7514,7 +7515,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7537,7 +7538,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7552,7 +7553,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7575,7 +7576,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7590,7 +7591,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7613,7 +7614,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7628,7 +7629,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7651,7 +7652,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7666,7 +7667,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7689,7 +7690,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7704,7 +7705,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7727,7 +7728,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7742,7 +7743,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7765,7 +7766,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7780,7 +7781,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7803,7 +7804,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7818,7 +7819,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7841,7 +7842,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7856,7 +7857,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7879,7 +7880,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7894,7 +7895,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7917,7 +7918,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7932,7 +7933,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7955,7 +7956,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -7970,7 +7971,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -7993,7 +7994,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -8008,7 +8009,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -8031,7 +8032,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -8046,7 +8047,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -8069,7 +8070,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -8084,7 +8085,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -8107,7 +8108,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -8122,7 +8123,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -8145,7 +8146,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -8160,7 +8161,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -8183,7 +8184,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -8198,7 +8199,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -8221,7 +8222,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -8236,7 +8237,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -8259,7 +8260,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -8274,7 +8275,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -8297,7 +8298,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call1.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull.i = icmp eq ptr %call1.i, null
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
@@ -8312,7 +8313,7 @@ if.then2.i:                                       ; preds = %if.end.i
 lpad.i:                                           ; preds = %new.notnull.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #18
   resume { ptr, i32 } %1
 
 _ZN6icu_7511MeasureUnit6createEiiR10UErrorCode.exit: ; preds = %entry, %new.notnull.i, %if.then2.i
@@ -8328,7 +8329,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7511MeasureUnitC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(19) %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7511MeasureUnitC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(19) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511MeasureUnitE, i64 16), ptr %this, align 8
   %fImpl.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -8341,7 +8342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7511MeasureUnitC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(19) %this, i32 noundef %typeId, i32 noundef %subTypeId) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7511MeasureUnitC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(19) %this, i32 noundef %typeId, i32 noundef %subTypeId) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511MeasureUnitE, i64 16), ptr %this, align 8
   %fImpl = getelementptr inbounds i8, ptr %this, i64 8
@@ -8370,7 +8371,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 }
 
@@ -8390,7 +8391,7 @@ if.end:                                           ; preds = %entry
 
 delete.notnull:                                   ; preds = %if.end
   %identifier.i = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i) #17
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i) #18
   %singleUnits.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %singleUnits.i, align 8
   %cmp3.i.i.i = icmp sgt i32 %1, 0
@@ -8410,7 +8411,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   br i1 %isnull.i.i.i, label %for.inc.i.i.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %for.body.i.i.i
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %4) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %4) #18
   %.pre.i.i.i = load i32, ptr %singleUnits.i, align 8
   br label %for.inc.i.i.i
 
@@ -8437,11 +8438,11 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #19
+  tail call void @__clang_call_terminate(ptr %10) #20
   unreachable
 
 _ZN6icu_7515MeasureUnitImplD2Ev.exit:             ; preds = %for.end.i.i.i, %if.then.i.i.i.i.i
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #18
   br label %if.end5
 
 if.end5:                                          ; preds = %_ZN6icu_7515MeasureUnitImplD2Ev.exit, %if.end
@@ -8454,7 +8455,7 @@ if.then7:                                         ; preds = %if.end5
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759ErrorCodeE, i64 16), ptr %localStatus, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %localStatus, i64 8
   store i32 0, ptr %errorCode.i, align 8
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 160) #17
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 160) #18
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont.thread, label %new.notnull
 
@@ -8474,7 +8475,7 @@ lor.lhs.false:                                    ; preds = %new.notnull
   br i1 %cmp.i.i, label %cleanup.thread, label %if.then18
 
 cleanup.thread:                                   ; preds = %lor.lhs.false
-  call void @_ZN6icu_759ErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %localStatus) #17
+  call void @_ZN6icu_759ErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %localStatus) #18
   br label %if.end23
 
 if.then18:                                        ; preds = %new.cont.thread, %lor.lhs.false
@@ -8492,7 +8493,7 @@ if.end.i:                                         ; preds = %invoke.cont19
 
 delete.notnull.i:                                 ; preds = %if.end.i
   %identifier.i.i = getelementptr inbounds i8, ptr %14, i64 96
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i.i) #17
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i.i) #18
   %singleUnits.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load i32, ptr %singleUnits.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %15, 0
@@ -8512,7 +8513,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
   br i1 %isnull.i.i.i.i, label %for.inc.i.i.i.i, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %for.body.i.i.i.i
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %18) #17
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %18) #18
   %.pre.i.i.i.i = load i32, ptr %singleUnits.i.i, align 8
   br label %for.inc.i.i.i.i
 
@@ -8539,11 +8540,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #19
+  call void @__clang_call_terminate(ptr %24) #20
   unreachable
 
 _ZN6icu_7515MeasureUnitImplD2Ev.exit.i:           ; preds = %if.then.i.i.i.i.i.i, %for.end.i.i.i.i
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %14) #17
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %14) #18
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %_ZN6icu_7515MeasureUnitImplD2Ev.exit.i, %if.end.i
@@ -8564,7 +8565,7 @@ if.end5.i:                                        ; preds = %_ZN6icu_7515Measure
 lpad:                                             ; preds = %new.notnull
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #17
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #18
   br label %ehcleanup
 
 lpad14:                                           ; preds = %if.then18
@@ -8573,13 +8574,13 @@ lpad14:                                           ; preds = %if.then18
   br label %ehcleanup
 
 cleanup:                                          ; preds = %if.end5.i, %invoke.cont19
-  call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %ref.tmp) #17
-  call void @_ZN6icu_759ErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %localStatus) #17
+  call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %ref.tmp) #18
+  call void @_ZN6icu_759ErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %localStatus) #18
   br label %return
 
 ehcleanup:                                        ; preds = %lpad, %lpad14
   %.pn = phi { ptr, i32 } [ %29, %lpad14 ], [ %28, %lpad ]
-  call void @_ZN6icu_759ErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %localStatus) #17
+  call void @_ZN6icu_759ErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %localStatus) #18
   resume { ptr, i32 } %.pn
 
 if.else:                                          ; preds = %if.end5
@@ -8602,10 +8603,10 @@ return:                                           ; preds = %cleanup, %entry, %i
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
+declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7511MeasureUnitC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(19) %this, ptr nocapture noundef nonnull align 8 dereferenceable(19) %other) unnamed_addr #9 align 2 {
+define void @_ZN6icu_7511MeasureUnitC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(19) %this, ptr nocapture noundef nonnull align 8 dereferenceable(19) %other) unnamed_addr #10 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511MeasureUnitE, i64 16), ptr %this, align 8
   %fImpl = getelementptr inbounds i8, ptr %this, i64 8
@@ -8645,7 +8646,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
   br i1 %call3, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont2
-  %call4 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 160) #17
+  %call4 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 160) #18
   %new.isnull = icmp eq ptr %call4, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -8691,7 +8692,7 @@ if.else.i.i.i.i:                                  ; preds = %new.notnull
 _ZN6icu_7515MeasureUnitImplC2EOS0_.exit:          ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   store i32 0, ptr %singleUnits3.i, align 8
   %identifier.i = getelementptr inbounds i8, ptr %call4, i64 96
-  tail call void @_ZN6icu_7510CharStringC1EOS0_(ptr noundef nonnull align 8 dereferenceable(60) %identifier.i, ptr noundef nonnull align 8 dereferenceable(60) %identifier) #17
+  tail call void @_ZN6icu_7510CharStringC1EOS0_(ptr noundef nonnull align 8 dereferenceable(60) %identifier.i, ptr noundef nonnull align 8 dereferenceable(60) %identifier) #18
   br label %new.cont
 
 new.cont:                                         ; preds = %_ZN6icu_7515MeasureUnitImplC2EOS0_.exit, %if.then
@@ -8701,7 +8702,7 @@ new.cont:                                         ; preds = %_ZN6icu_7515Measure
 lpad:                                             ; preds = %invoke.cont
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %9
 
 if.end:                                           ; preds = %new.cont, %invoke.cont2
@@ -8780,7 +8781,7 @@ if.then5:                                         ; preds = %_ZN6icu_75L12binary
 
 delete.notnull.i:                                 ; preds = %if.then5
   %identifier.i.i = getelementptr inbounds i8, ptr %4, i64 96
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i.i) #17
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i.i) #18
   %singleUnits.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %singleUnits.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %5, 0
@@ -8800,7 +8801,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
   br i1 %isnull.i.i.i.i, label %for.inc.i.i.i.i, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %for.body.i.i.i.i
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %8) #17
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %8) #18
   %.pre.i.i.i.i = load i32, ptr %singleUnits.i.i, align 8
   br label %for.inc.i.i.i.i
 
@@ -8827,11 +8828,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #19
+  call void @__clang_call_terminate(ptr %14) #20
   unreachable
 
 _ZN6icu_7515MeasureUnitImplD2Ev.exit.i:           ; preds = %if.then.i.i.i.i.i.i, %for.end.i.i.i.i
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %4) #17
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %4) #18
   store ptr null, ptr %fImpl.i, align 8
   br label %return
 
@@ -8847,13 +8848,13 @@ return:                                           ; preds = %for.inc, %_ZN6icu_7
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #8
+declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7515MeasureUnitImplD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %identifier = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier) #17
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier) #18
   %singleUnits = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %singleUnits, align 8
   %cmp3.i.i = icmp sgt i32 %0, 0
@@ -8873,7 +8874,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %isnull.i.i, label %for.inc.i.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %for.body.i.i
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %3) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %3) #18
   %.pre.i.i = load i32, ptr %singleUnits, align 8
   br label %for.inc.i.i
 
@@ -8900,7 +8901,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #19
+  tail call void @__clang_call_terminate(ptr %9) #20
   unreachable
 
 _ZN6icu_7516MaybeStackVectorINS_14SingleUnitImplELi8EED2Ev.exit: ; preds = %for.end.i.i, %if.then.i.i.i.i
@@ -8908,7 +8909,7 @@ _ZN6icu_7516MaybeStackVectorINS_14SingleUnitImplELi8EED2Ev.exit: ; preds = %for.
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7515MeasureUnitImpl4copyER10UErrorCode(ptr noalias sret(%"class.icu_75::MeasureUnitImpl") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -8934,7 +8935,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7516MaybeStackVectorINS_14SingleUnitImplELi8EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %singleUnits.i) #17
+  tail call void @_ZN6icu_7516MaybeStackVectorINS_14SingleUnitImplELi8EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %singleUnits.i) #18
   br label %common.resume
 
 _ZN6icu_7515MeasureUnitImplC2Ev.exit:             ; preds = %entry
@@ -8981,7 +8982,7 @@ land.lhs.true.i.i:                                ; preds = %invoke.cont8
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i
   %conv.i.i.i = zext nneg i32 %cond.i.i to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
-  %call.i.i.i7 = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i.i) #18
+  %call.i.i.i7 = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i.i) #19
           to label %call.i.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i.i.i
@@ -9019,7 +9020,7 @@ _ZN6icu_7515MaybeStackArrayIPNS_14SingleUnitImplELi8EE6resizeEii.exit.i.i: ; pre
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN6icu_7515MaybeStackArrayIPNS_14SingleUnitImplELi8EE6resizeEii.exit.i.i, %invoke.cont8
-  %call7.i.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 12) #17
+  %call7.i.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 12) #18
   %new.isnull.i.i = icmp eq ptr %call7.i.i, null
   br i1 %new.isnull.i.i, label %invoke.cont10.thread10, label %for.inc
 
@@ -9049,7 +9050,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN6icu_7515Measure
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit15, %lpad.loopexit ], [ %lpad.loopexit.split-lp16, %lpad.loopexit.split-lp ]
-  tail call void @_ZN6icu_7515MeasureUnitImplD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %agg.result) #17
+  tail call void @_ZN6icu_7515MeasureUnitImplD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %agg.result) #18
   br label %common.resume
 
 for.inc:                                          ; preds = %if.end.i.i
@@ -9085,7 +9086,7 @@ if.end:                                           ; preds = %entry
 
 delete.notnull:                                   ; preds = %if.end
   %identifier.i = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i) #17
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i) #18
   %singleUnits.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %singleUnits.i, align 8
   %cmp3.i.i.i = icmp sgt i32 %1, 0
@@ -9105,7 +9106,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   br i1 %isnull.i.i.i, label %for.inc.i.i.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %for.body.i.i.i
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %4) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %4) #18
   %.pre.i.i.i = load i32, ptr %singleUnits.i, align 8
   br label %for.inc.i.i.i
 
@@ -9132,11 +9133,11 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #19
+  tail call void @__clang_call_terminate(ptr %10) #20
   unreachable
 
 _ZN6icu_7515MeasureUnitImplD2Ev.exit:             ; preds = %for.end.i.i.i, %if.then.i.i.i.i.i
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #18
   br label %if.end5
 
 if.end5:                                          ; preds = %_ZN6icu_7515MeasureUnitImplD2Ev.exit, %if.end
@@ -9159,12 +9160,12 @@ return:                                           ; preds = %entry, %if.end5
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_759ErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #8
+declare void @_ZN6icu_759ErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7511MeasureUnit5cloneEv(ptr noundef nonnull align 8 dereferenceable(19) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #17
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #18
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -9178,7 +9179,7 @@ new.cont:                                         ; preds = %new.notnull, %entry
 lpad:                                             ; preds = %new.notnull
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #18
   resume { ptr, i32 } %0
 }
 
@@ -9193,7 +9194,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %identifier.i = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i) #17
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i) #18
   %singleUnits.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %singleUnits.i, align 8
   %cmp3.i.i.i = icmp sgt i32 %1, 0
@@ -9213,7 +9214,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   br i1 %isnull.i.i.i, label %for.inc.i.i.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %for.body.i.i.i
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %4) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %4) #18
   %.pre.i.i.i = load i32, ptr %singleUnits.i, align 8
   br label %for.inc.i.i.i
 
@@ -9240,29 +9241,29 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #19
+  tail call void @__clang_call_terminate(ptr %10) #20
   unreachable
 
 _ZN6icu_7515MeasureUnitImplD2Ev.exit:             ; preds = %for.end.i.i.i, %if.then.i.i.i.i.i
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #18
   store ptr null, ptr %fImpl, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6icu_7515MeasureUnitImplD2Ev.exit, %entry
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7511MeasureUnitD0Ev(ptr noundef nonnull align 8 dereferenceable(19) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %this) #17
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #17
+  tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %this) #18
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6icu_7511MeasureUnit7getTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(19) %this) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_7511MeasureUnit7getTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(19) %this) local_unnamed_addr #11 align 2 {
 entry:
   %fTypeId = getelementptr inbounds i8, ptr %this, i64 18
   %0 = load i8, ptr %fTypeId, align 2
@@ -9281,7 +9282,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6icu_7511MeasureUnit10getSubtypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(19) %this) local_unnamed_addr #11 align 2 {
+define noundef ptr @_ZNK6icu_7511MeasureUnit10getSubtypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(19) %this) local_unnamed_addr #12 align 2 {
 entry:
   %fTypeId = getelementptr inbounds i8, ptr %this, i64 18
   %0 = load i8, ptr %fTypeId, align 2
@@ -9333,7 +9334,7 @@ return:                                           ; preds = %entry, %_ZNK6icu_75
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6icu_7511MeasureUnit13getIdentifierEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(19) %this) local_unnamed_addr #11 align 2 {
+define noundef ptr @_ZNK6icu_7511MeasureUnit13getIdentifierEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(19) %this) local_unnamed_addr #12 align 2 {
 entry:
   %fImpl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fImpl, align 8
@@ -9377,7 +9378,7 @@ cond.end:                                         ; preds = %_ZNK6icu_7511Measur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7511MeasureUnit9getOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(19) %this) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK6icu_7511MeasureUnit9getOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(19) %this) local_unnamed_addr #11 align 2 {
 entry:
   %fTypeId = getelementptr inbounds i8, ptr %this, i64 18
   %0 = load i8, ptr %fTypeId, align 2
@@ -9404,7 +9405,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7511MeasureUniteqERKNS_7UObjectE(ptr noundef nonnull readonly align 8 dereferenceable(19) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %other) unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7511MeasureUniteqERKNS_7UObjectE(ptr noundef nonnull readonly align 8 dereferenceable(19) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %other) unnamed_addr #13 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %typeid.end
@@ -9433,7 +9434,7 @@ _ZNKSt9type_infoneERKS_.exit:                     ; preds = %if.end.i.i
   %cmp.i.i.i = icmp eq i8 %7, 42
   %cond.idx.i.i.i = zext i1 %cmp.i.i.i to i64
   %cond.i.i.i = getelementptr inbounds i8, ptr %5, i64 %cond.idx.i.i.i
-  %call6.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i) #17
+  %call6.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i) #18
   %cmp7.i.i.not = icmp eq i32 %call6.i.i, 0
   br i1 %cmp7.i.i.not, label %if.end4, label %return
 
@@ -9514,7 +9515,7 @@ _ZNK6icu_7511MeasureUnit9getOffsetEv.exit.i23:    ; preds = %if.end.i.i18, %lor.
 _ZNK6icu_7511MeasureUnit13getIdentifierEv.exit26: ; preds = %cond.true.i8, %_ZNK6icu_7511MeasureUnit9getOffsetEv.exit.i23
   %cond.in.i10 = phi ptr [ %identifier.i9, %cond.true.i8 ], [ %arrayidx.i25, %_ZNK6icu_7511MeasureUnit9getOffsetEv.exit.i23 ]
   %cond.i11 = load ptr, ptr %cond.in.i10, align 8
-  %call7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %cond.i, ptr noundef nonnull dereferenceable(1) %cond.i11) #20
+  %call7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %cond.i, ptr noundef nonnull dereferenceable(1) %cond.i11) #21
   %cmp8 = icmp eq i32 %call7, 0
   br label %return
 
@@ -9524,7 +9525,7 @@ return:                                           ; preds = %if.end.i.i, %_ZNKSt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 493) i32 @_ZN6icu_7511MeasureUnit12getAvailableEPS0_iR10UErrorCode(ptr nocapture noundef %dest, i32 noundef %destCapacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -9582,7 +9583,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %_
 
 delete.notnull.i:                                 ; preds = %for.body8
   %identifier.i.i = getelementptr inbounds i8, ptr %5, i64 96
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i.i) #17
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i.i) #18
   %singleUnits.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %singleUnits.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %6, 0
@@ -9602,7 +9603,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
   br i1 %isnull.i.i.i.i, label %for.inc.i.i.i.i, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %for.body.i.i.i.i
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %9) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %9) #18
   %.pre.i.i.i.i = load i32, ptr %singleUnits.i.i, align 8
   br label %for.inc.i.i.i.i
 
@@ -9629,11 +9630,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #19
+  tail call void @__clang_call_terminate(ptr %15) #20
   unreachable
 
 _ZN6icu_7515MeasureUnitImplD2Ev.exit.i:           ; preds = %if.then.i.i.i.i.i.i, %for.end.i.i.i.i
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %5) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %5) #18
   store ptr null, ptr %fImpl.i, align 8
   br label %_ZN6icu_7511MeasureUnit5setToEii.exit
 
@@ -9664,7 +9665,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %identifier.i = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i) #17
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i) #18
   %singleUnits.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %singleUnits.i, align 8
   %cmp3.i.i.i = icmp sgt i32 %1, 0
@@ -9684,7 +9685,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   br i1 %isnull.i.i.i, label %for.inc.i.i.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %for.body.i.i.i
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %4) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %4) #18
   %.pre.i.i.i = load i32, ptr %singleUnits.i, align 8
   br label %for.inc.i.i.i
 
@@ -9711,11 +9712,11 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #19
+  tail call void @__clang_call_terminate(ptr %10) #20
   unreachable
 
 _ZN6icu_7515MeasureUnitImplD2Ev.exit:             ; preds = %for.end.i.i.i, %if.then.i.i.i.i.i
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #18
   store ptr null, ptr %fImpl, align 8
   br label %if.end
 
@@ -9816,7 +9817,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 delete.notnull.i:                                 ; preds = %for.body
   %identifier.i.i = getelementptr inbounds i8, ptr %7, i64 96
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i.i) #17
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i.i) #18
   %singleUnits.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i32, ptr %singleUnits.i.i, align 8
   %cmp3.i.i.i.i = icmp sgt i32 %8, 0
@@ -9836,7 +9837,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
   br i1 %isnull.i.i.i.i, label %for.inc.i.i.i.i, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %for.body.i.i.i.i
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %11) #17
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %11) #18
   %.pre.i.i.i.i = load i32, ptr %singleUnits.i.i, align 8
   br label %for.inc.i.i.i.i
 
@@ -9863,11 +9864,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #19
+  call void @__clang_call_terminate(ptr %17) #20
   unreachable
 
 _ZN6icu_7515MeasureUnitImplD2Ev.exit.i:           ; preds = %if.then.i.i.i.i.i.i, %for.end.i.i.i.i
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %7) #17
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %7) #18
   store ptr null, ptr %fImpl.i, align 8
   br label %_ZN6icu_7511MeasureUnit5setToEii.exit
 
@@ -9881,7 +9882,7 @@ return:                                           ; preds = %_ZN6icu_7511Measure
   ret i32 %retval.0
 }
 
-declare void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #5
+declare void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_7511MeasureUnit17getAvailableTypesER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -9892,7 +9893,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 128) #17
+  %call2 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 128) #18
   %new.isnull = icmp eq ptr %call2, null
   br i1 %new.isnull, label %if.then3, label %new.notnull
 
@@ -9907,7 +9908,7 @@ if.then3:                                         ; preds = %if.end
 lpad:                                             ; preds = %new.notnull
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call2) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call2) #18
   resume { ptr, i32 } %1
 
 return.sink.split:                                ; preds = %entry, %if.then3
@@ -9919,11 +9920,11 @@ return:                                           ; preds = %return.sink.split, 
   ret ptr %retval.0
 }
 
-declare ptr @uenum_openCharStringsEnumeration_75(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @uenum_openCharStringsEnumeration_75(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
-declare void @uenum_close_75(ptr noundef) local_unnamed_addr #5
+declare void @uenum_close_75(ptr noundef) local_unnamed_addr #6
 
-declare void @_ZN6icu_7518UStringEnumerationC1EP12UEnumeration(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef) unnamed_addr #5
+declare void @_ZN6icu_7518UStringEnumerationC1EP12UEnumeration(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511MeasureUnit8initTimeEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(19) %this, ptr noundef %timeId) local_unnamed_addr #1 align 2 {
@@ -10128,7 +10129,7 @@ _ZN6icu_75L12binarySearchEPKPKciiNS_11StringPieceE.exit24: ; preds = %if.end.i19
   br i1 %cmp, label %if.then, label %if.end23
 
 if.then:                                          ; preds = %_ZN6icu_75L12binarySearchEPKPKciiNS_11StringPieceE.exit24.thread, %_ZN6icu_75L12binarySearchEPKPKciiNS_11StringPieceE.exit24
-  %call9 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 160) #17
+  %call9 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 160) #18
   %new.isnull = icmp eq ptr %call9, null
   br i1 %new.isnull, label %if.end, label %new.notnull
 
@@ -10152,7 +10153,7 @@ new.notnull:                                      ; preds = %if.then
 lpad.i.i:                                         ; preds = %new.notnull
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7516MaybeStackVectorINS_14SingleUnitImplELi8EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %singleUnits.i.i) #17
+  call void @_ZN6icu_7516MaybeStackVectorINS_14SingleUnitImplELi8EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %singleUnits.i.i) #18
   br label %lpad.body
 
 _ZN6icu_7515MeasureUnitImplC2Ev.exit.i:           ; preds = %new.notnull
@@ -10167,7 +10168,7 @@ _ZN6icu_7515MeasureUnitImplC2Ev.exit.i:           ; preds = %new.notnull
 lpad.i:                                           ; preds = %_ZN6icu_7515MeasureUnitImplC2Ev.exit.i
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MeasureUnitImplD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %call9) #17
+  call void @_ZN6icu_7515MeasureUnitImplD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %call9) #18
   br label %lpad.body
 
 if.then12:                                        ; preds = %_ZN6icu_7515MeasureUnitImplC2Ev.exit.i
@@ -10178,7 +10179,7 @@ if.then12:                                        ; preds = %_ZN6icu_7515Measure
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad.i
   %eh.lpad-body = phi { ptr, i32 } [ %7, %lpad.i.i ], [ %9, %lpad.i ]
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call9) #17
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call9) #18
   resume { ptr, i32 } %eh.lpad-body
 
 if.end:                                           ; preds = %if.then
@@ -10248,7 +10249,7 @@ return:                                           ; preds = %if.end23, %if.then1
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7510CharStringC1EOS0_(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef nonnull align 8 dereferenceable(60)) unnamed_addr #8
+declare void @_ZN6icu_7510CharStringC1EOS0_(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef nonnull align 8 dereferenceable(60)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7516MaybeStackVectorINS_14SingleUnitImplELi8EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -10271,7 +10272,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %isnull.i, label %for.inc.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %for.body.i
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %3) #17
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %3) #18
   %.pre.i = load i32, ptr %this, align 8
   br label %for.inc.i
 
@@ -10298,50 +10299,51 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #19
+  tail call void @__clang_call_terminate(ptr %9) #20
   unreachable
 
 _ZN6icu_7510MemoryPoolINS_14SingleUnitImplELi8EED2Ev.exit: ; preds = %for.end.i, %if.then.i.i.i
   ret void
 }
 
-declare noundef i32 @_ZN6icu_7511StringPiece7compareES0_(ptr noundef nonnull align 8 dereferenceable(12), ptr, i32) local_unnamed_addr #5
+declare noundef i32 @_ZN6icu_7511StringPiece7compareES0_(ptr noundef nonnull align 8 dereferenceable(12), ptr, i32) local_unnamed_addr #6
 
-declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #14
+declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #17 = { nounwind }
-attributes #18 = { allocsize(0) }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { nounwind willreturn memory(read) }
+attributes #3 = { cold nofree noreturn }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #18 = { nounwind }
+attributes #19 = { allocsize(0) }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -22,7 +22,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
 define noundef i64 @_ZN5folly18getCurrentThreadIDEv() local_unnamed_addr #0 {
 entry:
-  %call = tail call i64 @pthread_self() #13
+  %call = tail call i64 @pthread_self() #14
   ret i64 %call
 }
 
@@ -32,7 +32,7 @@ declare i64 @pthread_self() local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN5folly6detail17getOSThreadIDSlowEv() local_unnamed_addr #2 {
 entry:
-  %call = tail call i64 (i64, ...) @syscall(i64 noundef 186) #14
+  %call = tail call i64 (i64, ...) @syscall(i64 noundef 186) #15
   ret i64 %call
 }
 
@@ -52,7 +52,7 @@ terminate.lpad:                                   ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #15
+  tail call void @__clang_call_terminate(ptr %1) #16
   unreachable
 }
 
@@ -107,14 +107,15 @@ entry:
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #15
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 declare void @_ZN5folly6AtFork17unregisterHandlerEPKv(ptr noundef) local_unnamed_addr #5
 
@@ -133,7 +134,7 @@ entry.if.end_crit_edge:                           ; preds = %entry
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call noundef i64 (i64, ...) @syscall(i64 noundef 186) #14
+  %call.i = tail call noundef i64 (i64, ...) @syscall(i64 noundef 186) #15
   store i64 %0, ptr %1, align 8, !tbaa !7
   %second3.i = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %call.i, ptr %second3.i, align 8, !tbaa !13
@@ -145,10 +146,10 @@ if.end:                                           ; preds = %if.then, %entry.if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #11
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #12
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_ThreadId.cpp() #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_ThreadId.cpp() #13 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.folly::Function", align 16
   %agg.tmp3.i.i = alloca %"class.folly::Function.0", align 16
@@ -180,7 +181,7 @@ invoke.cont.i.i:                                  ; preds = %entry
   br i1 %tobool.not.i.i.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont.i.i
-  %call.i.i.i.i = call noundef i64 %0(i32 noundef 1, ptr noundef nonnull %agg.tmp5.i.i, ptr noundef null) #14
+  %call.i.i.i.i = call noundef i64 %0(i32 noundef 1, ptr noundef nonnull %agg.tmp5.i.i, ptr noundef null) #15
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i
 
 _ZN5folly8FunctionIFvvEED2Ev.exit.i.i:            ; preds = %if.end.i.i.i.i, %invoke.cont.i.i
@@ -189,7 +190,7 @@ _ZN5folly8FunctionIFvvEED2Ev.exit.i.i:            ; preds = %if.end.i.i.i.i, %in
   br i1 %tobool.not.i.i13.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit16.i.i, label %if.end.i.i14.i.i
 
 if.end.i.i14.i.i:                                 ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i
-  %call.i.i15.i.i = call noundef i64 %1(i32 noundef 1, ptr noundef nonnull %agg.tmp3.i.i, ptr noundef null) #14
+  %call.i.i15.i.i = call noundef i64 %1(i32 noundef 1, ptr noundef nonnull %agg.tmp3.i.i, ptr noundef null) #15
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit16.i.i
 
 _ZN5folly8FunctionIFvvEED2Ev.exit16.i.i:          ; preds = %if.end.i.i14.i.i, %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i
@@ -198,7 +199,7 @@ _ZN5folly8FunctionIFvvEED2Ev.exit16.i.i:          ; preds = %if.end.i.i14.i.i, %
   br i1 %tobool.not.i.i18.i.i, label %__cxx_global_var_init.exit, label %if.end.i.i19.i.i
 
 if.end.i.i19.i.i:                                 ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit16.i.i
-  %call.i.i20.i.i = call noundef i64 %2(i32 noundef 1, ptr noundef nonnull %agg.tmp.i.i, ptr noundef null) #14
+  %call.i.i20.i.i = call noundef i64 %2(i32 noundef 1, ptr noundef nonnull %agg.tmp.i.i, ptr noundef null) #15
   br label %__cxx_global_var_init.exit
 
 lpad.i.i:                                         ; preds = %entry
@@ -209,7 +210,7 @@ lpad.i.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i22.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit25.i.i, label %if.end.i.i23.i.i
 
 if.end.i.i23.i.i:                                 ; preds = %lpad.i.i
-  %call.i.i24.i.i = call noundef i64 %4(i32 noundef 1, ptr noundef nonnull %agg.tmp5.i.i, ptr noundef null) #14
+  %call.i.i24.i.i = call noundef i64 %4(i32 noundef 1, ptr noundef nonnull %agg.tmp5.i.i, ptr noundef null) #15
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit25.i.i
 
 _ZN5folly8FunctionIFvvEED2Ev.exit25.i.i:          ; preds = %if.end.i.i23.i.i, %lpad.i.i
@@ -218,7 +219,7 @@ _ZN5folly8FunctionIFvvEED2Ev.exit25.i.i:          ; preds = %if.end.i.i23.i.i, %
   br i1 %tobool.not.i.i27.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit30.i.i, label %if.end.i.i28.i.i
 
 if.end.i.i28.i.i:                                 ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit25.i.i
-  %call.i.i29.i.i = call noundef i64 %5(i32 noundef 1, ptr noundef nonnull %agg.tmp3.i.i, ptr noundef null) #14
+  %call.i.i29.i.i = call noundef i64 %5(i32 noundef 1, ptr noundef nonnull %agg.tmp3.i.i, ptr noundef null) #15
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit30.i.i
 
 _ZN5folly8FunctionIFvvEED2Ev.exit30.i.i:          ; preds = %if.end.i.i28.i.i, %_ZN5folly8FunctionIFvvEED2Ev.exit25.i.i
@@ -227,7 +228,7 @@ _ZN5folly8FunctionIFvvEED2Ev.exit30.i.i:          ; preds = %if.end.i.i28.i.i, %
   br i1 %tobool.not.i.i32.i.i, label %_ZN5folly8FunctionIFbvEED2Ev.exit35.i.i, label %if.end.i.i33.i.i
 
 if.end.i.i33.i.i:                                 ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit30.i.i
-  %call.i.i34.i.i = call noundef i64 %6(i32 noundef 1, ptr noundef nonnull %agg.tmp.i.i, ptr noundef null) #14
+  %call.i.i34.i.i = call noundef i64 %6(i32 noundef 1, ptr noundef nonnull %agg.tmp.i.i, ptr noundef null) #15
   br label %_ZN5folly8FunctionIFbvEED2Ev.exit35.i.i
 
 _ZN5folly8FunctionIFbvEED2Ev.exit35.i.i:          ; preds = %if.end.i.i33.i.i, %_ZN5folly8FunctionIFvvEED2Ev.exit30.i.i
@@ -237,7 +238,7 @@ __cxx_global_var_init.exit:                       ; preds = %if.end.i.i19.i.i, %
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp3.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp5.i.i)
-  %7 = call i32 @__cxa_atexit(ptr nonnull @_ZN5folly12_GLOBAL__N_110CacheStateD2Ev, ptr nonnull @_ZN5folly12_GLOBAL__N_111gCacheStateE, ptr nonnull @__dso_handle) #14
+  %7 = call i32 @__cxa_atexit(ptr nonnull @_ZN5folly12_GLOBAL__N_110CacheStateD2Ev, ptr nonnull @_ZN5folly12_GLOBAL__N_111gCacheStateE, ptr nonnull @__dso_handle) #15
   ret void
 }
 
@@ -252,11 +253,12 @@ attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn nounwind }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 
